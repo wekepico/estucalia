@@ -1,0 +1,18 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(50, 50)">
+    <!-- Main vertical structure -->
+    <path d="M250 0L300 50L250 100L200 50L250 0Z" fill="black"/>
+    <path d="M250 100L300 150L250 200L200 150L250 100Z" fill="black"/>
+    <path d="M250 200L300 250L250 300L200 250L250 200Z" fill="black"/>
+    <path d="M250 300L300 350L250 400L200 350L250 300Z" fill="black"/>
+    <path d="M250 400L300 450L250 500L200 450L250 400Z" fill="black"/>
+    
+    <!-- Side elements -->
+    <path d="M150 200C150 200 180 220 200 250C220 280 220 320 200 350C180 380 150 400 150 400" stroke="black" fill="none" stroke-width="2"/>
+    <path d="M350 200C350 200 320 220 300 250C280 280 280 320 300 350C320 380 350 400 350 400" stroke="black" fill="none" stroke-width="2"/>
+    
+    <!-- Decorative elements -->
+    <path d="M100 300L150 325L100 350" stroke="black" fill="none" stroke-width="1"/>
+    <path d="M400 300L350 325L400 350" stroke="black" fill="none" stroke-width="1"/>
+  </g>
+</svg>

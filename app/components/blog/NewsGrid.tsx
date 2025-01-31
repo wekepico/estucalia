@@ -1,0 +1,83 @@
+import React from 'react';
+import Image from 'next/image';
+
+const newsItems = [
+  {
+    image: "https://images.unsplash.com/photo-1582657233895-0f37a3f150c0?auto=format&fit=crop&q=80",
+    title: "Misión Comercial Directa a Arabia Saudita",
+    excerpt: "Grupo Estucalia continúa su expansión internacional con una importante misión comercial en Arabia Saudita, fortaleciendo su presencia en Oriente Medio.",
+    date: "15 Oct 2023",
+    category: "Internacional"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80",
+    title: "Presentación de Morteros Monocapa en Marruecos",
+    excerpt: "Exitosa presentación de nuestra línea de productos en el mercado marroquí, destacando la calidad y versatilidad de nuestros morteros monocapa.",
+    date: "28 Sep 2023",
+    category: "Productos"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
+    title: "Convención Internacional en Rabat",
+    excerpt: "Participación destacada en el evento más importante del sector de la construcción en el norte de África, presentando las últimas innovaciones.",
+    date: "15 Sep 2023",
+    category: "Eventos"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80",
+    title: "Nuevas Certificaciones de Calidad",
+    excerpt: "Grupo Estucalia obtiene nuevas certificaciones que avalan la calidad de sus productos y procesos de fabricación.",
+    date: "1 Sep 2023",
+    category: "Empresa"
+  }
+];
+
+export default function NewsGrid() {
+  return (
+    <section className="py-20">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {newsItems.map((item, index) => (
+            <article key={index} className="group cursor-pointer">
+              <div className="relative aspect-[16/9] mb-6 overflow-hidden">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transform transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url('${item.image}')` }}
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4 text-sm">
+                  <span className="text-blue-600">{item.category}</span>
+                  <span className="text-gray-400">{item.date}</span>
+                </div>
+                <h2 className="text-2xl font-medium group-hover:text-gray-600 transition-colors duration-300">
+                  {item.title}
+                </h2>
+                <p className="text-gray-600 line-clamp-3">
+                  {item.excerpt}
+                </p>
+                <div className="inline-flex items-center text-sm text-gray-600 group-hover:text-black transition-colors">
+                  Leer más
+                  <svg 
+                    className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M17 8l4 4m0 0l-4 4m4-4H3" 
+                    />
+                  </svg>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

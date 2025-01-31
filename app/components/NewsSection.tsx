@@ -1,0 +1,72 @@
+import React from 'react';
+
+const newsItems = [
+  {
+    image: "https://images.unsplash.com/photo-1582657233895-0f37a3f150c0?auto=format&fit=crop&q=80",
+    title: "Misión Comercial Directa a Arabia Saudita",
+    link: "#"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80",
+    title: "Grupo Estucalia presenta sus Morteros Monocapa en Marruecos",
+    link: "#"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
+    title: "Convención Internacional en Rabat",
+    link: "#"
+  }
+];
+
+export default function NewsSection() {
+  return (
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
+        {/* Featured Image */}
+        <div className="relative h-[300px] mb-16">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80')"
+            }}
+          />
+        </div>
+
+        <h2 className="text-2xl font-medium mb-8">Actualidad</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {newsItems.map((item, index) => (
+            <div key={index} className="group">
+              <div className="relative h-[300px] mb-4 overflow-hidden">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url('${item.image}')` }}
+                />
+              </div>
+              <h3 className="text-lg mb-4">{item.title}</h3>
+              <a 
+                href={item.link}
+                className="inline-flex items-center text-sm text-gray-600 hover:text-black transition-colors"
+              >
+                Ver Noticia
+                <svg 
+                  className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M17 8l4 4m0 0l-4 4m4-4H3" 
+                  />
+                </svg>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
