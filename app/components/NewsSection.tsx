@@ -1,4 +1,8 @@
+'use client';
+
 import React from 'react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 const newsItems = [
   {
@@ -36,34 +40,38 @@ export default function NewsSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {newsItems.map((item, index) => (
-            <div key={index} className="group">
-              <div className="relative h-[300px] mb-4 overflow-hidden">
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 group-hover:scale-105"
-                  style={{ backgroundImage: `url('${item.image}')` }}
-                />
-              </div>
-              <h3 className="text-lg mb-4">{item.title}</h3>
-              <a 
-                href={item.link}
-                className="inline-flex items-center text-sm text-gray-600 hover:text-black transition-colors"
-              >
-                Ver Noticia
-                <svg 
-                  className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M17 8l4 4m0 0l-4 4m4-4H3" 
+            <Card key={index} className="border-none shadow-none group">
+              <CardHeader className="p-0">
+                <div className="relative h-[300px] mb-4 overflow-hidden">
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 group-hover:scale-105"
+                    style={{ backgroundImage: `url('${item.image}')` }}
                   />
-                </svg>
-              </a>
-            </div>
+                </div>
+              </CardHeader>
+              <CardContent className="px-0">
+                <h3 className="text-lg mb-4">{item.title}</h3>
+                <Button 
+                  variant="ghost" 
+                  className="p-0 h-auto hover:bg-transparent group-hover:text-black"
+                >
+                  <span>Ver Noticia</span>
+                  <svg 
+                    className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M17 8l4 4m0 0l-4 4m4-4H3" 
+                    />
+                  </svg>
+                </Button>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

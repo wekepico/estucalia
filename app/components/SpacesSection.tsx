@@ -1,4 +1,9 @@
+'use client';
+
 import React from 'react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const categories = [
   'Fachadas', 'Terrazas', 'Balcones', 'Paredes', 
@@ -28,51 +33,62 @@ export default function SpacesSection() {
         <h2 className="text-2xl font-medium mb-8">Espacios</h2>
         
         {/* Categories Scroll */}
-        <div className="relative mb-12">
-          <div className="flex space-x-8 overflow-x-auto pb-4 scrollbar-hide">
+        <ScrollArea className="w-full whitespace-nowrap mb-12">
+          <div className="flex space-x-8">
             {categories.map((category) => (
-              <a
+              <Button
                 key={category}
-                href="#"
+                variant="ghost"
                 className="text-gray-600 hover:text-black whitespace-nowrap border-b-2 border-transparent hover:border-black pb-2 transition-colors"
               >
                 {category}
-              </a>
+              </Button>
             ))}
           </div>
-        </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
 
         {/* Image Cards */}
         <div className="relative">
           <div className="flex space-x-6 overflow-x-auto pb-8">
             {spaces.map((space) => (
-              <div key={space.title} className="flex-none w-[400px]">
-                <div className="relative h-[500px] group">
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{
-                      backgroundImage: `url('${space.image}')`
-                    }}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
-                    <h3 className="text-white text-xl">{space.title}</h3>
+              <Card key={space.title} className="flex-none w-[400px] border-none shadow-none">
+                <CardContent className="p-0">
+                  <div className="relative h-[500px] group">
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center"
+                      style={{
+                        backgroundImage: `url('${space.image}')`
+                      }}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
+                      <h3 className="text-white text-xl">{space.title}</h3>
+                    </div>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
 
           {/* Navigation Arrows */}
-          <button className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-white p-2 rounded-full shadow-lg">
+          <Button 
+            variant="secondary"
+            size="icon"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 rounded-full"
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-          </button>
-          <button className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-white p-2 rounded-full shadow-lg">
+          </Button>
+          <Button 
+            variant="secondary"
+            size="icon"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 rounded-full"
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </button>
+          </Button>
         </div>
       </div>
     </section>

@@ -1,5 +1,9 @@
+'use client';
+
 import React from 'react';
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const newsItems = [
   {
@@ -38,17 +42,21 @@ export default function NewsGrid() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {newsItems.map((item, index) => (
-            <article key={index} className="group cursor-pointer">
-              <div className="relative aspect-[16/9] mb-6 overflow-hidden">
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transform transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url('${item.image}')` }}
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-              </div>
-              <div className="space-y-4">
+            <Card key={index} className="border-none shadow-none group cursor-pointer">
+              <CardHeader className="p-0">
+                <div className="relative aspect-[16/9] mb-6 overflow-hidden">
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center transform transition-transform duration-700 group-hover:scale-105"
+                    style={{ backgroundImage: `url('${item.image}')` }}
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                </div>
+              </CardHeader>
+              <CardContent className="px-0 space-y-4">
                 <div className="flex items-center gap-4 text-sm">
-                  <span className="text-blue-600">{item.category}</span>
+                  <Badge variant="secondary" className="bg-blue-50 text-blue-600 hover:bg-blue-100">
+                    {item.category}
+                  </Badge>
                   <span className="text-gray-400">{item.date}</span>
                 </div>
                 <h2 className="text-2xl font-medium group-hover:text-gray-600 transition-colors duration-300">
@@ -57,8 +65,11 @@ export default function NewsGrid() {
                 <p className="text-gray-600 line-clamp-3">
                   {item.excerpt}
                 </p>
-                <div className="inline-flex items-center text-sm text-gray-600 group-hover:text-black transition-colors">
-                  Leer más
+                <Button 
+                  variant="ghost" 
+                  className="p-0 h-auto hover:bg-transparent group-hover:text-black"
+                >
+                  <span>Leer más</span>
                   <svg 
                     className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
                     fill="none" 
@@ -72,9 +83,9 @@ export default function NewsGrid() {
                       d="M17 8l4 4m0 0l-4 4m4-4H3" 
                     />
                   </svg>
-                </div>
-              </div>
-            </article>
+                </Button>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

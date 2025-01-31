@@ -1,11 +1,14 @@
+'use client';
+
 import React from 'react';
+import { Button } from "@/components/ui/button";
 
 export default function ConsultingSection() {
   return (
     <section className="relative min-h-[600px] flex items-center">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80')"
         }}
@@ -24,8 +27,10 @@ export default function ConsultingSection() {
             La excelencia en el acabado de cada proyecto no es solo el último paso en nuestra búsqueda de calidad, sino el sello distintivo que define el resultado final. Grupo Estucalia pone a su disposición un equipo técnico preparado para proporcionar asistencia experta en cada proyecto que emprendamos juntos.
           </p>
 
-          {/* CTA Button */}
-          <button className="inline-flex items-center px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 group">
+          <Button 
+            variant="outline" 
+            className="border-white text-white hover:bg-white hover:text-black group"
+          >
             <span>Más información</span>
             <svg 
               className="ml-2 w-5 h-5 transform transition-transform group-hover:translate-x-1" 
@@ -36,7 +41,7 @@ export default function ConsultingSection() {
             >
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </button>
+          </Button>
         </div>
       </div>
     </section>

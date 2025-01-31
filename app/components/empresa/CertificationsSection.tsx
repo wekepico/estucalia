@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { Button } from "@/components/ui/button";
 
 export default function CertificationsSection() {
   return (
@@ -44,8 +45,7 @@ export default function CertificationsSection() {
             </div>
           </div>
 
-          {/* CTA Button */}
-          <button className="inline-flex items-center px-8 py-3 border border-black text-black hover:bg-black hover:text-white transition-colors group">
+          <Button variant="outline" className="group">
             <span>Certificaciones</span>
             <svg 
               className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
@@ -56,7 +56,7 @@ export default function CertificationsSection() {
             >
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </button>
+          </Button>
         </div>
       </div>
     </section>

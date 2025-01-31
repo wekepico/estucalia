@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { Button } from "@/components/ui/button";
 
 export default function ProjectHelp() {
   return (
@@ -10,12 +13,18 @@ export default function ProjectHelp() {
             <p className="text-gray-600">
               Recibe una asistencia personalizada y un servicio experto con los profesionales de Grupo Estucalia.
             </p>
-            <button className="inline-flex items-center px-6 py-3 border border-black text-black hover:bg-black hover:text-white transition-colors">
-              Más información
-              <svg className="ml-2 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <Button variant="outline" className="group">
+              <span>Más información</span>
+              <svg 
+                className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2"
+              >
                 <path d="M7 17L17 7M17 7H7M17 7V17" />
               </svg>
-            </button>
+            </Button>
           </div>
           <div className="relative h-[400px]">
             <div 
