@@ -17,9 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className}
+        style={{ fontFamily: "Orgon Light" }}
+      >
         <ClientNavigation />
-        <div className="pt-28">
+        <div className="pt-28 tracking-tight">
           {children}
         </div>
         <Footer />

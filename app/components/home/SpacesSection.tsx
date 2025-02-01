@@ -29,28 +29,53 @@ const spaces = [
 export default function SpacesSection() {
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-medium mb-8">Espacios</h2>
-        
-        {/* Categories Scroll */}
-        <ScrollArea className="w-full whitespace-nowrap mb-12">
-          <div className="flex space-x-8">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant="ghost"
-                className="text-gray-600 hover:text-black whitespace-nowrap border-b-2 border-transparent hover:border-black pb-2 transition-colors"
-              >
-                {category}
-              </Button>
-            ))}
+      <div className="container mx-auto ">
+        <h2 className="text-2xl font-bold">Espacios</h2>
+        <div className='flex gap-3 items-center'> 
+          {/* Categories Scroll */}
+          <ScrollArea className="w-full whitespace-nowrap mb-4">
+            <div className="flex">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  className='text-lg p-0 mr-6'
+                  variant="link"
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
+            <ScrollBar orientation="horizontal" />
+
+          </ScrollArea>
+          <div className='flex p-2'>
+          {/* Navigation Arrows */}
+            <Button 
+              variant="ghost"
+              size="icon"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </Button>
+            <Button 
+              variant="ghost"
+              size="icon"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Button>
+
           </div>
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
+
+        </div>
+       
+
 
         {/* Image Cards */}
         <div className="relative">
-          <div className="flex space-x-6 overflow-x-auto pb-8">
+          <div className="flex gap-10  items-center justify-center overflow-x-auto pb-8">
             {spaces.map((space) => (
               <Card key={space.title} className="flex-none w-[400px] border-none shadow-none">
                 <CardContent className="p-0">
@@ -68,27 +93,10 @@ export default function SpacesSection() {
                 </CardContent>
               </Card>
             ))}
+
           </div>
 
-          {/* Navigation Arrows */}
-          <Button 
-            variant="secondary"
-            size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 rounded-full"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </Button>
-          <Button 
-            variant="secondary"
-            size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 rounded-full"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Button>
+
         </div>
       </div>
     </section>

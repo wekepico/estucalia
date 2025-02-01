@@ -18,29 +18,32 @@ export default function ProjectHelpSection() {
       </div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-4">
-        <Card className="max-w-lg ml-0 md:ml-12">
-          <CardContent className="p-12">
-            <h2 className="text-3xl font-medium mb-4">
+      <div className="relative container  mx-auto px-4">
+        <div className="max-w-[27rem] ml-0 md:ml-12 bg-slate-100" style={{backgroundColor:"rgba(255, 255, 250, 0.8)"}}>
+          <div className="p-12"> 
+            <h2 className="text-3xl font-bold  mb-4">
               ¿Necesitas ayuda con tu proyecto?
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-black text-lg mb-8">
               Recibe una asistencia personalizada y un servicio experto con los profesionales de Grupo Estucalia.
             </p>
-            <Button variant="outline" className="group">
-              <span>Más información</span>
-              <svg 
-                className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Button>
-          </CardContent>
-        </Card>
+            <div className='flex w-full justify-end items-center'>
+              <Button variant="outline" className="group border-gray-400 border-solid rounded-none">
+                <span>Más información</span>
+                <svg 
+                  className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Button>
+            </div>
+
+          </div>
+        </div>
       </div>
     </section>
   );

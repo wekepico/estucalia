@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Logo Column */}
           <div className="md:col-span-1">
             <Image
-              src="/logo.png"
+              src="/img/logo.png"
               alt="Grupo Estucalia"
               width={150}
               height={50}
