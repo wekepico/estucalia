@@ -49,7 +49,7 @@ const products = [
 
 export default function FinishesSection() {
   return (
-    <section className="py-18 bg-white">
+    <section className="py-18 px-16 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl font-bold">Acabados</h2>
 

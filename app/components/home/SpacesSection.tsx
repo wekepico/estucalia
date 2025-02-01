@@ -13,22 +13,22 @@ const categories = [
 
 const spaces = [
   {
-    image: "https://images.unsplash.com/photo-1577493340887-b7bfff550145?auto=format&fit=crop&q=80",
+    image: "https://www.inenco.com/wp-content/uploads/2020/07/shutterstock_1544096003.gif",
     title: "Revestimientos"
   },
   {
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80",
+    image: "https://c.stocksy.com/a/HOH400/z9/1020165.jpg",
     title: "Revocos y enlucidos"
   },
   {
-    image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&q=80",
+    image: "https://rentpath-res.cloudinary.com/$img_current/t_3x2_webp_2xl/t_unpaid/5428c1bc8e3dc04f4b461522071c76bf",
     title: "Albañilería"
   }
 ];
 
 export default function SpacesSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-32 px-16 bg-white">
       <div className="container mx-auto ">
         <h2 className="text-2xl font-bold">Espacios</h2>
         <div className='flex gap-3 items-center'> 
@@ -86,8 +86,8 @@ export default function SpacesSection() {
                         backgroundImage: `url('${space.image}')`
                       }}
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
-                      <h3 className="text-white text-xl">{space.title}</h3>
+                    <div className="absolute top-0 left-0 text-right  right-0 p-6">
+                      <h3 className="text-black text-xl font-medium">{space.title}</h3>
                     </div>
                   </div>
                 </CardContent>

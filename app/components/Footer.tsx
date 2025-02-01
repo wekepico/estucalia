@@ -2,7 +2,10 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Linkedin, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Linkedin, Facebook, Instagram, Youtube, FacebookIcon } from 'lucide-react';
+import Link from 'next/link';
+import { FaFacebook, FaInstagramSquare, FaLinkedin } from "react-icons/fa";
+import { FaSquareYoutube } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -35,10 +38,10 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-medium mb-4">EMPRESA</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">Sobre Nosotros</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Trabaja con nosotros</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contacto</a></li>
+              <li><Link href="/blog" className="hover:text-white transition-colors">Sobre Nosotros</Link></li>
+              <li><Link href="/trabaja-con-nosotros" className="hover:text-white transition-colors">Trabaja con nosotros</Link></li>
+              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+              <li><Link href="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
             </ul>
           </div>
 
@@ -75,16 +78,16 @@ export default function Footer() {
             <h3 className="text-sm font-medium mb-4">SÍGUENOS</h3>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin className="w-5 h-5" />
+                <FaLinkedin className="w-6 h-6" />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Facebook className="w-5 h-5" />
+              <FaFacebook className="w-6 h-6" />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Instagram className="w-5 h-5" />
+                <FaInstagramSquare className="w-6 h-6" />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Youtube className="w-5 h-5" />
+                <FaSquareYoutube   className="w-6 h-6" />
               </a>
             </div>
           </div>

@@ -39,7 +39,7 @@ const inspirationImages = [
 
 export default function InspirationSection() {
   return (
-    <section className="py-32 bg-white">
+    <section className="py-32  bg-white">
        {/* Featured Image */}
        <div className="relative h-[400px] mb-24">
           <div 
@@ -51,11 +51,11 @@ export default function InspirationSection() {
         </div>
       <div className="container mx-auto px-4">
        
-        <h2 className="text-2xl font-bold mb-8">Inspiración</h2>
+        <h2 className="text-2xl font-bold mb-8 px-16">Inspiración</h2>
         
 
         {/* Image Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 px-16 md:grid-cols-4 gap-8">
           {inspirationImages.map((image, index) => (
             <div 
               key={index} 
