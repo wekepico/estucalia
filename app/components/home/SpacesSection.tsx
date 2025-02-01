@@ -79,7 +79,7 @@ export default function SpacesSection() {
             {spaces.map((space) => (
               <Card key={space.title} className="flex-none w-[470px] border-none shadow-none">
                 <CardContent className="p-0">
-                  <div className="relative h-[550px] group">
+                  <div className="relative h-[650px] group">
                     <div 
                       className="absolute inset-0 bg-cover bg-center"
                       style={{

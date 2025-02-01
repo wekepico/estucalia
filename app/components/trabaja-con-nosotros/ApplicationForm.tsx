@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Upload } from 'lucide-react';
 import { Input } from "@/components/ui/input";
@@ -23,6 +23,7 @@ type FormData = {
 
 export default function ApplicationForm() {
   const form = useForm<FormData>();
+  const [fileName, setFileName] = useState<string | null>(null);
 
   const onSubmit = (data: FormData) => {
     console.log(data);
@@ -103,11 +104,11 @@ export default function ApplicationForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Mensaje" 
-                          className="resize-none" 
+                        <Textarea
+                          placeholder="Mensaje"
+                          className="resize-none"
                           rows={6}
-                          {...field} 
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -118,11 +119,11 @@ export default function ApplicationForm() {
                 <FormField
                   control={form.control}
                   name="curriculum"
-                  render={({ field: { onChange, ...field } }) => (
+                  render={({ field: { onChange, ref, ...field } }) => (
                     <FormItem>
                       <FormControl>
-                        <Label 
-                          htmlFor="curriculum" 
+                        <Label
+                          htmlFor="curriculum"
                           className="flex items-center gap-4 px-4 py-3 border border-gray-300 cursor-pointer hover:border-black transition-colors"
                         >
                           <Upload className="w-5 h-5" />
@@ -134,13 +135,19 @@ export default function ApplicationForm() {
                             onChange={(e) => {
                               const files = e.target.files;
                               if (files?.length) {
-                                onChange(files);
+                                onChange(files); // Actualiza el estado del formulario
+                                setFileName(files[0].name); // Actualiza el nombre del archivo
+                              } else {
+                                setFileName(null); // Resetea el nombre del archivo si no hay archivos seleccionados
                               }
                             }}
-                            {...field}
+                            ref={ref}
                           />
                         </Label>
                       </FormControl>
+                      {fileName && (
+                        <div className="text-gray-600 mt-2">Archivo seleccionado: {fileName}</div>
+                      )}
                       <FormMessage />
                     </FormItem>
                   )}
@@ -186,17 +193,17 @@ export default function ApplicationForm() {
                   )}
                 />
 
-                <Button 
+                <Button
                   type="submit"
                   className="group"
                   variant="outline"
                 >
                   <span>Enviar</span>
-                  <svg 
-                    className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
                     strokeWidth="2"
                   >
                     <path d="M5 12h14M12 5l7 7-7 7" />
