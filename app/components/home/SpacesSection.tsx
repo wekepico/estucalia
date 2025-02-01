@@ -77,7 +77,7 @@ export default function SpacesSection() {
         <div className="relative">
           <div className="flex gap-6  items-center justify-between overflow-x-auto pb-8">
             {spaces.map((space) => (
-              <Card key={space.title} className="flex-none w-[470px] border-none shadow-none">
+              <Card key={space.title} className="flex-none w-[440px] border-none shadow-none">
                 <CardContent className="p-0">
                   <div className="relative h-[650px] group">
                     <div 
