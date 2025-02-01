@@ -35,7 +35,7 @@ export default function RootLayout({
         <link rel="icon" href="./img/logo-nav.png" />
       </head>
       <body className={inter.className}
-        style={{ fontFamily: "Orgon Light" }}
+        style={{ fontFamily: "Titillium Web Regular" }}
       >
         <ClientNavigation />
         <div className="pt-28 tracking-tight">

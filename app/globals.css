@@ -7,6 +7,12 @@
   src: url(../styles/fonts/Orgon-Light.otf);
 }
 
+
+@font-face {
+  font-family:'Titillium Web Regular';
+  src: url(../styles/fonts/TitilliumWeb-Regular.ttf);
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
