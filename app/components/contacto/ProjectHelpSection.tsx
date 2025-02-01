@@ -8,7 +8,7 @@ export default function ProjectHelpSection() {
   return (
     <section className="relative min-h-[500px] flex items-center">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80')"
@@ -19,8 +19,8 @@ export default function ProjectHelpSection() {
 
       {/* Content */}
       <div className="relative container  mx-auto px-4">
-        <div className="max-w-[27rem] ml-0 md:ml-12 bg-slate-100" style={{backgroundColor:"rgba(255, 255, 250, 0.8)"}}>
-          <div className="p-12"> 
+        <div className="max-w-[27rem] ml-0 md:ml-12 bg-slate-100" style={{ backgroundColor: "rgba(255, 255, 250, 0.8)" }}>
+          <div className="p-12">
             <h2 className="text-3xl font-bold  mb-4">
               ¿Necesitas ayuda con tu proyecto?
             </h2>
@@ -30,14 +30,8 @@ export default function ProjectHelpSection() {
             <div className='flex w-full justify-end items-center'>
               <Button variant="outline" className="group border-gray-400 border-solid rounded-none">
                 <span>Más información</span>
-                <svg 
-                  className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5l7 7-7 7" />
                 </svg>
               </Button>
             </div>

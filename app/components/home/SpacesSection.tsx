@@ -55,7 +55,7 @@ export default function SpacesSection() {
               size="icon"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 19l-7-7 7-7" />
               </svg>
             </Button>
             <Button 
@@ -63,7 +63,7 @@ export default function SpacesSection() {
               size="icon"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5l7 7-7 7" />
               </svg>
             </Button>
 
@@ -75,11 +75,11 @@ export default function SpacesSection() {
 
         {/* Image Cards */}
         <div className="relative">
-          <div className="flex gap-10  items-center justify-center overflow-x-auto pb-8">
+          <div className="flex gap-6  items-center justify-between overflow-x-auto pb-8">
             {spaces.map((space) => (
-              <Card key={space.title} className="flex-none w-[400px] border-none shadow-none">
+              <Card key={space.title} className="flex-none w-[470px] border-none shadow-none">
                 <CardContent className="p-0">
-                  <div className="relative h-[500px] group">
+                  <div className="relative h-[550px] group">
                     <div 
                       className="absolute inset-0 bg-cover bg-center"
                       style={{
