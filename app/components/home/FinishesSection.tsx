@@ -56,13 +56,15 @@ export default function FinishesSection() {
         <ScrollArea className="w-full whitespace-nowrap mb-4">
           <div className="flex space-x-4 md:space-x-8 pb-2">
             {categories.map((category) => (
-              <Link
-                key={category}
-                href={'/#'}
-                className='text-base md:text-lg p-0 hover:border-b pb-1 hover:border-black'
-              >
-                {category}
-              </Link>
+              <div>
+                <Link
+                  key={category}
+                  href={'/#'}
+                  className='text-base md:text-xl p-0 hover:border-b pb-1 hover:border-black'
+                >
+                  {category}
+                </Link>
+              </div>
             ))}
           </div>
           <ScrollBar orientation="horizontal" />
@@ -86,7 +88,7 @@ export default function FinishesSection() {
                 >
                   <span className="mr-2">Ver producto</span>
                   <svg
-                    className="w-6 h-6 md:w-8 md:h-8 transform transition-transform group-hover:translate-x-1"
+                    className="w-10 h-10 md:w-12 md:h-12 transform transition-transform group-hover:translate-x-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -94,7 +96,7 @@ export default function FinishesSection() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={1}
+                      strokeWidth={0.5}
                       d="M9 5l7 7-7 7"
                     />
                   </svg>

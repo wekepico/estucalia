@@ -32,7 +32,7 @@ export default function ClientNavigation() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black">
-      <div className="container font-medium mx-auto">
+      <div className="container font-[600] text-lg mx-auto">
         <div className="flex justify-between items-center px-8 py-6">
           {/* Enlace de "Empresa" solo en escritorio */}
           <Link href="/empresa" className="text-white hover:text-gray-400 transition-colors lg:block hidden">

@@ -26,7 +26,7 @@ export default function NewsSection() {
   return (
     <section className="py-12 md:py-28 bg-white">
       {/* Featured Image */}
-      <div className="relative h-[250px] md:h-[400px] mb-16 md:mb-32">
+      <div className="relative h-[250px] md:h-[470px] mb-16 md:mb-32">
         <div
           className="absolute inset-0 bg-cover bg-fixed bg-center"
           style={{
@@ -53,7 +53,7 @@ export default function NewsSection() {
                     style={{ backgroundImage: `url('${item.image}')` }}
                   />
                 </div>
-                <h3 className="text-base md:text-lg px-4 md:px-0 mb-4 font-medium">
+                <h3 className="text-base md:text-2xl px-4 md:px-0 mb-4 font-medium">
                   {item.title}
                 </h3>
               </CardHeader>
@@ -64,9 +64,9 @@ export default function NewsSection() {
                     variant="ghost"
                     className="p-0 h-auto hover:bg-transparent group-hover:text-black"
                   >
-                    <span className="mr-2">Ver noticia</span>
+                    <span className="mr-2 text-sm">Ver noticia</span>
                     <svg
-                      className="w-6 h-6 md:w-8 md:h-8 transform transition-transform group-hover:translate-x-1"
+                      className="w-10 h-10 md:w-12 md:h-12 transform transition-transform group-hover:translate-x-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -74,7 +74,7 @@ export default function NewsSection() {
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        strokeWidth={1}
+                        strokeWidth={0.5}
                         d="M9 5l7 7-7 7"
                       />
                     </svg>

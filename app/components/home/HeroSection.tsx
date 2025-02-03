@@ -17,7 +17,7 @@ export default function HeroSection() {
       {/* Contenido centrado */}
       <div className="relative h-full flex justify-center items-center">
         <div className="container flex flex-col items-center justify-center px-4">
-          <h1 className="text-white text-4xl text-center font-bold md:text-5xl xl:text-6xl max-w-3xl leading-tight mt-8 md:mt-0">
+          <h1 className="text-white text-3xl text-center font-bold md:text-4xl xl:text-5xl max-w-3xl leading-tight mt-8 md:mt-0">
             Morteros sostenibles para la arquitectura y construcción.
           </h1>
         </div>

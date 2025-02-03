@@ -7,8 +7,8 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from 'next/link';
 
 const categories = [
-  'Fachadas', 'Terrazas', 'Balcones', 'Paredes', 
-  'Patios y lucernarios', 'Suelos', 'Pavimentos', 
+  'Fachadas', 'Terrazas', 'Balcones', 'Paredes',
+  'Patios y lucernarios', 'Suelos', 'Pavimentos',
   'Cocinas exterior', 'Piscinas'
 ];
 
@@ -51,8 +51,8 @@ export default function SpacesSection() {
       const container = scrollContainerRef.current;
       const scrollAmount = container.offsetWidth * 0.8;
       container.scrollTo({
-        left: direction === 'right' 
-          ? container.scrollLeft + scrollAmount 
+        left: direction === 'right'
+          ? container.scrollLeft + scrollAmount
           : container.scrollLeft - scrollAmount,
         behavior: 'smooth'
       });
@@ -80,19 +80,21 @@ export default function SpacesSection() {
     <section className="py-16 md:py-32 px-4 md:px-16 bg-white">
       <div className="container mx-auto">
         <h2 className="text-2xl font-bold mb-4 md:mb-6">Espacios</h2>
-        
+
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
           {/* Categories Scroll */}
           <ScrollArea className="w-full md:flex-1">
-            <div className="flex pb-4">
+            <div className="flex pb-5">
               {categories.map((category) => (
-                <Link
-                  key={category}
-                  className='text-base md:text-lg p-0 mr-4 md:mr-6 hover:border-b pb-1 hover:border-black'
-                 href={"/#"}
-                >
-                  {category}
-                </Link>
+                <div>
+                  <Link
+                    key={category}
+                    className='text-base md:text-xl p-0 mr-4 md:mr-6 hover:border-b pb-1 hover:border-black'
+                    href={"/#"}
+                  >
+                    {category}
+                  </Link>
+                </div>
               ))}
             </div>
             <ScrollBar orientation="horizontal" />
@@ -100,7 +102,7 @@ export default function SpacesSection() {
 
           {/* Navigation Arrows */}
           <div className='flex gap-2 self-end md:self-auto'>
-            <Button 
+            <Button
               variant="ghost"
               size="icon"
               onClick={() => handleScroll('left')}
@@ -110,7 +112,7 @@ export default function SpacesSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 19l-7-7 7-7" />
               </svg>
             </Button>
-            <Button 
+            <Button
               variant="ghost"
               size="icon"
               onClick={() => handleScroll('right')}
@@ -124,7 +126,7 @@ export default function SpacesSection() {
         </div>
 
         {/* Image Cards */}
-        <div 
+        <div
           ref={scrollContainerRef}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -133,13 +135,13 @@ export default function SpacesSection() {
         >
           <div className="flex gap-8 md:gap-16 ">
             {spaces.map((space) => (
-              <Card 
-                key={space.title} 
+              <Card
+                key={space.title}
                 className="flex flex-col min-w-[280px] md:min-w-[450px] border-none shadow-none"
               >
                 <CardContent className="p-0">
                   <div className="relative h-[400px] md:h-[650px] group">
-                    <div 
+                    <div
                       className="absolute inset-0 bg-cover bg-center"
                       style={{
                         backgroundImage: `url('${space.image}')`
