@@ -1,11 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Shield } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Image from 'next/image';
+import Link from 'next/link';
 
 const categories = [
   'Rugoso/raspado', 'Lavado', 'Impreso', 'Piedra proyectada'
@@ -20,7 +19,7 @@ const products = [
       alt="Logo"
       width={180}
       height={100}
-      className="h-40 w-auto"
+      className="h-32 md:h-48 w-auto"
     />
   },
   {
@@ -31,7 +30,7 @@ const products = [
       alt="Logo"
       width={180}
       height={100}
-      className="h-40 w-auto"
+      className="h-32 md:h-48 w-auto"
     />
   },
   {
@@ -42,53 +41,52 @@ const products = [
       alt="Logo"
       width={180}
       height={100}
-      className="h-40 w-auto"
+      className="h-32 md:h-48 w-auto"
     />
   }
 ];
 
 export default function FinishesSection() {
   return (
-    <section className="py-18 px-16 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold">Acabados</h2>
+    <section className="py-8 md:py-16 px-4 md:px-16 bg-white">
+      <div className="max-w-[1500px] mx-auto">
+        <h2 className="text-xl md:text-2xl font-bold mb-4">Acabados</h2>
 
-        {/* Categories */}
+        {/* Categories Scroll */}
         <ScrollArea className="w-full whitespace-nowrap mb-4">
-          <div className="flex space-x-8">
+          <div className="flex space-x-4 md:space-x-8 pb-2">
             {categories.map((category) => (
-              <Button
+              <Link
                 key={category}
-                variant="link"
-                className='text-lg p-0 mr-6'
+                href={'/#'}
+                className='text-base md:text-lg p-0 hover:border-b pb-1 hover:border-black'
               >
                 {category}
-              </Button>
+              </Link>
             ))}
           </div>
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
 
         {/* Product Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {products.map((product) => (
-            <div key={product.name} className="bg-stone-50 group">
-              <div className="px-16 py-20 flex flex-col items-center text-center">
-                <div className="mb-6">
+            <div key={product.name} className="bg-stone-50 group hover:bg-stone-100 transition-colors">
+              <div className="px-4 py-8 md:px-8 md:py-16 lg:px-16 lg:py-20 flex flex-col items-center text-center">
+                <div className="mb-4 md:mb-6">
                   {product.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-1">{product.name}</h3>
-                <p className="text-gray-900 text-lg mb-2">{product.description}</p>
-
+                <h3 className="text-lg md:text-xl font-bold mb-1">{product.name}</h3>
+                <p className="text-gray-900 text-base md:text-lg mb-2">{product.description}</p>
               </div>
-              <div className='flex w-full p-4 justify-end'>
+              <div className='w-full p-4 flex justify-end'>
                 <Button
                   variant="ghost"
-                  className="p-0 h-auto hover:bg-transparent group-hover:text-black"
+                  className="p-0 h-auto hover:bg-transparent group-hover:text-black text-base md:text-lg"
                 >
-                  <span>Ver producto</span>
+                  <span className="mr-2">Ver producto</span>
                   <svg
-                    className="ml-2 w-7 h-7 transform transition-transform group-hover:translate-x-1"
+                    className="w-6 h-6 md:w-8 md:h-8 transform transition-transform group-hover:translate-x-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

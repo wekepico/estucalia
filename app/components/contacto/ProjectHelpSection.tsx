@@ -2,12 +2,11 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 export default function ProjectHelpSection() {
   return (
     <section className="relative min-h-[500px] flex items-center">
-      {/* Background Image */}
+      {/* Fondo con imagen */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
@@ -17,25 +16,27 @@ export default function ProjectHelpSection() {
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      {/* Content */}
-      <div className="relative container  mx-auto px-4">
-        <div className="max-w-[27rem] ml-0 md:ml-12 bg-slate-100" style={{ backgroundColor: "rgba(255, 255, 250, 0.8)" }}>
-          <div className="p-12">
-            <h2 className="text-3xl font-bold  mb-4">
+      {/* Contenido */}
+      <div className="relative container mx-auto px-4">
+        <div className="max-w-[27rem] md:max-w-[35rem] mx-auto md:ml-12 bg-slate-100" style={{ backgroundColor: "rgba(255, 255, 250, 0.8)" }}>
+          <div className="p-6 md:p-12">
+            {/* Título */}
+            <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold mb-4">
               ¿Necesitas ayuda con tu proyecto?
             </h2>
-            <p className="text-black text-lg mb-8">
+            {/* Descripción */}
+            <p className="text-black text-base md:text-lg mb-8 text-justify">
               Recibe una asistencia personalizada y un servicio experto con los profesionales de Grupo Estucalia.
             </p>
-            <div className='flex w-full justify-end items-center'>
-              <Button variant="outline" className="group border-gray-400 border-solid rounded-none">
+            {/* Botón */}
+            <div className="flex w-full justify-end items-center">
+              <Button variant="outline" className="border-gray-500 py-4 md:py-6 border-solid rounded-none">
                 <span>Más información</span>
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5l7 7-7 7" />
                 </svg>
               </Button>
             </div>
-
           </div>
         </div>
       </div>

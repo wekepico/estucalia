@@ -9,86 +9,96 @@ import { FaSquareYoutube } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-          {/* Logo Column */}
-          <div className="md:col-span-1">
+    <footer className="bg-black text-sm text-white py-20">
+      <div className="container mx-auto ">
+        <div className="flex relative max-lg:flex-col max-sm:text-sm max-sm:pl-16 gap-20 ">
+          {/* Logo Column */} 
+          <div className="flex">
             <Image
               src="/img/logo.png"
               alt="Grupo Estucalia"
-              width={150}
-              height={50}
-              className="mb-6"
+              width={200}
+              height={100}
+              className="mb-6 h-14 w-auto absolute"
             />
-            <p className="text-sm text-gray-400 mt-auto">Copyright©2025</p>
+            <p className="mt-36 max-sm:20 text-gray-100 ">Copyright©2025</p>
           </div>
 
-          {/* Legal Texts */}
-          <div>
-            <h3 className="text-sm font-medium mb-4">TEXTOS LEGALES</h3>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">Aviso Legal</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Política de Privacidad</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Política de Cookies</a></li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="text-sm font-medium mb-4">EMPRESA</h3>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="/blog" className="hover:text-white transition-colors">Sobre Nosotros</Link></li>
-              <li><Link href="/trabaja-con-nosotros" className="hover:text-white transition-colors">Trabaja con nosotros</Link></li>
-              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
-            </ul>
-          </div>
-
-          {/* Products */}
-          <div>
-            <h3 className="text-sm font-medium mb-4">PRODUCTOS</h3>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">Morteros monocapa</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Morteros cola</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Mortero de cal</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Mortero polivalente para juntas</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Mortero impreso vertical</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Protector de agua</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Mortero de reparación</a></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-sm font-medium mb-4">CONTACTO</h3>
-            <p className="text-sm text-gray-400 mb-2">
-              Cno Viejo de Fortuna, 40 Matanzas<br />
-              30148, Santomera, Murcia (SPAIN).
-            </p>
-            <div className="space-y-1 mb-4">
-              <p className="text-sm text-gray-400">+34 968 862 467</p>
-              <p className="text-sm text-gray-400">+34 663 519 854</p>
-              <a href="mailto:grupoestucalia@grupoestucalia.com" className="text-sm text-gray-400 hover:text-white transition-colors">
-                grupoestucalia@grupoestucalia.com
-              </a>
+          <div className=' flex gap-10 md:pl-40 max-sm:flex-col'>
+            {/* Legal Texts */}
+            <div className='w-max'>
+              <h3 className="text-sm text-white font-medium mb-2">TEXTOS LEGALES</h3>
+              <ul className="text-gray-200">
+                <li><a href="#" className="hover:text-white transition-colors">Aviso Legal</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Política de Privacidad</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Política de Cookies</a></li>
+              </ul>
             </div>
-            
+
+            {/* Company */}
+            <div>
+              <h3 className=" font-medium mb-2">EMPRESA</h3>
+              <ul className=" text-gray-200">
+                <li><Link href="/blog" className="hover:text-white transition-colors">Sobre Nosotros</Link></li>
+                <li><Link href="/trabaja-con-nosotros" className="hover:text-white transition-colors">Trabaja con nosotros</Link></li>
+                <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+                <li><Link href="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
+              </ul>
+            </div>
+
+            {/* Products */}
+            <div className='w-max'>
+              <h3 className="font-medium mb-2 ">PRODUCTOS</h3>
+              <ul className="text-gray-200">
+                <li><a href="#" className="hover:text-white transition-colors">Morteros monocapa</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Morteros cola</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Mortero de cal</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Mortero polivalente para juntas</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Mortero impreso vertical</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Protector de agua</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Mortero de reparación</a></li>
+              </ul>
+            </div>
+
+          </div>
+
+
+          <div className='flex gap-16 md:ml-14  max-sm:flex-col'>
+            {/* Contact */}
+            <div>
+              <h3 className="font-medium mb-2">CONTACTO</h3>
+              <p className="text-gray-200 mb-6">
+                Cno Viejo de Fortuna, 40 Matanzas<br />
+                30148, Santomera, Murcia (SPAIN).
+              </p>
+              <div className="mb-4">
+                <p className=" text-gray-200">+34 968 862 467</p>
+                <p className=" text-gray-200">+34 663 519 854</p>
+                <a href="mailto:grupoestucalia@grupoestucalia.com" className="text-gray-200 hover:text-white transition-colors">
+                  grupoestucalia@grupoestucalia.com
+                </a>
+              </div>
+            </div>
+
             {/* Social Links */}
-            <h3 className="text-sm font-medium mb-4">SÍGUENOS</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <FaLinkedin className="w-6 h-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              <FaFacebook className="w-6 h-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <FaInstagramSquare className="w-6 h-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <FaSquareYoutube   className="w-6 h-6" />
-              </a>
+            <div className="flex flex-col gap-2 ">
+              <h3 className="font-medium mb-2">SÍGUENOS</h3>
+              <Link href="#" className="text-gray-200 flex gap-2 hover:text-white transition-colors">
+                <FaLinkedin className="w-6 h-6 rounded-full" />
+                <p>Linkedin</p>
+              </Link>
+              <Link href="#" className="text-gray-200 flex gap-2 hover:text-white transition-colors">
+                <FaFacebook className="w-6 h-6" />
+                <p>Facebook</p>
+              </Link>
+              <Link href="#" className="text-gray-200 flex gap-2 hover:text-white transition-colors">
+                <FaInstagramSquare className="w-6 h-6 rounded-full" />
+                <p>Instagram</p>
+              </Link>
+              <Link href="#" className="text-gray-200 flex gap-2 hover:text-white transition-colors">
+                <FaSquareYoutube className="w-6 h-6 rounded-full " />
+                <p>Youtube</p>
+              </Link>
             </div>
           </div>
         </div>

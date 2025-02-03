@@ -24,9 +24,9 @@ const newsItems = [
 
 export default function NewsSection() {
   return (
-    <section className="py-28 bg-white">
+    <section className="py-12 md:py-28 bg-white">
       {/* Featured Image */}
-      <div className="relative h-[400px] mb-32">
+      <div className="relative h-[250px] md:h-[400px] mb-16 md:mb-32">
         <div
           className="absolute inset-0 bg-cover bg-fixed bg-center"
           style={{
@@ -34,48 +34,52 @@ export default function NewsSection() {
           }}
         />
       </div>
-      <div className="container mx-auto px-4">
+      
+      <div className="container mx-auto ">
+        <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 px-4 md:px-16 text-center md:text-left">
+          Actualidad
+        </h2>
 
-
-        <h2 className="text-2xl font-bold mb-8 px-16">Actualidad</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 px-16 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 px-4 md:px-16 gap-8 md:gap-16">
           {newsItems.map((item, index) => (
-            <Card key={index} className="border-none shadow-none justify-between flex-col flex group">
-              <CardHeader className="p-0">
-                <div className="relative h-[500px] mb-4 overflow-hidden">
+            <Card 
+              key={index} 
+              className="border-none shadow-none flex flex-col group "
+            >
+              <CardHeader className="p-0 overflow-hidden">
+                <div className="relative h-[300px] md:h-[400px] lg:h-[500px] mb-4 overflow-hidden">
                   <div
                     className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 group-hover:scale-105"
                     style={{ backgroundImage: `url('${item.image}')` }}
                   />
                 </div>
-                <h3 className="text-lg mb-4">{item.title}</h3>
+                <h3 className="text-base md:text-lg px-4 md:px-0 mb-4 font-medium">
+                  {item.title}
+                </h3>
               </CardHeader>
-              <CardContent className="px-0 flex-col items-end justify-end">
-               
               
-           
-              <div className='flex w-full  p-2  flex-col  items-end'>
-                <Button
-                  variant="ghost"
-                  className="p-0 h-auto hover:bg-transparent group-hover:text-black"
-                >
-                  <span>Ver noticia</span>
-                  <svg
-                    className="ml-2 w-7 h-7 transform transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+              <CardContent className="px-4 md:px-0 mt-auto">
+                <div className='w-full flex justify-end'>
+                  <Button
+                    variant="ghost"
+                    className="p-0 h-auto hover:bg-transparent group-hover:text-black"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Button>
-              </div>
+                    <span className="mr-2">Ver noticia</span>
+                    <svg
+                      className="w-6 h-6 md:w-8 md:h-8 transform transition-transform group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
