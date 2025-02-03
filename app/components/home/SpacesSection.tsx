@@ -135,7 +135,7 @@ export default function SpacesSection() {
             {spaces.map((space) => (
               <Card 
                 key={space.title} 
-                className="flex flex-col min-w-[280px] md:min-w-[420px] border-none shadow-none"
+                className="flex flex-col min-w-[280px] md:min-w-[450px] border-none shadow-none"
               >
                 <CardContent className="p-0">
                   <div className="relative h-[400px] md:h-[650px] group">
