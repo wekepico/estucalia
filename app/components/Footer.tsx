@@ -9,9 +9,9 @@ import { FaSquareYoutube } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-sm text-white py-20">
-      <div className="container mx-auto ">
-        <div className="flex relative max-lg:flex-col max-sm:text-sm max-sm:pl-16 gap-20 ">
+    <footer className="bg-black text-sm flex justify-center text-white py-20">
+      <div className="container  ">
+        <div className="flex relative max-lg:flex-col justify-center items-center w-full max-sm:text-sm max-sm:pl-16 gap-20 ">
           {/* Logo Column */} 
           <div className="flex">
             <Image
@@ -24,7 +24,7 @@ export default function Footer() {
             <p className="mt-36 max-sm:20 text-gray-100 ">Copyright©2025</p>
           </div>
 
-          <div className=' flex gap-10 md:pl-40 max-sm:flex-col'>
+          <div className=' flex gap-10 lg:pl-40 max-sm:flex-col'>
             {/* Legal Texts */}
             <div className='w-max'>
               <h3 className="text-sm text-white font-medium mb-2">TEXTOS LEGALES</h3>
