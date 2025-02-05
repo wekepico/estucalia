@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 
 type FormData = {
@@ -27,14 +26,35 @@ export default function ContactForm() {
     // Handle form submission
   };
 
+  // Configuración de campos del formulario
+  const inputFields = [
+    { name: 'nombre', type: 'text', placeholder: 'Nombre', component: Input },
+    { name: 'telefono', type: 'tel', placeholder: 'Teléfono', component: Input },
+    { name: 'email', type: 'email', placeholder: 'E-mail', component: Input },
+    { name: 'asunto', type: 'text', placeholder: 'Asunto', component: Input },
+    { name: 'mensaje', component: Input, placeholder: 'Mensaje', Type: 'text' }
+  ];
+
+  const checkboxes = [
+    {
+      name: 'aceptarPolitica',
+      label: 'Si, he leído y acepto el tratamiento de mis datos personales según la Política de Privacidad y el Aviso Legal de Estucalia Morteros S.L.'
+    },
+    {
+      name: 'aceptarComercial',
+      label: 'Sí, autorizo la recepción vía electrónica de información comercial de Grupo Estucalia.'
+    }
+  ];
+
   return (
-    <section className="py-20">
+    <section className="lg:px-48 lg:py-16 pb-8 ">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          {/* Contact Information */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+
+          {/* Información de contacto */}
           <div>
-            <h1 className="text-3xl font-light mb-8">Contacto</h1>
-            
+            <h1 className="text-3xl font-bold mb-2">Contacto</h1>
+
             <div className="space-y-6">
               <div>
                 <p>Camino Viejo de Fortuna, 40</p>
@@ -49,8 +69,8 @@ export default function ContactForm() {
                 <a href="tel:+34663519854" className="block hover:text-gray-600 transition-colors">
                   +34 663 519 854
                 </a>
-                <a 
-                  href="mailto:grupoestucalia@grupoestucalia.com" 
+                <a
+                  href="mailto:grupoestucalia@grupoestucalia.com"
                   className="block hover:text-gray-600 transition-colors"
                 >
                   grupoestucalia@grupoestucalia.com
@@ -58,7 +78,7 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <h2 className="font-medium mb-2">Horario</h2>
+                <h2 className="mb-1 font-bold">Horario</h2>
                 <p>Lunes - Jueves</p>
                 <p>08:00 AM - 18:00 PM</p>
                 <p className="mt-4">Viernes</p>
@@ -69,135 +89,80 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div>
+          {/* Formulario */}
+          <div className='max-md:mb-16'>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField
-                  control={form.control}
-                  name="nombre"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input placeholder="Nombre" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+              <form onSubmit={form.handleSubmit(onSubmit)} className=" grid grid-cols-2  gap-6">
+                {inputFields.map((field) => (
+                  <FormField
+                    key={field.name}
+                    control={form.control}
+                    name={field.name as keyof FormData}
 
-                <FormField
-                  control={form.control}
-                  name="telefono"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input type="tel" placeholder="Teléfono" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                    render={({ field: formField }) => (
+                      <FormItem className={`${field.name == "nombre" || field.name == "telefono" ? 'lg:col-span-1 col-span-2' : "col-span-2"}`}>
+                        <FormControl>
+                          <div className='border-b border-black'>
+                            <Input
+                              className='border-none text-md'
+                              type={field.type}
+                              placeholder={field.placeholder}
+                              value={formField.value as string}
+                              onChange={formField.onChange}
+                              onBlur={formField.onBlur}
+                              ref={formField.ref}
+                            />
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                ))}
+                <p className='text-sm col-span-2'>
+                  Información básica sobre Protección de Datos. Responsable: ESTUCALIA MORTEROS S.L. Finalidad del tratamiento:
+                  gestionar su consulta/solicitud, envío de información vía electrónica y su posterior seguimiento comercial.
+                  Legitimación: su consentimiento expreso al remitirnos este formulario (RGPD 6.1.a), sus datos no serán cedidos a
+                  terceros y se conservarán por plazo de un año, salvo obligación legal. Puede ejercitar los derechos de acceso,
+                  rectificación, supresión, portabilidad, limitación y oposición, y revocar su consentimiento dirigiéndose a:
+                </p>
 
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input type="email" placeholder="E-mail" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                {checkboxes.map((checkbox) => (
+                  <FormField
+                    key={checkbox.name}
+                    control={form.control}
+                    name={checkbox.name as keyof FormData}
+                    render={({ field }) => (
+                      <FormItem className="flex flex-row items-start space-x-3 space-y-0 col-span-2">
+                        <FormControl>
+                          <Checkbox
+                          className='rounded-none'
+                            checked={field.value as boolean} // Forzar tipo boolean
+                            onCheckedChange={field.onChange}
+                          />
+                        </FormControl>
+                        <div className="space-y-1 leading-none">
+                          <FormLabel className="text-sm text-gray-900">
+                            {checkbox.label}
+                          </FormLabel>
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                ))}
 
-                <FormField
-                  control={form.control}
-                  name="asunto"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input placeholder="Asunto" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="mensaje"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Textarea 
-                          placeholder="Mensaje" 
-                          className="resize-none" 
-                          rows={6}
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="aceptarPolitica"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                      <FormControl>
-                        <Checkbox
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
-                      </FormControl>
-                      <div className="space-y-1 leading-none">
-                        <FormLabel className="text-sm text-gray-600">
-                          Si, he leído y acepto el tratamiento de mis datos personales según la Política de Privacidad y el Aviso Legal de Estucalia Morteros S.L.
-                        </FormLabel>
-                      </div>
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="aceptarComercial"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                      <FormControl>
-                        <Checkbox
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
-                      </FormControl>
-                      <div className="space-y-1 leading-none">
-                        <FormLabel className="text-sm text-gray-600">
-                          Sí, autorizo la recepción vía electrónica de información comercial de Grupo Estucalia.
-                        </FormLabel>
-                      </div>
-                    </FormItem>
-                  )}
-                />
-
-                <Button 
+                <Button
                   type="submit"
-                  className="group"
+                  className="group w-[155px] flex gap-4 justify-end borde-1 p-2  border-black rounded-none"
                   variant="outline"
+
                 >
                   <span>Enviar</span>
-                  <svg 
-                    className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  <svg className="ml-2 w-10 h-10 transform transition-transform group-hover:translate-x-1 col-span-1"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
                   </svg>
+
                 </Button>
               </form>
             </Form>

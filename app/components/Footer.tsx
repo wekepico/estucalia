@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="bg-black text-sm flex justify-center text-white py-20">
       <div className="container  ">
-        <div className="flex relative max-lg:flex-col justify-center items-center w-full max-sm:text-sm max-sm:pl-16 gap-20 ">
+        <div className="flex relative max-lg:flex-col flex-wrap justify-center items-center w-full max-sm:text-sm max-sm:pl-16 gap-20 ">
           {/* Logo Column */} 
           <div className="flex">
             <Image
@@ -21,7 +21,7 @@ export default function Footer() {
               height={100}
               className="mb-6 h-14 w-auto absolute"
             />
-            <p className="mt-36 max-sm:20 text-gray-100 ">Copyright©2025</p>
+            <p className="mt-36 max-sm:20 text-gray-100">Copyright©2025</p>
           </div>
 
           <div className=' flex gap-10 lg:pl-40 max-sm:flex-col'>

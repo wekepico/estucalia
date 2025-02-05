@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export default function HeroSection() {
+export default function BottomSection() {
   return (
     <section className="relative h-[60vh] w-full">
       <div 
@@ -13,11 +13,8 @@ export default function HeroSection() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30" />
       </div>
-      <div className="relative h-full flex justify-center items-center">
-        <div className="container mx-auto px-4 items-center justify-center flex">
-          <h1 className="text-white text-4xl md:text-5xl font-bold text-center max-w-2xl leading-tight">
-            Trabaja con nosotros
-          </h1>
+      <div className="relative h-full flex items-center">
+        <div className="container mx-auto px-4">
         </div>
       </div>
     </section>
