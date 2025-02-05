@@ -68,9 +68,9 @@ export default function ClientNavigation() {
                  {menuLinks.map((link, index) => (
                 <>         
                   <NavigationMenuItem
-                    key={index}
+                    key={index+"nav-Link"}
                     onMouseEnter={() => setHoveredMenu(link.label)}
-                  
+                    
                   >
                     {link.label !== "Empresa" && link.label !== "Idiomas" && (
                       <div >
@@ -82,7 +82,7 @@ export default function ClientNavigation() {
                     )}
                   </NavigationMenuItem>
                   {link.submenu && hoveredMenu === link.label && (
-                          <div className="absolute  top-full mx-auto pt-10  text-center w-[100vw] h-[350px] mt-6 backdrop-blur-[2px]  backdrop-opacity-80"
+                          <div className="absolute  top-full mx-auto pt-10 text-center w-[100vw] h-[350px] mt-6 backdrop-blur-[2px]  backdrop-opacity-80"
                           style={{
                             background: "rgba(0, 5, 0, 0.6)", // Fondo negro con opacidad del 80%
                           }}
@@ -90,7 +90,7 @@ export default function ClientNavigation() {
                           >
                             <ul className="py-2">
                               {link.submenu.map((subItem, subIndex) => (
-                                <li key={subIndex} className="px-4 py-2 hover:underline">
+                                <li key={subIndex+"nab-subLink"} className="px-4 py-2 hover:underline">
                                   <Link href="#" className="text-white block">
                                     {subItem}
                                   </Link>
