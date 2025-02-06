@@ -1,5 +1,4 @@
-'use client';
-
+'use client'
 import React, { useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -37,8 +36,6 @@ const spaces = [
     image: "https://rentpath-res.cloudinary.com/$img_current/t_3x2_webp_2xl/t_unpaid/5428c1bc8e3dc04f4b461522071c76bf",
     title: "Albañilería"
   },
-
-
 ];
 
 export default function SpacesSection() {
@@ -49,11 +46,15 @@ export default function SpacesSection() {
   const handleScroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const scrollAmount = container.offsetWidth * 0.8;
+      const firstCard = container.querySelector('.carousel-card') as HTMLDivElement;
+
+      // Get the width of the first card (or fallback to a default value)
+      const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 280;
+
       container.scrollTo({
         left: direction === 'right'
-          ? container.scrollLeft + scrollAmount
-          : container.scrollLeft - scrollAmount,
+          ? container.scrollLeft + cardWidth + 65
+          : container.scrollLeft - (cardWidth + 65),
         behavior: 'smooth'
       });
     }
@@ -80,15 +81,13 @@ export default function SpacesSection() {
     <section className="py-16 md:py-32 px-4 md:px-16 bg-white">
       <div className="container mx-auto">
         <h2 className="text-2xl font-bold mb-4 md:mb-6">Espacios</h2>
-
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
           {/* Categories Scroll */}
           <ScrollArea className="w-full md:flex-1">
             <div className="flex pb-5">
               {categories.map((category) => (
-                <div>
+                <div key={category}>
                   <Link
-                    key={category}
                     className='text-base md:text-xl p-0 mr-4 md:mr-6 hover:border-b pb-1 hover:border-black'
                     href={"/#"}
                   >
@@ -99,7 +98,6 @@ export default function SpacesSection() {
             </div>
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
-
           {/* Navigation Arrows */}
           <div className='flex gap-2 self-end md:self-auto'>
             <Button
@@ -124,7 +122,6 @@ export default function SpacesSection() {
             </Button>
           </div>
         </div>
-
         {/* Image Cards */}
         <div
           ref={scrollContainerRef}
@@ -133,11 +130,11 @@ export default function SpacesSection() {
           onTouchEnd={handleTouchEnd}
           className="relative overflow-x-hidden scroll-smooth"
         >
-          <div className="flex gap-8 md:gap-16 ">
+          <div className="flex gap-8 md:gap-16">
             {spaces.map((space) => (
               <Card
                 key={space.title}
-                className="flex flex-col min-w-[280px] md:min-w-[450px] border-none shadow-none"
+                className="flex flex-col min-w-[280px] md:min-w-[450px] border-none shadow-none carousel-card"
               >
                 <CardContent className="p-0">
                   <div className="relative h-[400px] md:h-[650px] group">

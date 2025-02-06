@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Image from 'next/image';
 import Link from 'next/link';
+import MorteroCal from '../../../public/img/mortero-cal.svg'
+import MorteroMonocapa from '../../../public/img/mortero-monocapa.svg'
+import MorteroImpreso from '../../../public/img/mortero-impreso.svg'
+
 
 const categories = [
   'Rugoso/raspado', 'Lavado', 'Impreso', 'Piedra proyectada'
@@ -15,7 +19,7 @@ const products = [
     name: 'MINERVA',
     description: 'Mortero monocapa',
     icon: <Image
-      src="/img/minerva.png"
+      src={MorteroCal}
       alt="Logo"
       width={180}
       height={100}
@@ -26,7 +30,7 @@ const products = [
     name: 'ARGAMASA',
     description: 'Mortero de cal',
     icon: <Image
-      src="/img/argamasa.png"
+      src={MorteroMonocapa}
       alt="Logo"
       width={180}
       height={100}
@@ -37,7 +41,7 @@ const products = [
     name: 'PETRA',
     description: 'Mortero impreso vertical',
     icon: <Image
-      src="/img/petra.png"
+      src={MorteroImpreso}
       alt="Logo"
       width={180}
       height={100}
