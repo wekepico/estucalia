@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
 import { Menu, X } from 'lucide-react';
@@ -15,6 +15,15 @@ export default function ClientNavigation() {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHoveredMenu(null);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleLinkClick = () => {
     setIsOpen(false); // Cierra el sidebar
@@ -74,7 +83,6 @@ export default function ClientNavigation() {
                     <NavigationMenuItem
                       key={index + "nav-Link"}
                       onMouseEnter={() => setHoveredMenu(link.label)}
-
                     >
                       {link.label !== "Empresa" && link.label !== "Idiomas" && (
                         <div
@@ -107,6 +115,8 @@ export default function ClientNavigation() {
                           background: "rgba(0, 5, 0, 0.6)", // Fondo negro con opacidad del 80%
                         }}
                         onMouseLeave={() => setHoveredMenu(null)}
+                        onScrollCapture={() => setHoveredMenu(null)}
+                        key={index + "submenu-link"}
                       >
                         <ul className="py-2">
                           {link.submenu.map((subItem, subIndex) => (
