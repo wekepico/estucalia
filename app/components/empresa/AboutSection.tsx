@@ -9,10 +9,10 @@ export default function AboutSection() {
     <div>
       {/* Top Section */}
       <section className="relative bg-white">
-        <div className="container mx-auto px-28">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 items-center">
+        <div className="mx-auto px-28 max-sm:px-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 max-sm:gap-y-8 items-center">
             {/* Text Content */}
-            <div className='lg:p-12'>
+            <div className='lg:p-12 max-sm:px-2'>
               <h2 className="text-3xl font-bold mb-2">Somos Grupo Estucalia</h2>
               <p className="text-lg leading-relaxed">
                 Grupo Estucalia está compuesto por varias empresas especializadas 
@@ -40,7 +40,7 @@ export default function AboutSection() {
 
       {/* Mission Section */}
       <section className="py-36 bg-[#f1e9e9]">
-        <div className="container mx-auto px-4 text-center">
+        <div className="mx-auto  max-sm:px-0 text-center">
           <h3 className="text-3xl font-bold mb-6">
             Nuestra misión: satisfacer al cliente
           </h3>

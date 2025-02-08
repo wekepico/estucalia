@@ -22,7 +22,7 @@ export default function VideoHero() {
 
       {/* Content Overlay */}
       <div className="relative h-full flex items-center justify-center text-center">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto px-4">
           <div className="absolute top-4 left-4 text-white text-sm font-light tracking-wider">
             VIDEO
           </div>

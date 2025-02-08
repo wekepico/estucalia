@@ -7,7 +7,7 @@ const countries = [
 
 export default function InternationalSection() {
   return (
-    <section className="relative min-h-[1100px] flex items-center">
+    <section className="relative min-h-[1100px]  flex items-center">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -24,7 +24,7 @@ export default function InternationalSection() {
                     background: "rgba(0, 2, 0, 0.8)", // Fondo negro con opacidad del 80%
                   }}
       >
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center max-sm:px-2">
           <h2 className="text-4xl font-light mb-4">Internacionales</h2>
           <p className="text-lg mb-4">
             Grupo Estucalia está presente en el extranjero, teniendo distribuidores y clientes en lugares como

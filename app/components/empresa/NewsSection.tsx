@@ -28,7 +28,7 @@ const newsItems = [
 export default function NewsSection() {
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto ">
+      <div className="mx-auto ">
         <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 px-4 md:px-16 text-center md:text-left">
           Actualidad
         </h2>

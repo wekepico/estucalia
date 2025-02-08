@@ -242,14 +242,16 @@ export default function ApplicationForm() {
 
                 <Button
                   type="submit"
-                  className="group w-[150px] flex gap-4 justify-end borde-1 border-black rounded-none"
+                  className="group w-[155px] flex gap-4 justify-end borde-1 p-2 py-6 border-black rounded-none"
                   variant="outline"
+
                 >
                   <span>Enviar</span>
-                  <svg className="ml-2 w-10 h-10 transform transition-transform group-hover:translate-x-1"
+                  <svg className="ml-2 w-10 h-10 transform transition-transform group-hover:translate-x-1 col-span-1"
                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
                   </svg>
+
                 </Button>
               </form>
             </Form>

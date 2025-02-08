@@ -6,8 +6,8 @@ import Logos from "../../../public/img/logos-licencia.png"
 export default function CertificationsSection() {
   return (
     <section className="py-32 bg-[#F5F5F5]"   style={{backgroundColor: "rgba(222, 221, 221)"}}>
-      <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="  mx-auto">
+        <div className="max-w-4xl max-sm:px-2 mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">
             Resultados a la altura de las exigencias
           </h2>
@@ -33,8 +33,8 @@ export default function CertificationsSection() {
             </div>
           </div>
         </div>
-        <div className="flex w-full justify-end items-center"> 
-              <Button variant="outline" className="border-gray-500 py-4 md:py-6 border-solid cursor-pointer rounded-none">
+        <div className="flex w-full justify-end items-center pr-11"> 
+              <Button variant="outline" className="border-gray-500 py-4 bg-transparent pr-1   md:py-6 border-solid cursor-pointer rounded-none">
                 <span>Certificaciones</span>
                 <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />

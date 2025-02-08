@@ -38,18 +38,20 @@ export default function ContactForm() {
   const checkboxes = [
     {
       name: 'aceptarPolitica',
-      label: 'Si, he leído y acepto el tratamiento de mis datos personales según la Política de Privacidad y el Aviso Legal de Estucalia Morteros S.L.'
+      label:    <FormLabel className="text-sm text-gray-900">
+        Si, he leído y acepto el tratamiento de mis datos personales según la <a className='underline' href="">Política de Privacidad</a>  y el <a className="underline">Aviso Legal</a> de Estucalia Morteros S.L.
+      </FormLabel>
     },
     {
       name: 'aceptarComercial',
-      label: 'Sí, autorizo la recepción vía electrónica de información comercial de Grupo Estucalia.'
+      label: <FormLabel className="text-sm text-gray-900">Sí, autorizo la recepción vía electrónica de información comercial de Grupo Estucalia.</FormLabel>
     }
   ];
 
   return (
-    <section className="lg:px-48 lg:py-16 pb-8 ">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+    <section className="lg:pr-64 lg:pl-28 lg:py-16 pb-8 ">
+      <div className="mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-2 md: gap-12">
 
           {/* Información de contacto */}
           <div className='min-w-max'>
@@ -136,15 +138,13 @@ export default function ContactForm() {
                       <FormItem className="flex flex-row items-start space-x-3 space-y-0 col-span-2">
                         <FormControl>
                           <Checkbox
-                          className='rounded-none'
+                            className='rounded-none'
                             checked={field.value as boolean} // Forzar tipo boolean
                             onCheckedChange={field.onChange}
                           />
                         </FormControl>
                         <div className="space-y-1 leading-none">
-                          <FormLabel className="text-sm text-gray-900">
-                            {checkbox.label}
-                          </FormLabel>
+                            {checkbox.label}                 
                         </div>
                       </FormItem>
                     )}
@@ -153,7 +153,7 @@ export default function ContactForm() {
 
                 <Button
                   type="submit"
-                  className="group w-[155px] flex gap-4 justify-end borde-1 p-2  border-black rounded-none"
+                  className="group w-[155px] flex gap-4 justify-end borde-1 p-2 py-6 border-black rounded-none"
                   variant="outline"
 
                 >
