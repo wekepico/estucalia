@@ -28,42 +28,51 @@ const newsItems = [
 export default function NewsSection() {
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-light mb-12">Actualidad</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container mx-auto ">
+        <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 px-4 md:px-16 text-center md:text-left">
+          Actualidad
+        </h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 px-4 md:px-16 gap-8 md:gap-16">
           {newsItems.map((item, index) => (
-            <Card key={index} className="border-none shadow-none group">
-              <CardHeader className="p-0">
-                <div className="relative h-[300px] mb-6 overflow-hidden">
-                  <div 
+            <Card
+              key={index}
+              className="border-none shadow-none flex flex-col group "
+            >
+              <CardHeader className="p-0 overflow-hidden">
+                <div className="relative h-[300px] md:h-[400px] lg:h-[500px] mb-4 overflow-hidden">
+                  <div
                     className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 group-hover:scale-105"
                     style={{ backgroundImage: `url('${item.image}')` }}
                   />
                 </div>
+                <h3 className="text-base md:text-2xl px-4 md:px-0 mb-4 font-medium">
+                  {item.title}
+                </h3>
               </CardHeader>
-              <CardContent className="px-0">
-                <h3 className="text-xl mb-4 group-hover:text-gray-600 transition-colors">{item.title}</h3>
-                <p className="text-gray-600 mb-4 line-clamp-2">{item.description}</p>
-                <Button 
-                  variant="ghost" 
-                  className="p-0 h-auto hover:bg-transparent group-hover:text-black"
-                >
-                  <span>Ver Noticia</span>
-                  <svg 
-                    className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
+
+              <CardContent className="px-4 md:px-0 mt-auto">
+                <div className='w-full flex justify-end'>
+                  <Button
+                    variant="ghost"
+                    className="p-0 h-auto hover:bg-transparent group-hover:text-black"
                   >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M17 8l4 4m0 0l-4 4m4-4H3" 
-                    />
-                  </svg>
-                </Button>
+                    <span className="mr-2 text-sm">Ver noticia</span>
+                    <svg
+                      className="w-10 h-10 md:w-12 md:h-12 transform transition-transform group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={0.5}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}

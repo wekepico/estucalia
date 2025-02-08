@@ -1,36 +1,42 @@
 import React from 'react';
 
 const countries = [
-  'Argelia', 'Marruecos', 'Kuwait', 'Arabia Saudí', 
+  'Argelia', 'Marruecos', 'Kuwait', 'Arabia Saudí',
   'Egipto', 'Qatar', 'Emiratos', 'Yemen'
 ];
 
 export default function InternationalSection() {
   return (
-    <section className="relative min-h-[600px] flex items-center">
+    <section className="relative min-h-[1100px] flex items-center">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1582657233895-0f37a3f150c0?auto=format&fit=crop&q=80')"
+          backgroundImage: "url('https://images.squarespace-cdn.com/content/v1/5b8637e770e802c744a04a0f/1634142584524-O1S760EEBQS94QV9BADF/NEW+YORK_MOOD.jpg')"
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/80" />
+        
       </div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-4 py-20 text-white">
+      <div className="relative w-full mx-auto  py-40 text-white"
+                  style={{
+                    background: "rgba(0, 2, 0, 0.8)", // Fondo negro con opacidad del 80%
+                  }}
+      >
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-light mb-8">Internacionales</h2>
-          <p className="text-lg mb-12">
+          <h2 className="text-4xl font-light mb-4">Internacionales</h2>
+          <p className="text-lg mb-4">
             Grupo Estucalia está presente en el extranjero, teniendo distribuidores y clientes en lugares como
           </p>
-          
+
           {/* Countries Grid */}
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center  gap-2"
+
+          >
             {countries.map((country, index) => (
               <React.Fragment key={country}>
-                <span className="text-lg font-medium hover:text-blue-400 transition-colors cursor-pointer">
+                <span className="text-lg font-bold hover:text-blue-400 transition-colors ">
                   {country}
                 </span>
                 {index < countries.length - 1 && (
@@ -38,7 +44,7 @@ export default function InternationalSection() {
                 )}
               </React.Fragment>
             ))}
-            <span className="text-blue-400">...</span>
+            <span >...</span>
           </div>
         </div>
       </div>

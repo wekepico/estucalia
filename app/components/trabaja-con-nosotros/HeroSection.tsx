@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function HeroSection() {
   return (
-    <section className="relative h-[60vh] w-full">
+    <section className="relative h-[45vh] w-full">
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{

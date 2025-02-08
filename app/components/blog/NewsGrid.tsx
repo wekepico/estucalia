@@ -65,25 +65,6 @@ export default function NewsGrid() {
                 <p className="text-gray-600 line-clamp-3">
                   {item.excerpt}
                 </p>
-                <Button 
-                  variant="ghost" 
-                  className="p-0 h-auto hover:bg-transparent group-hover:text-black"
-                >
-                  <span>Leer más</span>
-                  <svg 
-                    className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M17 8l4 4m0 0l-4 4m4-4H3" 
-                    />
-                  </svg>
-                </Button>
               </CardContent>
             </Card>
           ))}

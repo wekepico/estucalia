@@ -45,8 +45,8 @@ export default function ClientNavigation() {
   const pathname = usePathname()
 
   return (
-    <header onClick={() => setHoveredMenu(null)} className="fixed   top-0 left-0 right-0 z-50 bg-black">
-      <div className="container relative  font-[600] text-lg mx-auto">
+    <header onClick={() => setHoveredMenu(null)} className="fixed top-0 left-0 right-0 z-50 bg-black">
+      <div className="container relative font-[600] text-lg mx-auto">
         <div className="flex justify-between items-center px-8 py-6">
           {/* Enlace de "Empresa" solo en escritorio */}
           <Link href="/empresa" className="text-white hover:text-gray-400 transition-colors lg:block hidden">
@@ -74,7 +74,7 @@ export default function ClientNavigation() {
             </Button>
           </div>
         </div>
-        <nav className="border-t  border-gray-500 mx-8">
+        <nav className="border-t border-gray-500 mx-8">
           <div className="lg:flex items-center justify-center px-8 py-6 hidden">
             <NavigationMenu>
               <NavigationMenuList className='flex w-full gap-8'>
@@ -110,7 +110,7 @@ export default function ClientNavigation() {
                     </NavigationMenuItem>
                     {link.submenu && (
                       <div className={`absolute ${hoveredMenu === link.label ? "opacity-100 visible" : "opacity-0 invisible"
-                        } transition-all duration-300 ease-in-out top-full mx-auto pt-10 text-center w-[100vw] h-[350px] mt-6 backdrop-blur-[2px]  backdrop-opacity-80"`}
+                        } transition-all duration-300 ease-in-out top-full mx-auto pt-10 text-center w-[102vw] h-[350px] mt-6 backdrop-blur-[2px]  backdrop-opacity-80"`}
                         style={{
                           background: "rgba(0, 5, 0, 0.6)", // Fondo negro con opacidad del 80%
                         }}
@@ -138,6 +138,13 @@ export default function ClientNavigation() {
           </div>
         </nav>
       </div>
+      {/* Overlay para cerrar el sidebar */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={toggleSidebar}
+        ></div>
+      )}
       {/* Sidebar para móviles */}
       <div className={`fixed top-0 left-0 h-full w-64 bg-black transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:hidden z-50`}>
         <div className="flex justify-end p-4">

@@ -1,63 +1,46 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
+import Logos from "../../../public/img/logos-licencia.png"
 
 export default function CertificationsSection() {
   return (
-    <section className="py-20 bg-[#F5F5F5]">
-      <div className="container mx-auto px-4">
+    <section className="py-32 bg-[#F5F5F5]"   style={{backgroundColor: "rgba(222, 221, 221)"}}>
+      <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-light mb-8">
+          <h2 className="text-3xl font-bold mb-8">
             Resultados a la altura de las exigencias
           </h2>
           
           <p className="text-lg mb-16 leading-relaxed">
             Nuestra empresa está comprometida con la calidad en cada paso del camino, como lo demuestra nuestra certificación de calidad. Grupo Estucalia integra el riguroso{' '}
-            <span className="font-medium">sistema de Calidad Total</span>{' '}
+            <span className="font-bold">sistema de Calidad Total</span>{' '}
             basado en la norma UNE-EN ISO 9001/2000 y certificado por AENOR como empresa registrada numero ER-0339/2002.
           </p>
 
           {/* Certificates */}
-          <div className="flex justify-center items-center gap-12 mb-16">
-            <div className="w-24 h-24 relative">
+          <div className="flex justify-center items-center gap-12 mb-16"
+           
+          >
+ 
+            <div className="w-[29rem] h-32 relative">
               <Image
-                src="/ce-mark.svg"
-                alt="CE Mark"
-                fill
-                className="object-contain"
-              />
-            </div>
-            <div className="w-24 h-24 relative">
-              <Image
-                src="/aenor.svg"
+                src={Logos}
                 alt="AENOR Certification"
                 fill
                 className="object-contain"
               />
             </div>
-            <div className="w-24 h-24 relative">
-              <Image
-                src="/iqnet.svg"
-                alt="IQNet Certification"
-                fill
-                className="object-contain"
-              />
-            </div>
           </div>
-
-          <Button variant="outline" className="group">
-            <span>Certificaciones</span>
-            <svg 
-              className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-1" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </Button>
         </div>
+        <div className="flex w-full justify-end items-center"> 
+              <Button variant="outline" className="border-gray-500 py-4 md:py-6 border-solid cursor-pointer rounded-none">
+                <span>Certificaciones</span>
+                <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
+                </svg>
+              </Button>
+            </div>
       </div>
     </section>
   );

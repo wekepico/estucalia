@@ -52,7 +52,7 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
 
           {/* Información de contacto */}
-          <div>
+          <div className='min-w-max'>
             <h1 className="text-3xl font-bold mb-2">Contacto</h1>
 
             <div className="space-y-6">
@@ -62,16 +62,16 @@ export default function ContactForm() {
                 <p>Murcia (SPAIN).</p>
               </div>
 
-              <div>
-                <a href="tel:+34968862467" className="block hover:text-gray-600 transition-colors">
+              <div className='flex flex-col w-max'>
+                <a href="tel:+34968862467" className=" font-bold inline w-max hover:text-gray-600 transition-colors">
                   +34 968 862 467
                 </a>
-                <a href="tel:+34663519854" className="block hover:text-gray-600 transition-colors">
+                <a href="tel:+34663519854" className="inline font-bold w-max hover:text-gray-600 transition-colors">
                   +34 663 519 854
                 </a>
                 <a
                   href="mailto:grupoestucalia@grupoestucalia.com"
-                  className="block hover:text-gray-600 transition-colors"
+                  className="inline w-max hover:text-gray-600 transition-colors"
                 >
                   grupoestucalia@grupoestucalia.com
                 </a>

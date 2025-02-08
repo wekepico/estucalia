@@ -31,7 +31,7 @@ export default function ApplicationForm() {
   };
 
   return (
-    <section className="py-32">
+    <section className="py-28 lg:px-32">
       <div className="container mx-auto px-11">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-44">
           {/* Description */}
