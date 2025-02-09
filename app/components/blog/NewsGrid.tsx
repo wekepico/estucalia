@@ -39,7 +39,7 @@ const newsItems = [
 export default function NewsGrid() {
   return (
     <section className="py-20">
-      <div className="mx-auto px-20">
+      <div className="mx-auto px-20 md:pd-8 max-sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
           {newsItems.map((item, index) => (
             <Card key={index} className="border-none shadow-none group cursor-pointer">
