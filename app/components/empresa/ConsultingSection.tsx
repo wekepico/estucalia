@@ -10,7 +10,7 @@ export default function ConsultingSection() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80')"
+          backgroundImage: `url(/img/asesoramiento.jpg)`,
         }}
       >
         <div className="absolute inset-0 bg-black/50" />
