@@ -10,7 +10,7 @@ import { FaSquareYoutube } from "react-icons/fa6";
 export default function Footer() {
   return (
     <footer className="bg-black text-sm flex justify-center text-white py-20">
-      <div className="container  ">
+      <div className="container max-w-[120rem] ">
         <div className="flex relative max-lg:flex-col flex-wrap justify-center max-sm:items-start max-sm:pl-8 items-center w-full max-sm:text-sm gap-20 ">
           {/* Logo Column */} 
           <div className="flex">

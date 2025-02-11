@@ -38,7 +38,7 @@ export default function RootLayout({
         style={{ fontFamily: "Titillium Web Regular" }}
       >
         <ClientNavigation />
-        <div className="pt-28 max-lg:pt-20 tracking-tight">
+        <div className="pt-28 max-lg:pt-20 max-w-[120rem] mx-auto tracking-tight">
           {children}
         </div>
         <Footer />

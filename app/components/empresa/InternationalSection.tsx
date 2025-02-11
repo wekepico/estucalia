@@ -12,7 +12,7 @@ export default function InternationalSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('https://images.squarespace-cdn.com/content/v1/5b8637e770e802c744a04a0f/1634142584524-O1S760EEBQS94QV9BADF/NEW+YORK_MOOD.jpg')"
+          backgroundImage: "url('img/internacionales.jpg')"
         }}
       >
         
@@ -36,7 +36,7 @@ export default function InternationalSection() {
           >
             {countries.map((country, index) => (
               <React.Fragment key={country}>
-                <span className="text-lg font-bold hover:text-blue-400 transition-colors ">
+                <span className="text-lg font-bold transition-colors ">
                   {country}
                 </span>
                 {index < countries.length - 1 && (
