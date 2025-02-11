@@ -6,17 +6,17 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 const newsItems = [
   {
-    image: "https://images.unsplash.com/photo-1582657233895-0f37a3f150c0?auto=format&fit=crop&q=80",
+    image: "img/actualidad1.jpg",
     title: "Misión Comercial Directa a Arabia Saudita",
     link: "#"
   },
   {
-    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80",
+    image: "img/actualidad2.png",
     title: "Grupo Estucalia presenta sus Morteros Monocapa en Marruecos",
     link: "#"
   },
   {
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
+    image: "img/actualidad3.jpg",
     title: "Convención Internacional en Rabat",
     link: "#"
   }

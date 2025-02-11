@@ -55,7 +55,7 @@ export default function ContactForm() {
 
           {/* Información de contacto */}
           <div className='min-w-max'>
-            <h1 className="text-3xl font-bold mb-2">Contacto</h1>
+            <h1 className="text-3xl mb-2" style={{fontWeight:"900"}}>Contacto</h1>
 
             <div className="space-y-6">
               <div>
@@ -65,10 +65,10 @@ export default function ContactForm() {
               </div>
 
               <div className='flex flex-col w-max'>
-                <a href="tel:+34968862467" className=" font-bold inline w-max hover:text-gray-600 transition-colors">
+                <a href="tel:+34968862467" style={{fontWeight:"900"}} className=" inline w-max hover:text-gray-600 transition-colors">
                   +34 968 862 467
                 </a>
-                <a href="tel:+34663519854" className="inline font-bold w-max hover:text-gray-600 transition-colors">
+                <a href="tel:+34663519854" style={{fontWeight:"900"}} className="inline w-max hover:text-gray-600 transition-colors">
                   +34 663 519 854
                 </a>
                 <a
@@ -80,12 +80,12 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <h2 className="mb-1 font-bold">Horario</h2>
+                <h2 className=" text-lg" style={{fontWeight:"900"}}>Horario</h2>
                 <p>Lunes - Jueves</p>
                 <p>08:00 AM - 18:00 PM</p>
-                <p className="mt-4">Viernes</p>
+                <p className="mt-2">Viernes</p>
                 <p>08:00 AM - 14:00 PM</p>
-                <p className="mt-4">Verano (del 15 Julio al 15 Septiembre)</p>
+                <p className="mt-2">Verano (del 15 Julio al 15 Septiembre)</p>
                 <p>07:00 AM - 15:00 PM</p>
               </div>
             </div>

@@ -20,21 +20,21 @@ const inspirationImages = [
     alt: "Linear architectural patterns"
   },
   {
-    url: "https://ejadasafety.ae/wp-content/uploads/2023/07/Ejada-Facade-Curtain-Wall-and-Cladding-Systems.jpg",
-    alt: "Minimalist building design"
-  },
-  {
-    url: "https://artelfacades.co.uk/wp-content/uploads/2021/02/Shutterstock_1418136680-min-scaled.jpg",
-    alt: "Contemporary architecture"
-  },
-  {
-    url: "https://images.pexels.com/photos/1109068/pexels-photo-1109068.jpeg?cs=srgb&dl=cold-city-clouds-1109068.jpg&fm=jpg",
+    url: "img/img3.jpg",
     alt: "Modern facade detail"
   },
   {
-    url: "https://www.compass.com/m/0/164f1216-462f-46ff-a054-c386a6b7873c/770x1000.jpg",
+    url: "img/img4.jpg",
     alt: "Urban architecture"
-  }
+  },
+  {
+    url: "img/img1.jpg",
+    alt: "Minimalist building design"
+  },
+  {
+    url: "img/img2.jpg",
+    alt: "Contemporary architecture"
+  },
 ];
 
 export default function InspirationSection() {

@@ -11,13 +11,12 @@ import MorteroImpreso from '../../../public/img/mortero-impreso.svg'
 
 
 const categories = [
-  'Rugoso/raspado', 'Lavado', 'Impreso', 'Piedra proyectada'
+  'Abujardado/raspado', 'Lavado/fratasado', 'Impreso', 'Piedra proyectada','Liso'
 ];
 
 const products = [
   {
-    name: 'MINERVA',
-    description: 'Mortero monocapa',
+    name: 'Mortero monocapa',
     icon: <Image
       src={MorteroCal}
       alt="Logo"
@@ -27,8 +26,7 @@ const products = [
     />
   },
   {
-    name: 'ARGAMASA',
-    description: 'Mortero de cal',
+    name: 'Mortero de cal',
     icon: <Image
       src={MorteroMonocapa}
       alt="Logo"
@@ -38,8 +36,7 @@ const products = [
     />
   },
   {
-    name: 'PETRA',
-    description: 'Mortero impreso vertical',
+    name: 'Mortero impreso',
     icon: <Image
       src={MorteroImpreso}
       alt="Logo"
@@ -82,8 +79,7 @@ export default function FinishesSection() {
                 <div className="mb-4 md:mb-6">
                   {product.icon}
                 </div>
-                <h3 className="text-lg md:text-xl font-bold mb-1">{product.name}</h3>
-                <p className="text-gray-900 text-base md:text-lg mb-2">{product.description}</p>
+                <h3 className="text-lg md:text-xl font-bold mb-1">{product.name.toLocaleUpperCase()}</h3>
               </div>
               <div className='w-full p-4 flex justify-end'>
                 <Button
