@@ -23,7 +23,7 @@ export default function CertificationsSection() {
            
           >
  
-            <div className="w-[29rem] h-32 relative">
+            <div className="w-[26rem] h-[5.5rem] relative">
               <Image
                 src={Logos}
                 alt="AENOR Certification"
