@@ -14,19 +14,17 @@ import Image from 'next/image';
 
 const products = [
   {
-    name: 'MINERVA',
-    description: 'Mortero monocapa',
+    name: 'Mortero monocapa',
     icon: <Image
       src={MorteroMonocapa}
       alt="Logo"
       width={180}
       height={100}
-      className="h-32 md:h-12 w-auto"
+      className="h-32 md:h-12 w-auto font-bold"
     />
   },
   {
-    name: 'FOREVER',
-    description: 'Mortero polivalente juntas',
+    name: 'Mortero juntas',
     icon: <Image
       src={MorteroPolivalente}
       alt="Logo"
@@ -36,8 +34,8 @@ const products = [
     />
   },
   {
-    name: 'MURAL SHIELD',
-    description: 'Protector de agua',
+   
+    name: 'Protector agua',
     icon: <Image
       src={MorteroProtector}
       alt="Logo"
@@ -47,8 +45,8 @@ const products = [
     />
   },
   {
-    name: 'TALISMAN TOOL',
-    description: 'Accesorios y herramientas',
+   
+    name: 'Accesorios y herramientas',
     icon: <Image
       src={AccesoriosHerramientas}
       alt="Logo"
@@ -58,8 +56,7 @@ const products = [
     />
   },
   {
-    name: 'VIKING',
-    description: 'Mortero cola',
+    name: 'Mortero cola',
     icon: <Image
       src={MorteroCola}
       alt="Logo"
@@ -69,8 +66,7 @@ const products = [
     />
   },
   {
-    name: 'PETRA',
-    description: 'Mortero impreso vertical',
+    name: 'Mortero impreso',
     icon: <Image
       src={MorteroImpreso}
       alt="Logo"
@@ -80,8 +76,7 @@ const products = [
     />
   },
   {
-    name: 'RHINO',
-    description: 'Puente de Unión',
+    name: 'Puente union',
     icon: <Image
       src={MorteroUnion}
       alt="Logo"
@@ -91,8 +86,7 @@ const products = [
     />
   },
   {
-    name: 'ARGAMASA',
-    description: 'Mortero de cal',
+    name: 'Mortero cal',
     icon: <Image
       src={MorteroCal}
       alt="Logo"
@@ -102,8 +96,7 @@ const products = [
     />
   },
   {
-    name: 'BELLA STONE',
-    description: 'Mortero china proyectada',
+    name: 'Mortero piedra',
     icon: <Image
       src={MorteroPiedra}
       alt="Logo"
@@ -112,23 +105,12 @@ const products = [
       className="h-32 md:h-12 w-auto"
     />
   },
-  {
-    name: 'TURBO MOTAR',
-    description: 'Pavimento autonivelante',
-    icon: <Image
-      src={MorteroMonocapa}
-      alt="Logo"
-      width={180}
-      height={100}
-      className="h-32 md:h-12 w-auto"
-    />
-  }
 ];
 
 export default function SolutionsSection() {
   return (
-    <section className="py-40 flex flex-col bg-[#f6eded]">
-      <div className=" mx-auto max-sm:px-2">
+    <section className="py-40 flex flex-col items-center justify-center bg-[#f6eded]">
+      <div className=" mx-auto px-8 max-w-6xl max-sm:px-2">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-6">Soluciones para la construcción</h2>
           <p className="text-lg max-w-4xl mx-auto">
@@ -136,18 +118,17 @@ export default function SolutionsSection() {
           </p>
         </div>
 
-      <div className="grid md:grid-flow-col items-center justify-center grid-rows-3 md:grid-rows-5 sm:grid-cols-1 lg:grid-rows-3 gap-y-8 gap-x-12">
-          {products.map((product) => (
-            <div key={product.name} className="flex items-center gap-2">
-              <div className=" flex-shrink-0">
-                {product.icon}
+        <div className="grid md:grid-flow-col  items-center justify-center grid-rows-3 md:grid-rows-5 sm:grid-cols-1 lg:grid-rows-3 gap-y-8 gap-x-48">
+            {products.map((product) => (
+              <div key={product.name} className="flex items-center gap-2">
+                <div className=" flex-shrink-0">
+                  {product.icon}
+                </div>
+                <div className='max-w-[110px]'>
+                  <h3 className="text-lg  font-bold">{product.name.toLocaleUpperCase()}</h3>
+                </div>
               </div>
-              <div>
-                <h3 className="text-md font-bold">{product.name}</h3>
-                <p className=" font-medium text-lg">{product.description}</p>
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </section>

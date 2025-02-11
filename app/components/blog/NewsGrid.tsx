@@ -38,7 +38,7 @@ const newsItems = [
 
 export default function NewsGrid() {
   return (
-    <section className="lg:py-20 p-10">
+    <section className="lg:py-20 py-10">
       <div className="mx-auto px-20 md:pd-8 max-sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
           {newsItems.map((item, index) => (
