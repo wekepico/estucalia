@@ -61,10 +61,10 @@ export default function ClientNavigation() {
   return (
     <header
       onClick={() => setHoveredMenu(null)}
-      className="fixed top-0 left-0 right-0 z-50 bg-black"
+      className="fixed top-0 left-0 right-0 z-50  bg-black"
     >
-      <div className="container relative font-[600] text-lg mx-auto">
-        <div className="flex justify-between items-center px-8 py-6">
+      <div className=" relative font-[600] max-w-[120rem] text-lg mx-auto">
+        <div className="flex justify-between items-center px-20 py-6">
           {/* Aquí se muestra el dropdown de Empresa (solo en desktop, ver el componente) */}
           <DropdownEmpresa />
 
@@ -91,8 +91,8 @@ export default function ClientNavigation() {
         </div>
 
         {/* NAV central (solo en desktop) */}
-        <nav className="border-t border-gray-500 mx-8">
-          <div className="lg:flex items-center justify-center px-8 py-6 hidden">
+        <nav className="border-t border-gray-500 mx-20">
+          <div className="lg:flex items-center justify-center  px-8 py-6 hidden">
             <NavigationMenu>
               <NavigationMenuList className="flex w-full gap-8">
                 {menuLinks.map((link, index) => (
@@ -126,7 +126,7 @@ export default function ClientNavigation() {
                       )}
                     </NavigationMenuItem>
                     {link.submenu && (
-                      <div className={`absolute ${hoveredMenu === link.label ? "opacity-100 visible" : "opacity-0 invisible"
+                      <div className={`absolute max-w-[120rem] ${hoveredMenu === link.label ? "opacity-100 visible" : "opacity-0 invisible"
                         } transition-all duration-300 ease-in-out top-full mx-auto pt-10 text-center w-[102vw] h-[350px] mt-6 backdrop-blur-[2px]  backdrop-opacity-80"`}
                         style={{
                           background: "rgba(0, 5, 0, 0.6)",

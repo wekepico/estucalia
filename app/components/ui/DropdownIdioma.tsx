@@ -7,6 +7,16 @@ export default function DropdownIdioma() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+    // Manejar el hover sobre el botón
+    const handleMouseEnter = () => {
+      setIsOpen(true);
+    };
+  
+    // Manejar el hover fuera del dropdown
+    const handleMouseLeave = () => {
+      setIsOpen(false);
+    };
+
   useEffect(() => {
     // Cerrar el dropdown al hacer scroll
     const handleScroll = () => setIsOpen(false);
@@ -37,7 +47,9 @@ export default function DropdownIdioma() {
   };
 
   return (
-    <div className="relative hidden lg:block " ref={dropdownRef}>
+    <div className="relative hidden lg:block " ref={dropdownRef}
+    onMouseEnter={handleMouseEnter}
+    >
       {/* Botón para abrir/cerrar */}
       <button
         onClick={handleToggle}
@@ -54,6 +66,7 @@ export default function DropdownIdioma() {
           transition-all duration-300 ease-in-out transform origin-top
           ${isOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"}
         `}
+        onMouseLeave={handleMouseLeave}
       >
         <ul>
           <li>

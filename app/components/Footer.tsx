@@ -9,9 +9,9 @@ import { FaSquareYoutube } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-sm flex justify-center text-white py-20">
-      <div className="container max-w-[120rem] ">
-        <div className="flex relative max-lg:flex-col flex-wrap justify-center max-sm:items-start max-sm:pl-8 items-center w-full max-sm:text-sm gap-20 ">
+    <footer className="bg-black text-sm mx-auto w-full   text-white py-20">
+      <div className="max-w-[120rem] mx-auto px-20">
+        <div className="flex relative max-lg:flex-col flex-wrap items-center max-sm:items-start max-sm:pl-8 w-full max-sm:text-sm justify-between gap-y-12">
           {/* Logo Column */} 
           <div className="flex">
             <Image
@@ -19,12 +19,12 @@ export default function Footer() {
               alt="Grupo Estucalia"
               width={200}
               height={100}
-              className="mb-6 max-sm:-ml-3 h-14 w-auto absolute"
+              className="mb-6 -ml-2 h-14 w-auto absolute"
             />
             <p className="mt-36  text-gray-100">Copyright©2025</p>
           </div>
 
-          <div className=' flex gap-10 lg:pl-40 max-sm:flex-col'>
+          <div className=' flex gap-10 lg:pl-32 max-sm:flex-col'>
             {/* Legal Texts */}
             <div className='w-max'>
               <h3 className="text-sm text-white font-bold mb-2">TEXTOS LEGALES</h3>

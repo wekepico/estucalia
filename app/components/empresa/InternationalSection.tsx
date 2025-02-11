@@ -10,7 +10,7 @@ export default function InternationalSection() {
     <section className="relative min-h-[1100px]  flex items-center">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
           backgroundImage: "url('img/internacionales.jpg')"
         }}
@@ -40,7 +40,7 @@ export default function InternationalSection() {
                   {country}
                 </span>
                 {index < countries.length - 1 && (
-                  <span className="text-blue-400 last:hidden">,</span>
+                  <span className="last:hidden">,</span>
                 )}
               </React.Fragment>
             ))}
