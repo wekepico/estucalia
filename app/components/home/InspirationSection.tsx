@@ -49,13 +49,13 @@ export default function InspirationSection() {
             }}
           />
         </div>
-      <div className="container mx-auto px-4">
+      <div className="px-20 mx-auto">
        
-        <h2 className="text-2xl font-bold mb-8 px-8">Inspiración</h2>
+        <h2 className="text-2xl font-bold mb-8 ">Inspiración</h2>
         
 
         {/* Image Grid */}
-        <div className="grid grid-cols-2 px-8 md:grid-cols-4 gap-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
           {inspirationImages.map((image, index) => (
             <div 
               key={index} 
@@ -69,7 +69,7 @@ export default function InspirationSection() {
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
             </div>
-          ))}
+          ))} 
         </div>
       </div>
     </section>

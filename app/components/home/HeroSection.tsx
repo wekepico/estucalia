@@ -9,7 +9,7 @@ export default function HeroSection() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
-          backgroundImage: "url('/img/home.jpg')"
+          backgroundImage: "url('/img/Home.jpg')"
         }}
       />
       {/* Overlay oscuro */}

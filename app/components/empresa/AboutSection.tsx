@@ -8,11 +8,11 @@ export default function AboutSection() {
   return (
     <div>
       {/* Top Section */}
-      <section className="relative bg-white">
-        <div className="mx-auto px-28 max-sm:px-2">
+      <section className="relative px-20 bg-white">
+        <div className="mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 max-sm:gap-y-8 items-center">
             {/* Text Content */}
-            <div className='lg:p-12 max-sm:px-2'>
+            <div className=''>
               <h2 className="text-3xl font-bold mb-2">Somos Grupo Estucalia</h2>
               <p className="text-lg leading-relaxed">
                 Grupo Estucalia está compuesto por varias empresas especializadas 

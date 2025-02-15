@@ -49,8 +49,8 @@ const products = [
 
 export default function FinishesSection() {
   return (
-    <section className="py-8 md:py-16 px-4 md:px-16 bg-white">
-      <div className="max-w-[1500px] mx-auto">
+    <section className="py-8 md:py-16 px-20 bg-white">
+      <div className="mx-auto">
         <h2 className="text-xl md:text-2xl font-bold mb-4">Acabados</h2>
 
         {/* Categories Scroll */}

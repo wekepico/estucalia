@@ -201,7 +201,7 @@ export default function ClientNavigation() {
                     <Link href="/contacto" onClick={handleLinkClick}>
                       Contacto
                     </Link>
-                  </li>
+                  </li> 
                 </ul>
               </div>
 

@@ -2,17 +2,18 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Linkedin, Facebook, Instagram, Youtube, FacebookIcon } from 'lucide-react';
 import Link from 'next/link';
-import { FaFacebook, FaInstagramSquare, FaLinkedin } from "react-icons/fa";
-import { FaSquareYoutube } from "react-icons/fa6";
+import { RxInstagramLogo } from "react-icons/rx";
+import { FaFacebook, FaSquareYoutube, FaYoutube } from "react-icons/fa6";
+
+import { TiSocialLinkedin,TiSocialFacebook } from "react-icons/ti";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-sm mx-auto w-full   text-white py-20">
+    <footer className="bg-black text-sm mx-auto w-full text-white py-20">
       <div className="max-w-[120rem] mx-auto px-20">
         <div className="flex relative max-lg:flex-col flex-wrap items-center max-sm:items-start max-sm:pl-8 w-full max-sm:text-sm justify-between gap-y-12">
-          {/* Logo Column */} 
+          {/* Logo Column */}
           <div className="flex">
             <Image
               src="/img/logo.png"
@@ -21,7 +22,7 @@ export default function Footer() {
               height={100}
               className="mb-6 -ml-2 h-14 w-auto absolute"
             />
-            <p className="mt-36  text-gray-100">Copyright©2025</p>
+            <p className="mt-36 text-gray-100">Copyright©2025</p>
           </div>
 
           <div className=' flex gap-10 lg:pl-32 max-sm:flex-col'>
@@ -81,22 +82,30 @@ export default function Footer() {
             </div>
 
             {/* Social Links */}
-            <div className="flex flex-col gap-2 ">
+            <div className="flex flex-col items-start justify-center gap-2 ">
               <h3 className="font-bold mb-2">SÍGUENOS</h3>
-              <Link href="#" className="text-gray-200 flex gap-2 hover:text-white transition-colors">
-                <FaLinkedin className="w-6 h-6 rounded-full" />
+              <Link href="#" className="text-gray-200 items-center flex gap-2 hover:text-white transition-colors">
+                <div className='p-1 mx-auto rounded-full bg-white text-black'>
+                  <TiSocialLinkedin className="w-5 h-5 rounded-full" />
+                </div>
                 <p>Linkedin</p>
               </Link>
-              <Link href="#" className="text-gray-200 flex gap-2 hover:text-white transition-colors">
-                <FaFacebook className="w-6 h-6" />
+              <Link href="#" className="text-gray-200 flex items-center gap-2 hover:text-white transition-colors">
+              <div className='p-1 mx-auto rounded-full bg-white text-black'>
+                <TiSocialFacebook className="w-5 h-5" />
+              </div>
                 <p>Facebook</p>
               </Link>
-              <Link href="#" className="text-gray-200 flex gap-2 hover:text-white transition-colors">
-                <FaInstagramSquare className="w-6 h-6 rounded-full" />
+              <Link href="#"  className="text-gray-200 flex gap-2 hover:text-white items-center transition-colors">
+                <div className='p-1 mx-auto rounded-full bg-white text-black'>
+                  <RxInstagramLogo className="w-5 h-5 rounded-full" />
+                </div>
                 <p>Instagram</p>
               </Link>
-              <Link href="#" className="text-gray-200 flex gap-2 hover:text-white transition-colors">
-                <FaSquareYoutube className="w-6 h-6 rounded-full " />
+              <Link href="#" className="text-gray-200 flex gap-2 items-center hover:text-white transition-colors">
+                <div className='p-1 mx-auto rounded-full bg-white text-black'>
+                  <FaYoutube className="w-5 h-5 rounded-full bg-white" />
+                </div>
                 <p>Youtube</p>
               </Link>
             </div>
