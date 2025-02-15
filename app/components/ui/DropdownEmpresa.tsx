@@ -6,18 +6,63 @@ import Link from "next/link";
 export default function DropdownEmpresa() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const mousePositionRef = useRef({ x: 0, y: 0 });
 
+  // Distancia mínima en píxeles para cerrar el dropdown
+  const CLOSE_DISTANCE = 100;
+  // Tiempo de espera antes de verificar la posición
+  const CLOSE_DELAY = 300;
 
-  // Manejar el hover sobre el botón
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      mousePositionRef.current = { x: e.clientX, y: e.clientY };
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousemove', handleMouseMove);
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [isOpen]);
+
+  const checkMouseDistance = () => {
+    if (!dropdownRef.current) return false;
+    
+    const dropdownRect = dropdownRef.current.getBoundingClientRect();
+    const { x: mouseX, y: mouseY } = mousePositionRef.current;
+
+    // Calcular distancia desde el dropdown
+    const distanceFromTop = mouseY - dropdownRect.top;
+    const distanceFromBottom = dropdownRect.bottom - mouseY;
+    const distanceFromLeft = mouseX - dropdownRect.left;
+    const distanceFromRight = dropdownRect.right - mouseX;
+
+    return (
+      distanceFromTop > CLOSE_DISTANCE ||
+      distanceFromBottom > CLOSE_DISTANCE ||
+      distanceFromLeft > CLOSE_DISTANCE ||
+      distanceFromRight > CLOSE_DISTANCE
+    );
+  };
+
+  const handleMouseLeave = () => {
+    timerRef.current = setTimeout(() => {
+      if (checkMouseDistance()) {
+        setIsOpen(false);
+      }
+    }, CLOSE_DELAY);
+  };
+
   const handleMouseEnter = () => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
     setIsOpen(true);
   };
-
-  // Manejar el hover fuera del dropdown
-  const handleMouseLeave = () => {
-    setIsOpen(false);
-  };
-
 
   useEffect(() => {
     // Cerrar el dropdown al hacer scroll
@@ -25,10 +70,7 @@ export default function DropdownEmpresa() {
 
     // Cerrar dropdown si se hace click fuera de él
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
@@ -39,44 +81,38 @@ export default function DropdownEmpresa() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleClickOutside);
+      if (timerRef.current) clearTimeout(timerRef.current);
     };
   }, []);
 
-  // Manejar el click en el "botón"
-  const handleToggle = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Para que no dispare el clickOut
-    setIsOpen((prev) => !prev);
-  };
-
   return (
-    <div className="relative hidden lg:block " ref={dropdownRef}
-    
-    onMouseEnter={handleMouseEnter}
+    <div 
+      className="relative hidden lg:block"
+      ref={dropdownRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      {/* Botón para abrir/cerrar */}
       <button
-        onClick={handleToggle}
         className="text-white hover:text-gray-400 transition-colors"
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen((prev) => !prev);
+        }}
       >
         Empresa
       </button>
 
-      {/* Menú: siempre presente en el DOM, pero con clases condicionales */}
       <div
-        className={`
-          absolute top-full rounded-lg left-0 mt-2 w-48 bg-black border border-gray-700 shadow-md 
-          z-50 overflow-hidden 
-          transition-all duration-300 ease-in-out transform origin-top
-          ${isOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"}
-        `}
-        onMouseLeave={handleMouseLeave}
+        className={`absolute top-full left-0 mt-2 w-48 bg-black rounded-lg shadow-md transition-all duration-300 ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
       >
         <ul>
           <li>
             <Link
               href="/empresa"
               className="block px-4 py-2 text-white hover:bg-gray-800"
-              onClick={()=>setIsOpen(false)}
+              onClick={() => setIsOpen(false)}
             >
               Sobre Nosotros
             </Link>
@@ -85,7 +121,7 @@ export default function DropdownEmpresa() {
             <Link
               href="/trabaja-con-nosotros"
               className="block px-4 py-2 text-white hover:bg-gray-800"
-              onClick={()=>setIsOpen(false)}
+              onClick={() => setIsOpen(false)}
             >
               Trabaja con nosotros
             </Link>
@@ -94,7 +130,7 @@ export default function DropdownEmpresa() {
             <Link
               href="/blog"
               className="block px-4 py-2 text-white hover:bg-gray-800"
-              onClick={()=>setIsOpen(false)}
+              onClick={() => setIsOpen(false)}
             >
               Blog
             </Link>
@@ -103,7 +139,7 @@ export default function DropdownEmpresa() {
             <Link
               href="/contacto"
               className="block px-4 py-2 text-white hover:bg-gray-800"
-              onClick={()=>setIsOpen(false)}
+              onClick={() => setIsOpen(false)}
             >
               Contacto
             </Link>

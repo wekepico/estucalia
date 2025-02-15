@@ -10,7 +10,7 @@ export default function ProjectHelpSection() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80')"
+          backgroundImage: "url('/img/help.jpg')"
         }}
       >
         <div className="absolute inset-0 bg-black/30" />

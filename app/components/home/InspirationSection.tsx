@@ -4,27 +4,27 @@ import React from 'react';
 
 const inspirationImages = [
   {
-    url: "https://img.freepik.com/premium-photo/residential-building-sky-background-facade-modern-housing-construction-with-balconies_991208-12480.jpg",
-    alt: "Curved architectural detail"
+    url: "img/img-1.jpg",
+    alt: "Modern facade detail"
   },
   {
-    url: "https://www.crosscountry-consulting.com/wp-content/uploads/2023/01/AdobeStock_353155691-scaled.jpeg",
-    alt: "Geometric patterns in architecture"
+    url: "img/home.jpg",
+    alt: "Urban architecture"
   },
   {
-    url: "https://img.freepik.com/premium-photo/3d-visualization-house-luxury-3d-rendering_1128603-7388.jpg",
-    alt: "Modern building facade"
+    url: "img/img-3.jpg",
+    alt: "Minimalist building design"
   },
   {
-    url: "https://www.themetechmount.com/wordpress/buildtab/advanced/wp-content/uploads/sites/11/2023/04/04-650x700.jpg",
-    alt: "Linear architectural patterns"
+    url: "img/img-4.jpg",
+    alt: "Contemporary architecture"
   },
   {
     url: "img/img3.jpg",
     alt: "Modern facade detail"
   },
   {
-    url: "img/img4.jpg",
+    url: "img/img-8.jpg",
     alt: "Urban architecture"
   },
   {
@@ -32,7 +32,7 @@ const inspirationImages = [
     alt: "Minimalist building design"
   },
   {
-    url: "img/img2.jpg",
+    url: "img/image1.jpg",
     alt: "Contemporary architecture"
   },
 ];
@@ -41,11 +41,11 @@ export default function InspirationSection() {
   return (
     <section className="py-32  bg-white">
        {/* Featured Image */}
-       <div className="relative h-[400px] mb-24">
+       <div className="relative h-[500px] mb-24">
           <div 
             className="absolute inset-0 bg-cover bg-fixed bg-center"
             style={{
-              backgroundImage: "url('https://www.epgdlaw.com/wp-content/uploads/2023/08/135042701_m_normal_none-scaled.jpg')"
+              backgroundImage: "url('/img/bg-up.png')"
             }}
           />
         </div>

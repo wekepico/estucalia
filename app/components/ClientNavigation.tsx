@@ -77,6 +77,7 @@ export default function ClientNavigation() {
                 width={180}
                 height={100}
                 className="h-14 w-auto"
+                
               />
             </Link>
           </div>

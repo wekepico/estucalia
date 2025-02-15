@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -13,27 +13,27 @@ const categories = [
 
 const spaces = [
   {
-    image: "https://www.inenco.com/wp-content/uploads/2020/07/shutterstock_1544096003.gif",
+    image: "/img/image1.jpg",
     title: "Revestimientos"
   },
   {
-    image: "https://c.stocksy.com/a/HOH400/z9/1020165.jpg",
+    image: "/img/imge2.jpg",
     title: "Revocos y enlucidos"
   },
   {
-    image: "https://rentpath-res.cloudinary.com/$img_current/t_3x2_webp_2xl/t_unpaid/5428c1bc8e3dc04f4b461522071c76bf",
+    image: "/img/image3.jpg",
     title: "Albañilería"
   },
   {
-    image: "https://www.inenco.com/wp-content/uploads/2020/07/shutterstock_1544096003.gif",
+    image: "/img/image1.jpg",
     title: "Revestimientos"
   },
   {
-    image: "https://c.stocksy.com/a/HOH400/z9/1020165.jpg",
+    image: "/img/imge2.jpg",
     title: "Revocos y enlucidos"
   },
   {
-    image: "https://rentpath-res.cloudinary.com/$img_current/t_3x2_webp_2xl/t_unpaid/5428c1bc8e3dc04f4b461522071c76bf",
+    image: "/img/image3.jpg",
     title: "Albañilería"
   },
 ];
@@ -42,19 +42,34 @@ export default function SpacesSection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const [visibleCards, setVisibleCards] = useState(3); // Número de tarjetas visibles
+
+  useEffect(() => {
+    const updateVisibleCards = () => {
+      if (window.innerWidth < 768) {
+        setVisibleCards(1); // 1 tarjeta en móvil
+      } else if (window.innerWidth < 1024) {
+        setVisibleCards(2); // 2 tarjetas en tablet
+      } else {
+        setVisibleCards(3); // 3 tarjetas en desktop
+      }
+    };
+
+    updateVisibleCards();
+    window.addEventListener('resize', updateVisibleCards);
+
+    return () => window.removeEventListener('resize', updateVisibleCards);
+  }, []);
 
   const handleScroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const firstCard = container.querySelector('.carousel-card') as HTMLDivElement;
-
-      // Get the width of the first card (or fallback to a default value)
-      const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 280;
+      const cardWidth = container.offsetWidth / visibleCards;
 
       container.scrollTo({
         left: direction === 'right'
-          ? container.scrollLeft + cardWidth + 65
-          : container.scrollLeft - (cardWidth + 65),
+          ? container.scrollLeft + cardWidth+28
+          : container.scrollLeft - (cardWidth+28),
         behavior: 'smooth'
       });
     }
@@ -88,7 +103,7 @@ export default function SpacesSection() {
               {categories.map((category) => (
                 <div key={category}>
                   <Link
-                    className='text-base md:text-xl p-0 mr-4 md:mr-6 hover:border-b pb-1 hover:border-black'
+                    className='text-base md:text-xl p-0 mr-3 md:mr-6 hover:border-b pb-1 hover:border-black'
                     href={"/#"}
                   >
                     {category}
@@ -130,14 +145,18 @@ export default function SpacesSection() {
           onTouchEnd={handleTouchEnd}
           className="relative overflow-x-hidden scroll-smooth"
         >
-          <div className="flex gap-8 md:gap-16">
+          <div className="flex gap-8 md:gap-14">
             {spaces.map((space) => (
               <Card
                 key={space.title}
-                className="flex flex-col min-w-[280px] md:min-w-[450px] border-none shadow-none carousel-card"
+                className="flex flex-col border-none shadow-none carousel-card"
+                style={{
+                  minWidth: `calc(${100 / visibleCards}% - ${(visibleCards - 1) * 16}px)`,
+                  scrollSnapAlign: 'start'
+                }}
               >
                 <CardContent className="p-0">
-                  <div className="relative h-[400px] md:h-[650px] group">
+                  <div className="relative h-[380px] md:h-[550px] group">
                     <div
                       className="absolute inset-0 bg-cover bg-center"
                       style={{

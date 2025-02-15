@@ -30,7 +30,7 @@ export default function NewsSection() {
         <div
           className="absolute inset-0 bg-cover bg-fixed bg-center"
           style={{
-            backgroundImage: "url('https://www.inenco.com/wp-content/uploads/2020/07/shutterstock_1544096003.gif')"
+            backgroundImage: "url('/img/bg-down.png')"
           }}
         />
       </div>
