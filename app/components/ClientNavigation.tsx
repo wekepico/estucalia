@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -13,6 +13,7 @@ import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import DropdownEmpresa from "./ui/DropdownEmpresa";
 import DropdownIdioma from "./ui/DropdownIdioma";
+import { Button } from "./ui/button";
 
 
 // Importar tu dropdown
@@ -63,8 +64,8 @@ export default function ClientNavigation() {
       onClick={() => setHoveredMenu(null)}
       className="fixed top-0 left-0 right-0 z-50  bg-black"
     >
-      <div className=" relative font-[600] max-w-[120rem] text-lg mx-auto">
-        <div className="flex justify-between items-center px-20 py-6">
+      <div className=" relative font-[600] max-w-[120rem]  text-lg mx-auto">
+        <div className="flex justify-between items-center md:px-15 sm:px-10 px-5 lg:px-20 py-6">
           {/* Aquí se muestra el dropdown de Empresa (solo en desktop, ver el componente) */}
           <DropdownEmpresa />
 
@@ -92,7 +93,7 @@ export default function ClientNavigation() {
         </div>
 
         {/* NAV central (solo en desktop) */}
-        <nav className="border-t border-gray-500 mx-20">
+        <nav className="border-t border-gray-500 md:mx-15 sm:mx-10 mx-5 lg:mx-20">
           <div className="lg:flex items-center justify-center  px-8 py-6 hidden">
             <NavigationMenu>
               <NavigationMenuList className="flex w-full gap-8">
@@ -171,7 +172,7 @@ export default function ClientNavigation() {
         } transition-transform duration-300 ease-in-out lg:hidden z-50`}
       >
         <div className="flex justify-end p-4">
-          <Button onClick={toggleSidebar}>
+          <Button variant="outline" className="text-white rounded-full" onClick={toggleSidebar}>
             <X />
           </Button>
         </div>
@@ -179,26 +180,26 @@ export default function ClientNavigation() {
           <NavigationMenu>
             <NavigationMenuList className="flex flex-col items-start gap-4">
               {/* Empresa en móvil (sin dropdown, o lo que prefieras) */}
-              <div className="text-white font-semibold">Empresa</div>
+              <div className="text-white border-b border-white font-semibold">Empresa</div>
               <div className="ml-3 mb-4">
-                <ul className="space-y-2">
+                <ul className="space-y-2 text-white">
                   <li>
-                    <Link href="/sobre-nosotros" onClick={handleLinkClick}>
+                    <Link href="/empresa" key={"/about-us"} onClick={handleLinkClick}>
                       Sobre Nosotros
                     </Link>
                   </li>
                   <li>
-                    <Link href="/trabaja-con-nosotros" onClick={handleLinkClick}>
+                    <Link href="/trabaja-con-nosotros" key='work with us' onClick={handleLinkClick}>
                       Trabaja con nosotros
                     </Link>
                   </li>
                   <li>
-                    <Link href="/blog" onClick={handleLinkClick}>
+                    <Link href="/blog" key='blog' onClick={handleLinkClick}>
                       Blog
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contacto" onClick={handleLinkClick}>
+                    <Link href="/contacto" key='contact' onClick={handleLinkClick}>
                       Contacto
                     </Link>
                   </li> 

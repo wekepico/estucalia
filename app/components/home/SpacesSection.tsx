@@ -93,7 +93,7 @@ export default function SpacesSection() {
   };
 
   return (
-    <section className="py-16 md:py-32 px-4 md:px-20 bg-white">
+    <section className="py-16 md:py-32 md:px-15 sm:px-10 px-5 lg:px-20  bg-white">
       <div className="mx-auto">
         <h2 className="text-2xl font-bold mb-4 md:mb-6">Espacios</h2>
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">

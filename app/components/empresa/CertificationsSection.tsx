@@ -5,7 +5,7 @@ import Logos from "../../../public/img/logos-licencia.png"
 
 export default function CertificationsSection() {
   return (
-    <section className="py-32 bg-[#F5F5F5]"   style={{backgroundColor: "rgba(222, 221, 221)"}}>
+    <section className="py-32 bg-[#F5F5F5] px-5"   style={{backgroundColor: "rgba(222, 221, 221)"}}>
       <div className="  mx-auto">
         <div className="max-w-4xl max-sm:px-2 mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">

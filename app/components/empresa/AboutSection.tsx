@@ -8,7 +8,7 @@ export default function AboutSection() {
   return (
     <div>
       {/* Top Section */}
-      <section className="relative px-20 bg-white">
+      <section className="relative md:px-15 sm:px-10 px-5 lg:px-20 bg-white">
         <div className="mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 max-sm:gap-y-8 items-center">
             {/* Text Content */}
@@ -39,7 +39,7 @@ export default function AboutSection() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-36 bg-[#f1e9e9]">
+      <section className="py-36 px-5 bg-[#f1e9e9]">
         <div className="mx-auto  max-sm:px-0 text-center">
           <h3 className="text-3xl font-bold mb-6">
             Nuestra misión: satisfacer al cliente

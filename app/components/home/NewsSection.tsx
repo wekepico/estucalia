@@ -35,7 +35,7 @@ export default function NewsSection() {
         />
       </div>
       
-      <div className="mx-auto px-20 ">
+      <div className="mx-auto md:px-15 sm:px-10 px-5 lg:px-20  ">
         <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-center md:text-left">
           Actualidad
         </h2>

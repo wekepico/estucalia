@@ -33,7 +33,7 @@ export default function NewsSection() {
           Actualidad
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 px-20 md:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 md:px-15 sm:px-10 px-5 lg:px-20 md:gap-16">
           {newsItems.map((item, index) => (
             <Card
               key={index}

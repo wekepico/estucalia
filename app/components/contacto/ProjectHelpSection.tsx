@@ -17,7 +17,7 @@ export default function ProjectHelpSection() {
       </div>
 
       {/* Contenido */}
-      <div className="relative px-20">
+      <div className="relative md:px-15 sm:px-10 px-5 lg:px-20">
         <div className="max-w-[27rem]  mx-auto bg-slate-100" style={{ backgroundColor: "rgba(255, 255, 250, 0.8)" }}>
           <div className="p-6 md:p-12">
             {/* Título */}
