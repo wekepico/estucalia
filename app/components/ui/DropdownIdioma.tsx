@@ -83,7 +83,7 @@ export default function DropdownIdioma() {
       </button>
 
       <div
-        className={`absolute top-full left-0 mt-2 w-12 bg-black shadow-md transition-all duration-300 ${
+        className={`absolute top-full left-0 mt-2 w-12 bg-black shadow-md z-20 transition-all duration-300 ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >

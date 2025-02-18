@@ -47,7 +47,7 @@ export default function ClientNavigation() {
   // Eliminamos la entrada de "Empresa" del menuLinks (porque ahora es un componente aparte)
   const menuLinks = [
     { href: "/productos", label: "Productos", submenu: ["Tipo 1", "Tipo 2", "Tipo 3"] },
-    { href: "/aplicaiones", label: "Aplicaciones", submenu: ["Aplicación 1", "Aplicación 2"] },
+    { href: "/aplicaiones", label: "Aplicaciones", submenu: ["Revestimientos", "Revocos y enlucidos","Albañilería","Baldosas","Recrecidos","Aislamiento térmico","Impermeabilización","Deshumidificación"] },
     { href: "/espacios", label: "Espacios", submenu: ["Espacio 1", "Espacio 2"] },
     { href: "/acabados", label: "Acabados", submenu: ["Acabado 1", "Acabado 2"] },
     { href: "/inspiracion", label: "Inspiración", submenu: ["Acabado 1", "Acabado 2"] },
@@ -106,42 +106,40 @@ export default function ClientNavigation() {
                       {link.label !== "Empresa" && link.label !== "Idiomas" && (
                         <div
                           key={index}
-                          className="relative group"
                           onMouseEnter={() => setHoveredLink(link.label)}
                           onMouseLeave={() => setHoveredLink(null)}
                         >
-                          <Link
-                            href={link.href}
-                            className="text-white pb-2 relative"
+                          <div
+                            className="text-white pb-2 cursor-default "
                           >
                             {link.label}
                             <div className={`
-                                 absolute bottom-0 left-0 w-full h-[2px] bg-white 
+                                  bottom-0 left-0 w-full h-[2px] bg-white 
                                  origin-center transform transition-transform duration-300 
                                ${(hoveredLink === link.label || pathname === link.href) ? 'scale-x-100' : 'scale-x-0'}
                                `}>
                             
                             </div>
-                          </Link>
+                          </div>
                         </div>
 
                       )}
                     </NavigationMenuItem>
                     {link.submenu && (
                       <div className={`absolute max-w-[120rem] ${hoveredMenu === link.label ? "opacity-100 visible" : "opacity-0 invisible"
-                        } transition-all duration-300 ease-in-out top-full mx-auto pt-10 text-center w-[102vw] h-[350px] mt-6 backdrop-blur-[2px]  backdrop-opacity-80"`}
+                        } transition-all duration-300 ease-in-out top-full mx-auto  pt-10 text-center w-[102vw] h-[350px] mt-6 backdrop-blur-[2px]  backdrop-opacity-80"`}
                         style={{
                           background: "rgba(0, 5, 0, 0.6)",
                         }}
                         onMouseLeave={() => setHoveredMenu(null)}
                       >
-                        <ul className="py-2">
+                        <ul className=" grid grid-cols-3 gap-3 md:px-48 lg:px-56 py-12">
                           {link.submenu.map((subItem, subIndex) => (
                             <li
                               key={subIndex}
-                              className="px-4 py-2 hover:underline"
+                              className=" hover:underline"
                             >
-                              <Link href="#" className="text-white block">
+                              <Link href={`/aplicaciones/${subItem.toLocaleLowerCase()}`} className="text-white block">
                                 {subItem}
                               </Link>
                             </li>

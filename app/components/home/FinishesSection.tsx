@@ -8,6 +8,7 @@ import Link from 'next/link';
 import MorteroCal from '../../../public/img/mortero-cal.svg'
 import MorteroMonocapa from '../../../public/img/mortero-monocapa.svg'
 import MorteroImpreso from '../../../public/img/mortero-impreso.svg'
+import { ProductCard } from './components/ProductCard';
 
 
 const categories = [
@@ -17,33 +18,17 @@ const categories = [
 const products = [
   {
     name: 'Mortero monocapa',
-    icon: <Image
-      src={MorteroCal}
-      alt="Logo"
-      width={180}
-      height={100}
-      className="h-32 md:h-48 w-auto"
-    />
+    icon: MorteroCal
+   
   },
   {
     name: 'Mortero de cal',
-    icon: <Image
-      src={MorteroMonocapa}
-      alt="Logo"
-      width={180}
-      height={100}
-      className="h-32 md:h-48 w-auto"
-    />
+    icon: MorteroMonocapa
+
   },
   {
     name: 'Mortero impreso',
-    icon: <Image
-      src={MorteroImpreso}
-      alt="Logo"
-      width={180}
-      height={100}
-      className="h-32 md:h-48 w-auto"
-    />
+    icon: MorteroImpreso
   }
 ];
 
@@ -73,36 +58,10 @@ export default function FinishesSection() {
 
         {/* Product Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-          {products.map((product) => (
-            <div key={product.name} className="bg-stone-50 group hover:bg-stone-100 transition-colors">
-              <div className="px-4 py-8 md:px-8 md:py-16 lg:px-16 lg:py-20 flex flex-col items-center text-center">
-                <div className="mb-4 md:mb-6">
-                  {product.icon}
-                </div>
-                <h3 className="text-lg md:text-xl font-bold mb-1">{product.name.toLocaleUpperCase()}</h3>
-              </div>
-              <div className='w-full p-4 flex justify-end'>
-                <Button
-                  variant="ghost"
-                  className="p-0 h-auto hover:bg-transparent group-hover:text-black text-base md:text-lg"
-                >
-                  <span className="mr-2">Ver producto</span>
-                  <svg
-                    className="w-10 h-10 md:w-12 md:h-12 transform transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={0.5}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Button>
-              </div>
-            </div>
+          {products.map((product) => (  
+          <div key={product.name}>
+            <ProductCard icon={product.icon} name={product.name} />
+          </div>
           ))}
         </div>
       </div>

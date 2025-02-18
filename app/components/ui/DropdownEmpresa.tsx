@@ -103,7 +103,7 @@ export default function DropdownEmpresa() {
       </button>
 
       <div
-        className={`absolute top-full left-0 mt-2 w-48 bg-black shadow-md transition-all duration-300 ${
+        className={`absolute top-full left-0 mt-2 w-48 bg-black z-20 shadow-md transition-all duration-300 ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
