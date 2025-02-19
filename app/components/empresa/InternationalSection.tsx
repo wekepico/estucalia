@@ -24,23 +24,23 @@ export default function InternationalSection() {
                     background: "rgba(0, 2, 0, 0.8)", // Fondo negro con opacidad del 80%
                   }}
       >
-        <div className="max-w-4xl mx-auto text-center max-sm:px-2">
-          <h2 className="text-4xl font-light mb-4">Internacionales</h2>
-          <p className="text-lg mb-4">
-            Grupo Estucalia está presente en el extranjero, teniendo distribuidores y clientes en lugares como
+        <div className="max-w-4xl flex flex-col mx-auto  text-center max-sm:px-2">
+          <h2 className="text-4xl font-light leading-6 mb-4">Internacionales</h2>
+          <p className="text-lg  leading-6 mb-4">
+            Grupo Estucalia está presente en el extranjero, teniendo distribuidores y clientes en lugares como:
           </p>
 
           {/* Countries Grid */}
-          <div className="flex flex-wrap justify-center  gap-2"
+          <div className="flex flex-wrap justify-center  gap-1"
 
           >
             {countries.map((country, index) => (
               <React.Fragment key={country}>
-                <span className="text-lg font-bold transition-colors ">
+                <span className="text-lg font-bold   transition-colors ">
                   {country}
                 </span>
                 {index < countries.length - 1 && (
-                  <span className="last:hidden">,</span>
+                  <span className="last:hidden ">-</span>
                 )}
               </React.Fragment>
             ))}

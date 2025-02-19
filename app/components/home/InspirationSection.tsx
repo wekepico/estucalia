@@ -8,7 +8,7 @@ const inspirationImages = [
     alt: "Modern facade detail"
   },
   {
-    url: "img/home.jpg",
+    url: "img/Home.jpg",
     alt: "Urban architecture"
   },
   {
@@ -39,9 +39,9 @@ const inspirationImages = [
 
 export default function InspirationSection() {
   return (
-    <section className="py-32  bg-white">
+    <section className=" py-48  bg-white">
        {/* Featured Image */}
-       <div className="relative h-[500px] mb-24">
+       <div className="relative h-[500px] mb-32">
           <div 
             className="absolute inset-0 bg-cover bg-fixed bg-center"
             style={{

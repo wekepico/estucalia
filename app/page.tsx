@@ -1,6 +1,6 @@
 import HeroSection from './components/home/HeroSection';
 import CompanyInfo from './components/home/CompanyInfo';
-import SpacesSection from './components/home/SpacesSection';
+import AplicationSection from './components/home/AplicationSection';
 import FinishesSection from './components/home/FinishesSection';
 import InspirationSection from './components/home/InspirationSection';
 import NewsSection from './components/home/NewsSection';
@@ -12,7 +12,7 @@ export default function Home() {
       <HeroSection />
       <CompanyInfo />
       <ProjectHelpSection />
-      <SpacesSection />
+      <AplicationSection />
       <FinishesSection />
       <InspirationSection />
       <NewsSection />

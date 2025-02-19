@@ -16,7 +16,7 @@ const inspirationImages = [
     alt: "Modern facade detail"
   },
   {
-    url: "img/home.jpg",
+    url: "img/Home.jpg",
     alt: "Urban architecture"
   },
   {

@@ -8,9 +8,9 @@ export default function ProjectHelpSection() {
     <section className="relative min-h-[500px] flex items-center">
       {/* Fondo con imagen */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-top "
         style={{
-          backgroundImage: "url('/img/help.jpg')"
+          backgroundImage: "url('/img/helper.jpg')"
         }}
       >
         <div className="absolute inset-0 bg-black/30" />

@@ -24,7 +24,7 @@ const newsItems = [
 
 export default function NewsSection() {
   return (
-    <section className="py-12 md:py-28 bg-white">
+    <section className="pb-12 md:pb-28 bg-white">
       {/* Featured Image */}
       <div className="relative h-[250px] md:h-[470px] mb-16 md:mb-32">
         <div
