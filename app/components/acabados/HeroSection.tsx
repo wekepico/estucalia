@@ -126,14 +126,15 @@ export const HeroSection: React.FC = () => {
             {data.map((element, index) => (
                 <div
                     key={element.name + index}
-                    className={`w-full flex flex-col ${
-                        index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                    } gap-8 md:gap-16 h-auto md:h-[520px]`}
+                    className={`w-full flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                        } gap-8 md:gap-16 h-auto md:h-[520px]`}
                 >
                     {/* Contenedor de texto y productos */}
                     <div className="flex flex-col w-full md:w-2/5 gap-6 justify-between">
-                        <h1 className="font-semibold text-3xl">{element.name}</h1>
-                        <p className="text-lg">{element.descripcion}</p>
+                        <div className='flex flex-col gap-6'>
+                            <h1 className="font-semibold text-3xl">{element.name}</h1>
+                            <p className="text-lg">{element.descripcion}</p>
+                        </div>
                         <div className="flex gap-4 flex-wrap">
                             {element.products.map((product, productIndex) => (
                                 <ProductCard key={productIndex} {...product} />
