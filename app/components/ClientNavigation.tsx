@@ -69,8 +69,8 @@ export default function ClientNavigation() {
   // Eliminamos la entrada de "Empresa" del menuLinks (porque ahora es un componente aparte)
   const menuLinks = [
     { href: "/productos", label: "Productos", submenu: ["Tipo 1", "Tipo 2", "Tipo 3"] },
-    { href: "/aplicaiones", label: "Aplicaciones", submenu: ["Revestimientos", "Revocos y enlucidos","Albañilería","Baldosas","Recrecidos","Aislamiento térmico","Impermeabilización","Deshumidificación"] },
-    { href: "/espacios", label: "Espacios", submenu: ["Espacio 1", "Espacio 2"] },
+    { href: "/aplicaciones", label: "Aplicaciones", submenu: ["Revestimientos", "Revocos y enlucidos","Albañilería","Baldosas","Recrecidos","Aislamiento térmico","Impermeabilización","Deshumidificación"] },
+    { href: "/espacios", label: "Espacios", submenu: ["Fachadas", "Terrazas","Balcones","Paredes","Patios y lucernarios","Suelos y pavimentos","Cocinas de exterior","Piscinas"] },
     { href: "/acabados", label: "Acabados", submenu: ["Acabado 1", "Acabado 2"] },
     { href: "/inspiracion", label: "Inspiración", submenu: ["Acabado 1", "Acabado 2"] },
     {
@@ -172,7 +172,7 @@ export default function ClientNavigation() {
                                 key={subIndex}
                                 className=" hover:underline"
                               >
-                                <Link href={`/aplicaciones/${subItem.toLocaleLowerCase()}`} className="text-white block">
+                                <Link href={`${link.href}/${subItem.toLocaleLowerCase()}`} className="text-white block">
                                   {subItem}
                                 </Link>
                               </li>
