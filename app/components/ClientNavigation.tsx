@@ -71,7 +71,7 @@ export default function ClientNavigation() {
     { href: "/productos", label: "Productos", submenu: ["Tipo 1", "Tipo 2", "Tipo 3"] },
     { href: "/aplicaciones", label: "Aplicaciones", submenu: ["Revestimientos", "Revocos y enlucidos","Albañilería","Baldosas","Recrecidos","Aislamiento térmico","Impermeabilización","Deshumidificación"] },
     { href: "/espacios", label: "Espacios", submenu: ["Fachadas", "Terrazas","Balcones","Paredes","Patios y lucernarios","Suelos y pavimentos","Cocinas de exterior","Piscinas"] },
-    { href: "/acabados", label: "Acabados", submenu: ["Acabado 1", "Acabado 2"] },
+    { href: "/acabados", label: "Acabados" },
     { href: "/inspiracion", label: "Inspiración", submenu: ["Acabado 1", "Acabado 2"] },
     {
       href: "/profesionales",
@@ -141,6 +141,7 @@ export default function ClientNavigation() {
                             key={index}
                             onMouseEnter={() => setHoveredLink(link.label)}
                             onMouseLeave={() => setHoveredLink(null)}
+                            onClick={link.label === "Acabados"?()=>window.location.href ===link.href:undefined}
                           >
                             <div
                               className="text-white pb-2 cursor-default "
