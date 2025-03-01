@@ -30,7 +30,7 @@ export default function InternationalSection() {
 
 
             <p className="text-lg ">
-              Grupo Estucalia está presente en el extranjero, teniendo distribuidores y clientes en lugares como:
+              Grupo Estucalia está presente en el extranjero, teniendo distribuidores y clientes en lugares como
             </p>
 
             {/* Countries Grid */}
