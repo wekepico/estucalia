@@ -141,16 +141,17 @@ export default function ClientNavigation() {
                             key={index}
                             onMouseEnter={() => setHoveredLink(link.label)}
                             onMouseLeave={() => setHoveredLink(null)}
-                            onClick={link.label === "Acabados"?()=>window.location.href ===link.href:undefined}
+                            onClick={link.label === "Acabados"?()=>window.location.href = link.href:undefined}
+                         
                           >
                             <div
-                              className="text-white pb-2 cursor-default "
+                              className={` ${link.label ==="Acabados"?"cursor-pointer":""} text-white pb-2 cursor-default `}
                             >
                               {link.label}
                               <div className={`
                                     bottom-0 left-0 h-[2px] bg-white 
                                   origin-center transform transition-transform duration-300 
-                                ${(hoveredLink === link.label || pathname === link.href) ? 'scale-x-100' : 'scale-x-0'}
+                                ${(hoveredLink === link.label || pathname.includes( link.href)) ? 'scale-x-100' : 'scale-x-0'}
                                 `}>
                               
                               </div>
