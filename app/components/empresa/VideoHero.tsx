@@ -23,10 +23,7 @@ export default function VideoHero() {
       {/* Content Overlay */}
       <div className="relative h-full flex items-center justify-center text-center">
         <div className="mx-auto px-4">
-          <div className="absolute top-4 left-4 text-white text-sm font-light tracking-wider">
-            VIDEO
-          </div>
-          <h1 className="text-white text-2xl md:text-5xl font-bold max-w-6xl mx-auto leading-tight">
+          <h1 className="text-white text-2xl md:text-5xl font-[600] max-w-6xl mx-auto leading-tight">
             Más de 25 años en el sector de revestimientos de fachadas y cerámicos a nivel internacional.
           </h1>
         </div>

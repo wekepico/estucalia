@@ -46,7 +46,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ description, category,
                     </div>
                 </div>
                 <div className="">
-                    <h2 className="text-2xl font-bold mb-4 md:mb-6">Aplicaciones</h2>
+                    <h2 className="text-2xl font-[600] mb-4 md:mb-6">Aplicaciones</h2>
                     <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
                         {/* Categories Scroll */}
                         <ScrollArea className="w-full md:flex-1">

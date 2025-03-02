@@ -55,7 +55,7 @@ export default function ContactForm() {
 
           {/* Información de contacto */}
           <div className='min-w-max'>
-            <h1 className="text-3xl mb-2" style={{fontWeight:"700"}}>Contacto</h1>
+            <h1 className="text-3xl mb-2" style={{fontWeight:"600"}}>Contacto</h1>
 
             <div className="space-y-6">
               <div>
@@ -65,10 +65,10 @@ export default function ContactForm() {
               </div>
 
               <div className='flex flex-col w-max'>
-                <a href="tel:+34968862467" style={{fontWeight:"700"}} className=" inline w-max hover:text-gray-600 transition-colors">
+                <a href="tel:+34968862467" style={{fontWeight:"600"}} className=" inline w-max hover:text-gray-600 transition-colors">
                   +34 968 862 467
                 </a>
-                <a href="tel:+34663519854" style={{fontWeight:"700"}} className="inline w-max hover:text-gray-600 transition-colors">
+                <a href="tel:+34663519854" style={{fontWeight:"600"}} className="inline w-max hover:text-gray-600 transition-colors">
                   +34 663 519 854
                 </a>
                 <a

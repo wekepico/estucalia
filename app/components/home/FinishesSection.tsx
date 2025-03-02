@@ -36,7 +36,7 @@ export default function FinishesSection() {
   return (
     <section className="py-8 md:py-16 md:px-15 sm:px-10 px-5 lg:px-20 bg-white">
       <div className="mx-auto">
-        <h2 className="text-xl md:text-2xl font-bold mb-4">Acabados</h2>
+        <h2 className="text-xl md:text-2xl font-[600] mb-4">Acabados</h2>
 
         {/* Categories Scroll */}
         <ScrollArea className="w-full whitespace-nowrap mb-4">

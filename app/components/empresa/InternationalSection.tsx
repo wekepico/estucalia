@@ -38,7 +38,7 @@ export default function InternationalSection() {
             >
               {countries.map((country, index) => (
                 <React.Fragment key={country}>
-                  <span className="text-lg font-bold   transition-colors ">
+                  <span className="text-lg font-[600]   transition-colors ">
                     {country}
                   </span>
                 </React.Fragment>

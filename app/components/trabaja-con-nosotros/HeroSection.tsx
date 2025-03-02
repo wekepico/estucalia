@@ -15,7 +15,7 @@ export default function HeroSection() {
       </div>
       <div className="relative h-full flex justify-center items-center">
         <div className="container mx-auto px-4 items-center justify-center flex">
-          <h1 className="text-white text-4xl md:text-5xl font-bold text-center max-w-2xl leading-tight">
+          <h1 className="text-white text-4xl md:text-5xl font-[600] text-center max-w-2xl leading-tight">
             Trabaja con nosotros
           </h1>
         </div>

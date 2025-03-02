@@ -19,7 +19,7 @@ export default function ConsultingSection() {
       {/* Content */}
       <div className="relative mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-bold mb-8">
+          <h2 className="text-4xl font-[600] mb-8">
             Asesoramiento personalizado
           </h2>
 

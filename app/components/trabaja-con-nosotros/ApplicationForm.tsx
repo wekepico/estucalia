@@ -36,7 +36,7 @@ export default function ApplicationForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-44">
           {/* Description */}
           <div >
-            <h2 className="text-3xl font-bold mb-3">Personas con talento</h2>
+            <h2 className="text-3xl font-[600] mb-3">Personas con talento</h2>
             
             <div className='inline'>
 
@@ -159,7 +159,7 @@ export default function ApplicationForm() {
                             htmlFor="curriculum"
                             className="flex items-center gap-4 px-4 py-3  border-gray-300 cursor-pointer  transition-colors"
                           >
-                            <span className="text-gray-900 text-lg font-bold">Adjuntar Curriculum</span>
+                            <span className="text-gray-900 text-lg font-[600]">Adjuntar Curriculum</span>
                             <Upload className="w-5 h-5" />
                             <Input
                               id="curriculum"

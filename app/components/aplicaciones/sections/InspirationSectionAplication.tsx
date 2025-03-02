@@ -54,7 +54,7 @@ export const InspirationSectionAplication:React.FC<InspirationSectionAplication>
 
       <div className="md:px-15 sm:px-10 px-5 lg:px-20 mx-auto">
        
-        <h2 className="text-2xl font-bold mb-8 ">Inspiración</h2>
+        <h2 className="text-2xl font-[600] mb-8 ">Inspiración</h2>
         
 
         {/* Image Grid */}

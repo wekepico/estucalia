@@ -20,7 +20,7 @@ const products = [
       alt="Logo"
       width={180}
       height={100}
-      className="h-32 md:h-12 w-auto font-bold"
+      className="h-32 md:h-12 w-auto font-[600]"
     />
   },
   {
@@ -110,7 +110,7 @@ export default function SolutionsSection() {
     <section className="py-40 flex flex-col items-center justify-center ">
       <div className=" mx-auto px-8 max-w-[44rem] max-sm:px-2">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-6">Soluciones para la construcción</h2>
+          <h2 className="text-3xl font-[600] mb-6">Soluciones para la construcción</h2>
           <p className="text-lg max-w-4xl mx-auto">
             Gracias a sus más de 25 años de experiencia Grupo Estucalia ofrece una gama de productos con una calidad excepcional.
           </p>
@@ -123,7 +123,7 @@ export default function SolutionsSection() {
                   {product.icon}
                 </div>
                 <div className='max-w-[110px]'>
-                  <h3 className="text-lg  font-bold leading-[1.1]">{product.name.toLocaleUpperCase()}</h3>
+                  <h3 className="text-lg  font-[600] leading-[1.1]">{product.name.toLocaleUpperCase()}</h3>
                 </div>
               </div>
             ))}

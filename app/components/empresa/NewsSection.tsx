@@ -29,7 +29,7 @@ export default function NewsSection() {
   return (
     <section className="py-20 bg-white">
       <div className="mx-auto ">
-        <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 px-20 text-center md:text-left">
+        <h2 className="text-xl md:text-2xl font-[600] mb-6 md:mb-8 px-20 text-center md:text-left">
           Actualidad
         </h2>
 

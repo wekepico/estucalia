@@ -21,7 +21,7 @@ export default function ProjectHelpSection() {
         <div className="max-w-[27rem]  mx-auto bg-slate-100" style={{ backgroundColor: "rgba(255, 255, 250, 0.8)" }}>
           <div className="p-6 md:p-12">
             {/* Título */}
-            <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl xl:text-4xl font-[600] mb-4">
               ¿Necesitas ayuda con tu proyecto?
             </h2>
             {/* Descripción */}

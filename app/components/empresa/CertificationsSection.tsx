@@ -8,13 +8,13 @@ export default function CertificationsSection() {
     <section className="py-32 bg-[#F5F5F5] px-5"   style={{backgroundColor: "rgba(222, 221, 221)"}}>
       <div className="  mx-auto">
         <div className="max-w-4xl max-sm:px-2 mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">
+          <h2 className="text-3xl font-[600] mb-8">
             Resultados a la altura de las exigencias
           </h2>
           
           <p className="text-lg mb-16 leading-relaxed">
             Nuestra empresa está comprometida con la calidad en cada paso del camino, como lo demuestra nuestra certificación de calidad. Grupo Estucalia integra el riguroso{' '}
-            <span className="font-bold">sistema de Calidad Total</span>{' '}
+            <span className="font-[600]">sistema de Calidad Total</span>{' '}
             basado en la norma UNE-EN ISO 9001/2000 y certificado por AENOR como empresa registrada numero ER-0339/2002.
           </p>
 

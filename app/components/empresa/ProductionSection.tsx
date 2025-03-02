@@ -6,10 +6,10 @@ export default function ProductionSection() {
       {/* Stats Section */}
       <div className=" mx-auto w-full">
         <div className="text-center p-32 max-sm:px-4  bg-black">
-          <h2 className="text-4xl font-bold mb-8">100.000 Tm/año</h2>
+          <h2 className="text-4xl font-[600] mb-8">100.000 Tm/año</h2>
           <p className="text-xl max-w-3xl mx-auto">
             Nuestras instalaciones, dotadas con la última tecnología en maquinaria, nos permiten obtener una producción diaria
-            <span className="font-bold"> de 300 Tm. </span>
+            <span className="font-[600]"> de 300 Tm. </span>
             
           </p>
         </div>

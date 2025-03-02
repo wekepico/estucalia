@@ -13,7 +13,7 @@ export default function AboutSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 max-sm:gap-y-8 items-center">
             {/* Text Content */}
             <div className=''>
-              <h2 className="text-3xl font-bold mb-2">Somos Grupo Estucalia</h2>
+              <h2 className="text-3xl font-[600] mb-2">Somos Grupo Estucalia</h2>
               <p className="text-lg leading-relaxed">
                 Grupo Estucalia está compuesto por varias empresas especializadas 
                 en <span className="font-medium">fabricación, comercialización y exportación</span> de morteros 
@@ -41,14 +41,14 @@ export default function AboutSection() {
       {/* Mission Section */}
       <section className="py-36 px-5 bg-[#f1e9e9]">
         <div className="mx-auto  max-sm:px-0 text-center">
-          <h3 className="text-3xl font-bold mb-6">
+          <h3 className="text-3xl font-[600] mb-6">
             Nuestra misión: satisfacer al cliente
           </h3>
           <p className="text-lg max-w-2xl mx-auto">
             En nuestra empresa, la misión es clara: proporcionar un{' '}
-            <span className="font-bold">servicio de calidad excepcional</span>{' '}
+            <span className="font-[600]">servicio de calidad excepcional</span>{' '}
             ofreciendo total disponibilidad del equipo para{' '}
-            <span className="font-bold">garantizar su satisfacción</span>.
+            <span className="font-[600]">garantizar su satisfacción</span>.
           </p>
         </div>
       </section>

@@ -28,7 +28,7 @@ export default function Footer() {
           <div className=' flex gap-10 lg:pl-32 max-sm:flex-col'>
             {/* Legal Texts */}
             <div className='w-max'>
-              <h3 className="text-sm text-white font-bold mb-2">TEXTOS LEGALES</h3>
+              <h3 className="text-sm text-white font-[600] mb-2">TEXTOS LEGALES</h3>
               <ul className="text-gray-200">
                 <li><a href="#" className="hover:text-white transition-colors">Aviso Legal</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Política de Privacidad</a></li>
@@ -38,7 +38,7 @@ export default function Footer() {
 
             {/* Company */}
             <div>
-              <h3 className=" font-bold mb-2">EMPRESA</h3>
+              <h3 className=" font-[600] mb-2">EMPRESA</h3>
               <ul className=" text-gray-200">
                 <li><Link href="/empresa" className="hover:text-white transition-colors">Sobre Nosotros</Link></li>
                 <li><Link href="/trabaja-con-nosotros" className="hover:text-white transition-colors">Trabaja con nosotros</Link></li>
@@ -49,7 +49,7 @@ export default function Footer() {
 
             {/* Products */}
             <div className='w-max'>
-              <h3 className="font-bold mb-2 ">PRODUCTOS</h3>
+              <h3 className="font-[600] mb-2 ">PRODUCTOS</h3>
               <ul className="text-gray-200">
                 <li><a href="#" className="hover:text-white transition-colors">Morteros monocapa</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Morteros cola</a></li>
@@ -67,7 +67,7 @@ export default function Footer() {
           <div className='flex gap-16 md:ml-14  max-sm:flex-col'>
             {/* Contact */}
             <div>
-              <h3 className="font-bold mb-2">CONTACTO</h3>
+              <h3 className="font-[600] mb-2">CONTACTO</h3>
               <p className="text-gray-200 mb-6">
                 Cno Viejo de Fortuna, 40 Matanzas<br />
                 30148, Santomera, Murcia (SPAIN).
@@ -83,7 +83,7 @@ export default function Footer() {
 
             {/* Social Links */}
             <div className="flex flex-col items-start justify-center gap-2 ">
-              <h3 className="font-bold mb-2">SÍGUENOS</h3>
+              <h3 className="font-[600] mb-2">SÍGUENOS</h3>
               <Link href="#" className="text-gray-200 items-center flex gap-2 hover:text-white transition-colors">
                 <div className='p-1 mx-auto rounded-full bg-white text-black'>
                   <TiSocialLinkedin className="w-5 h-5 rounded-full" />
