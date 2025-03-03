@@ -16,6 +16,7 @@ export interface Spaces{
   products:{
     name:string;
     icon:string | StaticImport
+    category:string
   }[],
   aplications:string[]
 }

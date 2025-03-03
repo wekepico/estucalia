@@ -107,7 +107,7 @@ const products = [
 
 export default function SolutionsSection() {
   return (
-    <section className="py-40 flex flex-col items-center justify-center ">
+    <section className="py-40 bg-[#F5ECEB] flex flex-col items-center justify-center ">
       <div className=" mx-auto px-8 max-w-[44rem] max-sm:px-2">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-[600] mb-6">Soluciones para la construcción</h2>
