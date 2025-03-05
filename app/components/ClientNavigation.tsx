@@ -124,8 +124,8 @@ export default function ClientNavigation() {
         submenu: [
             { label: "Constructores y arquitectos", href: "/constructores-arquitectos" },
             { label: "Aplicadores", href: "/aplicadores" },
-            { label: "Servicios", href: "/servicios" },
-            { label: "Certificaciones", href: "/certificaciones" },
+            { label: "Servicio Integral de Proyectos", href: "/servicios" },
+            { label: "Certificaciones y documentación", href: "/certificaciones" },
         ],
     },
     {
