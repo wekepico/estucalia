@@ -12,35 +12,43 @@ const categories = ["Revestimientos", "Revocos y enlucidos",
 const spaces = [
   {
     image: "/img/aplicaciones/balcones.jpg",
-    title: "Balcones"
+    title: "Balcones",
+    categories: "Revestimientos,Revocos y enlucidos,Baldosas,Revocos y enlucidos,Impermeabilización,Albañilería"
   },
   {
     image: "/img/aplicaciones/cocina exterior.jpg",
-    title: "Cocina exterior"
+    title: "Cocinas de exterior",
+    categories: "Revestimientos,Revocos y enlucidos,Baldosas,Recrecidos,Albañilería,Impermeabilización"
   },
   {
     image: "/img/aplicaciones/fachada.jpg",
-    title: "Fachada"
+    title: "Fachadas",
+    categories: "Revestimientos,Revocos y enlucidos,Albañilería,Aislamiento térmico,Impermeabilización,Deshumidificación"
   },
   {
     image: "/img/aplicaciones/paredes.jpg",
-    title: "Paredes"
+    title: "Paredes",
+    categories: "Revestimientos,Revocos y enlucidos,Albañilería,Baldosas,Aislamiento térmico,Impermeabilización,Deshumidificación"
   },
   {
     image: "/img/aplicaciones/patios y lucernarios.jpg",
-    title: "Patios y lucernarios"
+    title: "Patios y lucernarios",
+    categories: "Revestimientos,Revocos y enlucidos,Albañilería,Baldosas,Impermeabilización,Deshumidificación"
   },
   {
     image: "/img/aplicaciones/pavimentos.jpg",
-    title: "Pavimentos"
+    title: "Suelos y Pavimentos",
+    categories: "Revestimientos,Baldosas,Recrecidos,Impermeabilización,Deshumidificación"
   },
   {
     image: "/img/aplicaciones/piscina.jpg",
-    title: "Piscina"
+    title: "Piscinas",
+    categories: "Revestimientos,Baldosas,Impermeabilización"
   },
   {
     image: "/img/aplicaciones/terraza.jpg",
-    title: "Terraza"
+    title: "Terrazas",
+    categories: "Revestimientos,Revocos y enlucidos,Albañilería,Baldosas,Aislamiento térmico,Impermeabilización"
   },
 ];
 
@@ -49,6 +57,11 @@ export default function AplicationSection() {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [visibleCards, setVisibleCards] = useState(3); // Número de tarjetas visibles
+  const [selectedCategory, setSelectedCategory] = useState<string>(categories[0]);
+
+  const filteredSpaces = spaces.filter(product =>
+    product.categories.includes(selectedCategory)
+  );
 
   useEffect(() => {
     const updateVisibleCards = () => {
@@ -104,17 +117,21 @@ export default function AplicationSection() {
         <h2 className="text-2xl font-[600] mb-4 md:mb-6">Aplicaciones</h2>
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
           {/* Categories Scroll */}
-          <ScrollArea className="w-full md:flex-1">
-            <div className="flex min-w-max pb-5">
+          <ScrollArea className="w-full whitespace-nowrap mb-4">
+            <div className="flex space-x-4 md:space-x-8 pb-2" role="tablist">
               {categories.map((category) => (
-                <div key={category}>
-                  <Link
-                    className='text-base md:text-xl p-0 mr-3 md:mr-6 hover:border-b pb-1 hover:border-black'
-                    href={"/#"}
-                  >
-                    {category}
-                  </Link>
-                </div>
+                <button
+                  key={category}
+                  role="tab"
+                  aria-selected={selectedCategory === category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`text-base md:text-xl p-0 pb-1 transition-colors ${selectedCategory === category
+                      ? 'border-b-2 border-black font-medium'
+                      : 'hover:border-b hover:border-gray-400'
+                    }`}
+                >
+                  {category}
+                </button>
               ))}
             </div>
             <ScrollBar orientation="horizontal" />
@@ -152,14 +169,15 @@ export default function AplicationSection() {
           className="relative overflow-x-hidden scroll-smooth"
         >
           <div className="flex gap-8 md:gap-14">
-            {spaces.map((space) => (
+            {filteredSpaces.map((space) => (
               <Card
                 key={space.title}
-                className="flex flex-col border-none shadow-none carousel-card"
+                className="flex flex-col border-none cursor-pointer shadow-none carousel-card"
                 style={{
                   minWidth: `calc(${100 / visibleCards}% - ${(visibleCards - 1) * 16}px)`,
                   scrollSnapAlign: 'start'
                 }}
+                onClick={() =>window.location.href = "/espacios/" + space.title}
               >
                 <CardContent className="p-0">
                   <div className="relative h-[380px] md:h-[550px] group">

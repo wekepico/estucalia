@@ -4,9 +4,9 @@ import ProjectHelpSection from '../components/contacto/ProjectHelpSection';
 
 export default function ContactoPage() {
   return (
-    <main className="min-h-screen bg-white pt-32">
-      <ContactForm />
+    <main className="min-h-screen bg-white">
       <MapSection />
+      <ContactForm />
       <ProjectHelpSection />
     </main>
   );

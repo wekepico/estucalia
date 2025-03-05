@@ -49,7 +49,7 @@ export default function ContactForm() {
   ];
 
   return (
-    <section className="lg:pr-64 lg:pl-28 lg:py-16 pb-8 ">
+    <section className="lg:pr-64 lg:pl-28 lg:py-28 py-16 ">
       <div className="mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-2 md: gap-12">
 

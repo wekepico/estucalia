@@ -14,7 +14,7 @@ export default function MapSection() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="shadow-lg"
+              className="shadow-sm"
             />
         </div>
       </div>
