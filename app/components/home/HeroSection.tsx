@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function HeroSection() {
   return (
-    <section className="relative h-screen w-full">
+    <section className="relative h-[60vh] w-full">
       {/* Fondo con imagen */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-fixed"

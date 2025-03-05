@@ -68,26 +68,80 @@ export default function ClientNavigation() {
 
   // Eliminamos la entrada de "Empresa" del menuLinks (porque ahora es un componente aparte)
   const menuLinks = [
-    { href: "/productos", label: "Productos", submenu: ["Tipo 1", "Tipo 2", "Tipo 3"] },
-    { href: "/aplicaciones", label: "Aplicaciones", submenu: ["Revestimientos", "Revocos y enlucidos","Albañilería","Baldosas","Recrecidos","Aislamiento térmico","Impermeabilización","Deshumidificación"] },
-    { href: "/espacios", label: "Espacios", submenu: ["Fachadas", "Terrazas","Balcones","Paredes","Patios y lucernarios","Suelos y pavimentos","Cocinas de exterior","Piscinas"] },
-    { href: "/acabados", label: "Acabados" },
-    { href: "/inspiracion", label: "Inspiración", submenu: ["Acabado 1", "Acabado 2"] },
     {
-      href: "/profesionales",
-      label: "Profesionales y Técnicos",
-      submenu: ["Acabado 1", "Acabado 2", "Acabado 2", "Acabado 2", "Acabado 2"],
+        href: "/productos",
+        label: "Productos",
+        submenu: [
+            { label: "Tipo 1", href: "/productos/tipo-1" },
+            { label: "Tipo 2", href: "/productos/tipo-2" },
+            { label: "Tipo 3", href: "/productos/tipo-3" },
+        ],
     },
-    { href: "#", label: "Idiomas" },
-  ];
+    {
+        href: "/aplicaciones",
+        label: "Aplicaciones",
+        submenu: [
+            { label: "Revestimientos", href: "/Revestimientos" },
+            { label: "Revocos y enlucidos", href: "/Revocos y enlucidos" },
+            { label: "Albañilería", href: "/Albañilería" },
+            { label: "Baldosas", href: "/Baldosas" },
+            { label: "Recrecidos", href: "/Recrecidos" },
+            { label: "Aislamiento térmico", href: "/Aislamiento térmico" },
+            { label: "Impermeabilización", href: "/Impermeabilización" },
+            { label: "Deshumidificación", href: "/Deshumidificación" },
+        ],
+    },
+    {
+        href: "/espacios",
+        label: "Espacios",
+        submenu: [
+            { label: "Fachadas", href: "/fachadas" },
+            { label: "Terrazas", href: "/terrazas" },
+            { label: "Balcones", href: "/balcones" },
+            { label: "Paredes", href: "/paredes" },
+            { label: "Patios y lucernarios", href: "/Patios y lucernarios" },
+            { label: "Suelos y pavimentos", href: "/Suelos y pavimentos" },
+            { label: "Cocinas de exterior", href: "/Cocinas de exterior" },
+            { label: "Piscinas", href: "/piscinas" },
+        ],
+    },
+    {
+        href: "/acabados",
+        label: "Acabados",
+        submenu: [], // Sin submenú
+    },
+    {
+        href: "/inspiracion",
+        label: "Inspiración",
+        submenu: [
+            { label: "Acabado 1", href: "/acabado-1" },
+            { label: "Acabado 2", href: "/acabado-2" },
+        ],
+    },
+    {
+        href: "/profesionales",
+        label: "Profesionales y Técnicos",
+        submenu: [
+            { label: "Constructores y arquitectos", href: "/constructores-arquitectos" },
+            { label: "Aplicadores", href: "/aplicadores" },
+            { label: "Servicios", href: "/servicios" },
+            { label: "Certificaciones", href: "/certificaciones" },
+        ],
+    },
+    {
+        href: "#",
+        label: "Idiomas",
+        submenu: [], // Sin submenú
+    },
+];
 
   return (
     <>
 
       <header
         onClick={() => setHoveredMenu(null)}
-      
-        className={`w-full   bg-black ${isScrolled?"":"mb-0"}`}
+
+        className={`w-full   bg-black ${isScrolled ? "" : "mb-0"}`}
       >
         <div className=" relative font-[600] max-w-[120rem]   text-lg mx-auto">
           <div className="flex justify-between items-center  border-gray-500 md:px-15 sm:px-10 px-5 lg:px-20 py-6">
@@ -103,14 +157,14 @@ export default function ClientNavigation() {
                   width={180}
                   height={100}
                   className="h-14 w-auto"
-                  
+
                 />
               </Link>
             </div>
 
             {/* Idiomas en desktop + boton sidebar en mobile */}
             <div className="flex items-center">
-            <DropdownIdioma />
+              <DropdownIdioma />
               <Button className="lg:hidden" onClick={toggleSidebar}>
                 {isOpen ? <X /> : <Menu />}
               </Button>
@@ -121,11 +175,10 @@ export default function ClientNavigation() {
 
 
           {/* NAV central (solo en desktop) */}
-          <nav   ref={headerRef} className={`top-0 w-full left-0 right-0 z-50 bg-black ${
-            isScrolled 
-              ? "fixed animate-fade-in-down shadow-lg" 
-              : "flex justify-center "
-          }`}>
+          <nav ref={headerRef} className={`top-0 w-full left-0 right-0 z-50 bg-black ${isScrolled
+            ? "fixed animate-fade-in-down shadow-lg"
+            : "flex justify-center "
+            }`}>
             <div className={`lg:flex items-center relative justify-center py-2 hidden `}>
               <NavigationMenu>
                 <NavigationMenuList className="flex   gap-8">
@@ -137,23 +190,23 @@ export default function ClientNavigation() {
                       >
                         {link.label !== "Empresa" && link.label !== "Idiomas" && (
                           <div
-                            
+
                             key={index}
                             onMouseEnter={() => setHoveredLink(link.label)}
                             onMouseLeave={() => setHoveredLink(null)}
-                            onClick={link.label === "Acabados"?()=>window.location.href = link.href:undefined}
-                         
+                            onClick={link.label === "Acabados" ? () => window.location.href = link.href : undefined}
+
                           >
                             <div
-                              className={` ${link.label ==="Acabados"?"cursor-pointer":""} text-white pb-2 cursor-default `}
+                              className={` ${link.label === "Acabados" ? "cursor-pointer" : ""} text-white pb-2 cursor-default `}
                             >
                               {link.label}
                               <div className={`
                                     bottom-0 left-0 h-[2px] bg-white 
                                   origin-center transform transition-transform duration-300 
-                                ${(hoveredLink === link.label || pathname.includes( link.href)) ? 'scale-x-100' : 'scale-x-0'}
+                                ${(hoveredLink === link.label || pathname.includes(link.href)) ? 'scale-x-100' : 'scale-x-0'}
                                 `}>
-                              
+
                               </div>
                             </div>
                           </div>
@@ -162,20 +215,20 @@ export default function ClientNavigation() {
                       </NavigationMenuItem>
                       {link.submenu && (
                         <div className={`absolute  ${hoveredMenu === link.label ? "opacity-100 visible" : "opacity-0 invisible"
-                          } transition-all duration-300 ease-in-out top-full mx-auto  pt-10 text-center w-[102vw] h-[350px] mt-2 backdrop-blur-[2px]  backdrop-opacity-80"`}
+                          } transition-all duration-300 ease-in-out top-full flex flex-col items-center  justify-center  text-left w-[102vw] h-[350px] mt-2 backdrop-blur-[2px]  backdrop-opacity-80"`}
                           style={{
                             background: "rgba(0, 5, 0, 0.6)",
                           }}
                           onMouseLeave={() => setHoveredMenu(null)}
                         >
-                          <ul className=" grid grid-cols-3 gap-3 md:px-48 lg:px-56 py-12">
+                          <ul className=" font-[400] grid grid-cols-3 gap-x-40 gap-y-6">
                             {link.submenu.map((subItem, subIndex) => (
                               <li
                                 key={subIndex}
                                 className=" hover:underline"
                               >
-                                <Link href={`${link.href}/${subItem.toLocaleLowerCase()}`} className="text-white block">
-                                  {subItem}
+                                <Link href={`${link.href}/${subItem.href.toLocaleLowerCase()}`} className="text-gray-300 block">
+                                  {subItem.label}
                                 </Link>
                               </li>
                             ))}
@@ -200,9 +253,8 @@ export default function ClientNavigation() {
 
         {/* SIDEBAR móvil */}
         <div
-          className={`fixed top-0 left-0 h-full w-64 bg-black transform ${
-            isOpen ? "translate-x-0" : "-translate-x-full"
-          } transition-transform duration-300 ease-in-out lg:hidden z-50`}
+          className={`fixed top-0 left-0 h-full w-64 bg-black transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+            } transition-transform duration-300 ease-in-out lg:hidden z-50`}
         >
           <div className="flex justify-end p-4">
             <Button variant="outline" className="text-white rounded-full" onClick={toggleSidebar}>
@@ -235,7 +287,7 @@ export default function ClientNavigation() {
                       <Link href="/contacto" key='contact' onClick={handleLinkClick}>
                         Contacto
                       </Link>
-                    </li> 
+                    </li>
                   </ul>
                 </div>
 

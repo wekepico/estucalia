@@ -23,12 +23,12 @@ const categories: Category[] = [
 const products: Product[] = [
   {
     name: 'Mortero monocapa',
-    icon: MorteroCal,
+    icon:MorteroMonocapa ,
     category: 'Abujardado/raspado,Lavado/fratasado,Impreso,Liso'
   },
   {
     name: 'Mortero de cal',
-    icon: MorteroMonocapa,
+    icon: MorteroCal,
     category: 'Abujardado/raspado,Lavado/fratasado,Liso'
   },
   {
