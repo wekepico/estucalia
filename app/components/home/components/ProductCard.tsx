@@ -28,25 +28,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ name, icon }) => {
                 <h3 className="text-lg md:text-xl font-[600] mb-1">{name.toLocaleUpperCase()}</h3>
             </div>
             <div className='w-full p-4 flex justify-end'>
-                <Button
-                    variant="ghost"
-                    className="p-0 h-auto hover:bg-transparent group-hover:text-black text-base md:text-lg"
-                >
-                    <span className="mr-2">Ver producto</span>
-                    <svg
-                        className="w-10 h-10 md:w-12 md:h-12 transform transition-transform group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={0.5}
-                            d="M9 5l7 7-7 7"
-                        />
-                    </svg>
-                </Button>
+            <Button
+                variant="outline"
+                className="  border-none relative pl-5 pr-10 py-4 md:py-5  rounded-none"
+              >
+                <span>Ver producto</span>
+                <div className='absolute right-0'>
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </Button>
             </div>
         </div>
     )

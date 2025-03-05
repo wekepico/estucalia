@@ -30,11 +30,16 @@ export default function ProjectHelpSection() {
             </p>
             {/* Botón */}
             <div className="flex w-full justify-end items-center">
-              <Button variant="outline" className="border-gray-500 py-4 md:py-6 border-solid rounded-none">
+              <Button
+                variant="outline"
+                className=" border-gray-500 border-solid relative pl-5 pr-10 py-4 md:py-5  rounded-none"
+              >
                 <span>Más información</span>
-                <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
-                </svg>
+                <div className='absolute right-0'>
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </Button>
             </div>
           </div>

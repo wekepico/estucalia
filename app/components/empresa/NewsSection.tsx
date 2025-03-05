@@ -53,25 +53,17 @@ export default function NewsSection() {
 
               <CardContent className="px-4 md:px-0 mt-auto">
                 <div className='w-full flex justify-end'>
-                  <Button
-                    variant="ghost"
-                    className="p-0 h-auto hover:bg-transparent group-hover:text-black"
-                  >
-                    <span className="mr-2 text-sm">Ver noticia</span>
-                    <svg
-                      className="w-10 h-10 md:w-12 md:h-12 transform transition-transform group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={0.5}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </Button>
+                <Button
+                    variant="outline"
+                    className=" relative pl-5 pr-12 py-4 md:py-5 border-none rounded-none"
+                >
+                    <span>Ver Noticia</span>
+                    <div className='absolute right-0'>
+                        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </Button>
                 </div>
               </CardContent>
             </Card>

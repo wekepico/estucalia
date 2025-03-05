@@ -25,7 +25,7 @@ const newsItems = [
 export default function NewsSectionFinished() {
   return (
     <section className="pb-12 md:pb-28 bg-white">
-      
+
       <div className="mx-auto md:px-15 sm:px-10 px-5 lg:px-20  ">
         <h2 className="text-xl md:text-2xl font-[600] mb-6 md:mb-8 text-center md:text-left">
           Actualidad
@@ -33,8 +33,8 @@ export default function NewsSectionFinished() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-16">
           {newsItems.map((item, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className="border-none shadow-none flex flex-col group "
             >
               <CardHeader className="p-0 overflow-hidden">
@@ -48,27 +48,19 @@ export default function NewsSectionFinished() {
                   {item.title}
                 </h3>
               </CardHeader>
-              
+
               <CardContent className="px-4 md:px-0 mt-auto">
                 <div className='w-full flex justify-end'>
                   <Button
-                    variant="ghost"
-                    className="p-0 h-auto hover:bg-transparent group-hover:text-black"
+                    variant="outline"
+                    className=" relative pl-5 pr-12 py-4 md:py-5 border-none rounded-none"
                   >
-                    <span className="mr-2 text-sm">Ver noticia</span>
-                    <svg
-                      className="w-10 h-10 md:w-12 md:h-12 transform transition-transform group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={0.5}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
+                    <span>Ver Noticia</span>
+                    <div className='absolute right-0'>
+                      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </Button>
                 </div>
               </CardContent>

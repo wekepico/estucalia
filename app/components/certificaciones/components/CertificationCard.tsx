@@ -34,7 +34,7 @@ const CertificationCard = ({ title, filePath }: CardServicesProps) => {
             <div className='w-full flex items-end justify-end'>
                 <Button
                     variant="outline"
-                    className="border-gray-500 relative pl-8 pr-16 py-4 md:py-5 border-solid rounded-none"
+                    className="border-gray-500 relative pl-5 pr-12 py-4 md:py-5 border-solid rounded-none"
                     onClick={handleDownload} // Agregar el evento onClick
                 >
                     <span>Descargar</span>
