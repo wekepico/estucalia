@@ -34,9 +34,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return (
         <div className="flex flex-col gap-16 md:gap-28 px-5 sm:px-10 md:px-15 lg:px-20">
             {/* Contenedor principal */}
-            <div className="w-full flex flex-col md:flex-row h-auto md:h-[450px]">
+            <div className="w-full flex flex-col md:flex-row h-auto md:h-[480px]">
                 {/* Contenedor de texto */}
-                <div className="flex w-full md:w-2/5 gap-6 bg-gray-200 px-6 py-8 md:px-12 md:py-16 flex-col">
+                <div className="flex w-full md:w-[43%] gap-6 bg-gray-200 px-6 py-8 md:px-12 md:py-16 flex-col">
                     <h1 className="font-semibold sm:text-xl lg:text-4xl md:text-2xl">
                         {category}
                     </h1>
@@ -46,7 +46,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </div>
 
                 {/* Contenedor de la imagen */}
-                <div className="relative w-full md:w-3/5 h-64 md:h-auto bg-slate-500">
+                <div className="relative w-full md:w-[57%] h-64 md:h-auto bg-slate-500">
                     <Image
                         src={img}
                         alt={category}

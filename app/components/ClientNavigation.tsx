@@ -69,71 +69,69 @@ export default function ClientNavigation() {
   // Eliminamos la entrada de "Empresa" del menuLinks (porque ahora es un componente aparte)
   const menuLinks = [
     {
-        href: "/productos",
-        label: "Productos",
-        submenu: [
-            { label: "Tipo 1", href: "/productos/tipo-1" },
-            { label: "Tipo 2", href: "/productos/tipo-2" },
-            { label: "Tipo 3", href: "/productos/tipo-3" },
-        ],
+      href: "/productos",
+      label: "Productos",
+      submenu: [
+        { label: "Tipo 1", href: "/productos/tipo-1" },
+        { label: "Tipo 2", href: "/productos/tipo-2" },
+        { label: "Tipo 3", href: "/productos/tipo-3" },
+      ],
     },
     {
-        href: "/aplicaciones",
-        label: "Aplicaciones",
-        submenu: [
-            { label: "Revestimientos", href: "/Revestimientos" },
-            { label: "Revocos y enlucidos", href: "/Revocos y enlucidos" },
-            { label: "Albañilería", href: "/Albañilería" },
-            { label: "Baldosas", href: "/Baldosas" },
-            { label: "Recrecidos", href: "/Recrecidos" },
-            { label: "Aislamiento térmico", href: "/Aislamiento térmico" },
-            { label: "Impermeabilización", href: "/Impermeabilización" },
-            { label: "Deshumidificación", href: "/Deshumidificación" },
-        ],
+      href: "/aplicaciones",
+      label: "Aplicaciones",
+      submenu: [
+        { label: "Revestimientos", href: "/Revestimientos" },
+        { label: "Revocos y enlucidos", href: "/Revocos y enlucidos" },
+        { label: "Albañilería", href: "/Albañilería" },
+        { label: "Baldosas", href: "/Baldosas" },
+        { label: "Recrecidos", href: "/Recrecidos" },
+        { label: "Aislamiento térmico", href: "/Aislamiento térmico" },
+        { label: "Impermeabilización", href: "/Impermeabilización" },
+        { label: "Deshumidificación", href: "/Deshumidificación" },
+      ],
     },
     {
-        href: "/espacios",
-        label: "Espacios",
-        submenu: [
-            { label: "Fachadas", href: "/fachadas" },
-            { label: "Terrazas", href: "/terrazas" },
-            { label: "Balcones", href: "/balcones" },
-            { label: "Paredes", href: "/paredes" },
-            { label: "Patios y lucernarios", href: "/Patios y lucernarios" },
-            { label: "Suelos y pavimentos", href: "/Suelos y pavimentos" },
-            { label: "Cocinas de exterior", href: "/Cocinas de exterior" },
-            { label: "Piscinas", href: "/piscinas" },
-        ],
+      href: "/espacios",
+      label: "Espacios",
+      submenu: [
+        { label: "Fachadas", href: "/fachadas" },
+        { label: "Terrazas", href: "/terrazas" },
+        { label: "Balcones", href: "/balcones" },
+        { label: "Paredes", href: "/paredes" },
+        { label: "Patios y lucernarios", href: "/Patios y lucernarios" },
+        { label: "Suelos y pavimentos", href: "/Suelos y pavimentos" },
+        { label: "Cocinas de exterior", href: "/Cocinas de exterior" },
+        { label: "Piscinas", href: "/piscinas" },
+      ],
     },
     {
-        href: "/acabados",
-        label: "Acabados",
-        submenu: [], // Sin submenú
+      href: "/acabados",
+      label: "Acabados",
+      submenu: [], // Sin submenú
     },
     {
-        href: "/inspiracion",
-        label: "Inspiración",
-        submenu: [
-            { label: "Acabado 1", href: "/acabado-1" },
-            { label: "Acabado 2", href: "/acabado-2" },
-        ],
+      href: "/inspiracion",
+      label: "Inspiración",
+      submenu: [
+      ],
     },
     {
-        href: "/profesionales",
-        label: "Profesionales y Técnicos",
-        submenu: [
-            { label: "Constructores y arquitectos", href: "/constructores-arquitectos" },
-            { label: "Aplicadores", href: "/aplicadores" },
-            { label: "Servicio Integral de Proyectos", href: "/servicios" },
-            { label: "Certificaciones y documentación", href: "/certificaciones" },
-        ],
+      href: "/profesionales",
+      label: "Profesionales y Técnicos",
+      submenu: [
+        { label: "Constructores y arquitectos", href: "/constructores-arquitectos" },
+        { label: "Aplicadores", href: "/aplicadores" },
+        { label: "Servicio Integral de Proyectos", href: "/servicios" },
+        { label: "Certificaciones y documentación", href: "/certificaciones" },
+      ],
     },
     {
-        href: "#",
-        label: "Idiomas",
-        submenu: [], // Sin submenú
+      href: "#",
+      label: "Idiomas",
+      submenu: [], // Sin submenú
     },
-];
+  ];
 
   return (
     <>
@@ -175,18 +173,27 @@ export default function ClientNavigation() {
 
 
           {/* NAV central (solo en desktop) */}
-          <nav ref={headerRef} className={`top-0 w-full left-0 right-0 z-50 bg-black ${isScrolled
+          <nav ref={headerRef} className={`top-0 w-full relative left-0 right-0 z-10 bg-black ${isScrolled
             ? "fixed animate-fade-in-down shadow-lg"
             : "flex justify-center "
             }`}>
+
+            <div className={`absolute z-[-1]  ${hoveredMenu ? "opacity-100 visible" : "opacity-0 invisible"
+              } transition-all duration-300 ease-in-out top-[2.85rem] w-[102vw] h-[420px] mt-2 backdrop-blur-[3.5px]  backdrop-opacity-90"`}
+              style={{
+                background: "rgba(0, 5, 0, 0.6)",
+              }}
+              onMouseLeave={() => setHoveredMenu(null)}
+            ></div>
             <div className={`lg:flex items-center relative justify-center py-2 hidden `}>
               <NavigationMenu>
                 <NavigationMenuList className="flex   gap-8">
+
                   {menuLinks.map((link, index) => (
-                    <>
+                    <div className="relative w-full min-w-max" key={index + "Navigation"}>
                       <NavigationMenuItem
                         key={index + "nav-Link"}
-                        onMouseEnter={() => setHoveredMenu(link.label)}
+                        onMouseEnter={link.label === "Acabados" || link.label === "Inspiración" ?undefined:() => setHoveredMenu(link.label)}
                       >
                         {link.label !== "Empresa" && link.label !== "Idiomas" && (
                           <div
@@ -194,11 +201,11 @@ export default function ClientNavigation() {
                             key={index}
                             onMouseEnter={() => setHoveredLink(link.label)}
                             onMouseLeave={() => setHoveredLink(null)}
-                            onClick={link.label === "Acabados" || link.label ==="Inspiración" ? () => window.location.href = link.href : undefined}
+                            onClick={link.label === "Acabados" || link.label === "Inspiración" ? () => window.location.href = link.href : undefined}
 
                           >
                             <div
-                              className={` ${link.label === "Acabados" || link.label === "Inspiración"? "cursor-pointer" : ""} text-white pb-2 cursor-default `}
+                              className={` ${link.label === "Acabados" || link.label === "Inspiración" ? "cursor-pointer" : ""} text-white pb-2 cursor-default `}
                             >
                               {link.label}
                               <div className={`
@@ -213,15 +220,15 @@ export default function ClientNavigation() {
 
                         )}
                       </NavigationMenuItem>
+
                       {link.submenu && (
-                        <div className={`absolute  ${hoveredMenu === link.label ? "opacity-100 visible" : "opacity-0 invisible"
-                          } transition-all duration-300 ease-in-out top-full flex flex-col items-center  justify-center  text-left w-[102vw] h-[350px] mt-2 backdrop-blur-[3.5px]  backdrop-opacity-90"`}
-                          style={{
-                            background: "rgba(0, 5, 0, 0.6)",
-                          }}
+                        <div
+                          className={`absolute left-0 ${hoveredMenu === link.label ? "opacity-100 visible" : "opacity-0 invisible"
+                            } transition-all w-max duration-300 ease-in-out top-full flex flex-col mt-2 bg-transparent  h-[400px]`}
+
                           onMouseLeave={() => setHoveredMenu(null)}
                         >
-                          <ul className=" font-[400] grid grid-cols-3 gap-x-40 gap-y-6">
+                          <ul className="font-[400] flex flex-col py-4 space-y-4">
                             {link.submenu.map((subItem, subIndex) => (
                               <li
                                 key={subIndex}
@@ -235,7 +242,7 @@ export default function ClientNavigation() {
                           </ul>
                         </div>
                       )}
-                    </>
+                    </div>
                   ))}
                 </NavigationMenuList>
               </NavigationMenu>

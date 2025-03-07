@@ -125,7 +125,7 @@ export default function AplicationSection() {
                   role="tab"
                   aria-selected={selectedCategory === category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`text-base md:text-xl p-0 pb-1 transition-colors ${selectedCategory === category
+                  className={`text-sm md:text-lg p-0 pb-1 transition-colors ${selectedCategory === category
                       ? 'border-b-2 border-black font-medium'
                       : 'hover:border-b hover:border-gray-400'
                     }`}

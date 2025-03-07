@@ -144,7 +144,7 @@ almacenaje y comedores al aire libre, creando
 ambientes confortables y estéticos para reuniones
 sociales.`,
 
-        aplications: ["Revestimientos", "Revocos y enlucidos", "Albañilería ","Baldosas" , "Recrecidos", "Impermeabilización"]
+        aplications: ["Revestimientos", "Revocos y enlucidos", "Albañilería","Baldosas" , "Recrecidos", "Impermeabilización"]
 
 
     },
