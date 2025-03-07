@@ -173,9 +173,9 @@ export default function ClientNavigation() {
 
 
           {/* NAV central (solo en desktop) */}
-          <nav ref={headerRef} className={`top-0 w-full relative left-0 right-0 z-10 bg-black ${isScrolled
+          <nav ref={headerRef} className={`top-0 w-full  left-0 right-0 z-10 bg-black ${isScrolled
             ? "fixed animate-fade-in-down shadow-lg"
-            : "flex justify-center "
+            : "flex justify-center relative "
             }`}>
 
             <div className={`absolute z-[-1]  ${hoveredMenu ? "opacity-100 visible" : "opacity-0 invisible"
