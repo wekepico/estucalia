@@ -27,7 +27,7 @@ const products: Product[] = [
     category: 'Abujardado/raspado,Lavado/fratasado,Impreso,Liso'
   },
   {
-    name: 'Mortero de cal',
+    name: 'Mortero cal',
     icon: MorteroCal,
     category: 'Abujardado/raspado,Lavado/fratasado,Liso'
   },

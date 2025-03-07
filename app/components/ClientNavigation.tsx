@@ -194,11 +194,11 @@ export default function ClientNavigation() {
                             key={index}
                             onMouseEnter={() => setHoveredLink(link.label)}
                             onMouseLeave={() => setHoveredLink(null)}
-                            onClick={link.label === "Acabados" ? () => window.location.href = link.href : undefined}
+                            onClick={link.label === "Acabados" || link.label ==="Inspiración" ? () => window.location.href = link.href : undefined}
 
                           >
                             <div
-                              className={` ${link.label === "Acabados" ? "cursor-pointer" : ""} text-white pb-2 cursor-default `}
+                              className={` ${link.label === "Acabados" || link.label === "Inspiración"? "cursor-pointer" : ""} text-white pb-2 cursor-default `}
                             >
                               {link.label}
                               <div className={`
@@ -215,7 +215,7 @@ export default function ClientNavigation() {
                       </NavigationMenuItem>
                       {link.submenu && (
                         <div className={`absolute  ${hoveredMenu === link.label ? "opacity-100 visible" : "opacity-0 invisible"
-                          } transition-all duration-300 ease-in-out top-full flex flex-col items-center  justify-center  text-left w-[102vw] h-[350px] mt-2 backdrop-blur-[2px]  backdrop-opacity-80"`}
+                          } transition-all duration-300 ease-in-out top-full flex flex-col items-center  justify-center  text-left w-[102vw] h-[350px] mt-2 backdrop-blur-[3.5px]  backdrop-opacity-90"`}
                           style={{
                             background: "rgba(0, 5, 0, 0.6)",
                           }}
@@ -227,7 +227,7 @@ export default function ClientNavigation() {
                                 key={subIndex}
                                 className=" hover:underline"
                               >
-                                <Link href={`${link.href}/${subItem.href.toLocaleLowerCase()}`} className="text-gray-300 block">
+                                <Link href={`${link.href}/${subItem.href.toLocaleLowerCase()}`} className="text-white block">
                                   {subItem.label}
                                 </Link>
                               </li>

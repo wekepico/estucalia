@@ -9,14 +9,9 @@ interface CardServicesProps {
 }
 
 const CertificationCard = ({ title, filePath }: CardServicesProps) => {
-    const handleDownload = () => {
-        // Crear un enlace temporal para descargar el archivo
-        const link = document.createElement('a');
-        link.href = filePath;
-        link.download = filePath.split('/').pop() || 'documento'; // Nombre del archivo
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+    const handleOpenDocument = () => {
+        // Abrir el documento en una nueva pestaña
+        window.open(filePath, '_blank');
     };
 
     return (
@@ -35,7 +30,7 @@ const CertificationCard = ({ title, filePath }: CardServicesProps) => {
                 <Button
                     variant="outline"
                     className="border-gray-500 relative pl-5 pr-12 py-4 md:py-5 border-solid rounded-none"
-                    onClick={handleDownload} // Agregar el evento onClick
+                    onClick={handleOpenDocument} // Cambiado a handleOpenDocument
                 >
                     <span>Descargar</span>
                     <div className='absolute right-0'>

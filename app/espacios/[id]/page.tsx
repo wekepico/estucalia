@@ -1,6 +1,5 @@
 
 "use client"
-import AplicationPage from "@/app/components/aplicaciones/AplicationsPage";
 import { usePathname } from "next/navigation";
 import MorteroCal from '../../../public/img/mortero-cal.svg'
 import MorteroMonocapa from '../../../public/img/mortero-monocapa.svg'
@@ -32,7 +31,7 @@ export interface Products {
 const products:Products[] =[
     {
         name: 'Mortero monocapa',
-        icon: MorteroMonocapa,
+        icon: MorteroCal,
         category: "Revestimientos,Revocos y enlucidos,Impermeabilización,Recrecidos,Deshumidificación / hidrofugante,Albañilería,Aislamiento térmico"
     },
     {
@@ -41,8 +40,8 @@ const products:Products[] =[
         category: "Revestimientos,Revocos y enlucidos,Impermeabilización,Deshumidificación / hidrofugante,Albañilería,Aislamiento térmico"
     },
     {
-        name: 'Mortero de cal',
-        icon: MorteroCal,
+        name: 'Mortero cal',
+        icon: MorteroMonocapa,
         category: "Revestimientos,Revocos y enlucidos,Impermeabilización,Deshumidificación / hidrofugante,Albañilería,Aislamiento térmico"
     },
     {

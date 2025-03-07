@@ -28,7 +28,7 @@ const data: Acabado[] = [
 
             },
             {
-                name: 'Mortero de cal',
+                name: 'Mortero cal',
                 icon: MorteroMonocapa
 
             },
@@ -50,7 +50,7 @@ const data: Acabado[] = [
 
             },
             {
-                name: 'Mortero de cal',
+                name: 'Mortero cal',
                 icon: MorteroMonocapa
 
             },
@@ -67,7 +67,7 @@ const data: Acabado[] = [
         descripcion: "El acabado impreso en morteros permite replicar texturas de piedra, madera, adoquines o cualquier diseño decorativo sobre la superficie antes de su endurecimiento. Es una solución muy utilizada en suelos exteriores, patios y caminos debido a su gran resistencia al tránsito y condiciones climáticas. La posibilidad de personalización en colores y patrones hace del mortero impreso una opción ideal para proyectos arquitectónicos que buscan estética, funcionalidad y durabilidad en sus pavimentos o revestimientos.",
         products: [
             {
-                name: 'Mortero de cal',
+                name: 'Mortero cal',
                 icon: MorteroMonocapa
 
             },
@@ -101,7 +101,7 @@ const data: Acabado[] = [
 
             },
             {
-                name: 'Mortero de cal',
+                name: 'Mortero cal',
                 icon: MorteroMonocapa
 
             },

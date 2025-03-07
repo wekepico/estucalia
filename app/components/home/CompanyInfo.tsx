@@ -10,7 +10,7 @@ export default function CompanyInfo() {
           <h2 className="text-2xl font-medium mb-4">Grupo Estucalia</h2>
         </div>
         <p className="text-3xl font-[600] text-gray-800 max-w-2xl mx-auto">
-          Más de 25 años fabricando morteros y cementos
+          Más de 25 años fabricando mortero moncapa altas prestaciones, cemento cola y tapajuntas.
         </p>
       </div>
     </section>
