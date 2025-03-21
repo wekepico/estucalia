@@ -118,14 +118,14 @@ export default function AplicationSection() {
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
           {/* Categories Scroll */}
           <ScrollArea className="w-full whitespace-nowrap mb-4">
-            <div className="flex space-x-4 md:space-x-8 pb-2" role="tablist">
+            <div className="flex space-x-4 md:space-x-9 pb-2" role="tablist">
               {categories.map((category) => (
                 <button
                   key={category}
                   role="tab"
                   aria-selected={selectedCategory === category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`text-sm md:text-lg p-0 pb-1 transition-colors ${selectedCategory === category
+                  className={`text-[1rem]  p-0 pb-1 transition-colors ${selectedCategory === category
                       ? 'border-b-2 border-black font-medium'
                       : 'hover:border-b hover:border-gray-400'
                     }`}
