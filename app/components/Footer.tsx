@@ -30,9 +30,9 @@ export default function Footer() {
             <div className='w-max'>
               <h3 className="text-sm text-white font-[600] mb-2">TEXTOS LEGALES</h3>
               <ul className="text-gray-200">
-                <li><a href="#" className="hover:text-white transition-colors">Aviso Legal</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Política de Privacidad</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Política de Cookies</a></li>
+                <li><a href="/aviso-legal" className="hover:text-white transition-colors">Aviso Legal</a></li>
+                <li><a href="/politica-privacidad" className="hover:text-white transition-colors">Política de Privacidad</a></li>
+                <li><a href="/politica-cookies" className="hover:text-white transition-colors">Política de Cookies</a></li>
               </ul>
             </div>
 
