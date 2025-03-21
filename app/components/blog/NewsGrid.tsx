@@ -4,9 +4,11 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useRouter } from 'next/navigation';
 
 const newsItems = [
   {
+    id: "mision-comercial-arabia-saudita",
     image: "https://images.unsplash.com/photo-1582657233895-0f37a3f150c0?auto=format&fit=crop&q=80",
     title: "Misión Comercial Directa a Arabia Saudita",
     excerpt: "Grupo Estucalia continúa su expansión internacional con una importante misión comercial en Arabia Saudita, fortaleciendo su presencia en Oriente Medio.",
@@ -14,6 +16,7 @@ const newsItems = [
     category: "Internacional"
   },
   {
+    id: "presentacion-morteros-marruecos",
     image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80",
     title: "Presentación de Morteros Monocapa en Marruecos",
     excerpt: "Exitosa presentación de nuestra línea de productos en el mercado marroquí, destacando la calidad y versatilidad de nuestros morteros monocapa.",
@@ -21,6 +24,7 @@ const newsItems = [
     category: "Productos"
   },
   {
+    id: "convencion-internacional-rabat",
     image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
     title: "Convención Internacional en Rabat",
     excerpt: "Participación destacada en el evento más importante del sector de la construcción en el norte de África, presentando las últimas innovaciones.",
@@ -28,6 +32,7 @@ const newsItems = [
     category: "Eventos"
   },
   {
+    id: "nuevas-certificaciones-calidad",
     image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80",
     title: "Nuevas Certificaciones de Calidad",
     excerpt: "Grupo Estucalia obtiene nuevas certificaciones que avalan la calidad de sus productos y procesos de fabricación.",
@@ -37,6 +42,12 @@ const newsItems = [
 ];
 
 export default function NewsGrid() {
+  const router = useRouter();
+
+  const handleViewNews = (id: string) => {
+    router.push(`/blog/${id}`);
+  };
+
   return (
     <section className="lg:py-20 py-10">
       <div className="mx-auto px-20 md:pd-8 max-sm:px-6">
@@ -65,6 +76,12 @@ export default function NewsGrid() {
                 <p className="text-gray-600 line-clamp-3">
                   {item.excerpt}
                 </p>
+                <Button 
+                  onClick={() => handleViewNews(item.id)}
+                  className="mt-4"
+                >
+                  Ver Noticia
+                </Button>
               </CardContent>
             </Card>
           ))}

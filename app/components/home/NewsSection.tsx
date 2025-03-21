@@ -3,19 +3,23 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { useRouter } from 'next/navigation';
 
 const newsItems = [
   {
+    id: "mision-comercial-arabia-saudita",
     image: "img/actualidad1.jpg",
     title: "Misión Comercial Directa a Arabia Saudita",
     link: "#"
   },
   {
+    id: "presentacion-morteros-marruecos",
     image: "img/actualidad2.png",
     title: "Grupo Estucalia presenta sus Morteros Monocapa en Marruecos",
     link: "#"
   },
   {
+    id: "convencion-internacional-rabat",
     image: "img/actualidad3.jpg",
     title: "Convención Internacional en Rabat",
     link: "#"
@@ -23,6 +27,12 @@ const newsItems = [
 ];
 
 export default function NewsSection() {
+  const router = useRouter();
+
+  const handleViewNews = (id: string) => {
+    router.push(`/blog/${id}`);
+  };
+
   return (
     <section className="pb-12 md:pb-28 bg-white">
       {/* Featured Image */}
@@ -35,7 +45,7 @@ export default function NewsSection() {
         />
       </div>
 
-      <div className="mx-auto md:px-15 sm:px-10 px-5 lg:px-20  ">
+      <div className="mx-auto md:px-15 sm:px-10 px-5 lg:px-20">
         <h2 className="text-xl md:text-2xl font-[600] mb-6 md:mb-8 text-center md:text-left">
           Actualidad
         </h2>
@@ -44,7 +54,7 @@ export default function NewsSection() {
           {newsItems.map((item, index) => (
             <Card
               key={index}
-              className="border-none shadow-none flex flex-col group "
+              className="border-none shadow-none flex flex-col group"
             >
               <CardHeader className="p-0 overflow-hidden">
                 <div className="relative h-[300px] md:h-[400px] lg:h-[500px] mb-4 overflow-hidden">
@@ -62,7 +72,8 @@ export default function NewsSection() {
                 <div className='w-full flex justify-end'>
                   <Button
                     variant="outline"
-                    className=" relative pl-5 pr-12 py-4 md:py-5 border-none rounded-none"
+                    className="relative pl-5 pr-12 py-4 md:py-5 border-none rounded-none"
+                    onClick={() => handleViewNews(item.id)}
                   >
                     <span>Ver Noticia</span>
                     <div className='absolute right-0'>
