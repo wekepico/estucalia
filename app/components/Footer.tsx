@@ -11,7 +11,7 @@ import { TiSocialLinkedin,TiSocialFacebook } from "react-icons/ti";
 export default function Footer() {
   return (
     <footer className="bg-black text-sm mx-auto w-full text-white py-20">
-      <div className="max-w-[120rem] mx-auto md:px-15 sm:px-10 px-5 lg:px-20 ">
+      <div className="max-w-[240rem] mx-auto md:px-15 sm:px-10 px-5 lg:px-20 ">
         <div className="flex relative max-lg:flex-col flex-wrap items-center max-sm:items-start w-full max-sm:text-sm justify-between gap-y-12">
           {/* Logo Column */}
           <div className="flex">

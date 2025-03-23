@@ -141,7 +141,7 @@ export default function ClientNavigation() {
 
         className={`w-full   bg-black ${isScrolled ? "" : "mb-0"}`}
       >
-        <div className=" relative font-[600] max-w-[120rem]   text-lg mx-auto">
+        <div className=" relative font-[600] max-w-[240rem]   text-lg mx-auto">
           <div className="flex justify-between items-center  border-gray-500 md:px-15 sm:px-10 px-5 lg:px-20 py-6">
             {/* Aquí se muestra el dropdown de Empresa (solo en desktop, ver el componente) */}
             <DropdownEmpresa />
