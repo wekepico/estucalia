@@ -1,37 +1,39 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useRouter } from 'next/navigation';
+import { fetchBlogPosts } from '@/services/bolgsServices';
 
-const newsItems = [
-  {
-    id: "mision-comercial-arabia-saudita",
-    image: "img/actualidad1.jpg",
-    title: "Misión Comercial Directa a Arabia Saudita",
-    link: "#"
-  },
-  {
-    id: "presentacion-morteros-marruecos",
-    image: "img/actualidad2.png",
-    title: "Grupo Estucalia presenta sus Morteros Monocapa en Marruecos",
-    link: "#"
-  },
-  {
-    id: "convencion-internacional-rabat",
-    image: "img/actualidad3.jpg",
-    title: "Convención Internacional en Rabat",
-    link: "#"
-  }
-];
+interface Blog {
+  id: number;
+  title: string;
+  photo: string;
+  slug: string;
+}
 
 export default function NewsSection() {
   const router = useRouter();
+  const [blogs, setBlogs] = useState<Blog[]>([]);
 
-  const handleViewNews = (id: string) => {
-    router.push(`/blog/${id}`);
+  const handleViewNews = (slug: string) => {
+    router.push(`/blog/${slug}`);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchBlogPosts();
+        setBlogs(data);
+      } catch (error) {
+        console.error('Error fetching blog posts:', error);
+      }
+    };
+
+    fetchData();
+    console.log(blogs);
+  }, []);
 
   return (
     <section className="pb-12 md:pb-28 bg-white">
@@ -51,20 +53,21 @@ export default function NewsSection() {
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-16">
-          {newsItems.map((item, index) => (
+          {blogs.map((blog) => (
+          
             <Card
-              key={index}
+              key={blog.id}
               className="border-none shadow-none flex flex-col group"
             >
               <CardHeader className="p-0 overflow-hidden">
                 <div className="relative h-[300px] md:h-[400px] lg:h-[500px] mb-4 overflow-hidden">
                   <div
                     className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 group-hover:scale-105"
-                    style={{ backgroundImage: `url('${item.image}')` }}
+                    style={{ backgroundImage: `url('${blog.photo}')` }}
                   />
                 </div>
                 <h3 className="text-base md:text-2xl px-4 md:px-0 mb-4 font-medium">
-                  {item.title}
+                  {blog.title}
                 </h3>
               </CardHeader>
 
@@ -73,7 +76,7 @@ export default function NewsSection() {
                   <Button
                     variant="outline"
                     className="relative pl-5 pr-12 py-4 md:py-5 border-none rounded-none"
-                    onClick={() => handleViewNews(item.id)}
+                    onClick={() => handleViewNews(blog.slug)}
                   >
                     <span>Ver Noticia</span>
                     <div className='absolute right-0'>

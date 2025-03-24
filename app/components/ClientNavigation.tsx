@@ -69,12 +69,12 @@ export default function ClientNavigation() {
   // Eliminamos la entrada de "Empresa" del menuLinks (porque ahora es un componente aparte)
   const menuLinks = [
     {
-      href: "/productos",
+      href: "/producto",
       label: "Productos",
       submenu: [
-        { label: "Tipo 1", href: "/productos/tipo-1" },
-        { label: "Tipo 2", href: "/productos/tipo-2" },
-        { label: "Tipo 3", href: "/productos/tipo-3" },
+        { label: "Tipo 1", href: "/tipo-1" },
+        { label: "Tipo 2", href: "/tipo-2" },
+        { label: "Tipo 3", href: "/tipo-3" },
       ],
     },
     {

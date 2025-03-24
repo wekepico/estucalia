@@ -1,9 +1,10 @@
 import React from 'react';
+import ReachText from '../reachText/reachText';
 
 interface NewsDetailProps {
     id: string;
     title: string;
-    description: string;
+    description: any;
     date?: string;
     imageUrl?: string;
 }
@@ -26,7 +27,7 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
 
                     {/* Título superpuesto */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <h1 className="text-3xl md:text-4xl font-[600] text-white">
+                        <h1 className="text-3xl md:text-4xl  p-20 font-[600] text-white">
                             {title}
                         </h1>
                     </div>
@@ -45,7 +46,7 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
 
             {/* Descripción de la noticia */}
             <div className="md:px-15 sm:px-10 px-5 lg:px-20 prose prose-lg max-w-full text-gray-700">
-                <p>{description}</p>
+                <ReachText content={description}/>
             </div>
 
             {/* Redes sociales */}

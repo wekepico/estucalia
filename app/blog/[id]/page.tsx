@@ -1,71 +1,93 @@
 "use client";
 import NewsDetail from "@/app/components/blog/NewsDetail";
+import { Loader } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-
 
 export interface Noticia {
     id: string;
     title: string;
     description: string;
-    date?: string;
-    imageUrl?: string;
+    created_at?: string;
+    photo?: string;
 }
-
-const newsItems:Noticia [] = [
-    {
-      id: "mision-comercial-arabia-saudita",
-      imageUrl: "https://images.unsplash.com/photo-1582657233895-0f37a3f150c0?auto=format&fit=crop&q=80",
-      title: "Misión Comercial Directa a Arabia Saudita",
-      description: "Grupo Estucalia continúa su expansión internacional con una importante misión comercial en Arabia Saudita, fortaleciendo su presencia en Oriente Medio.",
-      date: "15 Oct 2023",
-    },
-    {
-      id: "presentacion-morteros-marruecos",
-      imageUrl: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80",
-      title: "Presentación de Morteros Monocapa en Marruecos",
-      description: "Exitosa presentación de nuestra línea de productos en el mercado marroquí, destacando la calidad y versatilidad de nuestros morteros monocapa.",
-      date: "28 Sep 2023",
-    },
-    {
-      id: "convencion-internacional-rabat",
-      imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
-      title: "Convención Internacional en Rabat",
-      description: "Participación destacada en el evento más importante del sector de la construcción en el norte de África, presentando las últimas innovaciones.",
-      date: "15 Sep 2023",
-    },
-    {
-      id: "nuevas-certificaciones-calidad",
-      imageUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80",
-      title: "Nuevas Certificaciones de Calidad",
-      description: "Grupo Estucalia obtiene nuevas certificaciones que avalan la calidad de sus productos y procesos de fabricación.",
-      date: "1 Sep 2023",
-    }
-  ];
 
 export default function NoticiaPage() {
     const pathname = usePathname();
     const noticiaId = pathname.split("/").pop();
     const [noticia, setNoticia] = useState<Noticia | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const found = newsItems.find(item => item.id === noticiaId);
-        setNoticia(found || null);
+        const fetchNoticia = async () => {
+            try {
+                setLoading(true);
+                const response = await fetch(`https://api.derecho-ciudadano.com/api/blog/${noticiaId}`);
+                
+                if (!response.ok) {
+                    throw new Error(`Error ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                console.log(data)
+                
+                // Transformar los datos de la API al formato esperado
+                const formattedNoticia: Noticia = {
+                    id: data.data.id,
+                    title: data.data.title,
+                    description: data.data.description,
+                    created_at: data.data.date || new Date().toLocaleDateString(),
+                    photo: data.data.photo || "/default-image.jpg"
+                };
+                
+                setNoticia(formattedNoticia);
+            } catch (err) {
+                setError(err instanceof Error ? err.message : "Error desconocido"); 
+                console.error("Error fetching noticia:", err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (noticiaId) {
+            fetchNoticia();
+        }
     }, [noticiaId]);
+
+    if (loading) {
+        return (
+            <main className="min-h-screen bg-white flex items-center justify-center">
+                <Loader />cargando...
+            </main>
+        );
+    }
+
+    if (error) {
+        return (
+            <main className="min-h-screen bg-white flex items-center justify-center">
+                <p className="text-red-500">{error}</p>
+            </main>
+        );
+    }
+
+    if (!noticia) {
+        return (
+            <main className="min-h-screen bg-white flex items-center justify-center">
+                <p>Noticia no encontrada</p>
+            </main>
+        );
+    }
 
     return (
         <main className="min-h-screen bg-white">
-            {noticia ? (
-                <NewsDetail
-                    id={noticia.id}
-                    title={noticia.title}
-                    description={noticia.description}
-                    date={noticia.date}
-                    imageUrl={noticia.imageUrl}
-                />
-            ) : (
-                <p>Noticia no encontrada</p>
-            )}
+            <NewsDetail
+                id={noticia.id}
+                title={noticia.title}
+                description={noticia.description}
+                date={noticia.created_at}
+                imageUrl={noticia.photo}
+            />
         </main>
     );
 }
