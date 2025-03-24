@@ -58,7 +58,7 @@ export default function PoliticaCookies() {
                             decisión afirmativa y positiva, antes del tratamiento inicial, removible y
                             documentado.
                         </p>
-                        <p className="text-gray-700 text-lg font-[600] mb-4">
+                        <p className="text-gray-700 text-xl font-[600] mb-4">
                             Deshabilitar, rechazar y eliminar cookies
                         </p>
                         <p className="text-gray-700 mb-4">
