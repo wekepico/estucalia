@@ -1,16 +1,19 @@
+'use client';
+
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function ProductionSection() {
+  const { t } = useLanguage();
+
   return (
     <section className=" text-white">
       {/* Stats Section */}
       <div className=" mx-auto w-full">
         <div className="text-center p-32 max-sm:px-4  bg-black">
-          <h2 className="text-4xl font-[600] mb-8">100.000 Tm/año</h2>
+          <h2 className="text-4xl font-[600] mb-8">{t('company.production.stats.title')}</h2>
           <p className="text-xl max-w-3xl mx-auto">
-            Nuestras instalaciones, dotadas con la última tecnología en maquinaria, nos permiten obtener una producción diaria
-            <span className="font-[600]"> de 300 Tm. </span>
-            
+            {t('company.production.stats.description')}
           </p>
         </div>
 
@@ -26,7 +29,7 @@ export default function ProductionSection() {
               poster="https://images.unsplash.com/photo-1590574744313-91d6e3ce9a52?auto=format&fit=crop&q=80"
             >
               <source src="https://uploads.innet.es/videos-estucalia/produccion.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
+              {t('common.videoNotSupported')}
             </video>
           </div>
         </div>

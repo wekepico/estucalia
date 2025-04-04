@@ -9,6 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useLanguage } from '@/app/context/LanguageContext';
 
 type FormData = {
   nombre: string;
@@ -22,6 +23,7 @@ type FormData = {
 };
 
 export default function ApplicationForm() {
+  const { t } = useLanguage();
   const form = useForm<FormData>();
   const [fileName, setFileName] = useState<string | null>(null);
 
@@ -36,31 +38,28 @@ export default function ApplicationForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-44">
           {/* Description */}
           <div >
-            <h2 className="text-3xl font-[600] mb-3">Personas con talento</h2>
+            <h2 className="text-3xl font-[600] mb-3">{t('workWithUs.form.title')}</h2>
             
             <div className='inline'>
-
-
-            <p className="text-gray-900 inline leading-relaxed">
-              En continua expansión, Grupo Estucalia selecciona los mejores
-              profesionales para incorporarlos a sus proyectos.
-              Únete a nuestro equipo si eres
-            </p>
-              
-               <p className='inline leading-relaxed px-1 font-semibold'>
-                exigente y comprometido. 
-               </p>
+              <p className="text-gray-900 inline leading-relaxed">
+                {t('workWithUs.form.description.part1')}
+              </p>
+                
+              <p className='inline leading-relaxed px-1 font-semibold'>
+                {t('workWithUs.form.description.part2')}
+              </p>
 
               <p className='inline'>
-                En Grupo Estucalia encontrarás un
+                {t('workWithUs.form.description.part3')}
               </p> 
               
-              <p className='leading-relaxed font-semibold px-1 inline'>entorno laboral disciplinado y profesional.
-                
+              <p className='leading-relaxed font-semibold px-1 inline'>
+                {t('workWithUs.form.description.part4')}
               </p> 
             
-             <p className='leading relaxed inline '> Rellene este formulario para incorporarte a nuestros nuevos talentos.
-            </p>
+              <p className='leading relaxed inline '>
+                {t('workWithUs.form.description.part5')}
+              </p>
             </div>
           </div>
 
@@ -69,31 +68,28 @@ export default function ApplicationForm() {
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className=" grid grid-cols-2 gap-6">
                 <div className='border-b lg:col-span-1 col-span-2 border-black'>
-
                   <FormField
                     control={form.control}
                     name="nombre"
                     render={({ field }) => (
                       <FormItem className=''>
                         <FormControl>
-                          <Input placeholder="Nombre" className='border-none text-md' {...field} />
+                          <Input placeholder={t('workWithUs.form.fields.name')} className='border-none text-md' {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-
                 </div>
+
                 <div className='border-b lg:col-span-1 col-span-2 border-black'>
-
-
                   <FormField
                     control={form.control}
                     name="telefono"
                     render={({ field }) => (
                       <FormItem className=''>
                         <FormControl>
-                          <Input type="tel" className='border-none text-md' placeholder="Teléfono" {...field} />
+                          <Input type="tel" className='border-none text-md' placeholder={t('workWithUs.form.fields.phone')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -108,7 +104,7 @@ export default function ApplicationForm() {
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
-                          <Input type="email" className='border-none text-md' placeholder="E-mail" {...field} />
+                          <Input type="email" className='border-none text-md' placeholder={t('workWithUs.form.fields.email')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -123,7 +119,7 @@ export default function ApplicationForm() {
                     render={({ field }) => (
                       <FormItem className='col-span-2'>
                         <FormControl>
-                          <Input placeholder="Especialidad" className='border-none text-md' {...field} />
+                          <Input placeholder={t('workWithUs.form.fields.specialty')} className='border-none text-md' {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -132,14 +128,13 @@ export default function ApplicationForm() {
                 </div>
 
                 <div className='border-b border-black col-span-2'>
-
                   <FormField
                     control={form.control}
                     name="mensaje"
                     render={({ field }) => (
                       <FormItem className='col-span-2'>
                         <FormControl>
-                          <Input placeholder="Mensaje" className='border-none text-md' {...field} />
+                          <Input placeholder={t('workWithUs.form.fields.message')} className='border-none text-md' {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -148,7 +143,6 @@ export default function ApplicationForm() {
                 </div>
 
                 <div className='col-span-2'>
-
                   <FormField
                     control={form.control}
                     name="curriculum"
@@ -159,7 +153,7 @@ export default function ApplicationForm() {
                             htmlFor="curriculum"
                             className="flex items-center gap-4 px-4 py-3  border-gray-300 cursor-pointer  transition-colors"
                           >
-                            <span className="text-gray-900 text-lg font-[600]">Adjuntar Curriculum</span>
+                            <span className="text-gray-900 text-lg font-[600]">{t('workWithUs.form.fields.cv')}</span>
                             <Upload className="w-5 h-5" />
                             <Input
                               id="curriculum"
@@ -168,10 +162,10 @@ export default function ApplicationForm() {
                               onChange={(e) => {
                                 const files = e.target.files;
                                 if (files?.length) {
-                                  onChange(files); // Actualiza el estado del formulario
-                                  setFileName(files[0].name); // Actualiza el nombre del archivo
+                                  onChange(files);
+                                  setFileName(files[0].name);
                                 } else {
-                                  setFileName(null); // Resetea el nombre del archivo si no hay archivos seleccionados
+                                  setFileName(null);
                                 }
                               }}
                               ref={ref}
@@ -179,7 +173,7 @@ export default function ApplicationForm() {
                           </Label>
                         </FormControl>
                         {fileName && (
-                          <div className="text-gray-600 mt-2">Archivo seleccionado: {fileName}</div>
+                          <div className="text-gray-600 mt-2">{t('workWithUs.form.fields.fileSelected')} {fileName}</div>
                         )}
                         <FormMessage />
                       </FormItem>
@@ -189,11 +183,7 @@ export default function ApplicationForm() {
 
                 <div className="space-y-1 leading-none col-span-2">
                   <FormLabel className="text-sm text-gray-900">
-                    Información básica sobre Protección de Datos. Responsable: ESTUCALIA MORTEROS S.L. Finalidad del tratamiento:
-                    gestionar su consulta/solicitud, envío de información vía electrónica y su posterior seguimiento comercial.
-                    Legitimación: su consentimiento expreso al remitirnos este formulario (RGPD 6.1.a), sus datos no serán cedidos a
-                    terceros y se conservarán por plazo de un año, salvo obligación legal. Puede ejercitar los derechos de acceso,
-                    rectificación, supresión, portabilidad, limitación y oposición, y revocar su consentimiento dirigiéndose a:
+                    {t('workWithUs.form.privacy.info')}
                   </FormLabel>
                 </div>
 
@@ -211,7 +201,11 @@ export default function ApplicationForm() {
                       </FormControl>
                       <div className="space-y-1 leading-none">
                         <FormLabel className="text-sm text-gray-900">
-                          Si, he leído y acepto el tratamiento de mis datos personales según la <a className='underline' href="">Política de Privacidad</a>  y el <a className="underline">Aviso Legal</a> de Estucalia Morteros S.L.
+                          {t('workWithUs.form.privacy.accept')}{' '}
+                          <a className='underline' href="/politica-privacidad">{t('workWithUs.form.privacy.privacyPolicy')}</a>{' '}
+                          {t('common.and')}{' '}
+                          <a className="underline" href="/aviso-legal">{t('workWithUs.form.privacy.legalNotice')}</a>{' '}
+                          {t('common.of')} {t('workWithUs.form.privacy.companyName')}
                         </FormLabel>
                       </div>
                     </FormItem>
@@ -232,26 +226,23 @@ export default function ApplicationForm() {
                       </FormControl>
                       <div className="space-y-1 leading-none">
                         <FormLabel className="text-sm text-gray-900">
-                          Sí, autorizo la recepción vía electrónica de información comercial de Grupo Estucalia.
+                          {t('workWithUs.form.commercial.accept')}
                         </FormLabel>
                       </div>
                     </FormItem>
                   )}
                 />
 
-
                 <Button
                   type="submit"
                   className="group w-[155px] flex gap-4 justify-end borde-1 p-2 py-6 border-black rounded-none"
                   variant="outline"
-
                 >
-                  <span>Enviar</span>
+                  <span>{t('workWithUs.form.submit')}</span>
                   <svg className="ml-2 w-10 h-10 transform transition-transform group-hover:translate-x-1 col-span-1"
                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
                   </svg>
-
                 </Button>
               </form>
             </Form>

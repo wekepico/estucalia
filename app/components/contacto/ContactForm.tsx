@@ -1,12 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useLanguage } from '@/app/context/LanguageContext';
 
 type FormData = {
   nombre: string;
@@ -19,32 +20,44 @@ type FormData = {
 };
 
 export default function ContactForm() {
+  const { t } = useLanguage();
+  const [mounted, setMounted] = useState(false);
   const form = useForm<FormData>();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const onSubmit = (data: FormData) => {
     console.log(data);
     // Handle form submission
   };
 
+  if (!mounted) {
+    return null;
+  }
+
   // Configuración de campos del formulario
   const inputFields = [
-    { name: 'nombre', type: 'text', placeholder: 'Nombre', component: Input },
-    { name: 'telefono', type: 'tel', placeholder: 'Teléfono', component: Input },
-    { name: 'email', type: 'email', placeholder: 'E-mail', component: Input },
-    { name: 'asunto', type: 'text', placeholder: 'Asunto', component: Input },
-    { name: 'mensaje', component: Input, placeholder: 'Mensaje', Type: 'text' }
+    { name: 'nombre', type: 'text', placeholder: t('contact.form.name'), component: Input },
+    { name: 'telefono', type: 'tel', placeholder: t('contact.form.phone'), component: Input },
+    { name: 'email', type: 'email', placeholder: t('contact.form.email'), component: Input },
+    { name: 'asunto', type: 'text', placeholder: t('contact.form.subject'), component: Input },
+    { name: 'mensaje', component: Textarea, placeholder: t('contact.form.message') }
   ];
 
   const checkboxes = [
     {
       name: 'aceptarPolitica',
-      label:    <FormLabel className="text-sm text-gray-900">
-        Si, he leído y acepto el tratamiento de mis datos personales según la <a className='underline' href="">Política de Privacidad</a>  y el <a className="underline">Aviso Legal</a> de Estucalia Morteros S.L.
+      label: <FormLabel className="text-sm text-gray-900">
+        {t('contact.form.privacyPolicy')}
       </FormLabel>
     },
     {
       name: 'aceptarComercial',
-      label: <FormLabel className="text-sm text-gray-900">Sí, autorizo la recepción vía electrónica de información comercial de Grupo Estucalia.</FormLabel>
+      label: <FormLabel className="text-sm text-gray-900">
+        {t('contact.form.commercialInfo')}
+      </FormLabel>
     }
   ];
 
@@ -55,13 +68,13 @@ export default function ContactForm() {
 
           {/* Información de contacto */}
           <div className='min-w-max'>
-            <h1 className="text-3xl mb-2" style={{fontWeight:"600"}}>Contacto</h1>
+            <h1 className="text-3xl mb-2" style={{fontWeight:"600"}}>{t('contact.title')}</h1>
 
             <div className="space-y-6">
               <div>
-                <p>Camino Viejo de Fortuna, 40</p>
-                <p>30148 Matanzas, Santomera</p>
-                <p>Murcia (SPAIN).</p>
+                <p>{t('contact.address.line1')}</p>
+                <p>{t('contact.address.line2')}</p>
+                <p>{t('contact.address.line3')}</p>
               </div>
 
               <div className='flex flex-col w-max'>
@@ -80,13 +93,13 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <h2 className=" text-lg" style={{fontWeight:"700"}}>Horario</h2>
-                <p>Lunes - Jueves</p>
-                <p>08:00 AM - 18:00 PM</p>
-                <p className="mt-2">Viernes</p>
-                <p>08:00 AM - 14:00 PM</p>
-                <p className="mt-2">Verano (del 15 Julio al 15 Septiembre)</p>
-                <p>07:00 AM - 15:00 PM</p>
+                <h2 className=" text-lg" style={{fontWeight:"700"}}>{t('contact.schedule.title')}</h2>
+                <p>{t('contact.schedule.weekdays')}</p>
+                <p>{t('contact.schedule.weekdaysHours')}</p>
+                <p className="mt-2">{t('contact.schedule.friday')}</p>
+                <p>{t('contact.schedule.fridayHours')}</p>
+                <p className="mt-2">{t('contact.schedule.summer')}</p>
+                <p>{t('contact.schedule.summerHours')}</p>
               </div>
             </div>
           </div>
@@ -100,12 +113,11 @@ export default function ContactForm() {
                     key={field.name}
                     control={form.control}
                     name={field.name as keyof FormData}
-
                     render={({ field: formField }) => (
                       <FormItem className={`${field.name == "nombre" || field.name == "telefono" ? 'lg:col-span-1 col-span-2' : "col-span-2"}`}>
                         <FormControl>
                           <div className='border-b border-black'>
-                            <Input
+                            <field.component
                               className='border-none text-md'
                               type={field.type}
                               placeholder={field.placeholder}
@@ -122,11 +134,7 @@ export default function ContactForm() {
                   />
                 ))}
                 <p className='text-sm col-span-2'>
-                  Información básica sobre Protección de Datos. Responsable: ESTUCALIA MORTEROS S.L. Finalidad del tratamiento:
-                  gestionar su consulta/solicitud, envío de información vía electrónica y su posterior seguimiento comercial.
-                  Legitimación: su consentimiento expreso al remitirnos este formulario (RGPD 6.1.a), sus datos no serán cedidos a
-                  terceros y se conservarán por plazo de un año, salvo obligación legal. Puede ejercitar los derechos de acceso,
-                  rectificación, supresión, portabilidad, limitación y oposición, y revocar su consentimiento dirigiéndose a:
+                  {t('contact.form.dataProtection')}
                 </p>
 
                 {checkboxes.map((checkbox) => (
@@ -139,7 +147,7 @@ export default function ContactForm() {
                         <FormControl>
                           <Checkbox
                             className='rounded-none'
-                            checked={field.value as boolean} // Forzar tipo boolean
+                            checked={field.value as boolean}
                             onCheckedChange={field.onChange}
                           />
                         </FormControl>
@@ -155,14 +163,12 @@ export default function ContactForm() {
                   type="submit"
                   className="group w-[155px] flex gap-4 justify-end borde-1 p-2 py-6 border-black rounded-none"
                   variant="outline"
-
                 >
-                  <span>Enviar</span>
+                  <span>{t('contact.form.submit')}</span>
                   <svg className="ml-2 w-10 h-10 transform transition-transform group-hover:translate-x-1 col-span-1"
                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
                   </svg>
-
                 </Button>
               </form>
             </Form>

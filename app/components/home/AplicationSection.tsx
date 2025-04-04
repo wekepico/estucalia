@@ -4,59 +4,69 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from 'next/link';
-
-const categories = ["Revestimientos", "Revocos y enlucidos",
-  "Albañilería", "Baldosas", "Recrecidos", "Aislamiento térmico",
-  "Impermeabilización", "Deshumidificación"];
-
-const spaces = [
-  {
-    image: "/img/aplicaciones/balcones.jpg",
-    title: "Balcones",
-    categories: "Revestimientos,Revocos y enlucidos,Baldosas,Revocos y enlucidos,Impermeabilización,Albañilería"
-  },
-  {
-    image: "/img/aplicaciones/cocina exterior.jpg",
-    title: "Cocinas de exterior",
-    categories: "Revestimientos,Revocos y enlucidos,Baldosas,Recrecidos,Albañilería,Impermeabilización"
-  },
-  {
-    image: "/img/aplicaciones/fachada.jpg",
-    title: "Fachadas",
-    categories: "Revestimientos,Revocos y enlucidos,Albañilería,Aislamiento térmico,Impermeabilización,Deshumidificación"
-  },
-  {
-    image: "/img/aplicaciones/paredes.jpg",
-    title: "Paredes",
-    categories: "Revestimientos,Revocos y enlucidos,Albañilería,Baldosas,Aislamiento térmico,Impermeabilización,Deshumidificación"
-  },
-  {
-    image: "/img/aplicaciones/patios y lucernarios.jpg",
-    title: "Patios y lucernarios",
-    categories: "Revestimientos,Revocos y enlucidos,Albañilería,Baldosas,Impermeabilización,Deshumidificación"
-  },
-  {
-    image: "/img/aplicaciones/pavimentos.jpg",
-    title: "Suelos y Pavimentos",
-    categories: "Revestimientos,Baldosas,Recrecidos,Impermeabilización,Deshumidificación"
-  },
-  {
-    image: "/img/aplicaciones/piscina.jpg",
-    title: "Piscinas",
-    categories: "Revestimientos,Baldosas,Impermeabilización"
-  },
-  {
-    image: "/img/aplicaciones/terraza.jpg",
-    title: "Terrazas",
-    categories: "Revestimientos,Revocos y enlucidos,Albañilería,Baldosas,Aislamiento térmico,Impermeabilización"
-  },
-];
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function AplicationSection() {
+  const { t } = useLanguage();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [visibleCards, setVisibleCards] = useState(3); // Número de tarjetas visibles
+  const [visibleCards, setVisibleCards] = useState(3);
+  
+  const categories = [
+    t('home.applications.categories.coatings'),
+    t('home.applications.categories.plasters'),
+    t('home.applications.categories.masonry'),
+    t('home.applications.categories.tiles'),
+    t('home.applications.categories.screeds'),
+    t('home.applications.categories.thermal'),
+    t('home.applications.categories.waterproofing'),
+    t('home.applications.categories.dehumidification')
+  ];
+
+  const spaces = [
+    {
+      image: "/img/aplicaciones/balcones.jpg",
+      title: t('home.applications.spaces.balconies'),
+      categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.tiles')},${t('home.applications.categories.plasters')},${t('home.applications.categories.waterproofing')},${t('home.applications.categories.masonry')}`
+    },
+    {
+      image: "/img/aplicaciones/cocina exterior.jpg",
+      title: t('home.applications.spaces.outdoorKitchens'),
+      categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.tiles')},${t('home.applications.categories.screeds')},${t('home.applications.categories.masonry')},${t('home.applications.categories.waterproofing')}`
+    },
+    {
+      image: "/img/aplicaciones/fachada.jpg",
+      title: t('home.applications.spaces.facades'),
+      categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.masonry')},${t('home.applications.categories.thermal')},${t('home.applications.categories.waterproofing')},${t('home.applications.categories.dehumidification')}`
+    },
+    {
+      image: "/img/aplicaciones/paredes.jpg",
+      title: t('home.applications.spaces.walls'),
+      categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.masonry')},${t('home.applications.categories.tiles')},${t('home.applications.categories.thermal')},${t('home.applications.categories.waterproofing')},${t('home.applications.categories.dehumidification')}`
+    },
+    {
+      image: "/img/aplicaciones/patios y lucernarios.jpg",
+      title: t('home.applications.spaces.patios'),
+      categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.masonry')},${t('home.applications.categories.tiles')},${t('home.applications.categories.waterproofing')},${t('home.applications.categories.dehumidification')}`
+    },
+    {
+      image: "/img/aplicaciones/pavimentos.jpg",
+      title: t('home.applications.spaces.floors'),
+      categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.tiles')},${t('home.applications.categories.screeds')},${t('home.applications.categories.waterproofing')},${t('home.applications.categories.dehumidification')}`
+    },
+    {
+      image: "/img/aplicaciones/piscina.jpg",
+      title: t('home.applications.spaces.pools'),
+      categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.tiles')},${t('home.applications.categories.waterproofing')}`
+    },
+    {
+      image: "/img/aplicaciones/terraza.jpg",
+      title: t('home.applications.spaces.terraces'),
+      categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.masonry')},${t('home.applications.categories.tiles')},${t('home.applications.categories.thermal')},${t('home.applications.categories.waterproofing')}`
+    }
+  ];
+
   const [selectedCategory, setSelectedCategory] = useState<string>(categories[0]);
 
   const filteredSpaces = spaces.filter(product =>
@@ -114,7 +124,7 @@ export default function AplicationSection() {
   return (
     <section className="py-16 md:py-32 md:px-15 sm:px-10 px-5 lg:px-20  bg-white">
       <div className="mx-auto">
-        <h2 className="text-2xl font-[600] mb-4 md:mb-6">Aplicaciones</h2>
+        <h2 className="text-2xl font-[600] mb-4 md:mb-6">{t('home.applications.title')}</h2>
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
           {/* Categories Scroll */}
           <ScrollArea className="w-full whitespace-nowrap mb-4">

@@ -1,7 +1,7 @@
 import './globals.css';
 import Footer from './components/Footer';
 import ClientNavigation from './components/ClientNavigation';
-
+import { LanguageProvider } from './context/LanguageContext';
 
 export const metadata = {
   title: 'Modern Architecture Studio',
@@ -38,11 +38,13 @@ export default function RootLayout({
       <body
         style={{ fontFamily: "Titillium Web" }}
       >
-        <ClientNavigation />
-        <div className=" max-w-[240rem] mx-auto tracking-tight">
-          {children}
-        </div>
-        <Footer />
+        <LanguageProvider>
+          <ClientNavigation />
+          <div className="max-w-[240rem] mx-auto tracking-tight">
+            {children}
+          </div>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

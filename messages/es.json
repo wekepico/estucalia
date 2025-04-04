@@ -1,0 +1,410 @@
+{
+  "navigation": {
+    "businessLinks": {
+      "company": "Empresa",
+      "about": "Sobre Nosotros",
+      "workWithUs": "Trabaja con nosotros",
+      "blog": "Blog",
+      "contact": "Contacto"
+    },
+    "home": "Inicio",
+    "about": "Sobre Nosotros",
+    "products": {
+      "label": "Productos",
+      "submenu": "Tipo 1, Tipo 2, Tipo 3"
+    },
+    "contact": "Contacto",
+    "blog": "Blog",
+    "inspiration": "Inspiración",
+    "applications": {
+      "label": "Aplicaciones",
+      "submenu": "Revestimientos, Revocos y enlucidos, Albañilería, Baldosas, Recrecidos, Aislamiento térmico, Impermeabilización, Deshumidificación"
+    },
+    "spaces": {
+      "label": "Espacios",
+      "submenu": "Fachadas, Terrazas, Balcones, Paredes, Patios y lucernarios, Suelos y pavimentos, Cocinas de exterior, Piscinas"
+    },
+    "professionals": "Profesionales y Técnicos",
+    "finishes": "Acabados",
+    "languages": "Idiomas",
+    "company": "Empresa",
+    "workWithUs": "Trabaja con Nosotros",
+    "legalNotice": "Aviso Legal",
+    "privacyPolicy": "Política de Privacidad",
+    "cookiePolicy": "Política de Cookies"
+  },
+  "common": {
+    "readMore": "Leer Más",
+    "learnMore": "Saber Más",
+    "contactUs": "Contáctanos",
+    "send": "Enviar",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "message": "Mensaje",
+    "phone": "Teléfono",
+    "address": "Dirección",
+    "submit": "Enviar",
+    "videoNotSupported": "Tu navegador no soporta el elemento de video."
+  },
+  "home": {
+    "hero": {
+      "title": "Morteros sostenibles para la arquitectura y construcción.",
+      "subtitle": "Tu socio de confianza en materiales de construcción",
+      "cta": "Descubre Nuestros Productos",
+      "imageAlt": "Imagen de construcción sostenible"
+    },
+    "company": {
+      "title": "Grupo Estucalia",
+      "description": "Más de 25 años fabricando mortero monocapa de alto rendimiento, adhesivo para baldosas y flashing.",
+      "imageAlt": "Imagen de la empresa Estucalia",
+      "mission": {
+        "title": "Nuestra Misión",
+        "description": "Proporcionar soluciones de construcción sostenibles y de alta calidad"
+      },
+      "vision": {
+        "title": "Nuestra Visión",
+        "description": "Ser líderes en innovación y sostenibilidad en el sector de la construcción"
+      }
+    },
+    "news": {
+      "title": "Noticias",
+      "readMore": "Leer más",
+      "viewAll": "Ver todas las noticias"
+    },
+    "applications": {
+      "title": "Aplicaciones",
+      "categories": {
+        "coatings": "Revestimientos",
+        "plasters": "Revocos y enlucidos",
+        "masonry": "Albañilería",
+        "tiles": "Baldosas",
+        "screeds": "Recrecidos",
+        "thermal": "Aislamiento térmico",
+        "waterproofing": "Impermeabilización",
+        "dehumidification": "Deshumidificación"
+      },
+      "spaces": {
+        "balconies": "Balcones",
+        "outdoorKitchens": "Cocinas de exterior",
+        "facades": "Fachadas",
+        "walls": "Paredes",
+        "patios": "Patios y lucernarios",
+        "floors": "Suelos y Pavimentos",
+        "pools": "Piscinas",
+        "terraces": "Terrazas"
+      }
+    },
+    "finishes": {
+      "title": "Acabados",
+      "categories": {
+        "hammered": "Abujardado/raspado",
+        "washed": "Lavado/fratasado",
+        "printed": "Impreso",
+        "stone": "Piedra proyectada",
+        "smooth": "Liso"
+      },
+      "products": {
+        "monocapa": "Mortero monocapa",
+        "lime": "Mortero cal",
+        "printed": "Mortero impreso",
+        "stone": "Mortero piedra"
+      },
+      "noProducts": "No hay productos disponibles en esta categoría"
+    },
+    "projectHelp": {
+      "title": "¿Necesitas ayuda con tu proyecto?",
+      "description": "Recibe una asistencia personalizada y un servicio experto con los profesionales de Grupo Estucalia.",
+      "button": "Más información"
+    },
+    "inspiration": {
+      "title": "Inspiración",
+      "images": {
+        "modernFacade": "Detalle de fachada moderna",
+        "urbanArchitecture": "Arquitectura urbana",
+        "minimalistDesign": "Diseño de edificio minimalista",
+        "contemporaryArchitecture": "Arquitectura contemporánea"
+      }
+    }
+  },
+  "about": {
+    "title": "Somos Grupo Estucalia",
+    "description": "Grupo Estucalia está compuesto por varias empresas especializadas en fabricación, comercialización y exportación de morteros monocapa para el revestimiento de fachadas, y cementos cola y rejuntado para el revestimiento cerámico de suelos y paredes.",
+    "imageAlt": "Arte en Fachadas"
+  },
+  "blog": {
+    "hero": {
+      "title": "Noticias"
+    },
+    "categories": {
+      "news": "Noticias",
+      "events": "Eventos",
+      "updates": "Actualizaciones",
+      "internacional": "Internacional",
+      "productos": "Productos",
+      "empresa": "Empresa"
+    },
+    "viewNews": "Ver Noticia",
+    "publishedOn": "Publicado el",
+    "social": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "whatsapp": "WhatsApp"
+    },
+    "newsItems": {
+      "mision-comercial-arabia-saudita": {
+        "title": "Misión Comercial Directa a Arabia Saudita",
+        "excerpt": "Grupo Estucalia continúa su expansión internacional con una importante misión comercial en Arabia Saudita, fortaleciendo su presencia en Oriente Medio.",
+        "date": "15 Oct 2023"
+      },
+      "presentacion-morteros-marruecos": {
+        "title": "Presentación de Morteros Monocapa en Marruecos",
+        "excerpt": "Exitosa presentación de nuestra línea de productos en el mercado marroquí, destacando la calidad y versatilidad de nuestros morteros monocapa.",
+        "date": "28 Sep 2023"
+      },
+      "convencion-internacional-rabat": {
+        "title": "Convención Internacional en Rabat",
+        "excerpt": "Participación destacada en el evento más importante del sector de la construcción en el norte de África, presentando las últimas innovaciones.",
+        "date": "15 Sep 2023"
+      },
+      "nuevas-certificaciones-calidad": {
+        "title": "Nuevas Certificaciones de Calidad",
+        "excerpt": "Grupo Estucalia obtiene nuevas certificaciones que avalan la calidad de sus productos y procesos de fabricación.",
+        "date": "1 Sep 2023"
+      }
+    }
+  },
+  "products": {
+    "title": "Nuestros Productos",
+    "viewAll": "Ver Todos los Productos",
+    "categories": "Categorías",
+    "filters": "Filtros",
+    "monocapa": "Mortero monocapa",
+    "lime": "Mortero de cal",
+    "printed": "Mortero impreso",
+    "stone": "Mortero piedra",
+    "union": "Puente de unión",
+    "adhesive": "Mortero cola",
+    "waterProtector": "Protector de agua",
+    "joint": "Mortero juntas"
+  },
+  "contact": {
+    "title": "Contacto",
+    "address": {
+      "line1": "Camino Viejo de Fortuna, 40",
+      "line2": "30148 Matanzas, Santomera",
+      "line3": "Murcia (SPAIN)."
+    },
+    "schedule": {
+      "title": "Horario",
+      "weekdays": "Lunes - Jueves",
+      "weekdaysHours": "08:00 AM - 18:00 PM",
+      "friday": "Viernes",
+      "fridayHours": "08:00 AM - 14:00 PM",
+      "summer": "Verano (del 15 Julio al 15 Septiembre)",
+      "summerHours": "07:00 AM - 15:00 PM"
+    },
+    "form": {
+      "name": "Nombre",
+      "phone": "Teléfono",
+      "email": "E-mail",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "privacyPolicy": "Sí, he leído y acepto el tratamiento de mis datos personales según la Política de Privacidad y el Aviso Legal de Estucalia Morteros S.L.",
+      "commercialInfo": "Sí, autorizo la recepción vía electrónica de información comercial de Grupo Estucalia.",
+      "dataProtection": "Información básica sobre Protección de Datos. Responsable: ESTUCALIA MORTEROS S.L. Finalidad del tratamiento: gestionar su consulta/solicitud, envío de información vía electrónica y su posterior seguimiento comercial. Legitimación: su consentimiento expreso al remitirnos este formulario (RGPD 6.1.a), sus datos no serán cedidos a terceros y se conservarán por plazo de un año, salvo obligación legal. Puede ejercitar los derechos de acceso, rectificación, supresión, portabilidad, limitación y oposición, y revocar su consentimiento dirigiéndose a:",
+      "submit": "Enviar"
+    },
+    "projectHelp": {
+      "title": "¿Necesitas ayuda con tu proyecto?",
+      "description": "Nuestro equipo de expertos está listo para asesorarte en la selección de los productos más adecuados para tu proyecto. Contáctanos y te ayudaremos a encontrar la mejor solución.",
+      "button": "Contactar"
+    }
+  },
+  "footer": {
+    "sections": {
+      "company": "EMPRESA",
+      "about": "Sobre Nosotros",
+      "workWithUs": "Trabaja con nosotros",
+      "blog": "Blog",
+      "contact": "CONTACTO",
+      "products": "PRODUCTOS",
+      "legal": "TEXTOS LEGALES"
+    },
+    "products": {
+      "monocoat": "Morteros monocapa",
+      "adhesive": "Morteros adhesivos",
+      "lime": "Mortero de cal",
+      "joint": "Mortero de juntas multipropósito",
+      "vertical": "Mortero estampado vertical",
+      "waterProtector": "Protector de agua",
+      "repair": "Mortero de reparación"
+    },
+    "legal": {
+      "notice": "Aviso Legal",
+      "privacy": "Política de Privacidad",
+      "cookies": "Política de Cookies"
+    },
+    "contact": {
+      "address": "Cno Viejo de Fortuna, 40 Matanzas, 30148, Santomera, Murcia (ESPAÑA)",
+      "phone": "+34 968 862 467 / +34 663 519 854",
+      "email": "grupoestucalia@grupoestucalia.com"
+    },
+    "rights": "Todos los derechos reservados"
+  },
+  "company": {
+    "hero": {
+      "title": "Más de 25 años en el sector de revestimientos de fachadas y cerámicos a nivel internacional."
+    },
+    "about": {
+      "title": "Somos Grupo Estucalia",
+      "description": "Grupo Estucalia está compuesto por varias empresas especializadas en fabricación, comercialización y exportación de morteros monocapa para el revestimiento de fachadas, y cementos cola y rejuntado para el revestimiento cerámico de suelos y paredes.",
+      "imageAlt": "Arte en Fachadas",
+      "mission": {
+        "title": "Nuestra misión: satisfacer al cliente",
+        "description": "En nuestra empresa, la misión es clara: proporcionar un servicio de calidad excepcional ofreciendo total disponibilidad del equipo para garantizar su satisfacción."
+      }
+    },
+    "news": {
+      "title": "Actualidad",
+      "viewNews": "Ver Noticia",
+      "items": [
+        {
+          "title": "Misión Comercial Directa a Arabia Saudita",
+          "description": "Expandiendo nuestra presencia en Oriente Medio con nuevas oportunidades comerciales."
+        },
+        {
+          "title": "Grupo Estucalia presenta sus Morteros Monocapa en Marruecos",
+          "description": "Presentación exitosa de nuestra línea de productos en el mercado marroquí."
+        },
+        {
+          "title": "Convención Internacional en Rabat",
+          "description": "Participación destacada en el evento más importante del sector en el norte de África."
+        }
+      ]
+    },
+    "solutions": {
+      "title": "Soluciones para la construcción",
+      "description": "Gracias a sus más de 25 años de experiencia Grupo Estucalia ofrece una gama de productos con una calidad excepcional.",
+      "products": {
+        "monocapa": "Mortero monocapa",
+        "cola": "Mortero cola",
+        "cal": "Mortero cal",
+        "juntas": "Mortero juntas",
+        "impreso": "Mortero impreso",
+        "piedra": "Mortero piedra",
+        "protector": "Protector agua",
+        "union": "Puente unión",
+        "accesorios": "Accesorios y herramientas"
+      }
+    },
+    "production": {
+      "stats": {
+        "title": "100.000 Tm/año",
+        "description": "Nuestras instalaciones, dotadas con la última tecnología en maquinaria, nos permiten obtener una producción diaria de 300 Tm."
+      }
+    },
+    "international": {
+      "title": "Internacionales",
+      "description": "Grupo Estucalia está presente en el extranjero, teniendo distribuidores y clientes en lugares como"
+    },
+    "consulting": {
+      "title": "Asesoramiento personalizado",
+      "description": "La excelencia en el acabado de cada proyecto no es solo el último paso en nuestra búsqueda de calidad, sino el sello distintivo que define el resultado final. Grupo Estucalia pone a su disposición un equipo técnico preparado para proporcionar asistencia experta en cada proyecto que emprendamos juntos.",
+      "button": "Más información"
+    },
+    "certifications": {
+      "title": "Resultados a la altura de las exigencias",
+      "description": "Nuestra empresa está comprometida con la calidad en cada paso del camino, como lo demuestra nuestra certificación de calidad. Grupo Estucalia integra el riguroso sistema de Calidad Total basado en la norma UNE-EN ISO 9001/2000 y certificado por AENOR como empresa registrada numero ER-0339/2002.",
+      "imageAlt": "Certificación AENOR",
+      "button": "Certificaciones"
+    }
+  },
+  "workWithUs": {
+    "hero": {
+      "title": "Trabaja con nosotros"
+    },
+    "form": {
+      "title": "Personas con talento",
+      "description": {
+        "part1": "En continua expansión, Grupo Estucalia selecciona los mejores profesionales para incorporarlos a sus proyectos. Únete a nuestro equipo si eres",
+        "part2": "exigente y comprometido.",
+        "part3": "En Grupo Estucalia encontrarás un",
+        "part4": "entorno laboral disciplinado y profesional.",
+        "part5": "Rellene este formulario para incorporarte a nuestros nuevos talentos."
+      },
+      "fields": {
+        "name": "Nombre",
+        "phone": "Teléfono",
+        "email": "E-mail",
+        "specialty": "Especialidad",
+        "message": "Mensaje",
+        "cv": "Adjuntar Curriculum",
+        "fileSelected": "Archivo seleccionado:"
+      },
+      "privacy": {
+        "info": "Información básica sobre Protección de Datos. Responsable: ESTUCALIA MORTEROS S.L. Finalidad del tratamiento: gestionar su consulta/solicitud, envío de información vía electrónica y su posterior seguimiento comercial. Legitimación: su consentimiento expreso al remitirnos este formulario (RGPD 6.1.a), sus datos no serán cedidos a terceros y se conservarán por plazo de un año, salvo obligación legal. Puede ejercitar los derechos de acceso, rectificación, supresión, portabilidad, limitación y oposición, y revocar su consentimiento dirigiéndose a:",
+        "accept": "Si, he leído y acepto el tratamiento de mis datos personales según la",
+        "privacyPolicy": "Política de Privacidad",
+        "legalNotice": "Aviso Legal",
+        "companyName": "Estucalia Morteros S.L."
+      },
+      "commercial": {
+        "accept": "Sí, autorizo la recepción vía electrónica de información comercial de Grupo Estucalia."
+      },
+      "submit": "Enviar"
+    }
+  },
+  "applications": {
+    "categories": {
+      "coatings": "Revestimientos",
+      "plasters": "Revocos y enlucidos",
+      "masonry": "Albañilería",
+      "tiles": "Baldosas",
+      "screeds": "Recrecidos",
+      "thermal": "Aislamiento térmico",
+      "waterproofing": "Impermeabilización",
+      "dehumidification": "Deshumidificación"
+    },
+    "descriptions": {
+      "coatings": "El mortero monocapa es ideal para revestimientos de fachadas, ofreciendo protección y decoración en una sola aplicación. Su alta resistencia a las condiciones climáticas y la amplia variedad de acabados lo convierten en una opción versátil y duradera. Por otro lado, el mortero de cal es especialmente útil en edificaciones tradicionales o restauraciones, ya que permite una mayor transpiración de las paredes. Ambos tipos de morteros proporcionan una excelente adherencia y mejoran la estética del edificio, manteniendo la superficie bien protegida.",
+      "plasters": "Para revocos y enlucidos, el mortero de cal es una opción tradicional que ofrece gran transpirabilidad y flexibilidad, ideal para evitar fisuras en superficies antiguas. En aplicaciones modernas, el mortero monocapa destaca por su doble función de nivelar y proporcionar un acabado decorativo en una sola capa, ahorrando tiempo y costes. Ambos tipos de mortero garantizan una buena adherencia y resistencia frente a las inclemencias climáticas, mejorando la apariencia y la protección de las fachadas.",
+      "masonry": "El mortero polivalente para juntas es ideal para trabajos de albañilería, ya que permite rellenar uniones entre ladrillos o bloques, garantizando una fijación sólida y resistente. En revestimientos exteriores, el mortero monocapa sigue siendo una opción preferida por su capacidad para proteger y decorar las estructuras. Para obras tradicionales, el mortero de cal aporta flexibilidad y resistencia a la humedad, siendo una excelente alternativa en restauraciones.",
+      "tiles": "El mortero cola es el más adecuado para la instalación de baldosas en paredes y suelos, tanto en interiores como exteriores. Ofrece una alta adherencia y resistencia, incluso en condiciones de humedad o temperatura extremas. Si se busca un acabado exterior decorativo, el mortero monocapa también puede servir como base para la colocación de baldosas, proporcionando una superficie bien nivelada y resistente. Esta combinación garantiza una solución estética y funcional para revestimientos cerámicos.",
+      "screeds": "El mortero de cal es ideal para recrecidos en suelos o fachadas de edificaciones tradicionales, ya que su flexibilidad evita fisuras y permite una correcta transpiración. En aplicaciones modernas, el mortero monocapa puede aplicarse sobre recrecidos para lograr un acabado estético y resistente. Esta combinación garantiza una base sólida y bien protegida, mejorando la durabilidad y la estética de las superficies tratadas.",
+      "thermal": "Para trabajos de aislamiento térmico, el mortero monocapa es una solución eficiente cuando se aplica sobre sistemas de aislamiento térmico exterior (SATE), ofreciendo una capa protectora y decorativa. Si se busca una solución más natural y transpirable, el mortero de cal es una excelente opción, ya que permite regular la humedad y mejorar el confort térmico del edificio. Ambos tipos de mortero contribuyen a la eficiencia energética y a la protección de las fachadas.",
+      "waterproofing": "El mortero monocapa es una excelente opción para impermeabilizar fachadas, ya que forma una barrera protectora que evita la entrada de agua. Para aplicaciones específicas, como superficies con juntas visibles, el mortero polivalente para juntas garantiza un sellado efectivo. En obras tradicionales, el mortero de cal también ofrece propiedades impermeabilizantes, permitiendo una correcta transpiración de las paredes. Todos estos morteros contribuyen a mantener las estructuras libres de humedad y en buen estado.",
+      "dehumidification": "En proyectos de deshumidificación, el mortero de cal es altamente recomendado por su capacidad para repeler el agua y permitir la transpiración de las paredes. Esta característica lo convierte en una solución ideal para restauraciones o construcciones con problemas de humedad. El mortero monocapa también ayuda a mantener las superficies secas gracias a su capacidad impermeabilizante y decorativa, siendo una opción versátil y resistente para mejorar la durabilidad de las fachadas y protegerlas contra la acumulación de humedad."
+    }
+  },
+  "finishes": {
+    "categories": {
+      "hammered": "Abujardado/raspado",
+      "washed": "Lavado/fratasado",
+      "printed": "Impreso",
+      "stone": "Piedra proyectada",
+      "smooth": "Liso"
+    },
+    "descriptions": {
+      "hammered": "El acabado abujardado o raspado en morteros presenta una textura rugosa y uniforme lograda mediante el raspado superficial antes del endurecimiento. Esta solución constructiva es ideal para fachadas y muros exteriores, ya que proporciona una excelente resistencia al desgaste y a las inclemencias climáticas. El aspecto texturizado oculta imperfecciones mientras añade elegancia rústica, perfecto para proyectos que buscan robustez artesanal.",
+      "washed": "El acabado lavado o fratasado se obtiene alisando la superficie del mortero para crear una textura uniforme. Ideal para fachadas, paredes interiores y suelos, ofrece un aspecto limpio y moderno. Este acabado asegura buena adherencia para pinturas o revestimientos adicionales, con propiedades hidrófugas que previenen fisuras para una durabilidad prolongada.",
+      "printed": "El mortero impreso puede replicar patrones de piedra, madera, adoquines o diseños decorativos antes del endurecimiento. Ampliamente utilizado para suelos exteriores, patios y caminos debido a su resistencia al tránsito y a las condiciones climáticas. Los colores y patrones personalizables lo hacen ideal para proyectos arquitectónicos que combinan estética, funcionalidad y durabilidad.",
+      "stone": "El acabado de piedra proyectada incorpora partículas de piedra natural sobre el mortero fresco mediante proyección controlada. Perfecto para fachadas y muros exteriores, ofrece una excepcional resistencia al desgaste y a las condiciones climáticas. La elegante rusticidad atemporal realza los diseños arquitectónicos con un atractivo duradero y de bajo mantenimiento.",
+      "smooth": "El acabado liso crea una superficie uniforme sin textura mediante un alisado completo. Ideal para interiores modernos y fachadas minimalistas, es compatible con pinturas y revestimientos adicionales para versatilidad decorativa. Proporciona excelente protección contra la humedad y una solución constructiva atractiva."
+    },
+    "products": {
+      "monocapa": "Mortero monocapa",
+      "lime": "Mortero de cal",
+      "printed": "Mortero impreso",
+      "stone": "Mortero de piedra"
+    }
+  },
+    "news": {
+      "title": "Actualidad",
+      "readMore": "Ver Noticia",
+      "items": {
+        "saudiMission": "Misión Comercial Directa a Arabia Saudita",
+        "moroccoPresentation": "Grupo Estucalia presenta sus Morteros Monocapa en Marruecos",
+        "rabatConvention": "Convención Internacional en Rabat"
+      }
+    } 
+} 

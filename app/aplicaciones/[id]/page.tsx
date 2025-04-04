@@ -1,4 +1,3 @@
-
 "use client"
 import AplicationPage from "@/app/components/aplicaciones/AplicationsPage";
 import { usePathname } from "next/navigation";
@@ -12,6 +11,7 @@ import Agua from '../../../public/img/mortero-protector-agua.svg'
 import Juntas from '../../../public/img/mortero-juntas.svg'
 import { useEffect, useState } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { useLanguage } from '@/app/context/LanguageContext';
 
 
 export interface Aplication{
@@ -26,110 +26,110 @@ export interface Aplication{
 
 const data:Aplication[] = [
   {
-    aplication: "Revestimientos",
+    aplication: "applications.categories.coatings",
     img:"/img/revestimiento.jpg",
-    descripcion: "El mortero monocapa es ideal para revestimientos de fachadas, ofreciendo protección y decoración en una sola aplicación. Su alta resistencia a las condiciones climáticas y la amplia variedad de acabados lo convierten en una opción versátil y duradera. Por otro lado, el mortero de cal es especialmente útil en  edificaciones tradicionales o restauraciones, ya que permite una mayor transpiración de las paredes. Ambos tipos de morteros proporcionan una excelente adherencia y mejoran la estética del edificio, manteniendo la superficie bien protegida.",
+    descripcion: "applications.descriptions.coatings",
     products: [
       {
-        name: 'Mortero monocapa',
+        name: 'products.monocapa',
         icon: MorteroCal
 
       },
       {
-        name: 'Mortero de cal',
+        name: 'products.lime',
         icon: MorteroMonocapa
 
       },
       {
-        name: 'Mortero impreso',
+        name: 'products.printed',
         icon: MorteroImpreso
       },
       {
-        name: 'Mortero piedra',
+        name: 'products.stone',
         icon: Piedra
       },
       {
-        name: 'PUENTE DE UNIÓN',
+        name: 'products.union',
         icon: Union
       },
     ]
 
   },
   {
-    aplication: "Revocos y enlucidos",
+    aplication: "applications.categories.plasters",
     img:"/img/revocos_enlucidos.jpg",
-    descripcion: "Para revocos y enlucidos, el mortero de cal es una opción tradicional que ofrece gran transpirabilidad y flexibilidad, ideal para evitar fisuras en superficies antiguas. En aplicaciones modernas, el mortero monocapa destaca por su doble función de nivelar y proporcionar un acabado decorativo en una sola capa, ahorrando tiempo y costes. Ambos tipos de mortero garantizan una buena adherencia y resistencia frente a las inclemencias climáticas, mejorando la apariencia y la protección de las fachadas.",
+    descripcion: "applications.descriptions.plasters",
     products: [
       {
-        name: 'Mortero monocapa',
+        name: 'products.monocapa',
         icon: MorteroCal
 
       },
       {
-        name: 'Mortero de cal',
+        name: 'products.lime',
         icon: MorteroMonocapa
 
       },
       {
-        name: 'Mortero impreso',
+        name: 'products.printed',
         icon: MorteroImpreso
       },
       {
-        name: 'Mortero piedra',
+        name: 'products.stone',
         icon: Piedra
       },
       {
-        name: 'PUENTE DE UNIÓN',
+        name: 'products.union',
         icon: Union
       },
     ]
 
   },
   {
-    aplication: "Albañilería",
+    aplication: "applications.categories.masonry",
     img:"/img/albañileria.jpg",
-    descripcion: "El mortero polivalente para juntas es ideal para trabajos de albañilería, ya que permite rellenar uniones entre ladrillos o bloques, garantizando una fijación sólida y resistente. En revestimientos exteriores, el mortero monocapa sigue siendo una opción preferida por su capacidad para proteger y decorar las estructuras. Para obras tradicionales, el mortero de cal aporta flexibilidad y resistencia a la humedad, siendo una excelente alternativa en restauraciones.",
+    descripcion: "applications.descriptions.masonry",
     products: [
       {
-        name: 'Mortero monocapa',
+        name: 'products.monocapa',
         icon: MorteroCal
 
       },
       {
-        name: 'Mortero Cola',
+        name: 'products.adhesive',
         icon: Cola
       },
       {
-        name: 'Mortero de cal',
+        name: 'products.lime',
         icon: MorteroMonocapa
 
       },
       {
-        name: 'Mortero impreso',
+        name: 'products.printed',
         icon: MorteroImpreso
       },
       {
-        name: 'PROTECTOR DE AGUA',
+        name: 'products.waterProtector',
         icon: Agua
       },
       {
-        name: 'PUENTE DE UNIÓN',
+        name: 'products.union',
         icon: Union
       },
     ]
 
   },
   {
-    aplication: "Baldosas",
+    aplication: "applications.categories.tiles",
     img:"/img/baldosas.jpg",
-    descripcion: "El mortero cola es el más adecuado para la instalación de baldosas en paredes y suelos, tanto en interiores como exteriores. Ofrece una alta adherencia y resistencia, incluso en condiciones de humedad o temperatura extremas. Si se busca un acabado exterior decorativo, el mortero monocapa también puede servir como base para la colocación de baldosas, proporcionando una superficie bien nivelada y resistente. Esta combinación garantiza una solución estética y funcional para revestimientos cerámicos.",
+    descripcion: "applications.descriptions.tiles",
     products: [
       {
-        name: 'Mortero Cola',
+        name: 'products.adhesive',
         icon: Cola
       },
       {
-        name: 'Moncapa Juntas',
+        name: 'products.joint',
         icon: Juntas
 
       }
@@ -137,16 +137,16 @@ const data:Aplication[] = [
 
   },
   {
-    aplication: "Recrecidos",
+    aplication: "applications.categories.screeds",
     img:"/img/recrecidos.jpg",
-    descripcion: "El mortero de cal es ideal para recrecidos en suelos o fachadas de edificaciones tradicionales, ya que su flexibilidad evita fisuras y permite una correcta transpiración. En aplicaciones modernas, el mortero  monocapa puede aplicarse sobre recrecidos para lograr un acabado estético y resistente. Esta combinación garantiza una base sólida y bien protegida, mejorando la durabilidad y la estética de las superficies tratadas.",
+    descripcion: "applications.descriptions.screeds",
     products: [
       {
-        name: 'Mortero Moncapa',
+        name: 'products.monocapa',
         icon: MorteroMonocapa
       },
       {
-        name: 'Mortero Cola',
+        name: 'products.adhesive',
         icon: Cola
 
       }
@@ -154,101 +154,101 @@ const data:Aplication[] = [
 
   },
   {
-    aplication: "Aislamiento térmico",
+    aplication: "applications.categories.thermal",
     img:"/img/aislamiento.jpg",
-    descripcion: "Para trabajos de aislamiento térmico, el mortero monocapa es una solución eficiente cuando se aplica sobre sistemas de aislamiento térmico exterior (SATE), ofreciendo una capa protectora y decorativa. Si se busca una solución más natural y transpirable, el mortero de cal es una excelente opción, ya que permite regular la humedad y mejorar el confort térmico del edificio. Ambos tipos de mortero contribuyen a la eficiencia energética y a la protección de las fachadas.",
+    descripcion: "applications.descriptions.thermal",
     products: [
       {
-        name: 'Mortero monocapa',
+        name: 'products.monocapa',
         icon: MorteroMonocapa
 
       },
       {
-        name: 'Mortero Cola',
+        name: 'products.adhesive',
         icon: Cola
       },
       {
-        name: 'Mortero de cal',
+        name: 'products.lime',
         icon: MorteroCal
 
       },
       {
-        name: 'Mortero impreso',
+        name: 'products.printed',
         icon: MorteroImpreso
       },
 
       {
-        name: 'PUENTE DE UNIÓN',
+        name: 'products.union',
         icon: Union
       },
     ]
 
   },
   {
-    aplication: "Impermeabilización",
+    aplication: "applications.categories.waterproofing",
     img:"/img/impermeabilizacion.jpg",
-    descripcion: "El mortero monocapa es una excelente opción para impermeabilizar fachadas, ya que forma una barrera protectora que evita la entrada de agua. Para aplicaciones específicas, como superficies con juntas visibles, el mortero polivalente para juntas garantiza un sellado efectivo. En obras tradicionales, el mortero de cal también ofrece propiedades impermeabilizantes, permitiendo una correcta transpiración de las paredes. Todos estos morteros contribuyen a mantener las estructuras libres de humedad y en buen estado.",
+    descripcion: "applications.descriptions.waterproofing",
     products: [
       {
-        name: 'Mortero monocapa',
+        name: 'products.monocapa',
         icon: MorteroMonocapa
 
       },
       {
-        name: 'Mortero de cal',
+        name: 'products.lime',
         icon: MorteroCal
 
       },
       {
-        name: 'Mortero impreso',
+        name: 'products.printed',
         icon: MorteroImpreso
       },
       {
-        name: 'Moncapa juntas',
+        name: 'products.joint',
         icon: Juntas
       },
 
       {
-        name: 'Mortero piedra',
+        name: 'products.stone',
         icon: Piedra
       },
       {
-        name: 'Protector de agua',
+        name: 'products.waterProtector',
         icon: Agua
       },
     ]
 
   },
   {
-    aplication: "Deshumidificación",
+    aplication: "applications.categories.dehumidification",
     img:"/img/deshumificacion.jpg",
-    descripcion: "En proyectos de deshumidificación, el mortero de cal es altamente recomendado por su capacidad para repeler el agua y permitir la transpiración de las paredes. Esta característica lo convierte en una solución ideal para restauraciones o construcciones con problemas de humedad. El mortero monocapa también ayuda a mantener las superficies secas gracias a su capacidad impermeabilizante y decorativa, siendo una opción versátil y resistente para mejorar la durabilidad de las fachadas y protegerlas contra la acumulación de humedad.",
+    descripcion: "applications.descriptions.dehumidification",
     products: [
       {
-        name: 'Mortero monocapa',
+        name: 'products.monocapa',
         icon: MorteroMonocapa
 
       },
       {
-        name: 'Mortero cola',
+        name: 'products.adhesive',
         icon: Cola
 
       },
       {
-        name: 'Mortero cal',
+        name: 'products.lime',
         icon: MorteroCal
       },
       {
-        name: 'Mortero impreso',
+        name: 'products.printed',
         icon: MorteroImpreso
       },
 
       {
-        name: 'Mortero piedra',
+        name: 'products.stone',
         icon: Piedra
       },
       {
-        name: 'PUENTE DE UNIÓN',
+        name: 'products.union',
         icon: Union
       },
     ]
@@ -258,6 +258,8 @@ const data:Aplication[] = [
 
 
 export default function Aplicaciones() {
+  const { t } = useLanguage();
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   const aplicationEncoded = pathname.split("/").pop();
@@ -266,14 +268,27 @@ export default function Aplicaciones() {
   const [value, setValues] = useState<Aplication | null>(null);
 
   useEffect(() => {
-      // Busca la coincidencia en el arreglo `data`
-      const found = data.find(item => item.aplication.toLowerCase() === aplication?.toLowerCase() );
-      setValues(found || null); // Si no se encuentra, se establece `null`
-  }, [aplication]);
+    setMounted(true);
+  }, []);
+
+
+  useEffect(() => {
+    if (mounted) {
+      const found = data.find(item => t(item.aplication).toLowerCase() === aplication?.toLowerCase());
+      setValues(found || null);
+    }
+  }, [aplication, mounted, t]);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
       <main className="min-h-screen bg-white md:pt-28 pt-16 lg:pt-32">
-        <AplicationPage img={value?.img || ''} descripcion={value?.descripcion || ""} aplication={value?.aplication || ""}  products={value?.products || []} />
+        <AplicationPage img={value?.img || ''} descripcion={value?.descripcion ? t(value.descripcion) : ""} aplication={value?.aplication ? t(value.aplication) : ""}  products={value?.products.map(product => ({
+          ...product,
+          name: t(product.name)
+        })) || []} />
       </main>
   );
 }

@@ -1,0 +1,410 @@
+{
+  "navigation": {
+    "businessLinks": {
+      "company": "Company",
+      "about": "About Us",
+      "workWithUs": "Work With Us",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "home": "Home",
+    "about": "About Us",
+    "products": {
+      "label": "Products",
+      "submenu": "Type 1, Type 2, Type 3"
+    },
+    "contact": "Contact",
+    "blog": "Blog",
+    "inspiration": "Inspiration",
+    "applications": {
+      "label": "Applications",
+      "submenu": "Coatings, Plasters and renders, Masonry, Tiles, Screeds, Thermal insulation, Waterproofing, Dehumidification"
+    },
+    "spaces": {
+      "label": "Spaces",
+      "submenu": "Facades, Terraces, Balconies, Walls, Patios and skylights, Floors and pavements, Outdoor kitchens, Swimming pools"
+    },
+    "professionals": "Professionals and Technicians",
+    "finishes": "Finishes",
+    "company": "Company",
+    "workWithUs": "Work With Us",
+    "legalNotice": "Legal Notice",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "languages": "Languages"
+  },
+  "common": {
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "send": "Send",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "phone": "Phone",
+    "address": "Address",
+    "submit": "Submit",
+    "videoNotSupported": "Your browser does not support the video tag."
+  },
+  "home": {
+    "hero": {
+      "title": "Sustainable mortars for architecture and construction.",
+      "subtitle": "Your trusted partner in construction materials",
+      "cta": "Discover Our Products",
+      "imageAlt": "Sustainable construction image"
+    },
+    "company": {
+      "title": "Estucalia Group",
+      "description": "More than 25 years manufacturing high-performance monocoat mortar, tile adhesive and flashing.",
+      "imageAlt": "Estucalia company image",
+      "mission": {
+        "title": "Our Mission",
+        "description": "To provide sustainable and high-quality construction solutions"
+      },
+      "vision": {
+        "title": "Our Vision",
+        "description": "To be leaders in innovation and sustainability in the construction sector"
+      }
+    },
+    "news": {
+      "title": "News",
+      "readMore": "Read more",
+      "viewAll": "View all news"
+    },
+    "applications": {
+      "title": "Applications",
+      "categories": {
+        "coatings": "Coatings",
+        "plasters": "Plasters and renders",
+        "masonry": "Masonry",
+        "tiles": "Tiles",
+        "screeds": "Screeds",
+        "thermal": "Thermal insulation",
+        "waterproofing": "Waterproofing",
+        "dehumidification": "Dehumidification"
+      },
+      "spaces": {
+        "facades": "Facades",
+        "terraces": "Terraces",
+        "balconies": "Balconies",
+        "walls": "Walls",
+        "patios": "Patios and skylights",
+        "floors": "Floors and pavements",
+        "outdoorKitchens": "Outdoor kitchens",
+        "pools": "Swimming pools"
+      }
+    },
+    "finishes": {
+      "title": "Finishes",
+      "categories": {
+        "hammered": "Hammered/scraped",
+        "washed": "Washed/brushed",
+        "printed": "Printed",
+        "stone": "Projected stone",
+        "smooth": "Smooth"
+      },
+      "products": {
+        "monocapa": "Monocapa mortar",
+        "lime": "Lime mortar",
+        "printed": "Printed mortar",
+        "stone": "Stone mortar"
+      },
+      "noProducts": "No products available in this category"
+    },
+    "projectHelp": {
+      "title": "Need help with your project?",
+      "description": "Receive personalized assistance and expert service from Grupo Estucalia professionals.",
+      "button": "More information"
+    },
+    "inspiration": {
+      "title": "Inspiration",
+      "images": {
+        "modernFacade": "Modern facade detail",
+        "urbanArchitecture": "Urban architecture",
+        "minimalistDesign": "Minimalist building design",
+        "contemporaryArchitecture": "Contemporary architecture"
+      }
+    }
+  },
+  "about": {
+    "title": "We are Estucalia Group",
+    "description": "Estucalia Group is composed of several companies specialized in manufacturing, marketing and exporting monocoat mortars for facade cladding, and tile adhesive and grout for ceramic cladding of floors and walls.",
+    "imageAlt": "Art in Facades"
+  },
+  "blog": {
+    "hero": {
+      "title": "News"
+    },
+    "categories": {
+      "news": "News",
+      "events": "Events",
+      "updates": "Updates",
+      "internacional": "International",
+      "productos": "Products",
+      "empresa": "Company"
+    },
+    "viewNews": "View News",
+    "publishedOn": "Published on",
+    "social": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "whatsapp": "WhatsApp"
+    },
+    "newsItems": {
+      "mision-comercial-arabia-saudita": {
+        "title": "Direct Commercial Mission to Saudi Arabia",
+        "excerpt": "Grupo Estucalia continues its international expansion with an important commercial mission in Saudi Arabia, strengthening its presence in the Middle East.",
+        "date": "15 Oct 2023"
+      },
+      "presentacion-morteros-marruecos": {
+        "title": "Presentation of Monocoat Mortars in Morocco",
+        "excerpt": "Successful presentation of our product line in the Moroccan market, highlighting the quality and versatility of our monocoat mortars.",
+        "date": "28 Sep 2023"
+      },
+      "convencion-internacional-rabat": {
+        "title": "International Convention in Rabat",
+        "excerpt": "Outstanding participation in the most important event in the construction sector in North Africa, presenting the latest innovations.",
+        "date": "15 Sep 2023"
+      },
+      "nuevas-certificaciones-calidad": {
+        "title": "New Quality Certifications",
+        "excerpt": "Grupo Estucalia obtains new certifications that endorse the quality of its products and manufacturing processes.",
+        "date": "1 Sep 2023"
+      }
+    }
+  },
+  "products": {
+    "title": "Our Products",
+    "viewAll": "View All Products",
+    "categories": "Categories",
+    "filters": "Filters",
+    "monocapa": "Monocoat mortar",
+    "lime": "Lime mortar",
+    "printed": "Printed mortar",
+    "stone": "Stone mortar",
+    "union": "Bridge union",
+    "adhesive": "Tile adhesive",
+    "waterProtector": "Water protector",
+    "joint": "Joint mortar"
+  },
+  "contact": {
+    "title": "Contact",
+    "address": {
+      "line1": "Camino Viejo de Fortuna, 40",
+      "line2": "30148 Matanzas, Santomera",
+      "line3": "Murcia (SPAIN)."
+    },
+    "schedule": {
+      "title": "Schedule",
+      "weekdays": "Monday - Thursday",
+      "weekdaysHours": "08:00 AM - 18:00 PM",
+      "friday": "Friday",
+      "fridayHours": "08:00 AM - 14:00 PM",
+      "summer": "Summer (July 15th to September 15th)",
+      "summerHours": "07:00 AM - 15:00 PM"
+    },
+    "form": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "E-mail",
+      "subject": "Subject",
+      "message": "Message",
+      "privacyPolicy": "Yes, I have read and accept the processing of my personal data according to the Privacy Policy and Legal Notice of Estucalia Morteros S.L.",
+      "commercialInfo": "Yes, I authorize the electronic reception of commercial information from Grupo Estucalia.",
+      "dataProtection": "Basic information on Data Protection. Responsible: ESTUCALIA MORTEROS S.L. Purpose of processing: manage your query/request, send electronic information and subsequent commercial follow-up. Legitimization: your express consent when sending us this form (GDPR 6.1.a), your data will not be transferred to third parties and will be kept for one year, except legal obligation. You can exercise your rights of access, rectification, deletion, portability, limitation and opposition, and revoke your consent by contacting:",
+      "submit": "Send"
+    },
+    "projectHelp": {
+      "title": "Need help with your project?",
+      "description": "Our team of experts is ready to advise you on selecting the most suitable products for your project. Contact us and we will help you find the best solution.",
+      "button": "Contact"
+    }
+  },
+  "footer": {
+    "sections": {
+      "company": "COMPANY",
+      "about": "About Us",
+      "workWithUs": "Work with us",
+      "blog": "Blog",
+      "contact": "CONTACT",
+      "products": "PRODUCTS",
+      "legal": "LEGAL TEXTS"
+    },
+    "products": {
+      "monocoat": "Monocoat mortars",
+      "adhesive": "Adhesive mortars",
+      "lime": "Lime mortar",
+      "joint": "Multi-purpose joint mortar",
+      "vertical": "Vertical stamped mortar",
+      "waterProtector": "Water protector",
+      "repair": "Repair mortar"
+    },
+    "legal": {
+      "notice": "Legal Notice",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy"
+    },
+    "contact": {
+      "address": "Cno Viejo de Fortuna, 40 Matanzas, 30148, Santomera, Murcia (SPAIN)",
+      "phone": "+34 968 862 467 / +34 663 519 854",
+      "email": "grupoestucalia@grupoestucalia.com"
+    },
+    "rights": "All rights reserved"
+  },
+  "company": {
+    "hero": {
+      "title": "More than 25 years in the facade cladding and ceramic sector internationally."
+    },
+    "about": {
+      "title": "We are Grupo Estucalia",
+      "description": "Grupo Estucalia is composed of several companies specialized in manufacturing, marketing and exporting monocoat mortars for facade cladding, and tile adhesives and grouts for ceramic cladding of floors and walls.",
+      "imageAlt": "Art in Facades",
+      "mission": {
+        "title": "Our mission: customer satisfaction",
+        "description": "In our company, the mission is clear: to provide exceptional quality service by offering full team availability to ensure your satisfaction."
+      }
+    },
+    "news": {
+      "title": "News",
+      "viewNews": "View News",
+      "items": [
+        {
+          "title": "Direct Commercial Mission to Saudi Arabia",
+          "description": "Expanding our presence in the Middle East with new business opportunities."
+        },
+        {
+          "title": "Grupo Estucalia presents its Monocoat Mortars in Morocco",
+          "description": "Successful presentation of our product line in the Moroccan market."
+        },
+        {
+          "title": "International Convention in Rabat",
+          "description": "Outstanding participation in the most important event in the sector in North Africa."
+        }
+      ]
+    },
+    "solutions": {
+      "title": "Construction Solutions",
+      "description": "Thanks to more than 25 years of experience, Grupo Estucalia offers a range of products with exceptional quality.",
+      "products": {
+        "monocapa": "Monocoat Mortar",
+        "cola": "Tile Adhesive",
+        "cal": "Lime Mortar",
+        "juntas": "Joint Mortar",
+        "impreso": "Printed Mortar",
+        "piedra": "Stone Mortar",
+        "protector": "Water Protector",
+        "union": "Bridge Union",
+        "accesorios": "Accessories and Tools"
+      }
+    },
+    "production": {
+      "stats": {
+        "title": "100,000 tons/year",
+        "description": "Our facilities, equipped with the latest technology in machinery, allow us to obtain a daily production of 300 tons."
+      }
+    },
+    "international": {
+      "title": "International",
+      "description": "Grupo Estucalia is present abroad, having distributors and clients in places such as"
+    },
+    "consulting": {
+      "title": "Personalized Consulting",
+      "description": "The excellence in the finishing of each project is not only the last step in our pursuit of quality, but the distinctive seal that defines the final result. Grupo Estucalia makes available to you a technical team prepared to provide expert assistance in each project we undertake together.",
+      "button": "More Information"
+    },
+    "certifications": {
+      "title": "Results that meet the requirements",
+      "description": "Our company is committed to quality at every step of the way, as demonstrated by our quality certification. Grupo Estucalia integrates the rigorous Total Quality system based on the UNE-EN ISO 9001/2000 standard and certified by AENOR as registered company number ER-0339/2002.",
+      "imageAlt": "AENOR Certification",
+      "button": "Certifications"
+    }
+  },
+  "workWithUs": {
+    "hero": {
+      "title": "Work with us"
+    },
+    "form": {
+      "title": "Talented people",
+      "description": {
+        "part1": "In continuous expansion, Grupo Estucalia selects the best professionals to join its projects. Join our team if you are",
+        "part2": "demanding and committed.",
+        "part3": "At Grupo Estucalia you will find a",
+        "part4": "disciplined and professional work environment.",
+        "part5": "Fill out this form to join our new talents."
+      },
+      "fields": {
+        "name": "Name",
+        "phone": "Phone",
+        "email": "Email",
+        "specialty": "Specialty",
+        "message": "Message",
+        "cv": "Attach CV",
+        "fileSelected": "Selected file:"
+      },
+      "privacy": {
+        "info": "Basic information on Data Protection. Responsible: ESTUCALIA MORTEROS S.L. Purpose of processing: manage your query/request, send information electronically and subsequent commercial follow-up. Legitimacy: your express consent when sending us this form (GDPR 6.1.a), your data will not be transferred to third parties and will be kept for one year, unless legally required. You can exercise your rights of access, rectification, deletion, portability, limitation and opposition, and revoke your consent by contacting:",
+        "accept": "Yes, I have read and accept the processing of my personal data according to the",
+        "privacyPolicy": "Privacy Policy",
+        "legalNotice": "Legal Notice",
+        "companyName": "Estucalia Morteros S.L."
+      },
+      "commercial": {
+        "accept": "Yes, I authorize the electronic receipt of commercial information from Grupo Estucalia."
+      },
+      "submit": "Submit"
+    }
+  },
+  "applications": {
+    "categories": {
+      "coatings": "Coatings",
+      "plasters": "Plasters and renders",
+      "masonry": "Masonry",
+      "tiles": "Tiles",
+      "screeds": "Screeds",
+      "thermal": "Thermal insulation",
+      "waterproofing": "Waterproofing",
+      "dehumidification": "Dehumidification"
+    },
+    "descriptions": {
+      "coatings": "Monocoat mortar is ideal for facade coatings, offering protection and decoration in a single application. Its high resistance to weather conditions and wide variety of finishes make it a versatile and durable option. On the other hand, lime mortar is especially useful in traditional buildings or restorations, as it allows for better wall breathability. Both types of mortar provide excellent adhesion and improve the building's aesthetics while keeping the surface well protected.",
+      "plasters": "For plasters and renders, lime mortar is a traditional option that offers great breathability and flexibility, ideal for preventing cracks in old surfaces. In modern applications, monocoat mortar stands out for its dual function of leveling and providing a decorative finish in a single layer, saving time and costs. Both types of mortar ensure good adhesion and resistance to weather conditions, improving the appearance and protection of facades.",
+      "masonry": "The multipurpose joint mortar is ideal for masonry work, as it allows filling joints between bricks or blocks, ensuring a solid and resistant fixation. For exterior coatings, monocoat mortar remains a preferred option due to its ability to protect and decorate structures. For traditional works, lime mortar provides flexibility and moisture resistance, being an excellent alternative in restorations.",
+      "tiles": "Tile adhesive is the most suitable for installing tiles on walls and floors, both indoors and outdoors. It offers high adhesion and resistance, even in extreme humidity or temperature conditions. If a decorative exterior finish is desired, monocoat mortar can also serve as a base for tile placement, providing a well-leveled and resistant surface. This combination ensures an aesthetic and functional solution for ceramic coatings.",
+      "screeds": "Lime mortar is ideal for screeds on floors or facades of traditional buildings, as its flexibility prevents cracks and allows proper breathability. In modern applications, monocoat mortar can be applied over screeds to achieve an aesthetic and resistant finish. This combination ensures a solid and well-protected base, improving the durability and aesthetics of treated surfaces.",
+      "thermal": "For thermal insulation work, monocoat mortar is an efficient solution when applied over external thermal insulation systems (ETICS), offering a protective and decorative layer. If a more natural and breathable solution is desired, lime mortar is an excellent option, as it allows humidity regulation and improves the building's thermal comfort. Both types of mortar contribute to energy efficiency and facade protection.",
+      "waterproofing": "Monocoat mortar is an excellent option for waterproofing facades, as it forms a protective barrier that prevents water entry. For specific applications, such as surfaces with visible joints, multipurpose joint mortar ensures effective sealing. In traditional works, lime mortar also offers waterproofing properties, allowing proper wall breathability. All these mortars help keep structures free from moisture and in good condition.",
+      "dehumidification": "In dehumidification projects, lime mortar is highly recommended for its ability to repel water and allow wall breathability. This characteristic makes it an ideal solution for restorations or constructions with humidity problems. Monocoat mortar also helps keep surfaces dry thanks to its waterproofing and decorative capacity, being a versatile and resistant option to improve facade durability and protect them against moisture accumulation."
+    }
+  },
+    "finishes": {
+      "categories": {
+        "hammered": "Hammered/scraped",
+        "washed": "Washed/brushed",
+        "printed": "Printed",
+        "stone": "Projected stone",
+        "smooth": "Smooth"
+      },
+      "descriptions": {
+        "hammered": "The hammered or scraped finish in mortars features a rough, uniform texture achieved by surface scraping before hardening. This construction solution is ideal for facades and exterior walls as it provides excellent wear and weather resistance. The textured appearance hides imperfections while adding rustic elegance, perfect for projects seeking artisanal robustness.",
+        "washed": "The washed or troweled finish is achieved by smoothing the mortar surface to create a uniform texture. Ideal for facades, interior walls and floors, it offers a clean, modern look. This finish ensures good adhesion for paints or additional coatings, with water-repellent properties that prevent cracking for long-lasting durability.",
+        "printed": "Printed mortar can replicate stone, wood, cobblestone or decorative patterns before hardening. Widely used for exterior floors, patios and walkways due to its traffic and weather resistance. Customizable colors and patterns make it ideal for architectural projects combining aesthetics, functionality and durability.",
+        "stone": "Projected stone finish incorporates natural stone particles onto fresh mortar through controlled projection. Perfect for facades and exterior walls, it offers exceptional wear and weather resistance. The timeless rustic elegance enhances architectural designs with durable, low-maintenance appeal.",
+        "smooth": "The smooth finish creates a uniform, texture-free surface through complete leveling. Ideal for modern interiors and minimalist facades, it's compatible with paints and additional coatings for decorative versatility. Provides excellent moisture protection and an attractive construction solution."
+      },
+      "products": {
+        "monocapa": "Monocoat mortar",
+        "lime": "Lime mortar",
+        "printed": "Printed mortar",
+        "stone": "Stone mortar"
+      }
+    },
+    "news": {
+      "title": "News",
+      "readMore": "Read more",
+      "items": {
+        "saudiMission": "Direct Commercial Mission to Saudi Arabia",
+        "moroccoPresentation": "Grupo Estucalia presents its Monocoat Mortars in Morocco",
+        "rabatConvention": "International Convention in Rabat"
+      }
+    }
+} 

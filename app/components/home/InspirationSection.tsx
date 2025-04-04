@@ -1,59 +1,60 @@
 'use client';
 
 import React from 'react';
-
-const inspirationImages = [
-  {
-    url: "img/img-1.jpg",
-    alt: "Modern facade detail"
-  },
-  {
-    url: "img/Home.jpg",
-    alt: "Urban architecture"
-  },
-  {
-    url: "img/img-3.jpg",
-    alt: "Minimalist building design"
-  },
-  {
-    url: "img/img-4.jpg",
-    alt: "Contemporary architecture"
-  },
-  {
-    url: "img/img3.jpg",
-    alt: "Modern facade detail"
-  },
-  {
-    url: "img/img-8.jpg",
-    alt: "Urban architecture"
-  },
-  {
-    url: "img/img1.jpg",
-    alt: "Minimalist building design"
-  },
-  {
-    url: "img/image1.jpg",
-    alt: "Contemporary architecture"
-  },
-];
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function InspirationSection() {
+  const { t } = useLanguage();
+
+  const inspirationImages = [
+    {
+      url: "img/img-1.jpg",
+      alt: t('home.inspiration.images.modernFacade')
+    },
+    {
+      url: "img/Home.jpg",
+      alt: t('home.inspiration.images.urbanArchitecture')
+    },
+    {
+      url: "img/img-3.jpg",
+      alt: t('home.inspiration.images.minimalistDesign')
+    },
+    {
+      url: "img/img-4.jpg",
+      alt: t('home.inspiration.images.contemporaryArchitecture')
+    },
+    {
+      url: "img/img3.jpg",
+      alt: t('home.inspiration.images.modernFacade')
+    },
+    {
+      url: "img/img-8.jpg",
+      alt: t('home.inspiration.images.urbanArchitecture')
+    },
+    {
+      url: "img/img1.jpg",
+      alt: t('home.inspiration.images.minimalistDesign')
+    },
+    {
+      url: "img/image1.jpg",
+      alt: t('home.inspiration.images.contemporaryArchitecture')
+    }
+  ];
+
   return (
-    <section className=" py-48  bg-white">
-       {/* Featured Image */}
-       <div className="relative h-[500px] mb-32">
-          <div 
-            className="absolute inset-0 bg-cover bg-fixed bg-center"
-            style={{
-              backgroundImage: "url('/img/bg-up.png')"
-            }}
-          />
-        </div>
+    <section className="py-48 bg-white">
+      {/* Featured Image */}
+      <div className="relative h-[500px] mb-32">
+        <div 
+          className="absolute inset-0 bg-cover bg-fixed bg-center"
+          style={{
+            backgroundImage: "url('/img/bg-up.png')"
+          }}
+        />
+      </div>
 
       <div className="md:px-15 sm:px-10 px-5 lg:px-20 mx-auto">
-       
-        <h2 className="text-2xl font-[600] mb-8 ">Inspiración</h2>
-        
+        <h2 className="text-2xl font-[600] mb-8">{t('home.inspiration.title')}</h2>
 
         {/* Image Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12">

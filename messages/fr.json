@@ -1,0 +1,367 @@
+{
+  "navigation": {
+    "businessLinks": {
+      "company": "Entreprise",
+      "about": "À Propos",
+      "workWithUs": "Travailler avec Nous",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "home": "Accueil",
+    "about": "À Propos",
+    "products": {
+      "label": "Produits",
+      "submenu": "Type 1, Type 2, Type 3"
+    },
+    "contact": "Contact",
+    "blog": "Blog",
+    "inspiration": "Inspiration",
+    "applications": {
+      "label": "Applications",
+      "submenu": "Revetements, Enduits et plâtres, Maçonnerie, Carreaux, Chapes, Isolation thermique, Étanchéité, Déshumidification"
+    },
+    "spaces": {
+      "label": "Espaces",
+      "submenu": "Façades, Terrasses, Balcons, Murs, Patios et puits de lumière, Sols et pavements, Cuisines extérieures, Piscines"
+    },
+    "professionals": "Professionnels et Techniciens",
+    "finishes": "Finitures",
+    "languages": "Langues",
+    "company": "Entreprise",
+    "workWithUs": "Travailler avec Nous",
+    "legalNotice": "Mentions Légales",
+    "privacyPolicy": "Politique de Confidentialité",
+    "cookiePolicy": "Politique des Cookies"
+  },
+  "common": {
+    "readMore": "Lire Plus",
+    "learnMore": "En Savoir Plus",
+    "contactUs": "Contactez-nous",
+    "send": "Envoyer",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "phone": "Téléphone",
+    "address": "Adresse",
+    "submit": "Envoyer",
+    "videoNotSupported": "Votre navigateur ne prend pas en charge l'élément vidéo."
+  },
+  "home": {
+    "hero": {
+      "title": "Mortiers durables pour l'architecture et la construction.",
+      "subtitle": "Votre partenaire de confiance en matériaux de construction",
+      "cta": "Découvrez Nos Produits",
+      "imageAlt": "Image de construction durable"
+    },
+    "company": {
+      "title": "Groupe Estucalia",
+      "description": "Plus de 25 ans à fabriquer du mortier monocouche haute performance, de la colle à carrelage et du flashing.",
+      "imageAlt": "Image de l'entreprise Estucalia",
+      "mission": {
+        "title": "Notre Mission",
+        "description": "Fournir des solutions de construction durables et de haute qualité"
+      },
+      "vision": {
+        "title": "Notre Vision",
+        "description": "Être leaders en innovation et durabilité dans le secteur de la construction"
+      }
+    },
+    "news": {
+      "title": "Actualités",
+      "readMore": "Lire la suite",
+      "viewAll": "Voir toutes les actualités"
+    },
+    "applications": {
+      "title": "Applications",
+      "categories": {
+        "coatings": "Revêtements",
+        "plasters": "Enduits et plâtres",
+        "masonry": "Maçonnerie",
+        "tiles": "Carreaux",
+        "screeds": "Chapes",
+        "thermal": "Isolation thermique",
+        "waterproofing": "Étanchéité",
+        "dehumidification": "Déshumidification"
+      },
+      "spaces": {
+        "facades": "Façades",
+        "terraces": "Terrasses",
+        "balconies": "Balcons",
+        "walls": "Murs",
+        "patios": "Patios et puits de lumière",
+        "floors": "Sols et pavements",
+        "outdoorKitchens": "Cuisines extérieures",
+        "pools": "Piscines"
+      }
+    },
+    "finishes": {
+      "title": "Finition",
+      "categories": {
+        "hammered": "Bouchardé/gratté",
+        "washed": "Lavé/brossé",
+        "printed": "Imprimé",
+        "stone": "Pierre projetée",
+        "smooth": "Lisse"
+      },
+      "products": {
+        "monocapa": "Mortier monocouche",
+        "lime": "Mortier à la chaux",
+        "printed": "Mortier imprimé",
+        "stone": "Mortier pierre"
+      },
+      "noProducts": "Aucun produit disponible dans cette catégorie"
+    },
+    "projectHelp": {
+      "title": "Besoin d'aide pour votre projet ?",
+      "description": "Bénéficiez d'une assistance personnalisée et d'un service expert avec les professionnels de Grupo Estucalia.",
+      "button": "Plus d'informations"
+    },
+    "inspiration": {
+      "title": "Inspiration",
+      "images": {
+        "modernFacade": "Détail de façade moderne",
+        "urbanArchitecture": "Architecture urbaine",
+        "minimalistDesign": "Design de bâtiment minimaliste",
+        "contemporaryArchitecture": "Architecture contemporaine"
+      }
+    }
+  },
+  "about": {
+    "title": "Nous sommes le Groupe Estucalia",
+    "description": "Le Groupe Estucalia est composé de plusieurs entreprises spécialisées dans la fabrication, la commercialisation et l'exportation de mortiers monocouches pour le revêtement de façades, et de colles à carrelage et de joints pour le revêtement céramique des sols et des murs.",
+    "imageAlt": "Art en Façades"
+  },
+  "blog": {
+    "hero": {
+      "title": "Actualités"
+    },
+    "categories": {
+      "news": "Actualités",
+      "events": "Événements",
+      "updates": "Mises à jour",
+      "internacional": "International",
+      "productos": "Produits",
+      "empresa": "Entreprise"
+    },
+    "viewNews": "Voir l'actualité",
+    "publishedOn": "Publié le",
+    "social": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "whatsapp": "WhatsApp"
+    },
+    "title": "Actualités",
+    "readMore": "Lire plus",
+    "relatedPosts": "Articles connexes",
+    "newsItems": [
+      {
+        "id": "mision-comercial-arabia-saudita",
+        "title": "Mission Commerciale Directe en Arabie Saoudite",
+        "excerpt": "Grupo Estucalia poursuit son expansion internationale avec une importante mission commerciale en Arabie Saoudite, renforçant sa présence au Moyen-Orient.",
+        "date": "15 Oct 2023",
+        "category": "internacional"
+      },
+      {
+        "id": "presentacion-morteros-marruecos",
+        "title": "Présentation des Mortiers Monocouche au Maroc",
+        "excerpt": "Présentation réussie de notre gamme de produits sur le marché marocain, mettant en avant la qualité et la polyvalence de nos mortiers monocouche.",
+        "date": "28 Sep 2023",
+        "category": "productos"
+      },
+      {
+        "id": "convencion-internacional-rabat",
+        "title": "Convention Internationale à Rabat",
+        "excerpt": "Participation remarquable à l'événement le plus important du secteur de la construction en Afrique du Nord, présentant les dernières innovations.",
+        "date": "15 Sep 2023",
+        "category": "events"
+      },
+      {
+        "id": "nuevas-certificaciones-calidad",
+        "title": "Nouvelles Certifications de Qualité",
+        "excerpt": "Grupo Estucalia obtient de nouvelles certifications qui attestent de la qualité de ses produits et de ses processus de fabrication.",
+        "date": "1 Sep 2023",
+        "category": "empresa"
+      }
+    ]
+  },
+  "products": {
+    "title": "Nos Produits",
+    "viewAll": "Voir Tous les Produits",
+    "categories": "Catégories",
+    "filters": "Filtres",
+    "monocapa": "Mortier monocouche",
+    "lime": "Mortier à la chaux",
+    "printed": "Mortier imprimé",
+    "stone": "Mortier pierre",
+    "union": "Pont d'union",
+    "adhesive": "Colle à carrelage",
+    "waterProtector": "Protecteur d'eau",
+    "joint": "Mortier de joint"
+  },
+  "contact": {
+    "title": "Contact",
+    "address": {
+      "line1": "Camino Viejo de Fortuna, 40",
+      "line2": "30148 Matanzas, Santomera",
+      "line3": "Murcia (SPAIN)."
+    },
+    "schedule": {
+      "title": "Horaires",
+      "weekdays": "Lundi - Jeudi",
+      "weekdaysHours": "08:00 AM - 18:00 PM",
+      "friday": "Vendredi",
+      "fridayHours": "08:00 AM - 14:00 PM",
+      "summer": "Été (du 15 Juillet au 15 Septembre)",
+      "summerHours": "07:00 AM - 15:00 PM"
+    },
+    "form": {
+      "name": "Nom",
+      "phone": "Téléphone",
+      "email": "E-mail",
+      "subject": "Sujet",
+      "message": "Message",
+      "privacyPolicy": "Oui, j'ai lu et j'accepte le traitement de mes données personnelles conformément à la Politique de Confidentialité et aux Mentions Légales d'Estucalia Morteros S.L.",
+      "commercialInfo": "Oui, j'autorise la réception électronique d'informations commerciales de Grupo Estucalia.",
+      "dataProtection": "Informations de base sur la Protection des Données. Responsable : ESTUCALIA MORTEROS S.L. Finalité du traitement : gérer votre demande/question, envoyer des informations électroniques et assurer un suivi commercial. Légitimation : votre consentement exprès lors de l'envoi de ce formulaire (RGPD 6.1.a), vos données ne seront pas transférées à des tiers et seront conservées pendant un an, sauf obligation légale. Vous pouvez exercer vos droits d'accès, de rectification, de suppression, de portabilité, de limitation et d'opposition, et révoquer votre consentement en contactant :",
+      "submit": "Envoyer"
+    },
+    "projectHelp": {
+      "title": "Besoin d'aide pour votre projet ?",
+      "description": "Notre équipe d'experts est prête à vous conseiller dans la sélection des produits les plus adaptés à votre projet. Contactez-nous et nous vous aiderons à trouver la meilleure solution.",
+      "button": "Contactez-nous"
+    }
+  },
+  "footer": {
+    "sections": {
+      "company": "ENTREPRISE",
+      "about": "À Propos",
+      "workWithUs": "Travailler avec nous",
+      "blog": "Blog",
+      "contact": "CONTACT",
+      "products": "PRODUITS",
+      "legal": "TEXTES LÉGAUX"
+    },
+    "products": {
+      "monocoat": "Mortiers monocouche",
+      "adhesive": "Mortiers adhésifs",
+      "lime": "Mortier de chaux",
+      "joint": "Mortier de joint multipurpose",
+      "vertical": "Mortier estampé vertical",
+      "waterProtector": "Protecteur d'eau",
+      "repair": "Mortier de réparation"
+    },
+    "legal": {
+      "notice": "Mentions Légales",
+      "privacy": "Politique de Confidentialité",
+      "cookies": "Politique des Cookies"
+    },
+    "contact": {
+      "address": "Cno Viejo de Fortuna, 40 Matanzas, 30148, Santomera, Murcia (ESPAGNE)",
+      "phone": "+34 968 862 467 / +34 663 519 854",
+      "email": "grupoestucalia@grupoestucalia.com"
+    },
+    "rights": "Tous droits réservés"
+  },
+  "company": {
+    "hero": {
+      "title": "Plus de 25 ans dans le secteur des revêtements de façades et céramiques à l'échelle internationale."
+    },
+    "about": {
+      "title": "Nous sommes Grupo Estucalia",
+      "description": "Grupo Estucalia est composé de plusieurs entreprises spécialisées dans la fabrication, la commercialisation et l'exportation de mortiers monocouche pour le revêtement de façades, et de colles et joints pour le revêtement céramique des sols et murs.",
+      "imageAlt": "Art dans les Façades",
+      "mission": {
+        "title": "Notre mission : satisfaire le client",
+        "description": "Dans notre entreprise, la mission est claire : fournir un service de qualité exceptionnelle en offrant une disponibilité totale de l'équipe pour garantir votre satisfaction."
+      }
+    }
+  },
+  "workWithUs": {
+    "hero": {
+      "title": "Travailler avec nous"
+    },
+    "form": {
+      "title": "Personnes talentueuses",
+      "description": {
+        "part1": "En expansion continue, Grupo Estucalia sélectionne les meilleurs professionnels pour rejoindre ses projets. Rejoignez notre équipe si vous êtes",
+        "part2": "exigeant et engagé.",
+        "part3": "Chez Grupo Estucalia, vous trouverez un",
+        "part4": "environnement de travail discipliné et professionnel.",
+        "part5": "Remplissez ce formulaire pour rejoindre nos nouveaux talents."
+      },
+      "fields": {
+        "name": "Nom",
+        "phone": "Téléphone",
+        "email": "Email",
+        "specialty": "Spécialité",
+        "message": "Message",
+        "cv": "Joindre CV",
+        "fileSelected": "Fichier sélectionné:"
+      },
+      "privacy": {
+        "info": "Informations de base sur la Protection des Données. Responsable: ESTUCALIA MORTEROS S.L. Finalité du traitement: gérer votre demande, envoyer des informations par voie électronique et suivi commercial ultérieur. Légitimité: votre consentement exprès lors de l'envoi de ce formulaire (RGPD 6.1.a), vos données ne seront pas transférées à des tiers et seront conservées pendant un an, sauf obligation légale. Vous pouvez exercer vos droits d'accès, de rectification, de suppression, de portabilité, de limitation et d'opposition, et révoquer votre consentement en contactant:",
+        "accept": "Oui, j'ai lu et j'accepte le traitement de mes données personnelles conformément à la",
+        "privacyPolicy": "Politique de Confidentialité",
+        "legalNotice": "Mentions Légales",
+        "companyName": "Estucalia Morteros S.L."
+      },
+      "commercial": {
+        "accept": "Oui, j'autorise la réception électronique d'informations commerciales de Grupo Estucalia."
+      },
+      "submit": "Envoyer"
+    }
+  },
+  "applications": {
+    "categories": {
+      "coatings": "Revêtements",
+      "plasters": "Enduits et plâtres",
+      "masonry": "Maçonnerie",
+      "tiles": "Carreaux",
+      "screeds": "Chapes",
+      "thermal": "Isolation thermique",
+      "waterproofing": "Étanchéité",
+      "dehumidification": "Déshumidification"
+    },
+    "descriptions": {
+      "coatings": "Le mortier monocouche est idéal pour les revêtements de façades, offrant protection et décoration en une seule application. Sa haute résistance aux conditions climatiques et sa grande variété de finitions en font une option polyvalente et durable. D'autre part, le mortier à la chaux est particulièrement utile dans les bâtiments traditionnels ou les restaurations, car il permet une meilleure respiration des murs. Les deux types de mortier offrent une excellente adhérence et améliorent l'esthétique du bâtiment tout en maintenant la surface bien protégée.",
+      "plasters": "Pour les enduits et plâtres, le mortier à la chaux est une option traditionnelle qui offre une grande respirabilité et flexibilité, idéale pour éviter les fissures sur les surfaces anciennes. Dans les applications modernes, le mortier monocouche se distingue par sa double fonction de nivellement et de finition décorative en une seule couche, permettant d'économiser du temps et des coûts. Les deux types de mortier assurent une bonne adhérence et résistance aux intempéries, améliorant l'apparence et la protection des façades.",
+      "masonry": "Le mortier polyvalent pour joints est idéal pour les travaux de maçonnerie, car il permet de remplir les joints entre les briques ou les blocs, assurant une fixation solide et résistante. Pour les revêtements extérieurs, le mortier monocouche reste une option préférée en raison de sa capacité à protéger et décorer les structures. Pour les travaux traditionnels, le mortier à la chaux apporte flexibilité et résistance à l'humidité, constituant une excellente alternative pour les restaurations.",
+      "tiles": "La colle à carrelage est la plus adaptée pour l'installation de carreaux sur les murs et les sols, tant à l'intérieur qu'à l'extérieur. Elle offre une adhérence et une résistance élevées, même dans des conditions d'humidité ou de température extrêmes. Si une finition extérieure décorative est souhaitée, le mortier monocouche peut également servir de base pour la pose de carreaux, fournissant une surface bien nivelée et résistante. Cette combinaison garantit une solution esthétique et fonctionnelle pour les revêtements céramiques.",
+      "screeds": "Le mortier à la chaux est idéal pour les chapes sur les sols ou les façades des bâtiments traditionnels, car sa flexibilité évite les fissures et permet une bonne respirabilité. Dans les applications modernes, le mortier monocouche peut être appliqué sur les chapes pour obtenir une finition esthétique et résistante. Cette combinaison garantit une base solide et bien protégée, améliorant la durabilité et l'esthétique des surfaces traitées.",
+      "thermal": "Pour les travaux d'isolation thermique, le mortier monocouche est une solution efficace lorsqu'il est appliqué sur des systèmes d'isolation thermique extérieure (ITE), offrant une couche protectrice et décorative. Si une solution plus naturelle et respirante est souhaitée, le mortier à la chaux est une excellente option, car il permet de réguler l'humidité et d'améliorer le confort thermique du bâtiment. Les deux types de mortier contribuent à l'efficacité énergétique et à la protection des façades.",
+      "waterproofing": "Le mortier monocouche est une excellente option pour l'étanchéité des façades, car il forme une barrière protectrice qui empêche l'entrée d'eau. Pour les applications spécifiques, comme les surfaces avec joints visibles, le mortier polyvalent pour joints garantit un scellement efficace. Dans les travaux traditionnels, le mortier à la chaux offre également des propriétés d'étanchéité, permettant une bonne respiration des murs. Tous ces mortiers contribuent à maintenir les structures à l'abri de l'humidité et en bon état.",
+      "dehumidification": "Dans les projets de déshumidification, le mortier à la chaux est fortement recommandé pour sa capacité à repousser l'eau et à permettre la respiration des murs. Cette caractéristique en fait une solution idéale pour les restaurations ou les constructions avec des problèmes d'humidité. Le mortier monocouche aide également à maintenir les surfaces sèches grâce à sa capacité d'étanchéité et décorative, constituant une option polyvalente et résistante pour améliorer la durabilité des façades et les protéger contre l'accumulation d'humidité."
+    }
+  },
+    "finishes": {
+      "categories": {
+        "hammered": "Bouchardé/gratté",
+        "washed": "Lavé/lissé",
+        "printed": "Imprimé",
+        "stone": "Pierre projetée",
+        "smooth": "Lisse"
+      },
+      "descriptions": {
+        "hammered": "La finition bouchardée ou grattée des mortiers présente une texture rugueuse et uniforme obtenue par grattage de surface avant durcissement. Solution idéale pour façades et murs extérieurs, offrant une excellente résistance à l'usure et aux intempéries. L'aspect texturé masque les imperfections tout en apportant une élégance rustique, parfait pour les projets recherchant un aspect artisanal robuste.",
+        "washed": "La finition lavée ou lissée est obtenue par lissage de la surface du mortier pour une texture uniforme. Idéale pour façades, murs intérieurs et sols, elle offre un aspect propre et moderne. Cette finition assure une bonne adhérence pour peintures ou revêtements supplémentaires, avec des propriétés hydrofuges empêchant la fissuration.",
+        "printed": "Le mortier imprimé reproduit des motifs pierre, bois, pavés ou décoratifs avant durcissement. Très utilisé pour sols extérieurs, terrasses et allées grâce à sa résistance au piétinement et aux intempéries. Personnalisable en couleurs et motifs, c'est une solution idéale alliant esthétique, fonctionnalité et durabilité.",
+        "stone": "La finition pierre projetée incorpore des particules de pierre naturelle par projection contrôlée. Parfaite pour façades et murs extérieurs, elle offre une exceptionnelle résistance à l'usure et aux intempéries. Son élégance rustique intemporelle rehausse les designs architecturaux avec un entretien minimal.",
+        "smooth": "La finition lisse crée une surface uniforme sans texture par lissage complet. Idéale pour intérieurs modernes et façades minimalistes, compatible avec peintures et revêtements décoratifs. Offre une excellente protection contre l'humidité et une solution constructive attrayante."
+      },
+      "products": {
+        "monocapa": "Mortier monocouche",
+        "lime": "Mortier de chaux",
+        "printed": "Mortier imprimé",
+        "stone": "Mortier pierre"
+      }
+    },
+    "news": {
+      "title": "Actualités",
+      "readMore": "Lire plus",
+      "items": {
+        "saudiMission": "Mission Commerciale Directe en Arabie Saoudite",
+        "moroccoPresentation": "Groupe Estucalia présente ses Mortiers Monocouche au Maroc",
+        "rabatConvention": "Convention Internationale à Rabat"
+      }
+    }
+} 

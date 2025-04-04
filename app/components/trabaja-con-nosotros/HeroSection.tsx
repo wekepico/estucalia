@@ -1,8 +1,12 @@
 'use client';
 
+import { useLanguage } from '@/app/context/LanguageContext';
 import React from 'react';
 
+
 export default function HeroSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative h-[45vh] w-full">
       <div 
@@ -16,7 +20,7 @@ export default function HeroSection() {
       <div className="relative h-full flex justify-center items-center">
         <div className="container mx-auto px-4 items-center justify-center flex">
           <h1 className="text-white text-4xl md:text-5xl font-[600] text-center max-w-2xl leading-tight">
-            Trabaja con nosotros
+            {t('workWithUs.hero.title')}
           </h1>
         </div>
       </div>

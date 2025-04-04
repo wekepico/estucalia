@@ -1,8 +1,11 @@
 'use client';
 
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function VideoHero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative h-[700px] w-full">
       {/* Video Background */}
@@ -16,7 +19,7 @@ export default function VideoHero() {
           poster="https://images.unsplash.com/photo-1590574744313-91d6e3ce9a52?auto=format&fit=crop&q=80"
         >
           <source src="https://uploads.innet.es/videos-estucalia/exterior.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+          {t('common.videoNotSupported')}
         </video>
       </div>
 
@@ -24,7 +27,7 @@ export default function VideoHero() {
       <div className="relative h-full flex items-center justify-center text-center">
         <div className="mx-auto px-4">
           <h1 className="text-white text-2xl md:text-5xl font-[600] max-w-6xl mx-auto leading-tight">
-            Más de 25 años en el sector de revestimientos de fachadas y cerámicos a nivel internacional.
+            {t('company.hero.title')}
           </h1>
         </div>
       </div>

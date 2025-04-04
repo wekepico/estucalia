@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
 const countries = [
   'Argelia,', 'Marruecos,', 'Kuwait,', 'Arabia Saudí,',
@@ -6,6 +9,8 @@ const countries = [
 ];
 
 export default function InternationalSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-[1100px]  flex items-center">
       {/* Background Image */}
@@ -25,12 +30,10 @@ export default function InternationalSection() {
         }}
       >
         <div className="max-w-4xl flex flex-col mx-auto  text-center max-sm:px-2">
-          <h2 className="text-4xl font-light  mb-4">Internacionales</h2>
+          <h2 className="text-4xl font-light  mb-4">{t('company.international.title')}</h2>
           <div className='flex flex-col'>
-
-
             <p className="text-lg ">
-              Grupo Estucalia está presente en el extranjero, teniendo distribuidores y clientes en lugares como
+              {t('company.international.description')}
             </p>
 
             {/* Countries Grid */}

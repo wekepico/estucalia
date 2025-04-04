@@ -1,10 +1,26 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useRouter } from 'next/navigation';
+import { useLanguage } from '@/app/context/LanguageContext';
+
+interface NewsItem {
+  id: string;
+  image: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  category: string;
+}
+
+interface TranslatedNewsData {
+  title: string;
+  excerpt: string;
+  date: string;
+}
 
 const newsItems = [
   {
@@ -13,7 +29,7 @@ const newsItems = [
     title: "Misión Comercial Directa a Arabia Saudita",
     excerpt: "Grupo Estucalia continúa su expansión internacional con una importante misión comercial en Arabia Saudita, fortaleciendo su presencia en Oriente Medio.",
     date: "15 Oct 2023",
-    category: "Internacional"
+    category: "internacional"
   },
   {
     id: "presentacion-morteros-marruecos",
@@ -21,7 +37,7 @@ const newsItems = [
     title: "Presentación de Morteros Monocapa en Marruecos",
     excerpt: "Exitosa presentación de nuestra línea de productos en el mercado marroquí, destacando la calidad y versatilidad de nuestros morteros monocapa.",
     date: "28 Sep 2023",
-    category: "Productos"
+    category: "productos"
   },
   {
     id: "convencion-internacional-rabat",
@@ -29,7 +45,7 @@ const newsItems = [
     title: "Convención Internacional en Rabat",
     excerpt: "Participación destacada en el evento más importante del sector de la construcción en el norte de África, presentando las últimas innovaciones.",
     date: "15 Sep 2023",
-    category: "Eventos"
+    category: "events"
   },
   {
     id: "nuevas-certificaciones-calidad",
@@ -37,22 +53,45 @@ const newsItems = [
     title: "Nuevas Certificaciones de Calidad",
     excerpt: "Grupo Estucalia obtiene nuevas certificaciones que avalan la calidad de sus productos y procesos de fabricación.",
     date: "1 Sep 2023",
-    category: "Empresa"
+    category: "empresa"
   }
 ];
 
 export default function NewsGrid() {
   const router = useRouter();
+  const { t } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleViewNews = (id: string) => {
     router.push(`/blog/${id}`);
   };
 
+  const translatedNewsItems = newsItems.map(item => {
+    const translatedTitle = t(`blog.newsItems.${item.id}.title`);
+    const translatedExcerpt = t(`blog.newsItems.${item.id}.excerpt`);
+    const translatedDate = t(`blog.newsItems.${item.id}.date`);
+
+    return {
+      ...item,
+      title: mounted ? (translatedTitle || item.title) : item.title,
+      excerpt: mounted ? (translatedExcerpt || item.excerpt) : item.excerpt,
+      date: mounted ? (translatedDate || item.date) : item.date
+    };
+  });
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <section className="lg:py-20 py-10">
       <div className="mx-auto px-20 md:pd-8 max-sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-          {newsItems.map((item, index) => (
+          {translatedNewsItems.map((item, index) => (
             <Card key={index} className="border-none shadow-none group cursor-pointer">
               <CardHeader className="p-0">
                 <div className="relative aspect-[16/9] mb-6 overflow-hidden">
@@ -66,7 +105,7 @@ export default function NewsGrid() {
               <CardContent className="px-0 space-y-4">
                 <div className="flex items-center gap-4 text-sm">
                   <Badge variant="secondary" className="bg-blue-50 text-blue-600 hover:bg-blue-100">
-                    {item.category}
+                    {t(`blog.categories.${item.category}`)}
                   </Badge>
                   <span className="text-gray-400">{item.date}</span>
                 </div>
@@ -80,7 +119,7 @@ export default function NewsGrid() {
                   onClick={() => handleViewNews(item.id)}
                   className="mt-4"
                 >
-                  Ver Noticia
+                  {t('blog.viewNews')}
                 </Button>
               </CardContent>
             </Card>

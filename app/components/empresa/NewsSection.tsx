@@ -3,34 +3,37 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { useLanguage } from '../../context/LanguageContext';
 
 const newsItems = [
   {
     image: "https://images.unsplash.com/photo-1582657233895-0f37a3f150c0?auto=format&fit=crop&q=80",
-    title: "Misión Comercial Directa a Arabia Saudita",
-    description: "Expandiendo nuestra presencia en Oriente Medio con nuevas oportunidades comerciales.",
+    titleKey: "company.news.items.0.title",
+    descriptionKey: "company.news.items.0.description",
     link: "#"
   },
   {
     image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80",
-    title: "Grupo Estucalia presenta sus Morteros Monocapa en Marruecos",
-    description: "Presentación exitosa de nuestra línea de productos en el mercado marroquí.",
+    titleKey: "company.news.items.1.title",
+    descriptionKey: "company.news.items.1.description",
     link: "#"
   },
   {
     image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
-    title: "Convención Internacional en Rabat",
-    description: "Participación destacada en el evento más importante del sector en el norte de África.",
+    titleKey: "company.news.items.2.title",
+    descriptionKey: "company.news.items.2.description",
     link: "#"
   }
 ];
 
 export default function NewsSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 bg-white">
       <div className="mx-auto ">
         <h2 className="text-xl md:text-2xl font-[600] mb-6 md:mb-8 px-20 text-center md:text-left">
-          Actualidad
+          {t('company.news.title')}
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 md:px-15 sm:px-10 px-5 lg:px-20 md:gap-16">
@@ -47,7 +50,7 @@ export default function NewsSection() {
                   />
                 </div>
                 <h3 className="text-base md:text-2xl px-4 md:px-0 mb-4 font-medium">
-                  {item.title}
+                  {t(item.titleKey)}
                 </h3>
               </CardHeader>
 
@@ -57,7 +60,7 @@ export default function NewsSection() {
                     variant="outline"
                     className=" relative pl-5 pr-12 py-4 md:py-5 border-none rounded-none"
                 >
-                    <span>Ver Noticia</span>
+                    <span>{t('company.news.viewNews')}</span>
                     <div className='absolute right-0'>
                         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />

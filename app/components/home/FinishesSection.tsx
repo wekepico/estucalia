@@ -7,8 +7,9 @@ import MorteroMonocapa from '../../../public/img/mortero-monocapa.svg'
 import MorteroImpreso from '../../../public/img/mortero-impreso.svg'
 import Piedra from '../../../public/img/mortero-piedra.svg'
 import { ProductCard } from './components/ProductCard';
+import { useLanguage } from '../../context/LanguageContext';
 
-type Category = 'Abujardado/raspado' | 'Lavado/fratasado' | 'Impreso' | 'Piedra proyectada' | 'Liso';
+type Category = 'hammered' | 'washed' | 'printed' | 'stone' | 'smooth';
 
 interface Product {
   name: string;
@@ -16,45 +17,43 @@ interface Product {
   category: string;
 }
 
-const categories: Category[] = [
-  'Abujardado/raspado', 'Lavado/fratasado', 'Impreso', 'Piedra proyectada','Liso'
-];
-
-const products: Product[] = [
-  {
-    name: 'Mortero monocapa',
-    icon:MorteroMonocapa ,
-    category: 'Abujardado/raspado,Lavado/fratasado,Impreso,Liso'
-  },
-  {
-    name: 'Mortero cal',
-    icon: MorteroCal,
-    category: 'Abujardado/raspado,Lavado/fratasado,Liso'
-  },
-  {
-    name: 'Mortero impreso',
-    icon: MorteroImpreso,
-    category: 'Abujardado/raspado,Lavado/fratasado,Impreso,Liso'
-  },
-  {
-    name: 'Mortero piedra',
-    icon: Piedra,
-    category: 'Piedra proyectada'
-  },
-  // Agrega más productos con sus categorías correspondientes
-];
-
 export default function FinishesSection() {
-  const [selectedCategory, setSelectedCategory] = useState<Category>(categories[0]);
+  const { t } = useLanguage();
+  const [selectedCategory, setSelectedCategory] = useState<Category>('hammered');
+  
+  const categories: Category[] = ['hammered', 'washed', 'printed', 'stone', 'smooth'];
+
+  const products: Product[] = [
+    {
+      name: t('home.finishes.products.monocapa'),
+      icon: MorteroMonocapa,
+      category: `${t('home.finishes.categories.hammered')},${t('home.finishes.categories.washed')},${t('home.finishes.categories.printed')},${t('home.finishes.categories.smooth')}`
+    },
+    {
+      name: t('home.finishes.products.lime'),
+      icon: MorteroCal,
+      category: `${t('home.finishes.categories.hammered')},${t('home.finishes.categories.washed')},${t('home.finishes.categories.smooth')}`
+    },
+    {
+      name: t('home.finishes.products.printed'),
+      icon: MorteroImpreso,
+      category: `${t('home.finishes.categories.hammered')},${t('home.finishes.categories.washed')},${t('home.finishes.categories.printed')},${t('home.finishes.categories.smooth')}`
+    },
+    {
+      name: t('home.finishes.products.stone'),
+      icon: Piedra,
+      category: t('home.finishes.categories.stone')
+    }
+  ];
   
   const filteredProducts = products.filter(product => 
-    product.category.includes(selectedCategory)
+    product.category.includes(t(`home.finishes.categories.${selectedCategory}`))
   );
 
   return (
     <section className="py-8 md:py-16 md:px-15 sm:px-10 px-5 lg:px-20 bg-white">
       <div className="mx-auto">
-        <h2 className="text-xl md:text-2xl font-[600] mb-4">Acabados</h2>
+        <h2 className="text-xl md:text-2xl font-[600] mb-4">{t('home.finishes.title')}</h2>
 
         {/* Categories Tabs */}
         <ScrollArea className="w-full whitespace-nowrap mb-4">
@@ -71,7 +70,7 @@ export default function FinishesSection() {
                     : 'hover:border-b hover:border-gray-400'
                 }`}
               >
-                {category}
+                {t(`home.finishes.categories.${category}`)}
               </button>
             ))}
           </div>
@@ -93,7 +92,7 @@ export default function FinishesSection() {
         {/* Mensaje si no hay productos */}
         {filteredProducts.length === 0 && (
           <p className="text-center text-gray-500 mt-8">
-            No hay productos disponibles en esta categoría
+            {t('home.finishes.noProducts')}
           </p>
         )}
       </div>

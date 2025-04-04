@@ -1,10 +1,15 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { useLanguage } from '../../context/LanguageContext';
 
 import Creatividad from '../../../public/img/creatividad-img.png'
 
 
 export default function AboutSection() {
+  const { t } = useLanguage();
+
   return (
     <div>
       {/* Top Section */}
@@ -13,12 +18,9 @@ export default function AboutSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 max-sm:gap-y-8 items-center">
             {/* Text Content */}
             <div className=''>
-              <h2 className="text-3xl font-[600] mb-2">Somos Grupo Estucalia</h2>
+              <h2 className="text-3xl font-[600] mb-2">{t('company.about.title')}</h2>
               <p className="text-lg leading-relaxed">
-                Grupo Estucalia está compuesto por varias empresas especializadas 
-                en <span className="font-medium">fabricación, comercialización y exportación</span> de morteros 
-                monocapa para el revestimiento de fachadas, y cementos cola y 
-                rejuntado para el revestimiento cerámico de suelos y paredes.
+                {t('company.about.description')}
               </p>
             </div>
 
@@ -27,7 +29,7 @@ export default function AboutSection() {
               <div className="relative  aspect-square">
                 <Image
                   src={Creatividad}
-                  alt="Arte en Fachadas"
+                  alt={t('company.about.imageAlt')}
                   fill
                   className="object-contain"
                   priority
@@ -42,13 +44,10 @@ export default function AboutSection() {
       <section className="py-36 px-5 bg-[#f1e9e9]">
         <div className="mx-auto  max-sm:px-0 text-center">
           <h3 className="text-3xl font-[600] mb-6">
-            Nuestra misión: satisfacer al cliente
+            {t('company.about.mission.title')}
           </h3>
           <p className="text-lg max-w-2xl mx-auto">
-            En nuestra empresa, la misión es clara: proporcionar un{' '}
-            <span className="font-[600]">servicio de calidad excepcional</span>{' '}
-            ofreciendo total disponibilidad del equipo para{' '}
-            <span className="font-[600]">garantizar su satisfacción</span>.
+            {t('company.about.mission.description')}
           </p>
         </div>
       </section>

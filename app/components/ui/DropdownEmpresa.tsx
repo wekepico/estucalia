@@ -2,12 +2,14 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function DropdownEmpresa() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const mousePositionRef = useRef({ x: 0, y: 0 });
+  const { t } = useLanguage();
 
   // Distancia mínima en píxeles para cerrar el dropdown
   const CLOSE_DISTANCE = 100;
@@ -99,7 +101,7 @@ export default function DropdownEmpresa() {
           setIsOpen((prev) => !prev);
         }}
       >
-        Empresa
+        {t('navigation.businessLinks.company')} {/* Traducción para "Empresa" */}
       </button>
 
       <div
@@ -114,7 +116,7 @@ export default function DropdownEmpresa() {
               className="block px-4 py-2 text-white hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
-              Sobre Nosotros
+              {t('navigation.businessLinks.about')} {/* Traducción para "Sobre Nosotros" */}
             </Link>
           </li>
           <li>
@@ -123,7 +125,7 @@ export default function DropdownEmpresa() {
               className="block px-4 py-2 text-white hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
-              Trabaja con nosotros
+              {t('navigation.businessLinks.workWithUs')} {/* Traducción para "Trabaja con nosotros" */}
             </Link>
           </li>
           <li>
@@ -132,7 +134,7 @@ export default function DropdownEmpresa() {
               className="block px-4 py-2 text-white hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
-              Blog
+              {t('navigation.businessLinks.blog')} {/* Traducción para "Blog" */}
             </Link>
           </li>
           <li>
@@ -141,7 +143,7 @@ export default function DropdownEmpresa() {
               className="block px-4 py-2 text-white hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
-              Contacto
+              {t('navigation.businessLinks.contact')} {/* Traducción para "Contacto" */}
             </Link>
           </li>
         </ul>

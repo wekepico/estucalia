@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function DropdownIdioma() {
+  const { language, setLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -69,6 +71,11 @@ export default function DropdownIdioma() {
     };
   }, []);
 
+  const handleLanguageChange = (lang: 'es' | 'en') => {
+    setLanguage(lang);
+    setIsOpen(false);
+  };
+
   return (
     <div 
       className="relative hidden lg:block"
@@ -79,7 +86,7 @@ export default function DropdownIdioma() {
       <button
         className="text-white hover:text-gray-400 transition-colors"
       >
-        Idioma
+        {language.toUpperCase()}
       </button>
 
       <div
@@ -88,13 +95,15 @@ export default function DropdownIdioma() {
         }`}
       >
         <ul>
-          {['EN', 'ES', 'FR'].map((lang) => (
+          {['en', 'es'].map((lang) => (
             <li key={lang}>
               <button
-                className="w-full px-4 py-2 text-white hover:bg-gray-800 transition-colors"
-                onClick={() => setIsOpen(false)}
+                className={`w-full px-4 py-2 text-white hover:bg-gray-800 transition-colors ${
+                  language === lang ? 'bg-gray-800' : ''
+                }`}
+                onClick={() => handleLanguageChange(lang as 'es' | 'en')}
               >
-                {lang}
+                {lang.toUpperCase()}
               </button>
             </li>
           ))}

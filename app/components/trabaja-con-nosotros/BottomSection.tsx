@@ -1,8 +1,11 @@
 'use client';
 
+import { useLanguage } from '@/app/context/LanguageContext';
 import React from 'react';
 
 export default function BottomSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative h-[60vh] w-full">
       <div 
