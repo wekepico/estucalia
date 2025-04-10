@@ -101,7 +101,7 @@ export default function DropdownEmpresa() {
           setIsOpen((prev) => !prev);
         }}
       >
-        {t('navigation.businessLinks.company')} {/* Traducción para "Empresa" */}
+        {t('navigation.company')} {/* Traducción para "Empresa" */}
       </button>
 
       <div
@@ -116,7 +116,7 @@ export default function DropdownEmpresa() {
               className="block px-4 py-2 text-white hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
-              {t('navigation.businessLinks.about')} {/* Traducción para "Sobre Nosotros" */}
+              {t('navigation.about')} {/* Traducción para "Sobre Nosotros" */}
             </Link>
           </li>
           <li>
@@ -125,7 +125,7 @@ export default function DropdownEmpresa() {
               className="block px-4 py-2 text-white hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
-              {t('navigation.businessLinks.workWithUs')} {/* Traducción para "Trabaja con nosotros" */}
+              {t('navigation.workWithUs')} {/* Traducción para "Trabaja con nosotros" */}
             </Link>
           </li>
           <li>
@@ -134,7 +134,7 @@ export default function DropdownEmpresa() {
               className="block px-4 py-2 text-white hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
-              {t('navigation.businessLinks.blog')} {/* Traducción para "Blog" */}
+              {t('navigation.blog')} {/* Traducción para "Blog" */}
             </Link>
           </li>
           <li>
@@ -143,7 +143,7 @@ export default function DropdownEmpresa() {
               className="block px-4 py-2 text-white hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
-              {t('navigation.businessLinks.contact')} {/* Traducción para "Contacto" */}
+              {t('navigation.contact')} {/* Traducción para "Contacto" */}
             </Link>
           </li>
         </ul>

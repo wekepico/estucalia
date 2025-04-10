@@ -1,40 +1,44 @@
+'use client'
 import React from 'react';
 import ConstructorCard from './ConstructorCard';
-
+import { useLanguage } from '@/app/context/LanguageContext';
 
 const ConstructorGrid = () => {
+    const { t } = useLanguage();
+
     const cardsData = [
         {
-            title: "Asesoramiento y soporte especializado",
-            description: "Nuestro equipo especializado te facilitará las cotizaciones por partidas detalladas.",
+            title: t('constructorGrid.cards.0.title'),
+            description: t('constructorGrid.cards.0.description'),
             bullets: [
-                "- Equipo profesional de análisis y soporte.",
-                "- Asistencia en consultas, posibilidades de aplicación.",
-                "- Cotización por partidas.",
-                "- Recomendaciones de producto, acabado y colores."
+                t('constructorGrid.cards.0.bullets.0'),
+                t('constructorGrid.cards.0.bullets.1'),
+                t('constructorGrid.cards.0.bullets.2'),
+                t('constructorGrid.cards.0.bullets.3')
             ]
         },
         {
-            title: "Ayuda en la definición del proyecto",
-            description: "Nos comprometemos a proporcionarte apoyo y asesoramiento sobre transporte, manipulación, aplicación y mantenimiento.",
+            title: t('constructorGrid.cards.1.title'),
+            description: t('constructorGrid.cards.1.description'),
             bullets: [
-                "- Atención personalizada y soluciones adaptadas a tus proyectos.",
-                "- Asesoramiento para aplicación y mantenimiento.",
-                "- Estudio individualizado del proyecto.",
-                "- Optimización en términos de ahorro y rendimiento."
+                t('constructorGrid.cards.1.bullets.0'),
+                t('constructorGrid.cards.1.bullets.1'),
+                t('constructorGrid.cards.1.bullets.2'),
+                t('constructorGrid.cards.1.bullets.3')
             ]
         },
         {
-            title: "Recursos para los proyectos",
-            description: "Disfrutarás de un servicio exclusivo para poder desarrollar tus proyectos, plasmar tu visión y mejorarla con los morteros o cementos más avanzados.",
+            title: t('constructorGrid.cards.2.title'),
+            description: t('constructorGrid.cards.2.description'),
             bullets: [
-                "- Muestras en 48 h. Recibe las muestras que necesites para tus proyectos.",
-                "- Servicio personalizado. Te recomendamos aplicadores para garantizar el mejor servicio y calidad.",
+                t('constructorGrid.cards.2.bullets.0'),
+                t('constructorGrid.cards.2.bullets.1')
             ]
         }
     ];
+
     return (
-        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-28">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-28">
             {cardsData.map((card, index) => (
                 <div key={index} className=''>
                     <ConstructorCard

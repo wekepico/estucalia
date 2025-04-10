@@ -65,7 +65,6 @@ export default function ClientNavigation() {
     setMounted(true);
   }, []);
 
-  // Función para generar slugs consistentes con las traducciones
   const generateSlug = (text: string) => {
     return text
       .toLowerCase()
@@ -76,19 +75,19 @@ export default function ClientNavigation() {
 
   const menuLinks = [
     {
-      href: "/productos",
+      href: "/producto",
       label: "navigation.products.label",
-      submenu: t("navigation.products.submenu").split(', ').map(item => ({
+      submenu: t("navigation.products.submenu").split(',').map(item => ({
         label: item.trim(),
-        href: generateSlug(item.trim())
+        href: item.trim()
       }))
     },
     {
       href: "/aplicaciones",
       label: "navigation.applications.label",
-      submenu: t("navigation.applications.submenu").split(', ').map(item => ({
+      submenu: t("navigation.applications.submenu").split(',').map(item => ({
         label: item.trim(),
-        href: item.trim()
+        href:item.trim()
       }))
     },
     {
@@ -113,13 +112,19 @@ export default function ClientNavigation() {
       href: "/profesionales",
       label: "navigation.professionals",
       submenu: [
-        { label: "Constructores y arquitectos", href: "constructores-arquitectos" },
-        { label: "Aplicadores", href: "aplicadores" },
-        { label: "Servicio Integral de Proyectos", href: "servicio-integral" },
-        { label: "Certificaciones y documentación", href: "certificaciones" },
+        { label: t("navigation.professionalsSubmenu.builders"), href: "constructores-arquitectos" },
+        { label: t("navigation.professionalsSubmenu.applicators"), href: "aplicadores" },
+        { label: t("navigation.professionalsSubmenu.services"), href: "servicios" },
+        { label: t("navigation.professionalsSubmenu.certifications"), href: "certificaciones" },
       ],
     },
+  ];
 
+  const companyLinks = [
+    { href: "/empresa", label: t("navigation.about") },
+    { href: "/trabaja-con-nosotros", label: t("navigation.workWithUs") },
+    { href: "/blog", label: t("navigation.blog") },
+    { href: "/contacto", label: t("navigation.contact") },
   ];
 
   if (!mounted) {
@@ -252,38 +257,27 @@ export default function ClientNavigation() {
           <nav className="p-4">
             <NavigationMenu>
               <NavigationMenuList className="flex flex-col items-start gap-4">
-                <div className="text-white border-b border-white font-semibold">{t("navigation.company")}</div>
+                <div className="text-white border-b border-white font-semibold">
+                  {t("navigation.company")}
+                </div>
                 <div className="ml-3 mb-4">
                   <ul className="space-y-2 text-white">
-                    <li>
-                      <Link href="/empresa" key={"/about-us"} onClick={handleLinkClick}>
-                        {t("navigation.about")}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/trabaja-con-nosotros" key='work with us' onClick={handleLinkClick}>
-                        {t("navigation.workWithUs")}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/blog" key='blog' onClick={handleLinkClick}>
-                        {t("navigation.blog")}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/contacto" key='contact' onClick={handleLinkClick}>
-                        {t("navigation.contact")}
-                      </Link>
-                    </li>
+                    {companyLinks.map((link, index) => (
+                      <li key={index}>
+                        <Link href={link.href} onClick={handleLinkClick}>
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
                 {menuLinks.map((link, index) => (
-                  <NavigationMenuItem key={index}>
+                  <NavigationMenuItem key={index} className="w-full">
                     <Link
                       href={link.href}
                       onClick={handleLinkClick}
-                      className="text-white hover:border-b pb-1 hover:border-white transition-colors"
+                      className="text-white hover:border-b pb-1 hover:border-white transition-colors block w-full"
                     >
                       {t(link.label)}
                     </Link>
@@ -294,7 +288,7 @@ export default function ClientNavigation() {
                             <Link
                               href={`${link.href}/${subItem.href}`}
                               onClick={handleLinkClick}
-                              className="text-white text-sm"
+                              className="text-white text-sm block py-1"
                             >
                               {subItem.label}
                             </Link>

@@ -1,13 +1,16 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import Image from "next/image";
 import { ProductCard } from "../../home/components/ProductCard";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import { useLanguage } from '@/app/context/LanguageContext';
 
 interface Product {
     name: string;
     icon: string | StaticImport;
-    category: string
+    category: string;
 }
 
 interface HeroSectionProps {
@@ -15,7 +18,7 @@ interface HeroSectionProps {
     img: string;
     description: string;
     products: Product[];
-    aplicaciones: string[]
+    aplicaciones: string[];
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ 
@@ -25,17 +28,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     img, 
     aplicaciones
 }) => {
-    const [selectedAplicacion, setSelectedAplicacion] = useState<string>(aplicaciones[0]);
+    const { t } = useLanguage();
+    const [selectedAplicacion, setSelectedAplicacion] = useState<string | null>(null);
 
-    const filteredProducts = products.filter(product => 
-        product.category.includes(selectedAplicacion)
-    );
+    // Initialize selectedAplicacion after component mounts to avoid hydration mismatch
+    useEffect(() => {
+        setSelectedAplicacion(aplicaciones[0]);
+    }, [aplicaciones]);
+
+    const filteredProducts = selectedAplicacion 
+        ? products.filter(product => product.category.includes(selectedAplicacion))
+        : [];
+
+    // Handle null state during initial render
+    if (selectedAplicacion === null) {
+        return null; // or a loading skeleton
+    }
 
     return (
         <div className="flex flex-col gap-16 md:gap-28 px-5 sm:px-10 md:px-15 lg:px-20">
-            {/* Contenedor principal */}
+            {/* Main container */}
             <div className="w-full flex flex-col md:flex-row h-auto md:h-[480px]">
-                {/* Contenedor de texto */}
+                {/* Text container */}
                 <div className="flex w-full md:w-[43%] gap-6 bg-gray-200 px-6 py-8 md:px-12 md:py-16 flex-col">
                     <h1 className="font-semibold sm:text-xl lg:text-4xl md:text-2xl">
                         {category}
@@ -45,20 +59,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     </p>
                 </div>
 
-                {/* Contenedor de la imagen */}
+                {/* Image container */}
                 <div className="relative w-full md:w-[57%] h-64 md:h-auto bg-slate-500">
                     <Image
                         src={img}
                         alt={category}
-                        layout="fill"
-                        objectFit="cover"
-                        className="absolute inset-0"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority
+                        className="object-cover"
                     />
                 </div>
             </div>
             
             <div>
-                <h2 className="text-2xl font-[600] mb-4 md:mb-6">Aplicaciones</h2>
+                <h2 className="text-2xl font-[600] mb-4 md:mb-6">
+                    {t('heroSection.applications')}
+                </h2>
                 <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
                     {/* Categories Scroll */}
                     <ScrollArea className="w-full md:flex-1">
@@ -87,15 +104,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-16">
                     {filteredProducts.map((product) => (
                         <div key={product.name}>
-                            <ProductCard icon={product.icon} name={product.name} />
+                            <ProductCard 
+                                icon={product.icon} 
+                                name={product.name} 
+                            />
                         </div>
                     ))}
                 </div>
 
-                {/* Mensaje si no hay productos */}
+                {/* Empty state message */}
                 {filteredProducts.length === 0 && (
                     <p className="text-center text-gray-500 mt-8">
-                        No hay productos disponibles en esta categoría
+                        {t('heroSection.noProducts')}
                     </p>
                 )}
             </div>

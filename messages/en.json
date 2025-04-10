@@ -24,7 +24,13 @@
       "label": "Spaces",
       "submenu": "Facades, Terraces, Balconies, Walls, Patios and skylights, Floors and pavements, Outdoor kitchens, Swimming pools"
     },
-    "professionals": "Professionals and Technicians",
+    "professionals": "Professionals",
+    "professionalsSubmenu": {
+      "builders": "Builders and Architects",
+      "applicators": "Applicators",
+      "services": "Comprehensive Project Services",
+      "certifications": "Certifications and Documentation"
+    },
     "finishes": "Finishes",
     "company": "Company",
     "workWithUs": "Work With Us",
@@ -220,37 +226,6 @@
       "button": "Contact"
     }
   },
-  "footer": {
-    "sections": {
-      "company": "COMPANY",
-      "about": "About Us",
-      "workWithUs": "Work with us",
-      "blog": "Blog",
-      "contact": "CONTACT",
-      "products": "PRODUCTS",
-      "legal": "LEGAL TEXTS"
-    },
-    "products": {
-      "monocoat": "Monocoat mortars",
-      "adhesive": "Adhesive mortars",
-      "lime": "Lime mortar",
-      "joint": "Multi-purpose joint mortar",
-      "vertical": "Vertical stamped mortar",
-      "waterProtector": "Water protector",
-      "repair": "Repair mortar"
-    },
-    "legal": {
-      "notice": "Legal Notice",
-      "privacy": "Privacy Policy",
-      "cookies": "Cookie Policy"
-    },
-    "contact": {
-      "address": "Cno Viejo de Fortuna, 40 Matanzas, 30148, Santomera, Murcia (SPAIN)",
-      "phone": "+34 968 862 467 / +34 663 519 854",
-      "email": "grupoestucalia@grupoestucalia.com"
-    },
-    "rights": "All rights reserved"
-  },
   "company": {
     "hero": {
       "title": "More than 25 years in the facade cladding and ceramic sector internationally."
@@ -376,35 +351,426 @@
       "dehumidification": "In dehumidification projects, lime mortar is highly recommended for its ability to repel water and allow wall breathability. This characteristic makes it an ideal solution for restorations or constructions with humidity problems. Monocoat mortar also helps keep surfaces dry thanks to its waterproofing and decorative capacity, being a versatile and resistant option to improve facade durability and protect them against moisture accumulation."
     }
   },
-    "finishes": {
-      "categories": {
-        "hammered": "Hammered/scraped",
-        "washed": "Washed/brushed",
-        "printed": "Printed",
-        "stone": "Projected stone",
-        "smooth": "Smooth"
+  "finishes": {
+    "categories": {
+      "hammered": "Hammered/scraped",
+      "washed": "Washed/brushed",
+      "printed": "Printed",
+      "stone": "Projected stone",
+      "smooth": "Smooth"
+    },
+    "descriptions": {
+      "hammered": "The hammered or scraped finish in mortars features a rough, uniform texture achieved by surface scraping before hardening. This construction solution is ideal for facades and exterior walls as it provides excellent wear and weather resistance. The textured appearance hides imperfections while adding rustic elegance, perfect for projects seeking artisanal robustness.",
+      "washed": "The washed or troweled finish is achieved by smoothing the mortar surface to create a uniform texture. Ideal for facades, interior walls and floors, it offers a clean, modern look. This finish ensures good adhesion for paints or additional coatings, with water-repellent properties that prevent cracking for long-lasting durability.",
+      "printed": "Printed mortar can replicate stone, wood, cobblestone or decorative patterns before hardening. Widely used for exterior floors, patios and walkways due to its traffic and weather resistance. Customizable colors and patterns make it ideal for architectural projects combining aesthetics, functionality and durability.",
+      "stone": "Projected stone finish incorporates natural stone particles onto fresh mortar through controlled projection. Perfect for facades and exterior walls, it offers exceptional wear and weather resistance. The timeless rustic elegance enhances architectural designs with durable, low-maintenance appeal.",
+      "smooth": "The smooth finish creates a uniform, texture-free surface through complete leveling. Ideal for modern interiors and minimalist facades, it's compatible with paints and additional coatings for decorative versatility. Provides excellent moisture protection and an attractive construction solution."
+    },
+    "products": {
+      "monocapa": "Monocoat mortar",
+      "lime": "Lime mortar",
+      "printed": "Printed mortar",
+      "stone": "Stone mortar"
+    }
+  },
+  "news": {
+    "title": "News",
+    "readMore": "Read more",
+    "items": {
+      "saudiMission": "Direct Commercial Mission to Saudi Arabia",
+      "moroccoPresentation": "Grupo Estucalia presents its Monocoat Mortars in Morocco",
+      "rabatConvention": "International Convention in Rabat"
+    }
+  },
+  "footer": {
+    "copyright": "Copyright©2025",
+    "legal": {
+      "title": "LEGAL TEXTS",
+      "legalNotice": "Legal Notice",
+      "privacyPolicy": "Privacy Policy",
+      "cookiePolicy": "Cookie Policy"
+    },
+    "company": {
+      "title": "COMPANY",
+      "about": "About Us",
+      "careers": "Work With Us",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "products": {
+      "title": "PRODUCTS",
+      "monocapa": "Monocapa mortar",
+      "tileAdhesive": "Tile adhesive mortar",
+      "limeMortar": "Lime mortar",
+      "multipurposeMortar": "Multipurpose joint mortar",
+      "verticalPrinted": "Vertical printed mortar",
+      "waterProtector": "Water protector",
+      "repairMortar": "Repair mortar"
+    },
+    "contact": {
+      "title": "CONTACT",
+      "address": "Cno Viejo de Fortuna, 40 Matanzas<br />30148, Santomera, Murcia (SPAIN)."
+    },
+    "social": {
+      "title": "FOLLOW US"
+    }
+  },
+  "heroSection": {
+    "applications": "Applications",
+    "noProducts": "No products available in this category",
+    "applicationsList": {
+      "exteriores": "Exteriors",
+      "interiores": "Interiors",
+      "fachadas": "Facades",
+      "revestimientos": "Coatings",
+      "rehabilitacion": "Rehabilitation"
+    },
+    "products": {
+      "monocapa": "Monocapa mortar",
+      "cola": "Tile adhesive",
+      "cal": "Lime mortar",
+      "impreso": "Printed mortar",
+      "piedra": "Stone mortar",
+      "reparacion": "Repair mortar"
+    }
+  },
+  "spacesSection": {
+    "spaces": {
+      "facades": "Facades",
+      "terraces": "Terraces",
+      "balconies": "Balconies",
+      "walls": "Walls",
+      "patios": "Patios and skylights",
+      "floors": "Floors and pavements",
+      "kitchens": "Outdoor kitchens",
+      "pools": "Swimming pools"
+    },
+    "descriptions": {
+      "facades": "Facades are one of the most visible and exposed architectural elements of a building, requiring construction solutions that combine protection, aesthetics and efficiency. Coatings with monocapa mortar or ceramic materials offer excellent resistance to moisture, solar radiation and temperature changes. Additionally, ventilated facades improve thermal insulation, contributing to energy efficiency. Decorative finishes allow customization of the design and enhancement of the building's visual character.",
+      "terraces": "Terraces are outdoor spaces that expand the habitable areas of buildings. Their construction requires solutions that guarantee waterproofing, traffic resistance and durability. The use of waterproofing mortars and anti-slip pavements is essential to protect the surface and ensure a safe environment. Additionally, architectural design can integrate fixed furniture and planters to create functional and comfortable environments. Well-designed terraces improve quality of life and add aesthetic value to buildings.",
+      "balconies": "Balconies are architectural extensions that provide light and ventilation to homes. Their construction must consider structural solutions and coatings resistant to weather conditions. Anti-slip pavements and waterproofing systems guarantee their durability and safety. Additionally, the use of modern railings and decorative finishes allows their integration into the overall building design, improving functionality and aesthetics.",
+      "walls": "Walls are essential structural and decorative elements in any construction. Construction solutions include monocapa mortars for exterior coatings, offering protection and aesthetic finishes in a single application. For interiors, lime mortars guarantee breathability and a fine finish. Walls can be combined with decorative elements such as skylights, acoustic panels or ceramic coatings, improving both functionality and space design.",
+      "patios": "Patios and skylights are architectural solutions that improve natural lighting and ventilation of interior spaces. Patios require waterproof and traffic-resistant pavements, while skylights should incorporate high-strength transparent materials and efficient sealing systems. The architectural design of these spaces allows creating bright, comfortable and visually attractive environments, adding value to buildings.",
+      "floors": "Floors and pavements are fundamental in any architectural space, as they must combine resistance, aesthetics and functionality. Self-leveling mortars and high-resistance pavements offer uniform and durable surfaces. For outdoors, anti-slip and waterproof pavements are essential to guarantee safety and protection against moisture. Construction solutions must adapt to space needs, whether for pedestrian traffic, vehicles or decorative environments.",
+      "kitchens": "Outdoor kitchens are spaces designed to enjoy culinary activities outdoors. For their construction, weather-resistant materials are required, such as ceramic coatings and anti-slip pavements. Waterproof mortars and easy-to-clean surfaces guarantee their durability and functionality. The architectural design can integrate cooking areas, storage and outdoor dining areas, creating comfortable and aesthetic environments for social gatherings.",
+      "pools": "Pools require construction solutions that guarantee waterproofing, safety and aesthetics. Specific pool mortars offer excellent resistance to water and chlorine, ensuring structure protection. Anti-slip coatings on floors and edges prevent accidents, while decorative finishes allow creating elegant and customized environments. The correct application of waterproofing systems and joints ensures pool durability against weather conditions and intensive use."
+    },
+    "applications": {
+      "coatings": "Coatings",
+      "plasters": "Plasters",
+      "masonry": "Masonry",
+      "tiles": "Tiles",
+      "screeds": "Screeds",
+      "thermal": "Thermal insulation",
+      "waterproofing": "Waterproofing",
+      "dehumidification": "Dehumidification"
+    },
+    "products": {
+      "monocapa": "Monocapa mortar",
+      "printed": "Printed mortar",
+      "lime": "Lime mortar",
+      "stone": "Stone mortar",
+      "union": "Union bridge",
+      "joint": "Joint mortar",
+      "water": "Water mortar",
+      "adhesive": "Adhesive mortar",
+      "tools": "Accessories and tools"
+    },
+    "common": {
+      "spaceNotFound": "Space not found"
+    }
+  },
+  "constructorGrid": {
+    "cards": [
+      {
+        "title": "Specialized advice and support",
+        "description": "Our specialized team will provide you with detailed itemized quotes.",
+        "bullets": [
+          "- Professional analysis and support team.",
+          "- Assistance with queries and application possibilities.",
+          "- Itemized quotations.",
+          "- Product, finish and color recommendations."
+        ]
       },
-      "descriptions": {
-        "hammered": "The hammered or scraped finish in mortars features a rough, uniform texture achieved by surface scraping before hardening. This construction solution is ideal for facades and exterior walls as it provides excellent wear and weather resistance. The textured appearance hides imperfections while adding rustic elegance, perfect for projects seeking artisanal robustness.",
-        "washed": "The washed or troweled finish is achieved by smoothing the mortar surface to create a uniform texture. Ideal for facades, interior walls and floors, it offers a clean, modern look. This finish ensures good adhesion for paints or additional coatings, with water-repellent properties that prevent cracking for long-lasting durability.",
-        "printed": "Printed mortar can replicate stone, wood, cobblestone or decorative patterns before hardening. Widely used for exterior floors, patios and walkways due to its traffic and weather resistance. Customizable colors and patterns make it ideal for architectural projects combining aesthetics, functionality and durability.",
-        "stone": "Projected stone finish incorporates natural stone particles onto fresh mortar through controlled projection. Perfect for facades and exterior walls, it offers exceptional wear and weather resistance. The timeless rustic elegance enhances architectural designs with durable, low-maintenance appeal.",
-        "smooth": "The smooth finish creates a uniform, texture-free surface through complete leveling. Ideal for modern interiors and minimalist facades, it's compatible with paints and additional coatings for decorative versatility. Provides excellent moisture protection and an attractive construction solution."
+      {
+        "title": "Project definition assistance",
+        "description": "We are committed to providing you with support and advice on transport, handling, application and maintenance.",
+        "bullets": [
+          "- Personalized attention and solutions tailored to your projects.",
+          "- Advice for application and maintenance.",
+          "- Individualized project study.",
+          "- Optimization in terms of savings and performance."
+        ]
       },
-      "products": {
-        "monocapa": "Monocoat mortar",
-        "lime": "Lime mortar",
-        "printed": "Printed mortar",
-        "stone": "Stone mortar"
+      {
+        "title": "Resources for projects",
+        "description": "You will enjoy an exclusive service to develop your projects, materialize your vision and improve it with the most advanced mortars or cements.",
+        "bullets": [
+          "- Samples in 48 h. Receive the samples you need for your projects.",
+          "- Personalized service. We recommend applicators to guarantee the best service and quality."
+        ]
+      }
+    ]
+  },
+  "constructorsArchitectsPage": {
+    "title": {
+      "part1": "What does ",
+      "highlight": "Grupo Estucalia ",
+      "part2": "offer to builders and architects"
+    },
+    "images": {
+      "banner1": "/img/team-architects-looking-construction-site.jpg",
+      "banner2": "/img/engineer-designer-choosing-palette.jpg"
+    }
+  },
+  "applicatorsPage": {
+    "title": {
+      "part1": "What does ",
+      "highlight": "Grupo Estucalia ",
+      "part2": "offer to applicators"
+    },
+    "images": {
+      "banner1": "/img/closeup-construction-worker039s-hands-wearing-protective-gloves.jpg",
+      "banner2": "/img/tiler-working-renovation-apartment.jpg"
+    }
+  },
+  "applicationForm": {
+    "title": "Join our network of applicators",
+    "intro": "Being part of Grupo Estucalia's network of applicators offers multiple advantages for professionals in the sector. Some of them are:",
+    "benefits": {
+      "1": {
+        "title": "Greater visibility and business opportunities",
+        "description": "Grupo Estucalia recommends its applicators to construction companies and architects, facilitating access to large-scale projects."
+      },
+      "2": {
+        "title": "Access to high-quality products",
+        "description": "Opportunity to work with innovative and exclusive materials, guaranteeing superior finishes."
+      },
+      "3": {
+        "title": "Technical advice",
+        "description": "Knowledge of new techniques and materials, ensuring applicators are always up to date."
+      },
+      "4": {
+        "title": "Backing and trust of an established brand",
+        "description": "Working under the endorsement of Grupo Estucalia improves reputation and credibility with clients and companies in the sector."
+      },
+      "5": {
+        "title": "Commercial and technical support",
+        "description": "Assistance in project management, tailored solutions and support in incident resolution."
+      },
+      "6": {
+        "title": "Network of contacts and collaborations",
+        "description": "Opportunity to establish alliances with other professionals in the sector to enhance business growth and expansion."
       }
     },
-    "news": {
-      "title": "News",
-      "readMore": "Read more",
-      "items": {
-        "saudiMission": "Direct Commercial Mission to Saudi Arabia",
-        "moroccoPresentation": "Grupo Estucalia presents its Monocoat Mortars in Morocco",
-        "rabatConvention": "International Convention in Rabat"
+    "formFields": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "company": "Company",
+      "message": "Message"
+    },
+    "dataProtection": "Basic information on Data Protection. Responsible: ESTUCALIA MORTEROS S.L. Purpose of processing: manage your query/request, sending information electronically and subsequent commercial follow-up. Legitimation: your express consent when sending us this form (GDPR 6.1.a), your data will not be transferred to third parties and will be kept for one year, unless legal obligation. You may exercise your rights of access, rectification, deletion, portability, limitation and opposition, and withdraw your consent by contacting:",
+    "privacyCheckbox": {
+      "part1": "Yes, I have read and accept the processing of my personal data according to the ",
+      "link1": "Privacy Policy",
+      "part2": " and the ",
+      "link2": "Legal Notice",
+      "part3": " of Estucalia Morteros S.L."
+    },
+    "marketingCheckbox": "Yes, I authorize the electronic receipt of commercial information from Grupo Estucalia.",
+    "submitButton": "Submit"
+  },
+  "servicesGrid": {
+    "cards": [
+      {
+        "title": "Assistance and support",
+        "description": "Our specialists are at your disposal to help you commercially and in safety matters. We advise on transport, handling, application and maintenance."
+      },
+      {
+        "title": "Worldwide delivery service",
+        "description": "Enjoy a worldwide delivery service to grow your project."
+      },
+      {
+        "title": "Sustainability and efficiency",
+        "description": "We help you discover our product catalog, its sustainable manufacturing processes and its diverse applications/uses."
+      }
+    ]
+  },
+  "services": {
+    "title": "Comprehensive Project Service",
+    "cards": {
+      "advice": {
+        "title": "Specialized Advice and Support",
+        "description": "Our specialized team will assist you with detailed itemized quotes.",
+        "bullets": [
+          "- Professional analysis and support team.",
+          "- Assistance with questions and application possibilities.",
+          "- Itemized pricing.",
+          "- Product, finish, and color recommendations."
+        ]
+      },
+      "definition": {
+        "title": "Project Definition Help",
+        "description": "We are committed to providing support and advice on transport, handling, application, and maintenance.",
+        "bullets": [
+          "- Personalized attention and tailored solutions for your projects.",
+          "- Application and maintenance advice.",
+          "- Customized project study.",
+          "- Optimization for cost and performance."
+        ]
+      },
+      "resources": {
+        "title": "Project Resources",
+        "description": "Enjoy an exclusive service to develop your projects, shape your vision, and enhance it with the most advanced mortars or cements.",
+        "bullets": [
+          "- Samples in 48h. Get the samples you need for your projects.",
+          "- Personalized service. We recommend applicators to guarantee the best service and quality."
+        ]
+      },
+      "support": {
+        "title": "Support and Assistance",
+        "description": "Our specialists are available to help you commercially and with safety concerns. We advise on transport, handling, application, and maintenance.",
+        "bullets": []
+      },
+      "delivery": {
+        "title": "Worldwide Delivery Service",
+        "description": "Enjoy a global delivery service to grow your project.",
+        "bullets": []
+      },
+      "sustainability": {
+        "title": "Sustainability and Efficiency",
+        "description": "We help you understand our product catalog, their sustainable manufacturing processes, and variety of uses.",
+        "bullets": []
       }
     }
-} 
+  },
+  "certifications": {
+    "title": "Certifications and Documentation",
+    "cards": {
+      "morteros": "Declaration of Conformity for One-coat Renders",
+      "cementos": "Declaration of Conformity for Tile Adhesives",
+      "dit": "Technical Suitability Document Plus",
+      "aenor": "AENOR Certificate",
+      "iqnet": "IQNET Certificate",
+      "politica": "Quality Policy"
+    }
+  },
+  "inspiration": {
+  "title": "Real cases to inspire you"
+},
+  "privacyPolicy": {
+    "title": "Legal Notice",
+    "sections": {
+      "identification": {
+        "title": "Identifying Information",
+        "description1": "In compliance with Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data (General Data Protection Regulation - GDPR), Organic Law 3/2018 of 5 December on the Protection of Personal Data and guarantee of digital rights, and Law 34/2002 of 11 July on Information Society Services and Electronic Commerce, we inform you that this website is owned by:",
+        "description2": "ESTUCALIA MORTEROS, SL – GRUPO ESTUCALIA\nTax ID: B30498257\nAddress: Camino Viejo de Fortuna, 40-MATANZAS 30. 148-SANTOMERA (Murcia)\nEmail: grupoestucalia@grupoestucalia.com",
+        "description3": "The content of this website aims to inform about our products and/or services."
+      },
+      "terms": {
+        "title": "General Terms of Use",
+        "description1": "Access to this website requires acceptance of the general terms of use in force at any given time. The user agrees to use the website and its contents without violating current legislation, good faith, and public order.",
+        "description2": "It is prohibited to use the website for unlawful or harmful purposes, or in any way that may cause damage or impede its normal operation.",
+        "description3": "Reproduction, distribution, or modification of the content of this website, in whole or in part, is prohibited without the authorization of the website owner."
+      },
+      "security": {
+        "title": "Security Measures",
+        "description1": "The user guarantees the authenticity and accuracy of all data provided in contact forms and is responsible for keeping this information updated. The user will be liable for any inaccuracies or lack of truthfulness in the information provided.",
+        "description2": "Personal data provided by the user may be stored in automated or non-automated databases owned exclusively by the website owner. The owner implements all technical, organizational, and security measures to ensure confidentiality, integrity, and quality of the information in accordance with current data protection regulations. However, users should be aware that Internet security measures are not entirely reliable, and the owner cannot guarantee the absence of malware or other harmful elements that may affect users' systems or electronic files, despite implementing all necessary precautions."
+      },
+      "intellectualProperty": {
+        "title": "Intellectual Property Rights",
+        "description1": "The user agrees to respect the intellectual property rights of the website owner. Access to or use of this website does not grant any rights over trademarks, trade names, or other distinctive signs used herein.",
+        "description2": "Reproduction, distribution, or modification of the content of this website, in whole or in part, is prohibited without the authorization of the website owner.",
+        "description3": "Commercial use of this website's content is prohibited. Users may not exploit, reproduce, distribute, modify, publicly communicate, transfer, transform, or use the content for commercial purposes. Partial or total reproduction of the content without express authorization is also prohibited."
+      },
+      "liability": {
+        "title": "Exclusion of Warranties and Liability",
+        "description1": "The website owner disclaims all liability for damages of any kind arising from:",
+        "point1": "Lack of availability, maintenance, or effective operation of the website, its services, or content.",
+        "point2": "Presence of malware or harmful content.",
+        "point3": "Unlawful, negligent, fraudulent, or non-compliant use of this Legal Notice."
+      },
+      "modifications": {
+        "title": "Modifications",
+        "description1": "The website owner reserves the right to modify the website without prior notice, including changes to content, services, or their presentation."
+      },
+      "jurisdiction": {
+        "title": "Applicable Law and Jurisdiction",
+        "description1": "These General Terms of Use are governed by Spanish law, and any disputes shall be resolved by the competent courts under Spanish law."
+      }
+    }
+  },
+    "cookiesPolicy": {
+      "title": "Cookies Policy",
+      "introduction": "Access to this Website may involve the use of cookies. Cookies are small amounts of information stored in the browser used by each User - on the various devices they may use to navigate - so that the server remembers certain information that will later be read only by the server that implemented it. Cookies facilitate navigation, make it more user-friendly, and do not damage the browsing device.",
+      "purpose": "Cookies are automatic procedures for collecting information about preferences determined by the User during their visit to the Website in order to recognize them as a User and personalize their experience and use of the Website. They can also, for example, help identify and resolve errors.",
+      "dataCollected": "The information collected through cookies may include the date and time of visits to the Website, pages viewed, time spent on the Website, and sites visited immediately before and after. However, no cookie allows contact with the User's phone number or any other personal contact method.",
+      "noExtraction": "No cookie can extract information from the User's hard drive or steal personal information. The only way for the User's private information to be part of a Cookie file is if the user personally provides that information to the server.",
+      "identifyingCookies": "Cookies that allow identifying a person are considered personal data. Therefore, the previously described Privacy Policy applies to them. In this regard, User consent will be required for their use. This consent will be communicated through a genuine choice, offered via a positive affirmative decision before initial processing, removable and documented.",
+      "disableTitle": "Disable, reject and delete cookies",
+      "disableInstructions": "The User can disable, reject and delete cookies - totally or partially - installed on their device through their browser settings (including Chrome, Firefox, Safari, Explorer). The procedures for rejecting and deleting cookies may differ between internet browsers. Therefore, the User must follow the instructions provided by their specific internet browser. If cookies are rejected - totally or partially - the User may continue using the Website, although some features may be limited."
+    },
+      "privacyPolicy1": {
+        "title": "Privacy Policy",
+        "sections": {
+          "introduction": {
+            "title": "Introduction",
+            "content1": "At Grupo Estucalia we care about the security and protection of personal information provided by our customers and other individuals. Therefore, we have updated and adapted our data protection policy due to the entry into force of the new European and Spanish legislation: The General Data Protection Regulation (GDPR), applicable from May 25, 2018, and Organic Law 3/2018 of December 5 that adapts said Regulation to the Spanish legal system.",
+            "content2": "Below we explain who is responsible for processing your personal data, for what purpose we collect your personal information, what is the legal basis for us to process your data, to whom we may communicate your personal data, whether or not we carry out international data transfers, how long we will keep your personal information and how you can exercise your rights."
+          },
+          "responsible": {
+            "title": "Who is responsible for processing your personal data?",
+            "content1": "The General Data Protection Regulation (GDPR) describes the Data Controller as 'the natural or legal person, public authority, service or other body that, alone or jointly with others, determines the purposes and means of the processing'.",
+            "content2": "Grupo Estucalia, Quality Department, is responsible for the processing of personal data carried out on its customers.",
+            "content3": "If you have any questions or want to contact us, you can send an email to grupoestucalia@grupoestucalia.com, or send a letter to: Camino Viejo de Fortuna, 40-MATANZAS de SANTOMERA (Murcia)."
+          },
+          "purpose": {
+            "title": "For what purpose do we collect your personal information?",
+            "content1": "At GRUPO ESTUCALIA we are aware of the protection of personal data and privacy. The purpose of Grupo Estucalia-Quality Department is to provide you with our services with the highest quality."
+          },
+          "legalBasis": {
+            "title": "What is the legal basis for us to process your data?",
+            "content1": "Since the purpose of Grupo Estucalia is to provide you with our services with the highest quality, the legal basis is none other than to comply with the execution of the service provision contract that binds us to each customer."
+          },
+          "dataSharing": {
+            "title": "To whom can we communicate your personal information?",
+            "content1": "In some cases, it is necessary for us to communicate the information that the customer has provided to us to third parties. This is the case of consulting firms to comply with our tax, accounting or labor obligations.",
+            "content2": "Consulting firms only have access to the personal information strictly necessary to carry out their services. They are required to maintain confidentiality about the personal information provided to them to be able to comply with their services and cannot use the information in any way different from the one we have requested.",
+            "content3": "Likewise, your personal information will be available to Public Administrations, Judges and Courts, for the attention of possible responsibilities arising from the processing."
+          },
+          "internationalTransfers": {
+            "title": "International data transfers",
+            "content1": "The information we collect resides in Spain. Grupo Estucalia does not process your data outside the European Union."
+          },
+          "dataRetention": {
+            "title": "How long will we keep your personal information?",
+            "content1": "At Grupo Estucalia we will keep your personal data while the commercial and service provision relationship we maintain with you lasts and, in any case, during the period of time that is legally imposed on us.",
+            "content2": "However, you can exercise your right to deletion, opposition and/or limitation of the processing of your data. In these cases, we will keep the information properly blocked while it may be necessary for the exercise or defense of claims or any type of judicial, legal or contractual liability may arise from its processing, which must be addressed and for which its recovery is necessary."
+          },
+          "rightsExercise": {
+            "title": "How can you exercise your rights?",
+            "content1": "Your rights are regulated in Chapter III (Rights of the data subject) of the General Data Protection Regulation (GDPR).",
+            "content2": "In accordance with the provisions of said Regulation, you have the right to obtain from Grupo Estucalia confirmation of whether or not we are processing your data and, in such case, the right to obtain access to your personal information, as well as to request the rectification of inaccurate data or, where appropriate, request deletion when, among other reasons, the data is no longer necessary for the purposes for which it was collected.",
+            "content3": "You will have the right to obtain from Grupo Estucalia the limitation of the processing of your data in the following cases:",
+            "point1": "When you challenge the accuracy of the personal data, during a period that allows the controller to verify the accuracy of the same.",
+            "point2": "When the processing is unlawful and you oppose the deletion of the personal data and request instead the limitation of its use.",
+            "point3": "When Grupo Estucalia no longer needs the personal data for the purposes of the processing, but you need them for the formulation, exercise or defense of claims.",
+            "point4": "When you have opposed the processing, while verifying whether the legitimate reasons of Grupo Estucalia prevail over your own."
+          },
+          "securityMeasures": {
+            "title": "Measures to protect your personal information",
+            "content1": "At Grupo Estucalia we are committed to protecting your personal information. We use appropriate technical and organizational measures to protect your personal information and your privacy, and we review these measures periodically.",
+            "content2": "In particular, we establish measures aimed at guaranteeing the confidentiality, integrity, availability and permanent resilience of the processing systems and services, to restore the availability and access to personal data quickly in the event of a physical or technical incident and to ensure the security in the processing of your personal data.",
+            "content3": "Also, our employees are properly trained and qualified, and they commit to maintaining maximum reserve and secrecy about any personal data they may have access to as a result of their work, as well as to comply with the corresponding security measures of which they have been duly informed."
+          },
+          "policyUpdates": {
+            "title": "Modifications to this data protection information",
+            "content1": "At Grupo Estucalia we review and update the data protection information at least once a year, or when modifications occur in the legislation or in any of the operations and procedures for processing your personal information. In these cases, we indicate the content and date of the last update.",
+            "content2": "This data protection information was last reviewed and updated in January 2023."
+          }
+        }
+      }
+    
+}

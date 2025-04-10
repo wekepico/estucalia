@@ -24,7 +24,13 @@
       "label": "Espaces",
       "submenu": "Façades, Terrasses, Balcons, Murs, Patios et puits de lumière, Sols et pavements, Cuisines extérieures, Piscines"
     },
-    "professionals": "Professionnels et Techniciens",
+    "professionals": "Professionnels",
+    "professionalsSubmenu": {
+      "builders": "Constructeurs et Architectes",
+      "applicators": "Applicateurs",
+      "services": "Services Intégraux de Projets",
+      "certifications": "Certifications et Documentation"
+    },
     "finishes": "Finitures",
     "languages": "Langues",
     "company": "Entreprise",
@@ -231,37 +237,6 @@
       "button": "Contactez-nous"
     }
   },
-  "footer": {
-    "sections": {
-      "company": "ENTREPRISE",
-      "about": "À Propos",
-      "workWithUs": "Travailler avec nous",
-      "blog": "Blog",
-      "contact": "CONTACT",
-      "products": "PRODUITS",
-      "legal": "TEXTES LÉGAUX"
-    },
-    "products": {
-      "monocoat": "Mortiers monocouche",
-      "adhesive": "Mortiers adhésifs",
-      "lime": "Mortier de chaux",
-      "joint": "Mortier de joint multipurpose",
-      "vertical": "Mortier estampé vertical",
-      "waterProtector": "Protecteur d'eau",
-      "repair": "Mortier de réparation"
-    },
-    "legal": {
-      "notice": "Mentions Légales",
-      "privacy": "Politique de Confidentialité",
-      "cookies": "Politique des Cookies"
-    },
-    "contact": {
-      "address": "Cno Viejo de Fortuna, 40 Matanzas, 30148, Santomera, Murcia (ESPAGNE)",
-      "phone": "+34 968 862 467 / +34 663 519 854",
-      "email": "grupoestucalia@grupoestucalia.com"
-    },
-    "rights": "Tous droits réservés"
-  },
   "company": {
     "hero": {
       "title": "Plus de 25 ans dans le secteur des revêtements de façades et céramiques à l'échelle internationale."
@@ -333,35 +308,380 @@
       "dehumidification": "Dans les projets de déshumidification, le mortier à la chaux est fortement recommandé pour sa capacité à repousser l'eau et à permettre la respiration des murs. Cette caractéristique en fait une solution idéale pour les restaurations ou les constructions avec des problèmes d'humidité. Le mortier monocouche aide également à maintenir les surfaces sèches grâce à sa capacité d'étanchéité et décorative, constituant une option polyvalente et résistante pour améliorer la durabilité des façades et les protéger contre l'accumulation d'humidité."
     }
   },
-    "finishes": {
-      "categories": {
-        "hammered": "Bouchardé/gratté",
-        "washed": "Lavé/lissé",
-        "printed": "Imprimé",
-        "stone": "Pierre projetée",
-        "smooth": "Lisse"
+  "finishes": {
+    "categories": {
+      "hammered": "Bouchardé/gratté",
+      "washed": "Lavé/lissé",
+      "printed": "Imprimé",
+      "stone": "Pierre projetée",
+      "smooth": "Lisse"
+    },
+    "descriptions": {
+      "hammered": "La finition bouchardée ou grattée des mortiers présente une texture rugueuse et uniforme obtenue par grattage de surface avant durcissement. Solution idéale pour façades et murs extérieurs, offrant une excellente résistance à l'usure et aux intempéries. L'aspect texturé masque les imperfections tout en apportant une élégance rustique, parfait pour les projets recherchant un aspect artisanal robuste.",
+      "washed": "La finition lavée ou lissée est obtenue par lissage de la surface du mortier pour une texture uniforme. Idéale pour façades, murs intérieurs et sols, elle offre un aspect propre et moderne. Cette finition assure une bonne adhérence pour peintures ou revêtements supplémentaires, avec des propriétés hydrofuges empêchant la fissuration.",
+      "printed": "Le mortier imprimé reproduit des motifs pierre, bois, pavés ou décoratifs avant durcissement. Très utilisé pour sols extérieurs, terrasses et allées grâce à sa résistance au piétinement et aux intempéries. Personnalisable en couleurs et motifs, c'est une solution idéale alliant esthétique, fonctionnalité et durabilité.",
+      "stone": "La finition pierre projetée incorpore des particules de pierre naturelle par projection contrôlée. Parfaite pour façades et murs extérieurs, elle offre une exceptionnelle résistance à l'usure et aux intempéries. Son élégance rustique intemporelle rehausse les designs architecturaux avec un entretien minimal.",
+      "smooth": "La finition lisse crée une surface uniforme sans texture par lissage complet. Idéale pour intérieurs modernes et façades minimalistes, compatible avec peintures et revêtements décoratifs. Offre une excellente protection contre l'humidité et une solution constructive attrayante."
+    },
+    "products": {
+      "monocapa": "Mortier monocouche",
+      "lime": "Mortier de chaux",
+      "printed": "Mortier imprimé",
+      "stone": "Mortier pierre"
+    }
+  },
+  "news": {
+    "title": "Actualités",
+    "readMore": "Lire plus",
+    "items": {
+      "saudiMission": "Mission Commerciale Directe en Arabie Saoudite",
+      "moroccoPresentation": "Groupe Estucalia présente ses Mortiers Monocouche au Maroc",
+      "rabatConvention": "Convention Internationale à Rabat"
+    }
+  },
+  "footer": {
+    "copyright": "Copyright©2025",
+    "legal": {
+      "title": "TEXTES JURIDIQUES",
+      "legalNotice": "Mentions légales",
+      "privacyPolicy": "Politique de confidentialité",
+      "cookiePolicy": "Politique de cookies"
+    },
+    "company": {
+      "title": "ENTREPRISE",
+      "about": "À propos de nous",
+      "careers": "Travailler avec nous",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "products": {
+      "title": "PRODUITS",
+      "monocapa": "Mortier monocouche",
+      "tileAdhesive": "Mortier colle",
+      "limeMortar": "Mortier de chaux",
+      "multipurposeMortar": "Mortier polyvalent pour joints",
+      "verticalPrinted": "Mortier imprimé vertical",
+      "waterProtector": "Protecteur d'eau",
+      "repairMortar": "Mortier de réparation"
+    },
+    "contact": {
+      "title": "CONTACT",
+      "address": "Cno Viejo de Fortuna, 40 Matanzas<br />30148, Santomera, Murcie (ESPAGNE)."
+    },
+    "social": {
+      "title": "SUIVEZ-NOUS"
+    }
+  },
+  "heroSection": {
+    "applications": "Applications",
+    "noProducts": "Aucun produit disponible dans cette catégorie",
+    "applicationsList": {
+      "exteriores": "Extérieurs",
+      "interiores": "Intérieurs",
+      "fachadas": "Façades",
+      "revestimientos": "Revêtements",
+      "rehabilitacion": "Réhabilitation"
+    },
+    "products": {
+      "monocapa": "Mortier monocouche",
+      "cola": "Mortier-colle",
+      "cal": "Mortier de chaux",
+      "impreso": "Mortier imprimé",
+      "piedra": "Mortier pierre",
+      "reparacion": "Mortier de réparation"
+    }
+  },
+  "spacesSection": {
+    "spaces": {
+      "facades": "Façades",
+      "terraces": "Terrasses",
+      "balconies": "Balcons",
+      "walls": "Murs",
+      "patios": "Patios et lucarnes",
+      "floors": "Sols et revêtements",
+      "kitchens": "Cuisines extérieures",
+      "pools": "Piscines"
+    },
+    "descriptions": {
+      "facades": "Les façades sont l'un des éléments architecturaux les plus visibles et exposés d'un bâtiment, nécessitant des solutions de construction qui combinent protection, esthétique et efficacité. Les revêtements en mortier monocouche ou en matériaux céramiques offrent une excellente résistance à l'humidité, au rayonnement solaire et aux changements de température. De plus, les façades ventilées améliorent l'isolation thermique, contribuant à l'efficacité énergétique. Les finitions décoratives permettent de personnaliser le design et de renforcer le caractère visuel de la construction.",
+      "terraces": "Les terrasses sont des espaces extérieurs qui agrandissent les zones habitables des bâtiments. Leur construction nécessite des solutions garantissant l'étanchéité, la résistance au trafic et la durabilité. L'utilisation de mortiers étanches et de revêtements antidérapants est essentielle pour protéger la surface et assurer un environnement sûr. De plus, la conception architecturale peut intégrer du mobilier fixe et des jardinières pour créer des ambients fonctionnels et confortables. Les terrasses bien conçues améliorent la qualité de vie et ajoutent une valeur esthétique aux bâtiments.",
+      "balconies": "Les balcons sont des extensions architecturales qui apportent lumière et ventilation aux logements. Leur construction doit prendre en compte des solutions structurelles et des revêtements résistants aux conditions climatiques. Les revêtements de sol antidérapants et les systèmes d'étanchéité garantissent leur durabilité et leur sécurité. De plus, l'utilisation de garde-corps modernes et de finitions décoratives permet de les intégrer dans la conception globale du bâtiment, améliorant sa fonctionnalité et son esthétique.",
+      "walls": "Les murs sont des éléments structurels et décoratifs essentiels dans toute construction. Les solutions de construction incluent des mortiers monocouche pour les revêtements extérieurs, offrant protection et finitions esthétiques en une seule application. Pour les intérieurs, les mortiers de chaux garantissent la respirabilité et une finition fine. Les murs peuvent être combinés avec des éléments décoratifs tels que des lucarnes, des panneaux acoustiques ou des revêtements céramiques, améliorant à la fois la fonctionnalité et le design de l'espace.",
+      "patios": "Les patios et les lucarnes sont des solutions architecturales qui améliorent l'éclairage et la ventilation naturelle des espaces intérieurs. Les patios nécessitent des revêtements de sol étanches et résistants au trafic, tandis que les lucarnes doivent incorporer des matériaux transparents de haute résistance et des systèmes d'étanchéité efficaces. La conception architecturale de ces espaces permet de créer des ambients lumineux, confortables et visuellement attrayants, ajoutant de la valeur aux bâtiments.",
+      "floors": "Les sols et les revêtements sont fondamentaux dans tout espace architectural, car ils doivent combiner résistance, esthétique et fonctionnalité. Les mortiers autonivelants et les revêtements de haute résistance offrent des surfaces uniformes et durables. Pour les extérieurs, les revêtements antidérapants et étanches sont essentiels pour garantir la sécurité et la protection contre l'humidité. Les solutions de construction doivent s'adapter aux besoins de l'espace, que ce soit pour la circulation piétonne, les véhicules ou les ambients décoratifs.",
+      "kitchens": "Les cuisines extérieures sont des espaces conçus pour profiter des activités culinaires en plein air. Pour leur construction, des matériaux résistants aux intempéries sont nécessaires, tels que des revêtements céramiques et des sols antidérapants. Les mortiers étanches et les surfaces faciles à nettoyer garantissent leur durabilité et leur fonctionnalité. La conception architecturale peut intégrer des zones de cuisson, de stockage et des espaces repas extérieurs, créant des ambients confortables et esthétiques pour les rencontres sociales.",
+      "pools": "Les piscines nécessitent des solutions de construction garantissant l'étanchéité, la sécurité et l'esthétique. Les mortiers spécifiques pour piscines offrent une excellente résistance à l'eau et au chlore, assurant la protection des structures. Les revêtements antidérapants sur les sols et les bords préviennent les accidents, tandis que les finitions décoratives permettent de créer des ambients élégants et personnalisés. L'application correcte des systèmes d'étanchéité et des joints assure la durabilité de la piscine face aux conditions climatiques et à une utilisation intensive."
+    },
+    "applications": {
+      "coatings": "Revetements",
+      "plasters": "Enduits",
+      "masonry": "Maçonnerie",
+      "tiles": "Carrelages",
+      "screeds": "Chapes",
+      "thermal": "Isolation thermique",
+      "waterproofing": "Étanchéité",
+      "dehumidification": "Déshumidification"
+    },
+    "products": {
+      "monocapa": "Mortier monocouche",
+      "printed": "Mortier imprimé",
+      "lime": "Mortier de chaux",
+      "stone": "Mortier pierre",
+      "union": "Pont d'union",
+      "joint": "Mortier joints",
+      "water": "Mortier eaux",
+      "adhesive": "Mortier colle",
+      "tools": "Accessoires et outils"
+    },
+    "common": {
+      "spaceNotFound": "Espace non trouvé"
+    }
+  },
+  "constructorGrid": {
+    "cards": [
+      {
+        "title": "Conseil et support spécialisé",
+        "description": "Notre équipe spécialisée vous facilitera les devis détaillés par poste.",
+        "bullets": [
+          "- Équipe professionnelle d'analyse et de support.",
+          "- Assistance pour les questions et possibilités d'application.",
+          "- Devis par postes détaillés.",
+          "- Recommandations de produits, finitions et couleurs."
+        ]
       },
-      "descriptions": {
-        "hammered": "La finition bouchardée ou grattée des mortiers présente une texture rugueuse et uniforme obtenue par grattage de surface avant durcissement. Solution idéale pour façades et murs extérieurs, offrant une excellente résistance à l'usure et aux intempéries. L'aspect texturé masque les imperfections tout en apportant une élégance rustique, parfait pour les projets recherchant un aspect artisanal robuste.",
-        "washed": "La finition lavée ou lissée est obtenue par lissage de la surface du mortier pour une texture uniforme. Idéale pour façades, murs intérieurs et sols, elle offre un aspect propre et moderne. Cette finition assure une bonne adhérence pour peintures ou revêtements supplémentaires, avec des propriétés hydrofuges empêchant la fissuration.",
-        "printed": "Le mortier imprimé reproduit des motifs pierre, bois, pavés ou décoratifs avant durcissement. Très utilisé pour sols extérieurs, terrasses et allées grâce à sa résistance au piétinement et aux intempéries. Personnalisable en couleurs et motifs, c'est une solution idéale alliant esthétique, fonctionnalité et durabilité.",
-        "stone": "La finition pierre projetée incorpore des particules de pierre naturelle par projection contrôlée. Parfaite pour façades et murs extérieurs, elle offre une exceptionnelle résistance à l'usure et aux intempéries. Son élégance rustique intemporelle rehausse les designs architecturaux avec un entretien minimal.",
-        "smooth": "La finition lisse crée une surface uniforme sans texture par lissage complet. Idéale pour intérieurs modernes et façades minimalistes, compatible avec peintures et revêtements décoratifs. Offre une excellente protection contre l'humidité et une solution constructive attrayante."
+      {
+        "title": "Aide à la définition du projet",
+        "description": "Nous nous engageons à vous fournir un soutien et des conseils sur le transport, la manipulation, l'application et la maintenance.",
+        "bullets": [
+          "- Attention personnalisée et solutions adaptées à vos projets.",
+          "- Conseil pour l'application et la maintenance.",
+          "- Étude individualisée du projet.",
+          "- Optimisation en termes d'économie et de performance."
+        ]
       },
-      "products": {
-        "monocapa": "Mortier monocouche",
-        "lime": "Mortier de chaux",
-        "printed": "Mortier imprimé",
-        "stone": "Mortier pierre"
+      {
+        "title": "Ressources pour les projets",
+        "description": "Vous bénéficierez d'un service exclusif pour développer vos projets, matérialiser votre vision et l'améliorer avec les mortiers ou ciments les plus avancés.",
+        "bullets": [
+          "- Échantillons en 48 h. Recevez les échantillons dont vous avez besoin pour vos projets.",
+          "- Service personnalisé. Nous vous recommandons des applicateurs pour garantir le meilleur service et qualité."
+        ]
+      }
+    ]
+  },
+  "constructorsArchitectsPage": {
+    "title": {
+      "part1": "Que propose ",
+      "highlight": "Grupo Estucalia ",
+      "part2": "aux constructeurs et architectes"
+    },
+    "images": {
+      "banner1": "/img/team-architects-looking-construction-site.jpg",
+      "banner2": "/img/engineer-designer-choosing-palette.jpg"
+    }
+  },
+  "applicatorsPage": {
+    "title": {
+      "part1": "Que propose ",
+      "highlight": "Grupo Estucalia ",
+      "part2": "aux applicateurs"
+    },
+    "images": {
+      "banner1": "/img/closeup-construction-worker039s-hands-wearing-protective-gloves.jpg",
+      "banner2": "/img/tiler-working-renovation-apartment.jpg"
+    }
+  },
+  "applicationForm": {
+    "title": "Rejoignez notre réseau d'applicateurs",
+    "intro": "Faire partie du réseau d'applicateurs de Grupo Estucalia offre de multiples avantages pour les professionnels du secteur. Certains d'entre eux sont:",
+    "benefits": {
+      "1": {
+        "title": "Plus grande visibilité et opportunités commerciales",
+        "description": "Grupo Estucalia recommande ses applicateurs aux entreprises de construction et aux architectes, facilitant l'accès à des projets de grande envergure."
+      },
+      "2": {
+        "title": "Accès à des produits de haute qualité",
+        "description": "Possibilité de travailler avec des matériaux innovants et exclusifs, garantissant des finitions supérieures."
+      },
+      "3": {
+        "title": "Conseil technique",
+        "description": "Connaissance des nouvelles techniques et matériaux, assurant que les applicateurs sont toujours à jour."
+      },
+      "4": {
+        "title": "Soutien et confiance d'une marque établie",
+        "description": "Travailler sous l'égide de Grupo Estucalia améliore la réputation et la crédibilité auprès des clients et des entreprises du secteur."
+      },
+      "5": {
+        "title": "Support commercial et technique",
+        "description": "Assistance dans la gestion de projet, solutions sur mesure et soutien dans la résolution d'incidents."
+      },
+      "6": {
+        "title": "Réseau de contacts et collaborations",
+        "description": "Possibilité d'établir des alliances avec d'autres professionnels du secteur pour stimuler la croissance et l'expansion de l'entreprise."
       }
     },
-    "news": {
-      "title": "Actualités",
-      "readMore": "Lire plus",
-      "items": {
-        "saudiMission": "Mission Commerciale Directe en Arabie Saoudite",
-        "moroccoPresentation": "Groupe Estucalia présente ses Mortiers Monocouche au Maroc",
-        "rabatConvention": "Convention Internationale à Rabat"
+    "formFields": {
+      "name": "Nom",
+      "phone": "Téléphone",
+      "email": "Email",
+      "company": "Entreprise",
+      "message": "Message"
+    },
+    "dataProtection": "Informations de base sur la protection des données. Responsable : ESTUCALIA MORTEROS S.L. Finalité du traitement : gérer votre demande, envoi d'informations par voie électronique et suivi commercial ultérieur. Légitimation : votre consentement exprès en nous envoyant ce formulaire (RGPD 6.1.a), vos données ne seront pas transmises à des tiers et seront conservées pendant un an, sauf obligation légale. Vous pouvez exercer vos droits d'accès, de rectification, de suppression, de portabilité, de limitation et d'opposition, et retirer votre consentement en vous adressant à :",
+    "privacyCheckbox": {
+      "part1": "Oui, j'ai lu et j'accepte le traitement de mes données personnelles conformément à la ",
+      "link1": "Politique de Confidentialité",
+      "part2": " et aux ",
+      "link2": "Mentions Légales",
+      "part3": " de Estucalia Morteros S.L."
+    },
+    "marketingCheckbox": "Oui, j'autorise la réception par voie électronique d'informations commerciales de Grupo Estucalia.",
+    "submitButton": "Envoyer"
+  },
+  "servicesGrid": {
+    "cards": [
+      {
+        "title": "Assistance et support",
+        "description": "Nos spécialistes sont à votre disposition pour vous aider sur le plan commercial et en matière de sécurité. Nous conseillons sur le transport, la manipulation, l'application et la maintenance."
+      },
+      {
+        "title": "Service de livraison mondial",
+        "description": "Profitez d'un service de livraison mondial pour développer votre projet."
+      },
+      {
+        "title": "Durabilité et efficacité",
+        "description": "Nous vous aidons à découvrir notre catalogue de produits, ses processus de fabrication durables et ses diverses applications/utilisations."
+      }
+    ]
+  },
+  "services": {
+    "title": "Service Intégral de Projets"
+  },
+  "certifications": {
+    "title": "Certifications et documentation",
+    "cards": {
+      "morteros": "Déclaration de conformité pour les enduits monocouches",
+      "cementos": "Déclaration de conformité pour les colles à carrelage",
+      "dit": "Document d’Aptitude Technique Plus",
+      "aenor": "Certificat AENOR",
+      "iqnet": "Certificat IQNET",
+      "politica": "Politique de qualité"
+    }
+  },
+  "inspiration": {
+    "title": "Des cas réels pour vous inspirer"
+  },
+  "privacyPolicy": {
+    "title": "Mentions Légales",
+    "sections": {
+      "identification": {
+        "title": "Informations d'Identification",
+        "description1": "Conformément au Règlement (UE) 2016/679 du Parlement européen et du Conseil du 27 avril 2016 relatif à la protection des personnes physiques à l'égard du traitement des données à caractère personnel et à la libre circulation de ces données (RGPD), à la Loi Organique 3/2018 du 5 décembre sur la Protection des Données Personnelles et la garantie des droits numériques, et à la Loi 34/2002 du 11 juillet sur les Services de la Société de l'Information et du Commerce Électronique, nous informons que ce site web est la propriété de :",
+        "description2": "ESTUCALIA MORTEROS, SL – GRUPO ESTUCALIA\nNIF : B30498257\nAdresse : Camino Viejo de Fortuna, 40-MATANZAS 30. 148-SANTOMERA (Murcia)\nEmail : grupoestucalia@grupoestucalia.com",
+        "description3": "Le contenu de ce site web a pour but d'informer sur nos produits et/ou services."
+      },
+      "terms": {
+        "title": "Conditions Générales d'Utilisation",
+        "description1": "L'accès à ce site web implique l'acceptation des conditions générales d'utilisation en vigueur. L'utilisateur s'engage à utiliser le site et son contenu sans enfreindre la législation en vigueur, la bonne foi et l'ordre public.",
+        "description2": "Il est interdit d'utiliser le site à des fins illicites ou préjudiciables, ou de toute manière pouvant causer des dommages ou entraver son fonctionnement normal.",
+        "description3": "La reproduction, distribution ou modification du contenu de ce site, en totalité ou en partie, est interdite sans l'autorisation du propriétaire."
+      },
+      "security": {
+        "title": "Mesures de Sécurité",
+        "description1": "L'utilisateur garantit l'authenticité et l'exactitude des données fournies dans les formulaires de contact et est responsable de leur mise à jour. L'utilisateur sera responsable de toute inexactitude dans les informations fournies.",
+        "description2": "Les données personnelles communiquées par l'utilisateur peuvent être stockées dans des bases de données automatisées ou non, détenues exclusivement par le propriétaire. Celui-ci met en œuvre toutes les mesures techniques et organisationnelles pour garantir la confidentialité et l'intégrité des informations, conformément à la réglementation en vigueur. Toutefois, l'utilisateur doit être conscient que les mesures de sécurité sur Internet ne sont pas infaillibles, et le propriétaire ne peut garantir l'absence de malware ou d'éléments nuisibles."
+      },
+      "intellectualProperty": {
+        "title": "Droits de Propriété Intellectuelle",
+        "description1": "L'utilisateur s'engage à respecter les droits de propriété intellectuelle du propriétaire. L'accès ou l'utilisation du site n'octroie aucun droit sur les marques ou signes distinctifs.",
+        "description2": "La reproduction, distribution ou modification du contenu de ce site, en totalité ou en partie, est interdite sans autorisation.",
+        "description3": "L'utilisation commerciale du contenu est interdite. Toute reproduction partielle ou totale sans autorisation expresse est également prohibée."
+      },
+      "liability": {
+        "title": "Exclusion de Garanties et Responsabilité",
+        "description1": "Le propriétaire décline toute responsabilité pour dommages résultant de :",
+        "point1": "L'indisponibilité ou le mauvais fonctionnement du site.",
+        "point2": "La présence de malware ou contenu nuisible.",
+        "point3": "Une utilisation illicite, négligente ou frauduleuse des présentes Mentions Légales."
+      },
+      "modifications": {
+        "title": "Modifications",
+        "description1": "Le propriétaire se réserve le droit de modifier le site sans préavis, y compris son contenu et services."
+      },
+      "jurisdiction": {
+        "title": "Loi Applicable et Juridiction",
+        "description1": "Ces Conditions Générales sont régies par le droit espagnol, et tout litige relèvera des tribunaux compétents espagnols."
       }
     }
-} 
+  },
+  "cookiesPolicy": {
+    "title": "Politique relative aux Cookies",
+    "introduction": "L'accès à ce Site Web peut impliquer l'utilisation de cookies. Les cookies sont de petites quantités d'informations stockées dans le navigateur utilisé par chaque Utilisateur - sur les différents appareils qu'il peut utiliser pour naviguer - afin que le serveur se souvienne de certaines informations qui seront ensuite lues uniquement par le serveur qui les a implémentées. Les cookies facilitent la navigation, la rendent plus conviviale et n'endommagent pas l'appareil de navigation.",
+    "purpose": "Les cookies sont des procédures automatiques de collecte d'informations relatives aux préférences déterminées par l'Utilisateur lors de sa visite sur le Site Web afin de le reconnaître en tant qu'Utilisateur et de personnaliser son expérience et son utilisation du Site Web. Ils peuvent également, par exemple, aider à identifier et résoudre des erreurs.",
+    "dataCollected": "Les informations collectées via les cookies peuvent inclure la date et l'heure des visites sur le Site Web, les pages consultées, le temps passé sur le Site Web et les sites visités juste avant et après. Cependant, aucun cookie ne permet de contacter le numéro de téléphone de l'Utilisateur ou tout autre moyen de contact personnel.",
+    "noExtraction": "Aucun cookie ne peut extraire des informations du disque dur de l'Utilisateur ou voler des informations personnelles. La seule façon pour les informations privées de l'Utilisateur de faire partie d'un fichier Cookie est que l'utilisateur fournisse personnellement ces informations au serveur.",
+    "identifyingCookies": "Les cookies permettant d'identifier une personne sont considérés comme des données personnelles. Par conséquent, la Politique de Confidentialité décrite précédemment leur est applicable. À cet égard, le consentement de l'Utilisateur sera nécessaire pour leur utilisation. Ce consentement sera communiqué via un choix authentique, offert par une décision affirmative positive avant le traitement initial, amovible et documenté.",
+    "disableTitle": "Désactiver, rejeter et supprimer les cookies",
+    "disableInstructions": "L'Utilisateur peut désactiver, rejeter et supprimer les cookies - totalement ou partiellement - installés sur son appareil via les paramètres de son navigateur (parmi lesquels Chrome, Firefox, Safari, Explorer). Les procédures pour rejeter et supprimer les cookies peuvent varier d'un navigateur Internet à l'autre. Par conséquent, l'Utilisateur doit suivre les instructions fournies par son navigateur Internet spécifique. Si les cookies sont rejetés - totalement ou partiellement - l'Utilisateur peut continuer à utiliser le Site Web, bien que certaines fonctionnalités puissent être limitées."
+  },
+  "privacyPolicy1": {
+    "title": "Politique de confidentialité",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content1": "Chez Grupo Estucalia, nous nous soucions de la sécurité et de la protection des informations personnelles fournies par nos clients et autres personnes. Par conséquent, nous avons mis à jour et adapté notre politique de protection des données en raison de l'entrée en vigueur de la nouvelle législation européenne et espagnole : le Règlement général sur la protection des données (RGPD), applicable à partir du 25 mai 2018, et la Loi organique 3/2018 du 5 décembre qui adapte ledit Règlement au système juridique espagnol.",
+        "content2": "Ci-dessous, nous expliquons qui est responsable du traitement de vos données personnelles, dans quel but nous collectons vos informations personnelles, quelle est la base juridique pour que nous traitions vos données, à qui nous pouvons communiquer vos données personnelles, si nous effectuons ou non des transferts internationaux de données, combien de temps nous conserverons vos informations personnelles et comment vous pouvez exercer vos droits."
+      },
+      "responsible": {
+        "title": "Qui est responsable du traitement de vos données personnelles ?",
+        "content1": "Le Règlement général sur la protection des données (RGPD) décrit le Responsable du traitement comme 'la personne physique ou morale, l'autorité publique, le service ou un autre organisme qui, seul ou conjointement avec d'autres, détermine les finalités et les moyens du traitement'.",
+        "content2": "Grupo Estucalia, Département Qualité, est responsable du traitement des données personnelles effectué sur ses clients.",
+        "content3": "Si vous avez des questions ou souhaitez nous contacter, vous pouvez envoyer un email à grupoestucalia@grupoestucalia.com, ou envoyer une lettre à : Camino Viejo de Fortuna, 40-MATANZAS de SANTOMERA (Murcia)."
+      },
+      "purpose": {
+        "title": "Dans quel but collectons-nous vos informations personnelles ?",
+        "content1": "Chez GRUPO ESTUCALIA, nous sommes conscients de la protection des données personnelles et de la vie privée. L'objectif de Grupo Estucalia-Département Qualité est de vous fournir nos services avec la plus haute qualité."
+      },
+      "legalBasis": {
+        "title": "Quelle est la base juridique pour que nous puissions traiter vos données ?",
+        "content1": "Comme l'objectif de Grupo Estucalia est de vous fournir nos services avec la plus haute qualité, la base juridique n'est autre que le respect de l'exécution du contrat de prestation de services qui nous lie à chaque client."
+      },
+      "dataSharing": {
+        "title": "À qui pouvons-nous communiquer vos informations personnelles ?",
+        "content1": "Dans certains cas, il est nécessaire que nous communiquions les informations que le client nous a fournies à des tiers. C'est le cas des cabinets de conseil pour respecter nos obligations fiscales, comptables ou sociales.",
+        "content2": "Les cabinets de conseil n'ont accès qu'aux informations personnelles strictement nécessaires pour effectuer leurs services. Ils sont tenus de maintenir la confidentialité des informations personnelles qui leur sont fournies pour pouvoir respecter leurs services et ne peuvent utiliser les informations d'aucune manière différente de celle que nous avons demandée.",
+        "content3": "De même, vos informations personnelles seront mises à la disposition des Administrations publiques, des Juges et des Tribunaux, pour l'attention des éventuelles responsabilités découlant du traitement."
+      },
+      "internationalTransfers": {
+        "title": "Transferts internationaux de données",
+        "content1": "Les informations que nous collectons résident en Espagne. Grupo Estucalia ne traite pas vos données en dehors de l'Union européenne."
+      },
+      "dataRetention": {
+        "title": "Combien de temps conserverons-nous vos informations personnelles ?",
+        "content1": "Chez Grupo Estucalia, nous conserverons vos données personnelles pendant la durée de la relation commerciale et de prestation de services que nous entretenons avec vous et, en tout cas, pendant la période qui nous est légalement imposée.",
+        "content2": "Cependant, vous pouvez exercer votre droit à la suppression, à l'opposition et/ou à la limitation du traitement de vos données. Dans ces cas, nous conserverons les informations correctement bloquées tant qu'elles peuvent être nécessaires pour l'exercice ou la défense de réclamations ou qu'une quelconque responsabilité judiciaire, légale ou contractuelle peut découler de leur traitement, qui doit être traitée et pour laquelle leur récupération est nécessaire."
+      },
+      "rightsExercise": {
+        "title": "Comment pouvez-vous exercer vos droits ?",
+        "content1": "Vos droits sont réglementés au Chapitre III (Droits de la personne concernée) du Règlement général sur la protection des données (RGPD).",
+        "content2": "Conformément aux dispositions dudit Règlement, vous avez le droit d'obtenir de Grupo Estucalia la confirmation que nous traitons ou non vos données et, dans ce cas, le droit d'obtenir l'accès à vos informations personnelles, ainsi que de demander la rectification des données inexactes ou, le cas échéant, de demander la suppression lorsque, entre autres raisons, les données ne sont plus nécessaires aux fins pour lesquelles elles ont été collectées.",
+        "content3": "Vous aurez le droit d'obtenir de Grupo Estucalia la limitation du traitement de vos données dans les cas suivants :",
+        "point1": "Lorsque vous contestez l'exactitude des données personnelles, pendant une période permettant au responsable de vérifier l'exactitude de celles-ci.",
+        "point2": "Lorsque le traitement est illicite et que vous vous opposez à la suppression des données personnelles et demandez à la place la limitation de leur utilisation.",
+        "point3": "Lorsque Grupo Estucalia n'a plus besoin des données personnelles aux fins du traitement, mais que vous en avez besoin pour la formulation, l'exercice ou la défense de réclamations.",
+        "point4": "Lorsque vous vous êtes opposé au traitement, pendant la vérification si les motifs légitimes de Grupo Estucalia prévalent sur les vôtres."
+      },
+      "securityMeasures": {
+        "title": "Mesures pour protéger vos informations personnelles",
+        "content1": "Chez Grupo Estucalia, nous nous engageons à protéger vos informations personnelles. Nous utilisons des mesures techniques et organisationnelles appropriées pour protéger vos informations personnelles et votre vie privée, et nous examinons ces mesures périodiquement.",
+        "content2": "En particulier, nous établissons des mesures visant à garantir la confidentialité, l'intégrité, la disponibilité et la résilience permanente des systèmes et services de traitement, à restaurer la disponibilité et l'accès aux données personnelles rapidement en cas d'incident physique ou technique et à assurer la sécurité dans le traitement de vos données personnelles.",
+        "content3": "De plus, nos employés sont correctement formés et qualifiés, et ils s'engagent à maintenir la réserve et le secret maximum sur toutes les données personnelles auxquelles ils pourraient avoir accès dans le cadre de leur travail, ainsi qu'à respecter les mesures de sécurité correspondantes dont ils ont été dûment informés."
+      },
+      "policyUpdates": {
+        "title": "Modifications de ces informations sur la protection des données",
+        "content1": "Chez Grupo Estucalia, nous examinons et mettons à jour les informations sur la protection des données au moins une fois par an, ou lorsque des modifications se produisent dans la législation ou dans l'une des opérations et procédures de traitement de vos informations personnelles. Dans ces cas, nous indiquons le contenu et la date de la dernière mise à jour.",
+        "content2": "Ces informations sur la protection des données ont été examinées et mises à jour pour la dernière fois en janvier 2023."
+      }
+    }
+  }
+}

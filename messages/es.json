@@ -24,7 +24,13 @@
       "label": "Espacios",
       "submenu": "Fachadas, Terrazas, Balcones, Paredes, Patios y lucernarios, Suelos y pavimentos, Cocinas de exterior, Piscinas"
     },
-    "professionals": "Profesionales y Técnicos",
+    "professionals": "Profesionales",
+    "professionalsSubmenu": {
+      "builders": "Constructores y Arquitectos",
+      "applicators": "Aplicadores",
+      "services": "Servicios Integrales de Proyectos",
+      "certifications": "Certificaciones y Documentación"
+    },
     "finishes": "Acabados",
     "languages": "Idiomas",
     "company": "Empresa",
@@ -220,37 +226,6 @@
       "button": "Contactar"
     }
   },
-  "footer": {
-    "sections": {
-      "company": "EMPRESA",
-      "about": "Sobre Nosotros",
-      "workWithUs": "Trabaja con nosotros",
-      "blog": "Blog",
-      "contact": "CONTACTO",
-      "products": "PRODUCTOS",
-      "legal": "TEXTOS LEGALES"
-    },
-    "products": {
-      "monocoat": "Morteros monocapa",
-      "adhesive": "Morteros adhesivos",
-      "lime": "Mortero de cal",
-      "joint": "Mortero de juntas multipropósito",
-      "vertical": "Mortero estampado vertical",
-      "waterProtector": "Protector de agua",
-      "repair": "Mortero de reparación"
-    },
-    "legal": {
-      "notice": "Aviso Legal",
-      "privacy": "Política de Privacidad",
-      "cookies": "Política de Cookies"
-    },
-    "contact": {
-      "address": "Cno Viejo de Fortuna, 40 Matanzas, 30148, Santomera, Murcia (ESPAÑA)",
-      "phone": "+34 968 862 467 / +34 663 519 854",
-      "email": "grupoestucalia@grupoestucalia.com"
-    },
-    "rights": "Todos los derechos reservados"
-  },
   "company": {
     "hero": {
       "title": "Más de 25 años en el sector de revestimientos de fachadas y cerámicos a nivel internacional."
@@ -398,13 +373,403 @@
       "stone": "Mortero de piedra"
     }
   },
-    "news": {
-      "title": "Actualidad",
-      "readMore": "Ver Noticia",
-      "items": {
-        "saudiMission": "Misión Comercial Directa a Arabia Saudita",
-        "moroccoPresentation": "Grupo Estucalia presenta sus Morteros Monocapa en Marruecos",
-        "rabatConvention": "Convención Internacional en Rabat"
+  "news": {
+    "title": "Actualidad",
+    "readMore": "Ver Noticia",
+    "items": {
+      "saudiMission": "Misión Comercial Directa a Arabia Saudita",
+      "moroccoPresentation": "Grupo Estucalia presenta sus Morteros Monocapa en Marruecos",
+      "rabatConvention": "Convención Internacional en Rabat"
+    }
+  },
+  "footer": {
+    "copyright": "Copyright©2025",
+    "legal": {
+      "title": "TEXTOS LEGALES",
+      "legalNotice": "Aviso Legal",
+      "privacyPolicy": "Política de Privacidad",
+      "cookiePolicy": "Política de Cookies"
+    },
+    "company": {
+      "title": "EMPRESA",
+      "about": "Sobre Nosotros",
+      "careers": "Trabaja con nosotros",
+      "blog": "Blog",
+      "contact": "Contacto"
+    },
+    "products": {
+      "title": "PRODUCTOS",
+      "monocapa": "Morteros monocapa",
+      "tileAdhesive": "Morteros cola",
+      "limeMortar": "Mortero de cal",
+      "multipurposeMortar": "Mortero polivalente para juntas",
+      "verticalPrinted": "Mortero impreso vertical",
+      "waterProtector": "Protector de agua",
+      "repairMortar": "Mortero de reparación"
+    },
+    "contact": {
+      "title": "CONTACTO",
+      "address": "Cno Viejo de Fortuna, 40 Matanzas<br />30148, Santomera, Murcia (ESPAÑA)."
+    },
+    "social": {
+      "title": "SÍGUENOS"
+    }
+  },
+  "heroSection": {
+    "applications": "Aplicaciones",
+    "noProducts": "No hay productos disponibles en esta categoría",
+    "applicationsList": {
+      "exteriores": "Exteriores",
+      "interiores": "Interiores",
+      "fachadas": "Fachadas",
+      "revestimientos": "Revestimientos",
+      "rehabilitacion": "Rehabilitación"
+    },
+    "products": {
+      "monocapa": "Mortero monocapa",
+      "cola": "Mortero cola",
+      "cal": "Mortero de cal",
+      "impreso": "Mortero impreso",
+      "piedra": "Mortero piedra",
+      "reparacion": "Mortero reparación"
+    }
+  },
+  "spacesSection": {
+    "spaces": {
+      "facades": "Fachadas",
+      "terraces": "Terrazas",
+      "balconies": "Balcones",
+      "walls": "Paredes",
+      "patios": "Patios y lucernarios",
+      "floors": "Suelos y pavimentos",
+      "kitchens": "Cocinas de exterior",
+      "pools": "Piscinas"
+    },
+    "descriptions": {
+      "facades": "Las fachadas son uno de los elementos arquitectónicos más visibles y expuestos de un edificio, por lo que requieren soluciones constructivas que combinen protección, estética y eficiencia. Los revestimientos con mortero monocapa o materiales cerámicos ofrecen una excelente resistencia frente a la humedad, radiación solar y cambios de temperatura. Además, las fachadas ventiladas mejoran el aislamiento térmico, contribuyendo a la eficiencia energética. Los acabados decorativos permiten personalizar el diseño y potenciar el carácter visual de la construcción.",
+      "terraces": "Las terrazas son espacios exteriores que amplían las áreas habitables de las edificaciones. Su construcción requiere soluciones que garanticen impermeabilidad, resistencia al tránsito y durabilidad. El uso de morteros impermeabilizantes y pavimentos antideslizantes es fundamental para proteger la superficie y asegurar un entorno seguro. Además, el diseño arquitectónico puede integrar mobiliario fijo y jardineras para crear ambientes funcionales y confortables. Las terrazas bien diseñadas mejoran la calidad de vida y aportan valor estético a los edificios.",
+      "balconies": "Los balcones son extensiones arquitectónicas que aportan luz y ventilación a las viviendas. Su construcción debe contemplar soluciones estructurales y revestimientos resistentes a las condiciones climáticas. Los pavimentos antideslizantes y los sistemas de impermeabilización garantizan su durabilidad y seguridad. Además, el uso de barandillas modernas y acabados decorativos permite integrarlos en el diseño general del edificio, mejorando su funcionalidad y estética.",
+      "walls": "Las paredes son elementos estructurales y decorativos esenciales en cualquier construcción. Las soluciones constructivas incluyen morteros monocapa para revestimientos exteriores, que ofrecen protección y acabados estéticos en una sola aplicación. Para interiores, los morteros de cal garantizan transpirabilidad y un acabado fino. Las paredes pueden combinarse con elementos decorativos como lucernarios, paneles acústicos o revestimientos cerámicos, mejorando tanto la funcionalidad como el diseño del espacio.",
+      "patios": "Los patios y lucernarios son soluciones arquitectónicas que mejoran la iluminación y la ventilación natural de los espacios interiores. Los patios requieren pavimentos impermeables y resistentes al tránsito, mientras que los lucernarios deben incorporar materiales transparentes de alta resistencia y sistemas de sellado eficientes. El diseño arquitectónico de estos espacios permite crear ambientes luminosos, confortables y visualmente atractivos, aportando un valor añadido a las edificaciones.",
+      "floors": "Los suelos y pavimentos son fundamentales en cualquier espacio arquitectónico, ya que deben combinar resistencia, estética y funcionalidad. Los morteros autonivelantes y los pavimentos de alta resistencia ofrecen superficies uniformes y duraderas. Para exteriores, los pavimentos antideslizantes e impermeables son esenciales para garantizar seguridad y protección frente a la humedad. Las soluciones constructivas deben adaptarse a las necesidades del espacio, ya sea para tráfico peatonal, vehicular o ambientes decorativos.",
+      "kitchens": "Las cocinas exteriores son espacios diseñados para disfrutar actividades culinarias al aire libre. Para su construcción, se requieren materiales resistentes a la intemperie, como revestimientos cerámicos y pavimentos antideslizantes. Los morteros impermeables y las superficies fáciles de limpiar garantizan su durabilidad y funcionalidad. El diseño arquitectónico puede integrar zonas de cocción, almacenaje y comedores al aire libre, creando ambientes confortables y estéticos para reuniones sociales.",
+      "pools": "Las piscinas requieren soluciones constructivas que garanticen impermeabilidad, seguridad y estética. Los morteros específicos para piscinas ofrecen una excelente resistencia al agua y al cloro, asegurando la protección de las estructuras. Los revestimientos antideslizantes en suelos y bordes previenen accidentes, mientras que los acabados decorativos permiten crear ambientes elegantes y personalizados. La correcta aplicación de sistemas de impermeabilización y juntas asegura la durabilidad de la piscina frente a las condiciones climáticas y el uso intensivo."
+    },
+    "applications": {
+      "coatings": "Revestimientos",
+      "plasters": "Revocos y enlucidos",
+      "masonry": "Albañilería",
+      "tiles": "Baldosas",
+      "screeds": "Recrecidos",
+      "thermal": "Aislamiento térmico",
+      "waterproofing": "Impermeabilización",
+      "dehumidification": "Deshumidificación"
+    },
+    "products": {
+      "monocapa": "Mortero monocapa",
+      "printed": "Mortero impreso",
+      "lime": "Mortero de cal",
+      "stone": "Mortero piedra",
+      "union": "Puente de unión",
+      "joint": "Mortero juntas",
+      "water": "Mortero aguas",
+      "adhesive": "Mortero cola",
+      "tools": "Accesorios y herramientas"
+    },
+    "common": {
+      "spaceNotFound": "Espacio no encontrado"
+    }
+  },
+  "constructorGrid": {
+    "cards": [
+      {
+        "title": "Asesoramiento y soporte especializado",
+        "description": "Nuestro equipo especializado te facilitará las cotizaciones por partidas detalladas.",
+        "bullets": [
+          "- Equipo profesional de análisis y soporte.",
+          "- Asistencia en consultas, posibilidades de aplicación.",
+          "- Cotización por partidas.",
+          "- Recomendaciones de producto, acabado y colores."
+        ]
+      },
+      {
+        "title": "Ayuda en la definición del proyecto",
+        "description": "Nos comprometemos a proporcionarte apoyo y asesoramiento sobre transporte, manipulación, aplicación y mantenimiento.",
+        "bullets": [
+          "- Atención personalizada y soluciones adaptadas a tus proyectos.",
+          "- Asesoramiento para aplicación y mantenimiento.",
+          "- Estudio individualizado del proyecto.",
+          "- Optimización en términos de ahorro y rendimiento."
+        ]
+      },
+      {
+        "title": "Recursos para los proyectos",
+        "description": "Disfrutarás de un servicio exclusivo para poder desarrollar tus proyectos, plasmar tu visión y mejorarla con los morteros o cementos más avanzados.",
+        "bullets": [
+          "- Muestras en 48 h. Recibe las muestras que necesites para tus proyectos.",
+          "- Servicio personalizado. Te recomendamos aplicadores para garantizar el mejor servicio y calidad."
+        ]
       }
-    } 
-} 
+    ]
+  },
+  "constructorsArchitectsPage": {
+    "title": {
+      "part1": "¿Qué ofrece ",
+      "highlight": "Grupo Estucalia ",
+      "part2": "a constructores y arquitectos"
+    },
+    "images": {
+      "banner1": "/img/team-architects-looking-construction-site.jpg",
+      "banner2": "/img/engineer-designer-choosing-palette.jpg"
+    }
+  },
+  "applicatorsPage": {
+    "title": {
+      "part1": "¿Qué ofrece ",
+      "highlight": "Grupo Estucalia ",
+      "part2": "a los aplicadores"
+    },
+    "images": {
+      "banner1": "/img/closeup-construction-worker039s-hands-wearing-protective-gloves.jpg",
+      "banner2": "/img/tiler-working-renovation-apartment.jpg"
+    }
+  },
+  "applicationForm": {
+    "title": "Únete a nuestra red de aplicadores",
+    "intro": "Pertenecer a la red de aplicadores de Grupo Estucalia ofrece múltiples ventajas para profesionales del sector. Algunas de ellas son:",
+    "benefits": {
+      "1": {
+        "title": "Mayor visibilidad y oportunidades de negocio",
+        "description": "Grupo Estucalia recomienda a sus aplicadores a constructoras y arquitectos, facilitando el acceso a proyectos de gran envergadura."
+      },
+      "2": {
+        "title": "Acceso a productos de alta calidad",
+        "description": "Posibilidad de trabajar con materiales innovadores y exclusivos, garantizando acabados superiores."
+      },
+      "3": {
+        "title": "Asesoramiento técnico",
+        "description": "Conocimiento de nuevas técnicas y materiales, asegurando que los aplicadores estén siempre actualizados."
+      },
+      "4": {
+        "title": "Respaldo y confianza de una marca consolidada",
+        "description": "Trabajar bajo el aval de Grupo Estucalia mejora la reputación y credibilidad ante clientes y empresas del sector."
+      },
+      "5": {
+        "title": "Soporte comercial y técnico",
+        "description": "Asistencia en la gestión de proyectos, soluciones a medida y apoyo en la resolución de incidencias."
+      },
+      "6": {
+        "title": "Red de contactos y colaboraciones",
+        "description": "Posibilidad de establecer alianzas con otros profesionales del sector para potenciar el crecimiento y la expansión del negocio."
+      }
+    },
+    "formFields": {
+      "name": "Nombre",
+      "phone": "Teléfono",
+      "email": "E-mail",
+      "company": "Empresa",
+      "message": "Mensaje"
+    },
+    "dataProtection": "Información básica sobre Protección de Datos. Responsable: ESTUCALIA MORTEROS S.L. Finalidad del tratamiento: gestionar su consulta/solicitud, envío de información vía electrónica y su posterior seguimiento comercial. Legitimación: su consentimiento expreso al remitirnos este formulario (RGPD 6.1.a), sus datos no serán cedidos a terceros y se conservarán por plazo de un año, salvo obligación legal. Puede ejercitar los derechos de acceso, rectificación, supresión, portabilidad, limitación y oposición, y revocar su consentimiento dirigiéndose a:",
+    "privacyCheckbox": {
+      "part1": "Si, he leído y acepto el tratamiento de mis datos personales según la ",
+      "link1": "Política de Privacidad",
+      "part2": " y el ",
+      "link2": "Aviso Legal",
+      "part3": " de Estucalia Morteros S.L."
+    },
+    "marketingCheckbox": "Sí, autorizo la recepción vía electrónica de información comercial de Grupo Estucalia.",
+    "submitButton": "Enviar"
+  },
+  "servicesGrid": {
+    "cards": [
+      {
+        "title": "Asistencia y soporte",
+        "description": "Nuestros especialistas están a tu disposición para ayudarte a nivel comercial y en materia de seguridad. Asesoramos sobre transporte, manipulación, aplicación y mantenimiento."
+      },
+      {
+        "title": "Servicio de entrega mundial",
+        "description": "Disfruta de un servicio de entrega de alcance mundial para hacer crecer tu proyecto."
+      },
+      {
+        "title": "Sostenibilidad y eficiencia",
+        "description": "Te ayudamos a conocer nuestro catálogo de productos, sus procesos de fabricación sostenibles y su diversidad de aplicaciones/usos."
+      }
+    ]
+  },
+  "services": {
+    "title": "Servicio Integral de Proyectos",
+    "cards": {
+      "advice": {
+        "title": "Asesoramiento y soporte especializado",
+        "description": "Nuestro equipo especializado te facilitará las cotizaciones por partidas detalladas.",
+        "bullets": [
+          "- Equipo profesional de análisis y soporte.",
+          "- Asistencia en consultas, posibilidades de aplicación.",
+          "- Cotización por partidas.",
+          "- Recomendaciones de producto, acabado y colores."
+        ]
+      },
+      "definition": {
+        "title": "Ayuda en la definición del proyecto",
+        "description": "Nos comprometemos a proporcionarte apoyo y asesoramiento sobre transporte, manipulación, aplicación y mantenimiento.",
+        "bullets": [
+          "- Atención personalizada y soluciones adaptadas a tus proyectos.",
+          "- Asesoramiento para aplicación y mantenimiento.",
+          "- Estudio individualizado del proyecto.",
+          "- Optimización en términos de ahorro y rendimiento."
+        ]
+      },
+      "resources": {
+        "title": "Recursos para los proyectos",
+        "description": "Disfrutarás de un servicio exclusivo para poder desarrollar tus proyectos, plasmar tu visión y mejorarla con los morteros o cementos más avanzados.",
+        "bullets": [
+          "- Muestras en 48 h. Recibe las muestras que necesites para tus proyectos.",
+          "- Servicio personalizado. Te recomendamos aplicadores para garantizar el mejor servicio y calidad."
+        ]
+      },
+      "support": {
+        "title": "Asistencia y soporte",
+        "description": "Nuestros especialistas están a tu disposición para ayudarte a nivel comercial y en materia de seguridad. Asesoramos sobre transporte, manipulación, aplicación y mantenimiento.",
+        "bullets": []
+      },
+      "delivery": {
+        "title": "Servicio de entrega mundial",
+        "description": "Disfruta de un servicio de entrega de alcance mundial para hacer crecer tu proyecto.",
+        "bullets": []
+      },
+      "sustainability": {
+        "title": "Sostenibilidad y eficiencia",
+        "description": "Te ayudamos a conocer nuestro catálogo de productos, sus procesos de fabricación sostenibles y su diversidad de aplicaciones/usos.",
+        "bullets": []
+      }
+    }
+  },
+  "certifications": {
+    "title": "Certificaciones y documentación",
+    "cards": {
+      "morteros": "Declaración conformidad morteros monocapa",
+      "cementos": "Declaración conformidad cementos cola",
+      "dit": "Documento de Idoneidad Técnica Plus",
+      "aenor": "Certificado AENOR",
+      "iqnet": "Certificado IQNET",
+      "politica": "Política de Calidad"
+    }
+  },
+  "inspiration": {
+    "title": "Casos reales que te ayudan a inspirarte"
+  },
+  "privacyPolicy": {
+    "title": "Aviso legal",
+    "sections": {
+      "identification": {
+        "title": "Datos identificativos",
+        "description1": "De conformidad con lo establecido en el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016 relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos y por el que se deroga la Directiva 95/AG/CE (Reglamento General de Protección de Datos) y en la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales, así como con la Ley 34/2020, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, se informa que este sitio web es propiedad de:",
+        "description2": "ESTUCALIA MORTEROS, SL – GRUPO ESTUCALIA\nNIF: B30498257\nDirección: Camino Viejo de Fortuna, 40-MATANZAS 30. 148-SANTOMERA (Murcia)\nCorreo electrónico: grupoestucalia@grupoestucalia.com",
+        "description3": "El contenido de esta web tiene por objeto informar de sus productos y/o servicios."
+      },
+      "terms": {
+        "title": "Condiciones generales de uso",
+        "description1": "El acceso a este sitio web exige la aceptación de las condiciones generales de uso que en cada momento se encuentren vigentes en esta web. El usuario se compromete a utilizar el sitio web y sus contenidos sin contravenir la legislación vigente, la buena fe y el orden público.",
+        "description2": "Queda prohibido el uso de la web, con fines ilícitos o lesivos, o que, de cualquier forma, puedan causar perjuicio o impedir el normal funcionamiento del sitio web.",
+        "description3": "Respecto de los contenidos de esta web, se prohíbe su reproducción, distribución o modificación, total o parcial, a menos que se cuente con la autorización del titular de este sitio web."
+      },
+      "security": {
+        "title": "Medidas de seguridad",
+        "description1": "El usuario garantiza la autenticidad y veracidad de todos aquellos datos que comunique en los formularios de contacto, siendo suya la responsabilidad de actualizar la información suministrada, de tal forma que refleje su situación real. El usuario será responsable de la inexactitud o falta de veracidad de la información aportada.",
+        "description2": "Los datos personales comunicados por el usuario al titular de este sitio web pueden ser almacenados en bases de datos automatizadas o no, cuya titularidad corresponde en exclusiva a (titular), asumiendo ésta todas las medidas de índole técnica, organizativa y de seguridad que garantizan la confidencialidad, integridad y calidad de la información contenida en las mismas de acuerdo con lo establecido en la normativa vigente en protección de datos. No obstante, el usuario debe ser consciente de que las medidas de seguridad de los sistemas informáticos en Internet no son enteramente fiables y que, por tanto, el responsable no puede garantizar la inexistencia de malware u otros elementos que puedan producir alteraciones en los sistemas informáticos del usuario o en sus documentos electrónicos y ficheros contenidos en los mismos aunque se pongan todos los medios necesarios para evitar la presencia de estos elementos dañinos."
+      },
+      "intellectualProperty": {
+        "title": "Derechos de propiedad intelectual",
+        "description1": "El usuario se obliga a respetar los derechos de propiedad intelectual de este responsable. El uso o la concesión de acceso a este sitio web no comportan el otorgamiento de derecho alguno sobre las marcas, nombres comerciales o cualquier otro signo distintivo que se utilicen en la misma.",
+        "description2": "Respecto de los contenidos de esta web, se prohíbe su reproducción, distribución o modificación, total o parcial, a menos que se cuente con la autorización del titular de este sitio web.",
+        "description3": "Quedan prohibidas las descargas de este sitio web para fines comerciales, por lo que el usuario no podrá explotar, reproducir, distribuir, modificar, comunicar públicamente, ceder, transformar o usar el contenido de este sitio web con fines comerciales. Asimismo, en virtud de lo establecido en este Aviso Legal, queda prohibida la reproducción total o parcial de los contenidos de este sitio web sin autorización expresa del autor y sin que puedan entenderse cedidos al usuario por el acceso a la misma."
+      },
+      "liability": {
+        "title": "Exclusión de garantías y responsabilidad",
+        "description1": "El responsable de esta web no otorga ninguna garantía ni se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza derivados de:",
+        "point1": "La falta de disponibilidad, mantenimiento y efectivo funcionamiento de la web, o de sus servicios y contenidos.",
+        "point2": "La existencia de malware, programas maliciosos o lesivos en los contenidos.",
+        "point3": "El uso ilícito, negligente, fraudulento o contrario a este Aviso Legal."
+      },
+      "modifications": {
+        "title": "Modificaciones",
+        "description1": "El responsable de esta web se reserva el derecho de efectuar sin previo aviso las modificaciones que considere oportunas en su página web, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten a través de la misma, como la forma en la que éstos aparezcan presentados o localizados en su página web."
+      },
+      "jurisdiction": {
+        "title": "Ley aplicable y jurisdicción",
+        "description1": "Estas Condiciones Generales de Uso del sitio web se encuentran sometidas a la legislación y jurisdicción españolas y a los tribunales que por ley correspondan."
+      }
+    }
+  },
+  "cookiesPolicy": {
+    "title": "Política de Cookies",
+    "introduction": "El acceso a este Sitio Web puede implicar la utilización de cookies. Las cookies son pequeñas cantidades de información que se almacenan en el navegador utilizado por cada Usuario —en los distintos dispositivos que pueda utilizar para navegar— para que el servidor recuerde cierta información que posteriormente y únicamente el servidor que la implementó leerá. Las cookies facilitan la navegación, la hacen más amigable, y no dañan el dispositivo de navegación.",
+    "purpose": "Las cookies son procedimientos automáticos de recogida de información relativa a las preferencias determinadas por el Usuario durante su visita al Sitio Web con el fin de reconocerlo como Usuario, y personalizar su experiencia y el uso del Sitio Web, y pueden también, por ejemplo, ayudar a identificar y resolver errores.",
+    "dataCollected": "La información recabada a través de las cookies puede incluir la fecha y hora de visitas al Sitio Web, las páginas visionadas, el tiempo que ha estado en el Sitio Web y los sitios visitados justo antes y después del mismo. Sin embargo, ninguna cookie permite que esta misma pueda contactarse con el número de teléfono del Usuario o con cualquier otro medio de contacto personal.",
+    "noExtraction": "Ninguna cookie puede extraer información del disco duro del Usuario o robar información personal. La única manera de que la información privada del Usuario forme parte del archivo Cookie es que el usuario dé personalmente esa información al servidor.",
+    "identifyingCookies": "Las cookies que permiten identificar a una persona se consideran datos personales. Por tanto, a las mismas les será de aplicación la Política de Privacidad anteriormente descrita. En este sentido, para la utilización de las mismas será necesario el consentimiento del Usuario. Este consentimiento será comunicado, en base a una elección auténtica, ofrecido mediante una decisión afirmativa y positiva, antes del tratamiento inicial, removible y documentado.",
+    "disableTitle": "Deshabilitar, rechazar y eliminar cookies",
+    "disableInstructions": "El Usuario puede deshabilitar, rechazar y eliminar las cookies —total o parcialmente— instaladas en su dispositivo mediante la configuración de su navegador (entre los que se encuentran, por ejemplo, Chrome, Firefox, Safari, Explorer). En este sentido, los procedimientos para rechazar y eliminar las cookies pueden diferir de un navegador de Internet a otro. En consecuencia, el Usuario debe acudir a las instrucciones facilitadas por el propio navegador de Internet que esté utilizando. En el supuesto de que rechace el uso de cookies —total o parcialmente— podrá seguir usando el Sitio Web, si bien podrá tener limitada la utilización de algunas de las prestaciones del mismo."
+  },
+  "privacyPolicy1": {
+    "title": "Política de privacidad",
+    "sections": {
+      "introduction": {
+        "title": "Introducción",
+        "content1": "En Grupo Estucalia nos preocupamos por la seguridad y protección de la información personal aportada por nuestros clientes y demás personas. Por ello, hemos actualizado y adaptado nuestra política de protección de datos con motivo de la entrada en vigor de la nueva legislación europea y española: El Reglamento General de Protección de Datos (RGPD), aplicable a partir del 25 de mayo de 2018 y la Ley Orgánica 3/2018 de 5 de Diciembre que adapta al ordenamiento jurídico español dicho Reglamento.",
+        "content2": "A continuación le explicamos quién es el responsable del tratamiento de sus datos personales, con qué finalidad recabamos su información personal, cuál es la base jurídica para que podamos tratar sus datos, a quién podemos comunicar sus datos personales, si efectuamos o no transferencias internacionales de datos, durante cuánto tiempo conservaremos su información personal y cómo puede usted ejercer sus derechos."
+      },
+      "responsible": {
+        "title": "¿Quién es el responsable del tratamiento de sus datos personales?",
+        "content1": "El Reglamento General de Protección de Datos (RGPD) describe al Responsable del tratamiento o Responsable como 'la persona física o jurídica, autoridad pública, servicio u otro organismo que, solo o junto con otros, determine los fines y medios del tratamiento'.",
+        "content2": "Grupo Estucalia, Dpto de Calidad, es responsable del tratamiento de los datos personales que realice de sus clientes.",
+        "content3": "Si tiene cualquier tipo de consulta o quiere comunicarse con nosotros, puede enviar un correo electrónico grupoestucalia@grupoestucalia.com, o bien dirigirnos un escrito a: Camino Viejo de Fortuna, 40-MATANZAS de SANTOMERA (Murcia)."
+      },
+      "purpose": {
+        "title": "¿Con qué finalidad recabamos su información personal?",
+        "content1": "En GRUPO ESTUCALIA estamos concienciados sobre la protección de los datos personales y la privacidad. La finalidad de Grupo Estucalia-Dpto. de Calidad es la de prestarle con la máxima calidad nuestros servicios"
+      },
+      "legalBasis": {
+        "title": "¿Cuál es la base jurídica para que podamos tratar sus datos?",
+        "content1": "Al ser la finalidad del Grupo Estucalia la de prestarle con la máxima calidad nuestros servicios, la base jurídica no es otra que la de dar cumplimiento a la ejecución del contrato de prestación de servicios que nos une con cada cliente."
+      },
+      "dataSharing": {
+        "title": "¿A quién podemos comunicar su información personal?",
+        "content1": "En algunos casos, es necesario que comuniquemos la información que el cliente nos ha proporcionado a terceras partes. Es el caso de las asesorías para cumplir con nuestras obligaciones fiscales, contables o laborales.",
+        "content2": "Las asesorías solo tienen acceso a la información personal estrictamente necesaria para llevar a cabo sus servicios. Se les exige que mantengan confidencialidad sobre la información personal que se les facilita para poder cumplir con sus servicios y no pueden utilizar la información de ningún modo diferente a aquél que les hemos solicitado.",
+        "content3": "Igualmente, su información personal estará a disposición de las Administraciones públicas, Jueces y Tribunales, para la atención de las posibles responsabilidades nacidas del tratamiento"
+      },
+      "internationalTransfers": {
+        "title": "Transferencias internacionales de datos",
+        "content1": "La información que recabamos reside en España. Grupo Estucalia no realiza el tratamiento de sus datos fuera de la Unión Europea."
+      },
+      "dataRetention": {
+        "title": "¿Durante cuánto tiempo conservaremos su información personal?",
+        "content1": "En Grupo Estucalia mantendremos sus datos personales mientras dure la relación comercial y de prestación de servicios que mantenemos con usted y, en todo caso, durante el plazo de tiempo que legalmente nos venga impuesto.",
+        "content2": "No obstante puede usted ejercer su derecho de supresión, oposición y/o limitación del tratamiento de sus datos. En estos casos, mantendremos la información debidamente bloqueada mientras pueda resultar necesaria para el ejercicio o defensa de reclamaciones o pueda derivarse algún tipo de responsabilidad judicial, legal o contractual de su tratamiento, que deba ser atendida y para lo cual sea necesaria su recuperación."
+      },
+      "rightsExercise": {
+        "title": "¿Cómo puede ejercer sus derechos?",
+        "content1": "Sus derechos están regulados en el Capítulo III (Derechos del interesado) del Reglamento General de Protección de Datos (RGPD).",
+        "content2": "De acuerdo con lo establecido en el citado Reglamento usted tiene derecho a obtener de Grupo Estucalia confirmación de si estamos o no tratando sus datos y, en tal caso, derecho a obtener el acceso a su información personal, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar la supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines para los que fueron recogidos.",
+        "content3": "Tendrá derecho a obtener de Grupo Estucalia la limitación del tratamiento de sus datos en los siguientes casos:",
+        "point1": "Cuando usted impugne la exactitud de los datos personales, durante un plazo que permita al responsable verificar la exactitud de los mismos.",
+        "point2": "Cuando el tratamiento sea ilícito y usted se oponga a la supresión de los datos personales y solicite en su lugar la limitación de su uso.",
+        "point3": "Cuando Grupo Estucalia ya no necesite los datos personales para los fines del tratamiento, pero usted los necesite para la formulación, el ejercicio o la defensa de reclamaciones.",
+        "point4": "Cuando usted se haya opuesto al tratamiento, mientras se verifica si los motivos legítimos de Grupo Estucalia prevalecen sobre los suyos propios."
+      },
+      "securityMeasures": {
+        "title": "Medidas para proteger su información personal",
+        "content1": "En Grupo Estucalia nos comprometemos a proteger su información personal. Utilizamos las medidas técnicas y organizativas adecuadas con la finalidad de proteger su información personal y su privacidad, y revisamos dichas medidas periódicamente.",
+        "content2": "En particular establecemos medidas encaminadas a garantizar la confidencialidad, integridad, disponibilidad y resiliencia permanentes de los sistemas y servicios de tratamiento, a restaurar la disponibilidad y el acceso a los datos personales de forma rápida en caso de incidente físico o técnico y a asegurar la seguridad en el tratamiento de sus datos personales.",
+        "content3": "También nuestros empleados se encuentran debidamente formados y capacitados, y se comprometen a guardar la máxima reserva y secreto sobre cualquier dato de carácter personal al que puedan tener acceso como consecuencia de su trabajo, así como a cumplir las medidas de seguridad correspondientes de las que han sido informados convenientemente."
+      },
+      "policyUpdates": {
+        "title": "Modificaciones a la presente información de protección de datos",
+        "content1": "En Grupo Estucalia revisamos y actualizamos la información de protección de datos al menos una vez al año, o cuando se produzcan modificaciones en la legislación o en alguna de las operaciones y procedimientos de tratamiento de su información personal. En estos casos indicamos el contenido y la fecha de la última actualización.",
+        "content2": "Esta información de protección de datos fue revisada y actualizada por última vez en Enero de 2023."
+      }
+    }
+  }
+}

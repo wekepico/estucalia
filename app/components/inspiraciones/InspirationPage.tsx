@@ -1,10 +1,14 @@
+'use client';
+
+import React from 'react';
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const inspirationImages = [
     {
         url: "img/image1.jpg",
         alt: "Contemporary architecture",
-        size: "large" // Nueva propiedad para controlar el tamaño
+        size: "large"
     },
     {
         url: "img/img-8.jpg",
@@ -36,20 +40,19 @@ const inspirationImages = [
         alt: "Urban architecture",
         size: "medium"
     },
-
-
-
 ];
 
 export default function InspirationPage() {
+    const { t } = useLanguage();
+
     return (
         <section className="bg-white">
             {/* Featured Image */}
             <div className="w-full h-72 md:px-15 sm:px-10 px-5 lg:px-20 pt-20 pb-16 text-5xl font-[600] text-left items-end flex bg-[#ffffff] text-black">
-                <h1 className="w-[36rem]">Casos reales que te ayudan a inspirarte</h1>
+                <h1 className="w-[36rem]">{t("inspiration.title")}</h1>
             </div>
-            
-            {/* Image Grid Modificado */}
+
+            {/* Image Grid */}
             <div className="md:px-15 sm:px-10 px-5 lg:px-20 grid grid-cols-4 grid-rows-5 pb-28 gap-4">
                 {inspirationImages.map((image, index) => (
                     <div
@@ -65,7 +68,7 @@ export default function InspirationPage() {
                         `}
                     >
                         <div
-                            className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 group-"
+                            className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500"
                             style={{ backgroundImage: `url('${image.url}')` }}
                             role="img"
                             aria-label={image.alt}

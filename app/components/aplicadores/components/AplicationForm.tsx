@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useLanguage } from '@/app/context/LanguageContext';
 
 type FormData = {
     nombre: string;
@@ -21,6 +22,7 @@ type FormData = {
 };
 
 export default function ApplicationForm() {
+    const { t } = useLanguage();
     const form = useForm<FormData>();
     const [fileName, setFileName] = useState<string | null>(null);
 
@@ -31,110 +33,68 @@ export default function ApplicationForm() {
 
     return (
         <section className="py-28">
-            <div className=" mx-auto md:px-15 sm:px-10 px-5 lg:px-20">
+            <div className="mx-auto md:px-15 sm:px-10 px-5 lg:px-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-44">
                     {/* Description */}
-                    <div >
-                        <h2 className="text-4xl font-[600] w-72 mb-3">Únete a la nuestra red de aplicadores.</h2>
+                    <div>
+                        <h2 className="text-4xl font-[600] w-72 mb-3">
+                            {t('applicationForm.title')}
+                        </h2>
 
                         <div className='flex flex-col gap-8'>
-
-
                             <p className="text-gray-900 text-xl inline leading-relaxed">
-                                Pertenecer a la red de aplicadores de Grupo Estucalia ofrece
-                                múltiples ventajas para profesionales del sector. Algunas de
-                                ellas son:
+                                {t('applicationForm.intro')}
                             </p>
 
-                            <div className='flex flex-col '>
-                                <p className="text-gray-900 font-[600] text-lg inline leading-relaxed">
-                                    Mayor visibilidad y oportunidades de negocio
-                                </p>
-                                <p className="text-gray-900  text-lg inline leading-relaxed">
-                                    Grupo Estucalia recomienda a sus aplicadores a constructoras y arquitectos,
-                                    facilitando el acceso a proyectos de gran envergadura.
-                                </p>
-                            </div>
-
-                            <div className='flex flex-col '>
-                                <p className="text-gray-900 font-[600] text-lg inline leading-relaxed">
-                                    Acceso a productos de alta calidad
-                                </p>
-                                <p className="text-gray-900  text-lg inline leading-relaxed">
-                                    Posibilidad de trabajar con materiales innovadores y exclusivos, garantizando
-                                    acabados superiores.
-                                </p>
-                            </div>
-                            <div className='flex flex-col '>
-                                <p className="text-gray-900 font-[600] text-lg inline leading-relaxed">
-                                    Asesoramiento técnico
-                                </p>
-                                <p className="text-gray-900  text-lg inline leading-relaxed">
-                                    Conocimiento de nuevas técnicas y materiales, asegurando que los
-                                    aplicadores estén siempre actualizados.
-                                </p>
-                            </div>
-                            <div className='flex flex-col '>
-                                <p className="text-gray-900 font-[600] text-lg inline leading-relaxed">
-                                    Respaldo y confianza de una marca consolidada
-                                </p>
-                                <p className="text-gray-900  text-lg inline leading-relaxed">
-                                    Trabajar bajo el aval de Grupo Estucalia mejora la reputación y credibilidad
-                                    ante clientes y empresas del sector.
-                                </p>
-                            </div>
-                            <div className='flex flex-col '>
-                                <p className="text-gray-900 font-[600] text-lg inline leading-relaxed">
-                                    Soporte comercial y técnico
-                                </p>
-                                <p className="text-gray-900  text-lg inline leading-relaxed">
-                                    Asistencia en la gestión de proyectos, soluciones a medida y apoyo en la
-                                    resolución de incidencias.
-                                </p>
-                            </div>
-                            <div className='flex flex-col '>
-                                <p className="text-gray-900 font-[600] text-lg inline leading-relaxed">
-                                    Red de contactos y colaboraciones
-                                </p>
-                                <p className="text-gray-900  text-lg inline leading-relaxed">
-                                    Posibilidad de establecer alianzas con otros profesionales del sector para
-                                    potenciar el crecimiento y la expansión del negocio.
-                                </p>
-                            </div>
-
+                            {[1, 2, 3, 4, 5, 6].map((item) => (
+                                <div key={item} className='flex flex-col'>
+                                    <p className="text-gray-900 font-[600] text-lg inline leading-relaxed">
+                                        {t(`applicationForm.benefits.${item}.title`)}
+                                    </p>
+                                    <p className="text-gray-900 text-lg inline leading-relaxed">
+                                        {t(`applicationForm.benefits.${item}.description`)}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
                     {/* Form */}
                     <div>
                         <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)} className=" grid grid-cols-2 gap-6">
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-2 gap-6">
                                 <div className='border-b lg:col-span-1 col-span-2 border-black'>
-
                                     <FormField
                                         control={form.control}
                                         name="nombre"
                                         render={({ field }) => (
-                                            <FormItem className=''>
+                                            <FormItem>
                                                 <FormControl>
-                                                    <Input placeholder="Nombre" className='border-none text-md' {...field} />
+                                                    <Input 
+                                                        placeholder={t('applicationForm.formFields.name')} 
+                                                        className='border-none text-md' 
+                                                        {...field} 
+                                                    />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
                                         )}
                                     />
-
                                 </div>
+
                                 <div className='border-b lg:col-span-1 col-span-2 border-black'>
-
-
                                     <FormField
                                         control={form.control}
                                         name="telefono"
                                         render={({ field }) => (
-                                            <FormItem className=''>
+                                            <FormItem>
                                                 <FormControl>
-                                                    <Input type="tel" className='border-none text-md' placeholder="Teléfono" {...field} />
+                                                    <Input 
+                                                        type="tel" 
+                                                        className='border-none text-md' 
+                                                        placeholder={t('applicationForm.formFields.phone')} 
+                                                        {...field} 
+                                                    />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -149,7 +109,12 @@ export default function ApplicationForm() {
                                         render={({ field }) => (
                                             <FormItem>
                                                 <FormControl>
-                                                    <Input type="email" className='border-none text-md' placeholder="E-mail" {...field} />
+                                                    <Input 
+                                                        type="email" 
+                                                        className='border-none text-md' 
+                                                        placeholder={t('applicationForm.formFields.email')} 
+                                                        {...field} 
+                                                    />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -162,9 +127,13 @@ export default function ApplicationForm() {
                                         control={form.control}
                                         name="empresa"
                                         render={({ field }) => (
-                                            <FormItem className='col-span-2'>
+                                            <FormItem>
                                                 <FormControl>
-                                                    <Input placeholder="Empresa" className='border-none text-md' {...field} />
+                                                    <Input 
+                                                        placeholder={t('applicationForm.formFields.company')} 
+                                                        className='border-none text-md' 
+                                                        {...field} 
+                                                    />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -173,14 +142,17 @@ export default function ApplicationForm() {
                                 </div>
 
                                 <div className='border-b border-black col-span-2'>
-
                                     <FormField
                                         control={form.control}
                                         name="mensaje"
                                         render={({ field }) => (
-                                            <FormItem className='col-span-2'>
+                                            <FormItem>
                                                 <FormControl>
-                                                    <Input placeholder="Mensaje" className='border-none text-md' {...field} />
+                                                    <Input 
+                                                        placeholder={t('applicationForm.formFields.message')} 
+                                                        className='border-none text-md' 
+                                                        {...field} 
+                                                    />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -188,18 +160,9 @@ export default function ApplicationForm() {
                                     />
                                 </div>
 
-                                <div className='col-span-2'>
-
-
-                                </div>
-
                                 <div className="space-y-1 leading-none col-span-2">
                                     <FormLabel className="text-sm text-gray-900">
-                                        Información básica sobre Protección de Datos. Responsable: ESTUCALIA MORTEROS S.L. Finalidad del tratamiento:
-                                        gestionar su consulta/solicitud, envío de información vía electrónica y su posterior seguimiento comercial.
-                                        Legitimación: su consentimiento expreso al remitirnos este formulario (RGPD 6.1.a), sus datos no serán cedidos a
-                                        terceros y se conservarán por plazo de un año, salvo obligación legal. Puede ejercitar los derechos de acceso,
-                                        rectificación, supresión, portabilidad, limitación y oposición, y revocar su consentimiento dirigiéndose a:
+                                        {t('applicationForm.dataProtection')}
                                     </FormLabel>
                                 </div>
 
@@ -217,7 +180,11 @@ export default function ApplicationForm() {
                                             </FormControl>
                                             <div className="space-y-1 leading-none">
                                                 <FormLabel className="text-sm text-gray-900">
-                                                    Si, he leído y acepto el tratamiento de mis datos personales según la <a className='underline' href="">Política de Privacidad</a>  y el <a className="underline">Aviso Legal</a> de Estucalia Morteros S.L.
+                                                    {t('applicationForm.privacyCheckbox.part1')}
+                                                    <a className='underline' href="">{t('applicationForm.privacyCheckbox.link1')}</a>
+                                                    {t('applicationForm.privacyCheckbox.part2')}
+                                                    <a className="underline" href="">{t('applicationForm.privacyCheckbox.link2')}</a>
+                                                    {t('applicationForm.privacyCheckbox.part3')}
                                                 </FormLabel>
                                             </div>
                                         </FormItem>
@@ -238,26 +205,23 @@ export default function ApplicationForm() {
                                             </FormControl>
                                             <div className="space-y-1 leading-none">
                                                 <FormLabel className="text-sm text-gray-900">
-                                                    Sí, autorizo la recepción vía electrónica de información comercial de Grupo Estucalia.
+                                                    {t('applicationForm.marketingCheckbox')}
                                                 </FormLabel>
                                             </div>
                                         </FormItem>
                                     )}
                                 />
 
-
                                 <Button
                                     type="submit"
                                     className="group w-[155px] flex gap-4 justify-end borde-1 p-2 py-6 border-black rounded-none"
                                     variant="outline"
-
                                 >
-                                    <span>Enviar</span>
+                                    <span>{t('applicationForm.submitButton')}</span>
                                     <svg className="ml-2 w-10 h-10 transform transition-transform group-hover:translate-x-1 col-span-1"
                                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
                                     </svg>
-
                                 </Button>
                             </form>
                         </Form>

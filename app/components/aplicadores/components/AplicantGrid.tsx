@@ -1,27 +1,18 @@
 import React from 'react';
 import CardServices from './AplicantCard';
-
+import { useLanguage } from '@/app/context/LanguageContext';
 
 const ServicesGrid = () => {
-    const cardsData = [
-        {
-            title: "Asistencia y soporte",
-            description: "Nuestros especialistas están a tu disposición para ayudarte a nivel comercial y en materia de seguridad. Asesoramos sobre transporte, manipulación, aplicación y mantenimiento.",
-            bullets: []
-        },
-        {
-            title: "Servicio de entrega mundial",
-            description: "Disfruta de un servicio de entrega de alcance mundial para hacer crecer tu proyecto.",
-            bullets: []
-        },
-        {
-            title: "Sostenibilidad y eficiencia",
-            description: "Te ayudamos a conocer nuestro catálogo de productos, sus procesos de fabricación sostenibles y su diversidad de aplicaciones/usos.",
-            bullets: []
-        }
-    ];
+    const { t } = useLanguage();
+
+    const cardsData = [0, 1, 2].map(index => ({
+        title: t(`servicesGrid.cards.${index}.title`),
+        description: t(`servicesGrid.cards.${index}.description`),
+        bullets: []
+    }));
+
     return (
-        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-28">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-28">
             {cardsData.map((card, index) => (
                 <div key={index} className=''>
                     <CardServices
