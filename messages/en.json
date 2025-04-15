@@ -11,7 +11,7 @@
     "about": "About Us",
     "products": {
       "label": "Products",
-      "submenu": "Type 1, Type 2, Type 3"
+      "submenu": "Lime mortars, Tile adhesives, Single-layer mortars, Stamped mortar, Grout mortar, Accessories and tools, Stone mortar, Water protector, Bonding bridge"
     },
     "contact": "Contact",
     "blog": "Blog",
@@ -657,8 +657,8 @@
     }
   },
   "inspiration": {
-  "title": "Real cases to inspire you"
-},
+    "title": "Real cases to inspire you"
+  },
   "privacyPolicy": {
     "title": "Legal Notice",
     "sections": {
@@ -702,75 +702,90 @@
       }
     }
   },
-    "cookiesPolicy": {
-      "title": "Cookies Policy",
-      "introduction": "Access to this Website may involve the use of cookies. Cookies are small amounts of information stored in the browser used by each User - on the various devices they may use to navigate - so that the server remembers certain information that will later be read only by the server that implemented it. Cookies facilitate navigation, make it more user-friendly, and do not damage the browsing device.",
-      "purpose": "Cookies are automatic procedures for collecting information about preferences determined by the User during their visit to the Website in order to recognize them as a User and personalize their experience and use of the Website. They can also, for example, help identify and resolve errors.",
-      "dataCollected": "The information collected through cookies may include the date and time of visits to the Website, pages viewed, time spent on the Website, and sites visited immediately before and after. However, no cookie allows contact with the User's phone number or any other personal contact method.",
-      "noExtraction": "No cookie can extract information from the User's hard drive or steal personal information. The only way for the User's private information to be part of a Cookie file is if the user personally provides that information to the server.",
-      "identifyingCookies": "Cookies that allow identifying a person are considered personal data. Therefore, the previously described Privacy Policy applies to them. In this regard, User consent will be required for their use. This consent will be communicated through a genuine choice, offered via a positive affirmative decision before initial processing, removable and documented.",
-      "disableTitle": "Disable, reject and delete cookies",
-      "disableInstructions": "The User can disable, reject and delete cookies - totally or partially - installed on their device through their browser settings (including Chrome, Firefox, Safari, Explorer). The procedures for rejecting and deleting cookies may differ between internet browsers. Therefore, the User must follow the instructions provided by their specific internet browser. If cookies are rejected - totally or partially - the User may continue using the Website, although some features may be limited."
-    },
-      "privacyPolicy1": {
-        "title": "Privacy Policy",
-        "sections": {
-          "introduction": {
-            "title": "Introduction",
-            "content1": "At Grupo Estucalia we care about the security and protection of personal information provided by our customers and other individuals. Therefore, we have updated and adapted our data protection policy due to the entry into force of the new European and Spanish legislation: The General Data Protection Regulation (GDPR), applicable from May 25, 2018, and Organic Law 3/2018 of December 5 that adapts said Regulation to the Spanish legal system.",
-            "content2": "Below we explain who is responsible for processing your personal data, for what purpose we collect your personal information, what is the legal basis for us to process your data, to whom we may communicate your personal data, whether or not we carry out international data transfers, how long we will keep your personal information and how you can exercise your rights."
-          },
-          "responsible": {
-            "title": "Who is responsible for processing your personal data?",
-            "content1": "The General Data Protection Regulation (GDPR) describes the Data Controller as 'the natural or legal person, public authority, service or other body that, alone or jointly with others, determines the purposes and means of the processing'.",
-            "content2": "Grupo Estucalia, Quality Department, is responsible for the processing of personal data carried out on its customers.",
-            "content3": "If you have any questions or want to contact us, you can send an email to grupoestucalia@grupoestucalia.com, or send a letter to: Camino Viejo de Fortuna, 40-MATANZAS de SANTOMERA (Murcia)."
-          },
-          "purpose": {
-            "title": "For what purpose do we collect your personal information?",
-            "content1": "At GRUPO ESTUCALIA we are aware of the protection of personal data and privacy. The purpose of Grupo Estucalia-Quality Department is to provide you with our services with the highest quality."
-          },
-          "legalBasis": {
-            "title": "What is the legal basis for us to process your data?",
-            "content1": "Since the purpose of Grupo Estucalia is to provide you with our services with the highest quality, the legal basis is none other than to comply with the execution of the service provision contract that binds us to each customer."
-          },
-          "dataSharing": {
-            "title": "To whom can we communicate your personal information?",
-            "content1": "In some cases, it is necessary for us to communicate the information that the customer has provided to us to third parties. This is the case of consulting firms to comply with our tax, accounting or labor obligations.",
-            "content2": "Consulting firms only have access to the personal information strictly necessary to carry out their services. They are required to maintain confidentiality about the personal information provided to them to be able to comply with their services and cannot use the information in any way different from the one we have requested.",
-            "content3": "Likewise, your personal information will be available to Public Administrations, Judges and Courts, for the attention of possible responsibilities arising from the processing."
-          },
-          "internationalTransfers": {
-            "title": "International data transfers",
-            "content1": "The information we collect resides in Spain. Grupo Estucalia does not process your data outside the European Union."
-          },
-          "dataRetention": {
-            "title": "How long will we keep your personal information?",
-            "content1": "At Grupo Estucalia we will keep your personal data while the commercial and service provision relationship we maintain with you lasts and, in any case, during the period of time that is legally imposed on us.",
-            "content2": "However, you can exercise your right to deletion, opposition and/or limitation of the processing of your data. In these cases, we will keep the information properly blocked while it may be necessary for the exercise or defense of claims or any type of judicial, legal or contractual liability may arise from its processing, which must be addressed and for which its recovery is necessary."
-          },
-          "rightsExercise": {
-            "title": "How can you exercise your rights?",
-            "content1": "Your rights are regulated in Chapter III (Rights of the data subject) of the General Data Protection Regulation (GDPR).",
-            "content2": "In accordance with the provisions of said Regulation, you have the right to obtain from Grupo Estucalia confirmation of whether or not we are processing your data and, in such case, the right to obtain access to your personal information, as well as to request the rectification of inaccurate data or, where appropriate, request deletion when, among other reasons, the data is no longer necessary for the purposes for which it was collected.",
-            "content3": "You will have the right to obtain from Grupo Estucalia the limitation of the processing of your data in the following cases:",
-            "point1": "When you challenge the accuracy of the personal data, during a period that allows the controller to verify the accuracy of the same.",
-            "point2": "When the processing is unlawful and you oppose the deletion of the personal data and request instead the limitation of its use.",
-            "point3": "When Grupo Estucalia no longer needs the personal data for the purposes of the processing, but you need them for the formulation, exercise or defense of claims.",
-            "point4": "When you have opposed the processing, while verifying whether the legitimate reasons of Grupo Estucalia prevail over your own."
-          },
-          "securityMeasures": {
-            "title": "Measures to protect your personal information",
-            "content1": "At Grupo Estucalia we are committed to protecting your personal information. We use appropriate technical and organizational measures to protect your personal information and your privacy, and we review these measures periodically.",
-            "content2": "In particular, we establish measures aimed at guaranteeing the confidentiality, integrity, availability and permanent resilience of the processing systems and services, to restore the availability and access to personal data quickly in the event of a physical or technical incident and to ensure the security in the processing of your personal data.",
-            "content3": "Also, our employees are properly trained and qualified, and they commit to maintaining maximum reserve and secrecy about any personal data they may have access to as a result of their work, as well as to comply with the corresponding security measures of which they have been duly informed."
-          },
-          "policyUpdates": {
-            "title": "Modifications to this data protection information",
-            "content1": "At Grupo Estucalia we review and update the data protection information at least once a year, or when modifications occur in the legislation or in any of the operations and procedures for processing your personal information. In these cases, we indicate the content and date of the last update.",
-            "content2": "This data protection information was last reviewed and updated in January 2023."
-          }
-        }
+  "cookiesPolicy": {
+    "title": "Cookies Policy",
+    "introduction": "Access to this Website may involve the use of cookies. Cookies are small amounts of information stored in the browser used by each User - on the various devices they may use to navigate - so that the server remembers certain information that will later be read only by the server that implemented it. Cookies facilitate navigation, make it more user-friendly, and do not damage the browsing device.",
+    "purpose": "Cookies are automatic procedures for collecting information about preferences determined by the User during their visit to the Website in order to recognize them as a User and personalize their experience and use of the Website. They can also, for example, help identify and resolve errors.",
+    "dataCollected": "The information collected through cookies may include the date and time of visits to the Website, pages viewed, time spent on the Website, and sites visited immediately before and after. However, no cookie allows contact with the User's phone number or any other personal contact method.",
+    "noExtraction": "No cookie can extract information from the User's hard drive or steal personal information. The only way for the User's private information to be part of a Cookie file is if the user personally provides that information to the server.",
+    "identifyingCookies": "Cookies that allow identifying a person are considered personal data. Therefore, the previously described Privacy Policy applies to them. In this regard, User consent will be required for their use. This consent will be communicated through a genuine choice, offered via a positive affirmative decision before initial processing, removable and documented.",
+    "disableTitle": "Disable, reject and delete cookies",
+    "disableInstructions": "The User can disable, reject and delete cookies - totally or partially - installed on their device through their browser settings (including Chrome, Firefox, Safari, Explorer). The procedures for rejecting and deleting cookies may differ between internet browsers. Therefore, the User must follow the instructions provided by their specific internet browser. If cookies are rejected - totally or partially - the User may continue using the Website, although some features may be limited."
+  },
+  "privacyPolicy1": {
+    "title": "Privacy Policy",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content1": "At Grupo Estucalia we care about the security and protection of personal information provided by our customers and other individuals. Therefore, we have updated and adapted our data protection policy due to the entry into force of the new European and Spanish legislation: The General Data Protection Regulation (GDPR), applicable from May 25, 2018, and Organic Law 3/2018 of December 5 that adapts said Regulation to the Spanish legal system.",
+        "content2": "Below we explain who is responsible for processing your personal data, for what purpose we collect your personal information, what is the legal basis for us to process your data, to whom we may communicate your personal data, whether or not we carry out international data transfers, how long we will keep your personal information and how you can exercise your rights."
+      },
+      "responsible": {
+        "title": "Who is responsible for processing your personal data?",
+        "content1": "The General Data Protection Regulation (GDPR) describes the Data Controller as 'the natural or legal person, public authority, service or other body that, alone or jointly with others, determines the purposes and means of the processing'.",
+        "content2": "Grupo Estucalia, Quality Department, is responsible for the processing of personal data carried out on its customers.",
+        "content3": "If you have any questions or want to contact us, you can send an email to grupoestucalia@grupoestucalia.com, or send a letter to: Camino Viejo de Fortuna, 40-MATANZAS de SANTOMERA (Murcia)."
+      },
+      "purpose": {
+        "title": "For what purpose do we collect your personal information?",
+        "content1": "At GRUPO ESTUCALIA we are aware of the protection of personal data and privacy. The purpose of Grupo Estucalia-Quality Department is to provide you with our services with the highest quality."
+      },
+      "legalBasis": {
+        "title": "What is the legal basis for us to process your data?",
+        "content1": "Since the purpose of Grupo Estucalia is to provide you with our services with the highest quality, the legal basis is none other than to comply with the execution of the service provision contract that binds us to each customer."
+      },
+      "dataSharing": {
+        "title": "To whom can we communicate your personal information?",
+        "content1": "In some cases, it is necessary for us to communicate the information that the customer has provided to us to third parties. This is the case of consulting firms to comply with our tax, accounting or labor obligations.",
+        "content2": "Consulting firms only have access to the personal information strictly necessary to carry out their services. They are required to maintain confidentiality about the personal information provided to them to be able to comply with their services and cannot use the information in any way different from the one we have requested.",
+        "content3": "Likewise, your personal information will be available to Public Administrations, Judges and Courts, for the attention of possible responsibilities arising from the processing."
+      },
+      "internationalTransfers": {
+        "title": "International data transfers",
+        "content1": "The information we collect resides in Spain. Grupo Estucalia does not process your data outside the European Union."
+      },
+      "dataRetention": {
+        "title": "How long will we keep your personal information?",
+        "content1": "At Grupo Estucalia we will keep your personal data while the commercial and service provision relationship we maintain with you lasts and, in any case, during the period of time that is legally imposed on us.",
+        "content2": "However, you can exercise your right to deletion, opposition and/or limitation of the processing of your data. In these cases, we will keep the information properly blocked while it may be necessary for the exercise or defense of claims or any type of judicial, legal or contractual liability may arise from its processing, which must be addressed and for which its recovery is necessary."
+      },
+      "rightsExercise": {
+        "title": "How can you exercise your rights?",
+        "content1": "Your rights are regulated in Chapter III (Rights of the data subject) of the General Data Protection Regulation (GDPR).",
+        "content2": "In accordance with the provisions of said Regulation, you have the right to obtain from Grupo Estucalia confirmation of whether or not we are processing your data and, in such case, the right to obtain access to your personal information, as well as to request the rectification of inaccurate data or, where appropriate, request deletion when, among other reasons, the data is no longer necessary for the purposes for which it was collected.",
+        "content3": "You will have the right to obtain from Grupo Estucalia the limitation of the processing of your data in the following cases:",
+        "point1": "When you challenge the accuracy of the personal data, during a period that allows the controller to verify the accuracy of the same.",
+        "point2": "When the processing is unlawful and you oppose the deletion of the personal data and request instead the limitation of its use.",
+        "point3": "When Grupo Estucalia no longer needs the personal data for the purposes of the processing, but you need them for the formulation, exercise or defense of claims.",
+        "point4": "When you have opposed the processing, while verifying whether the legitimate reasons of Grupo Estucalia prevail over your own."
+      },
+      "securityMeasures": {
+        "title": "Measures to protect your personal information",
+        "content1": "At Grupo Estucalia we are committed to protecting your personal information. We use appropriate technical and organizational measures to protect your personal information and your privacy, and we review these measures periodically.",
+        "content2": "In particular, we establish measures aimed at guaranteeing the confidentiality, integrity, availability and permanent resilience of the processing systems and services, to restore the availability and access to personal data quickly in the event of a physical or technical incident and to ensure the security in the processing of your personal data.",
+        "content3": "Also, our employees are properly trained and qualified, and they commit to maintaining maximum reserve and secrecy about any personal data they may have access to as a result of their work, as well as to comply with the corresponding security measures of which they have been duly informed."
+      },
+      "policyUpdates": {
+        "title": "Modifications to this data protection information",
+        "content1": "At Grupo Estucalia we review and update the data protection information at least once a year, or when modifications occur in the legislation or in any of the operations and procedures for processing your personal information. In these cases, we indicate the content and date of the last update.",
+        "content2": "This data protection information was last reviewed and updated in January 2023."
       }
-    
+    }
+  },
+  "productsSection": {
+    "categoryNotFound": "Category not found",
+    "categoryTitle": "Category: {{category}}",
+    "applications": "Applications",
+    "finishes": "Finishes",
+    "products": "Products",
+    "composition": "Composition",
+    "features": "Features",
+    "recommendations": "Recommendations",
+    "application": "Application",
+    "cautions": "Cautions",
+    "relevantInfo": "Relevant information",
+    "generalInfo": "General information",
+    "documentation": "Documentation",
+    "productInfo": "Information"
+  }
 }

@@ -1,0 +1,1177 @@
+{
+    "categorias": [
+        {
+            "id": "morteros_cal",
+            "titulo": "Lime Mortars",
+            "descripcion": "Lime mortar is a traditional mixture composed of lime, sand, and water. It is used in the restoration of historic buildings and eco-friendly constructions due to its breathable properties and ability to regulate humidity. It offers excellent breathability, preventing moisture buildup in walls. Its flexibility reduces the risk of cracks. Additionally, it is an eco-friendly and sustainable material, ideal for heritage restorations and bioclimatic constructions.",
+            "imagen": "/img/mortero-cal.svg",
+            "aplicaciones": [
+                "Coatings",
+                "Plastering and rendering",
+                "Thermal insulation",
+                "Waterproofing",
+                "Dehumidification / water repellent"
+            ],
+            "acabados": [
+                {
+                    "nombre": "Bush-hammered / scraped",
+                    "imagen": "/img/acabados/raspado_abujardado.jpg"
+                },
+                {
+                    "nombre": "Washed / floated",
+                    "imagen": "/img/acabados/lavado_fratasado.jpg"
+                },
+                {
+                    "nombre": "Stamped",
+                    "imagen": "/img/acabados/impreso.jpg"
+                },
+                {
+                    "nombre": "Smooth",
+                    "imagen": "/img/acabados/liso.jpg"
+                }
+            ],
+            "productos": [
+                {
+                    "nombre": "CAL NHL",
+                    "subtitulo": "Lime mortar. Lime",
+                    "imagen": "/img/productos/01-ARGAMASA.png",
+                    "composicion": "Product made from high-strength white cement, selected aggregates, organic additives, and pigments.",
+                    "caracteristicas": [
+                        "Direct application to the enclosure wall without the need for undercoating.",
+                        "Application for interiors and exteriors.",
+                        "Waterproof coating.",
+                        "Permeable to water vapor, allowing breathability of the substrate."
+                    ],
+                    "recomendaciones": [
+                        "Protect the upper edges of the coating from rainwater penetration.",
+                        "Do not apply to cellular concrete, plaster, paints, metal surfaces, plastic, insulation materials, or low mechanical strength materials.",
+                        "In case of heat, wind, or highly absorbent substrates, moisten the substrate and wait for the water film to disappear.",
+                        "At critical points (junctions between different materials, slabs, pillars, shutter boxes, door/window frame corners, etc.), reinforce the mortar with fiberglass mesh to prevent cracks.",
+                        "On low-porosity substrates, apply a primer (EUROFIX) or improve roughness by mechanical means.",
+                        "Substrates must be strong, stable, sound, and clean, free of dust, formwork residues, organic products, etc."
+                    ],
+                    "precauciones": [
+                        "Do not apply below 5°C or above 30°C.",
+                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
+                        "For thicknesses over 2 cm, apply the product in two layers.",
+                        "The minimum plastering/rendering thickness must be 10 mm."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
+                        "Colors: Extensive range of 150 colors, expandable based on customer needs.",
+                        "Coverage: 1.5 kg/m² per mm thickness on a flat substrate.",
+                        "Shelf life: 12 months from the manufacturing date, in the original sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "CAL MIXTO",
+                    "subtitulo": "Lime and cement",
+                    "imagen": "/img/productos/02-ARGAMASA M.png",
+                    "informacion_general": "Lime and cement mortar with high-strength properties, good breathability, and excellent workability, suitable for various applications in construction and facade rehabilitation."
+                }
+            ]
+        },
+        {
+            "id": "morteros_cola",
+            "titulo": "Tile Adhesives",
+            "descripcion": "Tile adhesive is a bonding mixture used for laying tiles and ceramics on walls and floors. Its composition includes cement, resins, and additives that enhance adhesion and flexibility, ensuring a durable installation even in wet areas or with temperature variations.",
+            "imagen": "/img/mortero-cola.svg",
+            "aplicaciones": [
+                "Masonry",
+                "Tiles",
+                "Flooring and screeds",
+                "Thermal insulation"
+            ],
+            "productos": [
+                {
+                    "nombre": "KOLATECT",
+                    "subtitulo": "Standard C1",
+                    "imagen": "/img/productos/03-KOLATEC CCOLA.png",
+                    "composicion": "Cementitious adhesive based on selected aggregates, white cement, and additives for ceramic tiles with normal setting. No sagging. Available in white and two types: FINE and COARSE.",
+                    "caracteristicas": [
+                        "Bonding of medium-to-high absorption ceramic tiles.",
+                        "Application for interiors and exterior flooring."
+                    ],
+                    "precauciones": [
+                        "Do not apply below 5°C or above 30°C.",
+                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
+                        "For thicknesses over 2 cm, apply the product in two layers.",
+                        "The minimum final application thickness must be 10 mm."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
+                        "Colors: white and gray (the latter upon request).",
+                        "Coverage: approx. 4 kg/m² on a reasonably flat substrate.",
+                        "Shelf life: 12 months from the manufacturing date, in the original sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "KOLATECT",
+                    "subtitulo": "Pools C1",
+                    "imagen": "/img/productos/KOLATEC CAJA.png",
+                    "composicion": "Cementitious adhesive based on selected aggregates, white cement, and additives for ceramic tiles with normal setting. No sagging. Available in white and two types: FINE and COARSE.",
+                    "caracteristicas": [
+                        "Bonding of medium-to-high absorption ceramic tiles.",
+                        "Application for interiors and exterior flooring."
+                    ],
+                    "precauciones": [
+                        "Do not apply below 5°C or above 30°C.",
+                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
+                        "For thicknesses over 2 cm, apply the product in two layers.",
+                        "The minimum final application thickness must be 10 mm."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
+                        "Colors: white and gray (the latter upon request).",
+                        "Coverage: approx. 4 kg/m² on a reasonably flat substrate.",
+                        "Shelf life: 12 months from the manufacturing date, in the original sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "KOLATECT LANIC",
+                    "subtitulo": "Tile adhesive C2TE",
+                    "imagen": "/img/productos/04-KOLATEC LANI.png",
+                    "composicion": "Cementitious adhesive for low-absorption ceramic tiles with extended open time. No sagging and excellent initial adhesion.",
+                    "caracteristicas": [
+                        "Excellent workability and high whiteness.",
+                        "Rheologically improved with high stability and performance.",
+                        "Creamy thixotropy.",
+                        "Technologically advanced, compatible with a wide range of substrates.",
+                        "Stable across a wide mixing range.",
+                        "High thixotropic efficiency, greater comfort, and less effort.",
+                        "No need to wet tiles or substrates due to its water retention capacity.",
+                        "Reduced slippage. Excellent initial adhesion.",
+                        "Extended open time, allowing tile adjustments.",
+                        "Deformable. Type S1 (UNE EN 12002).",
+                        "Application thicknesses up to 15 mm without shrinkage.",
+                        "Bonding for all types of ceramic tiles, porcelain stoneware, marble, granite, and natural stone.",
+                        "Interior and exterior application (including facades).",
+                        "Bonding of large-format tiles.",
+                        "Installation of large surfaces with heavy traffic, radiant floor heating, cold rooms, and overlays.",
+                        "Pool linings."
+                    ],
+                    "recomendaciones": [
+                        "Substrates must have adequate flatness. If not, level with the same product up to 5 mm, 48 hours before tiling."
+                    ],
+                    "precauciones": [
+                        "Do not apply below 5°C or above 30°C.",
+                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
+                        "Temperature, ventilation, and substrate absorption may affect workability and setting times.",
+                        "In extreme weather (high wind or temperatures), drying occurs faster than usual."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
+                        "Colors: white and gray (the latter upon request).",
+                        "Coverage: approx. 4 kg/m² on a reasonably flat substrate.",
+                        "Shelf life: 12 months from the manufacturing date, in the original sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "KOLATECT FLEX",
+                    "subtitulo": "Tile adhesive C2TE S1",
+                    "imagen": "/img/productos/05-KOLATEC FLEX .png",
+                    "informacion_general": "Flexible, deformable (S1) tile adhesive for fixing on substrates with expansions or structural movements, ideal for interior and exterior flooring."
+                }
+            ]
+        },
+        {
+            "id": "morteros_monocapa",
+            "titulo": "Single-Layer Mortars",
+            "descripcion": "Single-layer mortar is a coating designed primarily for facades. It is applied in one layer and combines protective and waterproofing functions with aesthetic finishes. It is composed of cement, selected aggregates, additives, and pigments that provide different textures and colors.",
+            "imagen": "/img/mortero-monocapa.svg",
+            "aplicaciones": [
+                "Coatings",
+                "Plastering and rendering",
+                "Thermal insulation",
+                "Waterproofing",
+                "Dehumidification / water repellent"
+            ],
+            "acabados": [
+                {
+                    "nombre": "Bush-hammered / scraped",
+                    "imagen": "/img/acabados/raspado_abujardado.jpg"
+                },
+                {
+                    "nombre": "Washed / floated",
+                    "imagen": "/img/acabados/lavado_fratasado.jpg"
+                },
+                {
+                    "nombre": "Smooth",
+                    "imagen": "/img/acabados/liso.jpg"
+                }
+            ],
+            "productos": [
+                {
+                    "nombre": "CRISOLEX R",
+                    "subtitulo": "Scraped",
+                    "imagen": "/img/productos/06-CRYSOLEX PC.png",
+                    "composicion": "Product made from high-strength white cement, selected aggregates, organic additives, and pigments.",
+                    "caracteristicas": [
+                        "Direct application to the enclosure wall without the need for undercoating.",
+                        "Application for interiors and exteriors.",
+                        "Waterproof coating.",
+                        "Permeable to water vapor, allowing breathability of the substrate.",
+                        "Protect the upper edges of the coating from rainwater penetration."
+                    ],
+                    "recomendaciones": [
+                        "Do not apply to cellular concrete, plaster, paints, metal surfaces, plastic, insulation materials, or low mechanical strength materials.",
+                        "In case of heat, wind, or highly absorbent substrates, moisten the substrate and wait for the water film to disappear.",
+                        "At critical points (junctions between different materials, slabs, pillars, etc.), reinforce the mortar with fiberglass mesh to prevent cracks.",
+                        "On low-porosity substrates, apply a primer (EUROFIX) or improve roughness by mechanical means.",
+                        "Substrates must be strong, stable, sound, and clean."
+                    ],
+                    "precauciones": [
+                        "Do not apply below 5°C or above 30°C.",
+                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
+                        "For thicknesses over 2 cm, apply the product in two layers.",
+                        "Minimum final thickness: 10 mm."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
+                        "Colors: Extensive range of over 150 colors, expandable based on customer needs.",
+                        "Coverage: 1.5 kg/m² per mm thickness on a flat substrate.",
+                        "Shelf life: 12 months from the manufacturing date, in the original sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "MORE-BEST",
+                    "subtitulo": "White scraped",
+                    "imagen": "/img/productos/11-MORE BEST.png",
+                    "composicion": "Product made from high-strength white cement, selected aggregates, organic additives, and pigments.",
+                    "caracteristicas": [
+                        "Direct application to the enclosure wall without the need for undercoating.",
+                        "Application for interiors and exteriors.",
+                        "Waterproof coating.",
+                        "Permeable to water vapor, allowing breathability of the substrate.",
+                        "Protect the upper edges of the coating from rainwater penetration."
+                    ],
+                    "recomendaciones": [
+                        "Do not apply to cellular concrete, plaster, paints, metal surfaces, plastic, insulation materials, or low mechanical strength materials.",
+                        "In case of heat, wind, or highly absorbent substrates, moisten the substrate and wait for the water film to disappear.",
+                        "At critical points (junctions between different materials, slabs, pillars, etc.), reinforce the mortar with fiberglass mesh to prevent cracks.",
+                        "On low-porosity substrates, apply a primer (EUROFIX) or improve roughness by mechanical means.",
+                        "Substrates must be strong, stable, sound, and clean."
+                    ],
+                    "precauciones": [
+                        "Do not apply below 5°C or above 30°C.",
+                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
+                        "For thicknesses over 2 cm, apply the product in two layers.",
+                        "The minimum final plastering thickness must be 10 mm."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
+                        "Colors: Extensive range of over 150 colors, expandable based on customer needs.",
+                        "Coverage: 1.5 kg/m² per mm thickness on a flat substrate.",
+                        "Shelf life: 12 months from the manufacturing date, in the original sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "EURO MONEY F’",
+                    "subtitulo": "Waterproof thick layer",
+                    "imagen": "/img/productos/10-EUROMONEY CGRUESA.png",
+                    "composicion": "Waterproof mortar based on selected aggregates, white or gray cement, and additives.",
+                    "caracteristicas": [
+                        "White or light-colored finishes.",
+                        "Application for interiors and exteriors.",
+                        "Waterproof coating.",
+                        "Permeable to water vapor, allowing breathability of the substrate.",
+                        "Excellent adhesion and high plasticity.",
+                        "Plastering over undercoat or direct application."
+                    ],
+                    "recomendaciones": [
+                        "Protect the upper edges of the coating from rainwater penetration.",
+                        "Thicknesses up to 1 cm without sagging.",
+                        "Smooth or floated finish.",
+                        "In case of heat, wind, or highly absorbent substrates, moisten the substrate and wait for the water film to disappear.",
+                        "On low-porosity substrates, apply a primer (EUROFIX) or improve roughness by mechanical means.",
+                        "Substrates must be strong, stable, sound, and clean.",
+                        "The minimum final thickness after application must be 10 mm to ensure waterproofing on non-water-resistant substrates."
+                    ],
+                    "precauciones": [
+                        "Do not apply below 5°C or above 30°C.",
+                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
+                        "For thicknesses over 2 cm, apply the product in two layers.",
+                        "The minimum final product thickness must be 10 mm."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
+                        "Colors: white and light colors upon request.",
+                        "Coverage: approx. 14 kg/m² at 10 mm thickness on a reasonably flat substrate.",
+                        "Shelf life: 12 months from the manufacturing date, in the original sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "EURO MONEY F’",
+                    "subtitulo": "Waterproof thin layer",
+                    "imagen": "/img/productos/09-EUROMONEY CFINA.png",
+                    "composicion": "Waterproof mortar based on selected aggregates, white or gray cement, and additives.",
+                    "caracteristicas": [
+                        "White or light-colored finishes.",
+                        "Coarse floated finish.",
+                        "Application for interiors and exteriors.",
+                        "Waterproof coating.",
+                        "Permeable to water vapor, allowing breathability of the substrate.",
+                        "Excellent adhesion and high plasticity.",
+                        "Plastering over undercoat or direct application."
+                    ],
+                    "recomendaciones": [
+                        "Protect the upper edges of the coating from rainwater penetration.",
+                        "Thicknesses up to 1 cm without sagging.",
+                        "In case of heat, wind, or highly absorbent substrates, moisten the substrate and wait for the water film to disappear.",
+                        "On low-porosity substrates, apply a primer (EUROFIX) or improve roughness by mechanical means.",
+                        "Substrates must be strong, stable, sound, and clean.",
+                        "The minimum final thickness after application must be 10 mm to ensure waterproofing.",
+                        "At critical points (junctions between different materials, etc.), reinforce with fiberglass mesh to prevent cracks."
+                    ],
+                    "precauciones": [
+                        "Do not apply below 5°C or above 30°C.",
+                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
+                        "For thicknesses over 2 cm, apply the product in two layers.",
+                        "The minimum final product thickness must be 10 mm."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
+                        "Colors: white and light colors upon request.",
+                        "Coverage: approx. 14 kg/m² at 10 mm thickness on a reasonably flat substrate.",
+                        "Shelf life: 12 months from the manufacturing date, in the original sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "mortero_impreso",
+            "titulo": "Stamped Mortar",
+            "descripcion": "Stamped mortar is a decorative coating that creates textures and reliefs on walls, imitating materials like stone or brick. It offers versatile finishes, high impact resistance, and durability in harsh weather conditions. It is applied directly to the wall and allows for quick and aesthetic finishing.",
+            "imagen": "/img/mortero-impreso.svg",
+            "aplicaciones": [
+                "Coatings",
+                "Plastering and rendering",
+                "Thermal insulation",
+                "Waterproofing",
+                "Dehumidification / water repellent"
+            ],
+            "productos": [
+                {
+                    "nombre": "PLASTITE M’",
+                    "subtitulo": "Stamped mortar. Multi-finish",
+                    "imagen": "/img/productos/12-PLASTITE.png",
+                    "composicion": "Single-layer product made from high-strength white cement, selected aggregates, organic additives, and pigments.",
+                    "caracteristicas": [
+                        "Direct application to the enclosure wall without the need for undercoating.",
+                        "Application for interiors and exteriors.",
+                        "Waterproof coating.",
+                        "Permeable to water vapor, allowing breathability of the substrate.",
+                        "No cracking."
+                    ],
+                    "recomendaciones": [
+                        "Protect the upper edges of the coating from rainwater penetration.",
+                        "Do not apply to cellular concrete, plaster, paints, metal surfaces, plastic, insulation materials, or low mechanical strength materials.",
+                        "In case of heat, wind, or highly absorbent substrates, moisten the substrate and wait for the water film to disappear.",
+                        "At critical points (junctions between different materials, etc.), reinforce the mortar with fiberglass mesh to prevent cracks.",
+                        "On low-porosity substrates, apply a primer (EUROFIX) or improve roughness by mechanical means.",
+                        "Substrates must be strong, stable, sound, and clean, free of dust, formwork residues, organic products, etc."
+                    ],
+                    "aplicacion": [
+                        "Spread the material evenly on the prepared surface, leaving it completely smooth.",
+                        "Once fully spread, spray the area to be sealed or stamped with Release Agent (EURO-SOL), as well as the mold, roller, or tool to be used. Both should be well impregnated but not excessively.",
+                        "With the molds and material properly impregnated, proceed to stamp the desired pattern with a roller or one of the various molds available. Correct any defects with a trowel or suitable tool.",
+                        "PLASTITE allows corrections before surface setting (10-15 minutes). If done later, the surface film may break, causing cracks.",
+                        "Once the PLASTITE mortar has sufficiently hardened (usually the next day), tinting with EUROTINT can begin."
+                    ],
+                    "precauciones": [
+                        "Do not apply below 5°C or above 30°C.",
+                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
+                        "For thicknesses over 2 cm, apply the product in two layers.",
+                        "The minimum final plastering thickness must be 10 mm."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
+                        "Colors: Extensive range of over 150 colors, expandable based on customer needs.",
+                        "Theoretical coverage per m² and 1 mm thickness: 1.4 kg.",
+                        "Practical coverage at 12-15 mm thickness: 12-14 kg/m².",
+                        "Shelf life: 12 months from the manufacturing date, in the original sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "mortero_juntas",
+            "titulo": "Grout Mortar",
+            "descripcion": "Multipurpose grout mortar is a mixture designed to fill joints between tiles and ceramics on walls and floors. Thanks to its additives, it offers high waterproofing, good adhesion, and flexibility, ensuring a uniform and durable finish. It is available in different colors to match the design.",
+            "imagen": "/img/mortero-juntas.svg",
+            "aplicaciones": [
+                "Coatings",
+                "Plastering and rendering",
+                "Thermal insulation",
+                "Waterproofing",
+                "Dehumidification / water repellent"
+            ],
+            "productos": [
+                {
+                    "nombre": "KOLATEC FOREVER",
+                    "subtitulo": "Grout mortar. Joints",
+                    "imagen": "/img/productos/FOREVER BOLSA.png",
+                    "composicion": "Mortar based on selected aggregates, white cement, resins, pigments, and additives for ceramic tile joints up to 15 mm, waterproof, non-shrinking, and easy to clean.",
+                    "caracteristicas": [
+                        "High hardness.",
+                        "Intense color.",
+                        "Easy cleaning.",
+                        "Very fine texture.",
+                        "Low water absorption.",
+                        "Resistant to cracking and abrasion.",
+                        "Application for interiors and exteriors.",
+                        "Suitable for radiant floor heating."
+                    ],
+                    "recomendaciones": [
+                        "For highly absorbent tiles or high temperatures, moisten the joints before filling, avoiding saturation.",
+                        "In renovations, completely empty the joint before application."
+                    ],
+                    "precauciones": [
+                        "Do not apply below 5°C or above 30°C.",
+                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
+                        "Do not use for expansion joints or joints subject to structural movements.",
+                        "Do not clean with excess water or when the material is too fresh."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 5 kg plastic bags | 8 kg paper bags.",
+                        "Colors: Over 30 colors in our range, expandable upon request.",
+                        "Shelf life: 24 months (paper bags) / 12 months (plastic bags) from the manufacturing date."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "complementos_y_accesorios",
+            "titulo": "Accessories and Tools",
+            "descripcion": "Release agent, natural tint, molds, borders, and rollers. A set of accessories and tools for the final finish of your projects. They allow customization, demolding, and coloring of the mortar, achieving more creative and professional results.",
+            "imagen": "/img/accerios-y-herramientas.svg",
+            "productos": [
+                {
+                    "nombre": "EURO-SOL",
+                    "subtitulo": "Release agent",
+                    "imagen": "/img/productos/null.png",
+                    "composicion": "Liquid release agent for immediate demolding. Forms a thin non-greasy film that allows instant demolding.",
+                    "caracteristicas": [
+                        "Appearance: Oily, colorless liquid.",
+                        "Odor: Odorless.",
+                        "Freezing point: 4°C (max).",
+                        "Autoignition temperature: 271°C.",
+                        "Density (15°C): 0.760 – 0.770 g/cm³.",
+                        "Solubility: Organic solvents.",
+                        "Coverage: 100 ml/m²."
+                    ],
+                    "recomendaciones": [
+                        "Spray both surfaces, forming a thin film."
+                    ],
+                    "precauciones": [
+                        "Do not apply below +5°C or above +35°C.",
+                        "Do not apply in rain.",
+                        "Clean tools properly after use.",
+                        "Avoid contact with skin and eyes."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 5 or 15-liter plastic containers.",
+                        "Shelf life: 12 months from the manufacturing date, in sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "EURO-TINT",
+                    "subtitulo": "Natural tint",
+                    "imagen": "/img/productos/null.png",
+                    "composicion": "Tint composed of a mixture of natural wax (99%) and inorganic pigments (1%). Manufactured in various colors: White, Red, Black, Brown, Ochre, Yellow, Green, Blue, and Neutral.",
+                    "caracteristicas": [
+                        "EURO-TINT is ideal for coloring PLASTITE Multi-finish works due to its multiple combinations and final result.",
+                        "Achieves a very natural look in different finishes.",
+                        "Allows mixing of different colors."
+                    ],
+                    "recomendaciones": [
+                        "When unused for a long time, it contracts and loses volume in its original container; to restore it, mix with a little normal solvent."
+                    ],
+                    "precauciones": [
+                        "Keep away from fire. Being wax-based, it tends to liquefy."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: Approx. 4 kg plastic containers.",
+                        "Colors: White, Red, Black, Brown, Ochre, Yellow, Green, Blue, and Neutral.",
+                        "Shelf life: 12 months from the manufacturing date, in sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "MOLDES CENEFAS RODILLOS",
+                    "subtitulo": "Accessories",
+                    "imagen": "/img/productos/null.png",
+                    "informacion_general": "Tools and accessories for creating textures and reliefs on stamped mortar. Includes molds of various shapes, rollers to simulate different patterns, and borders for decorative finishes."
+                }
+            ]
+        },
+        {
+            "id": "puente_de_union",
+            "titulo": "Bonding Bridge",
+            "descripcion": "A bonding bridge is a primer that improves adhesion between different mortar layers or between mortar and other surfaces such as concrete or ceramic. It is applied before the mortar to ensure a strong bond, preventing detachment and cracks. It enhances durability of the treated surfaces and facilitates construction or repair.",
+            "imagen": "/img/mortero puente union.svg",
+            "aplicaciones": [
+                "Coatings",
+                "Masonry",
+                "Plastering and rendering",
+                "Thermal insulation"
+            ],
+            "productos": [
+                {
+                    "nombre": "RHINO",
+                    "subtitulo": "Bonding resin",
+                    "imagen": "/img/productos/null.png",
+                    "composicion": "Primer for single-layer mortars and mortars in general, applied on smooth concrete and substrates with low or zero surface absorption.",
+                    "caracteristicas": [
+                        "Application in interiors and exteriors.",
+                        "Application on vertical surfaces and ceilings.",
+                        "Good adhesion, facilitating subsequent coating application.",
+                        "Non-flammable.",
+                        "High penetration into the substrate."
+                    ],
+                    "recomendaciones": [
+                        "Spread EuroFix-plus evenly with a brush over the surface to be treated, then apply the mortar directly.",
+                        "Substrates must be clean, free of dust, grease, oils, and release agents."
+                    ],
+                    "precauciones": [
+                        "Do not apply in rain or frost conditions.",
+                        "Clean tools with water after use.",
+                        "Do not apply at temperatures below 5°C or above 30°C.",
+                        "Suitable for smooth or floated concrete, iron beams, etc. Generally for non-absorbent substrates."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 5 or 15-liter plastic containers.",
+                        "Shelf life: 24 months from the manufacturing date, in sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "mortero_piedra",
+            "titulo": "Stone Mortar",
+            "descripcion": "The projected chip mortar is a special mixture used to coat surfaces by projecting small decorative aggregate particles. It is ideal for finishes on facades and exterior walls. It offers excellent adhesion and resistance to extreme weather conditions. Its rough and decorative finish adds distinctive aesthetic value to surfaces. Additionally, its spray application ensures uniform and rapid coverage.",
+            "imagen": "/img/mortero-piedra.svg",
+            "aplicaciones": [
+                "Coatings",
+                "Masonry",
+                "Plastering and rendering",
+                "Waterproofing",
+                "Dehumidification / water repellent"
+            ],
+            "acabados": [
+                {
+                    "nombre": "Projected stone",
+                    "imagen": "/img/acabados/piedra proyectada.jpg"
+                }
+            ],
+            "productos": [
+                {
+                    "nombre": "CRISOLEX P",
+                    "subtitulo": "Stone",
+                    "imagen": "/img/productos/06-CRYSOLEX PC.png",
+                    "composicion": "Single-layer product made from high-strength white cement, selected aggregates, organic additives, and pigments.",
+                    "caracteristicas": [
+                        "Direct application to the enclosure wall without the need for undercoating.",
+                        "Application for interiors and exteriors.",
+                        "Waterproof coating.",
+                        "Permeable to water vapor, preventing condensation."
+                    ],
+                    "recomendaciones": [
+                        "Protect the upper edges of the coating from rainwater penetration.",
+                        "Do not apply to cellular concrete, plaster, paints, metal surfaces, plastic, insulation materials, or low mechanical strength materials.",
+                        "In case of heat, wind, or highly absorbent substrates, moisten the substrate and wait for the water film to disappear.",
+                        "At critical points (junctions between different materials, slabs, pillars, etc.), reinforce the mortar with fiberglass mesh to prevent cracks.",
+                        "On low-porosity substrates, apply a primer (EUROFIX) or improve roughness by mechanical means.",
+                        "Substrates must be strong, stable, sound, and clean, free of dust, formwork residues, organic products, etc."
+                    ],
+                    "precauciones": [
+                        "Do not apply below 5°C or above 30°C.",
+                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
+                        "For thicknesses over 2 cm, apply the product in two layers.",
+                        "The minimum final plastering thickness must be 10 mm.",
+                        "The stone to be projected must be dry and free of dust."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
+                        "Colors: Range of 12 colors, expandable based on customer needs.",
+                        "Theoretical coverage: 12 (±0.5) kg/m².",
+                        "Practical coverage on a flat substrate at 9-12 mm: 12-14 kg/m².",
+                        "Shelf life: 12 months from the manufacturing date, in the original sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "MÁRMOL TRITURADO",
+                    "subtitulo": "Natural colors",
+                    "imagen": "/img/productos/null.png",
+                    "composicion": "Crushed marble in natural colors (Marfil, Madera, Rosa, Rojo, Blanco, Gris, Verde, and Negro) available in various granulometries.",
+                    "caracteristicas": [
+                        "Natural product.",
+                        "Non-flammable.",
+                        "Non-toxic.",
+                        "Non-perishable."
+                    ],
+                    "recomendaciones": [
+                        "Apply or embed into the CRISOLEX Stone single-layer mortar while it is still fresh."
+                    ],
+                    "precauciones": [
+                        "Avoid dirt and high temperatures that might cause damage to the plastic bag.",
+                        "Washing the product may be necessary if it is stored for a long period."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 30 kg plastic bags, with the possibility of 25 kg bags.",
+                        "Shelf life: Non-perishable."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "protector_de_agua",
+            "titulo": "Water Protector",
+            "descripcion": "The water protective varnish is a coating designed to waterproof and protect surfaces against moisture, stains, and dirt. It can be applied on floors, facades, and decorative elements. It creates an impermeable barrier that extends the lifespan of treated surfaces and makes cleaning and maintenance easier. It does not significantly alter the original color or texture.",
+            "imagen": "/img/mortero-protector-agua.svg",
+            "aplicaciones": [
+                "Waterproofing",
+                "Dehumidification / water repellent",
+                "Protector / fixing"
+            ],
+            "productos": [
+                {
+                    "nombre": "EURO-PROTECT",
+                    "subtitulo": "Water protective varnish",
+                    "imagen": "/img/productos/null.png",
+                    "composicion": "Styrene-acrylic copolymer emulsion for protecting single-layer mortars, with high water resistance, alkali resistance, and good thermal plasticity.",
+                    "caracteristicas": [
+                        "Excellent water-repellent properties.",
+                        "Reduces staining of the surface and the proliferation of algae.",
+                        "High resistance to alkali attack.",
+                        "Good resistance to ultraviolet rays.",
+                        "Colorless product with glossy or matte finish."
+                    ],
+                    "recomendaciones": [
+                        "Apply with a brush or roller over the finished surface of the single-layer mortar, ensuring a uniform coat that covers the entire area."
+                    ],
+                    "precauciones": [
+                        "Store in areas protected from direct sun or excessive heat sources.",
+                        "Keep the container tightly closed.",
+                        "It is advisable to use the product within the first year of its shelf life."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 5 or 15-liter plastic containers.",
+                        "Shelf life: 12 months from the manufacturing date, in sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

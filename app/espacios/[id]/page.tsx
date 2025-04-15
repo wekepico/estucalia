@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import SpacesPage from "@/app/components/espacios/SpacesPage";
 import { useLanguage } from '@/app/context/LanguageContext';
+import { Loader, Loader2 } from "lucide-react";
 
 export interface Spaces {
     name: string;
@@ -214,8 +215,8 @@ export default function Espacios() {
 
     if (!isMounted) {
         return (
-            <main className="min-h-screen bg-white md:pt-28 pt-16 lg:pt-32">
-                {/* Loading state or skeleton */}
+            <main className="min-h-screen gap-4 flex justify-center items-center bg-white md:pt-28 pt-16 lg:pt-32">
+               <Loader width={50} height={50}/>Loading...
             </main>
         );
     }

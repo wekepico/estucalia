@@ -11,7 +11,7 @@
     "about": "Sobre Nosotros",
     "products": {
       "label": "Productos",
-      "submenu": "Tipo 1, Tipo 2, Tipo 3"
+      "submenu": "Morteros cal, Morteros cola, Morteros monocapa, Mortero impreso, Mortero juntas, Complementos y accesorios, Mortero piedra, Protector de agua, Puente de unión"
     },
     "contact": "Contacto",
     "blog": "Blog",
@@ -771,5 +771,21 @@
         "content2": "Esta información de protección de datos fue revisada y actualizada por última vez en Enero de 2023."
       }
     }
+  },
+  "productsSection": {
+    "categoryNotFound": "Categoría no encontrada",
+    "categoryTitle": "Categoría: {{category}}",
+    "applications": "Aplicaciones",
+    "finishes": "Acabados",
+    "products": "Productos",
+    "composition": "Composición",
+    "features": "Características",
+    "recommendations": "Recomendaciones",
+    "application": "Aplicación",
+    "cautions": "Precauciones",
+    "relevantInfo": "Información relevante",
+    "generalInfo": "Información general",
+    "documentation": "Documentación",
+    "productInfo": "Información"
   }
 }

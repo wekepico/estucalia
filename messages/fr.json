@@ -683,5 +683,21 @@
         "content2": "Ces informations sur la protection des données ont été examinées et mises à jour pour la dernière fois en janvier 2023."
       }
     }
+  },
+  "productsSection": {
+    "categoryNotFound": "Catégorie introuvable",
+    "categoryTitle": "Catégorie : {{category}}",
+    "applications": "Applications",
+    "finishes": "Finitions",
+    "products": "Produits",
+    "composition": "Composition",
+    "features": "Caractéristiques",
+    "recommendations": "Recommandations",
+    "application": "Application",
+    "cautions": "Précautions",
+    "relevantInfo": "Informations pertinentes",
+    "generalInfo": "Informations générales",
+    "documentation": "Documentation",
+    "productInfo": "Informations"
   }
 }
