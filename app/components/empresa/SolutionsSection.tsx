@@ -123,7 +123,10 @@ export default function SolutionsSection() {
 
         <div className="grid md:grid-flow-col  items-center justify-center grid-rows-3 md:grid-rows-5 sm:grid-cols-1 lg:grid-rows-3 gap-y-8 gap-x-[5rem]">
             {products.map((product) => (
-              <div key={product.key} className="flex items-center gap-2">
+              <div key={product.key} 
+                className="flex items-center gap-2 cursor-pointer"
+                onClick={()=>window.location.href = "/producto/" +t(`company.solutions.products.${product.key}`)}
+              >
                 <div className=" flex-shrink-0">
                   {product.icon}
                 </div>

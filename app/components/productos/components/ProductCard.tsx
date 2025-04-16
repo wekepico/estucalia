@@ -48,8 +48,8 @@ export const ProductCard: FC<ProductCardProps> = ({
         )}
 
         <Button
-          variant="default"
-          className="relative pl-5 pr-12 py-2 md:py-2 border-none rounded-none"
+          variant={isSelected?"default":`ghost`}
+          className="relative pl-5 pr-12 py-2 md:py-2 border border-black  rounded-none"
           size={"sm"}
           onClick={(e) => {
             e.stopPropagation();

@@ -2,7 +2,7 @@
     "categorias": [
         {
             "id": "morteros_cal",
-            "titulo": "Lime Mortars",
+            "titulo": "Lime Mortar",
             "descripcion": "Lime mortar is a traditional mixture composed of lime, sand, and water. It is used in the restoration of historic buildings and eco-friendly constructions due to its breathable properties and ability to regulate humidity. It offers excellent breathability, preventing moisture buildup in walls. Its flexibility reduces the risk of cracks. Additionally, it is an eco-friendly and sustainable material, ideal for heritage restorations and bioclimatic constructions.",
             "imagen": "/img/mortero-cal.svg",
             "aplicaciones": [
@@ -105,7 +105,7 @@
         },
         {
             "id": "morteros_cola",
-            "titulo": "Tile Adhesives",
+            "titulo": "Tile Adhesive",
             "descripcion": "Tile adhesive is a bonding mixture used for laying tiles and ceramics on walls and floors. Its composition includes cement, resins, and additives that enhance adhesion and flexibility, ensuring a durable installation even in wet areas or with temperature variations.",
             "imagen": "/img/mortero-cola.svg",
             "aplicaciones": [
@@ -304,7 +304,7 @@
         },
         {
             "id": "morteros_monocapa",
-            "titulo": "Single-Layer Mortars",
+            "titulo": "Single-Layer Mortar",
             "descripcion": "Single-layer mortar is a coating designed primarily for facades. It is applied in one layer and combines protective and waterproofing functions with aesthetic finishes. It is composed of cement, selected aggregates, additives, and pigments that provide different textures and colors.",
             "imagen": "/img/mortero-monocapa.svg",
             "aplicaciones": [

@@ -11,7 +11,7 @@
     "about": "Sobre Nosotros",
     "products": {
       "label": "Productos",
-      "submenu": "Morteros cal, Morteros cola, Morteros monocapa, Mortero impreso, Mortero juntas, Complementos y accesorios, Mortero piedra, Protector de agua, Puente de unión"
+      "submenu": "Mortero cal, Mortero cola, Mortero monocapa, Mortero impreso, Mortero juntas, Complementos y accesorios, Mortero piedra, Protector de agua, Puente de unión"
     },
     "contact": "Contacto",
     "blog": "Blog",
@@ -185,7 +185,7 @@
     "categories": "Categorías",
     "filters": "Filtros",
     "monocapa": "Mortero monocapa",
-    "lime": "Mortero de cal",
+    "lime": "Mortero cal",
     "printed": "Mortero impreso",
     "stone": "Mortero piedra",
     "union": "Puente de unión",
@@ -269,7 +269,7 @@
         "piedra": "Mortero piedra",
         "protector": "Protector agua",
         "union": "Puente unión",
-        "accesorios": "Accesorios y herramientas"
+        "accesorios": "Complementos y accesorios"
       }
     },
     "production": {
@@ -368,9 +368,9 @@
     },
     "products": {
       "monocapa": "Mortero monocapa",
-      "lime": "Mortero de cal",
+      "lime": "Mortero cal",
       "printed": "Mortero impreso",
-      "stone": "Mortero de piedra"
+      "stone": "Mortero piedra"
     }
   },
   "news": {
@@ -401,7 +401,7 @@
       "title": "PRODUCTOS",
       "monocapa": "Morteros monocapa",
       "tileAdhesive": "Morteros cola",
-      "limeMortar": "Mortero de cal",
+      "limeMortar": "Mortero cal",
       "multipurposeMortar": "Mortero polivalente para juntas",
       "verticalPrinted": "Mortero impreso vertical",
       "waterProtector": "Protector de agua",
@@ -428,7 +428,7 @@
     "products": {
       "monocapa": "Mortero monocapa",
       "cola": "Mortero cola",
-      "cal": "Mortero de cal",
+      "cal": "Mortero cal",
       "impreso": "Mortero impreso",
       "piedra": "Mortero piedra",
       "reparacion": "Mortero reparación"
@@ -468,13 +468,13 @@
     "products": {
       "monocapa": "Mortero monocapa",
       "printed": "Mortero impreso",
-      "lime": "Mortero de cal",
+      "lime": "Mortero cal",
       "stone": "Mortero piedra",
       "union": "Puente de unión",
       "joint": "Mortero juntas",
       "water": "Mortero aguas",
       "adhesive": "Mortero cola",
-      "tools": "Accesorios y herramientas"
+      "tools": "Complementos y accesorios"
     },
     "common": {
       "spaceNotFound": "Espacio no encontrado"

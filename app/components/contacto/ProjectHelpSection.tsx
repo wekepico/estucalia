@@ -37,7 +37,7 @@ export default function ProjectHelpSection() {
               {t('contact.projectHelp.title')}
             </h2>
             {/* Descripción */}
-            <p className="text-black text-base md:text-xl mb-8 text-justify">
+            <p className="text-black text-base md:text-xl mb-8 text-left">
               {t('contact.projectHelp.description')}
             </p>
             {/* Botón */}

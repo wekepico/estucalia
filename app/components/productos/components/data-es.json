@@ -2,7 +2,7 @@
     "categorias": [
         {
             "id": "morteros_cal",
-            "titulo": "Morteros cal",
+            "titulo": "Mortero cal",
             "descripcion": "El mortero de cal es una mezcla tradicional compuesta por cal, arena y agua. Se utiliza en restauraciones de edificios históricos y construcciones ecológicas debido a sus propiedades transpirables y su capacidad para regular la humedad. Ofrece una excelente transpirabilidad, lo que evita la acumulación de humedad en las paredes. Su flexibilidad reduce el riesgo de fisuras y grietas. Además, es un material ecológico y sostenible, ideal para restauraciones patrimoniales y construcciones bioclimáticas.",
             "imagen": "/img/mortero-cal.svg",
             "aplicaciones": [
@@ -105,7 +105,7 @@
         },
         {
             "id": "morteros_cola",
-            "titulo": "Morteros cola",
+            "titulo": "Mortero cola",
             "descripcion": "El mortero cola es una mezcla adhesiva utilizada para la colocación de baldosas y cerámicas en paredes y suelos. Su composición incluye cemento, resinas y aditivos que mejoran la adherencia y flexibilidad, permitiendo una instalación resistente incluso en zonas húmedas o con variaciones de temperatura.",
             "imagen": "/img/mortero-cola.svg",
             "aplicaciones": [
@@ -304,7 +304,7 @@
         },
         {
             "id": "morteros_monocapa",
-            "titulo": "Morteros monocapa",
+            "titulo": "Mortero monocapa",
             "descripcion": "El mortero monocapa es un revestimiento diseñado principalmente para fachadas. Se aplica en una sola capa y combina funciones de protección e impermeabilidad con acabados estéticos. Está compuesto por cemento, áridos seleccionados, aditivos y pigmentos que le proporcionan distintas texturas y colores.",
             "imagen": "/img/mortero-monocapa.svg",
             "aplicaciones": [

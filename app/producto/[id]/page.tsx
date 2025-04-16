@@ -1,28 +1,41 @@
 "use client";
-
 import ProductCategoryPage from "@/app/components/productos/ProductoPage";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { Loader } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import data from "../../components/productos/components/data-es.json";
+import data2 from "../../components/productos/components/data-en.json";
 
 export default function ProductPage() {
   const pathname = usePathname();
-  const { t } = useLanguage();
-
-  // Controlamos el montaje para prevenir errores de hidratación
+  const { t, language } = useLanguage();
   const [mounted, setMounted] = useState(false);
+  const [foundCategory, setFoundCategory] = useState<any>(null);
+
+  // Obtenemos el ID de la categoría de la URL
+  const idEncoded = pathname.split("/").pop();
+  const categoryId = decodeURIComponent(idEncoded || "");
+
+  // Cargar la categoría según el idioma
   useEffect(() => {
     setMounted(true);
-  }, []);
+    const currentData = language === "es" ? data : data2;
+    const category = currentData.categorias.find(
+      (cat: any) => cat.titulo.toLowerCase() === categoryId.toLowerCase()
+    );
+    setFoundCategory(category);
+  }, [language, categoryId]);
 
-  // Obtenemos la última parte de la ruta (ej. “morteros_cal”),
-  // la decodificamos por si tiene caracteres especiales
-  const aplicationEncoded = pathname.split("/").pop();
-  const aplication = decodeURIComponent(aplicationEncoded || "");
+  useEffect(() => {
+    if (foundCategory && mounted) {
+      const newPath = "/producto/" + foundCategory.titulo
+      if (pathname !== newPath) {
+        window.location.href = newPath;
+      }
+    }
+  }, [t]);
 
-
-  // Mientras no estemos montados, mostramos un loader
   if (!mounted) {
     return (
       <main className="min-h-screen gap-4 flex justify-center items-center bg-white md:pt-28 pt-16 lg:pt-32">
@@ -31,6 +44,15 @@ export default function ProductPage() {
     );
   }
 
-  // Ya montados, renderizamos la página de producto
-  return <ProductCategoryPage categoryId={aplication} />;
+  if (!foundCategory) {
+    return (
+      <div className="pt-32 px-5">
+        <h1 className="text-2xl font-bold">
+          {t("categoryNotFound")}
+        </h1>
+      </div>
+    );
+  }
+
+  return <ProductCategoryPage category={foundCategory} />;
 }

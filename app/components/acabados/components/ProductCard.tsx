@@ -14,7 +14,10 @@ interface ProductCardProps {
 export const ProductCard: React.FC<ProductCardProps> = ({ name, icon }) => {
 
     return (
-        <div className="bg-gray-100 group hover:bg-stone-100 transition-colors">
+        <div 
+            className="bg-gray-100 group hover:bg-stone-100 transition-colors cursor-pointer"
+            onClick={()=>{window.location.href = "/producto/"+name}}
+        >
             <div className=" min-w-[110px] py-4 flex flex-col items-center text-center">
                 <div className="mb-2">
                     <Image

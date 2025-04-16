@@ -11,7 +11,7 @@
     "about": "About Us",
     "products": {
       "label": "Products",
-      "submenu": "Lime mortars, Tile adhesives, Single-layer mortars, Stamped mortar, Grout mortar, Accessories and tools, Stone mortar, Water protector, Bonding bridge"
+      "submenu": "Lime mortar, Tile adhesive, Single-layer mortar, Stamped mortar, Grout mortar, Accessories and tools, Stone mortar, Water protector, Bonding bridge"
     },
     "contact": "Contact",
     "blog": "Blog",
@@ -61,7 +61,7 @@
     },
     "company": {
       "title": "Estucalia Group",
-      "description": "More than 25 years manufacturing high-performance monocoat mortar, tile adhesive and flashing.",
+      "description": "More than 25 years manufacturing high-performance Single-Layer Mortar, tile adhesive and flashing.",
       "imageAlt": "Estucalia company image",
       "mission": {
         "title": "Our Mission",
@@ -110,9 +110,9 @@
         "smooth": "Smooth"
       },
       "products": {
-        "monocapa": "Monocapa mortar",
+        "monocapa": "Single-layer Mortar",
         "lime": "Lime mortar",
-        "printed": "Printed mortar",
+        "printed": "Stamped Mortar",
         "stone": "Stone mortar"
       },
       "noProducts": "No products available in this category"
@@ -134,7 +134,7 @@
   },
   "about": {
     "title": "We are Estucalia Group",
-    "description": "Estucalia Group is composed of several companies specialized in manufacturing, marketing and exporting monocoat mortars for facade cladding, and tile adhesive and grout for ceramic cladding of floors and walls.",
+    "description": "Estucalia Group is composed of several companies specialized in manufacturing, marketing and exporting Single-Layer Mortars for facade cladding, and tile adhesive and grout for ceramic cladding of floors and walls.",
     "imageAlt": "Art in Facades"
   },
   "blog": {
@@ -163,8 +163,8 @@
         "date": "15 Oct 2023"
       },
       "presentacion-morteros-marruecos": {
-        "title": "Presentation of Monocoat Mortars in Morocco",
-        "excerpt": "Successful presentation of our product line in the Moroccan market, highlighting the quality and versatility of our monocoat mortars.",
+        "title": "Presentation of Single-Layer Mortars in Morocco",
+        "excerpt": "Successful presentation of our product line in the Moroccan market, highlighting the quality and versatility of our Single-Layer Mortars.",
         "date": "28 Sep 2023"
       },
       "convencion-internacional-rabat": {
@@ -184,14 +184,14 @@
     "viewAll": "View All Products",
     "categories": "Categories",
     "filters": "Filters",
-    "monocapa": "Monocoat mortar",
+    "monocapa": "Single-Layer Mortar",
     "lime": "Lime mortar",
-    "printed": "Printed mortar",
+    "printed": "Stamped Mortar",
     "stone": "Stone mortar",
-    "union": "Bridge union",
+    "union": "Bonding bridge",
     "adhesive": "Tile adhesive",
     "waterProtector": "Water protector",
-    "joint": "Joint mortar"
+    "joint": "Grout Mortar"
   },
   "contact": {
     "title": "Contact",
@@ -232,7 +232,7 @@
     },
     "about": {
       "title": "We are Grupo Estucalia",
-      "description": "Grupo Estucalia is composed of several companies specialized in manufacturing, marketing and exporting monocoat mortars for facade cladding, and tile adhesives and grouts for ceramic cladding of floors and walls.",
+      "description": "Grupo Estucalia is composed of several companies specialized in manufacturing, marketing and exporting Single-Layer Mortars for facade cladding, and tile adhesives and grouts for ceramic cladding of floors and walls.",
       "imageAlt": "Art in Facades",
       "mission": {
         "title": "Our mission: customer satisfaction",
@@ -248,7 +248,7 @@
           "description": "Expanding our presence in the Middle East with new business opportunities."
         },
         {
-          "title": "Grupo Estucalia presents its Monocoat Mortars in Morocco",
+          "title": "Grupo Estucalia presents its Single-Layer Mortars in Morocco",
           "description": "Successful presentation of our product line in the Moroccan market."
         },
         {
@@ -261,14 +261,14 @@
       "title": "Construction Solutions",
       "description": "Thanks to more than 25 years of experience, Grupo Estucalia offers a range of products with exceptional quality.",
       "products": {
-        "monocapa": "Monocoat Mortar",
+        "monocapa": "Single-Layer Mortar",
         "cola": "Tile Adhesive",
         "cal": "Lime Mortar",
-        "juntas": "Joint Mortar",
-        "impreso": "Printed Mortar",
+        "juntas": "Grout Mortar",
+        "impreso": "Stamped Mortar",
         "piedra": "Stone Mortar",
         "protector": "Water Protector",
-        "union": "Bridge Union",
+        "union": "Bonding bridge",
         "accesorios": "Accessories and Tools"
       }
     },
@@ -341,14 +341,14 @@
       "dehumidification": "Dehumidification"
     },
     "descriptions": {
-      "coatings": "Monocoat mortar is ideal for facade coatings, offering protection and decoration in a single application. Its high resistance to weather conditions and wide variety of finishes make it a versatile and durable option. On the other hand, lime mortar is especially useful in traditional buildings or restorations, as it allows for better wall breathability. Both types of mortar provide excellent adhesion and improve the building's aesthetics while keeping the surface well protected.",
-      "plasters": "For plasters and renders, lime mortar is a traditional option that offers great breathability and flexibility, ideal for preventing cracks in old surfaces. In modern applications, monocoat mortar stands out for its dual function of leveling and providing a decorative finish in a single layer, saving time and costs. Both types of mortar ensure good adhesion and resistance to weather conditions, improving the appearance and protection of facades.",
-      "masonry": "The multipurpose joint mortar is ideal for masonry work, as it allows filling joints between bricks or blocks, ensuring a solid and resistant fixation. For exterior coatings, monocoat mortar remains a preferred option due to its ability to protect and decorate structures. For traditional works, lime mortar provides flexibility and moisture resistance, being an excellent alternative in restorations.",
-      "tiles": "Tile adhesive is the most suitable for installing tiles on walls and floors, both indoors and outdoors. It offers high adhesion and resistance, even in extreme humidity or temperature conditions. If a decorative exterior finish is desired, monocoat mortar can also serve as a base for tile placement, providing a well-leveled and resistant surface. This combination ensures an aesthetic and functional solution for ceramic coatings.",
-      "screeds": "Lime mortar is ideal for screeds on floors or facades of traditional buildings, as its flexibility prevents cracks and allows proper breathability. In modern applications, monocoat mortar can be applied over screeds to achieve an aesthetic and resistant finish. This combination ensures a solid and well-protected base, improving the durability and aesthetics of treated surfaces.",
-      "thermal": "For thermal insulation work, monocoat mortar is an efficient solution when applied over external thermal insulation systems (ETICS), offering a protective and decorative layer. If a more natural and breathable solution is desired, lime mortar is an excellent option, as it allows humidity regulation and improves the building's thermal comfort. Both types of mortar contribute to energy efficiency and facade protection.",
-      "waterproofing": "Monocoat mortar is an excellent option for waterproofing facades, as it forms a protective barrier that prevents water entry. For specific applications, such as surfaces with visible joints, multipurpose joint mortar ensures effective sealing. In traditional works, lime mortar also offers waterproofing properties, allowing proper wall breathability. All these mortars help keep structures free from moisture and in good condition.",
-      "dehumidification": "In dehumidification projects, lime mortar is highly recommended for its ability to repel water and allow wall breathability. This characteristic makes it an ideal solution for restorations or constructions with humidity problems. Monocoat mortar also helps keep surfaces dry thanks to its waterproofing and decorative capacity, being a versatile and resistant option to improve facade durability and protect them against moisture accumulation."
+      "coatings": "Single-Layer Mortar is ideal for facade coatings, offering protection and decoration in a single application. Its high resistance to weather conditions and wide variety of finishes make it a versatile and durable option. On the other hand, lime mortar is especially useful in traditional buildings or restorations, as it allows for better wall breathability. Both types of mortar provide excellent adhesion and improve the building's aesthetics while keeping the surface well protected.",
+      "plasters": "For plasters and renders, lime mortar is a traditional option that offers great breathability and flexibility, ideal for preventing cracks in old surfaces. In modern applications, Single-Layer Mortar stands out for its dual function of leveling and providing a decorative finish in a single layer, saving time and costs. Both types of mortar ensure good adhesion and resistance to weather conditions, improving the appearance and protection of facades.",
+      "masonry": "The multipurpose Grout Mortar is ideal for masonry work, as it allows filling joints between bricks or blocks, ensuring a solid and resistant fixation. For exterior coatings, Single-Layer Mortar remains a preferred option due to its ability to protect and decorate structures. For traditional works, lime mortar provides flexibility and moisture resistance, being an excellent alternative in restorations.",
+      "tiles": "Tile adhesive is the most suitable for installing tiles on walls and floors, both indoors and outdoors. It offers high adhesion and resistance, even in extreme humidity or temperature conditions. If a decorative exterior finish is desired, Single-Layer Mortar can also serve as a base for tile placement, providing a well-leveled and resistant surface. This combination ensures an aesthetic and functional solution for ceramic coatings.",
+      "screeds": "Lime mortar is ideal for screeds on floors or facades of traditional buildings, as its flexibility prevents cracks and allows proper breathability. In modern applications, Single-Layer Mortar can be applied over screeds to achieve an aesthetic and resistant finish. This combination ensures a solid and well-protected base, improving the durability and aesthetics of treated surfaces.",
+      "thermal": "For thermal insulation work, Single-Layer Mortar is an efficient solution when applied over external thermal insulation systems (ETICS), offering a protective and decorative layer. If a more natural and breathable solution is desired, lime mortar is an excellent option, as it allows humidity regulation and improves the building's thermal comfort. Both types of mortar contribute to energy efficiency and facade protection.",
+      "waterproofing": "Single-Layer Mortar is an excellent option for waterproofing facades, as it forms a protective barrier that prevents water entry. For specific applications, such as surfaces with visible joints, multipurpose Grout Mortar ensures effective sealing. In traditional works, lime mortar also offers waterproofing properties, allowing proper wall breathability. All these mortars help keep structures free from moisture and in good condition.",
+      "dehumidification": "In dehumidification projects, lime mortar is highly recommended for its ability to repel water and allow wall breathability. This characteristic makes it an ideal solution for restorations or constructions with humidity problems. Single-Layer Mortar also helps keep surfaces dry thanks to its waterproofing and decorative capacity, being a versatile and resistant option to improve facade durability and protect them against moisture accumulation."
     }
   },
   "finishes": {
@@ -362,14 +362,14 @@
     "descriptions": {
       "hammered": "The hammered or scraped finish in mortars features a rough, uniform texture achieved by surface scraping before hardening. This construction solution is ideal for facades and exterior walls as it provides excellent wear and weather resistance. The textured appearance hides imperfections while adding rustic elegance, perfect for projects seeking artisanal robustness.",
       "washed": "The washed or troweled finish is achieved by smoothing the mortar surface to create a uniform texture. Ideal for facades, interior walls and floors, it offers a clean, modern look. This finish ensures good adhesion for paints or additional coatings, with water-repellent properties that prevent cracking for long-lasting durability.",
-      "printed": "Printed mortar can replicate stone, wood, cobblestone or decorative patterns before hardening. Widely used for exterior floors, patios and walkways due to its traffic and weather resistance. Customizable colors and patterns make it ideal for architectural projects combining aesthetics, functionality and durability.",
+      "printed": "Stamped Mortar can replicate stone, wood, cobblestone or decorative patterns before hardening. Widely used for exterior floors, patios and walkways due to its traffic and weather resistance. Customizable colors and patterns make it ideal for architectural projects combining aesthetics, functionality and durability.",
       "stone": "Projected stone finish incorporates natural stone particles onto fresh mortar through controlled projection. Perfect for facades and exterior walls, it offers exceptional wear and weather resistance. The timeless rustic elegance enhances architectural designs with durable, low-maintenance appeal.",
       "smooth": "The smooth finish creates a uniform, texture-free surface through complete leveling. Ideal for modern interiors and minimalist facades, it's compatible with paints and additional coatings for decorative versatility. Provides excellent moisture protection and an attractive construction solution."
     },
     "products": {
-      "monocapa": "Monocoat mortar",
+      "monocapa": "Single-Layer Mortar",
       "lime": "Lime mortar",
-      "printed": "Printed mortar",
+      "printed": "Stamped Mortar",
       "stone": "Stone mortar"
     }
   },
@@ -378,7 +378,7 @@
     "readMore": "Read more",
     "items": {
       "saudiMission": "Direct Commercial Mission to Saudi Arabia",
-      "moroccoPresentation": "Grupo Estucalia presents its Monocoat Mortars in Morocco",
+      "moroccoPresentation": "Grupo Estucalia presents its Single-Layer Mortars in Morocco",
       "rabatConvention": "International Convention in Rabat"
     }
   },
@@ -399,11 +399,11 @@
     },
     "products": {
       "title": "PRODUCTS",
-      "monocapa": "Monocapa mortar",
+      "monocapa": "Single-layer Mortar",
       "tileAdhesive": "Tile adhesive mortar",
       "limeMortar": "Lime mortar",
-      "multipurposeMortar": "Multipurpose joint mortar",
-      "verticalPrinted": "Vertical printed mortar",
+      "multipurposeMortar": "Multipurpose Grout Mortar",
+      "verticalPrinted": "Vertical Stamped Mortar",
       "waterProtector": "Water protector",
       "repairMortar": "Repair mortar"
     },
@@ -426,10 +426,10 @@
       "rehabilitacion": "Rehabilitation"
     },
     "products": {
-      "monocapa": "Monocapa mortar",
+      "monocapa": "Single-layer Mortar",
       "cola": "Tile adhesive",
       "cal": "Lime mortar",
-      "impreso": "Printed mortar",
+      "impreso": "Stamped Mortar",
       "piedra": "Stone mortar",
       "reparacion": "Repair mortar"
     }
@@ -446,10 +446,10 @@
       "pools": "Swimming pools"
     },
     "descriptions": {
-      "facades": "Facades are one of the most visible and exposed architectural elements of a building, requiring construction solutions that combine protection, aesthetics and efficiency. Coatings with monocapa mortar or ceramic materials offer excellent resistance to moisture, solar radiation and temperature changes. Additionally, ventilated facades improve thermal insulation, contributing to energy efficiency. Decorative finishes allow customization of the design and enhancement of the building's visual character.",
+      "facades": "Facades are one of the most visible and exposed architectural elements of a building, requiring construction solutions that combine protection, aesthetics and efficiency. Coatings with Single-layer Mortar or ceramic materials offer excellent resistance to moisture, solar radiation and temperature changes. Additionally, ventilated facades improve thermal insulation, contributing to energy efficiency. Decorative finishes allow customization of the design and enhancement of the building's visual character.",
       "terraces": "Terraces are outdoor spaces that expand the habitable areas of buildings. Their construction requires solutions that guarantee waterproofing, traffic resistance and durability. The use of waterproofing mortars and anti-slip pavements is essential to protect the surface and ensure a safe environment. Additionally, architectural design can integrate fixed furniture and planters to create functional and comfortable environments. Well-designed terraces improve quality of life and add aesthetic value to buildings.",
       "balconies": "Balconies are architectural extensions that provide light and ventilation to homes. Their construction must consider structural solutions and coatings resistant to weather conditions. Anti-slip pavements and waterproofing systems guarantee their durability and safety. Additionally, the use of modern railings and decorative finishes allows their integration into the overall building design, improving functionality and aesthetics.",
-      "walls": "Walls are essential structural and decorative elements in any construction. Construction solutions include monocapa mortars for exterior coatings, offering protection and aesthetic finishes in a single application. For interiors, lime mortars guarantee breathability and a fine finish. Walls can be combined with decorative elements such as skylights, acoustic panels or ceramic coatings, improving both functionality and space design.",
+      "walls": "Walls are essential structural and decorative elements in any construction. Construction solutions include Single-layer Mortars for exterior coatings, offering protection and aesthetic finishes in a single application. For interiors, lime mortars guarantee breathability and a fine finish. Walls can be combined with decorative elements such as skylights, acoustic panels or ceramic coatings, improving both functionality and space design.",
       "patios": "Patios and skylights are architectural solutions that improve natural lighting and ventilation of interior spaces. Patios require waterproof and traffic-resistant pavements, while skylights should incorporate high-strength transparent materials and efficient sealing systems. The architectural design of these spaces allows creating bright, comfortable and visually attractive environments, adding value to buildings.",
       "floors": "Floors and pavements are fundamental in any architectural space, as they must combine resistance, aesthetics and functionality. Self-leveling mortars and high-resistance pavements offer uniform and durable surfaces. For outdoors, anti-slip and waterproof pavements are essential to guarantee safety and protection against moisture. Construction solutions must adapt to space needs, whether for pedestrian traffic, vehicles or decorative environments.",
       "kitchens": "Outdoor kitchens are spaces designed to enjoy culinary activities outdoors. For their construction, weather-resistant materials are required, such as ceramic coatings and anti-slip pavements. Waterproof mortars and easy-to-clean surfaces guarantee their durability and functionality. The architectural design can integrate cooking areas, storage and outdoor dining areas, creating comfortable and aesthetic environments for social gatherings.",
@@ -466,12 +466,12 @@
       "dehumidification": "Dehumidification"
     },
     "products": {
-      "monocapa": "Monocapa mortar",
-      "printed": "Printed mortar",
+      "monocapa": "Single-layer Mortar",
+      "printed": "Stamped Mortar",
       "lime": "Lime mortar",
       "stone": "Stone mortar",
       "union": "Union bridge",
-      "joint": "Joint mortar",
+      "joint": "Grout Mortar",
       "water": "Water mortar",
       "adhesive": "Adhesive mortar",
       "tools": "Accessories and tools"
