@@ -40,6 +40,73 @@ const inspirationImages = [
         alt: "Urban architecture",
         size: "medium"
     },
+    // New images from inspiration folder
+    {
+        url: "img/inspiracion/DSC_0013.jpg",
+        alt: "Architectural facade detail",
+        size: "medium"
+    },
+    {
+        url: "img/inspiracion/Fachadas Raspado 012.jpg",
+        alt: "Scraped facade finish",
+        size: "large"
+    },
+    {
+        url: "img/inspiracion/Fachadas Raspado 021.jpg",
+        alt: "Textured wall finish",
+        size: "medium"
+    },
+    {
+        url: "img/inspiracion/Fachadas Raspado 025.jpg",
+        alt: "Modern exterior wall texture",
+        size: "medium"
+    },
+    {
+        url: "img/inspiracion/Fachadas Raspado 028.jpg",
+        alt: "Architectural wall treatment",
+        size: "large"
+    },
+   
+    {
+        url: "img/inspiracion/Monocapa Impreso 2.jpg",
+        alt: "Printed monocouche finish",
+        size: "large"
+    },
+    {
+        url: "img/inspiracion/Monocapa Impreso 9.jpg",
+        alt: "Decorative concrete texture",
+        size: "small"
+    },
+    {
+        url: "img/inspiracion/Monocapa Impreso 13.jpg",
+        alt: "Architectural surface pattern",
+        size: "small"
+    },
+    {
+        url: "img/inspiracion/Monocouche Pasta Chino 6.jpg",
+        alt: "Chinese paste finish detail",
+        size: "medium"
+    },
+    {
+        url: "img/inspiracion/Monocouche Pasta Chino 9.jpg",
+        alt: "Decorative wall treatment",
+        size: "large"
+    },
+    {
+        url: "img/inspiracion/Monocouche Pasta Chino 11.jpg",
+        alt: "Specialty plaster finish",
+        size: "medium"
+    },
+    {
+        url: "img/inspiracion/Monocouche Pasta Chino 15.jpg",
+        alt: "Architectural texture detail",
+        size: "medium"
+    },
+    {
+        url: "img/inspiracion/Monocouche Pasta Chino 27.jpg",
+        alt: "Contemporary wall finish",
+        size: "medium"
+    }
 ];
 
 export default function InspirationPage() {

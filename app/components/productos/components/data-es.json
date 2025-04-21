@@ -32,34 +32,43 @@
             ],
             "productos": [
                 {
-                    "nombre": "CAL NHL",
+                    "nombre": "ARGAMASA - MORTERO CAL NHL",
                     "subtitulo": "Mortero cal. Cal",
                     "imagen": "/img/productos/01-ARGAMASA.png",
-                    "composicion": "Producto fabricado a base de cemento blanco de alta resistencia, áridos seleccionados, aditivos orgánicos y pigmentos.",
+                    "composicion": "Mortero a base de Cal Hidráulica Natural (NHL) PURA, áridos seleccionados y aditivos que proporcionan un producto de alta calidad para la ejecución de revestimientos, muros y reparación de superficies. Este mortero se distingue por su gran adherencia, flexibilidad y transpirabilidad, lo que lo hace ideal para aplicaciones en Obra Nueva y en Obras de restauración, tanto en interiores como en exteriores.",
                     "caracteristicas": [
-                        "Aplicación directa a la pared de cerramiento sin necesidad de enfoscar.",
-                        "Aplicación en interiores y exteriores.",
-                        "Revestimiento impermeable.",
-                        "Permeable al vapor de agua, permitiendo transpirabilidad al soporte."
+                        "Alta resistencia a la compresión y flexión y secado rápido.",
+                        "Transpirable, permitiendo la evacuación de la humedad y evitando la acumulación de sales.",
+                        "Ideal para obras de restauración y conservación de patrimonio arquitectónico.",
+                        "Alta adherencia a superficies tradicionales y modernas.",
+                        "No emite compuestos orgánicos volátiles (COV), siendo una opción ecológica.",
+                        "Resistente al agua, permitiendo la evaporación de la humedad del ambiente.",
+                        "Compatible con sistemas de aislamiento térmico (SATE).",
+                        "Apto para aplicaciones en murales, fachadas, paredes de ladrillo, piedra natural y otras superficies porosas."
                     ],
                     "recomendaciones": [
+                        "Soportes Tradicionales en construcción (ladrillo, bloque, etc.). Deben estar sanos, limpios, sin polvo, restos de pinturas, moho, etc.",
+                        "No utilizar a temperaturas inferiores a 5ºC ni superiores a 30ºC.",
                         "Proteger las aristas superiores del revestimiento frente a la penetración del agua de lluvia.",
                         "No aplicar sobre hormigón celular, yeso, pinturas, superficies de metal, plástico, aislamientos y materiales de poca resistencia mecánica.",
                         "En caso de calor, viento o soportes muy absorbentes, se recomienda humedecer el soporte y esperar a la desaparición de la película de agua.",
-                        "En puntos singulares (uniones entre materiales distintos, forjados, pilares, cajas de persiana, ángulos de marcos de puertas y ventanas, etc.) armar el mortero con malla de fibra de vidrio para evitar fisuras.",
-                        "Sobre soportes poco porosos, aplicar una imprimación (EUROFIX) o mejorar la rugosidad por medios mecánicos.",
-                        "Los soportes deben ser resistentes, estables, sanos y estar limpios, exentos de polvo, restos de desencofrantes, productos orgánicos, etc."
+                        "En puntos singulares (uniones entre materiales distintos, forjados, pilares, etc.) armar el mortero con malla de fibra de vidrio para evitar fisuras.",
+                        "Sobre soportes poco porosos, aplicar una imprimación (EUROFIX) o mejorar la rugosidad por medios mecánicos."
                     ],
                     "precauciones": [
+                        "No utilizar en ambientes donde el nivel de humedad sea excesivamente alto.",
+                        "No aplicar sobre superficies extremadamente lisas o no porosas sin un tratamiento previo adecuado: Puente de Unión RHINO.",
+                        "Evitar su aplicación en condiciones de heladas o lluvias intensas.",
                         "No aplicar por debajo de 5°C ni por encima de 30°C.",
                         "No aplicar con riesgo de heladas, lluvias, fuertes vientos o sol directo.",
                         "Para espesores superiores a 2 cm se recomienda aplicar el producto en dos capas.",
                         "El espesor mínimo de enlucido/revoque deberá ser de 10 mm."
                     ],
                     "informacion_relevante": [
-                        "Presentación: Sacos de 25 Kg. Palets de 1400 kg (56 sacos).",
+                        "Presentación: Sacos de 25 kg. Palets de 1400 kg (56 sacos).",
                         "Colores: extensa gama de 150 colores ampliable según necesidades del cliente.",
                         "Rendimiento: 1,5 kg/m2 y mm de espesor en soporte plano.",
+                        "Conservación: 12 meses a partir de la fecha de fabricación, en un lugar seco, ventilado y fresco.",
                         "Conservación: 12 meses a partir de la fecha de fabricación, en el envase original cerrado y al abrigo de la humedad."
                     ],
                     "documentacion": [
@@ -96,11 +105,49 @@
                     ]
                 },
                 {
-                    "nombre": "CAL MIXTO",
-                    "subtitulo": "Cal y cemento",
+                    "nombre": "ARGAMASA MORTERO DE CAL MIXTO",
+                    "subtitulo": "Mortero de Cal y Cemento",
                     "imagen": "/img/productos/02-ARGAMASA M.png",
-                    "informacion_general": "Mortero de cal y cemento con propiedades de alta resistencia, buena transpirabilidad y excelente trabajabilidad, idóneo para múltiples aplicaciones en la construcción y rehabilitación de fachadas."
-                }
+                    "composicion": "Mortero compuesto por cal aérea y cemento blanco, junto con áridos seleccionados y aditivos que garantizan un excelente comportamiento mecánico, alta durabilidad y flexibilidad. Su formulación es adecuada para aplicaciones en obra nueva, reformas y reparaciones de muros, fachadas y pavimentos, combinando lo mejor de ambos materiales: la elasticidad e impermeabilidad de la cal y la resistencia del cemento.",
+                    "caracteristicas": [
+                      "Alta resistencia mecánica, ideal para estructuras que requieren gran durabilidad.",
+                      "Flexibilidad para adaptarse a movimientos sin agrietarse.",
+                      "Fácil de trabajar y aplicar, permitiendo un acabado liso, fratasado o raspado.",
+                      "Ideal para interiores y exteriores, incluyendo zonas con exposición a agentes climáticos.",
+                      "Resistente a las heladas, ofreciendo alta estabilidad térmica.",
+                      "Sin tendencia a la fisuración de otros morteros tradicionales."
+                    ],
+                    "recomendaciones": [
+                      "Evitar temperaturas extremas durante la aplicación (inferiores a 5ºC o superiores a 30ºC).",
+                      "No aplicar en condiciones de exposición directa a lluvias intensas o viento fuerte durante el proceso de secado.",
+                      "No aplicar en juntas de dilatación o zonas sujetas a movimientos estructurales.",
+                      "No utilizar en superficies muy absorbentes sin un tratamiento previo de sellado."
+                    ],
+                    "precauciones": [
+                      "No aplicar sobre superficies con humedad excesiva.",
+                      "Proteger el mortero fresco de condiciones climáticas adversas.",
+                      "Seguir estrictamente las proporciones de mezcla recomendadas.",
+                      "Utilizar equipos de protección personal durante la aplicación."
+                    ],
+                    "informacion_relevante": [
+                      "Presentación: Sacos de 25 kg.",
+                      "Conservación: 12 meses a partir de la fecha de fabricación, en lugar seco y protegido de la humedad.",
+                      "Rendimiento aproximado: 1,6 kg/m² por mm de espesor.",
+                      "Tiempo de endurecimiento: 24-48 horas según condiciones ambientales."
+                    ],
+                    "documentacion": [
+                      {
+                        "nombre": "Ficha Técnica",
+                        "accion": "Descargar",
+                        "enlace": "#"
+                      },
+                      {
+                        "nombre": "Guía de Aplicación",
+                        "accion": "Descargar",
+                        "enlace": "#"
+                      }
+                    ]
+                  }
             ]
         },
         {
@@ -699,26 +746,25 @@
                     "nombre": "KOLATEC FOREVER",
                     "subtitulo": "Mortero juntas. Juntas",
                     "imagen": "/img/productos/FOREVER BOLSA.png",
-                    "composicion": "Mortero a base de áridos seleccionados, cemento blanco, resinas, pigmentos y aditivos para Juntas entre Baldosas Cerámicas de hasta 15 mm, impermeable, sin retracción y de fácil limpieza.",
+                    "composicion": "Mortero formulado a base de áridos seleccionados, cemento blanco, y aditivos para el relleno de juntas entre baldosas cerámicas, gres y piedra natural. Diseñado para juntas de hasta 15 mm. este mortero ofrece una amplia gama de colores. Su textura fina y su alta adherencia garantizan un acabado estético y duradero, evitando fisuras y retracciones.",
                     "caracteristicas": [
-                        "Elevada dureza.",
-                        "Color intenso.",
-                        "Fácil limpieza.",
-                        "Textura muy fina.",
-                        "Baja absorción de agua.",
-                        "Resistente al agrietamiento y a la abrasión.",
-                        "Aplicación en interiores y exteriores.",
-                        "Apto para calefacción radiante."
+                        "Alta resistencia mecánica y larga durabilidad.",
+                        "Impermeable y de baja absorción de agua, evitando filtraciones y eflorescencias.",
+                        "Fácil limpieza y aplicación, sin residuos difíciles de eliminar",
+                        "Apto para calefacción radiante, manteniendo su integridad sin fisuras.",
+                        "Aplicación en interiores y exteriores, ideal para baños, cocinas, terrazas y fachadas.",
+                        "Resistente al agrietamiento, abrasión y productos de limpieza convencionales."
                     ],
                     "recomendaciones": [
-                        "En baldosas muy absorbentes o con altas temperaturas, humedecer las juntas antes de rellenarlas, evitando encharcar.",
-                        "En rehabilitaciones, vaciar completamente la junta antes de la aplicación."
+                        "En el caso de baldosas muy absorbentes o temperaturas elevadas, humedecer ligeramente las juntas antes de la aplicación con una esponja húmeda, evitando el encharcamiento.",
+                        "En rehabilitaciones o renovaciones, vaciar completamente la junta antes de la aplicación para garantizar una correcta adherencia.",
+                        " Para obtener un acabado uniforme, utilizar herramientas adecuadas y respetar los tiempos de fraguado indicados."
                     ],
                     "precauciones": [
                         "No aplicar por debajo de 5ºC ni por encima de 30ºC.",
-                        "No aplicar con riesgo de heladas, lluvias, fuertes vientos o sol directo.",
+                        "Evitar su aplicación con riesgo de heladas, lluvias intensas, fuertes vientos o exposición directa al sol.",
                         "No usar en juntas de dilatación o sujetas a movimientos estructurales.",
-                        "No realizar la limpieza con exceso de agua ni con el material demasiado fresco."
+                        "No limpiar con un exceso de agua o cuando el material aún esté fresco, evitando carbonataciones y cambios de tonalidad por dispersión de pigmentos."
                     ],
                     "informacion_relevante": [
                         "Presentación: Sacos de plástico 5 kg | Sacos de papel 8 kg.",

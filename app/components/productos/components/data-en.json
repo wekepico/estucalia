@@ -32,35 +32,44 @@
             ],
             "productos": [
                 {
-                    "nombre": "CAL NHL",
+                    "nombre": "ARGAMASA - NHL LIME MORTAR",
                     "subtitulo": "Lime mortar. Lime",
                     "imagen": "/img/productos/01-ARGAMASA.png",
-                    "composicion": "Product made from high-strength white cement, selected aggregates, organic additives, and pigments.",
+                    "composicion": "Mortar based on pure Natural Hydraulic Lime (NHL), selected aggregates and additives that provide a high-quality product for coatings, walls and surface repairs. This mortar stands out for its great adhesion, flexibility and breathability, making it ideal for applications in new construction and restoration works, both indoors and outdoors.",
                     "caracteristicas": [
-                        "Direct application to the enclosure wall without the need for undercoating.",
-                        "Application for interiors and exteriors.",
-                        "Waterproof coating.",
-                        "Permeable to water vapor, allowing breathability of the substrate."
+                        "High compression and flexural strength with quick drying.",
+                        "Breathable, allowing moisture evacuation and preventing salt accumulation.",
+                        "Ideal for restoration and conservation of architectural heritage.",
+                        "High adhesion to both traditional and modern surfaces.",
+                        "Does not emit volatile organic compounds (VOCs), making it an ecological option.",
+                        "Water resistant while allowing environmental moisture evaporation.",
+                        "Compatible with thermal insulation systems (ETICS).",
+                        "Suitable for applications on murals, facades, brick walls, natural stone and other porous surfaces."
                     ],
                     "recomendaciones": [
-                        "Protect the upper edges of the coating from rainwater penetration.",
-                        "Do not apply to cellular concrete, plaster, paints, metal surfaces, plastic, insulation materials, or low mechanical strength materials.",
-                        "In case of heat, wind, or highly absorbent substrates, moisten the substrate and wait for the water film to disappear.",
-                        "At critical points (junctions between different materials, slabs, pillars, shutter boxes, door/window frame corners, etc.), reinforce the mortar with fiberglass mesh to prevent cracks.",
-                        "On low-porosity substrates, apply a primer (EUROFIX) or improve roughness by mechanical means.",
-                        "Substrates must be strong, stable, sound, and clean, free of dust, formwork residues, organic products, etc."
+                        "Traditional construction substrates (brick, block, etc.) must be sound, clean, free of dust, paint residues, mold, etc.",
+                        "Do not use at temperatures below 5°C or above 30°C.",
+                        "Protect the upper edges of the coating against rainwater penetration.",
+                        "Do not apply on cellular concrete, plaster, paints, metal surfaces, plastic, insulation materials or materials with low mechanical strength.",
+                        "In case of heat, wind or highly absorbent substrates, moisten the substrate and wait for the water film to disappear.",
+                        "At critical points (junctions between different materials, floors, pillars, etc.) reinforce the mortar with fiberglass mesh to prevent cracks.",
+                        "On low-porosity substrates, apply a primer (EUROFIX) or improve roughness by mechanical means."
                     ],
                     "precauciones": [
+                        "Do not use in environments with excessively high humidity levels.",
+                        "Do not apply on extremely smooth or non-porous surfaces without proper pretreatment: RHINO Bonding Bridge.",
+                        "Avoid application in frost or heavy rain conditions.",
                         "Do not apply below 5°C or above 30°C.",
-                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
-                        "For thicknesses over 2 cm, apply the product in two layers.",
-                        "The minimum plastering/rendering thickness must be 10 mm."
+                        "Do not apply when there is risk of frost, rain, strong winds or direct sunlight.",
+                        "For thicknesses greater than 2 cm, apply the product in two layers.",
+                        "The minimum plastering/rendering thickness should be 10 mm."
                     ],
                     "informacion_relevante": [
-                        "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
-                        "Colors: Extensive range of 150 colors, expandable based on customer needs.",
-                        "Coverage: 1.5 kg/m² per mm thickness on a flat substrate.",
-                        "Shelf life: 12 months from the manufacturing date, in the original sealed packaging and protected from moisture."
+                        "Presentation: 25 kg bags. Pallets of 1400 kg (56 bags).",
+                        "Colors: extensive range of 150 colors, expandable according to customer needs.",
+                        "Coverage: 1.5 kg/m2 per mm thickness on flat substrate.",
+                        "Storage: 12 months from manufacturing date in a dry, ventilated and cool place.",
+                        "Storage: 12 months from manufacturing date in original closed packaging protected from moisture."
                     ],
                     "documentacion": [
                         {
@@ -96,11 +105,49 @@
                     ]
                 },
                 {
-                    "nombre": "CAL MIXTO",
-                    "subtitulo": "Lime and cement",
+                    "nombre": "ARGAMASA MIXED LIME MORTAR",
+                    "subtitulo": "Lime and Cement Mortar",
                     "imagen": "/img/productos/02-ARGAMASA M.png",
-                    "informacion_general": "Lime and cement mortar with high-strength properties, good breathability, and excellent workability, suitable for various applications in construction and facade rehabilitation."
-                }
+                    "composicion": "Mortar composed of aerial lime and white cement, along with selected aggregates and additives that ensure excellent mechanical performance, high durability and flexibility. Its formulation is suitable for applications in new construction, renovations and repairs of walls, facades and pavements, combining the best of both materials: the elasticity and waterproofing of lime and the strength of cement.",
+                    "caracteristicas": [
+                      "High mechanical strength, ideal for structures requiring great durability.",
+                      "Flexibility to accommodate movements without cracking.",
+                      "Easy to work with and apply, allowing for smooth, floated or scraped finishes.",
+                      "Ideal for both indoor and outdoor use, including areas exposed to weather agents.",
+                      "Frost resistant, offering high thermal stability.",
+                      "Less prone to cracking compared to traditional mortars."
+                    ],
+                    "recomendaciones": [
+                      "Avoid extreme temperatures during application (below 5°C or above 30°C).",
+                      "Do not apply in conditions of direct exposure to heavy rain or strong wind during the drying process.",
+                      "Do not apply in expansion joints or areas subject to structural movements.",
+                      "Do not use on highly absorbent surfaces without prior sealing treatment."
+                    ],
+                    "precauciones": [
+                      "Do not apply on surfaces with excessive moisture.",
+                      "Protect fresh mortar from adverse weather conditions.",
+                      "Strictly follow recommended mixing proportions.",
+                      "Use personal protective equipment during application."
+                    ],
+                    "informacion_relevante": [
+                      "Presentation: 25 kg bags.",
+                      "Storage: 12 months from manufacturing date in a dry place protected from moisture.",
+                      "Approximate coverage: 1.6 kg/m² per mm thickness.",
+                      "Curing time: 24-48 hours depending on environmental conditions."
+                    ],
+                    "documentacion": [
+                      {
+                        "nombre": "Technical Data Sheet",
+                        "accion": "Download",
+                        "enlace": "#"
+                      },
+                      {
+                        "nombre": "Application Guide",
+                        "accion": "Download",
+                        "enlace": "#"
+                      }
+                    ]
+                  }
             ]
         },
         {
@@ -697,32 +744,31 @@
             "productos": [
                 {
                     "nombre": "KOLATEC FOREVER",
-                    "subtitulo": "Grout mortar. Joints",
+                    "subtitulo": "Joint mortar. Joints",
                     "imagen": "/img/productos/FOREVER BOLSA.png",
-                    "composicion": "Mortar based on selected aggregates, white cement, resins, pigments, and additives for ceramic tile joints up to 15 mm, waterproof, non-shrinking, and easy to clean.",
+                    "composicion": "Mortar formulated with selected aggregates, white cement, and additives for filling joints between ceramic tiles, porcelain, and natural stone. Designed for joints up to 15 mm, this mortar offers a wide range of colors. Its fine texture and high adhesion guarantee an aesthetic and durable finish, preventing cracks and shrinkage.",
                     "caracteristicas": [
-                        "High hardness.",
-                        "Intense color.",
-                        "Easy cleaning.",
-                        "Very fine texture.",
-                        "Low water absorption.",
-                        "Resistant to cracking and abrasion.",
-                        "Application for interiors and exteriors.",
-                        "Suitable for radiant floor heating."
+                        "High mechanical strength and long durability.",
+                        "Waterproof and low water absorption, preventing leaks and efflorescence.",
+                        "Easy cleaning and application, without difficult-to-remove residues",
+                        "Suitable for radiant heating, maintaining its integrity without cracks.",
+                        "Application for indoor and outdoor use, ideal for bathrooms, kitchens, terraces, and facades.",
+                        "Resistant to cracking, abrasion, and conventional cleaning products."
                     ],
                     "recomendaciones": [
-                        "For highly absorbent tiles or high temperatures, moisten the joints before filling, avoiding saturation.",
-                        "In renovations, completely empty the joint before application."
+                        "In the case of highly absorbent tiles or high temperatures, slightly moisten the joints before application with a damp sponge, avoiding puddles.",
+                        "In renovations or rehabilitations, completely empty the joint before application to ensure proper adhesion.",
+                        "For a uniform finish, use appropriate tools and respect the indicated setting times."
                     ],
                     "precauciones": [
                         "Do not apply below 5°C or above 30°C.",
-                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
-                        "Do not use for expansion joints or joints subject to structural movements.",
-                        "Do not clean with excess water or when the material is too fresh."
+                        "Avoid application with risk of frost, heavy rain, strong winds, or direct sun exposure.",
+                        "Do not use in expansion joints or those subject to structural movements.",
+                        "Do not clean with excess water or when the material is still fresh, avoiding carbonation and color changes due to pigment dispersion."
                     ],
                     "informacion_relevante": [
-                        "Packaging: 5 kg plastic bags | 8 kg paper bags.",
-                        "Colors: Over 30 colors in our range, expandable upon request.",
+                        "Presentation: Plastic bags 5 kg | Paper bags 8 kg.",
+                        "Colors: More than 30 colors in our range, expandable upon demand.",
                         "Shelf life: 24 months (paper bags) / 12 months (plastic bags) from the manufacturing date."
                     ],
                     "documentacion": [

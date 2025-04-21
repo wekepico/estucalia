@@ -36,7 +36,7 @@ export default function NewsSection() {
     const fetchData = async () => {
       try {
         const data = await fetchBlogPosts();
-        setBlogs(data);
+        setBlogs(data.slice(0,3));
       } catch (error) {
         console.error('Error fetching blog posts:', error);
       }
