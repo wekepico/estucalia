@@ -5,7 +5,7 @@ import SolutionsSection from '../components/empresa/SolutionsSection';
 import InternationalSection from '../components/empresa/InternationalSection';
 import CertificationsSection from '../components/empresa/CertificationsSection';
 import ConsultingSection from '../components/empresa/ConsultingSection';
-import NewsSection from '../components/empresa/NewsSection';
+import NewsSection from '../components/home/NewsSection';
 
 export default function EmpresaPage() {
   return (
