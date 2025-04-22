@@ -73,21 +73,46 @@ export default function ClientNavigation() {
       .replace(/--+/g, '-');
   };
 
+
+  const submenuItemsAplications = {
+    coatings: t("navigation.applications.submenu.coatings"),
+    plasters: t("navigation.applications.submenu.plasters"),
+    masonry: t("navigation.applications.submenu.masonry"),
+    tiles: t("navigation.applications.submenu.tiles"),
+    screeds: t("navigation.applications.submenu.screeds"),
+    thermalInsulation: t("navigation.applications.submenu.thermalInsulation"),
+    waterproofing: t("navigation.applications.submenu.waterproofing"),
+    dehumidification: t("navigation.applications.submenu.dehumidification")
+  };
+
+
+  const submenuItemsProducts = {
+    limeMortar: t("navigation.products.submenu.limeMortar"),
+    tileAdhesive: t("navigation.products.submenu.tileAdhesive"),
+    singleLayerMortar: t("navigation.products.submenu.singleLayerMortar"),
+    stampedMortar: t("navigation.products.submenu.stampedMortar"),
+    groutMortar: t("navigation.products.submenu.groutMortar"),
+    accessoriesAndTools: t("navigation.products.submenu.accessoriesAndTools"),
+    stoneMortar: t("navigation.products.submenu.stoneMortar"),
+    waterProtector: t("navigation.products.submenu.waterProtector"),
+    bondingBridge: t("navigation.products.submenu.bondingBridge")
+  };
+
   const menuLinks = [
     {
       href: "/producto",
       label: "navigation.products.label",
-      submenu: t("navigation.products.submenu").split(',').map(item => ({
-        label: item.trim(),
-        href: item.trim()
+      submenu: Object.entries(submenuItemsProducts).map(([id, label]) => ({
+        label,
+        href: id
       }))
     },
     {
       href: "/aplicaciones",
       label: "navigation.applications.label",
-      submenu: t("navigation.applications.submenu").split(',').map(item => ({
-        label: item.trim(),
-        href:item.trim()
+      submenu:Object.entries(submenuItemsAplications).map(([id, label]) => ({
+        label,
+        href: id
       }))
     },
     {

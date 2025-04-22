@@ -22,19 +22,19 @@ export default function ProductPage() {
     setMounted(true);
     const currentData = language === "es" ? data : data2;
     const category = currentData.categorias.find(
-      (cat: any) => cat.titulo.toLowerCase() === categoryId.toLowerCase()
+      (cat: any) => cat.id.toLowerCase() === categoryId.toLowerCase()
     );
     setFoundCategory(category);
   }, [language, categoryId]);
 
-  useEffect(() => {
-    if (foundCategory && mounted) {
-      const newPath = "/producto/" + foundCategory.titulo
-      if (pathname !== newPath) {
-        window.location.href = newPath;
-      }
-    }
-  }, [t]);
+  // useEffect(() => {
+  //   if (foundCategory && mounted) {
+  //     const newPath = "/producto/" + foundCategory.titulo
+  //     if (pathname !== newPath) {
+  //       window.location.href = newPath;
+  //     }
+  //   }
+  // }, [t]);
 
   if (!mounted) {
     return (

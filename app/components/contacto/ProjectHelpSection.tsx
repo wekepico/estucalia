@@ -44,6 +44,7 @@ export default function ProjectHelpSection() {
             <div className="flex w-full justify-end items-center">
               <Button
                 variant="outline"
+                onClick={() => window.location.href = "/contacto"}
                 className=" border-gray-500 border-solid relative pl-5 pr-10 py-4 md:py-5  rounded-none"
               >
                 <span>{t('contact.projectHelp.button')}</span>

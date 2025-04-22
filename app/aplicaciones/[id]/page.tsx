@@ -15,6 +15,7 @@ import { useLanguage } from '@/app/context/LanguageContext';
 
 
 export interface Aplication{
+  id:string
   aplication:string;
   descripcion:string;
   img:string;
@@ -24,237 +25,7 @@ export interface Aplication{
   }[]
 }
 
-const data:Aplication[] = [
-  {
-    aplication: "applications.categories.coatings",
-    img:"/img/revestimiento.jpg",
-    descripcion: "applications.descriptions.coatings",
-    products: [
-      {
-        name: 'products.monocapa',
-        icon: MorteroCal
 
-      },
-      {
-        name: 'products.lime',
-        icon: MorteroMonocapa
-
-      },
-      {
-        name: 'products.printed',
-        icon: MorteroImpreso
-      },
-      {
-        name: 'products.stone',
-        icon: Piedra
-      },
-      {
-        name: 'products.union',
-        icon: Union
-      },
-    ]
-
-  },
-  {
-    aplication: "applications.categories.plasters",
-    img:"/img/revocos_enlucidos.jpg",
-    descripcion: "applications.descriptions.plasters",
-    products: [
-      {
-        name: 'products.monocapa',
-        icon: MorteroCal
-
-      },
-      {
-        name: 'products.lime',
-        icon: MorteroMonocapa
-
-      },
-      {
-        name: 'products.printed',
-        icon: MorteroImpreso
-      },
-      {
-        name: 'products.stone',
-        icon: Piedra
-      },
-      {
-        name: 'products.union',
-        icon: Union
-      },
-    ]
-
-  },
-  {
-    aplication: "applications.categories.masonry",
-    img:"/img/albañileria.jpg",
-    descripcion: "applications.descriptions.masonry",
-    products: [
-      {
-        name: 'products.monocapa',
-        icon: MorteroCal
-
-      },
-      {
-        name: 'products.adhesive',
-        icon: Cola
-      },
-      {
-        name: 'products.lime',
-        icon: MorteroMonocapa
-
-      },
-      {
-        name: 'products.printed',
-        icon: MorteroImpreso
-      },
-      {
-        name: 'products.waterProtector',
-        icon: Agua
-      },
-      {
-        name: 'products.union',
-        icon: Union
-      },
-    ]
-
-  },
-  {
-    aplication: "applications.categories.tiles",
-    img:"/img/baldosas.jpg",
-    descripcion: "applications.descriptions.tiles",
-    products: [
-      {
-        name: 'products.adhesive',
-        icon: Cola
-      },
-      {
-        name: 'products.joint',
-        icon: Juntas
-
-      }
-    ]
-
-  },
-  {
-    aplication: "applications.categories.screeds",
-    img:"/img/recrecidos.jpg",
-    descripcion: "applications.descriptions.screeds",
-    products: [
-      {
-        name: 'products.monocapa',
-        icon: MorteroMonocapa
-      },
-      {
-        name: 'products.adhesive',
-        icon: Cola
-
-      }
-    ]
-
-  },
-  {
-    aplication: "applications.categories.thermal",
-    img:"/img/aislamiento.jpg",
-    descripcion: "applications.descriptions.thermal",
-    products: [
-      {
-        name: 'products.monocapa',
-        icon: MorteroMonocapa
-
-      },
-      {
-        name: 'products.adhesive',
-        icon: Cola
-      },
-      {
-        name: 'products.lime',
-        icon: MorteroCal
-
-      },
-      {
-        name: 'products.printed',
-        icon: MorteroImpreso
-      },
-
-      {
-        name: 'products.union',
-        icon: Union
-      },
-    ]
-
-  },
-  {
-    aplication: "applications.categories.waterproofing",
-    img:"/img/impermeabilizacion.jpg",
-    descripcion: "applications.descriptions.waterproofing",
-    products: [
-      {
-        name: 'products.monocapa',
-        icon: MorteroMonocapa
-
-      },
-      {
-        name: 'products.lime',
-        icon: MorteroCal
-
-      },
-      {
-        name: 'products.printed',
-        icon: MorteroImpreso
-      },
-      {
-        name: 'products.joint',
-        icon: Juntas
-      },
-
-      {
-        name: 'products.stone',
-        icon: Piedra
-      },
-      {
-        name: 'products.waterProtector',
-        icon: Agua
-      },
-    ]
-
-  },
-  {
-    aplication: "applications.categories.dehumidification",
-    img:"/img/deshumificacion.jpg",
-    descripcion: "applications.descriptions.dehumidification",
-    products: [
-      {
-        name: 'products.monocapa',
-        icon: MorteroMonocapa
-
-      },
-      {
-        name: 'products.adhesive',
-        icon: Cola
-
-      },
-      {
-        name: 'products.lime',
-        icon: MorteroCal
-      },
-      {
-        name: 'products.printed',
-        icon: MorteroImpreso
-      },
-
-      {
-        name: 'products.stone',
-        icon: Piedra
-      },
-      {
-        name: 'products.union',
-        icon: Union
-      },
-    ]
-
-  },
-]
 
 
 export default function Aplicaciones() {
@@ -272,9 +43,225 @@ export default function Aplicaciones() {
   }, []);
 
 
+  const data: Aplication[] = [
+    {
+      id: "coatings",
+      aplication: t("applications.categories.coatings"),
+      img: "/img/revestimiento.jpg",
+      descripcion: t("applications.descriptions.coatings"),
+      products: [
+        {
+          name: t('products.monocapa'),
+          icon: MorteroCal
+        },
+        {
+          name: t('products.lime'),
+          icon: MorteroMonocapa
+        },
+        {
+          name: t('products.printed'),
+          icon: MorteroImpreso
+        },
+        {
+          name: t('products.stone'),
+          icon: Piedra
+        },
+        {
+          name: t('products.union'),
+          icon: Union
+        },
+      ]
+    },
+    {
+      id: "plasters",
+      aplication: t("applications.categories.plasters"),
+      img: "/img/revocos_enlucidos.jpg",
+      descripcion: t("applications.descriptions.plasters"),
+      products: [
+        {
+          name: t('products.monocapa'),
+          icon: MorteroCal
+        },
+        {
+          name: t('products.lime'),
+          icon: MorteroMonocapa
+        },
+        {
+          name: t('products.printed'),
+          icon: MorteroImpreso
+        },
+        {
+          name: t('products.stone'),
+          icon: Piedra
+        },
+        {
+          name: t('products.union'),
+          icon: Union
+        },
+      ]
+    },
+    {
+      id: "masonry",
+      aplication: t("applications.categories.masonry"),
+      img: "/img/albañileria.jpg",
+      descripcion: t("applications.descriptions.masonry"),
+      products: [
+        {
+          name: t('products.monocapa'),
+          icon: MorteroCal
+        },
+        {
+          name: t('products.adhesive'),
+          icon: Cola
+        },
+        {
+          name: t('products.lime'),
+          icon: MorteroMonocapa
+        },
+        {
+          name: t('products.printed'),
+          icon: MorteroImpreso
+        },
+        {
+          name: t('products.waterProtector'),
+          icon: Agua
+        },
+        {
+          name: t('products.union'),
+          icon: Union
+        },
+      ]
+    },
+    {
+      id: "tiles",
+      aplication: t("applications.categories.tiles"),
+      img: "/img/baldosas.jpg",
+      descripcion: t("applications.descriptions.tiles"),
+      products: [
+        {
+          name: t('products.adhesive'),
+          icon: Cola
+        },
+        {
+          name: t('products.joint'),
+          icon: Juntas
+        }
+      ]
+    },
+    {
+      id: "screeds",
+      aplication: t("applications.categories.screeds"),
+      img: "/img/recrecidos.jpg",
+      descripcion: t("applications.descriptions.screeds"),
+      products: [
+        {
+          name: t('products.monocapa'),
+          icon: MorteroMonocapa
+        },
+        {
+          name: t('products.adhesive'),
+          icon: Cola
+        }
+      ]
+    },
+    {
+      id: "thermalInsulation",
+      aplication: t("applications.categories.thermal"),
+      img: "/img/aislamiento.jpg",
+      descripcion: t("applications.descriptions.thermal"),
+      products: [
+        {
+          name: t('products.monocapa'),
+          icon: MorteroMonocapa
+        },
+        {
+          name: t('products.adhesive'),
+          icon: Cola
+        },
+        {
+          name: t('products.lime'),
+          icon: MorteroCal
+        },
+        {
+          name: t('products.printed'),
+          icon: MorteroImpreso
+        },
+        {
+          name: t('products.union'),
+          icon: Union
+        },
+      ]
+    },
+    {
+      id: "waterproofing",
+      aplication: t("applications.categories.waterproofing"),
+      img: "/img/impermeabilizacion.jpg",
+      descripcion: t("applications.descriptions.waterproofing"),
+      products: [
+        {
+          name: t('products.monocapa'),
+          icon: MorteroMonocapa
+        },
+        {
+          name: t('products.lime'),
+          icon: MorteroCal
+        },
+        {
+          name: t('products.printed'),
+          icon: MorteroImpreso
+        },
+        {
+          name: t('products.joint'),
+          icon: Juntas
+        },
+        {
+          name: t('products.stone'),
+          icon: Piedra
+        },
+        {
+          name: t('products.waterProtector'),
+          icon: Agua
+        },
+      ]
+    },
+    {
+      id: "dehumidification",
+      aplication: t("applications.categories.dehumidification"),
+      img: "/img/deshumificacion.jpg",
+      descripcion: t("applications.descriptions.dehumidification"),
+      products: [
+        {
+          name: t('products.monocapa'),
+          icon: MorteroMonocapa
+        },
+        {
+          name: t('products.adhesive'),
+          icon: Cola
+        },
+        {
+          name: t('products.lime'),
+          icon: MorteroCal
+        },
+        {
+          name: t('products.printed'),
+          icon: MorteroImpreso
+        },
+        {
+          name: t('products.stone'),
+          icon: Piedra
+        },
+        {
+          name: t('products.union'),
+          icon: Union
+        },
+      ]
+    },
+  ];
+
+
   useEffect(() => {
     if (mounted) {
-      const found = data.find(item => t(item.aplication).toLowerCase() === aplication?.toLowerCase());
+      const found = data.find(item => item.id.toLowerCase() === aplication?.toLowerCase());
       setValues(found || null);
     }
   }, [aplication, mounted, t]);
@@ -285,10 +272,7 @@ export default function Aplicaciones() {
 
   return (
       <main className="min-h-screen bg-white md:pt-28 pt-16 lg:pt-32">
-        <AplicationPage img={value?.img || ''} descripcion={value?.descripcion ? t(value.descripcion) : ""} aplication={value?.aplication ? t(value.aplication) : ""}  products={value?.products.map(product => ({
-          ...product,
-          name: t(product.name)
-        })) || []} />
+        <AplicationPage aplication={value} />
       </main>
   );
 }

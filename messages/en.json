@@ -11,14 +11,33 @@
     "about": "About Us",
     "products": {
       "label": "Products",
-      "submenu": "Lime mortar, Tile adhesive, Single-layer mortar, Stamped mortar, Grout mortar, Accessories and tools, Stone mortar, Water protector, Bonding bridge"
+      "submenu": {
+        "limeMortar": "Lime mortar",
+        "tileAdhesive": "Tile adhesive",
+        "singleLayerMortar": "Single-layer mortar",
+        "stampedMortar": "Stamped mortar",
+        "groutMortar": "Grout mortar",
+        "accessoriesAndTools": "Accessories and tools",
+        "stoneMortar": "Stone mortar",
+        "waterProtector": "Water protector",
+        "bondingBridge": "Bonding bridge"
+      }
     },
     "contact": "Contact",
     "blog": "Blog",
     "inspiration": "Inspiration",
     "applications": {
       "label": "Applications",
-      "submenu": "Coatings, Plasters and renders, Masonry, Tiles, Screeds, Thermal insulation, Waterproofing, Dehumidification"
+      "submenu": {
+        "coatings": "Coatings",
+        "plasters": "Plasters and renders",
+        "masonry": "Masonry",
+        "tiles": "Tiles",
+        "screeds": "Screeds",
+        "thermalInsulation": "Thermal insulation",
+        "waterproofing": "Waterproofing",
+        "dehumidification": "Dehumidification"
+      }
     },
     "spaces": {
       "label": "Spaces",
@@ -203,25 +222,36 @@
     "schedule": {
       "title": "Schedule",
       "weekdays": "Monday - Thursday",
-      "weekdaysHours": "08:00 AM - 18:00 PM",
+      "weekdaysHours": "08:00 AM - 06:00 PM",
       "friday": "Friday",
-      "fridayHours": "08:00 AM - 14:00 PM",
+      "fridayHours": "08:00 AM - 02:00 PM",
       "summer": "Summer (July 15th to September 15th)",
-      "summerHours": "07:00 AM - 15:00 PM"
+      "summerHours": "07:00 AM - 03:00 PM"
     },
     "form": {
       "name": "Name",
       "phone": "Phone",
-      "email": "E-mail",
+      "email": "Email",
       "subject": "Subject",
       "message": "Message",
       "privacyPolicy": "Yes, I have read and accept the processing of my personal data according to the Privacy Policy and Legal Notice of Estucalia Morteros S.L.",
-      "commercialInfo": "Yes, I authorize the electronic reception of commercial information from Grupo Estucalia.",
-      "dataProtection": "Basic information on Data Protection. Responsible: ESTUCALIA MORTEROS S.L. Purpose of processing: manage your query/request, send electronic information and subsequent commercial follow-up. Legitimization: your express consent when sending us this form (GDPR 6.1.a), your data will not be transferred to third parties and will be kept for one year, except legal obligation. You can exercise your rights of access, rectification, deletion, portability, limitation and opposition, and revoke your consent by contacting:",
-      "submit": "Send"
+      "commercialInfo": "Yes, I authorize the electronic receipt of commercial information from Grupo Estucalia.",
+      "dataProtection": "Basic information on Data Protection. Responsible: ESTUCALIA MORTEROS S.L. Purpose of processing: manage your query/request, send information electronically and subsequent commercial follow-up. Legitimation: your express consent when sending us this form (GDPR 6.1.a), your data will not be transferred to third parties and will be kept for one year, unless legal obligation. You can exercise your rights of access, rectification, deletion, portability, limitation and opposition, and revoke your consent by contacting:",
+      "submit": "Send",
+      "submitting": "Sending...",
+      "successMessage": "Message sent successfully",
+      "errorMessage": "Error sending message",
+      "validation": {
+        "nameRequired": "Name is required",
+        "phoneRequired": "Phone must have at least 9 digits",
+        "phoneNumbersOnly": "Phone must contain only numbers",
+        "emailInvalid": "Invalid email",
+        "subjectRequired": "Subject is required",
+        "privacyPolicyRequired": "You must accept the privacy policy"
+      }
     },
     "projectHelp": {
-      "title": "Need help with your project?",
+      "title": "Do you need help with your project?",
       "description": "Our team of experts is ready to advise you on selecting the most suitable products for your project. Contact us and we will help you find the best solution.",
       "button": "Contact"
     }

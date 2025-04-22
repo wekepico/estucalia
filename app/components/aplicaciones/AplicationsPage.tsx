@@ -45,17 +45,21 @@ const inspirationImages = [
   },
 ];
 
+interface AplicationPageProps {
+  aplication: Aplication | null;
+}
 
 
-export default function AplicationPage(aplication:Aplication) {
+export default function AplicationPage({ aplication }: AplicationPageProps) {
 
 
   return (
     <React.Fragment>
-      <HeroSection category={aplication.aplication}
-        description={aplication.descripcion}
-        products={aplication.products}
-        img={aplication.img}
+      <HeroSection 
+        category={aplication?.aplication || null}
+        description={aplication?.descripcion || null}
+        products={aplication?.products || null}
+        img={aplication?.img || null}
       />
       <InspirationSectionAplication images={inspirationImages} />
       <ProjectHelpSection />

@@ -8,10 +8,10 @@ interface Product {
 }
 
 interface HeroSectionProps {
-    category: string;
-    img: string;
-    description: string;
-    products: Product[];
+    category: string | null;
+    img: string | null;
+    description: string | null;
+    products: Product[] | null;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ description, category, products, img }) => {
@@ -32,8 +32,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ description, category,
                 {/* Contenedor de la imagen */}
                 <div className="relative w-full md:w-[57%] h-64 md:h-auto bg-slate-500">
                     <Image
-                        src={img}
-                        alt={category}
+                        src={img || ""}
+                        alt={category || ""}
                         layout="fill"
                         objectFit="cover"
                         className="absolute inset-0"
@@ -43,7 +43,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ description, category,
 
             {/* Product Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-16">
-                {products.map((product) => (
+                {products?.map((product) => (
                     <div key={product.name}>
                         <ProductCard icon={product.icon} name={product.name} />
                     </div>

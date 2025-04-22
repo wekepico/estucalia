@@ -2,6 +2,7 @@ import './globals.css';
 import Footer from './components/Footer';
 import ClientNavigation from './components/ClientNavigation';
 import { LanguageProvider } from './context/LanguageContext';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
   title: 'Modern Architecture Studio',

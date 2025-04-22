@@ -11,14 +11,33 @@
     "about": "Sobre Nosotros",
     "products": {
       "label": "Productos",
-      "submenu": "Mortero cal, Mortero cola, Mortero monocapa, Mortero impreso, Mortero juntas, Complementos y accesorios, Mortero piedra, Protector de agua, Puente de unión"
+      "submenu": {
+        "limeMortar": "Mortero de cal",
+        "tileAdhesive": "Adhesivo cerámico",
+        "singleLayerMortar": "Mortero monocapa",
+        "stampedMortar": "Mortero impreso",
+        "groutMortar": "Mortero para juntas",
+        "accessoriesAndTools": "Complementos y herramientas",
+        "stoneMortar": "Mortero de piedra",
+        "waterProtector": "Protector de agua",
+        "bondingBridge": "Puente de unión"
+      }
     },
     "contact": "Contacto",
     "blog": "Blog",
     "inspiration": "Inspiración",
     "applications": {
       "label": "Aplicaciones",
-      "submenu": "Revestimientos, Revocos y enlucidos, Albañilería, Baldosas, Recrecidos, Aislamiento térmico, Impermeabilización, Deshumidificación"
+      "submenu": {
+        "coatings": "Revestimientos",
+        "plasters": "Enlucidos y revocos",
+        "masonry": "Mampostería",
+        "tiles": "Azulejos",
+        "screeds": "Reglas",
+        "thermalInsulation": "Aislamiento térmico",
+        "waterproofing": "Impermeabilización",
+        "dehumidification": "Deshumidificación"
+      }
     },
     "spaces": {
       "label": "Espacios",
@@ -218,7 +237,18 @@
       "privacyPolicy": "Sí, he leído y acepto el tratamiento de mis datos personales según la Política de Privacidad y el Aviso Legal de Estucalia Morteros S.L.",
       "commercialInfo": "Sí, autorizo la recepción vía electrónica de información comercial de Grupo Estucalia.",
       "dataProtection": "Información básica sobre Protección de Datos. Responsable: ESTUCALIA MORTEROS S.L. Finalidad del tratamiento: gestionar su consulta/solicitud, envío de información vía electrónica y su posterior seguimiento comercial. Legitimación: su consentimiento expreso al remitirnos este formulario (RGPD 6.1.a), sus datos no serán cedidos a terceros y se conservarán por plazo de un año, salvo obligación legal. Puede ejercitar los derechos de acceso, rectificación, supresión, portabilidad, limitación y oposición, y revocar su consentimiento dirigiéndose a:",
-      "submit": "Enviar"
+      "submit": "Enviar",
+      "submitting": "Enviando...",
+      "successMessage": "Mensaje enviado con éxito",
+      "errorMessage": "Error al enviar el mensaje",
+      "validation": {
+        "nameRequired": "El nombre es obligatorio",
+        "phoneRequired": "El teléfono debe tener al menos 9 dígitos",
+        "phoneNumbersOnly": "El teléfono solo debe contener números",
+        "emailInvalid": "Email inválido",
+        "subjectRequired": "El asunto es obligatorio",
+        "privacyPolicyRequired": "Debes aceptar la política de privacidad"
+      }
     },
     "projectHelp": {
       "title": "¿Necesitas ayuda con tu proyecto?",

@@ -8,29 +8,85 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useLanguage } from '@/app/context/LanguageContext';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { toast, Toaster } from 'react-hot-toast';
 
-type FormData = {
-  nombre: string;
-  telefono: string;
-  email: string;
-  asunto: string;
-  mensaje: string;
-  aceptarPolitica: boolean;
-  aceptarComercial: boolean;
-};
+// Esquema de validación con Zod usando las traducciones
+const formSchema = (t: any) => z.object({
+  nombre: z.string().min(1, { message: t('contact.form.validation.nameRequired') }),
+  telefono: z.string().min(9, { message: t('contact.form.validation.phoneRequired') }).regex(/^[0-9]+$/, {
+    message: t('contact.form.validation.phoneNumbersOnly'),
+  }),
+  email: z.string().email({ message: t('contact.form.validation.emailInvalid') }),
+  asunto: z.string().min(1, { message: t('contact.form.validation.subjectRequired') }),
+  mensaje: z.string(),
+  aceptarPolitica: z.boolean().refine(val => val, {
+    message: t('contact.form.validation.privacyPolicyRequired'),
+  }),
+  aceptarComercial: z.boolean().optional(),
+});
+
+type FormData = z.infer<ReturnType<typeof formSchema>>;
 
 export default function ContactForm() {
   const { t } = useLanguage();
   const [mounted, setMounted] = useState(false);
-  const form = useForm<FormData>();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema(t)),
+    defaultValues: {
+      nombre: '',
+      telefono: '',
+      email: '',
+      asunto: '',
+      mensaje: '',
+      aceptarPolitica: false,
+      aceptarComercial: false,
+    },
+  });
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    // Handle form submission
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    console.log(data)
+    try {
+      const payload = {
+        name: data.nombre,
+        phone: data.telefono,
+        email: data.email,
+        subject: data.asunto,
+        message: data.mensaje,
+        acceptPrivacyPolicy: data.aceptarPolitica,
+        acceptCommercialInfo: data.aceptarComercial,
+      };
+
+      const response = await fetch("https://api.derecho-ciudadano.com/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al enviar el formulario');
+      }
+
+      await response.json();
+      toast.success(t('contact.form.successMessage'));
+      form.reset();
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error(t('contact.form.errorMessage'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!mounted) {
@@ -39,11 +95,40 @@ export default function ContactForm() {
 
   // Configuración de campos del formulario
   const inputFields = [
-    { name: 'nombre', type: 'text', placeholder: t('contact.form.name'), component: Input },
-    { name: 'telefono', type: 'tel', placeholder: t('contact.form.phone'), component: Input },
-    { name: 'email', type: 'email', placeholder: t('contact.form.email'), component: Input },
-    { name: 'asunto', type: 'text', placeholder: t('contact.form.subject'), component: Input },
-    { name: 'mensaje', component: Textarea, placeholder: t('contact.form.message') }
+    { 
+      name: 'nombre', 
+      type: 'text', 
+      placeholder: t('contact.form.name'), 
+      component: Input,
+      required: true
+    },
+    { 
+      name: 'telefono', 
+      type: 'tel', 
+      placeholder: t('contact.form.phone'), 
+      component: Input,
+      required: true
+    },
+    { 
+      name: 'email', 
+      type: 'email', 
+      placeholder: t('contact.form.email'), 
+      component: Input,
+      required: true
+    },
+    { 
+      name: 'asunto', 
+      type: 'text', 
+      placeholder: t('contact.form.subject'), 
+      component: Input,
+      required: true
+    },
+    { 
+      name: 'mensaje', 
+      component: Textarea, 
+      placeholder: t('contact.form.message'),
+      required: true
+    }
   ];
 
   const checkboxes = [
@@ -51,18 +136,21 @@ export default function ContactForm() {
       name: 'aceptarPolitica',
       label: <FormLabel className="text-sm text-gray-900">
         {t('contact.form.privacyPolicy')}
-      </FormLabel>
+      </FormLabel>,
+      required: true
     },
     {
       name: 'aceptarComercial',
       label: <FormLabel className="text-sm text-gray-900">
         {t('contact.form.commercialInfo')}
-      </FormLabel>
+      </FormLabel>,
+      required: false
     }
   ];
 
   return (
     <section className="lg:pr-64 lg:pl-28 lg:py-28 py-16 ">
+         <Toaster position="top-right"  />
       <div className="mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-2 md: gap-12">
 
@@ -121,10 +209,12 @@ export default function ContactForm() {
                               className='border-none text-md'
                               type={field.type}
                               placeholder={field.placeholder}
+                              {...formField}
                               value={formField.value as string}
                               onChange={formField.onChange}
                               onBlur={formField.onBlur}
                               ref={formField.ref}
+                              disabled={isSubmitting}
                             />
                           </div>
                         </FormControl>
@@ -149,6 +239,8 @@ export default function ContactForm() {
                             className='rounded-none'
                             checked={field.value as boolean}
                             onCheckedChange={field.onChange}
+                            disabled={isSubmitting}   
+                            required = {field.name === "aceptarPolitica"}                       
                           />
                         </FormControl>
                         <div className="space-y-1 leading-none">
@@ -163,12 +255,15 @@ export default function ContactForm() {
                   type="submit"
                   className="group w-[155px] flex gap-4 justify-end borde-1 p-2 py-6 border-black rounded-none"
                   variant="outline"
+                  disabled={isSubmitting}
                 >
-                  <span>{t('contact.form.submit')}</span>
-                  <svg className="ml-2 w-10 h-10 transform transition-transform group-hover:translate-x-1 col-span-1"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
-                  </svg>
+                  <span>{isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}</span>
+                  {!isSubmitting && (
+                    <svg className="ml-2 w-10 h-10 transform transition-transform group-hover:translate-x-1 col-span-1"
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
+                    </svg>
+                  )}
                 </Button>
               </form>
             </Form>

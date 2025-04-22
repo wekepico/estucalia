@@ -1,7 +1,7 @@
 {
     "categorias": [
         {
-            "id": "morteros_cal",
+            "id": "limeMortar",
             "titulo": "Lime Mortar",
             "descripcion": "Lime mortar is a traditional mixture composed of lime, sand, and water. It is used in the restoration of historic buildings and eco-friendly constructions due to its breathable properties and ability to regulate humidity. It offers excellent breathability, preventing moisture buildup in walls. Its flexibility reduces the risk of cracks. Additionally, it is an eco-friendly and sustainable material, ideal for heritage restorations and bioclimatic constructions.",
             "imagen": "/img/mortero-cal.svg",
@@ -151,7 +151,7 @@
             ]
         },
         {
-            "id": "morteros_cola",
+            "id": "tileAdhesive",
             "titulo": "Tile Adhesive",
             "descripcion": "Tile adhesive is a bonding mixture used for laying tiles and ceramics on walls and floors. Its composition includes cement, resins, and additives that enhance adhesion and flexibility, ensuring a durable installation even in wet areas or with temperature variations.",
             "imagen": "/img/mortero-cola.svg",
@@ -350,7 +350,7 @@
             ]
         },
         {
-            "id": "morteros_monocapa",
+            "id": "singleLayerMortar",
             "titulo": "Single-Layer Mortar",
             "descripcion": "Single-layer mortar is a coating designed primarily for facades. It is applied in one layer and combines protective and waterproofing functions with aesthetic finishes. It is composed of cement, selected aggregates, additives, and pigments that provide different textures and colors.",
             "imagen": "/img/mortero-monocapa.svg",
@@ -642,7 +642,7 @@
             ]
         },
         {
-            "id": "mortero_impreso",
+            "id": "stampedMortar",
             "titulo": "Stamped Mortar",
             "descripcion": "Stamped mortar is a decorative coating that creates textures and reliefs on walls, imitating materials like stone or brick. It offers versatile finishes, high impact resistance, and durability in harsh weather conditions. It is applied directly to the wall and allows for quick and aesthetic finishing.",
             "imagen": "/img/mortero-impreso.svg",
@@ -730,7 +730,7 @@
             ]
         },
         {
-            "id": "mortero_juntas",
+            "id": "groutMortar",
             "titulo": "Grout Mortar",
             "descripcion": "Multipurpose grout mortar is a mixture designed to fill joints between tiles and ceramics on walls and floors. Thanks to its additives, it offers high waterproofing, good adhesion, and flexibility, ensuring a uniform and durable finish. It is available in different colors to match the design.",
             "imagen": "/img/mortero-juntas.svg",
@@ -807,7 +807,7 @@
             ]
         },
         {
-            "id": "complementos_y_accesorios",
+            "id": "accessoriesAndTools",
             "titulo": "Accessories and Tools",
             "descripcion": "Release agent, natural tint, molds, borders, and rollers. A set of accessories and tools for the final finish of your projects. They allow customization, demolding, and coloring of the mortar, achieving more creative and professional results.",
             "imagen": "/img/accerios-y-herramientas.svg",
@@ -935,7 +935,7 @@
             ]
         },
         {
-            "id": "puente_de_union",
+            "id": "bondingBridge",
             "titulo": "Bonding Bridge",
             "descripcion": "A bonding bridge is a primer that improves adhesion between different mortar layers or between mortar and other surfaces such as concrete or ceramic. It is applied before the mortar to ensure a strong bond, preventing detachment and cracks. It enhances durability of the treated surfaces and facilitates construction or repair.",
             "imagen": "/img/mortero puente union.svg",
@@ -1008,7 +1008,7 @@
             ]
         },
         {
-            "id": "mortero_piedra",
+            "id": "stoneMortar",
             "titulo": "Stone Mortar",
             "descripcion": "The projected chip mortar is a special mixture used to coat surfaces by projecting small decorative aggregate particles. It is ideal for finishes on facades and exterior walls. It offers excellent adhesion and resistance to extreme weather conditions. Its rough and decorative finish adds distinctive aesthetic value to surfaces. Additionally, its spray application ensures uniform and rapid coverage.",
             "imagen": "/img/mortero-piedra.svg",
@@ -1150,7 +1150,7 @@
             ]
         },
         {
-            "id": "protector_de_agua",
+            "id": "waterProtector",
             "titulo": "Water Protector",
             "descripcion": "The water protective varnish is a coating designed to waterproof and protect surfaces against moisture, stains, and dirt. It can be applied on floors, facades, and decorative elements. It creates an impermeable barrier that extends the lifespan of treated surfaces and makes cleaning and maintenance easier. It does not significantly alter the original color or texture.",
             "imagen": "/img/mortero-protector-agua.svg",
