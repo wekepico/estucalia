@@ -89,7 +89,7 @@ export default function DropdownEmpresa() {
 
   return (
     <div 
-      className="relative hidden lg:block"
+      className="relative font-[600] hidden lg:block"
       ref={dropdownRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -113,7 +113,7 @@ export default function DropdownEmpresa() {
           <li>
             <Link
               href="/empresa"
-              className="block px-4 py-2 text-white hover:bg-gray-800"
+              className="block px-4 py-2 font-normal text-white hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
               {t('navigation.about')} {/* Traducción para "Sobre Nosotros" */}
@@ -122,7 +122,7 @@ export default function DropdownEmpresa() {
           <li>
             <Link
               href="/trabaja-con-nosotros"
-              className="block px-4 py-2 text-white hover:bg-gray-800"
+              className="block px-4 py-2 font-normal text-white hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
               {t('navigation.workWithUs')} {/* Traducción para "Trabaja con nosotros" */}
@@ -131,7 +131,7 @@ export default function DropdownEmpresa() {
           <li>
             <Link
               href="/blog"
-              className="block px-4 py-2 text-white hover:bg-gray-800"
+              className="block px-4 py-2 font-normal text-white hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
               {t('navigation.blog')} {/* Traducción para "Blog" */}
@@ -140,7 +140,7 @@ export default function DropdownEmpresa() {
           <li>
             <Link
               href="/contacto"
-              className="block px-4 py-2 text-white hover:bg-gray-800"
+              className="block px-4 py-2 font-normal text-white hover:bg-gray-800"
               onClick={() => setIsOpen(false)}
             >
               {t('navigation.contact')} {/* Traducción para "Contacto" */}
