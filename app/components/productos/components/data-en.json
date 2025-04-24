@@ -137,16 +137,36 @@
                       "Curing time: 24-48 hours depending on environmental conditions."
                     ],
                     "documentacion": [
-                      {
-                        "nombre": "Technical Data Sheet",
-                        "accion": "Download",
-                        "enlace": "#"
-                      },
-                      {
-                        "nombre": "Application Guide",
-                        "accion": "Download",
-                        "enlace": "#"
-                      }
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
                     ]
                   }
             ]
@@ -189,7 +209,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/KOLATEC Standar C1.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -243,7 +263,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/KOLATEC Piscinas C1.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -274,47 +294,38 @@
                 },
                 {
                     "nombre": "KOLATECT LANIC",
-                    "subtitulo": "Tile adhesive C2TE",
+                    "subtitulo": "C2TE Tile Adhesive",
                     "imagen": "/img/productos/04-KOLATEC LANI.png",
-                    "composicion": "Cementitious adhesive for low-absorption ceramic tiles with extended open time. No sagging and excellent initial adhesion.",
+                    "composicion": "Cementitious adhesive with mixed binders, reduced slip, and extended open time for installing all types of ceramic tiles, natural stone, granite, and marble on indoor and outdoor floors and indoor wall coverings.",
                     "caracteristicas": [
-                        "Excellent workability and high whiteness.",
-                        "Rheologically improved with high stability and performance.",
-                        "Creamy thixotropy.",
-                        "Technologically advanced, compatible with a wide range of substrates.",
-                        "Stable across a wide mixing range.",
-                        "High thixotropic efficiency, greater comfort, and less effort.",
-                        "No need to wet tiles or substrates due to its water retention capacity.",
-                        "Reduced slippage. Excellent initial adhesion.",
-                        "Extended open time, allowing tile adjustments.",
-                        "Deformable. Type S1 (UNE EN 12002).",
-                        "Application thicknesses up to 15 mm without shrinkage.",
-                        "Bonding for all types of ceramic tiles, porcelain stoneware, marble, granite, and natural stone.",
-                        "Interior and exterior application (including facades).",
-                        "Bonding of large-format tiles.",
-                        "Installation of large surfaces with heavy traffic, radiant floor heating, cold rooms, and overlays.",
-                        "Pool linings."
+                        "Reduced slip. Excellent initial adhesion.",
+                        "Extended open time allows for tile adjustments.",
+                        "Eliminates the need to wet tiles or substrates thanks to its water retention capacity.",
+                        "Adhesion for all types of ceramic tiles, porcelain stoneware, marble, granite, and natural stone.",
+                        "Application for indoor and outdoor flooring.",
+                        "Pool lining with glass mosaic."
                     ],
                     "recomendaciones": [
-                        "Substrates must have adequate flatness. If not, level with the same product up to 5 mm, 48 hours before tiling."
+                        "Do not apply over plasters or paints.",
+                        "Substrates must be resistant, stable, sound, and clean, free of dust, formwork residues, organic products, etc."
                     ],
                     "precauciones": [
                         "Do not apply below 5°C or above 30°C.",
-                        "Do not apply with risk of frost, rain, strong winds, or direct sunlight.",
+                        "Do not apply if there is a risk of frost, rain, strong winds, or direct sunlight.",
                         "Temperature, ventilation, and substrate absorption may affect workability and setting times.",
-                        "In extreme weather (high wind or temperatures), drying occurs faster than usual."
+                        "Under extreme weather conditions (strong wind or high temperatures), drying occurs faster than normal."
                     ],
                     "informacion_relevante": [
                         "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
-                        "Colors: white and gray (the latter upon request).",
+                        "Colors: white and gray (the latter upon demand).",
                         "Coverage: approx. 4 kg/m² on a reasonably flat substrate.",
-                        "Shelf life: 12 months from the manufacturing date, in the original sealed packaging and protected from moisture."
+                        "Shelf life: 12 months from the manufacturing date, in original sealed packaging and protected from moisture."
                     ],
                     "documentacion": [
                         {
                             "nombre": "Technical Data Sheet",
-                            "accion": "Download",
-                            "enlace": "#"
+                            "accion": "Descargar",
+                            "enlace": "/files/KOLATEC LANIC C2TE.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -345,10 +356,75 @@
                 },
                 {
                     "nombre": "KOLATECT FLEX",
-                    "subtitulo": "Tile adhesive C2TE S1",
+                    "subtitulo": "C2TE S1 Tile Adhesive",
                     "imagen": "/img/productos/05-KOLATEC FLEX .png",
-                    "informacion_general": "Flexible, deformable (S1) tile adhesive for fixing on substrates with expansions or structural movements, ideal for interior and exterior flooring."
-                }
+                    "informacion_general": "Cementitious adhesive for ceramic tiles with low surface absorption and extended open time. Non-sagging with excellent initial adhesion. For direct tiling on brickwork and concrete blocks without prior rendering, and on uneven flooring substrates. Application for indoor and outdoor porcelain tiles, low absorption tiles, and large format tiles.",
+                    "caracteristicas": [
+                        "Excellent workability and high whiteness.",
+                        "Rheologically improved with high stability and excellent performance.",
+                        "Creamy thixotropy.",
+                        "Technologically advanced, compatible with a wide range of substrates.",
+                        "Stable across a wide mixing range.",
+                        "High thixotropic efficiency, greater comfort and less effort.",
+                        "Eliminates the need to wet tiles or substrates thanks to its water retention capacity.",
+                        "Reduced slip. Excellent initial adhesion.",
+                        "Extended open time allows for tile adjustments.",
+                        "Deformable. Type S1 (UNE EN 12002).",
+                        "Application thickness up to 15 mm, without shrinkage.",
+                        "Adhesion for all types of ceramic tiles, porcelain stoneware, marble, granite, and natural stone.",
+                        "Indoor and outdoor application (including facades).",
+                        "Adhesion of large format tiles.",
+                        "Bonding of large surfaces with heavy traffic, radiant floor heating, cold chambers, and overlays.",
+                        "Pool lining."
+                    ],
+                    "recomendaciones": [
+                        "Substrates must have adequate flatness. If not, apply leveling coats up to 5 mm with the same product 48 hours before tiling."
+                    ],
+                    "precauciones": [
+                        "Do not apply below 5°C or above 30°C.",
+                        "Do not apply if there is a risk of frost, rain, strong winds, or direct sunlight.",
+                        "Temperature, ventilation, and substrate absorption may affect workability and setting times.",
+                        "Under extreme weather conditions (strong wind or high temperatures), drying occurs faster than normal."
+                    ],
+                    "informacion_relevante": [
+                        "Packaging: 25 kg bags. Pallets of 1400 kg (56 bags).",
+                        "Colors: white and gray (the latter upon demand).",
+                        "Coverage: approx. 4 kg/m² on a reasonably flat substrate.",
+                        "Shelf life: 12 months from the manufacturing date, in original sealed packaging and protected from moisture."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Descargar",
+                            "enlace": "/files/KOLATEC FLEX C2TE S1.pdf"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
+                }            
             ]
         },
         {
@@ -414,7 +490,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/CRISOLEX R mortero monocapa raspado.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -478,7 +554,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/MORE BEST_no poner.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -545,7 +621,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/EURO MONEY  F’ mortero monocapa hidrofugo capa gruesa.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -613,7 +689,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/EURO MONEY  F’ mortero monocapa hidrofugo capa fina.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -702,7 +778,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/PLASTITE M' multiacabado.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -785,7 +861,7 @@
                         {
                             "nombre": "AENOR Certificate",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/KOLATEC juntas.pdf"
                         },
                         {
                             "nombre": "IQNet Certificate",
@@ -849,7 +925,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/EUROSOL desmoldeante.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -903,7 +979,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/EUROSOL desmoldeante.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -983,7 +1059,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/EUROSOL desmoldeante.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -1071,7 +1147,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/MÁRMOL TRITURADO colores naturales.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -1126,7 +1202,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/EURO-PROTEC barniz protector.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -1197,7 +1273,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "#"
+                            "enlace": "/files/RHINO resina puente de unión.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",

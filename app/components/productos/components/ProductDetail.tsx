@@ -3,6 +3,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { undefined } from "zod";
 
 interface IDocumento {
     nombre: string;
@@ -29,9 +30,35 @@ interface ProductDetailProps {
     product: IProducto;
 }
 
+
 export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
     const { t } = useLanguage();
-
+    
+    const cardsData = [
+        {
+            filePath: product.documentacion? product.documentacion[0]?.enlace:" ",
+        },
+        {
+    
+          filePath: "/files/certificado-aenor.pdf",
+        },
+        {
+    
+          filePath: "/files/certificado-iqnet.pdf",
+        },
+        {
+      
+          filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
+        },
+        {
+       
+          filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
+        },
+        {
+    
+          filePath: "/files/dit-plus-espanol.pdf",
+        },
+      ];
     return (
         <div className="flex gap-12">
             <div className="flex-1 w-3/4">
@@ -124,7 +151,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                             <li key={i} className="flex items-center justify-between gap-2">
                                 <span>{doc.nombre}</span>
                                 <a
-                                    href={doc.enlace || "#"}
+                                    href={cardsData[i].filePath}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-blue-500 underline"
