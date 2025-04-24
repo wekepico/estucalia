@@ -11,14 +11,38 @@ import { useLanguage } from "@/app/context/LanguageContext";
 const inspirationImages = [
   {
     url: "/img/img-1.jpg",
-    alt: "Modern facade detail",
+    alt: "Modern facade detail"
   },
   {
     url: "/img/Home.jpg",
-    alt: "Urban architecture",
+    alt: "Urban architecture"
   },
-  // ... resto de tus imágenes
+  {
+    url: "/img/img-3.jpg",
+    alt: "Minimalist building design"
+  },
+  {
+    url: "/img/img-4.jpg",
+    alt: "Contemporary architecture"
+  },
+  {
+    url: "/img/img3.jpg",
+    alt: "Modern facade detail"
+  },
+  {
+    url: "/img/img-8.jpg",
+    alt: "Urban architecture"
+  },
+  {
+    url: "/img/img1.jpg",
+    alt: "Minimalist building design"
+  },
+  {
+    url: "/img/image1.jpg",
+    alt: "Contemporary architecture"
+  },
 ];
+
 
 interface ProductCategoryPageProps {
   category: any;
