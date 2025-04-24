@@ -27,14 +27,6 @@ export default function ProductPage() {
     setFoundCategory(category);
   }, [language, categoryId]);
 
-  // useEffect(() => {
-  //   if (foundCategory && mounted) {
-  //     const newPath = "/producto/" + foundCategory.titulo
-  //     if (pathname !== newPath) {
-  //       window.location.href = newPath;
-  //     }
-  //   }
-  // }, [t]);
 
   if (!mounted) {
     return (

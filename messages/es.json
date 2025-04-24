@@ -13,7 +13,7 @@
       "label": "Productos",
       "submenu": {
         "limeMortar": "Mortero de cal",
-        "tileAdhesive": "Adhesivo cerámico",
+        "tileAdhesive": "Mortero cola",
         "singleLayerMortar": "Mortero monocapa",
         "stampedMortar": "Mortero impreso",
         "groutMortar": "Mortero para juntas",
@@ -33,7 +33,7 @@
         "plasters": "Enlucidos y revocos",
         "masonry": "Mampostería",
         "tiles": "Azulejos",
-        "screeds": "Reglas",
+        "screeds": "Recrecidos",
         "thermalInsulation": "Aislamiento térmico",
         "waterproofing": "Impermeabilización",
         "dehumidification": "Deshumidificación"

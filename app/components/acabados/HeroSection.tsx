@@ -12,6 +12,7 @@ interface Acabado {
     descripcion: string;
     img: string;
     products: {
+        id:string,
         name: string;
         icon: string;
     }[]
@@ -27,14 +28,17 @@ export const HeroSection: React.FC = () => {
             descripcion: t('finishes.descriptions.hammered'),
             products: [
                 {
+                    id:"sigleLayerMortar",
                     name: t('finishes.products.monocapa'), // "Mortero monocapa"
                     icon: MorteroMonocapa
                 },
                 {
+                    id:"limeMortar",
                     name: t('finishes.products.lime'), // "Mortero cal"
                     icon:MorteroCal 
                 },
                 {
+                    id:"stampedMortar",
                     name: t('finishes.products.printed'), // "Mortero impreso"
                     icon: MorteroImpreso
                 },
@@ -46,14 +50,17 @@ export const HeroSection: React.FC = () => {
             descripcion: t('finishes.descriptions.washed'),
             products: [
                 {
+                    id:"sigleLayerMortar",
                     name: t('finishes.products.monocapa'),
                     icon: MorteroMonocapa
                 },
                 {
+                    id:"limeMortar",
                     name: t('finishes.products.lime'),
                     icon:MorteroCal 
                 },
                 {
+                    id:"stampedMortar",
                     name: t('finishes.products.printed'),
                     icon: MorteroImpreso
                 },
@@ -65,10 +72,12 @@ export const HeroSection: React.FC = () => {
             descripcion: t('finishes.descriptions.printed'),
             products: [
                 {
+                    id:"limeMortar",
                     name: t('finishes.products.lime'),
                     icon: MorteroCal
                 },
                 {
+                    id:"stampedMortar",
                     name: t('finishes.products.printed'),
                     icon: MorteroImpreso
                 },
@@ -80,6 +89,7 @@ export const HeroSection: React.FC = () => {
             descripcion: t('finishes.descriptions.stone'),
             products: [
                 {
+                    id:"stoneMortar",
                     name: t('finishes.products.stone'), // "Mortero Piedra"
                     icon: Piedra
                 },
@@ -91,14 +101,17 @@ export const HeroSection: React.FC = () => {
             descripcion: t('finishes.descriptions.smooth'),
             products: [
                 {
+                    id:"singleLayerMortar",
                     name: t('finishes.products.monocapa'),
                     icon: MorteroMonocapa
                 },
                 {
+                    id:"limeMortar",
                     name: t('finishes.products.lime'),
                     icon: MorteroCal
                 },
                 {
+                    id:"stampedMortar",
                     name: t('finishes.products.printed'),
                     icon: MorteroImpreso
                 },

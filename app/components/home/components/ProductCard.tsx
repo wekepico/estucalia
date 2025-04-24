@@ -5,18 +5,19 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props"
 
 
 interface ProductCardProps {
+    id:string,
     name: string,
     icon: string  | StaticImport
 }
 
 
 
-export const ProductCard: React.FC<ProductCardProps> = ({ name, icon }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ name, icon, id }) => {
 
     return (
         <div 
           className="bg-stone-50 group hover:bg-stone-100 transition-colors cursor-pointer"
-          onClick={()=>{window.location.href = "/producto/" + name}}
+          onClick={()=>{window.location.href = "/producto/" + id}}
         >
             <div className="px-4 py-8 md:px-8 md:py-16 lg:px-16 lg:py-20 flex flex-col items-center text-center">
                 <div className="mb-4 md:mb-6">

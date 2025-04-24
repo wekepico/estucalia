@@ -12,6 +12,7 @@ import { useLanguage } from '../../context/LanguageContext';
 type Category = 'hammered' | 'washed' | 'printed' | 'stone' | 'smooth';
 
 interface Product {
+  id:string,
   name: string;
   icon: any;
   category: string;
@@ -25,21 +26,25 @@ export default function FinishesSection() {
 
   const products: Product[] = [
     {
+      id:"singleLayerMortar",
       name: t('home.finishes.products.monocapa'),
       icon: MorteroMonocapa,
       category: `${t('home.finishes.categories.hammered')},${t('home.finishes.categories.washed')},${t('home.finishes.categories.printed')},${t('home.finishes.categories.smooth')}`
     },
     {
+      id:"limeMortar",
       name: t('home.finishes.products.lime'),
       icon: MorteroCal,
       category: `${t('home.finishes.categories.hammered')},${t('home.finishes.categories.washed')},${t('home.finishes.categories.smooth')}`
     },
     {
+      id:"stampedMortar",
       name: t('home.finishes.products.printed'),
       icon: MorteroImpreso,
       category: `${t('home.finishes.categories.hammered')},${t('home.finishes.categories.washed')},${t('home.finishes.categories.printed')},${t('home.finishes.categories.smooth')}`
     },
     {
+      id:"stoneMortar",
       name: t('home.finishes.products.stone'),
       icon: Piedra,
       category: t('home.finishes.categories.stone')
@@ -79,9 +84,11 @@ export default function FinishesSection() {
 
         {/* Product Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-          {filteredProducts.map((product) => (  
+          {filteredProducts.map((product,index) => (  
             <div key={product.name}>
               <ProductCard 
+                key={index+"-product-card"}
+                id ={product.id}
                 icon={product.icon} 
                 name={product.name} 
               />

@@ -3,7 +3,8 @@
         {
             "id": "limeMortar",
             "titulo": "Mortero cal",
-            "descripcion": "El mortero de cal es una mezcla tradicional compuesta por cal, arena y agua. Se utiliza en restauraciones de edificios históricos y construcciones ecológicas debido a sus propiedades transpirables y su capacidad para regular la humedad. Ofrece una excelente transpirabilidad, lo que evita la acumulación de humedad en las paredes. Su flexibilidad reduce el riesgo de fisuras y grietas. Además, es un material ecológico y sostenible, ideal para restauraciones patrimoniales y construcciones bioclimáticas.",
+            "descripcion": "El mortero de cal es una mezcla tradicional compuesta por cal, arena y agua. Se utiliza en restauraciones de edificios históricos y construcciones ecológicas debido a sus propiedades transpirables y su capacidad para regular la humedad.  ",
+            "descripcion1":"Ofrece una excelente transpirabilidad, lo que evita la acumulación de humedad en las paredes. Su flexibilidad reduce el riesgo de fisuras y grietas. Además, es un material ecológico y sostenible, ideal para restauraciones patrimoniales y construcciones bioclimáticas.",
             "imagen": "/img/mortero-cal.svg",
             "aplicaciones": [
                 "Revestimientos",
@@ -153,7 +154,8 @@
         {
             "id": "tileAdhesive",
             "titulo": "Mortero cola",
-            "descripcion": "El mortero cola es una mezcla adhesiva utilizada para la colocación de baldosas y cerámicas en paredes y suelos. Su composición incluye cemento, resinas y aditivos que mejoran la adherencia y flexibilidad, permitiendo una instalación resistente incluso en zonas húmedas o con variaciones de temperatura.",
+            "descripcion": "El mortero cola es una mezcla adhesiva utilizada para la colocación de baldosas y cerámicas en paredes y suelos.",
+            "descripcion1": "Su composición incluye cemento, resinas y aditivos que mejoran la adherencia y flexibilidad, permitiendo una instalación resistente incluso en zonas húmedas o con variaciones de temperatura.",
             "imagen": "/img/mortero-cola.svg",
             "aplicaciones": [
                 "Albañilería",
@@ -352,7 +354,8 @@
         {
             "id": "singleLayerMortar",
             "titulo": "Mortero monocapa",
-            "descripcion": "El mortero monocapa es un revestimiento diseñado principalmente para fachadas. Se aplica en una sola capa y combina funciones de protección e impermeabilidad con acabados estéticos. Está compuesto por cemento, áridos seleccionados, aditivos y pigmentos que le proporcionan distintas texturas y colores.",
+            "descripcion": "El mortero monocapa es un revestimiento diseñado principalmente para fachadas. Se aplica en una sola capa y combina funciones de protección e impermeabilidad con acabados estéticos.",
+            "descripcion1": " Está compuesto por cemento, áridos seleccionados, aditivos y pigmentos que le proporcionan distintas texturas y colores.",
             "imagen": "/img/mortero-monocapa.svg",
             "aplicaciones": [
                 "Revestimientos",
@@ -644,7 +647,8 @@
         {
             "id": "stampedMortar",
             "titulo": "Mortero impreso",
-            "descripcion": "El mortero impreso es un revestimiento decorativo que permite crear texturas y relieves en paredes, imitando materiales como piedra o ladrillo. Ofrece gran versatilidad de acabados, alta resistencia a impactos y durabilidad ante condiciones climáticas adversas. Se aplica directamente sobre la pared y permite una terminación rápida y estética.",
+            "descripcion": "El mortero impreso es un revestimiento decorativo que permite crear texturas y relieves en paredes, imitando materiales como piedra o ladrillo.",
+            "descripcion1": "Ofrece gran versatilidad de acabados, alta resistencia a impactos y durabilidad ante condiciones climáticas adversas. Se aplica directamente sobre la pared y permite una terminación rápida y estética.",
             "imagen": "/img/mortero-impreso.svg",
             "aplicaciones": [
                 "Revestimientos",
@@ -732,7 +736,8 @@
         {
             "id": "groutMortar",
             "titulo": "Mortero juntas",
-            "descripcion": "El mortero polivalente para juntas es una mezcla diseñada para rellenar las juntas entre baldosas y cerámicas en paredes y suelos. Gracias a sus aditivos, ofrece alta impermeabilidad, buena adherencia y flexibilidad, garantizando un acabado uniforme y duradero. Está disponible en diferentes colores para adaptarse al diseño.",
+            "descripcion": "El mortero polivalente para juntas es una mezcla diseñada para rellenar las juntas entre baldosas y cerámicas en paredes y suelos.",
+            "descripcion1": "Gracias a sus aditivos, ofrece alta impermeabilidad, buena adherencia y flexibilidad, garantizando un acabado uniforme y duradero. Está disponible en diferentes colores para adaptarse al diseño. ",
             "imagen": "/img/mortero-juntas.svg",
             "aplicaciones": [
                 "Revestimientos",
@@ -809,7 +814,8 @@
         {
             "id": "accessoriesAndTools",
             "titulo": "Complementos y accesorios",
-            "descripcion": "Desmoldante, tinte natural, moldes, cenefas y rodillos. Un conjunto de complementos y accesorios para el acabado final de tus proyectos. Permiten personalizar, desmoldar y dar color al mortero, consiguiendo resultados más creativos y profesionales.",
+            "descripcion": "Desmoldante, tinte natural, moldes, cenefas y rodillos. Un conjunto de complementos y accesorios para el acabado final de tus proyectos.",
+            "descripcion1": "Permiten personalizar, desmoldar y dar color al mortero, consiguiendo resultados más creativos y profesionales.",
             "imagen": "/img/accerios-y-herramientas.svg",
             "productos": [
                 {
@@ -937,7 +943,8 @@
         {
             "id": "stoneMortar",
             "titulo": "Mortero piedra",
-            "descripcion": "El mortero de china proyectada es una mezcla especial utilizada para revestir superficies mediante la proyección de pequeñas partículas de áridos decorativos. Es ideal para acabados en fachadas y muros exteriores. Ofrece una excelente adherencia y resistencia a las condiciones climáticas extremas. Su acabado rugoso y decorativo aporta un valor estético distintivo a las superficies. Además, su aplicación por proyección facilita una cobertura uniforme y rápida.",
+            "descripcion": "El mortero de china proyectada es una mezcla especial utilizada para revestir superficies mediante la proyección de pequeñas partículas de áridos decorativos.",
+            "descripcion1": "Es ideal para acabados en fachadas y muros exteriores. Ofrece una excelente adherencia y resistencia a las condiciones climáticas extremas. Su acabado rugoso y decorativo aporta un valor estético distintivo a las superficies. Además, su aplicación por proyección facilita una cobertura uniforme y rápida.",
             "imagen": "/img/mortero-piedra.svg",
             "aplicaciones": [
                 "Revestimientos",
@@ -1079,7 +1086,8 @@
         {
             "id": "waterProtector",
             "titulo": "Protector de agua",
-            "descripcion": "El barniz protector de agua es un recubrimiento diseñado para impermeabilizar y proteger superficies contra la humedad, manchas y suciedad. Puede aplicarse en suelos, fachadas y elementos decorativos. Forma una barrera impermeable que prolonga la vida útil de las superficies tratadas, facilitando la limpieza y el mantenimiento. No altera significativamente el color o la textura original.",
+            "descripcion": "El barniz protector de agua es un recubrimiento diseñado para impermeabilizar y proteger superficies contra la humedad, manchas y suciedad. Puede aplicarse en suelos, fachadas y elementos decorativos.",
+            "descripcion1": "Forma una barrera impermeable que prolonga la vida útil de las superficies tratadas, facilitando la limpieza y el mantenimiento. No altera significativamente el color o la textura original.",
             "imagen": "/img/mortero-protector-agua.svg",
             "aplicaciones": [
                 "Impermeabilización",
@@ -1149,7 +1157,8 @@
         {
             "id": "bondingBridge",
             "titulo": "Puente de unión",
-            "descripcion": "El puente de unión es una imprimación que mejora la adherencia entre diferentes capas de mortero o entre mortero y otras superficies como hormigón o cerámica. Se aplica antes del mortero para asegurar una fijación sólida, evitando desprendimientos y fisuras. Mejora la durabilidad de las superficies tratadas y facilita la construcción o reparación.",
+            "descripcion": "El puente de unión es una imprimación que mejora la adherencia entre diferentes capas de mortero o entre mortero y otras superficies como hormigón o cerámica.",
+            "descripcion1": "Se aplica antes del mortero para asegurar una fijación sólida, evitando desprendimientos y fisuras. Mejora la durabilidad de las superficies tratadas y facilita la construcción o reparación.",
             "imagen": "/img/mortero puente union.svg",
             "aplicaciones": [
                 "Revestimientos",

@@ -38,7 +38,7 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
       <section className="md:px-15 sm:px-10 px-5 lg:px-20 pt-32 flex flex-col gap-24">
         {/* Category section: Image + Category description */}
         <section className="flex w-full gap-8">
-          <div className="w-1/3 h-96 flex text-center items-center gap-3 flex-col justify-center bg-gray-200">
+          <div className="md:w-2/5  h-[28rem] flex text-center items-center gap-3 flex-col justify-center bg-gray-300">
             <Image
               src={category.imagen}
               alt={category.titulo}
@@ -50,11 +50,15 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
             </p>
           </div>
 
-          <label className="p-8 w-2/3">
-            <h2 className="font-[600] text-2xl pb-5">
+          <label className="p-8 md:w-3/5">
+            <h2 className="font-[600] text-3xl pb-5">
               {category.titulo}
             </h2>
-            <p>{category.descripcion}</p>
+            <div className="flex gap-2 flex-col">
+              <p className="font-[600] text-lg">{category.descripcion}</p>
+              <p >{category.descripcion1}</p>
+            </div>
+            
           </label>
         </section>
 

@@ -3,6 +3,7 @@ import { ProductCard } from "../../home/components/ProductCard";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface Product {
+    id:string,
     name: string;
     icon: string | StaticImport;
 }
@@ -14,7 +15,7 @@ interface HeroSectionProps {
     products: Product[] | null;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ description, category, products, img }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ description, category, products, img, }) => {
     return (
         <div className="flex flex-col gap-16 md:gap-28 px-5 sm:px-10 md:px-15 lg:px-20">
             {/* Contenedor principal */}
@@ -45,7 +46,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ description, category,
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-16">
                 {products?.map((product) => (
                     <div key={product.name}>
-                        <ProductCard icon={product.icon} name={product.name} />
+                        <ProductCard id={product.id} icon={product.icon} name={product.name} />
                     </div>
                 ))}
             </div>

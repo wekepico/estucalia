@@ -17,6 +17,7 @@ import Image from 'next/image';
 
 const products = [
   {
+    id:"singleLayerMortar",
     key: 'monocapa',
     icon: <Image
       src={MorteroMonocapa}
@@ -27,6 +28,7 @@ const products = [
     />
   },
   {
+    id:"tileAdhesive",
     key: 'cola',
     icon: <Image
     src={MorteroCola}
@@ -37,6 +39,7 @@ const products = [
     />
   },
   {
+    id:"limeMortar",
     key: 'cal',
     icon: <Image
     src={MorteroCal}
@@ -47,6 +50,7 @@ const products = [
     />
   },
   {
+    id:"groutMortar",
     key: 'juntas',
     icon: <Image
       src={MorteroPolivalente}
@@ -57,6 +61,7 @@ const products = [
     />
   },
   {
+    id:"stampedMortar",
     key: 'impreso',
     icon: <Image
       src={MorteroImpreso}
@@ -67,6 +72,7 @@ const products = [
     />
   },
   {
+    id:"stoneMortar",
     key: 'piedra',
     icon: <Image
       src={MorteroPiedra}
@@ -77,6 +83,7 @@ const products = [
     />
   },
   {
+    id:"waterProtector",
     key: 'protector',
     icon: <Image
       src={MorteroProtector}
@@ -87,6 +94,7 @@ const products = [
     />
   },
   {
+    id:"bondingBridge",
     key: 'union',
     icon: <Image
       src={MorteroUnion}
@@ -97,6 +105,7 @@ const products = [
     />
   },
   {
+    id:"accessoriesAndTools",
     key: 'accesorios',
     icon: <Image
       src={AccesoriosHerramientas}
@@ -125,7 +134,7 @@ export default function SolutionsSection() {
             {products.map((product) => (
               <div key={product.key} 
                 className="flex items-center gap-2 cursor-pointer"
-                onClick={()=>window.location.href = "/producto/" +t(`company.solutions.products.${product.key}`)}
+                onClick={()=>window.location.href = "/producto/" + product.id}
               >
                 <div className=" flex-shrink-0">
                   {product.icon}

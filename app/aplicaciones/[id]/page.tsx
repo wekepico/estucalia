@@ -20,6 +20,7 @@ export interface Aplication{
   descripcion:string;
   img:string;
   products:{
+    id:string,
     name:string;
     icon:string | StaticImport
   }[]
@@ -51,22 +52,27 @@ export default function Aplicaciones() {
       descripcion: t("applications.descriptions.coatings"),
       products: [
         {
+          id:"singleLayerMortar",
           name: t('products.monocapa'),
+          icon:MorteroMonocapa 
+        },
+        {
+          id:"limeMortar",
+          name: t('products.lime'),
           icon: MorteroCal
         },
         {
-          name: t('products.lime'),
-          icon: MorteroMonocapa
-        },
-        {
+          id:"stampedMortar",
           name: t('products.printed'),
           icon: MorteroImpreso
         },
         {
+          id:"stoneMortar",
           name: t('products.stone'),
           icon: Piedra
         },
         {
+          id:"bondingBridge",
           name: t('products.union'),
           icon: Union
         },
@@ -79,22 +85,27 @@ export default function Aplicaciones() {
       descripcion: t("applications.descriptions.plasters"),
       products: [
         {
+          id:"singleLayerMortar",
           name: t('products.monocapa'),
-          icon: MorteroCal
-        },
-        {
-          name: t('products.lime'),
           icon: MorteroMonocapa
         },
         {
+          id:"limeMortar",
+          name: t('products.lime'),
+          icon:  MorteroCal
+        },
+        {
+          id:"stampedMortar",
           name: t('products.printed'),
           icon: MorteroImpreso
         },
         {
+          id:"stoneMortar",
           name: t('products.stone'),
           icon: Piedra
         },
         {
+          id:"bondingBridge",
           name: t('products.union'),
           icon: Union
         },
@@ -107,26 +118,32 @@ export default function Aplicaciones() {
       descripcion: t("applications.descriptions.masonry"),
       products: [
         {
+          id:"singleLayerMortar",
           name: t('products.monocapa'),
-          icon: MorteroCal
+          icon: MorteroMonocapa
         },
         {
+          id:"tileAdhesive",
           name: t('products.adhesive'),
           icon: Cola
         },
         {
+          id:"limeMortar",
           name: t('products.lime'),
           icon: MorteroMonocapa
         },
         {
+          id:"stampedMortar",
           name: t('products.printed'),
           icon: MorteroImpreso
         },
         {
+          id:"waterProtector",
           name: t('products.waterProtector'),
           icon: Agua
         },
         {
+          id:"bondingBridge",
           name: t('products.union'),
           icon: Union
         },
@@ -139,10 +156,12 @@ export default function Aplicaciones() {
       descripcion: t("applications.descriptions.tiles"),
       products: [
         {
+          id:"tileAdhesive",
           name: t('products.adhesive'),
           icon: Cola
         },
         {
+          id:"groutMortar",
           name: t('products.joint'),
           icon: Juntas
         }
@@ -155,10 +174,12 @@ export default function Aplicaciones() {
       descripcion: t("applications.descriptions.screeds"),
       products: [
         {
+          id:"singleLayerMortar",
           name: t('products.monocapa'),
           icon: MorteroMonocapa
         },
         {
+          id:"tileAdhesive",
           name: t('products.adhesive'),
           icon: Cola
         }
@@ -171,22 +192,27 @@ export default function Aplicaciones() {
       descripcion: t("applications.descriptions.thermal"),
       products: [
         {
+          id:"singleLayerMortar",
           name: t('products.monocapa'),
           icon: MorteroMonocapa
         },
         {
+          id:"tileAdhesive",
           name: t('products.adhesive'),
           icon: Cola
         },
         {
+          id:"limeMortar",
           name: t('products.lime'),
           icon: MorteroCal
         },
         {
+          id:"stampedMortar",
           name: t('products.printed'),
           icon: MorteroImpreso
         },
         {
+          id:"bondingBridge",
           name: t('products.union'),
           icon: Union
         },
@@ -199,26 +225,32 @@ export default function Aplicaciones() {
       descripcion: t("applications.descriptions.waterproofing"),
       products: [
         {
+          id:"singleLayerMortar",
           name: t('products.monocapa'),
           icon: MorteroMonocapa
         },
         {
+          id:"limeMortar",
           name: t('products.lime'),
           icon: MorteroCal
         },
         {
+          id:"stampedMortar",
           name: t('products.printed'),
           icon: MorteroImpreso
         },
         {
+          id:"groutMortar",
           name: t('products.joint'),
           icon: Juntas
         },
         {
+          id:"stoneMortar",
           name: t('products.stone'),
           icon: Piedra
         },
         {
+          id:"waterProtetor",
           name: t('products.waterProtector'),
           icon: Agua
         },
@@ -231,26 +263,32 @@ export default function Aplicaciones() {
       descripcion: t("applications.descriptions.dehumidification"),
       products: [
         {
+          id:"singleLayerMortar",
           name: t('products.monocapa'),
           icon: MorteroMonocapa
         },
         {
+          id:"tileAdhesive",
           name: t('products.adhesive'),
           icon: Cola
         },
         {
+          id:"limeMortar",
           name: t('products.lime'),
           icon: MorteroCal
         },
         {
+          id:"stampedMortar",
           name: t('products.printed'),
           icon: MorteroImpreso
         },
         {
+          id:"stoneMortar",
           name: t('products.stone'),
           icon: Piedra
         },
         {
+          id:"bondingBridge",
           name: t('products.union'),
           icon: Union
         },
