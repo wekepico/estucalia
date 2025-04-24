@@ -8,6 +8,7 @@ import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { useLanguage } from '@/app/context/LanguageContext';
 
 interface Product {
+    id:string,
     name: string;
     icon: string | StaticImport;
     category: string;
@@ -105,6 +106,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     {filteredProducts.map((product) => (
                         <div key={product.name}>
                             <ProductCard 
+                                id={product.id}
                                 icon={product.icon} 
                                 name={product.name} 
                             />

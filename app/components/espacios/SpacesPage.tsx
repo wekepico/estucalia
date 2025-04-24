@@ -14,6 +14,7 @@ export interface Spaces{
   descripcion:string;
   img:string;
   products:{
+    id:string
     name:string;
     icon:string | StaticImport
     category:string

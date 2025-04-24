@@ -23,6 +23,7 @@ export interface Spaces {
 }
 
 export interface Products {
+    id:string,
     name: string;
     icon: string | StaticImport;
     category: string;
@@ -30,46 +31,55 @@ export interface Products {
 
 const products: Products[] = [
     {
+        id:"singleLayerMortar",
         name: 'spacesSection.products.monocapa',
         icon: MorteroCal,
         category: "spacesSection.applications.coatings,spacesSection.applications.plasters,spacesSection.applications.waterproofing,spacesSection.applications.screeds,spacesSection.applications.dehumidification,spacesSection.applications.masonry,spacesSection.applications.thermal"
     },
     {
+        id:"stampedMortar",
         name: 'spacesSection.products.printed',
         icon: MorteroImpreso,
         category: "spacesSection.applications.coatings,spacesSection.applications.plasters,spacesSection.applications.waterproofing,spacesSection.applications.dehumidification,spacesSection.applications.masonry,spacesSection.applications.thermal"
     },
     {
+        id:"limeMortar",
         name: 'spacesSection.products.lime',
         icon: MorteroMonocapa,
         category: "spacesSection.applications.coatings,spacesSection.applications.plasters,spacesSection.applications.waterproofing,spacesSection.applications.dehumidification,spacesSection.applications.masonry,spacesSection.applications.thermal"
     },
     {
+        id:"stoneMortar",
         name: 'spacesSection.products.stone',
         icon: Piedra,
         category: "spacesSection.applications.coatings,spacesSection.applications.plasters,spacesSection.applications.waterproofing,spacesSection.applications.dehumidification,spacesSection.applications.thermal"
     },
     {
+        id:"bondingBridge",
         name: 'spacesSection.products.union',
         icon: Union,
         category: "spacesSection.applications.coatings,spacesSection.applications.plasters,spacesSection.applications.dehumidification,spacesSection.applications.masonry,spacesSection.applications.thermal"
     },
     {
+        id:"groutMortar",
         name: 'spacesSection.products.joint',
         icon: Juntas,
         category: "spacesSection.applications.tiles,spacesSection.applications.waterproofing"
     },
     {
+        id:"waterProtector",
         name: 'spacesSection.products.water',
         icon: Agua,
         category: "spacesSection.applications.waterproofing,spacesSection.applications.masonry"
     },
     {
+        id:"tileAdhesive",
         name: 'spacesSection.products.adhesive',
         icon: Cola,
         category: "spacesSection.applications.tiles,spacesSection.applications.screeds,spacesSection.applications.dehumidification"
     },
     {
+        id:"accessoriesAndTools",
         name: 'spacesSection.products.tools',
         icon: Herramientas,
         category: ""
