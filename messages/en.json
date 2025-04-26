@@ -329,13 +329,13 @@
       "title": "Work with us"
     },
     "form": {
-      "title": "Talented people",
+      "title": "Work with Us",
       "description": {
-        "part1": "In continuous expansion, Grupo Estucalia selects the best professionals to join its projects. Join our team if you are",
-        "part2": "demanding and committed.",
-        "part3": "At Grupo Estucalia you will find a",
-        "part4": "disciplined and professional work environment.",
-        "part5": "Fill out this form to join our new talents."
+        "part1": "At Grupo Estucalia we are always looking for talent. If you are a professional passionate about construction and innovation, we want to meet you.",
+        "part2": "Join our team",
+        "part3": "and be part of a leading company in the mortar and construction materials sector.",
+        "part4": "Send us your CV",
+        "part5": "and tell us why you want to work with us."
       },
       "fields": {
         "name": "Name",
@@ -347,16 +347,29 @@
         "fileSelected": "Selected file:"
       },
       "privacy": {
-        "info": "Basic information on Data Protection. Responsible: ESTUCALIA MORTEROS S.L. Purpose of processing: manage your query/request, send information electronically and subsequent commercial follow-up. Legitimacy: your express consent when sending us this form (GDPR 6.1.a), your data will not be transferred to third parties and will be kept for one year, unless legally required. You can exercise your rights of access, rectification, deletion, portability, limitation and opposition, and revoke your consent by contacting:",
-        "accept": "Yes, I have read and accept the processing of my personal data according to the",
+        "info": "Basic Information about Data Protection",
+        "accept": "I have read and accept the",
         "privacyPolicy": "Privacy Policy",
         "legalNotice": "Legal Notice",
-        "companyName": "Estucalia Morteros S.L."
+        "companyName": "Grupo Estucalia"
       },
       "commercial": {
-        "accept": "Yes, I authorize the electronic receipt of commercial information from Grupo Estucalia."
+        "accept": "Yes, I authorize receiving commercial information from Grupo Estucalia via email."
       },
-      "submit": "Submit"
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "successMessage": "Application sent successfully",
+      "errorMessage": "Error sending application",
+      "validation": {
+        "nameRequired": "Name is required",
+        "phoneRequired": "Phone must have at least 9 digits",
+        "phoneNumbersOnly": "Phone must contain only numbers",
+        "emailInvalid": "Invalid email",
+        "specialtyRequired": "Specialty is required",
+        "messageRequired": "Message is required",
+        "cvRequired": "You must attach your CV",
+        "privacyPolicyRequired": "You must accept the privacy policy"
+      }
     }
   },
   "applications": {

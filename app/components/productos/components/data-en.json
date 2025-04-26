@@ -74,11 +74,6 @@
                     ],
                     "documentacion": [
                         {
-                            "nombre": "Technical Data Sheet",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "AENOR Certificate",
                             "accion": "Download",
                             "enlace": "#"
@@ -137,11 +132,6 @@
                       "Curing time: 24-48 hours depending on environmental conditions."
                     ],
                     "documentacion": [
-                        {
-                            "nombre": "Technical Data Sheet",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
                         {
                             "nombre": "AENOR Certificate",
                             "accion": "Download",
@@ -552,11 +542,6 @@
                     ],
                     "documentacion": [
                         {
-                            "nombre": "Technical Data Sheet",
-                            "accion": "Download",
-                            "enlace": "/files/MORE BEST_no poner.pdf"
-                        },
-                        {
                             "nombre": "AENOR Certificate",
                             "accion": "Download",
                             "enlace": "#"
@@ -853,11 +838,6 @@
                         "Shelf life: 24 months (paper bags) / 12 months (plastic bags) from the manufacturing date."
                     ],
                     "documentacion": [
-                        {
-                            "nombre": "Technical Data Sheet",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
                         {
                             "nombre": "AENOR Certificate",
                             "accion": "Download",

@@ -74,11 +74,6 @@
                     ],
                     "documentacion": [
                         {
-                            "nombre": "Ficha Técnica",
-                            "accion": "Descargar",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
                             "enlace": "#"
@@ -137,11 +132,6 @@
                       "Tiempo de endurecimiento: 24-48 horas según condiciones ambientales."
                     ],
                     "documentacion": [
-                        {
-                            "nombre": "Ficha Técnica",
-                            "accion": "Descargar",
-                            "enlace": "#"
-                        },
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
@@ -554,11 +544,6 @@
                         "Conservación: 12 meses a partir de la fecha de fabricación, en el envase original cerrado y al abrigo de la humedad."
                     ],
                     "documentacion": [
-                        {
-                            "nombre": "Ficha Técnica",
-                            "accion": "Descargar",
-                            "enlace": "/files/MORE BEST_no poner.pdf"
-                        },
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",

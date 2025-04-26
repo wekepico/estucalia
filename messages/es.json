@@ -329,13 +329,13 @@
       "title": "Trabaja con nosotros"
     },
     "form": {
-      "title": "Personas con talento",
+      "title": "Trabaja con Nosotros",
       "description": {
-        "part1": "En continua expansión, Grupo Estucalia selecciona los mejores profesionales para incorporarlos a sus proyectos. Únete a nuestro equipo si eres",
-        "part2": "exigente y comprometido.",
-        "part3": "En Grupo Estucalia encontrarás un",
-        "part4": "entorno laboral disciplinado y profesional.",
-        "part5": "Rellene este formulario para incorporarte a nuestros nuevos talentos."
+        "part1": "En Grupo Estucalia estamos siempre en busca de talento. Si eres un profesional apasionado por la construcción y la innovación, queremos conocerte.",
+        "part2": "Únete a nuestro equipo",
+        "part3": "y forma parte de una empresa líder en el sector de los morteros y materiales de construcción.",
+        "part4": "Envíanos tu CV",
+        "part5": "y cuéntanos por qué quieres trabajar con nosotros."
       },
       "fields": {
         "name": "Nombre",
@@ -343,20 +343,33 @@
         "email": "E-mail",
         "specialty": "Especialidad",
         "message": "Mensaje",
-        "cv": "Adjuntar Curriculum",
+        "cv": "Adjuntar CV",
         "fileSelected": "Archivo seleccionado:"
       },
       "privacy": {
-        "info": "Información básica sobre Protección de Datos. Responsable: ESTUCALIA MORTEROS S.L. Finalidad del tratamiento: gestionar su consulta/solicitud, envío de información vía electrónica y su posterior seguimiento comercial. Legitimación: su consentimiento expreso al remitirnos este formulario (RGPD 6.1.a), sus datos no serán cedidos a terceros y se conservarán por plazo de un año, salvo obligación legal. Puede ejercitar los derechos de acceso, rectificación, supresión, portabilidad, limitación y oposición, y revocar su consentimiento dirigiéndose a:",
-        "accept": "Si, he leído y acepto el tratamiento de mis datos personales según la",
+        "info": "Información básica sobre Protección de Datos",
+        "accept": "He leído y acepto la",
         "privacyPolicy": "Política de Privacidad",
         "legalNotice": "Aviso Legal",
-        "companyName": "Estucalia Morteros S.L."
+        "companyName": "Grupo Estucalia"
       },
       "commercial": {
         "accept": "Sí, autorizo la recepción vía electrónica de información comercial de Grupo Estucalia."
       },
-      "submit": "Enviar"
+      "submit": "Enviar",
+      "submitting": "Enviando...",
+      "successMessage": "Solicitud enviada con éxito",
+      "errorMessage": "Error al enviar la solicitud",
+      "validation": {
+        "nameRequired": "El nombre es obligatorio",
+        "phoneRequired": "El teléfono debe tener al menos 9 dígitos",
+        "phoneNumbersOnly": "El teléfono solo debe contener números",
+        "emailInvalid": "Email inválido",
+        "specialtyRequired": "La especialidad es obligatoria",
+        "messageRequired": "El mensaje es obligatorio",
+        "cvRequired": "Debes adjuntar tu CV",
+        "privacyPolicyRequired": "Debes aceptar la política de privacidad"
+      }
     }
   },
   "applications": {

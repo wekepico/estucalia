@@ -10,26 +10,83 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useLanguage } from '@/app/context/LanguageContext';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { toast, Toaster } from 'react-hot-toast';
 
-type FormData = {
-  nombre: string;
-  telefono: string;
-  email: string;
-  especialidad: string;
-  mensaje: string;
-  curriculum: FileList;
-  aceptarPolitica: boolean;
-  aceptarComercial: boolean;
-};
+// Esquema de validación con Zod usando las traducciones
+const formSchema = (t: any) => z.object({
+  nombre: z.string().min(1, { message: t('workWithUs.form.validation.nameRequired') }),
+  telefono: z.string().min(9, { message: t('workWithUs.form.validation.phoneRequired') }).regex(/^[0-9]+$/, {
+    message: t('workWithUs.form.validation.phoneNumbersOnly'),
+  }),
+  email: z.string().email({ message: t('workWithUs.form.validation.emailInvalid') }),
+  especialidad: z.string().min(1, { message: t('workWithUs.form.validation.specialtyRequired') }),
+  mensaje: z.string().min(1, { message: t('workWithUs.form.validation.messageRequired') }),
+  curriculum: z.custom<FileList>((value) => value instanceof FileList, {
+    message: t('workWithUs.form.validation.cvRequired'),
+  }).refine((files) => files?.length > 0, {
+    message: t('workWithUs.form.validation.cvRequired'),
+  }),
+  aceptarPolitica: z.boolean().refine(val => val, {
+    message: t('workWithUs.form.validation.privacyPolicyRequired'),
+  }),
+  aceptarComercial: z.boolean().optional(),
+});
+
+type FormData = z.infer<ReturnType<typeof formSchema>>;
 
 export default function ApplicationForm() {
   const { t } = useLanguage();
-  const form = useForm<FormData>();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
+  
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema(t)),
+    defaultValues: {
+      nombre: '',
+      telefono: '',
+      email: '',
+      especialidad: '',
+      mensaje: '',
+      curriculum: undefined,
+      aceptarPolitica: false,
+      aceptarComercial: false,
+    },
+  });
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    // Handle form submission
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    try {
+      const formData = new FormData();
+      formData.append('name', data.nombre);
+      formData.append('phone', data.telefono);
+      formData.append('email', data.email);
+      formData.append('specialty', data.especialidad);
+      formData.append('message', data.mensaje);
+      formData.append('cv', data.curriculum[0]);
+      formData.append('acceptPrivacyPolicy', data.aceptarPolitica.toString());
+      formData.append('acceptCommercialInfo', data.aceptarComercial?.toString() || 'false');
+
+      const response = await fetch("https://api.derecho-ciudadano.com/api/contact", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al enviar el formulario');
+      }
+
+      await response.json();
+      toast.success(t('workWithUs.form.successMessage'));
+      form.reset();
+      setFileName(null);
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error(t('workWithUs.form.errorMessage'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -237,18 +294,22 @@ export default function ApplicationForm() {
                   type="submit"
                   className="group w-[155px] flex gap-4 justify-end borde-1 p-2 py-6 border-black rounded-none"
                   variant="outline"
+                  disabled={isSubmitting}
                 >
-                  <span>{t('workWithUs.form.submit')}</span>
-                  <svg className="ml-2 w-10 h-10 transform transition-transform group-hover:translate-x-1 col-span-1"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
-                  </svg>
+                  <span>{isSubmitting ? t('workWithUs.form.submitting') : t('workWithUs.form.submit')}</span>
+                  {!isSubmitting && (
+                    <svg className="ml-2 w-10 h-10 transform transition-transform group-hover:translate-x-1 col-span-1"
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
+                    </svg>
+                  )}
                 </Button>
               </form>
             </Form>
           </div>
         </div>
       </div>
+      <Toaster position="top-right" />
     </section>
   );
 }

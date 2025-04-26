@@ -1,7 +1,7 @@
 import { HeroSection } from "../components/acabados/HeroSection";
 import InspirationFinishedSection from "../components/acabados/InspirationFinishedSection";
-import NewsSectionFinished from "../components/acabados/NewsSectionFinished";
 import ProjectHelpSection from "../components/contacto/ProjectHelpSection";
+import NewsSection from "../components/home/NewsSection";
 
 
 export default function Acabados() {
@@ -9,7 +9,7 @@ export default function Acabados() {
     <main className="min-h-screen bg-white md:pt-28 pt-16 lg:pt-32">
       <HeroSection />
       <InspirationFinishedSection/>
-      <NewsSectionFinished/>
+      <NewsSection/>
       <ProjectHelpSection/>
     </main>
   );

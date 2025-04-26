@@ -59,6 +59,32 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
           filePath: "/files/dit-plus-espanol.pdf",
         },
       ];
+      const cardsData2 = [
+        {
+    
+          filePath: "/files/certificado-aenor.pdf",
+        },
+        {
+    
+          filePath: "/files/certificado-iqnet.pdf",
+        },
+        {
+      
+          filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
+        },
+        {
+       
+          filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
+        },
+        {
+    
+          filePath: "/files/dit-plus-espanol.pdf",
+        },
+      ];
+
+
+      const data = product.documentacion?.length === 6 ? cardsData : cardsData2
+
     return (
         <div className="flex gap-12">
             <div className="flex-1 w-3/4">
@@ -151,7 +177,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                             <li key={i} className="flex items-center justify-between gap-2">
                                 <span>{doc.nombre}</span>
                                 <a
-                                    href={cardsData[i].filePath}
+                                    href={data[i].filePath}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-blue-500 underline"

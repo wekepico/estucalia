@@ -3,6 +3,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from '../../context/LanguageContext';
+import Link from 'next/link';
 
 export default function ConsultingSection() {
   const { t } = useLanguage();
@@ -30,12 +31,14 @@ export default function ConsultingSection() {
             {t('company.consulting.description')}
           </p>
 
-          <Button variant="outline" className="border-gray-200 pl-5  pr-0  md:py-6 bg-transparent hover:text-black border-solid rounded-none">
-            <span>{t('company.consulting.button')}</span>
-            <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
-            </svg>
-          </Button>
+          <Link href="/contacto">
+            <Button variant="outline" className="border-gray-200 pl-5  pr-0  md:py-6 bg-transparent hover:text-black border-solid rounded-none">
+              <span>{t('company.consulting.button')}</span>
+              <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
+              </svg>
+            </Button>
+          </Link>
 
         </div>
       </div>

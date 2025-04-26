@@ -71,8 +71,10 @@ export default function Footer() {
               <p className="text-gray-200 mb-6" dangerouslySetInnerHTML={{ __html: t('footer.contact.address') }}>
               </p>
               <div className="mb-4">
-                <p className="text-gray-200">+34 968 862 467</p>
-                <p className="text-gray-200">+34 663 519 854</p>
+                <a href="tel:+34968862467" className="text-gray-200 hover:text-white transition-colors">+34 968 862 467</a>
+                <br />
+                <a href="tel:+34663519854" className="text-gray-200 hover:text-white transition-colors">+34 663 519 854</a>
+                <br />
                 <a href="mailto:grupoestucalia@grupoestucalia.com" className="text-gray-200 hover:text-white transition-colors">
                   grupoestucalia@grupoestucalia.com
                 </a>
