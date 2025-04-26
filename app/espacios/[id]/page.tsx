@@ -33,7 +33,7 @@ const products: Products[] = [
     {
         id:"singleLayerMortar",
         name: 'spacesSection.products.monocapa',
-        icon: MorteroCal,
+        icon:MorteroMonocapa,
         category: "spacesSection.applications.coatings,spacesSection.applications.plasters,spacesSection.applications.waterproofing,spacesSection.applications.screeds,spacesSection.applications.dehumidification,spacesSection.applications.masonry,spacesSection.applications.thermal"
     },
     {
@@ -45,7 +45,7 @@ const products: Products[] = [
     {
         id:"limeMortar",
         name: 'spacesSection.products.lime',
-        icon: MorteroMonocapa,
+        icon: MorteroCal,
         category: "spacesSection.applications.coatings,spacesSection.applications.plasters,spacesSection.applications.waterproofing,spacesSection.applications.dehumidification,spacesSection.applications.masonry,spacesSection.applications.thermal"
     },
     {
