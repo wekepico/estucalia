@@ -57,8 +57,11 @@ export default function ClientNavigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLElement>, href: string) => {
+    e.preventDefault();
     setIsOpen(false);
+    const cleanHref = href.replace(/\/$/, '');
+    window.location.href = cleanHref;
   };
 
   useEffect(() => {
@@ -98,6 +101,17 @@ export default function ClientNavigation() {
     bondingBridge: t("navigation.products.submenu.bondingBridge")
   };
 
+  const submenuItemsSpaces = {
+    facades: t("navigation.spaces.submenu.facades"),
+    terraces: t("navigation.spaces.submenu.terraces"),
+    balconies: t("navigation.spaces.submenu.balconies"),
+    walls: t("navigation.spaces.submenu.walls"),
+    patios: t("navigation.spaces.submenu.patios"),
+    floors: t("navigation.spaces.submenu.floors"),
+    outdoorKitchens: t("navigation.spaces.submenu.outdoorKitchens"),
+    pools: t("navigation.spaces.submenu.pools")
+  };
+
   const menuLinks = [
     {
       href: "/producto",
@@ -110,7 +124,7 @@ export default function ClientNavigation() {
     {
       href: "/aplicaciones",
       label: "navigation.applications.label",
-      submenu:Object.entries(submenuItemsAplications).map(([id, label]) => ({
+      submenu: Object.entries(submenuItemsAplications).map(([id, label]) => ({
         label,
         href: id
       }))
@@ -118,9 +132,9 @@ export default function ClientNavigation() {
     {
       href: "/espacios",
       label: "navigation.spaces.label", 
-      submenu: t("navigation.spaces.submenu").split(', ').map(item => ({
-        label: item.trim(),
-        href: item.trim()
+      submenu: Object.entries(submenuItemsSpaces).map(([id, label]) => ({
+        label,
+        href: id
       }))
     },
     {
@@ -213,7 +227,7 @@ export default function ClientNavigation() {
                           key={index}
                           onMouseEnter={() => setHoveredLink(link.label)}
                           onMouseLeave={() => setHoveredLink(null)}
-                          onClick={link.submenu.length === 0 ? () => window.location.href = link.href : undefined}
+                          onClick={link.submenu.length === 0 ? (e) => handleLinkClick(e, link.href) : undefined}
                         >
                           <div
                             className={`${
@@ -244,8 +258,9 @@ export default function ClientNavigation() {
                                 className="hover:underline"
                               >
                                 <Link 
-                                  href={`${link.href}/${subItem.href}`} 
+                                  href={`${link.href}/${subItem.href}`.replace(/\/$/, '')} 
                                   className="text-white block"
+                                  onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
                                 >
                                   {subItem.label}
                                 </Link>
@@ -289,7 +304,10 @@ export default function ClientNavigation() {
                   <ul className="space-y-2 text-white">
                     {companyLinks.map((link, index) => (
                       <li key={index}>
-                        <Link href={link.href} onClick={handleLinkClick}>
+                        <Link 
+                          href={link.href} 
+                          onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, link.href)}
+                        >
                           {link.label}
                         </Link>
                       </li>
@@ -301,7 +319,7 @@ export default function ClientNavigation() {
                   <NavigationMenuItem key={index} className="w-full">
                     <Link
                       href={link.href}
-                      onClick={handleLinkClick}
+                      onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, link.href)}
                       className="text-white hover:border-b pb-1 hover:border-white transition-colors block w-full"
                     >
                       {t(link.label)}
@@ -311,8 +329,8 @@ export default function ClientNavigation() {
                         {link.submenu.map((subItem, subIndex) => (
                           <li key={subIndex}>
                             <Link
-                              href={`${link.href}/${subItem.href}`}
-                              onClick={handleLinkClick}
+                              href={`${link.href}/${subItem.href}`.replace(/\/$/, '')}
+                              onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
                               className="text-white text-sm block py-1"
                             >
                               {subItem.label}

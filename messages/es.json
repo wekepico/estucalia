@@ -41,7 +41,16 @@
     },
     "spaces": {
       "label": "Espacios",
-      "submenu": "Fachadas, Terrazas, Balcones, Paredes, Patios y lucernarios, Suelos y pavimentos, Cocinas de exterior, Piscinas"
+      "submenu": {
+        "facades": "Fachadas",
+        "terraces": "Terrazas",
+        "balconies": "Balcones",
+        "walls": "Paredes",
+        "patios": "Patios y lucernarios",
+        "floors": "Suelos y pavimentos",
+        "outdoorKitchens": "Cocinas de exterior",
+        "pools": "Piscinas"
+      }
     },
     "professionals": "Profesionales",
     "professionalsSubmenu": {

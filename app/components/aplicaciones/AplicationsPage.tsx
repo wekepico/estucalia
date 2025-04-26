@@ -1,14 +1,10 @@
-
 "use client"
 import React from "react";
 import { HeroSection } from "./sections/HeroSection";
 import { InspirationSectionAplication } from "./sections/InspirationSectionAplication";
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
-import { Aplication } from "@/app/aplicaciones/[id]/page";
-
-
-
-
+import { Aplication } from "@/app/data/aplicaciones";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 const inspirationImages = [
   {
@@ -49,21 +45,19 @@ interface AplicationPageProps {
   aplication: Aplication | null;
 }
 
-
 export default function AplicationPage({ aplication }: AplicationPageProps) {
-
+  const { t } = useLanguage();
 
   return (
     <React.Fragment>
       <HeroSection 
-        category={aplication?.aplication || null}
-        description={aplication?.descripcion || null}
+        category={aplication?.aplication ? t(aplication.aplication) : null}
+        description={aplication?.descripcion ? t(aplication.descripcion) : null}
         products={aplication?.products || null}
         img={aplication?.img || null}
       />
       <InspirationSectionAplication images={inspirationImages} />
       <ProjectHelpSection />
-
     </React.Fragment>
   )
 }

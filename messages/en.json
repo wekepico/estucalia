@@ -41,7 +41,16 @@
     },
     "spaces": {
       "label": "Spaces",
-      "submenu": "Facades, Terraces, Balconies, Walls, Patios and skylights, Floors and pavements, Outdoor kitchens, Swimming pools"
+      "submenu": {
+        "facades": "Facades",
+        "terraces": "Terraces",
+        "balconies": "Balconies",
+        "walls": "Walls",
+        "patios": "Patios and skylights",
+        "floors": "Floors and pavements",
+        "outdoorKitchens": "Outdoor kitchens",
+        "pools": "Swimming pools"
+      }
     },
     "professionals": "Professionals",
     "professionalsSubmenu": {

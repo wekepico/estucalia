@@ -1,6 +1,8 @@
+"use client"
 import Image from "next/image";
 import { ProductCard } from "../../home/components/ProductCard";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 interface Product {
     id:string,
@@ -16,8 +18,9 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ description, category, products, img, }) => {
+    const { t } = useLanguage();
     return (
-        <div className="flex flex-col gap-16 md:gap-28 px-5 sm:px-10 md:px-15 lg:px-20">
+        <div className="flex flex-col gap-16 md:gap-28 px-5 pt-16 sm:px-10 md:px-15 lg:px-20">
             {/* Contenedor principal */}
             <div className="w-full flex flex-col md:flex-row h-auto md:h-[480px]">
                 {/* Contenedor de texto */}
@@ -46,7 +49,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ description, category,
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-16">
                 {products?.map((product) => (
                     <div key={product.name}>
-                        <ProductCard id={product.id} icon={product.icon} name={product.name} />
+                        <ProductCard id={product.id} icon={product.icon} name={t(product.name)} />
                     </div>
                 ))}
             </div>
