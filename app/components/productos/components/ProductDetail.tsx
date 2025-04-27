@@ -86,8 +86,8 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
       const data = product.documentacion?.length === 6 ? cardsData : cardsData2
 
     return (
-        <div className="flex gap-12">
-            <div className="flex-1 w-3/4">
+        <div className="flex max-md:flex-col gap-12">
+            <div className="flex-1 md:w-3/4">
                 <h3 className="text-xl font-semibold">{product.nombre}</h3>
                 {product.subtitulo && (
                     <h4 className="text-base italic mb-4">{product.subtitulo}</h4>
@@ -161,7 +161,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 
             {/* Documentation (if it exists) */}
             {product.documentacion && product.documentacion.length > 0 && (
-                <div className="my-4 w-1/4">
+                <div className="my-4 md:w-1/4 max-md:w-3/4">
                     <Image
                         src={product.imagen || "/images/no-image.png"}
                         alt={product.nombre}
@@ -169,12 +169,12 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         height={180}
                     />
 
-                    <ul className="list-none ml-5">
+                    <ul className="list-none mt-5 ml-5">
                         <li>
                             <strong>{t("productsSection.documentation")}:</strong>
                         </li>
                         {product.documentacion.map((doc, i) => (
-                            <li key={i} className="flex items-center justify-between gap-2">
+                            <li key={i} className="flex items-center justify-between  gap-2">
                                 <span>{doc.nombre}</span>
                                 <a
                                     href={data[i].filePath}

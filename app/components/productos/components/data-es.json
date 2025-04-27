@@ -231,7 +231,7 @@
                 {
                     "nombre": "KOLATECT",
                     "subtitulo": "Piscinas C1",
-                    "imagen": "/img/productos/KOLATEC CAJA.png",
+                    "imagen": "/img/productos/03-KOLATEC CCOLA.png",
                     "composicion": "Adhesivo Cementoso a base de áridos seleccionados, cemento blanco y aditivos para Baldosas Cerámicas de fraguado Normal. Sin descuelgue. Se fabrica en color Blanco y en dos clases: FINO y GRUESO.",
                     "caracteristicas": [
                         "Adhesión de piezas cerámicas con grado de absorción medio-alto.",
@@ -885,7 +885,7 @@
                 {
                     "nombre": "EURO-SOL",
                     "subtitulo": "Desmodelante",
-                    "imagen": "/img/productos/null.png",
+                    "imagen": "/img/productos/EUROSOL_1.png",
                     "composicion": "Desencofrante líquido para desencofrar inmediatamente. Forma una película delgada no grasa que permite un desencofrado inmediato.",
                     "caracteristicas": [
                         "Aspecto: Líquido oleoso e incoloro.",
@@ -945,7 +945,7 @@
                 {
                     "nombre": "EURO-TINT",
                     "subtitulo": "Tinte natural",
-                    "imagen": "/img/productos/null.png",
+                    "imagen": "/img/productos/EUROTINT.png",
                     "composicion": "Tinte compuesto por mezcla de cera natural (99%) y pigmentos inorgánicos (1%). Se fabrica en varios colores: Blanco, Rojo, Negro, Pardo, Ocre, Amarillo, Verde, Azul y Neutro.",
                     "caracteristicas": [
                         "Euro-Tint es idóneo para colorear trabajos con PLASTITE Multiacabado por sus múltiples combinaciones y resultado final.",
@@ -999,8 +999,40 @@
                 {
                     "nombre": "MOLDES CENEFAS RODILLOS",
                     "subtitulo": "Accesorios",
-                    "imagen": "/img/productos/null.png",
-                    "informacion_general": "Herramientas y accesorios para crear texturas y relieves en mortero impreso. Incluye moldes de distintas formas, rodillos para simular diferentes patrones y cenefas para acabados decorativos."
+                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
+                    "informacion_general": "Herramientas y accesorios para crear texturas y relieves en mortero impreso. Incluye moldes de distintas formas, rodillos para simular diferentes patrones y cenefas para acabados decorativos.",
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/Moldes_cenefas_rodillos.pdf"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
                 }
             ]
         },
@@ -1093,7 +1125,7 @@
                 {
                     "nombre": "MÁRMOL TRITURADO",
                     "subtitulo": "Colores naturales",
-                    "imagen": "/img/productos/null.png",
+                    "imagen": "/img/productos/MARMOL TRITURADO.png",
                     "composicion": "Mármol triturado en colores naturales (Marfil, Madera, Rosa, Rojo, Blanco, Gris, Verde y Negro) en varias granulometrías.",
                     "caracteristicas": [
                         "Producto Natural.",
@@ -1162,7 +1194,7 @@
                 {
                     "nombre": "EURO-PROTECT",
                     "subtitulo": "Barniz protector de agua",
-                    "imagen": "/img/productos/null.png",
+                    "imagen": "/img/productos/EUROPROTECT.png",
                     "composicion": "Emulsión de copolímero acrílico-estireno para proteger los morteros monocapa, con alta resistencia al agua, a los álcalis y gran plasticidad termal.",
                     "caracteristicas": [
                         "Excelentes propiedades como hidrofugante.",
@@ -1234,7 +1266,7 @@
                 {
                     "nombre": "RHINO",
                     "subtitulo": "Resina puente de unión",
-                    "imagen": "/img/productos/null.png",
+                    "imagen": "/img/productos/RHINO.png",
                     "composicion": "Imprimación para Morteros Monocapa y Morteros en General aplicados sobre hormigón liso y soportes con baja o nula absorción superficial.",
                     "caracteristicas": [
                         "Aplicación en interiores y exteriores.",

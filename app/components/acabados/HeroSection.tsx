@@ -28,7 +28,7 @@ export const HeroSection: React.FC = () => {
             descripcion: t('finishes.descriptions.hammered'),
             products: [
                 {
-                    id:"sigleLayerMortar",
+                    id:"singleLayerMortar",
                     name: t('finishes.products.monocapa'), // "Mortero monocapa"
                     icon: MorteroMonocapa
                 },
@@ -50,7 +50,7 @@ export const HeroSection: React.FC = () => {
             descripcion: t('finishes.descriptions.washed'),
             products: [
                 {
-                    id:"sigleLayerMortar",
+                    id:"singleLayerMortar",
                     name: t('finishes.products.monocapa'),
                     icon: MorteroMonocapa
                 },

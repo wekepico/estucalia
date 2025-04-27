@@ -60,8 +60,7 @@ export default function ClientNavigation() {
   const handleLinkClick = (e: React.MouseEvent<HTMLElement>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
-    const cleanHref = href.replace(/\/$/, '');
-    window.location.href = cleanHref;
+    window.location.href = href;
   };
 
   useEffect(() => {

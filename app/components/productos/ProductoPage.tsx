@@ -59,22 +59,22 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
 
   return (
     <>
-      <section className="md:px-15 sm:px-10 px-5 lg:px-20 pt-32 flex flex-col gap-24">
+      <section className="md:px-15 sm:px-10 px-5 lg:px-20 pt-32 flex flex-col gap-14">
         {/* Category section: Image + Category description */}
-        <section className="flex w-full gap-8">
-          <div className="md:w-2/5  h-[28rem] flex text-center items-center gap-3 flex-col justify-center bg-gray-300">
+        <section className="flex w-full max-md:flex-col gap-8">
+          <div className="md:w-2/6  h-[28rem] flex text-center items-center gap-3 flex-col justify-center bg-[#EAEAEA]">
             <Image
               src={category.imagen}
               alt={category.titulo}
               width={150}
               height={150}
             />
-            <p className="font-[600] text-lg line-clamp-2 w-36">
+            <p className="font-[700] text-lg leading-5 w-24">
               {category.titulo.toLocaleUpperCase()}
             </p>
           </div>
 
-          <label className="p-8 md:w-3/5">
+          <label className="p-8 md:w-4/6">
             <h2 className="font-[600] text-3xl pb-5">
               {category.titulo}
             </h2>
@@ -115,8 +115,8 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
                     <Image
                       alt={acabado.nombre}
                       src={acabado.imagen}
-                      width={200}
-                      height={140}
+                      width={acabado.nombre === "Liso" || acabado.nombre === "Smooth"?210:200}
+                      height={160}
                       className="bg-gray-200"
                     />
                   </div>
@@ -133,7 +133,7 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
           </h2>
           <div className="flex flex-col gap-10">
             {/* Product carousel */}
-            <div className="flex gap-6">
+            <div className="flex max-sm:flex-wrap gap-6">
               {category.productos.map((producto: any, index: number) => (
                 <ProductCard
                   key={index}

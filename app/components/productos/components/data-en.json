@@ -231,7 +231,7 @@
                 {
                     "nombre": "KOLATECT",
                     "subtitulo": "Pools C1",
-                    "imagen": "/img/productos/KOLATEC CAJA.png",
+                    "imagen": "/img/productos/03-KOLATEC CCOLA.png",
                     "composicion": "Cementitious adhesive based on selected aggregates, white cement, and additives for ceramic tiles with normal setting. No sagging. Available in white and two types: FINE and COARSE.",
                     "caracteristicas": [
                         "Bonding of medium-to-high absorption ceramic tiles.",
@@ -877,7 +877,7 @@
                 {
                     "nombre": "EURO-SOL",
                     "subtitulo": "Release agent",
-                    "imagen": "/img/productos/null.png",
+                    "imagen": "/img/productos/EUROSOL_1.png",
                     "composicion": "Liquid release agent for immediate demolding. Forms a thin non-greasy film that allows instant demolding.",
                     "caracteristicas": [
                         "Appearance: Oily, colorless liquid.",
@@ -937,7 +937,7 @@
                 {
                     "nombre": "EURO-TINT",
                     "subtitulo": "Natural tint",
-                    "imagen": "/img/productos/null.png",
+                    "imagen": "/img/productos/EUROTINT.png",
                     "composicion": "Tint composed of a mixture of natural wax (99%) and inorganic pigments (1%). Manufactured in various colors: White, Red, Black, Brown, Ochre, Yellow, Green, Blue, and Neutral.",
                     "caracteristicas": [
                         "EURO-TINT is ideal for coloring PLASTITE Multi-finish works due to its multiple combinations and final result.",
@@ -991,8 +991,40 @@
                 {
                     "nombre": "MOLDES CENEFAS RODILLOS",
                     "subtitulo": "Accessories",
-                    "imagen": "/img/productos/null.png",
-                    "informacion_general": "Tools and accessories for creating textures and reliefs on stamped mortar. Includes molds of various shapes, rollers to simulate different patterns, and borders for decorative finishes."
+                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
+                    "informacion_general": "Tools and accessories for creating textures and reliefs on stamped mortar. Includes molds of various shapes, rollers to simulate different patterns, and borders for decorative finishes.",
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/Moldes_cenefas_rodillos.pdf"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Performance Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "#"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "#"
+                        }
+                    ]
                 }
             ]
         },
@@ -1012,7 +1044,7 @@
                 {
                     "nombre": "RHINO",
                     "subtitulo": "Bonding resin",
-                    "imagen": "/img/productos/null.png",
+                    "imagen": "/img/productos/RHINO.png",
                     "composicion": "Primer for single-layer mortars and mortars in general, applied on smooth concrete and substrates with low or zero surface absorption.",
                     "caracteristicas": [
                         "Application in interiors and exteriors.",
@@ -1159,7 +1191,7 @@
                 {
                     "nombre": "MÁRMOL TRITURADO",
                     "subtitulo": "Natural colors",
-                    "imagen": "/img/productos/null.png",
+                    "imagen": "/img/productos/MARMOL TRITURADO.png",
                     "composicion": "Crushed marble in natural colors (Marfil, Madera, Rosa, Rojo, Blanco, Gris, Verde, and Negro) available in various granulometries.",
                     "caracteristicas": [
                         "Natural product.",
@@ -1228,7 +1260,7 @@
                 {
                     "nombre": "EURO-PROTECT",
                     "subtitulo": "Water protective varnish",
-                    "imagen": "/img/productos/null.png",
+                    "imagen": "/img/productos/EUROPROTECT.png",
                     "composicion": "Styrene-acrylic copolymer emulsion for protecting single-layer mortars, with high water resistance, alkali resistance, and good thermal plasticity.",
                     "caracteristicas": [
                         "Excellent water-repellent properties.",
