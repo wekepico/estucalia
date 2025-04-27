@@ -26,41 +26,49 @@ export default function AplicationSection() {
 
   const spaces = [
     {
+      id:"balconies",
       image: "/img/aplicaciones/balcones.jpg",
       title: t('home.applications.spaces.balconies'),
       categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.tiles')},${t('home.applications.categories.plasters')},${t('home.applications.categories.waterproofing')},${t('home.applications.categories.masonry')}`
     },
     {
+      id:"kitchens",
       image: "/img/aplicaciones/cocina exterior.jpg",
-      title: t('home.applications.spaces.outdoorKitchens'),
+      title: t('home.applications.spaces.kitchens'),
       categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.tiles')},${t('home.applications.categories.screeds')},${t('home.applications.categories.masonry')},${t('home.applications.categories.waterproofing')}`
     },
     {
+      id:"facades",
       image: "/img/aplicaciones/fachada.jpg",
       title: t('home.applications.spaces.facades'),
       categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.masonry')},${t('home.applications.categories.thermal')},${t('home.applications.categories.waterproofing')},${t('home.applications.categories.dehumidification')}`
     },
     {
+      id:"walls",
       image: "/img/aplicaciones/paredes.jpg",
       title: t('home.applications.spaces.walls'),
       categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.masonry')},${t('home.applications.categories.tiles')},${t('home.applications.categories.thermal')},${t('home.applications.categories.waterproofing')},${t('home.applications.categories.dehumidification')}`
     },
     {
+      id:"patios",
       image: "/img/aplicaciones/patios y lucernarios.jpg",
       title: t('home.applications.spaces.patios'),
       categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.masonry')},${t('home.applications.categories.tiles')},${t('home.applications.categories.waterproofing')},${t('home.applications.categories.dehumidification')}`
     },
     {
+      id:"floors",
       image: "/img/aplicaciones/pavimentos.jpg",
       title: t('home.applications.spaces.floors'),
       categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.tiles')},${t('home.applications.categories.screeds')},${t('home.applications.categories.waterproofing')},${t('home.applications.categories.dehumidification')}`
     },
     {
+      id:"pools",
       image: "/img/aplicaciones/piscina.jpg",
       title: t('home.applications.spaces.pools'),
       categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.tiles')},${t('home.applications.categories.waterproofing')}`
     },
     {
+      id:"terraces",
       image: "/img/aplicaciones/terraza.jpg",
       title: t('home.applications.spaces.terraces'),
       categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.masonry')},${t('home.applications.categories.tiles')},${t('home.applications.categories.thermal')},${t('home.applications.categories.waterproofing')}`
@@ -187,7 +195,7 @@ export default function AplicationSection() {
                   minWidth: `calc(${100 / visibleCards}% - ${(visibleCards - 1) * 16}px)`,
                   scrollSnapAlign: 'start'
                 }}
-                onClick={() =>window.location.href = "/espacios/" + space.title}
+                onClick={() =>window.location.href = "/espacios/" + space.id}
               >
                 <CardContent className="p-0">
                   <div className="relative h-[380px] md:h-[550px] group">

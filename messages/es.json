@@ -48,7 +48,7 @@
         "walls": "Paredes",
         "patios": "Patios y lucernarios",
         "floors": "Suelos y pavimentos",
-        "outdoorKitchens": "Cocinas de exterior",
+        "kitchens": "Cocinas de exterior",
         "pools": "Piscinas"
       }
     },
