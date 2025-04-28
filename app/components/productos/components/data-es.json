@@ -4,7 +4,7 @@
             "id": "limeMortar",
             "titulo": "Mortero cal",
             "descripcion": "El mortero de cal es una mezcla tradicional compuesta por cal, arena y agua. Se utiliza en restauraciones de edificios históricos y construcciones ecológicas debido a sus propiedades transpirables y su capacidad para regular la humedad.  ",
-            "descripcion1":"Ofrece una excelente transpirabilidad, lo que evita la acumulación de humedad en las paredes. Su flexibilidad reduce el riesgo de fisuras y grietas. Además, es un material ecológico y sostenible, ideal para restauraciones patrimoniales y construcciones bioclimáticas.",
+            "descripcion1": "Ofrece una excelente transpirabilidad, lo que evita la acumulación de humedad en las paredes. Su flexibilidad reduce el riesgo de fisuras y grietas. Además, es un material ecológico y sostenible, ideal para restauraciones patrimoniales y construcciones bioclimáticas.",
             "imagen": "/img/mortero-cal.svg",
             "aplicaciones": [
                 "Revestimientos",
@@ -33,7 +33,7 @@
             ],
             "productos": [
                 {
-                    "nombre": "ARGAMASA - MORTERO CAL NHL",
+                    "nombre": "MORTERO CAL NHL",
                     "subtitulo": "Mortero cal. Cal",
                     "imagen": "/img/productos/01-ARGAMASA.png",
                     "composicion": "Mortero a base de Cal Hidráulica Natural (NHL) PURA, áridos seleccionados y aditivos que proporcionan un producto de alta calidad para la ejecución de revestimientos, muros y reparación de superficies. Este mortero se distingue por su gran adherencia, flexibilidad y transpirabilidad, lo que lo hace ideal para aplicaciones en Obra Nueva y en Obras de restauración, tanto en interiores como en exteriores.",
@@ -49,39 +49,27 @@
                     ],
                     "recomendaciones": [
                         "Soportes Tradicionales en construcción (ladrillo, bloque, etc.). Deben estar sanos, limpios, sin polvo, restos de pinturas, moho, etc.",
-                        "No utilizar a temperaturas inferiores a 5ºC ni superiores a 30ºC.",
-                        "Proteger las aristas superiores del revestimiento frente a la penetración del agua de lluvia.",
-                        "No aplicar sobre hormigón celular, yeso, pinturas, superficies de metal, plástico, aislamientos y materiales de poca resistencia mecánica.",
-                        "En caso de calor, viento o soportes muy absorbentes, se recomienda humedecer el soporte y esperar a la desaparición de la película de agua.",
-                        "En puntos singulares (uniones entre materiales distintos, forjados, pilares, etc.) armar el mortero con malla de fibra de vidrio para evitar fisuras.",
-                        "Sobre soportes poco porosos, aplicar una imprimación (EUROFIX) o mejorar la rugosidad por medios mecánicos."
+                        "No utilizar a temperaturas inferiores a 5ºC ni superiores a 30ºC."
                     ],
                     "precauciones": [
                         "No utilizar en ambientes donde el nivel de humedad sea excesivamente alto.",
                         "No aplicar sobre superficies extremadamente lisas o no porosas sin un tratamiento previo adecuado: Puente de Unión RHINO.",
-                        "Evitar su aplicación en condiciones de heladas o lluvias intensas.",
-                        "No aplicar por debajo de 5°C ni por encima de 30°C.",
-                        "No aplicar con riesgo de heladas, lluvias, fuertes vientos o sol directo.",
-                        "Para espesores superiores a 2 cm se recomienda aplicar el producto en dos capas.",
-                        "El espesor mínimo de enlucido/revoque deberá ser de 10 mm."
+                        "Evitar su aplicación en condiciones de heladas o lluvias intensas."
                     ],
                     "informacion_relevante": [
                         "Presentación: Sacos de 25 kg. Palets de 1400 kg (56 sacos).",
-                        "Colores: extensa gama de 150 colores ampliable según necesidades del cliente.",
-                        "Rendimiento: 1,5 kg/m2 y mm de espesor en soporte plano.",
-                        "Conservación: 12 meses a partir de la fecha de fabricación, en un lugar seco, ventilado y fresco.",
-                        "Conservación: 12 meses a partir de la fecha de fabricación, en el envase original cerrado y al abrigo de la humedad."
+                        "Conservación: 12 meses a partir de la fecha de fabricación, en un lugar seco, ventilado y fresco."
                     ],
                     "documentacion": [
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -89,58 +77,51 @@
                             "enlace": "#"
                         },
                         {
-                            "nombre": "Declaración de Conformidad",
-                            "accion": "Descargar",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 },
                 {
-                    "nombre": "ARGAMASA MORTERO DE CAL MIXTO",
+                    "nombre": "MORTERO CAL MIXTO",
                     "subtitulo": "Mortero de Cal y Cemento",
                     "imagen": "/img/productos/02-ARGAMASA M.png",
                     "composicion": "Mortero compuesto por cal aérea y cemento blanco, junto con áridos seleccionados y aditivos que garantizan un excelente comportamiento mecánico, alta durabilidad y flexibilidad. Su formulación es adecuada para aplicaciones en obra nueva, reformas y reparaciones de muros, fachadas y pavimentos, combinando lo mejor de ambos materiales: la elasticidad e impermeabilidad de la cal y la resistencia del cemento.",
                     "caracteristicas": [
-                      "Alta resistencia mecánica, ideal para estructuras que requieren gran durabilidad.",
-                      "Flexibilidad para adaptarse a movimientos sin agrietarse.",
-                      "Fácil de trabajar y aplicar, permitiendo un acabado liso, fratasado o raspado.",
-                      "Ideal para interiores y exteriores, incluyendo zonas con exposición a agentes climáticos.",
-                      "Resistente a las heladas, ofreciendo alta estabilidad térmica.",
-                      "Sin tendencia a la fisuración de otros morteros tradicionales."
+                        "Alta resistencia mecánica, ideal para estructuras que requieren gran durabilidad.",
+                        "Flexibilidad para adaptarse a movimientos sin agrietarse.",
+                        "Fácil de trabajar y aplicar, permitiendo un acabado liso, fratasado o raspado.",
+                        "Ideal para interiores y exteriores, incluyendo zonas con exposición a agentes climáticos.",
+                        "Resistente a las heladas, ofreciendo alta estabilidad térmica.",
+                        "Sin tendencia a la fisuración de otros morteros tradicionales."
                     ],
                     "recomendaciones": [
-                      "Evitar temperaturas extremas durante la aplicación (inferiores a 5ºC o superiores a 30ºC).",
-                      "No aplicar en condiciones de exposición directa a lluvias intensas o viento fuerte durante el proceso de secado.",
-                      "No aplicar en juntas de dilatación o zonas sujetas a movimientos estructurales.",
-                      "No utilizar en superficies muy absorbentes sin un tratamiento previo de sellado."
+                        "Evitar temperaturas extremas durante la aplicación (inferiores a 5ºC o superiores a 30ºC).",
+                        "No aplicar en condiciones de exposición directa a lluvias intensas o viento fuerte durante el proceso de secado.",
+                        "No aplicar en juntas de dilatación o zonas sujetas a movimientos estructurales.",
+                        "No utilizar en superficies muy absorbentes sin un tratamiento previo de sellado."
                     ],
                     "precauciones": [
-                      "No aplicar sobre superficies con humedad excesiva.",
-                      "Proteger el mortero fresco de condiciones climáticas adversas.",
-                      "Seguir estrictamente las proporciones de mezcla recomendadas.",
-                      "Utilizar equipos de protección personal durante la aplicación."
+                        "No aplicar sobre superficies con humedad excesiva.",
+                        "Proteger el mortero fresco de condiciones climáticas adversas.",
+                        "Seguir estrictamente las proporciones de mezcla recomendadas.",
+                        "Utilizar equipos de protección personal durante la aplicación."
                     ],
                     "informacion_relevante": [
-                      "Presentación: Sacos de 25 kg.",
-                      "Conservación: 12 meses a partir de la fecha de fabricación, en lugar seco y protegido de la humedad.",
-                      "Rendimiento aproximado: 1,6 kg/m² por mm de espesor.",
-                      "Tiempo de endurecimiento: 24-48 horas según condiciones ambientales."
+                        "Presentación: Sacos de 25 kg.",
+                        "Conservación: 12 meses a partir de la fecha de fabricación, en lugar seco y protegido de la humedad."
                     ],
                     "documentacion": [
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -148,17 +129,12 @@
                             "enlace": "#"
                         },
                         {
-                            "nombre": "Declaración de Conformidad",
-                            "accion": "Descargar",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
-                  }
+                }
             ]
         },
         {
@@ -204,12 +180,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -219,12 +195,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 },
@@ -258,12 +234,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -273,12 +249,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 },
@@ -294,12 +270,10 @@
                         "Adhesión de todo tipo de piezas cerámicas, gres porcelánico, mármol, granito y piedra natural.",
                         "Aplicación en interiores y pavimentos exteriores.",
                         "Revestimiento de piscinas con mosaico vítreo."
-                   
                     ],
                     "recomendaciones": [
                         "No aplicar sobre yesos o pinturas.",
                         "Los soportes deben ser resistentes, estables, sanos y estar limpios, exentos de polvo, restos de desencofrantes, productos orgánicos, etc."
-
                     ],
                     "precauciones": [
                         "No aplicar por debajo de 5ºC ni por encima de 30ºC.",
@@ -322,12 +296,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -337,12 +311,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 },
@@ -393,12 +367,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -408,16 +382,15 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 }
-                
             ]
         },
         {
@@ -451,7 +424,7 @@
                 {
                     "nombre": "CRISOLEX R",
                     "subtitulo": "Raspado",
-                    "imagen": "/img/productos/06-CRYSOLEX PC.png",
+                    "imagen": "/img/productos/CRISOLEX MONOCAPA.png",
                     "composicion": "Producto fabricado a base de cemento blanco de alta resistencia, áridos seleccionados, aditivos orgánicos y pigmentos.",
                     "caracteristicas": [
                         "Aplicación directa a la pared de cerramiento sin necesidad de enfoscar.",
@@ -488,12 +461,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -503,12 +476,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 },
@@ -547,12 +520,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -562,12 +535,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 },
@@ -614,12 +587,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -629,12 +602,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 },
@@ -645,7 +618,6 @@
                     "composicion": "Mortero Hidrófugo a base de áridos seleccionados, cemento blanco o gris y aditivos.",
                     "caracteristicas": [
                         "Realización de terminaciones blancas o colores suaves.",
-                        "Acabado fratasado grueso.",
                         "Aplicación en interiores y exteriores.",
                         "Revestimiento impermeable.",
                         "Permeable al vapor de agua, permitiendo que el soporte transpire.",
@@ -658,8 +630,7 @@
                         "En caso de calor, viento o sobre soportes muy absorbentes, se recomienda humedecer el soporte y esperar a la desaparición de la película de agua.",
                         "Sobre soportes poco porosos, aplicar una imprimación (EUROFIX) o mejorar la rugosidad por medios mecánicos.",
                         "Los soportes deben ser resistentes, estables, sanos y estar limpios.",
-                        "El espesor final mínimo tras la aplicación debe ser de 10 mm para asegurar la impermeabilidad.",
-                        "En puntos singulares (uniones entre materiales distintos, etc.), armar con malla de fibra de vidrio para evitar fisuras."
+                        "El espesor final mínimo tras la aplicación debe ser de 10 mm para asegurar la impermeabilidad del agua de lluvia del paramento cuando el soporte no posea resistencia a la filtración del agua."
                     ],
                     "precauciones": [
                         "No aplicar por debajo de 5ºC ni por encima de 30ºC.",
@@ -682,12 +653,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -697,12 +668,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 }
@@ -771,12 +742,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -786,12 +757,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 }
@@ -812,7 +783,7 @@
             ],
             "productos": [
                 {
-                    "nombre": "KOLATEC FOREVER",
+                    "nombre": "FOREVER",
                     "subtitulo": "Mortero juntas. Juntas",
                     "imagen": "/img/productos/FOREVER BOLSA.png",
                     "composicion": "Mortero formulado a base de áridos seleccionados, cemento blanco, y aditivos para el relleno de juntas entre baldosas cerámicas, gres y piedra natural. Diseñado para juntas de hasta 15 mm. este mortero ofrece una amplia gama de colores. Su textura fina y su alta adherencia garantizan un acabado estético y duradero, evitando fisuras y retracciones.",
@@ -849,12 +820,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -864,12 +835,74 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
+                            "enlace": "/files/dit-plus-espanol.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "KOLATEC",
+                    "subtitulo": "Mortero juntas. Juntas",
+                    "imagen": "/img/productos/KOLATEC BOLSA.png",
+                    "composicion": "Mortero a base de áridos seleccionados, cemento blanco, resinas, pigmentos y aditivos coloreado para Juntas entre Baldosas Cerámicas de hasta 15 mm con amplia gama de colores, impermeable, sin retracción y de fácil limpieza.",
+                    "caracteristicas": [
+                        "Elevada dureza.",
+                        "Color intenso.",
+                        "Fácil limpieza.",
+                        "Textura muy fina.",
+                        "Baja absorción de agua.",
+                        "Resistente al agrietamiento y a la abrasión.",
+                        "Aplicación en interiores y exteriores.",
+                        "Apto para calefacción radiante."
+                    ],
+                    "recomendaciones": [
+                        "En el caso de baldosas muy absorbentes o temperaturas elevadas, antes de rellenar las juntas, humedecer las mismas con agua limpia, pasando sobre estas una esponja húmeda evitando el encharcamiento de agua en su interior.",
+                        "En rehabilitaciones vaciar completamente la junta antes de la aplicación."
+                    ],
+                    "precauciones": [
+                        "No aplicar por debajo de 5ºC ni por encima de 30ºC.",
+                        "No aplicar con riesgo de heladas, lluvias, fuertes vientos o sol directo.",
+                        "En rehabilitaciones vaciar completamente la junta antes de la aplicación."
+                    ],
+                    "informacion_relevante": [
+                        "Presentación: Sacos de plástico 5 kg | Sacos de papel 8 kg.",
+                        "Colores: Más de 30 colores en nuestra gama, ampliable según demanda.",
+                        "Conservación: 24 meses (sacos de papel) / 12 meses (sacos de plástico) a partir de la fecha de fabricación."
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/KOLATEC juntas.pdf"
+                        },
+                        {
+                            "nombre": "Certificado AENOR",
+                            "accion": "Descargar",
+                            "enlace": "/files/certificado-aenor.pdf"
+                        },
+                        {
+                            "nombre": "Certificado IQNet",
+                            "accion": "Descargar",
+                            "enlace": "/files/certificado-iqnet.pdf"
+                        },
+                        {
+                            "nombre": "Declaración de Prestaciones",
+                            "accion": "Descargar",
                             "enlace": "#"
+                        },
+                        {
+                            "nombre": "Declaración de Conformidad",
+                            "accion": "Descargar",
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                        },
+                        {
+                            "nombre": "Documento de Idoneidad Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 }
@@ -918,12 +951,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -933,12 +966,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 },
@@ -972,12 +1005,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -987,12 +1020,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 },
@@ -1000,37 +1033,12 @@
                     "nombre": "MOLDES CENEFAS RODILLOS",
                     "subtitulo": "Accesorios",
                     "imagen": "/img/productos/MoldesCenefasRodillos.png",
-                    "informacion_general": "Herramientas y accesorios para crear texturas y relieves en mortero impreso. Incluye moldes de distintas formas, rodillos para simular diferentes patrones y cenefas para acabados decorativos.",
+                    "informacion_general": "",
                     "documentacion": [
                         {
                             "nombre": "Ficha Técnica",
                             "accion": "Descargar",
                             "enlace": "/files/Moldes_cenefas_rodillos.pdf"
-                        },
-                        {
-                            "nombre": "AENOR Certificate",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
-                            "nombre": "IQNet Certificate",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
-                            "nombre": "Conformity Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
-                            "nombre": "Technical Suitability Document",
-                            "accion": "Download",
-                            "enlace": "#"
                         }
                     ]
                 }
@@ -1093,17 +1101,17 @@
                         {
                             "nombre": "Ficha Técnica",
                             "accion": "Descargar",
-                            "enlace": "/files/EUROSOL desmoldeante.pdf"
+                            "enlace": "/files/CRISOLEX.P.piedra.pdf"
                         },
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -1113,12 +1121,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 },
@@ -1153,12 +1161,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -1168,12 +1176,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 }
@@ -1224,12 +1232,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -1239,12 +1247,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 }
@@ -1298,12 +1306,12 @@
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
                             "nombre": "Declaración de Prestaciones",
@@ -1313,12 +1321,12 @@
                         {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
-                            "enlace": "#"
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 }

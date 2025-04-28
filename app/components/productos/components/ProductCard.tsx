@@ -31,7 +31,7 @@ export const ProductCard: FC<ProductCardProps> = ({
       `}
       onClick={onSelect}
     >
-      <div className="mb-2 m-auto">
+      <div className="m-auto">
         <Image
           src={product.imagen || "/images/no-image.png"}
           alt={product.nombre}
@@ -39,7 +39,7 @@ export const ProductCard: FC<ProductCardProps> = ({
           height={180}
         />
       </div>
-      <div className="flex flex-col gap-5">
+      <div className="flex  flex-col gap-5">
         <div className="flex flex-col">
           <h3 className="font-bold text-center text-sm">{product.nombre}</h3>
           {product.subtitulo && (

@@ -69,7 +69,7 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
               width={150}
               height={150}
             />
-            <p className="font-[700] text-lg leading-5 w-24">
+            <p className="font-[700] text-lg text-center leading-5 w-[min-content]">
               {category.titulo.toLocaleUpperCase()}
             </p>
           </div>

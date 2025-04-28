@@ -34,56 +34,102 @@ interface ProductDetailProps {
 export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
     const { t } = useLanguage();
 
-    const cardsData = [
-        {
-            filePath: product.documentacion ? product.documentacion[0]?.enlace : " ",
-        },
-        {
+    // const cardsData = [
+    //     {
+    //         filePath: product.documentacion ? product.documentacion[0]?.enlace : " ",
+    //     },
+    //     {
 
-            filePath: "/files/certificado-aenor.pdf",
-        },
-        {
+    //         filePath: "/files/certificado-aenor.pdf",
+    //     },
+    //     {
 
-            filePath: "/files/certificado-iqnet.pdf",
-        },
-        {
+    //         filePath: "/files/certificado-iqnet.pdf",
+    //     },
+    //     {
 
-            filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
-        },
-        {
+    //         filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
+    //     },
+    //     {
 
-            filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
-        },
-        {
+    //         filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
+    //     },
+    //     {
 
-            filePath: "/files/dit-plus-espanol.pdf",
-        },
-    ];
-    const cardsData2 = [
-        {
+    //         filePath: "/files/dit-plus-espanol.pdf",
+    //     },
+    // ];
+    // const cardsData2 = [
+    //     {
 
-            filePath: "/files/certificado-aenor.pdf",
-        },
-        {
+    //         filePath: "/files/certificado-aenor.pdf",
+    //     },
+    //     {
 
-            filePath: "/files/certificado-iqnet.pdf",
-        },
-        {
+    //         filePath: "/files/certificado-iqnet.pdf",
+    //     },
+    //     {
 
-            filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
-        },
-        {
+    //         filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
+    //     },
+    //     {
 
-            filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
-        },
-        {
+    //         filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
+    //     },
+    //     {
 
-            filePath: "/files/dit-plus-espanol.pdf",
-        },
-    ];
+    //         filePath: "/files/dit-plus-espanol.pdf",
+    //     },
+    // ];
 
 
-    const data = product.documentacion?.length === 6 ? cardsData : cardsData2
+    // const data = product.documentacion?.length === 6 ? cardsData : cardsData2
+
+    if(product.nombre ==="MOLDES CENEFAS RODILLOS"){
+        return(
+            <>
+                    <div className="flex max-md:flex-col gap-12">              
+                    {product.documentacion && product.documentacion.length > 0 && (
+                <div >
+
+                    <ul className="list-none mt-5 ml-5">
+                        <li>
+                            <strong>{t("productsSection.documentation")}</strong>
+                        </li>
+                        {product.documentacion.map((doc, i) => (
+                            <li key={i} className="flex items-center text-lg justify-between  gap-2">
+                                <span>{doc.nombre}</span>
+                                    <a
+                                        href={doc.enlace}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex gap-1 items-center"
+                                    >
+                                        {doc.accion || "Descargar"}
+                                        <svg
+                                            className={`w-5 h-5 transition-all rotate-90`}
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={0.5}
+                                                d="M9 5l7 7-7 7"
+                                            />
+                                        </svg>
+                                    </a>
+
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+                     </div> 
+            </>
+        )
+    }
 
     return (
         <div className="flex max-md:flex-col gap-12">
@@ -176,13 +222,13 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 
                     <ul className="list-none mt-5 ml-5">
                         <li>
-                            <strong>{t("productsSection.documentation")}:</strong>
+                            <strong>{t("productsSection.documentation")}</strong>
                         </li>
                         {product.documentacion.map((doc, i) => (
-                            <li key={i} className="flex items-center justify-between  gap-2">
+                            <li key={i} className="flex items-center justify-between mb-1.5  gap-2">
                                 <span>{doc.nombre}</span>
                                     <a
-                                        href={data[i].filePath}
+                                        href={doc.enlace}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex gap-1 items-center"
