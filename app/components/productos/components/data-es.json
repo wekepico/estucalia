@@ -883,10 +883,10 @@
             "imagen": "/img/accerios-y-herramientas.svg",
             "productos": [
                 {
-                    "nombre": "EURO-SOL",
+                    "nombre": "EUROSOL",
                     "subtitulo": "Desmodelante",
                     "imagen": "/img/productos/EUROSOL_1.png",
-                    "composicion": "Desencofrante líquido para desencofrar inmediatamente. Forma una película delgada no grasa que permite un desencofrado inmediato.",
+                    "composicion": "Desencofrante líquido para desencofrar inmediatamente.Sobre la superficie de contacto de hormigón del molde, forma una películadelgada no grasa que permite un desencofrado inmediato.",
                     "caracteristicas": [
                         "Aspecto: Líquido oleoso e incoloro.",
                         "Olor: Inodoro.",
@@ -943,7 +943,7 @@
                     ]
                 },
                 {
-                    "nombre": "EURO-TINT",
+                    "nombre": "EUROTINT",
                     "subtitulo": "Tinte natural",
                     "imagen": "/img/productos/EUROTINT.png",
                     "composicion": "Tinte compuesto por mezcla de cera natural (99%) y pigmentos inorgánicos (1%). Se fabrica en varios colores: Blanco, Rojo, Negro, Pardo, Ocre, Amarillo, Verde, Azul y Neutro.",

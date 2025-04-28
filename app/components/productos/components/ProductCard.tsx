@@ -26,8 +26,8 @@ export const ProductCard: FC<ProductCardProps> = ({
 
   return (
     <div
-      className={`w-[180px] p-4 border flex flex-col justify-between items-center cursor-pointer
-        ${isSelected ? "border-black" : "border-gray-300"}
+      className = {`w-[180px] px-5 pt-20  pb-8 flex flex-col justify-between gap-7 items-center cursor-pointer
+        ${isSelected ? "border-black border" : ""}
       `}
       onClick={onSelect}
     >
@@ -38,17 +38,17 @@ export const ProductCard: FC<ProductCardProps> = ({
           width={160}
           height={180}
         />
-
-
       </div>
-      <div className="flex flex-col gap-1">
-        <h3 className="font-bold text-center text-sm">{product.nombre}</h3>
-        {product.subtitulo && (
-          <p className="text-center text-sm italic">{product.subtitulo}</p>
-        )}
+      <div className="flex flex-col gap-5">
+        <div className="flex flex-col">
+          <h3 className="font-bold text-center text-sm">{product.nombre}</h3>
+          {product.subtitulo && (
+            <p className="text-center text-sm ">{product.subtitulo}</p>
+          )}
+        </div>
 
         <Button
-          variant={isSelected?"default":`ghost`}
+          variant={isSelected ? "default" : `ghost`}
           className="relative pl-5 pr-12 py-2 md:py-2 border border-black  rounded-none"
           size={"sm"}
           onClick={(e) => {

@@ -33,75 +33,80 @@ interface ProductDetailProps {
 
 export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
     const { t } = useLanguage();
-    
+
     const cardsData = [
         {
-            filePath: product.documentacion? product.documentacion[0]?.enlace:" ",
+            filePath: product.documentacion ? product.documentacion[0]?.enlace : " ",
         },
         {
-    
-          filePath: "/files/certificado-aenor.pdf",
+
+            filePath: "/files/certificado-aenor.pdf",
         },
         {
-    
-          filePath: "/files/certificado-iqnet.pdf",
+
+            filePath: "/files/certificado-iqnet.pdf",
         },
         {
-      
-          filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
+
+            filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
         },
         {
-       
-          filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
+
+            filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
         },
         {
-    
-          filePath: "/files/dit-plus-espanol.pdf",
+
+            filePath: "/files/dit-plus-espanol.pdf",
         },
-      ];
-      const cardsData2 = [
+    ];
+    const cardsData2 = [
         {
-    
-          filePath: "/files/certificado-aenor.pdf",
-        },
-        {
-    
-          filePath: "/files/certificado-iqnet.pdf",
+
+            filePath: "/files/certificado-aenor.pdf",
         },
         {
-      
-          filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
+
+            filePath: "/files/certificado-iqnet.pdf",
         },
         {
-       
-          filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
+
+            filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
         },
         {
-    
-          filePath: "/files/dit-plus-espanol.pdf",
+
+            filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
         },
-      ];
+        {
+
+            filePath: "/files/dit-plus-espanol.pdf",
+        },
+    ];
 
 
-      const data = product.documentacion?.length === 6 ? cardsData : cardsData2
+    const data = product.documentacion?.length === 6 ? cardsData : cardsData2
 
     return (
         <div className="flex max-md:flex-col gap-12">
             <div className="flex-1 md:w-3/4">
                 <h3 className="text-xl font-semibold">{product.nombre}</h3>
                 {product.subtitulo && (
-                    <h4 className="text-base italic mb-4">{product.subtitulo}</h4>
+                    <h4 className="text-lg mb-4">{product.subtitulo}</h4>
                 )}
 
                 {product.composicion && (
-                    <p>
-                        <strong>{t("productsSection.composition")}:</strong> {product.composicion}
-                    </p>
+                    <>
+                        <p>
+                            <strong>{t("productsSection.composition")}</strong>
+                        </p>
+                        <p>
+                            {product.composicion}
+                        </p>
+                    </>
                 )}
 
                 {product.caracteristicas && product.caracteristicas.length > 0 && (
                     <div className="my-4">
-                        <strong>{t("productsSection.features")}:</strong>
+                        <strong>{t("productsSection.features")}</strong>
                         <ul className="list-disc ml-5">
                             {product.caracteristicas.map((item, i) => (
                                 <li key={i}>{item}</li>
@@ -112,7 +117,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 
                 {product.recomendaciones && product.recomendaciones.length > 0 && (
                     <div className="my-4">
-                        <strong>{t("productsSection.recommendations")}:</strong>
+                        <strong>{t("productsSection.recommendations")}</strong>
                         <ul className="list-disc ml-5">
                             {product.recomendaciones.map((item, i) => (
                                 <li key={i}>{item}</li>
@@ -134,7 +139,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 
                 {product.precauciones && product.precauciones.length > 0 && (
                     <div className="my-4">
-                        <strong>{t("productsSection.cautions")}:</strong>
+                        <strong>{t("productsSection.cautions")}</strong>
                         <ul className="list-disc ml-5">
                             {product.precauciones.map((item, i) => (
                                 <li key={i}>{item}</li>
@@ -145,7 +150,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 
                 {product.informacion_relevante && product.informacion_relevante.length > 0 && (
                     <div className="my-4">
-                        <strong>{t("productsSection.relevantInfo")}:</strong>
+                        <strong>{t("productsSection.relevantInfo")}</strong>
                         <ul className="list-disc ml-5">
                             {product.informacion_relevante.map((info, i) => (
                                 <li key={i}>{info}</li>
@@ -176,14 +181,28 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         {product.documentacion.map((doc, i) => (
                             <li key={i} className="flex items-center justify-between  gap-2">
                                 <span>{doc.nombre}</span>
-                                <a
-                                    href={data[i].filePath}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-blue-500 underline"
-                                >
-                                    {doc.accion || "Descargar"}
-                                </a>
+                                    <a
+                                        href={data[i].filePath}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex gap-1 items-center"
+                                    >
+                                        {doc.accion || "Descargar"}
+                                        <svg
+                                            className={`w-5 h-5 transition-all rotate-90`}
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={0.5}
+                                                d="M9 5l7 7-7 7"
+                                            />
+                                        </svg>
+                                    </a>
+
                             </li>
                         ))}
                     </ul>

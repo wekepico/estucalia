@@ -144,12 +144,15 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
               ))}
             </div>
 
-            {/* Selected product details */}
-            {selectedProduct && <ProductDetail product={selectedProduct} />}
+           
           </div>
         </section>
       </section>
-
+      <div className="md:px-15 sm:px-10 px-5 bg-[#FAF9F9] lg:px-20 mt-14 py-12 flex flex-col">
+               {/* Selected product details */}
+      {selectedProduct && <ProductDetail product={selectedProduct} />}
+      </div>
+      
       {/* Extra section: inspiration + help */}
       <InspirationSectionAplication images={inspirationImages} />
       <ProjectHelpSection />

@@ -3,7 +3,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import Link from 'next/link';
 import { useLanguage } from '../../context/LanguageContext';
 
 export default function AplicationSection() {
