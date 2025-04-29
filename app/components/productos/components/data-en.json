@@ -71,11 +71,6 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Technical Suitability Document",
                             "accion": "Download",
                             "enlace": "/files/dit-plus-espanol.pdf"
@@ -121,11 +116,6 @@
                             "nombre": "IQNet Certificate",
                             "accion": "Download",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Technical Suitability Document",
@@ -186,11 +176,7 @@
                             "accion": "Download",
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
-                        {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
+
                         {
                             "nombre": "Conformity Declaration",
                             "accion": "Download",
@@ -239,11 +225,6 @@
                             "nombre": "IQNet Certificate",
                             "accion": "Download",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Conformity Declaration",
@@ -301,11 +282,6 @@
                             "nombre": "IQNet Certificate",
                             "accion": "Download",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Conformity Declaration",
@@ -372,11 +348,6 @@
                             "nombre": "IQNet Certificate",
                             "accion": "Download",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Conformity Declaration",
@@ -729,11 +700,6 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Conformity Declaration",
                             "accion": "Download",
                             "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
@@ -802,11 +768,6 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Conformity Declaration",
                             "accion": "Download",
                             "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
@@ -862,11 +823,6 @@
                             "nombre": "IQNet Certificate",
                             "accion": "Download",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Conformity Declaration",
@@ -933,11 +889,6 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Conformity Declaration",
                             "accion": "Download",
                             "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
@@ -985,11 +936,6 @@
                             "nombre": "IQNet Certificate",
                             "accion": "Download",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Conformity Declaration",
@@ -1072,11 +1018,6 @@
                             "nombre": "IQNet Certificate",
                             "accion": "Download",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Conformity Declaration",
@@ -1162,11 +1103,6 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Conformity Declaration",
                             "accion": "Download",
                             "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
@@ -1215,16 +1151,6 @@
                             "nombre": "IQNet Certificate",
                             "accion": "Download",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
-                            "nombre": "Conformity Declaration",
-                            "accion": "Download",
-                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Technical Suitability Document",
@@ -1286,16 +1212,6 @@
                             "nombre": "IQNet Certificate",
                             "accion": "Download",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
-                            "nombre": "Conformity Declaration",
-                            "accion": "Download",
-                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
                         {
                             "nombre": "Technical Suitability Document",
