@@ -468,14 +468,9 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Conformity Declaration",
                             "accion": "Download",
-                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                            "enlace": "/files/Declaracion.conformidad.morteros.monocapa_grupo.estucalia.pdf"
                         },
                         {
                             "nombre": "Technical Suitability Document",
@@ -527,14 +522,9 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Conformity Declaration",
                             "accion": "Download",
-                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                            "enlace": "/files/Declaracion.conformidad.morteros.monocapa_grupo.estucalia.pdf"
                         },
                         {
                             "nombre": "Technical Suitability Document",
@@ -594,14 +584,9 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Conformity Declaration",
                             "accion": "Download",
-                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                            "enlace": "/files/Declaracion.conformidad.morteros.monocapa_grupo.estucalia.pdf"
                         },
                         {
                             "nombre": "Technical Suitability Document",
@@ -660,14 +645,9 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Performance Declaration",
-                            "accion": "Download",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Conformity Declaration",
                             "accion": "Download",
-                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                            "enlace": "/files/Declaracion.conformidad.morteros.monocapa_grupo.estucalia.pdf"
                         },
                         {
                             "nombre": "Technical Suitability Document",
@@ -783,7 +763,7 @@
             "productos": [
                 {
                     "nombre": "FOREVER",
-                    "subtitulo": "Joint mortar. Joints",
+                    "subtitulo": "Joint mortar",
                     "imagen": "/img/productos/FOREVER BOLSA.png",
                     "composicion": "Mortar formulated with selected aggregates, white cement, and additives for filling joints between ceramic tiles, porcelain, and natural stone. Designed for joints up to 15 mm, this mortar offers a wide range of colors. Its fine texture and high adhesion guarantee an aesthetic and durable finish, preventing cracks and shrinkage.",
                     "caracteristicas": [
@@ -840,7 +820,7 @@
                 },
                 {
                     "nombre": "KOLATEC",
-                    "subtitulo": "Tile grout. Joints",
+                    "subtitulo": "Tile grout",
                     "imagen": "/img/productos/KOLATEC BOLSA.png",
                     "composicion": "Mortar based on selected aggregates, white cement, resins, pigments and additives, colored for joints between ceramic tiles up to 15 mm with a wide range of colors, waterproof, shrinkage-free and easy to clean.",
                     "caracteristicas": [

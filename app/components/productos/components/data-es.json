@@ -469,14 +469,9 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                            "enlace": "/files/Declaracion.conformidad.morteros.monocapa_grupo.estucalia.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
@@ -528,14 +523,9 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                            "enlace": "/files/Declaracion.conformidad.morteros.monocapa_grupo.estucalia.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
@@ -595,14 +585,9 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                            "enlace": "/files/Declaracion.conformidad.morteros.monocapa_grupo.estucalia.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
@@ -661,14 +646,9 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
-                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                            "enlace": "/files/Declaracion.conformidad.morteros.monocapa_grupo.estucalia.pdf"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
@@ -784,7 +764,7 @@
             "productos": [
                 {
                     "nombre": "FOREVER",
-                    "subtitulo": "Mortero juntas. Juntas",
+                    "subtitulo": "Mortero juntas",
                     "imagen": "/img/productos/FOREVER BOLSA.png",
                     "composicion": "Mortero formulado a base de áridos seleccionados, cemento blanco, y aditivos para el relleno de juntas entre baldosas cerámicas, gres y piedra natural. Diseñado para juntas de hasta 15 mm. este mortero ofrece una amplia gama de colores. Su textura fina y su alta adherencia garantizan un acabado estético y duradero, evitando fisuras y retracciones.",
                     "caracteristicas": [
@@ -812,11 +792,6 @@
                         "Conservación: 24 meses (sacos de papel) / 12 meses (sacos de plástico) a partir de la fecha de fabricación."
                     ],
                     "documentacion": [
-                        {
-                            "nombre": "Ficha Técnica",
-                            "accion": "Descargar",
-                            "enlace": "/files/KOLATEC juntas.pdf"
-                        },
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
@@ -846,7 +821,7 @@
                 },
                 {
                     "nombre": "KOLATEC",
-                    "subtitulo": "Mortero juntas. Juntas",
+                    "subtitulo": "Mortero juntas",
                     "imagen": "/img/productos/KOLATEC BOLSA.png",
                     "composicion": "Mortero a base de áridos seleccionados, cemento blanco, resinas, pigmentos y aditivos coloreado para Juntas entre Baldosas Cerámicas de hasta 15 mm con amplia gama de colores, impermeable, sin retracción y de fácil limpieza.",
                     "caracteristicas": [
