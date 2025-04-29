@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useRouter } from 'next/navigation';
 import { fetchBlogPosts } from '@/services/bolgsServices';
-import Image from 'next/image';
 import { useLanguage } from '../../context/LanguageContext';
 
 interface Blog {

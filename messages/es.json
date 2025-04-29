@@ -838,6 +838,7 @@
     "relevantInfo": "Información relevante",
     "generalInfo": "Información general",
     "documentation": "Documentación",
-    "productInfo": "Información"
+    "productInfo": "Información",
+    "action":"Descargar"
   }
 }

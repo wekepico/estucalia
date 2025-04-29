@@ -57,6 +57,10 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
       ? category.productos[selectedProductIndex]
       : null;
 
+    const handleDownload = () =>{
+      window.open("/files/Moldes_cenefas_rodillos.pdf", "_blank", "noopener,noreferrer");
+    }
+
   return (
     <>
       <section className="md:px-15 sm:px-10 px-5 lg:px-20 pt-32 flex flex-col gap-14">
@@ -82,7 +86,7 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
               <p className="font-[600] text-lg">{category.descripcion}</p>
               <p >{category.descripcion1}</p>
             </div>
-            
+
           </label>
         </section>
 
@@ -115,7 +119,7 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
                     <Image
                       alt={acabado.nombre}
                       src={acabado.imagen}
-                      width={acabado.nombre === "Liso" || acabado.nombre === "Smooth"?210:200}
+                      width={acabado.nombre === "Liso" || acabado.nombre === "Smooth" ? 210 : 200}
                       height={160}
                       className="bg-gray-200"
                     />
@@ -140,19 +144,24 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
                   product={producto}
                   isSelected={index === selectedProductIndex}
                   onSelect={() => setSelectedProductIndex(index)}
+                  onDownload={handleDownload}
                 />
               ))}
             </div>
 
-           
+
           </div>
         </section>
       </section>
-      <div className="md:px-15 sm:px-10 px-5 bg-[#FAF9F9] lg:px-20 mt-14 py-12 flex flex-col">
-               {/* Selected product details */}
-      {selectedProduct && <ProductDetail product={selectedProduct} />}
-      </div>
-      
+      {selectedProduct.nombre !== "MOLDES CENEFAS RODILLOS" &&
+
+        <div className="md:px-15 sm:px-10 px-5 bg-[#FAF9F9] lg:px-20 mt-14 py-12 flex flex-col">
+          {/* Selected product details */}
+          {selectedProduct && <ProductDetail product={selectedProduct} />}
+        </div>
+      }
+
+
       {/* Extra section: inspiration + help */}
       <InspirationSectionAplication images={inspirationImages} />
       <ProjectHelpSection />

@@ -15,12 +15,14 @@ interface ProductCardProps {
   product: IProducto;
   isSelected?: boolean;
   onSelect: () => void;
+  onDownload?: () =>void;
 }
 
 export const ProductCard: FC<ProductCardProps> = ({
   product,
   isSelected = false,
   onSelect,
+  onDownload
 }) => {
   const { t } = useLanguage();
 
@@ -53,11 +55,11 @@ export const ProductCard: FC<ProductCardProps> = ({
           size={"sm"}
           onClick={(e) => {
             e.stopPropagation();
+            product.nombre === "MOLDES CENEFAS RODILLOS" && onDownload && onDownload()
             onSelect();
           }}
         >
-          {/* Example usage of the translation for your button text */}
-          <span>{t("productsSection.productInfo")}</span>
+          <span>{product.nombre !== "MOLDES CENEFAS RODILLOS"?t("productsSection.productInfo"):t("productsSection.action")}</span>
           <div className="absolute right-0">
             <svg
               className={`w-8 h-8 transition-all ${isSelected ? "rotate-90" : "rotate-0"}`}
