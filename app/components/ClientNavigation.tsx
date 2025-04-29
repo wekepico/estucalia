@@ -107,7 +107,7 @@ export default function ClientNavigation() {
     walls: t("navigation.spaces.submenu.walls"),
     patios: t("navigation.spaces.submenu.patios"),
     floors: t("navigation.spaces.submenu.floors"),
-    outdoorKitchens: t("navigation.spaces.submenu.outdoorKitchens"),
+    kitchens: t("navigation.spaces.submenu.kitchens"),
     pools: t("navigation.spaces.submenu.pools")
   };
 
