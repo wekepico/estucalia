@@ -35,7 +35,7 @@ export const ProductCard: FC<ProductCardProps> = ({
         <Image
           src={product.imagen || "/images/no-image.png"}
           alt={product.nombre}
-          width={160}
+          width={product.nombre==="MÁRMOL TRITURADO" || product.nombre==="CRUSHED MARBLE"?113:160}
           height={180}
         />
       </div>
