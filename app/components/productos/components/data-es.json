@@ -34,7 +34,7 @@
             "productos": [
                 {
                     "nombre": "MORTERO CAL NHL",
-                    "subtitulo": "Mortero cal. Cal",
+                    "subtitulo": "Mortero cal",
                     "imagen": "/img/productos/01-ARGAMASA.png",
                     "composicion": "Mortero a base de Cal Hidráulica Natural (NHL) PURA, áridos seleccionados y aditivos que proporcionan un producto de alta calidad para la ejecución de revestimientos, muros y reparación de superficies. Este mortero se distingue por su gran adherencia, flexibilidad y transpirabilidad, lo que lo hace ideal para aplicaciones en Obra Nueva y en Obras de restauración, tanto en interiores como en exteriores.",
                     "caracteristicas": [
@@ -85,7 +85,7 @@
                 },
                 {
                     "nombre": "MORTERO CAL MIXTO",
-                    "subtitulo": "Mortero de Cal y Cemento",
+                    "subtitulo": "Mortero cal y cemento",
                     "imagen": "/img/productos/02-ARGAMASA M.png",
                     "composicion": "Mortero compuesto por cal aérea y cemento blanco, junto con áridos seleccionados y aditivos que garantizan un excelente comportamiento mecánico, alta durabilidad y flexibilidad. Su formulación es adecuada para aplicaciones en obra nueva, reformas y reparaciones de muros, fachadas y pavimentos, combinando lo mejor de ambos materiales: la elasticidad e impermeabilidad de la cal y la resistencia del cemento.",
                     "caracteristicas": [
