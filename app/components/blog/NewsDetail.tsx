@@ -6,6 +6,8 @@ import { useLanguage } from '@/app/context/LanguageContext';
 import { RiFacebookFill } from "react-icons/ri";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { ImLinkedin2 } from "react-icons/im";
+import { Button } from '../ui/button';
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 interface NewsDetailProps {
     id: string;
@@ -20,10 +22,10 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
 
     function formatDate(isoDate: string): string {
         const date = new Date(isoDate);
-        const options: Intl.DateTimeFormatOptions = { 
-            day: 'numeric', 
-            month: 'long', 
-            year: 'numeric' 
+        const options: Intl.DateTimeFormatOptions = {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
         };
         return date.toLocaleDateString('es-ES', options);
     }
@@ -45,15 +47,32 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
                 </div>
             )}
 
+
+
             {/* Fecha y redes sociales */}
             <div className=" md:px-15 mt-36 sm:px-28 px-5 lg:px-48  flex  flex-col  mb-1">
+            <button
+                onClick={() => {
+                    if (window.history.length > 1) { // Verifica si hay historial
+                        window.history.back();
+                    } else {
+                        // Redirige a una ruta por defecto si no hay historial
+                        window.location.href = "/"; // (Opcional)
+                    }
+                }}
+                className="bg-transparent w-max hover:bg-gray-100 p-1 mb-8 rounded-lg"
+
+            >
+                <IoMdArrowRoundBack/>
+            </button>
+
                 {/* Fecha de publicación */}
                 <div>
-                {date && (
-                    <p className="text-gray-900 text-base  ">
-                        {formatDate(date)} 
-                    </p>
-                )}
+                    {date && (
+                        <p className="text-gray-900 text-base  ">
+                            {formatDate(date)}
+                        </p>
+                    )}
                 </div>
 
                 <div className="inset-0 mb-6 flex">
@@ -79,7 +98,7 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
                     rel="noopener noreferrer"
                     className=" hover:text-blue-700 transition-colors duration-300 flex items-center space-x-2"
                 >
-                    <RiFacebookFill className='w-5 h-5'/>
+                    <RiFacebookFill className='w-5 h-5' />
                 </a>
 
                 {/* Enlace a Intagram */}
@@ -89,7 +108,7 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
                     rel="noopener noreferrer"
                     className=" hover:text-blue-700 transition-colors duration-300 flex items-center space-x-2"
                 >
-                  <AiOutlineInstagram className='w-5 h-5'/>
+                    <AiOutlineInstagram className='w-5 h-5' />
                 </a>
 
                 {/* Enlace a twitter */}
@@ -99,7 +118,7 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
                     rel="noopener noreferrer"
                     className=" hover:text-blue-700 transition-colors duration-300 flex items-center space-x-2"
                 >
-                    <ImLinkedin2 className='w-5 h-5'/>
+                    <ImLinkedin2 className='w-5 h-5' />
                 </a>
             </div>
         </div>
