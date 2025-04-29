@@ -72,11 +72,6 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
                             "enlace": "/files/dit-plus-espanol.pdf"
@@ -122,11 +117,6 @@
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Documento de Idoneidad Técnica",
@@ -188,11 +178,6 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
                             "enlace": "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf"
@@ -240,11 +225,6 @@
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Declaración de Conformidad",
@@ -302,11 +282,6 @@
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Declaración de Conformidad",
@@ -373,11 +348,6 @@
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Declaración de Conformidad",
@@ -730,11 +700,6 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
                             "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
@@ -803,11 +768,6 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
-                        },
-                        {
                             "nombre": "Declaración de Conformidad",
                             "accion": "Descargar",
                             "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
@@ -863,11 +823,6 @@
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Declaración de Conformidad",
@@ -932,11 +887,6 @@
                             "nombre": "Certificado IQNet",
                             "accion": "Descargar",
                             "enlace": "/files/certificado-iqnet.pdf"
-                        },
-                        {
-                            "nombre": "Declaración de Prestaciones",
-                            "accion": "Descargar",
-                            "enlace": "#"
                         },
                         {
                             "nombre": "Declaración de Conformidad",
