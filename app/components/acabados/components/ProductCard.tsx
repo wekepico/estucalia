@@ -29,7 +29,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ name, icon,id }) => {
                         className="h-12 md:h-12 w-auto"
                     />
                 </div>
-                <h3 className="text-[0.6rem] font-[600] mb-1">{name.toLocaleUpperCase()}</h3>
+                <h3 className="text-[0.6rem] font-[600] mb-1 max-w-[min-content]">{name.toLocaleUpperCase()}</h3>
             </div>
         </div>
     )
