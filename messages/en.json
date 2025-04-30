@@ -18,7 +18,7 @@
         "stampedMortar": "Stamped mortar",
         "groutMortar": "Grout mortar",
         "accessoriesAndTools": "Accessories and tools",
-        "stoneMortar": "Stone mortar",
+        "stoneMortar": "Decorative Stone Mortar",
         "waterProtector": "Water protector",
         "bondingBridge": "Bonding bridge"
       }
@@ -141,7 +141,7 @@
         "monocapa": "Single-layer Mortar",
         "lime": "Lime mortar",
         "printed": "Stamped Mortar",
-        "stone": "Stone mortar"
+        "stone": "Decorative Stone Mortar"
       },
       "noProducts": "No products available in this category"
     },
@@ -215,7 +215,7 @@
     "monocapa": "Single-Layer Mortar",
     "lime": "Lime mortar",
     "printed": "Stamped Mortar",
-    "stone": "Stone mortar",
+    "stone": "Decorative Stone Mortar",
     "union": "Bonding bridge",
     "adhesive": "Tile adhesive",
     "waterProtector": "Water protector",
@@ -305,7 +305,7 @@
         "cal": "Lime Mortar",
         "juntas": "Grout Mortar",
         "impreso": "Stamped Mortar",
-        "piedra": "Stone Mortar",
+        "piedra": "Decorative Stone Mortar",
         "protector": "Water Protector",
         "union": "Bonding bridge",
         "accesorios": "Accessories and Tools"
@@ -422,7 +422,7 @@
       "monocapa": "Single-Layer Mortar",
       "lime": "Lime mortar",
       "printed": "Stamped Mortar",
-      "stone": "Stone mortar"
+      "stone": "Decorative Stone Mortar"
     }
   },
   "news": {
@@ -482,7 +482,7 @@
       "cola": "Tile adhesive",
       "cal": "Lime mortar",
       "impreso": "Stamped Mortar",
-      "piedra": "Stone mortar",
+      "piedra": "Decorative Stone Mortar",
       "reparacion": "Repair mortar"
     }
   },
@@ -521,7 +521,7 @@
       "monocapa": "Single-layer Mortar",
       "printed": "Stamped Mortar",
       "lime": "Lime mortar",
-      "stone": "Stone mortar",
+      "stone": "Decorative Stone Mortar",
       "union": "Union bridge",
       "joint": "Grout Mortar",
       "water": "Water mortar",

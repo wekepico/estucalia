@@ -18,7 +18,7 @@
         "stampedMortar": "Mortero impreso",
         "groutMortar": "Mortero para juntas",
         "accessoriesAndTools": "Complementos y accesorios",
-        "stoneMortar": "Mortero de piedra",
+        "stoneMortar": "Mortero Piedra Decorativa",
         "waterProtector": "Protector de agua",
         "bondingBridge": "Puente de unión"
       }
@@ -141,7 +141,7 @@
         "monocapa": "Mortero monocapa",
         "lime": "Mortero cal",
         "printed": "Mortero impreso",
-        "stone": "Mortero piedra"
+        "stone": "Mortero Piedra Decorativa"
       },
       "noProducts": "No hay productos disponibles en esta categoría"
     },
@@ -215,7 +215,7 @@
     "monocapa": "Mortero monocapa",
     "lime": "Mortero cal",
     "printed": "Mortero impreso",
-    "stone": "Mortero piedra",
+    "stone": "Mortero Piedra Decorativa",
     "union": "Puente de unión",
     "adhesive": "Mortero cola",
     "waterProtector": "Protector de agua",
@@ -305,7 +305,7 @@
         "cal": "Mortero cal",
         "juntas": "Mortero juntas",
         "impreso": "Mortero impreso",
-        "piedra": "Mortero piedra",
+        "piedra": "Mortero Piedra Decorativa",
         "protector": "Protector agua",
         "union": "Puente unión",
         "accesorios": "Complementos y accesorios"
@@ -422,7 +422,7 @@
       "monocapa": "Mortero monocapa",
       "lime": "Mortero cal",
       "printed": "Mortero impreso",
-      "stone": "Mortero piedra"
+      "stone": "Mortero Piedra Decorativa"
     }
   },
   "news": {
@@ -482,7 +482,7 @@
       "cola": "Mortero cola",
       "cal": "Mortero cal",
       "impreso": "Mortero impreso",
-      "piedra": "Mortero piedra",
+      "piedra": "Mortero Piedra Decorativa",
       "reparacion": "Mortero reparación"
     }
   },
@@ -521,7 +521,7 @@
       "monocapa": "Mortero monocapa",
       "printed": "Mortero impreso",
       "lime": "Mortero cal",
-      "stone": "Mortero piedra",
+      "stone": "Mortero Piedra Decorativa",
       "union": "Puente de unión",
       "joint": "Mortero juntas",
       "water": "Mortero aguas",
