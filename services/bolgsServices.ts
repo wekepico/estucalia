@@ -10,7 +10,7 @@
 // Función para obtener los posts del blog
 export const fetchBlogPosts = async (): Promise<any> => {
     try {
-        const response = await fetch('https://api.derecho-ciudadano.com/api/blog');
+        const response = await fetch('https://apiestucalia.innet.es/api/blog');
         if (!response.ok) {
             throw new Error(`Error: ${response.status} - ${response.statusText}`);
         }
