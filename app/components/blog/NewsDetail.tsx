@@ -51,16 +51,16 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
 
             {/* Fecha y redes sociales */}
             <div className=" md:px-15 mt-36 sm:px-28 px-5 lg:px-48  flex  flex-col  mb-1">
-            <button
-                onClick={() => {
-                    if (window.history.length > 1) { // Verifica si hay historial
-                        window.history.back();
-                    } else {
-                        // Redirige a una ruta por defecto si no hay historial
-                        window.location.href = "/"; // (Opcional)
-                    }
-                }}
-                className="bg-transparent w-max hover:bg-gray-100 p-1 mb-8 rounded-lg"
+                <button
+                    onClick={() => {
+                        if (window.history.length > 1) { // Verifica si hay historial
+                            window.history.back();
+                        } else {
+                            // Redirige a una ruta por defecto si no hay historial
+                            window.location.href = "/"; // (Opcional)
+                        }
+                    }}
+                    className="bg-transparent w-max hover:bg-gray-100 p-1 mb-8 rounded-lg flex gap-x-2 items-center"
 
             >
                 <IoMdArrowRoundBack/>{language === "en"?"Back":"Volver"}

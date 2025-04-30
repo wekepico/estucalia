@@ -2,7 +2,7 @@
 import BlogClient from "./BlogClient";
 
 export async function generateStaticParams() {
-  const res = await fetch("https://api.derecho-ciudadano.com/api/blog");
+  const res = await fetch("https://apiestucalia.innet.es/api/blog");
   const json = await res.json();
   return json.data.map((post: any) => ({
     id: post.slug,
