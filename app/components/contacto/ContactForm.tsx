@@ -65,7 +65,7 @@ export default function ContactForm() {
         acceptCommercialInfo: data.aceptarComercial,
       };
 
-      const response = await fetch("https://api.derecho-ciudadano.com/api/contact", {
+      const response = await fetch("https://apiestucalia.innet.es/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

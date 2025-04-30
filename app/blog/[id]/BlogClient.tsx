@@ -24,7 +24,7 @@ export default function BlogClient() {
     (async () => {
       try {
         const res = await fetch(
-          `https://api.derecho-ciudadano.com/api/blog/${id}`
+          `https://apiestucalia.innet.es/api/blog/${id}`
         );
         if (!res.ok) throw new Error(res.statusText);
         const { data } = await res.json();

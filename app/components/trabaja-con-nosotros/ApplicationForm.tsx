@@ -68,7 +68,7 @@ export default function ApplicationForm() {
       formData.append('acceptPrivacyPolicy', data.aceptarPolitica.toString());
       formData.append('acceptCommercialInfo', data.aceptarComercial?.toString() || 'false');
 
-      const response = await fetch("https://api.derecho-ciudadano.com/api/contact", {
+      const response = await fetch("https://apiestucalia.innet.es/api/contact", {
         method: "POST",
         body: formData,
       });
