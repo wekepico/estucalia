@@ -36,7 +36,7 @@ export default function ClientNavigation() {
   const headerRef = useRef<HTMLElement>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
 
-  
+
 
   const pathname = usePathname();
 
@@ -46,9 +46,9 @@ export default function ClientNavigation() {
   };
 
   const toggleMobileSubmenu = (index: number) => {
-    setOpenMobileSubmenus(prev => 
-      prev.includes(index) 
-        ? prev.filter(i => i !== index) 
+    setOpenMobileSubmenus(prev =>
+      prev.includes(index)
+        ? prev.filter(i => i !== index)
         : [...prev, index]
     );
   };
@@ -137,29 +137,29 @@ export default function ClientNavigation() {
 
   const productsIcon = [
     {
-      id:"limeMortar",
+      id: "limeMortar",
       key: 'cal',
       icon: <Image
-      src={MorteroCal}
-      alt="Logo"
-      width={180}
-      height={100}
-      className="h-32 md:h-12 w-auto brightness-0 invert"
+        src={MorteroCal}
+        alt="Logo"
+        width={180}
+        height={100}
+        className="h-32 md:h-12 w-auto brightness-0 invert"
       />
     },
     {
-      id:"tileAdhesive",
+      id: "tileAdhesive",
       key: 'cola',
       icon: <Image
-      src={MorteroCola}
-      alt="Logo"
-      width={180}
-      height={100}
-      className="h-32 md:h-12 w-auto text-white brightness-0 invert"
+        src={MorteroCola}
+        alt="Logo"
+        width={180}
+        height={100}
+        className="h-32 md:h-12 w-auto text-white brightness-0 invert"
       />
     },
     {
-      id:"singleLayerMortar",
+      id: "singleLayerMortar",
       key: 'monocapa',
       icon: <Image
         src={MorteroMonocapa}
@@ -170,18 +170,18 @@ export default function ClientNavigation() {
       />
     },
     {
-      id:"stampedMortar",
+      id: "stampedMortar",
       key: 'impreso',
       icon: <Image
-      src={MorteroImpreso}
-      alt="Logo"
-      width={180}
-      height={100}
-      className="h-32 md:h-12 w-auto brightness-0 invert"
+        src={MorteroImpreso}
+        alt="Logo"
+        width={180}
+        height={100}
+        className="h-32 md:h-12 w-auto brightness-0 invert"
       />
     },
     {
-      id:"groutMortar",
+      id: "groutMortar",
       key: 'juntas',
       icon: <Image
         src={MorteroPolivalente}
@@ -192,40 +192,40 @@ export default function ClientNavigation() {
       />
     },
     {
-      id:"accessoriesAndTools",
+      id: "accessoriesAndTools",
       key: 'accesorios',
       icon: <Image
-      src={AccesoriosHerramientas}
+        src={AccesoriosHerramientas}
         alt="Logo"
         width={180}
         height={100}
         className="h-32 md:h-12 w-auto brightness-0 invert"
-        />
-      },
-      {
-        id:"stoneMortar",
+      />
+    },
+    {
+      id: "stoneMortar",
       key: 'piedra',
       icon: <Image
-      src={MorteroPiedra}
+        src={MorteroPiedra}
         alt="Logo"
         width={180}
         height={100}
         className="h-32 md:h-12 w-auto brightness-0 invert"
-        />
-      },
-      {
-        id:"waterProtector",
-        key: 'protector',
-        icon: <Image
+      />
+    },
+    {
+      id: "waterProtector",
+      key: 'protector',
+      icon: <Image
         src={MorteroProtector}
         alt="Logo"
         width={180}
         height={100}
         className="h-32 md:h-12 w-auto brightness-0 invert"
-        />
-      },
+      />
+    },
     {
-      id:"bondingBridge",
+      id: "bondingBridge",
       key: 'union',
       icon: <Image
         src={MorteroUnion}
@@ -256,7 +256,7 @@ export default function ClientNavigation() {
     },
     {
       href: "/espacios",
-      label: "navigation.spaces.label", 
+      label: "navigation.spaces.label",
       submenu: Object.entries(submenuItemsSpaces).map(([id, label]) => ({
         label,
         href: id
@@ -326,14 +326,12 @@ export default function ClientNavigation() {
           </div>
           <div className="h-[1px] bg-gray-500 md:mx-15 sm:mx-10 mx-5 lg:mx-20"></div>
 
-          <nav ref={headerRef} className={`top-0 w-full left-0 right-0 z-10 bg-black ${
-            isScrolled
-              ? "fixed animate-fade-in-down shadow-lg"
-              : "flex justify-center relative"
-          }`}>
-            <div className={`absolute z-[-1] ${
-              hoveredMenu ? "opacity-100 visible" : "opacity-0 invisible"
-            } transition-all duration-300 ease-in-out top-[2.85rem] w-[102vw] h-[420px] mt-2 backdrop-blur-[3.5px] backdrop-opacity-90`}
+          <nav ref={headerRef} className={`top-0 w-full left-0 right-0 z-10 bg-black ${isScrolled
+            ? "fixed animate-fade-in-down shadow-lg"
+            : "flex justify-center relative"
+            }`}>
+            <div className={`absolute z-[-1] ${hoveredMenu ? "opacity-100 visible" : "opacity-0 invisible"
+              } transition-all duration-300 ease-in-out top-[2.85rem] w-[102vw] h-[420px] mt-2 backdrop-blur-[3.5px] backdrop-opacity-90`}
               style={{
                 background: "rgba(0, 5, 0, 0.6)",
               }}
@@ -355,9 +353,8 @@ export default function ClientNavigation() {
                           onClick={link.submenu.length === 0 ? (e) => handleLinkClick(e, link.href) : undefined}
                         >
                           <div
-                            className={`${
-                              link.submenu.length === 0 ? "cursor-pointer" : "cursor-default"
-                            } text-white pb-2`}
+                            className={`${link.submenu.length === 0 ? "cursor-pointer" : "cursor-default"
+                              } text-white pb-2`}
                           >
                             {t(link.label)}
                             <div className={`
@@ -371,32 +368,31 @@ export default function ClientNavigation() {
 
                       {link.submenu.length > 0 && (
                         <div
-                          className={`absolute left-0 ${
-                            hoveredMenu === link.label ? "opacity-100 visible" : "opacity-0 invisible"
-                          } transition-all w-max duration-300 ease-in-out top-full flex flex-col mt-2 bg-transparent h-[400px]`}
+                          className={`absolute left-0 ${hoveredMenu === link.label ? "opacity-100 visible" : "opacity-0 invisible"
+                            } transition-all w-max duration-300 ease-in-out top-full flex flex-col mt-2 bg-transparent h-[400px]`}
                           onMouseLeave={() => setHoveredMenu(null)}
                         >
-                          <ul className={`font-[500]  ${link.label=== "navigation.products.label"? "grid grid-cols-3 gap-x-24 gap-y-6 mt-20 ":" flex flex-col py-4 space-y-4"}  `}>
+                          <ul className={`font-[500]  ${link.label === "navigation.products.label" ? "grid grid-cols-3 gap-x-24 gap-y-6 mt-20 " : " flex flex-col py-4 space-y-4"}  `}>
                             {
-                            link.submenu.map((subItem, subIndex) => (
-                              <li
-                                key={subIndex}
-                                className={link.label=== "navigation.products.label"?" text-base text-left flex items-center justify-left":"hover:underline"}
-                              >
-                                <Link 
-                                  href={`${link.href}/${subItem.href}`.replace(/\/$/, '')} 
-                                  className={`text-white flex gap-2 ${link.label=== "navigation.products.label" ? "justify-center items-center":""}`}
-                                  onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
+                              link.submenu.map((subItem, subIndex) => (
+                                <li
+                                  key={subIndex}
+                                  className={link.label === "navigation.products.label" ? " text-base text-left flex items-center justify-left" : "hover:underline"}
                                 >
-                                  {link.label=== "navigation.products.label" && productsIcon[subIndex].icon}
-                                 <p className={`${subItem.label.toLocaleLowerCase()==="mortero piedra decorativa" || subItem.label.toLocaleLowerCase()==="decorative stone mortar" || subItem.label.toLocaleLowerCase()==="single-layer mortar"?"w-32 text-left line-clamp-2":" text-left"}
-                                                 ${link.label=== "navigation.products.label" && (subItem.label.toLocaleLowerCase()!=="mortero piedra decorativa" && subItem.label.toLocaleLowerCase() !=="decorative stone mortar" && subItem.label.toLocaleLowerCase()!=="single-layer mortar")?"max-w-[min-content]":""}`}
+                                  <Link
+                                    href={`${link.href}/${subItem.href}`.replace(/\/$/, '')}
+                                    className={`text-white flex gap-2 ${link.label === "navigation.products.label" ? "justify-center items-center" : ""}`}
+                                    onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
                                   >
-                                    {link.label=== "navigation.products.label"?subItem.label.toUpperCase():subItem.label} 
-                                  </p> 
-                                </Link>
-                              </li>
-                            ))}
+                                    {link.label === "navigation.products.label" && productsIcon[subIndex].icon}
+                                    <p className={`${subItem.label.toLocaleLowerCase() === "mortero piedra decorativa" || subItem.label.toLocaleLowerCase() === "decorative stone mortar" || subItem.label.toLocaleLowerCase() === "single-layer mortar" ? "w-32 text-left line-clamp-2" : " text-left"}
+                                                 ${link.label === "navigation.products.label" && (subItem.label.toLocaleLowerCase() !== "mortero piedra decorativa" && subItem.label.toLocaleLowerCase() !== "decorative stone mortar" && subItem.label.toLocaleLowerCase() !== "single-layer mortar") ? "max-w-[min-content]" : ""}`}
+                                    >
+                                      {link.label === "navigation.products.label" ? subItem.label.toUpperCase() : subItem.label}
+                                    </p>
+                                  </Link>
+                                </li>
+                              ))}
                           </ul>
                         </div>
                       )}
@@ -416,9 +412,8 @@ export default function ClientNavigation() {
         )}
 
         <div
-          className={`fixed top-0 left-0 h-full overflow-auto w-64 bg-black transform ${
-            isOpen ? "translate-x-0" : "-translate-x-full"
-          } transition-transform duration-300 ease-in-out lg:hidden z-50`}
+          className={`fixed top-0 left-0 h-full overflow-auto w-64 bg-black transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+            } transition-transform duration-300 ease-in-out lg:hidden z-50`}
         >
           <div className="flex justify-end p-4">
             <Button variant="outline" className="text-white rounded-full" onClick={toggleSidebar}>
@@ -428,15 +423,15 @@ export default function ClientNavigation() {
           <nav className="p-4">
             <NavigationMenu>
               <NavigationMenuList className="flex flex-col items-start gap-4">
-                <div className="text-white border-b border-white font-semibold">
+                <div className="text-white  font-semibold">
                   {t("navigation.company")}
                 </div>
                 <div className="ml-3 mb-4">
                   <ul className="space-y-2 text-white">
                     {companyLinks.map((link, index) => (
                       <li key={index}>
-                        <Link 
-                          href={link.href} 
+                        <Link
+                          href={link.href}
                           onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, link.href)}
                         >
                           {link.label}
@@ -452,8 +447,12 @@ export default function ClientNavigation() {
                       <Link
                         href={link.href}
                         onClick={(e: React.MouseEvent<HTMLElement>) => {
+                          e.preventDefault()
                           if (link.submenu.length === 0) {
+
                             handleLinkClick(e, link.href);
+                          } else {
+                            toggleMobileSubmenu(index)
                           }
                         }}
                         className="text-white hover:border-b pb-1 hover:border-white transition-colors"
@@ -461,7 +460,7 @@ export default function ClientNavigation() {
                         {t(link.label)}
                       </Link>
                       {link.submenu.length > 0 && (
-                        <button 
+                        <button
                           onClick={() => toggleMobileSubmenu(index)}
                           className="text-white ml-2"
                         >
@@ -469,20 +468,25 @@ export default function ClientNavigation() {
                         </button>
                       )}
                     </div>
-                    {link.submenu.length > 0 && isMobileSubmenuOpen(index) && (
-                      <ul className="ml-4 mt-2 space-y-2">
-                        {link.submenu.map((subItem, subIndex) => (
-                          <li key={subIndex}>
-                            <Link
-                              href={`${link.href}/${subItem.href}`.replace(/\/$/, '')}
-                              onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
-                              className="text-white text-sm block py-1 hover:underline"
-                            >
-                              {subItem.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                    {link.submenu.length > 0 && (
+                      <div
+                        className={`ml-4 overflow-hidden transition-all duration-300 ease-in-out ${isMobileSubmenuOpen(index) ? "max-h-96" : "max-h-0"
+                          }`}
+                      >
+                        <ul className="space-y-2 py-2">
+                          {link.submenu.map((subItem, subIndex) => (
+                            <li key={subIndex}>
+                              <Link
+                                href={`${link.href}/${subItem.href}`.replace(/\/$/, '')}
+                                onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
+                                className="text-white text-sm block py-1 hover:underline transition-colors duration-200"
+                              >
+                                {subItem.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
                   </NavigationMenuItem>
                 ))}
