@@ -15,6 +15,15 @@ import { usePathname } from "next/navigation";
 import DropdownEmpresa from "./ui/DropdownEmpresa";
 import DropdownIdioma from "./ui/DropdownIdioma";
 import { Button } from "./ui/button";
+import MorteroCal from '../../public/img/mortero-cal.svg'
+import MorteroMonocapa from '../../public/img/mortero-monocapa.svg'
+import MorteroImpreso from '../../public/img/mortero-impreso.svg'
+import MorteroPolivalente from '../../public/img/mortero-juntas.svg'
+import MorteroProtector from '../../public/img/mortero-protector-agua.svg'
+import AccesoriosHerramientas from '../../public/img/accerios-y-herramientas.svg'
+import MorteroCola from '../../public/img/mortero-cola.svg'
+import MorteroPiedra from '../../public/img/mortero-piedra.svg'
+import MorteroUnion from '../../public/img/mortero puente union.svg'
 
 export default function ClientNavigation() {
   const { t } = useLanguage();
@@ -26,6 +35,8 @@ export default function ClientNavigation() {
   const [openMobileSubmenus, setOpenMobileSubmenus] = useState<number[]>([]);
   const headerRef = useRef<HTMLElement>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
+
+  
 
   const pathname = usePathname();
 
@@ -122,6 +133,109 @@ export default function ClientNavigation() {
     kitchens: t("navigation.spaces.submenu.kitchens"),
     pools: t("navigation.spaces.submenu.pools")
   };
+
+
+  const productsIcon = [
+    {
+      id:"limeMortar",
+      key: 'cal',
+      icon: <Image
+      src={MorteroCal}
+      alt="Logo"
+      width={180}
+      height={100}
+      className="h-32 md:h-12 w-auto brightness-0 invert"
+      />
+    },
+    {
+      id:"tileAdhesive",
+      key: 'cola',
+      icon: <Image
+      src={MorteroCola}
+      alt="Logo"
+      width={180}
+      height={100}
+      className="h-32 md:h-12 w-auto text-white brightness-0 invert"
+      />
+    },
+    {
+      id:"singleLayerMortar",
+      key: 'monocapa',
+      icon: <Image
+        src={MorteroMonocapa}
+        alt="Logo"
+        width={180}
+        height={100}
+        className="h-32 md:h-12 w-auto font-[600] brightness-0 invert"
+      />
+    },
+    {
+      id:"stampedMortar",
+      key: 'impreso',
+      icon: <Image
+      src={MorteroImpreso}
+      alt="Logo"
+      width={180}
+      height={100}
+      className="h-32 md:h-12 w-auto brightness-0 invert"
+      />
+    },
+    {
+      id:"groutMortar",
+      key: 'juntas',
+      icon: <Image
+        src={MorteroPolivalente}
+        alt="Logo"
+        width={180}
+        height={100}
+        className="h-32 md:h-12 w-auto brightness-0 invert"
+      />
+    },
+    {
+      id:"accessoriesAndTools",
+      key: 'accesorios',
+      icon: <Image
+      src={AccesoriosHerramientas}
+        alt="Logo"
+        width={180}
+        height={100}
+        className="h-32 md:h-12 w-auto brightness-0 invert"
+        />
+      },
+      {
+        id:"stoneMortar",
+      key: 'piedra',
+      icon: <Image
+      src={MorteroPiedra}
+        alt="Logo"
+        width={180}
+        height={100}
+        className="h-32 md:h-12 w-auto brightness-0 invert"
+        />
+      },
+      {
+        id:"waterProtector",
+        key: 'protector',
+        icon: <Image
+        src={MorteroProtector}
+        alt="Logo"
+        width={180}
+        height={100}
+        className="h-32 md:h-12 w-auto brightness-0 invert"
+        />
+      },
+    {
+      id:"bondingBridge",
+      key: 'union',
+      icon: <Image
+        src={MorteroUnion}
+        alt="Logo"
+        width={180}
+        height={100}
+        className="h-32 md:h-12 w-auto brightness-0 invert"
+      />
+    },
+  ];
 
   const menuLinks = [
     {
@@ -262,19 +376,20 @@ export default function ClientNavigation() {
                           } transition-all w-max duration-300 ease-in-out top-full flex flex-col mt-2 bg-transparent h-[400px]`}
                           onMouseLeave={() => setHoveredMenu(null)}
                         >
-                          <ul className="font-[400] flex flex-col py-4 space-y-4">
+                          <ul className={`font-[400]  ${link.label=== "navigation.products.label"? "grid grid-cols-3 gap-x-44 gap-y-10 mt-10":" flex flex-col"}  py-4 space-y-4`}>
                             {
                             link.submenu.map((subItem, subIndex) => (
                               <li
                                 key={subIndex}
-                                className="hover:underline"
+                                className={link.label=== "navigation.products.label"?"max-w-[min-content] text-base text-left flex items-center justify-center":"hover:underline"}
                               >
                                 <Link 
                                   href={`${link.href}/${subItem.href}`.replace(/\/$/, '')} 
-                                  className="text-white block"
+                                  className={`text-white flex gap-2 ${link.label=== "navigation.products.label" ? "justify-center items-center":""}`}
                                   onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
                                 >
-                                  {subItem.label}
+                                  {link.label=== "navigation.products.label" && productsIcon[subIndex].icon}
+                                  {link.label=== "navigation.products.label"?subItem.label.toUpperCase():subItem.label}
                                 </Link>
                               </li>
                             ))}

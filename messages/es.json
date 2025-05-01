@@ -16,11 +16,11 @@
         "tileAdhesive": "Mortero cola",
         "singleLayerMortar": "Mortero monocapa",
         "stampedMortar": "Mortero impreso",
-        "groutMortar": "Mortero para juntas",
+        "groutMortar": "Mortero juntas",
         "accessoriesAndTools": "Complementos y accesorios",
         "stoneMortar": "Mortero piedra decorativa",
         "waterProtector": "Protector de agua",
-        "bondingBridge": "Puente de unión"
+        "bondingBridge": "Puente unión"
       }
     },
     "contact": "Contacto",
