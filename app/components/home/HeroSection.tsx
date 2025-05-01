@@ -10,7 +10,7 @@ export default function HeroSection() {
     <section className="relative h-[60vh] w-full">
       {/* Fondo con imagen */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-center sm:bg-fixed"
         style={{
           backgroundImage: "url('/img/Home.jpg')"
         }}
