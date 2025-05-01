@@ -389,8 +389,8 @@ export default function ClientNavigation() {
                                   onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
                                 >
                                   {link.label=== "navigation.products.label" && productsIcon[subIndex].icon}
-                                 <p className={`${subItem.label.toLocaleLowerCase()==="mortero piedra decorativa"?"w-32 text-left line-clamp-2":" text-left"}
-                                                 ${link.label=== "navigation.products.label" && subItem.label.toLocaleLowerCase()!=="mortero piedra decorativa"?"max-w-[min-content]":""}`}
+                                 <p className={`${subItem.label.toLocaleLowerCase()==="mortero piedra decorativa" || subItem.label.toLocaleLowerCase()==="decorative stone mortar" || subItem.label.toLocaleLowerCase()==="single-layer mortar"?"w-32 text-left line-clamp-2":" text-left"}
+                                                 ${link.label=== "navigation.products.label" && (subItem.label.toLocaleLowerCase()!=="mortero piedra decorativa" && subItem.label.toLocaleLowerCase() !=="decorative stone mortar" && subItem.label.toLocaleLowerCase()!=="single-layer mortar")?"max-w-[min-content]":""}`}
                                   >
                                     {link.label=== "navigation.products.label"?subItem.label.toUpperCase():subItem.label} 
                                   </p> 
