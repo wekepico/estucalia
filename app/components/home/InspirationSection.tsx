@@ -46,7 +46,7 @@ export default function InspirationSection() {
       {/* Featured Image */}
       <div className="relative h-[500px] mb-32">
         <div 
-          className="absolute inset-0 bg-cover bg-fixed bg-center"
+          className="absolute inset-0 bg-cover sm:bg-fixed bg-center"
           style={{
             backgroundImage: "url('/img/bg-up.png')"
           }}

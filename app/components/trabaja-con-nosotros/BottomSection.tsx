@@ -9,7 +9,7 @@ export default function BottomSection() {
   return (
     <section className="relative h-[60vh] w-full">
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-center sm:bg-fixed"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&q=80')"
         }}

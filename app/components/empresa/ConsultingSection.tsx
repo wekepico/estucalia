@@ -12,7 +12,7 @@ export default function ConsultingSection() {
     <section className="relative min-h-[600px] flex items-center">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-center sm:bg-fixed"
         style={{
           backgroundImage: `url(/img/asesoramiento.jpg)`,
         }}

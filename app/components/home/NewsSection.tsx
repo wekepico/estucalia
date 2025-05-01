@@ -50,7 +50,7 @@ export default function NewsSection() {
       {/* Featured Image */}
       <div className="relative h-[250px] md:h-[470px] mb-16 md:mb-32">
         <div
-          className="absolute inset-0 bg-cover bg-fixed bg-center"
+          className="absolute inset-0 bg-cover sm:bg-fixed bg-center"
           style={{
             backgroundImage: "url('/img/bg-down.png')"
           }}

@@ -15,7 +15,7 @@ export default function InternationalSection() {
     <section className="relative min-h-[1100px]  flex items-center">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-center sm:bg-fixed"
         style={{
           backgroundImage: "url('img/internacionales.jpg')"
         }}

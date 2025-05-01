@@ -17,7 +17,7 @@ export default function Servicios() {
 
       <div className="relative h-[350px] mb-28">
         <div
-          className="absolute inset-0 bg-cover bg-fixed bg-center"
+          className="absolute inset-0 bg-cover sm:bg-fixed bg-center"
           style={{ backgroundImage: "url('/img/bg-up.png')" }}
         />
       </div>
@@ -30,7 +30,7 @@ export default function Servicios() {
       {/* Imagen inferior */}
       <div className="relative h-[250px] md:h-[470px] mt-16 md:mt-28">
         <div
-          className="absolute inset-0 bg-cover bg-fixed bg-center"
+          className="absolute inset-0 bg-cover sm:bg-fixed bg-center"
           style={{ backgroundImage: "url('/img/bg-down.png')" }}
         />
       </div>

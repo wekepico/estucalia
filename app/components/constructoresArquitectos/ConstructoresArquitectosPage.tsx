@@ -22,7 +22,7 @@ export default function ConstructoresArquitectosPage() {
 
             <div className="relative h-[500px]">
                 <div
-                    className="absolute inset-0 bg-cover bg-fixed bg-center"
+                    className="absolute inset-0 bg-cover sm:bg-fixed bg-center"
                     style={{
                         backgroundImage: `url('${t('constructorsArchitectsPage.images.banner1')}')`
                     }}
@@ -37,7 +37,7 @@ export default function ConstructoresArquitectosPage() {
             {/* Featured Image */}
             <div className="relative h-[250px] md:h-[720px]">
                 <div
-                    className="absolute inset-0 bg-cover bg-fixed bg-center"
+                    className="absolute inset-0 bg-cover sm:bg-fixed bg-center"
                     style={{
                         backgroundImage: `url('${t('constructorsArchitectsPage.images.banner2')}')`
                     }}
