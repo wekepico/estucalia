@@ -263,7 +263,8 @@ export default function ClientNavigation() {
                           onMouseLeave={() => setHoveredMenu(null)}
                         >
                           <ul className="font-[400] flex flex-col py-4 space-y-4">
-                            {link.submenu.map((subItem, subIndex) => (
+                            {
+                            link.submenu.map((subItem, subIndex) => (
                               <li
                                 key={subIndex}
                                 className="hover:underline"
