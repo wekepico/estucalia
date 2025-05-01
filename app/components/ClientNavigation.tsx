@@ -10,7 +10,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { usePathname } from "next/navigation";
 import DropdownEmpresa from "./ui/DropdownEmpresa";
 import DropdownIdioma from "./ui/DropdownIdioma";
@@ -23,6 +23,7 @@ export default function ClientNavigation() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openMobileSubmenus, setOpenMobileSubmenus] = useState<number[]>([]);
   const headerRef = useRef<HTMLElement>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
 
@@ -30,6 +31,19 @@ export default function ClientNavigation() {
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
+    setOpenMobileSubmenus([]); // Reset submenus al abrir/cerrar sidebar
+  };
+
+  const toggleMobileSubmenu = (index: number) => {
+    setOpenMobileSubmenus(prev => 
+      prev.includes(index) 
+        ? prev.filter(i => i !== index) 
+        : [...prev, index]
+    );
+  };
+
+  const isMobileSubmenuOpen = (index: number) => {
+    return openMobileSubmenus.includes(index);
   };
 
   useEffect(() => {
@@ -75,7 +89,6 @@ export default function ClientNavigation() {
       .replace(/--+/g, '-');
   };
 
-
   const submenuItemsAplications = {
     coatings: t("navigation.applications.submenu.coatings"),
     plasters: t("navigation.applications.submenu.plasters"),
@@ -86,7 +99,6 @@ export default function ClientNavigation() {
     waterproofing: t("navigation.applications.submenu.waterproofing"),
     dehumidification: t("navigation.applications.submenu.dehumidification")
   };
-
 
   const submenuItemsProducts = {
     limeMortar: t("navigation.products.submenu.limeMortar"),
@@ -284,7 +296,7 @@ export default function ClientNavigation() {
         )}
 
         <div
-          className={`fixed top-0 left-0 h-full w-64 bg-black transform ${
+          className={`fixed top-0 left-0 h-full overflow-auto w-64 bg-black transform ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out lg:hidden z-50`}
         >
@@ -316,21 +328,35 @@ export default function ClientNavigation() {
 
                 {menuLinks.map((link, index) => (
                   <NavigationMenuItem key={index} className="w-full">
-                    <Link
-                      href={link.href}
-                      onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, link.href)}
-                      className="text-white hover:border-b pb-1 hover:border-white transition-colors block w-full"
-                    >
-                      {t(link.label)}
-                    </Link>
-                    {link.submenu.length > 0 && (
+                    <div className="flex items-center justify-between w-full">
+                      <Link
+                        href={link.href}
+                        onClick={(e: React.MouseEvent<HTMLElement>) => {
+                          if (link.submenu.length === 0) {
+                            handleLinkClick(e, link.href);
+                          }
+                        }}
+                        className="text-white hover:border-b pb-1 hover:border-white transition-colors"
+                      >
+                        {t(link.label)}
+                      </Link>
+                      {link.submenu.length > 0 && (
+                        <button 
+                          onClick={() => toggleMobileSubmenu(index)}
+                          className="text-white ml-2"
+                        >
+                          {isMobileSubmenuOpen(index) ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                        </button>
+                      )}
+                    </div>
+                    {link.submenu.length > 0 && isMobileSubmenuOpen(index) && (
                       <ul className="ml-4 mt-2 space-y-2">
                         {link.submenu.map((subItem, subIndex) => (
                           <li key={subIndex}>
                             <Link
                               href={`${link.href}/${subItem.href}`.replace(/\/$/, '')}
                               onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
-                              className="text-white text-sm block py-1"
+                              className="text-white text-sm block py-1 hover:underline"
                             >
                               {subItem.label}
                             </Link>
