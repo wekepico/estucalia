@@ -1,5 +1,5 @@
 'use client';
-
+import './style.css';
 import React from 'react';
 import ReachText from '../reachText/reachText';
 import { useLanguage } from '@/app/context/LanguageContext';
@@ -85,7 +85,7 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
 
             {/* Descripción de la noticia */}
             <div className="sm:px-28 px-5 lg:px-48 prose prose-lg max-w-full text-black">
-                <ReachText className='flex no-underline flex-col gap-5' content={description} />
+                <ReachText className='flex w-full no-underline flex-col gap-5 text-justify reachtext' content={description} />
             </div>
 
             {/* Redes sociales */}
