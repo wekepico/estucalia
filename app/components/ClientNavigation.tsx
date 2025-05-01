@@ -376,12 +376,12 @@ export default function ClientNavigation() {
                           } transition-all w-max duration-300 ease-in-out top-full flex flex-col mt-2 bg-transparent h-[400px]`}
                           onMouseLeave={() => setHoveredMenu(null)}
                         >
-                          <ul className={`font-[400]  ${link.label=== "navigation.products.label"? "grid grid-cols-3 gap-x-44 gap-y-10 mt-10":" flex flex-col"}  py-4 space-y-4`}>
+                          <ul className={`font-[500]  ${link.label=== "navigation.products.label"? "grid grid-cols-3 gap-x-24 gap-y-6 mt-20 ":" flex flex-col py-4 space-y-4"}  `}>
                             {
                             link.submenu.map((subItem, subIndex) => (
                               <li
                                 key={subIndex}
-                                className={link.label=== "navigation.products.label"?"max-w-[min-content] text-base text-left flex items-center justify-center":"hover:underline"}
+                                className={link.label=== "navigation.products.label"?" text-base text-left flex items-center justify-left":"hover:underline"}
                               >
                                 <Link 
                                   href={`${link.href}/${subItem.href}`.replace(/\/$/, '')} 
@@ -389,7 +389,11 @@ export default function ClientNavigation() {
                                   onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
                                 >
                                   {link.label=== "navigation.products.label" && productsIcon[subIndex].icon}
-                                  {link.label=== "navigation.products.label"?subItem.label.toUpperCase():subItem.label}
+                                 <p className={`${subItem.label.toLocaleLowerCase()==="mortero piedra decorativa"?"w-32 text-left line-clamp-2":" text-left"}
+                                                 ${link.label=== "navigation.products.label" && subItem.label.toLocaleLowerCase()!=="mortero piedra decorativa"?"max-w-[min-content]":""}`}
+                                  >
+                                    {link.label=== "navigation.products.label"?subItem.label.toUpperCase():subItem.label} 
+                                  </p> 
                                 </Link>
                               </li>
                             ))}
