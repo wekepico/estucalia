@@ -29,7 +29,7 @@ export default function FinishesSection() {
       id:"singleLayerMortar",
       name: t('home.finishes.products.monocapa'),
       icon: MorteroMonocapa,
-      category: `${t('home.finishes.categories.hammered')},${t('home.finishes.categories.washed')},${t('home.finishes.categories.printed')},${t('home.finishes.categories.smooth')}`
+      category: `${t('home.finishes.categories.hammered')},${t('home.finishes.categories.washed')},${t('home.finishes.categories.smooth')}`
     },
     {
       id:"limeMortar",
