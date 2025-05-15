@@ -185,7 +185,7 @@ export const data: Spaces[] = [
         img: "/img/espacios/piscina.jpg",
         descripcion: "spacesSection.descriptions.pools",
         aplications: [
-            "spacesSection.applications.coatings",
+            // "spacesSection.applications.coatings",
             "spacesSection.applications.masonry",
             "spacesSection.applications.tiles"
         ]

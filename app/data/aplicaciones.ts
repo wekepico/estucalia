@@ -106,7 +106,7 @@ export const data: Aplication[] = [
             {
                 id: "limeMortar",
                 name: 'products.lime',
-                icon: MorteroMonocapa
+                icon: MorteroCal
             },
             {
                 id: "stampedMortar",
@@ -235,7 +235,7 @@ export const data: Aplication[] = [
     {
         id: "dehumidification",
         aplication: "applications.categories.dehumidification",
-        img: "/img/deshumidificacion.jpg",
+        img: "/img/deshumificacion.jpg",
         descripcion: "applications.descriptions.dehumidification",
         products: [
             {

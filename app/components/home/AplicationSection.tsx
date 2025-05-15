@@ -17,7 +17,7 @@ export default function AplicationSection() {
     t('home.applications.categories.plasters'),
     t('home.applications.categories.masonry'),
     t('home.applications.categories.tiles'),
-    t('home.applications.categories.screeds'),
+    // t('home.applications.categories.screeds'),
     t('home.applications.categories.thermal'),
     t('home.applications.categories.waterproofing'),
     t('home.applications.categories.dehumidification')
