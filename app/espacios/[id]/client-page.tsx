@@ -11,12 +11,22 @@ export default function ClientPage() {
     const { t } = useLanguage();
     const [currentSpace, setCurrentSpace] = useState<Spaces | null>(null);
     const pathname = usePathname()
+    const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
+        setMounted(true);
         const id = pathname.split('/').pop();
         const foundSpace = data.find((a) => a.id === id);
         setCurrentSpace(foundSpace || null);
     }, [pathname]);
+
+    if (!mounted) {
+        return (
+            <main className="min-h-screen gap-4 flex justify-center items-center bg-white md:pt-28 pt-16 lg:pt-32">
+                <Loader width={50} height={50} /> Loading...
+            </main>
+        );
+    }
     
     if (!currentSpace) {
         return <div>{t('common.notFound')}</div>;
