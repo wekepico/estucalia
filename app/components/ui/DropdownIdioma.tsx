@@ -71,7 +71,7 @@ export default function DropdownIdioma() {
     };
   }, []);
 
-  const handleLanguageChange = (lang: 'es' | 'en') => {
+  const handleLanguageChange = (lang: 'es' | 'en' | 'fr') => {
     setLanguage(lang);
     setIsOpen(false);
   };
@@ -95,13 +95,13 @@ export default function DropdownIdioma() {
         }`}
       >
         <ul>
-          {['en', 'es'].map((lang) => (
+          {['en', 'es', 'fr'].map((lang) => (
             <li key={lang}>
               <button
                 className={`w-full px-4 py-2 text-white hover:bg-gray-800 transition-colors ${
                   language === lang ? 'bg-gray-800' : ''
                 }`}
-                onClick={() => handleLanguageChange(lang as 'es' | 'en')}
+                onClick={() => handleLanguageChange(lang as 'es' | 'en' |'fr')}
               >
                 {lang.toUpperCase()}
               </button>
