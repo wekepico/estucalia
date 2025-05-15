@@ -2,42 +2,70 @@
   "navigation": {
     "businessLinks": {
       "company": "Entreprise",
-      "about": "À Propos",
-      "workWithUs": "Travailler avec Nous",
+      "about": "À propos de nous",
+      "workWithUs": "Travaillez avec nous",
       "blog": "Blog",
       "contact": "Contact"
     },
     "home": "Accueil",
-    "about": "À Propos",
+    "about": "À propos de nous",
     "products": {
       "label": "Produits",
-      "submenu": "Type 1, Type 2, Type 3"
+      "submenu": {
+        "limeMortar": "Mortier de chaux",
+        "tileAdhesive": "Mortier-colle",
+        "singleLayerMortar": "Enduit monocouche",
+        "stampedMortar": "Mortier imprimé",
+        "groutMortar": "Mortier pour joints",
+        "accessoriesAndTools": "Compléments et accessoires",
+        "stoneMortar": "Mortier pierre décorative",
+        "waterProtector": "Protecteur d'eau",
+        "bondingBridge": "Pont d'adhérence"
+      }
     },
     "contact": "Contact",
     "blog": "Blog",
     "inspiration": "Inspiration",
     "applications": {
       "label": "Applications",
-      "submenu": "Revetements, Enduits et plâtres, Maçonnerie, Carreaux, Chapes, Isolation thermique, Étanchéité, Déshumidification"
+      "submenu": {
+        "coatings": "Revêtements",
+        "plasters": "Enduits et crépis",
+        "masonry": "Maçonnerie",
+        "tiles": "Carreaux",
+        "screeds": "Chapes",
+        "thermalInsulation": "Isolation thermique",
+        "waterproofing": "Imperméabilisation",
+        "dehumidification": "Déshumidification"
+      }
     },
     "spaces": {
       "label": "Espaces",
-      "submenu": "Façades, Terrasses, Balcons, Murs, Patios et puits de lumière, Sols et pavements, Cuisines extérieures, Piscines"
+      "submenu": {
+        "facades": "Façades",
+        "terraces": "Terrasses",
+        "balconies": "Balcons",
+        "walls": "Murs",
+        "patios": "Patios et lanterneaux",
+        "floors": "Sols et revêtements",
+        "kitchens": "Cuisines extérieures",
+        "pools": "Piscines"
+      }
     },
     "professionals": "Professionnels",
     "professionalsSubmenu": {
-      "builders": "Constructeurs et Architectes",
+      "builders": "Constructeurs et architectes",
       "applicators": "Applicateurs",
-      "services": "Services Intégraux de Projets",
-      "certifications": "Certifications et Documentation"
+      "services": "Services intégrés de projets",
+      "certifications": "Certifications et documentation"
     },
-    "finishes": "Finitures",
+    "finishes": "Finitions",
     "languages": "Langues",
     "company": "Entreprise",
-    "workWithUs": "Travailler avec Nous",
-    "legalNotice": "Mentions Légales",
-    "privacyPolicy": "Politique de Confidentialité",
-    "cookiePolicy": "Politique des Cookies"
+    "workWithUs": "Travaillez avec nous",
+    "legalNotice": "Mentions légales",
+    "privacyPolicy": "Politique de confidentialité",
+    "cookiePolicy": "Politique de cookies"
   },
   "common": {
     "readMore": "Lire Plus",
@@ -239,16 +267,70 @@
   },
   "company": {
     "hero": {
-      "title": "Plus de 25 ans dans le secteur des revêtements de façades et céramiques à l'échelle internationale."
+      "title": "Plus de 25 ans dans le secteur des revêtements de façades et de céramiques à l'international."
     },
     "about": {
-      "title": "Nous sommes Grupo Estucalia",
-      "description": "Grupo Estucalia est composé de plusieurs entreprises spécialisées dans la fabrication, la commercialisation et l'exportation de mortiers monocouche pour le revêtement de façades, et de colles et joints pour le revêtement céramique des sols et murs.",
-      "imageAlt": "Art dans les Façades",
+      "title": "Nous sommes le Groupe Estucalia",
+      "description": "Le Groupe Estucalia est composé de plusieurs entreprises spécialisées dans la fabrication, la commercialisation et l’exportation de mortiers monocouches pour le revêtement des façades, ainsi que de colles et joints pour le revêtement céramique des sols et murs.",
+      "imageAlt": "Art sur façades",
       "mission": {
         "title": "Notre mission : satisfaire le client",
-        "description": "Dans notre entreprise, la mission est claire : fournir un service de qualité exceptionnelle en offrant une disponibilité totale de l'équipe pour garantir votre satisfaction."
+        "description": "Dans notre entreprise, la mission est claire : fournir un service de qualité exceptionnelle avec une disponibilité totale de l’équipe pour garantir votre satisfaction."
       }
+    },
+    "news": {
+      "title": "Actualités",
+      "viewNews": "Voir la nouvelle",
+      "items": [
+        {
+          "title": "Mission commerciale directe en Arabie Saoudite",
+          "description": "Nous étendons notre présence au Moyen-Orient avec de nouvelles opportunités commerciales."
+        },
+        {
+          "title": "Le Groupe Estucalia présente ses mortiers monocouches au Maroc",
+          "description": "Présentation réussie de notre gamme de produits sur le marché marocain."
+        },
+        {
+          "title": "Convention internationale à Rabat",
+          "description": "Participation remarquable lors de l'événement majeur du secteur en Afrique du Nord."
+        }
+      ]
+    },
+    "solutions": {
+      "title": "Solutions pour la construction",
+      "description": "Fort de plus de 25 ans d’expérience, le Groupe Estucalia propose une gamme de produits d’une qualité exceptionnelle.",
+      "products": {
+        "monocapa": "Mortier monocouche",
+        "cola": "Mortier-colle",
+        "cal": "Mortier de chaux",
+        "juntas": "Mortier pour joints",
+        "impreso": "Mortier imprimé",
+        "piedra": "Mortier pierre décorative",
+        "protector": "Protecteur d'eau",
+        "union": "Pont d'adhérence",
+        "accesorios": "Compléments et accessoires"
+      }
+    },
+    "production": {
+      "stats": {
+        "title": "100 000 T/an",
+        "description": "Nos installations, équipées des dernières technologies en machines, nous permettent une production quotidienne de 300 tonnes."
+      }
+    },
+    "international": {
+      "title": "International",
+      "description": "Le Groupe Estucalia est présent à l’étranger, avec des distributeurs et clients dans des pays tels que"
+    },
+    "consulting": {
+      "title": "Conseil personnalisé",
+      "description": "L’excellence dans la finition de chaque projet n’est pas seulement la dernière étape de notre quête de qualité, mais la marque distinctive qui définit le résultat final. Le Groupe Estucalia met à votre disposition une équipe technique prête à fournir une assistance experte pour chaque projet que nous entreprenons ensemble.",
+      "button": "Plus d’informations"
+    },
+    "certifications": {
+      "title": "Des résultats à la hauteur des exigences",
+      "description": "Notre entreprise s’engage à la qualité à chaque étape, comme en témoigne notre certification qualité. Le Groupe Estucalia intègre le système rigoureux de Qualité Totale basé sur la norme UNE-EN ISO 9001/2000 et certifié par AENOR sous le numéro d’enregistrement ER-0339/2002.",
+      "imageAlt": "Certification AENOR",
+      "button": "Certifications"
     }
   },
   "workWithUs": {
@@ -555,7 +637,52 @@
     ]
   },
   "services": {
-    "title": "Service Intégral de Projets"
+    "title": "Service Intégré de Projets",
+    "cards": {
+      "advice": {
+        "title": "Conseil et support spécialisé",
+        "description": "Notre équipe spécialisée vous fournira des devis détaillés par postes.",
+        "bullets": [
+          "- Équipe professionnelle d’analyse et de support.",
+          "- Assistance pour les questions et possibilités d’application.",
+          "- Devis par postes.",
+          "- Recommandations sur les produits, finitions et couleurs."
+        ]
+      },
+      "definition": {
+        "title": "Aide à la définition du projet",
+        "description": "Nous nous engageons à vous fournir un soutien et des conseils concernant le transport, la manipulation, l’application et la maintenance.",
+        "bullets": [
+          "- Attention personnalisée et solutions adaptées à vos projets.",
+          "- Conseil pour l’application et la maintenance.",
+          "- Étude individualisée du projet.",
+          "- Optimisation en termes d’économies et de performance."
+        ]
+      },
+      "resources": {
+        "title": "Ressources pour les projets",
+        "description": "Vous bénéficierez d’un service exclusif pour développer vos projets, concrétiser votre vision et l’améliorer avec les mortiers ou ciments les plus avancés.",
+        "bullets": [
+          "- Échantillons sous 48 h. Recevez les échantillons dont vous avez besoin pour vos projets.",
+          "- Service personnalisé. Nous vous recommandons des applicateurs pour garantir le meilleur service et la meilleure qualité."
+        ]
+      },
+      "support": {
+        "title": "Assistance et support",
+        "description": "Nos spécialistes sont à votre disposition pour vous aider au niveau commercial et en matière de sécurité. Nous conseillons sur le transport, la manipulation, l’application et la maintenance.",
+        "bullets": []
+      },
+      "delivery": {
+        "title": "Service de livraison mondiale",
+        "description": "Profitez d’un service de livraison à portée mondiale pour faire grandir votre projet.",
+        "bullets": []
+      },
+      "sustainability": {
+        "title": "Durabilité et efficacité",
+        "description": "Nous vous aidons à découvrir notre catalogue de produits, leurs processus de fabrication durables et leur diversité d’applications/usages.",
+        "bullets": []
+      }
+    }
   },
   "certifications": {
     "title": "Certifications et documentation",
@@ -699,5 +826,8 @@
     "generalInfo": "Informations générales",
     "documentation": "Documentation",
     "productInfo": "Informations"
+  },
+  "general": {
+    "loading": "chargement"
   }
 }

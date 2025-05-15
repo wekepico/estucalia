@@ -839,6 +839,9 @@
     "generalInfo": "General information",
     "documentation": "Documentation",
     "productInfo": "Information",
-    "action":"Download"
+    "action": "Download"
+  },
+  "general": {
+    "loading": "cargando"
   }
 }
