@@ -33,7 +33,7 @@
         "plasters": "Plasters and renders",
         "masonry": "Masonry",
         "tiles": "Tiles",
-        "screeds": "Screeds",
+
         "thermalInsulation": "Thermal insulation",
         "waterproofing": "Waterproofing",
         "dehumidification": "Dehumidification"
@@ -112,7 +112,6 @@
         "plasters": "Plasters and renders",
         "masonry": "Masonry",
         "tiles": "Tiles",
-        "screeds": "Screeds",
         "thermal": "Thermal insulation",
         "waterproofing": "Waterproofing",
         "dehumidification": "Dehumidification"
@@ -387,7 +386,6 @@
       "plasters": "Plasters and renders",
       "masonry": "Masonry",
       "tiles": "Tiles",
-      "screeds": "Screeds",
       "thermal": "Thermal insulation",
       "waterproofing": "Waterproofing",
       "dehumidification": "Dehumidification"
@@ -397,7 +395,6 @@
       "plasters": "For plasters and renders, lime mortar is a traditional option that offers great breathability and flexibility, ideal for preventing cracks in old surfaces. In modern applications, Single-Layer Mortar stands out for its dual function of leveling and providing a decorative finish in a single layer, saving time and costs. Both types of mortar ensure good adhesion and resistance to weather conditions, improving the appearance and protection of facades.",
       "masonry": "The multipurpose Grout Mortar is ideal for masonry work, as it allows filling joints between bricks or blocks, ensuring a solid and resistant fixation. For exterior coatings, Single-Layer Mortar remains a preferred option due to its ability to protect and decorate structures. For traditional works, lime mortar provides flexibility and moisture resistance, being an excellent alternative in restorations.",
       "tiles": "Tile adhesive is the most suitable for installing tiles on walls and floors, both indoors and outdoors. It offers high adhesion and resistance, even in extreme humidity or temperature conditions. If a decorative exterior finish is desired, Single-Layer Mortar can also serve as a base for tile placement, providing a well-leveled and resistant surface. This combination ensures an aesthetic and functional solution for ceramic coatings.",
-      "screeds": "Lime mortar is ideal for screeds on floors or facades of traditional buildings, as its flexibility prevents cracks and allows proper breathability. In modern applications, Single-Layer Mortar can be applied over screeds to achieve an aesthetic and resistant finish. This combination ensures a solid and well-protected base, improving the durability and aesthetics of treated surfaces.",
       "thermal": "For thermal insulation work, Single-Layer Mortar is an efficient solution when applied over external thermal insulation systems (ETICS), offering a protective and decorative layer. If a more natural and breathable solution is desired, lime mortar is an excellent option, as it allows humidity regulation and improves the building's thermal comfort. Both types of mortar contribute to energy efficiency and facade protection.",
       "waterproofing": "Single-Layer Mortar is an excellent option for waterproofing facades, as it forms a protective barrier that prevents water entry. For specific applications, such as surfaces with visible joints, multipurpose Grout Mortar ensures effective sealing. In traditional works, lime mortar also offers waterproofing properties, allowing proper wall breathability. All these mortars help keep structures free from moisture and in good condition.",
       "dehumidification": "In dehumidification projects, lime mortar is highly recommended for its ability to repel water and allow wall breathability. This characteristic makes it an ideal solution for restorations or constructions with humidity problems. Single-Layer Mortar also helps keep surfaces dry thanks to its waterproofing and decorative capacity, being a versatile and resistant option to improve facade durability and protect them against moisture accumulation."
@@ -512,7 +509,6 @@
       "plasters": "Plasters",
       "masonry": "Masonry",
       "tiles": "Tiles",
-      "screeds": "Screeds",
       "thermal": "Thermal insulation",
       "waterproofing": "Waterproofing",
       "dehumidification": "Dehumidification"

@@ -144,24 +144,6 @@ export const data: Aplication[] = [
         ]
     },
     {
-        id: "screeds",
-        aplication: "applications.categories.screeds",
-        img: "/img/recrecidos.jpg",
-        descripcion: "applications.descriptions.screeds",
-        products: [
-            {
-                id: "singleLayerMortar",
-                name: 'products.monocapa',
-                icon: MorteroMonocapa
-            },
-            {
-                id: "tileAdhesive",
-                name: 'products.adhesive',
-                icon: Cola
-            }
-        ]
-    },
-    {
         id: "thermalInsulation",
         aplication: "applications.categories.thermal",
         img: "/img/aislamiento.jpg",

@@ -33,7 +33,7 @@
         "plasters": "Enduits et crépis",
         "masonry": "Maçonnerie",
         "tiles": "Carreaux",
-        "screeds": "Chapes",
+
         "thermalInsulation": "Isolation thermique",
         "waterproofing": "Imperméabilisation",
         "dehumidification": "Déshumidification"
@@ -112,7 +112,6 @@
         "plasters": "Enduits et plâtres",
         "masonry": "Maçonnerie",
         "tiles": "Carreaux",
-        "screeds": "Chapes",
         "thermal": "Isolation thermique",
         "waterproofing": "Étanchéité",
         "dehumidification": "Déshumidification"
@@ -374,7 +373,6 @@
       "plasters": "Enduits et plâtres",
       "masonry": "Maçonnerie",
       "tiles": "Carreaux",
-      "screeds": "Chapes",
       "thermal": "Isolation thermique",
       "waterproofing": "Étanchéité",
       "dehumidification": "Déshumidification"
@@ -384,7 +382,6 @@
       "plasters": "Pour les enduits et plâtres, le mortier à la chaux est une option traditionnelle qui offre une grande respirabilité et flexibilité, idéale pour éviter les fissures sur les surfaces anciennes. Dans les applications modernes, le mortier monocouche se distingue par sa double fonction de nivellement et de finition décorative en une seule couche, permettant d'économiser du temps et des coûts. Les deux types de mortier assurent une bonne adhérence et résistance aux intempéries, améliorant l'apparence et la protection des façades.",
       "masonry": "Le mortier polyvalent pour joints est idéal pour les travaux de maçonnerie, car il permet de remplir les joints entre les briques ou les blocs, assurant une fixation solide et résistante. Pour les revêtements extérieurs, le mortier monocouche reste une option préférée en raison de sa capacité à protéger et décorer les structures. Pour les travaux traditionnels, le mortier à la chaux apporte flexibilité et résistance à l'humidité, constituant une excellente alternative pour les restaurations.",
       "tiles": "La colle à carrelage est la plus adaptée pour l'installation de carreaux sur les murs et les sols, tant à l'intérieur qu'à l'extérieur. Elle offre une adhérence et une résistance élevées, même dans des conditions d'humidité ou de température extrêmes. Si une finition extérieure décorative est souhaitée, le mortier monocouche peut également servir de base pour la pose de carreaux, fournissant une surface bien nivelée et résistante. Cette combinaison garantit une solution esthétique et fonctionnelle pour les revêtements céramiques.",
-      "screeds": "Le mortier à la chaux est idéal pour les chapes sur les sols ou les façades des bâtiments traditionnels, car sa flexibilité évite les fissures et permet une bonne respirabilité. Dans les applications modernes, le mortier monocouche peut être appliqué sur les chapes pour obtenir une finition esthétique et résistante. Cette combinaison garantit une base solide et bien protégée, améliorant la durabilité et l'esthétique des surfaces traitées.",
       "thermal": "Pour les travaux d'isolation thermique, le mortier monocouche est une solution efficace lorsqu'il est appliqué sur des systèmes d'isolation thermique extérieure (ITE), offrant une couche protectrice et décorative. Si une solution plus naturelle et respirante est souhaitée, le mortier à la chaux est une excellente option, car il permet de réguler l'humidité et d'améliorer le confort thermique du bâtiment. Les deux types de mortier contribuent à l'efficacité énergétique et à la protection des façades.",
       "waterproofing": "Le mortier monocouche est une excellente option pour l'étanchéité des façades, car il forme une barrière protectrice qui empêche l'entrée d'eau. Pour les applications spécifiques, comme les surfaces avec joints visibles, le mortier polyvalent pour joints garantit un scellement efficace. Dans les travaux traditionnels, le mortier à la chaux offre également des propriétés d'étanchéité, permettant une bonne respiration des murs. Tous ces mortiers contribuent à maintenir les structures à l'abri de l'humidité et en bon état.",
       "dehumidification": "Dans les projets de déshumidification, le mortier à la chaux est fortement recommandé pour sa capacité à repousser l'eau et à permettre la respiration des murs. Cette caractéristique en fait une solution idéale pour les restaurations ou les constructions avec des problèmes d'humidité. Le mortier monocouche aide également à maintenir les surfaces sèches grâce à sa capacité d'étanchéité et décorative, constituant une option polyvalente et résistante pour améliorer la durabilité des façades et les protéger contre l'accumulation d'humidité."
@@ -499,7 +496,6 @@
       "plasters": "Enduits",
       "masonry": "Maçonnerie",
       "tiles": "Carrelages",
-      "screeds": "Chapes",
       "thermal": "Isolation thermique",
       "waterproofing": "Étanchéité",
       "dehumidification": "Déshumidification"

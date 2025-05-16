@@ -33,7 +33,6 @@
         "plasters": "Enlucidos y revocos",
         "masonry": "Mampostería",
         "tiles": "Azulejos",
-        "screeds": "Recrecidos",
         "thermalInsulation": "Aislamiento térmico",
         "waterproofing": "Impermeabilización",
         "dehumidification": "Deshumidificación"
@@ -112,7 +111,6 @@
         "plasters": "Revocos y enlucidos",
         "masonry": "Albañilería",
         "tiles": "Baldosas",
-        "screeds": "Recrecidos",
         "thermal": "Aislamiento térmico",
         "waterproofing": "Impermeabilización",
         "dehumidification": "Deshumidificación"
@@ -387,7 +385,6 @@
       "plasters": "Revocos y enlucidos",
       "masonry": "Albañilería",
       "tiles": "Baldosas",
-      "screeds": "Recrecidos",
       "thermal": "Aislamiento térmico",
       "waterproofing": "Impermeabilización",
       "dehumidification": "Deshumidificación"
@@ -397,7 +394,6 @@
       "plasters": "Para revocos y enlucidos, el mortero de cal es una opción tradicional que ofrece gran transpirabilidad y flexibilidad, ideal para evitar fisuras en superficies antiguas. En aplicaciones modernas, el mortero monocapa destaca por su doble función de nivelar y proporcionar un acabado decorativo en una sola capa, ahorrando tiempo y costes. Ambos tipos de mortero garantizan una buena adherencia y resistencia frente a las inclemencias climáticas, mejorando la apariencia y la protección de las fachadas.",
       "masonry": "El mortero polivalente para juntas es ideal para trabajos de albañilería, ya que permite rellenar uniones entre ladrillos o bloques, garantizando una fijación sólida y resistente. En revestimientos exteriores, el mortero monocapa sigue siendo una opción preferida por su capacidad para proteger y decorar las estructuras. Para obras tradicionales, el mortero de cal aporta flexibilidad y resistencia a la humedad, siendo una excelente alternativa en restauraciones.",
       "tiles": "El mortero cola es el más adecuado para la instalación de baldosas en paredes y suelos, tanto en interiores como exteriores. Ofrece una alta adherencia y resistencia, incluso en condiciones de humedad o temperatura extremas. Si se busca un acabado exterior decorativo, el mortero monocapa también puede servir como base para la colocación de baldosas, proporcionando una superficie bien nivelada y resistente. Esta combinación garantiza una solución estética y funcional para revestimientos cerámicos.",
-      "screeds": "El mortero de cal es ideal para recrecidos en suelos o fachadas de edificaciones tradicionales, ya que su flexibilidad evita fisuras y permite una correcta transpiración. En aplicaciones modernas, el mortero monocapa puede aplicarse sobre recrecidos para lograr un acabado estético y resistente. Esta combinación garantiza una base sólida y bien protegida, mejorando la durabilidad y la estética de las superficies tratadas.",
       "thermal": "Para trabajos de aislamiento térmico, el mortero monocapa es una solución eficiente cuando se aplica sobre sistemas de aislamiento térmico exterior (SATE), ofreciendo una capa protectora y decorativa. Si se busca una solución más natural y transpirable, el mortero de cal es una excelente opción, ya que permite regular la humedad y mejorar el confort térmico del edificio. Ambos tipos de mortero contribuyen a la eficiencia energética y a la protección de las fachadas.",
       "waterproofing": "El mortero monocapa es una excelente opción para impermeabilizar fachadas, ya que forma una barrera protectora que evita la entrada de agua. Para aplicaciones específicas, como superficies con juntas visibles, el mortero polivalente para juntas garantiza un sellado efectivo. En obras tradicionales, el mortero de cal también ofrece propiedades impermeabilizantes, permitiendo una correcta transpiración de las paredes. Todos estos morteros contribuyen a mantener las estructuras libres de humedad y en buen estado.",
       "dehumidification": "En proyectos de deshumidificación, el mortero de cal es altamente recomendado por su capacidad para repeler el agua y permitir la transpiración de las paredes. Esta característica lo convierte en una solución ideal para restauraciones o construcciones con problemas de humedad. El mortero monocapa también ayuda a mantener las superficies secas gracias a su capacidad impermeabilizante y decorativa, siendo una opción versátil y resistente para mejorar la durabilidad de las fachadas y protegerlas contra la acumulación de humedad."
@@ -512,7 +508,6 @@
       "plasters": "Revocos y enlucidos",
       "masonry": "Albañilería",
       "tiles": "Baldosas",
-      "screeds": "Recrecidos",
       "thermal": "Aislamiento térmico",
       "waterproofing": "Impermeabilización",
       "dehumidification": "Deshumidificación"

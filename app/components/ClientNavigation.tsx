@@ -105,7 +105,6 @@ export default function ClientNavigation() {
     plasters: t("navigation.applications.submenu.plasters"),
     masonry: t("navigation.applications.submenu.masonry"),
     tiles: t("navigation.applications.submenu.tiles"),
-    screeds: t("navigation.applications.submenu.screeds"),
     thermalInsulation: t("navigation.applications.submenu.thermalInsulation"),
     waterproofing: t("navigation.applications.submenu.waterproofing"),
     dehumidification: t("navigation.applications.submenu.dehumidification")

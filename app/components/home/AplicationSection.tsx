@@ -17,7 +17,6 @@ export default function AplicationSection() {
     t('home.applications.categories.plasters'),
     t('home.applications.categories.masonry'),
     t('home.applications.categories.tiles'),
-    // t('home.applications.categories.screeds'),
     t('home.applications.categories.thermal'),
     t('home.applications.categories.waterproofing'),
     t('home.applications.categories.dehumidification')
@@ -34,7 +33,7 @@ export default function AplicationSection() {
       id:"kitchens",
       image: "/img/aplicaciones/cocina exterior.jpg",
       title: t('home.applications.spaces.kitchens'),
-      categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.tiles')},${t('home.applications.categories.screeds')},${t('home.applications.categories.masonry')},${t('home.applications.categories.waterproofing')}`
+      categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.plasters')},${t('home.applications.categories.tiles')},${t('home.applications.categories.masonry')},${t('home.applications.categories.waterproofing')}`
     },
     {
       id:"facades",
@@ -58,7 +57,7 @@ export default function AplicationSection() {
       id:"floors",
       image: "/img/aplicaciones/pavimentos.jpg",
       title: t('home.applications.spaces.floors'),
-      categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.tiles')},${t('home.applications.categories.screeds')},${t('home.applications.categories.waterproofing')},${t('home.applications.categories.dehumidification')}`
+      categories: `${t('home.applications.categories.coatings')},${t('home.applications.categories.tiles')},${t('home.applications.categories.waterproofing')},${t('home.applications.categories.dehumidification')}`
     },
     {
       id:"pools",

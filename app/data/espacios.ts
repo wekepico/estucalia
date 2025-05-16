@@ -29,7 +29,7 @@ export const products: Products[] = [
         id: "singleLayerMortar",
         name: 'spacesSection.products.monocapa',
         icon: MorteroMonocapa,
-        category: "spacesSection.applications.coatings,spacesSection.applications.plasters,spacesSection.applications.waterproofing,spacesSection.applications.screeds,spacesSection.applications.dehumidification,spacesSection.applications.masonry,spacesSection.applications.thermal"
+        category: "spacesSection.applications.coatings,spacesSection.applications.plasters,spacesSection.applications.waterproofing,spacesSection.applications.dehumidification,spacesSection.applications.masonry,spacesSection.applications.thermal"
     },
     {
         id: "stampedMortar",
@@ -71,7 +71,7 @@ export const products: Products[] = [
         id: "tileAdhesive",
         name: 'spacesSection.products.adhesive',
         icon: Cola,
-        category: "spacesSection.applications.tiles,spacesSection.applications.screeds,spacesSection.applications.dehumidification"
+        category: "spacesSection.applications.tiles,spacesSection.applications.dehumidification"
     },
     {
         id: "accessoriesAndTools",
@@ -121,7 +121,6 @@ export const data: Spaces[] = [
             "spacesSection.applications.plasters",
             "spacesSection.applications.masonry",
             "spacesSection.applications.thermal",
-            "spacesSection.applications.screeds",
             "spacesSection.applications.waterproofing"
         ]
     },
@@ -149,7 +148,6 @@ export const data: Spaces[] = [
             "spacesSection.applications.plasters",
             "spacesSection.applications.masonry",
             "spacesSection.applications.tiles",
-            "spacesSection.applications.screeds",
             "spacesSection.applications.waterproofing",
             "spacesSection.applications.dehumidification"
         ]
@@ -161,7 +159,6 @@ export const data: Spaces[] = [
         descripcion: "spacesSection.descriptions.floors",
         aplications: [
             "spacesSection.applications.tiles",
-            "spacesSection.applications.screeds",
             "spacesSection.applications.waterproofing"
         ]
     },
@@ -175,7 +172,6 @@ export const data: Spaces[] = [
             "spacesSection.applications.plasters",
             "spacesSection.applications.masonry",
             "spacesSection.applications.tiles",
-            "spacesSection.applications.screeds",
             "spacesSection.applications.waterproofing"
         ]
     },
