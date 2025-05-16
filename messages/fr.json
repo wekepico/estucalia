@@ -821,7 +821,8 @@
     "relevantInfo": "Informations pertinentes",
     "generalInfo": "Informations générales",
     "documentation": "Documentation",
-    "productInfo": "Informations"
+    "productInfo": "Informations",
+    "action":"Download"
   },
   "general": {
     "loading": "chargement"
