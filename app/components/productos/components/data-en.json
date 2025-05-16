@@ -850,6 +850,7 @@
                     "nombre": "EURO-SOL",
                     "subtitulo": "Release agent",
                     "imagen": "/img/productos/EUROSOL_1.png",
+                    "imagen2":"/img/productos/EUROSOL_25L.png",
                     "composicion": "Liquid release agent for immediate demolding. Forms a thin non-greasy film that allows instant demolding.",
                     "caracteristicas": [
                         "Appearance: Oily, colorless liquid.",
@@ -1177,7 +1178,8 @@
                 {
                     "nombre": "EURO-PROTECT",
                     "subtitulo": "Water protective varnish",
-                    "imagen": "/img/productos/EUROPROTECT.png",
+                    "imagen": "/img/productos/EUROPROTECT_5L.png",
+                    "imagen2": "/img/productos/EUROPROTECT.png",
                     "composicion": "Styrene-acrylic copolymer emulsion for protecting single-layer mortars, with high water resistance, alkali resistance, and good thermal plasticity.",
                     "caracteristicas": [
                         "Excellent water-repellent properties.",

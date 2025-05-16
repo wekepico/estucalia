@@ -850,6 +850,7 @@
                     "nombre": "EUROSOL",
                     "subtitulo": "Desmodelante",
                     "imagen": "/img/productos/EUROSOL_1.png",
+                    "imagen2":"/img/productos/EUROSOL_25L.png",
                     "composicion": "Desencofrante líquido para desencofrar inmediatamente.Sobre la superficie de contacto de hormigón del molde, forma una películadelgada no grasa que permite un desencofrado inmediato.",
                     "caracteristicas": [
                         "Aspecto: Líquido oleoso e incoloro.",
@@ -1113,7 +1114,8 @@
                 {
                     "nombre": "EURO-PROTECT",
                     "subtitulo": "Barniz protector de agua",
-                    "imagen": "/img/productos/EUROPROTECT.png",
+                    "imagen": "/img/productos/EUROPROTECT_5L.png",
+                    "imagen2": "/img/productos/EUROPROTECT.png",   
                     "composicion": "Emulsión de copolímero acrílico-estireno para proteger los morteros monocapa, con alta resistencia al agua, a los álcalis y gran plasticidad termal.",
                     "caracteristicas": [
                         "Excelentes propiedades como hidrofugante.",

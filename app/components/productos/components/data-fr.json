@@ -850,6 +850,7 @@
                     "nombre": "EUROSOL",
                     "subtitulo": "Démoulant",
                     "imagen": "/img/productos/EUROSOL_1.png",
+                    "imagen2":"/img/productos/EUROSOL_25L.png",
                     "composicion": "Démoulant liquide pour démouler immédiatement. Sur la surface de contact en béton du moule, forme une fine pellicule non grasse permettant un démoulage immédiat.",
                     "caracteristicas": [
                         "Aspect : Liquide huileux et incolore.",
@@ -1113,7 +1114,8 @@
                 {
                     "nombre": "EURO-PROTECT",
                     "subtitulo": "Vernis protecteur d'eau",
-                    "imagen": "/img/productos/EUROPROTECT.png",
+                    "imagen": "/img/productos/EUROPROTECT_5L.png",
+                    "imagen2": "/img/productos/EUROPROTECT.png",
                     "composicion": "Émulsion de copolymère acrylique-styrène pour protéger les mortiers monocouches, avec une haute résistance à l'eau, aux alcalis et une grande plasticité thermique.",
                     "caracteristicas": [
                         "Excellentes propriétés hydrofuges.",
