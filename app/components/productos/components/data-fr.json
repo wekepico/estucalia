@@ -1183,6 +1183,7 @@
                     "nombre": "RHINO",
                     "subtitulo": "Résine pont d'union",
                     "imagen": "/img/productos/RHINO.png",
+                    "imagen2": "/img/productos/RHINO_20L.png",
                     "composicion": "Primaire pour Mortiers Monocouches et Mortiers en Général appliqués sur béton lisse et supports à faible ou nulle absorption superficielle.",
                     "caracteristicas": [
                         "Application en intérieur et extérieur.",

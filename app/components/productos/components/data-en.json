@@ -983,6 +983,7 @@
                     "nombre": "RHINO",
                     "subtitulo": "Bonding resin",
                     "imagen": "/img/productos/RHINO.png",
+                    "imagen2": "/img/productos/RHINO_20L.png",
                     "composicion": "Primer for single-layer mortars and mortars in general, applied on smooth concrete and substrates with low or zero surface absorption.",
                     "caracteristicas": [
                         "Application in interiors and exteriors.",

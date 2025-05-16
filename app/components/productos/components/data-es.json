@@ -1183,6 +1183,7 @@
                     "nombre": "RHINO",
                     "subtitulo": "Resina puente de unión",
                     "imagen": "/img/productos/RHINO.png",
+                    "imagen2": "/img/productos/RHINO_20L.png",
                     "composicion": "Imprimación para Morteros Monocapa y Morteros en General aplicados sobre hormigón liso y soportes con baja o nula absorción superficial.",
                     "caracteristicas": [
                         "Aplicación en interiores y exteriores.",
