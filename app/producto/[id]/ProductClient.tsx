@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import data from "../../components/productos/components/data-es.json";
 import data2 from "../../components/productos/components/data-en.json";
+import data3 from "../../components/productos/components/data-fr.json";
 
 export default function ProductClient() {
     const pathname = usePathname();
@@ -20,7 +21,7 @@ export default function ProductClient() {
     // Cargar la categoría según el idioma
     useEffect(() => {
         setMounted(true);
-        const currentData = language === "es" ? data : data2;
+        const currentData = language === "es" ?  data : language === "en" ? data2 : data3;
         const category = currentData.categorias.find(
             (cat: any) => cat.id.toLowerCase() === categoryId.toLowerCase()
         );
