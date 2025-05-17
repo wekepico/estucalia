@@ -213,7 +213,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
             {/* Documentation (if it exists) */}
             {product.documentacion && product.documentacion.length > 0 && (
                 <div className="my-4 md:w-1/4 max-md:w-3/4">
-                    <section className="flex">
+                    <section className="flex ">
                         <Image
                             src={product.imagen || "/images/no-image.png"}
                             alt={product.nombre}
