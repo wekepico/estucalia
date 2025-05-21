@@ -1379,6 +1379,59 @@
                             "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
+                },
+                {
+                    "nombre": "EURO-HYDRO",
+                    "subtitulo": "Finishing Resin",
+                    "imagen": "/img/productos/EUROHYDRO_5L.png",
+                    "imagen2": "/img/productos/EUROHYDRO_25L.png",
+                    "composicion": "Water-repellent impregnation based on pure acrylic resins to seal mineral substrates without altering their natural appearance",
+                    "caracteristicas": [
+                        "Excellent water-repellent properties",
+                        "Reduces surface soiling and algae proliferation",
+                        "Effective resistance to alkali attack",
+                        "Adequate resistance to ultraviolet rays",
+                        "Renovation and protection of work in very humid environments"
+                    ],
+                    "recomendaciones": [
+                        "Apply with a brush or roller on the finished surface of the monolayer mortar, trying to leave a uniform layer that covers the entire surface"
+                    ],
+                    "precauciones": [
+                        "Store in places protected from sun or excessive heat sources",
+                        "The container must be properly closed",
+                        "It is advisable to use the product within its first year"
+                    ],
+                    "informacion_relevante": [
+                        "Presentation: Plastic containers of 5 or 15 Liters",
+                        "Shelf life: 12 months from manufacturing date in closed container and protected from humidity"
+                    ],
+                    "documentacion": [
+                    {
+                        "nombre": "Technical Data Sheet",
+                        "accion": "Download",
+                        "enlace": "/files/EURO-HYDRO_ Resina de Acabado.pdf"
+                    },
+                    {
+                        "nombre": "AENOR Certificate",
+                        "accion": "Download",
+                        "enlace": "/files/certificado-aenor.pdf"
+                    },
+                    {
+                        "nombre": "IQNet Certificate",
+                        "accion": "Download",
+                        "enlace": "/files/certificado-iqnet.pdf"
+                    },
+                    {
+                        "nombre": "Conformity Declaration",
+                        "accion": "Download",
+                        "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                    },
+                    {
+                        "nombre": "Technical Suitability Document",
+                        "accion": "Download",
+                        "enlace": "/files/dit-plus-espanol.pdf"
+                    }
+                    ]
                 }
             ]
         }

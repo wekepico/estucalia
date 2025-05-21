@@ -1317,6 +1317,59 @@
                             "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
+                },
+                {
+                    "nombre": "EURO-HYDRO",
+                    "subtitulo": "Résine de Finition",
+                    "imagen": "/img/productos/EUROHYDRO_5L.png",
+                    "imagen2": "/img/productos/EUROHYDRO_25L.png",
+                    "composicion": "Imprégnation hydrofuge à base de résines acryliques pures pour sceller les supports minéraux sans en modifier l'aspect naturel",
+                    "caracteristicas": [
+                        "Excellentes propriétés hydrofuges",
+                        "Réduit l'encrassement de la surface et la prolifération d'algues",
+                        "Résistance efficace aux attaques alcalines",
+                        "Résistance adéquate aux rayons ultraviolets",
+                        "Rénovation et protection des ouvrages en environnement très humide"
+                    ],
+                    "recomendaciones": [
+                        "Appliquer au pinceau ou au rouleau sur la surface finie du mortier monocouche, en essayant de laisser une couche uniforme qui couvre toute la surface"
+                    ],
+                    "precauciones": [
+                        "Conserver dans des endroits protégés du soleil ou des sources de chaleur excessives",
+                        "Le récipient doit être correctement fermé",
+                        "Il est conseillé d'utiliser le produit dans sa première année"
+                    ],
+                    "informacion_relevante": [
+                        "Présentation : Contenants en plastique de 5 ou 15 litres",
+                        "Conservation : 12 mois à partir de la date de fabrication dans un récipient fermé et à l'abri de l'humidité"
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/EURO-HYDRO_ Resina de Acabado.pdf"
+                        },
+                        {
+                            "nombre": "Certificado AENOR",
+                            "accion": "Descargar",
+                            "enlace": "/files/certificado-aenor.pdf"
+                        },
+                        {
+                            "nombre": "Certificado IQNet",
+                            "accion": "Descargar",
+                            "enlace": "/files/certificado-iqnet.pdf"
+                        },
+                        {
+                            "nombre": "Declaración de Conformidad",
+                            "accion": "Descargar",
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                        },
+                        {
+                            "nombre": "Documento de Idoneidad Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/dit-plus-espanol.pdf"
+                        }
+                    ]
                 }
             ]
         },
