@@ -963,7 +963,163 @@
                             "enlace": "/files/Moldes_cenefas_rodillos.pdf"
                         }
                     ]
+                },
+                {
+                    "nombre": "HERRAMIENTAS",
+                    "subtitulo": "Accessories",
+                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
+                    "informacion_general": "",
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/Herramientas_GRUPO.ESTUCALIA.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "REINFORCEMENT MESH",
+                    "subtitulo": "Fiberglass monolayer mortar mesh",
+                    "imagen": "/img/productos/malla._azul.png",
+                    "imagen2": "/img/productos/malla_blanca.png",
+                    "composicion": "Fiberglass with fiber-fixing coating and alkaline resistance.",
+                    "caracteristicas": [
+                        "Prevents crack formation",
+                        "High tensile strength",
+                        "Easy to apply",
+                        "Great dimensional stability",
+                        "Lightweight and flexible"
+                    ],
+                    "recomendaciones": [
+                        "Store in a dry place, protected from direct sunlight and heat sources.",
+                        "Store vertically on a pallet in its original packaging.",
+                        "Recommended storage temperature: between -10°C and +50°C."
+                    ],
+                    "precauciones": [],
+                    "informacion_relevante": [
+                        "Presentation: 1 m × 50 m rolls = 50 m² per roll",
+                        "Mesh size: 5 × 5 mm or 10 × 10 mm depending on model",
+                        "Weight: 75 g/m² or 90 g/m² depending on reference",
+                        "Tensile strength: up to 1700 N/5 cm (depending on model)",
+                        "Color: Blue"
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet Fiberglass Mesh ",
+                            "accion": "Download",
+                            "enlace": "/files/Ficha técnica Fiberglass mesh.pdf"
+                        },
+                        {
+                            "nombre": "Technical Data SheetMesh Blue ",
+                            "accion": "Download",
+                            "enlace": "/files/Ficha Técnica Mesh.Blue.pdf"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "/files/certificado-aenor.pdf"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "/files/certificado-iqnet.pdf"
+                        },
+                        {
+                            "nombre": "Declaration of Conformity",
+                            "accion": "Download",
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "/files/dit-plus-espanol.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "JUNQUILLO PVC",
+                    "subtitulo": "PVC profile for monolayer coating on exterior facades",
+                    "imagen": "/img/productos/Junquillo-PVC.png",
+                    "composicion": "PVC",
+                    "caracteristicas": [
+                        "Easy material installation",
+                        "Create different shapes enhancing each facade's aesthetics",
+                        "Flexible and resistant"
+                    ],
+                    "recomendaciones": [
+                        "Store in a cool, dry place",
+                        "Keep horizontal during storage and transport"
+                    ],
+                    "precauciones": [],
+                    "informacion_relevante": [
+                        "Presentation: Boxes of 125-130 units"
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "/files/certificado-aenor.pdf"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "/files/certificado-iqnet.pdf"
+                        },
+                        {
+                            "nombre": "Declaration of Conformity",
+                            "accion": "Download",
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "/files/dit-plus-espanol.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "PVC Corner Bead",
+                    "subtitulo": "Corner guard or corner profile for creating perpendicular and aligned edges in interior and exterior coatings",
+                    "imagen": "/img/productos/esquinero-PVC.png",
+                    "imagen1": "",
+                    "composicion": "PVC",
+                    "caracteristicas": [
+                        "Easy material installation",
+                        "Create different shapes enhancing each facade's aesthetics",
+                        "Flexible and resistant"
+                    ],
+                    "recomendaciones": [
+                        "Store in a cool, dry place",
+                        "Keep horizontal during storage and transport"
+                    ],
+                    "precauciones": [],
+                    "informacion_relevante": [
+                        "Presentation: Boxes of 50 units"
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "/files/certificado-aenor.pdf"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "/files/certificado-iqnet.pdf"
+                        },
+                        {
+                            "nombre": "Declaration of Conformity",
+                            "accion": "Download",
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "/files/dit-plus-espanol.pdf"
+                        }
+                    ]
                 }
+                
             ]
         },
         {

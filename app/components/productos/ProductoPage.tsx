@@ -153,7 +153,7 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
           </div>
         </section>
       </section>
-      {selectedProduct.nombre !== "MOLDES CENEFAS RODILLOS" &&
+      {selectedProduct.nombre !== "MOLDES CENEFAS RODILLOS"  && selectedProduct.nombre !== "HERRAMIENTAS" &&
 
         <div className="md:px-15 sm:px-10 px-5 bg-[#FAF9F9] lg:px-20 mt-14 py-12 flex flex-col">
           {/* Selected product details */}

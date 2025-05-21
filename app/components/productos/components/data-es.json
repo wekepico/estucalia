@@ -299,7 +299,7 @@
                     "nombre": "KOLATECT FLEX",
                     "subtitulo": "Cemento cola C2TE S1",
                     "imagen": "/img/productos/05-KOLATEC FLEX .png",
-                    "composicion":" Adhesivo Cementoso para Baldosas Cerámicas de baja absorción superficial y tiempo abierto prolongado. Sin descuelgue y con Adherencia Inicial excelente. Para la colocación de alicatados directos sobre fábrica de ladrillo y bloques de hormigón, sin necesidad de enfoscado previo y en solados con fondos irregulares. Aplicación en interior y exterior de piezas cerámicas de porcelánico, absorción baja y gran formato.",
+                    "composicion": " Adhesivo Cementoso para Baldosas Cerámicas de baja absorción superficial y tiempo abierto prolongado. Sin descuelgue y con Adherencia Inicial excelente. Para la colocación de alicatados directos sobre fábrica de ladrillo y bloques de hormigón, sin necesidad de enfoscado previo y en solados con fondos irregulares. Aplicación en interior y exterior de piezas cerámicas de porcelánico, absorción baja y gran formato.",
                     "informacion_general": "Adhesivo Cementoso para Baldosas Cerámicas de baja absorción superficial y tiempo abierto prolongado. Sin descuelgue y con Adherencia Inicial excelente. Para la colocación de alicatados directos sobre fábrica de ladrillo y bloques de hormigón, sin necesidad de enfoscado previo y en solados con fondos irregulares. Aplicación en interior y exterior de piezas cerámicas de porcelánico, absorción baja y gran formato.",
                     "caracteristicas": [
                         "Excelente trabajabilidad y gran blancura.",
@@ -850,7 +850,7 @@
                     "nombre": "EUROSOL",
                     "subtitulo": "Desmodelante",
                     "imagen": "/img/productos/EUROSOL_1.png",
-                    "imagen2":"/img/productos/EUROSOL_25L.png",
+                    "imagen2": "/img/productos/EUROSOL_25L.png",
                     "composicion": "Desencofrante líquido para desencofrar inmediatamente.Sobre la superficie de contacto de hormigón del molde, forma una películadelgada no grasa que permite un desencofrado inmediato.",
                     "caracteristicas": [
                         "Aspecto: Líquido oleoso e incoloro.",
@@ -961,6 +961,161 @@
                             "nombre": "Ficha Técnica",
                             "accion": "Descargar",
                             "enlace": "/files/Moldes_cenefas_rodillos.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "HERRAMIENTAS",
+                    "subtitulo": "Accesorios",
+                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
+                    "informacion_general": "",
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/Herramientas_GRUPO.ESTUCALIA.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "MALLA REFUERZO",
+                    "subtitulo": "Malla mortero monocapa fibra de vidrio",
+                    "imagen": "/img/productos/malla._azul.png",
+                    "imagen2": "/img/productos/malla_blanca.png",
+                    "composicion": "Fibra de vidrio con recubrimiento fijador de fibras y resistencia alcalina.",
+                    "caracteristicas": [
+                        "Previene la aparición de grietas",
+                        "Alta resistencia a la tracción",
+                        "Fácil de aplicar",
+                        "Gran estabilidad dimensional",
+                        "Ligera y flexible"
+                    ],
+                    "recomendaciones": [
+                        "Conservar en lugar seco, protegido de la luz solar directa y fuentes de calor.",
+                        "Almacenar en posición vertical, sobre palet, en su embalaje original.",
+                        "Temperatura recomendada de almacenamiento: entre -10 °C y +50 °C."
+                    ],
+                    "precauciones": [],
+                    "informacion_relevante": [
+                        "Presentación: rollos de 1 m × 50 m = 50 m² por rollo",
+                        "Tamaño de malla: 5 × 5 mm o 10 × 10 mm según modelo",
+                        "Peso: 75 g/m² o 90 g/m² según referencia",
+                        "Resistencia a la tracción: hasta 1700 N/5 cm (según modelo)",
+                        "Color: Azul"
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica Fiberglass Mesh ",
+                            "accion": "Descargar",
+                            "enlace": "/files/Ficha técnica Fiberglass mesh.pdf"
+                        },
+                        {
+                            "nombre": "Ficha Técnica Mesh Blue ",
+                            "accion": "Descargar",
+                            "enlace": "/files/Ficha Técnica Mesh.Blue.pdf"
+                        },
+                        {
+                            "nombre": "Certificado AENOR",
+                            "accion": "Descargar",
+                            "enlace": "/files/certificado-aenor.pdf"
+                        },
+                        {
+                            "nombre": "Certificado IQNet",
+                            "accion": "Descargar",
+                            "enlace": "/files/certificado-iqnet.pdf"
+                        },
+                        {
+                            "nombre": "Declaración de Conformidad",
+                            "accion": "Descargar",
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                        },
+                        {
+                            "nombre": "Documento de Idoneidad Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/dit-plus-espanol.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "Junquillo PVC",
+                    "subtitulo": "Perfil de PVC para revestimientos de monocapa en los exteriores de las fachadas",
+                    "imagen": "/img/productos/Junquillo-PVC.png",
+                    "composicion": "PVC",
+                    "caracteristicas": [
+                        "Fácil colocación del material",
+                        "Crean formas distintas mejorando la estética de cada fachada",
+                        "Flexibles y resistentes"
+                    ],
+                    "recomendaciones": [
+                        "Conservar en un lugar fresco y seco",
+                        "Mantener horizontal en almacén y durante el transporte"
+                    ],
+                    "precauciones": [],
+                    "informacion_relevante": [
+                        "Presentación: Cajas de 125-130 unidades"
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Certificado AENOR",
+                            "accion": "Descargar",
+                            "enlace": "/files/certificado-aenor.pdf"
+                        },
+                        {
+                            "nombre": "Certificado IQNet",
+                            "accion": "Descargar",
+                            "enlace": "/files/certificado-iqnet.pdf"
+                        },
+                        {
+                            "nombre": "Declaración de Conformidad",
+                            "accion": "Descargar",
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                        },
+                        {
+                            "nombre": "Documento de Idoneidad Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/dit-plus-espanol.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "Esquinero PVC",
+                    "subtitulo": "Flecha guardavivo o perfil cantonera para la formación de cantos perpendiculares y alineados en revestimientos interiores y exteriores",
+                    "imagen": "/img/productos/esquinero-PVC.png",
+                    "imagen1": "",
+                    "composicion": "PVC",
+                    "caracteristicas": [
+                        "Fácil colocación del material",
+                        "Crean formas distintas mejorando la estética de cada fachada",
+                        "Flexibles y resistentes"
+                    ],
+                    "recomendaciones": [
+                        "Conservar en un lugar fresco y seco",
+                        "Mantener horizontal en almacén y durante el transporte"
+                    ],
+                    "precauciones": [],
+                    "informacion_relevante": [
+                        "Presentación: Cajas de 50 unidades"
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Certificado AENOR",
+                            "accion": "Descargar",
+                            "enlace": "/files/certificado-aenor.pdf"
+                        },
+                        {
+                            "nombre": "Certificado IQNet",
+                            "accion": "Descargar",
+                            "enlace": "/files/certificado-iqnet.pdf"
+                        },
+                        {
+                            "nombre": "Declaración de Conformidad",
+                            "accion": "Descargar",
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                        },
+                        {
+                            "nombre": "Documento de Idoneidad Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 }
@@ -1115,7 +1270,7 @@
                     "nombre": "EURO-PROTECT",
                     "subtitulo": "Barniz protector de agua",
                     "imagen": "/img/productos/EUROPROTECT_5L.png",
-                    "imagen2": "/img/productos/EUROPROTECT.png",   
+                    "imagen2": "/img/productos/EUROPROTECT.png",
                     "composicion": "Emulsión de copolímero acrílico-estireno para proteger los morteros monocapa, con alta resistencia al agua, a los álcalis y gran plasticidad termal.",
                     "caracteristicas": [
                         "Excelentes propiedades como hidrofugante.",

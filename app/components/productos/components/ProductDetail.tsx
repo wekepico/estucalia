@@ -85,7 +85,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
 
     // const data = product.documentacion?.length === 6 ? cardsData : cardsData2
 
-    if (product.nombre === "MOLDES CENEFAS RODILLOS") {
+    if (product.nombre === "MOLDES CENEFAS RODILLOS" || product.nombre === "HERRAMIENTAS") {
         return (
             <>
                 <div className="flex max-md:flex-col gap-12">

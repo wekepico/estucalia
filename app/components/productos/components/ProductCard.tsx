@@ -45,7 +45,7 @@ export const ProductCard: FC<ProductCardProps> = ({
         <div className="flex flex-col">
           <h3 className="font-bold text-center text-sm">{product.nombre}</h3>
           {product.subtitulo && (
-            <p className="text-center text-sm ">{product.subtitulo}</p>
+            <p className="text-center text-sm line-clamp-2">{product.subtitulo}</p>
           )}
         </div>
 
@@ -55,11 +55,11 @@ export const ProductCard: FC<ProductCardProps> = ({
           size={"sm"}
           onClick={(e) => {
             e.stopPropagation();
-            product.nombre === "MOLDES CENEFAS RODILLOS" && onDownload && onDownload()
+            (product.nombre === "MOLDES CENEFAS RODILLOS" || product.nombre === "HERRAMIENTAS") && onDownload && onDownload()
             onSelect();
           }}
         >
-          <span>{product.nombre !== "MOLDES CENEFAS RODILLOS"?t("productsSection.productInfo"):t("productsSection.action")}</span>
+          <span>{(product.nombre !== "MOLDES CENEFAS RODILLOS" && product.nombre !== "HERRAMIENTAS")?t("productsSection.productInfo"):t("productsSection.action")}</span>
           <div className="absolute right-0">
             <svg
               className={`w-8 h-8 transition-all ${isSelected ? "rotate-90" : "rotate-0"}`}

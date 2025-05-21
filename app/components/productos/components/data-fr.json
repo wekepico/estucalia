@@ -850,7 +850,7 @@
                     "nombre": "EUROSOL",
                     "subtitulo": "Démoulant",
                     "imagen": "/img/productos/EUROSOL_1.png",
-                    "imagen2":"/img/productos/EUROSOL_25L.png",
+                    "imagen2": "/img/productos/EUROSOL_25L.png",
                     "composicion": "Démoulant liquide pour démouler immédiatement. Sur la surface de contact en béton du moule, forme une fine pellicule non grasse permettant un démoulage immédiat.",
                     "caracteristicas": [
                         "Aspect : Liquide huileux et incolore.",
@@ -961,6 +961,160 @@
                             "nombre": "Ficha Técnica",
                             "accion": "Descargar",
                             "enlace": "/files/Moldes_cenefas_rodillos.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "HERRAMIENTAS",
+                    "subtitulo": "Accessoires",
+                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
+                    "informacion_general": "",
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/Herramientas_GRUPO.ESTUCALIA.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "MAILLE DE RENFORT",
+                    "subtitulo": "Maillage pour mortier monocouche en fibre de verre",
+                    "imagen": "/img/productos/malla._azul.png",
+                    "imagen2": "/img/productos/malla_blanca.png",
+                    "composicion": "Fibre de verre avec revêtement fixateur de fibres et résistance alcaline.",
+                    "caracteristicas": [
+                        "Prévient l'apparition de fissures",
+                        "Haute résistance à la traction",
+                        "Facile à appliquer",
+                        "Grande stabilité dimensionnelle",
+                        "Léger et flexible"
+                    ],
+                    "recomendaciones": [
+                        "Conserver dans un endroit sec, à l'abri de la lumière directe du soleil et des sources de chaleur.",
+                        "Stocker verticalement sur une palette, dans son emballage d'origine.",
+                        "Température de stockage recommandée : entre -10°C et +50°C."
+                    ],
+                    "precauciones": [],
+                    "informacion_relevante": [
+                        "Présentation : rouleaux de 1 m × 50 m = 50 m² par rouleau",
+                        "Taille de maille : 5 × 5 mm ou 10 × 10 mm selon le modèle",
+                        "Poids : 75 g/m² ou 90 g/m² selon la référence",
+                        "Résistance à la traction : jusqu'à 1700 N/5 cm (selon modèle)",
+                        "Couleur : Bleu"
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica Fiberglass Mesh ",
+                            "accion": "Télécharger",
+                            "enlace": "/files/Ficha técnica Fiberglass mesh.pdf"
+                        },
+                        {
+                            "nombre": "Ficha Técnica Mesh Blue ",
+                            "accion": "Télécharger",
+                            "enlace": "/files/Ficha Técnica Mesh.Blue.pdf"
+                        },
+                        {
+                            "nombre": "Certificat AENOR",
+                            "accion": "Télécharger",
+                            "enlace": "/files/certificado-aenor.pdf"
+                        },
+                        {
+                            "nombre": "Certificat IQNet",
+                            "accion": "Télécharger",
+                            "enlace": "/files/certificado-iqnet.pdf"
+                        },
+                        {
+                            "nombre": "Déclaration de Conformité",
+                            "accion": "Télécharger",
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                        },
+                        {
+                            "nombre": "Document de Conformité Technique",
+                            "accion": "Télécharger",
+                            "enlace": "/files/dit-plus-espanol.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "Baguette PVC",
+                    "subtitulo": "Profilé PVC pour revêtements monocouches sur façades extérieures",
+                    "imagen": "/img/productos/Junquillo-PVC.png",
+                    "composicion": "PVC",
+                    "caracteristicas": [
+                        "Pose facile du matériel",
+                        "Créent des formes variées améliorant l'esthétique de chaque façade",
+                        "Flexibles et résistants"
+                    ],
+                    "recomendaciones": [
+                        "Conserver dans un endroit frais et sec",
+                        "Maintenir à l'horizontal pendant le stockage et le transport"
+                    ],
+                    "precauciones": [],
+                    "informacion_relevante": [
+                        "Présentation : Boîtes de 125-130 unités"
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Certificat AENOR",
+                            "accion": "Télécharger",
+                            "enlace": "/files/certificado-aenor.pdf"
+                        },
+                        {
+                            "nombre": "Certificat IQNet",
+                            "accion": "Télécharger",
+                            "enlace": "/files/certificado-iqnet.pdf"
+                        },
+                        {
+                            "nombre": "Déclaration de Conformité",
+                            "accion": "Télécharger",
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                        },
+                        {
+                            "nombre": "Document de Conformité Technique",
+                            "accion": "Télécharger",
+                            "enlace": "/files/dit-plus-espanol.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "Angle PVC",
+                    "subtitulo": "Profilé d'angle ou cornière pour la formation de coins perpendiculaires et alignés dans les revêtements intérieurs et extérieurs",
+                    "imagen": "/img/productos/esquinero-PVC.png",
+                    "composicion": "PVC",
+                    "caracteristicas": [
+                        "Pose facile du matériel",
+                        "Créent des formes variées améliorant l'esthétique de chaque façade",
+                        "Flexibles et résistants"
+                    ],
+                    "recomendaciones": [
+                        "Conserver dans un endroit frais et sec",
+                        "Maintenir à l'horizontal pendant le stockage et le transport"
+                    ],
+                    "precauciones": [],
+                    "informacion_relevante": [
+                        "Présentation : Boîtes de 50 unités"
+                    ],
+                    "documentacion": [
+                        {
+                            "nombre": "Certificat AENOR",
+                            "accion": "Télécharger",
+                            "enlace": "/files/certificado-aenor.pdf"
+                        },
+                        {
+                            "nombre": "Certificat IQNet",
+                            "accion": "Télécharger",
+                            "enlace": "/files/certificado-iqnet.pdf"
+                        },
+                        {
+                            "nombre": "Déclaration de Conformité",
+                            "accion": "Télécharger",
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                        },
+                        {
+                            "nombre": "Document de Conformité Technique",
+                            "accion": "Télécharger",
+                            "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
                 }
