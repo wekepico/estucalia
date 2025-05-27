@@ -1079,7 +1079,7 @@
                 },
                 {
                     "nombre": "Esquinero PVC",
-                    "subtitulo": "Flecha guardavivo o perfil cantonera para la formación de cantos perpendiculares y alineados en revestimientos interiores y exteriores",
+                    "subtitulo": "Guardavivo o perfil cantonera para la formación de cantos perpendiculares y alineados en revestimientos interiores y exteriores",
                     "imagen": "/img/productos/esquinero-PVC.png",
                     "imagen1": "",
                     "composicion": "PVC",
@@ -1097,6 +1097,11 @@
                         "Presentación: Cajas de 50 unidades"
                     ],
                     "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/Ficha.tecnica.Guardavivo.PVC.Blanco.pdf"
+                        },
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",

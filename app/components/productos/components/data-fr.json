@@ -1075,23 +1075,29 @@
                 },
                 {
                     "nombre": "Angle PVC",
-                    "subtitulo": "Profilé d'angle ou cornière pour la formation de coins perpendiculaires et alignés dans les revêtements intérieurs et extérieurs",
+                    "subtitulo": "Protecteur d'angle ou profilé d'angle pour la formation de bords perpendiculaires et alignés dans les revêtements intérieurs et extérieurs",
                     "imagen": "/img/productos/esquinero-PVC.png",
+                    "imagen1": "",
                     "composicion": "PVC",
                     "caracteristicas": [
-                        "Pose facile du matériel",
-                        "Créent des formes variées améliorant l'esthétique de chaque façade",
+                        "Installation facile du matériau",
+                        "Créent des formes différentes améliorant l'esthétique de chaque façade",
                         "Flexibles et résistants"
                     ],
                     "recomendaciones": [
                         "Conserver dans un endroit frais et sec",
-                        "Maintenir à l'horizontal pendant le stockage et le transport"
+                        "Maintenir horizontal en stockage et pendant le transport"
                     ],
                     "precauciones": [],
                     "informacion_relevante": [
-                        "Présentation : Boîtes de 50 unités"
+                        "Présentation: Boîtes de 50 unités"
                     ],
                     "documentacion": [
+                        {
+                            "nombre": "Fiche Technique",
+                            "accion": "Télécharger",
+                            "enlace": "/files/Ficha.tecnica.Guardavivo.PVC.Blanco.pdf"
+                        },
                         {
                             "nombre": "Certificat AENOR",
                             "accion": "Télécharger",

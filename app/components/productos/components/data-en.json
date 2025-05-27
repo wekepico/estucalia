@@ -1079,24 +1079,29 @@
                 },
                 {
                     "nombre": "PVC Corner Bead",
-                    "subtitulo": "Corner guard or corner profile for creating perpendicular and aligned edges in interior and exterior coatings",
+                    "subtitulo": "Corner bead or corner profile for forming perpendicular and aligned edges in interior and exterior coatings",
                     "imagen": "/img/productos/esquinero-PVC.png",
                     "imagen1": "",
                     "composicion": "PVC",
                     "caracteristicas": [
                         "Easy material installation",
-                        "Create different shapes enhancing each facade's aesthetics",
+                        "Create different shapes improving the aesthetics of each facade",
                         "Flexible and resistant"
                     ],
                     "recomendaciones": [
-                        "Store in a cool, dry place",
-                        "Keep horizontal during storage and transport"
+                        "Store in a cool and dry place",
+                        "Keep horizontal in storage and during transport"
                     ],
                     "precauciones": [],
                     "informacion_relevante": [
                         "Presentation: Boxes of 50 units"
                     ],
                     "documentacion": [
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "/files/Ficha.tecnica.Guardavivo.PVC.Blanco.pdf"
+                        },
                         {
                             "nombre": "AENOR Certificate",
                             "accion": "Download",
@@ -1108,7 +1113,7 @@
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
                         {
-                            "nombre": "Declaration of Conformity",
+                            "nombre": "Conformity Declaration",
                             "accion": "Download",
                             "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
                         },
