@@ -604,7 +604,7 @@
                         {
                             "nombre": "Ficha Técnica",
                             "accion": "Descargar",
-                            "enlace": "/files/EURO MONEY  F’ mortero monocapa hidrofugo capa fina.pdf"
+                            "enlace": "/files/EURO MONEY  F' mortero monocapa hidrofugo capa fina.pdf"
                         },
                         {
                             "nombre": "Certificado AENOR",
@@ -645,7 +645,7 @@
             ],
             "productos": [
                 {
-                    "nombre": "PLASTITE M’",
+                    "nombre": "PLASTITE M' ",
                     "subtitulo": "Mortero impreso. Multi acabado",
                     "imagen": "/img/productos/12-PLASTITE.png",
                     "composicion": "Monocapa fabricado a base de cemento blanco de alta resistencia, áridos seleccionados, aditivos orgánicos y pigmentos.",
@@ -871,7 +871,7 @@
                         "Evitar el contacto con la piel y los ojos."
                     ],
                     "informacion_relevante": [
-                        "Presentación: Envases de plástico de 5 o 15 Litros.",
+                        "Presentación: Envases de plástico de 5 o 20 Litros.",
                         "Conservación: 12 meses a partir de la fecha de fabricación, en envase cerrado y al amparo de la humedad."
                     ],
                     "documentacion": [
