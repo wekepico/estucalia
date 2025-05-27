@@ -1056,6 +1056,11 @@
                     ],
                     "documentacion": [
                         {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "/files/Ficha.tecnica.junquillo.PVC.Blanco.pdf"
+                        },
+                        {
                             "nombre": "AENOR Certificate",
                             "accion": "Download",
                             "enlace": "/files/certificado-aenor.pdf"

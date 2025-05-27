@@ -534,7 +534,7 @@
                         "L'épaisseur finale minimale d'emploi du produit doit être de 10 mm."
                     ],
                     "informacion_relevante": [
-                        "Présentation : Récipients en plastique de 5 ou 20 litres.",
+                        "Présentation : Récipients en plastique de 5 ou 15 litres.",
                         "Conservation : 12 mois à partir de la date de fabrication, dans un récipient fermé et à l'abri de l'humidité."
                     ],
                     "documentacion": [
@@ -1052,8 +1052,13 @@
                     ],
                     "documentacion": [
                         {
-                            "nombre": "Certificat AENOR",
+                            "nombre": "Fiche Technique",
                             "accion": "Télécharger",
+                            "enlace": "/files/Ficha.tecnica.junquillo.PVC.Blanco.pdf"
+                        },
+                        {
+                            "nombre": "Certificado AENOR",
+                            "accion": "Descargar",
                             "enlace": "/files/certificado-aenor.pdf"
                         },
                         {
