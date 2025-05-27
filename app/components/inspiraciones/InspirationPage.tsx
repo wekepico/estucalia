@@ -6,104 +6,104 @@ import { useLanguage } from "@/app/context/LanguageContext";
 
 const inspirationImages = [
     {
-        url: "img/image1.jpg",
+        url: "/convertedImages/image1.webp",
         alt: "Contemporary architecture",
         size: "large"
     },
     {
-        url: "img/img-8.jpg",
+        url: "/convertedImages/img-8.webp",
         alt: "Urban architecture",
         size: "medium"
     },
     {
-        url: "img/img-3.jpg",
+        url: "/convertedImages/img-3.webp",
         alt: "Minimalist building design",
         size: "small"
     },
     {
-        url: "img/img1.jpg",
+        url: "/convertedImages/img1.webp",
         alt: "Minimalist building design",
         size: "small"
     },
     {
-        url: "img/aplicaciones/terraza.jpg",
+        url: "/convertedImages/aplicaciones/terraza.webp",
         alt: "Modern facade detail",
         size: "full"
     },
     {
-        url: "img/img-4.jpg",
+        url: "/convertedImages/img-4.webp",
         alt: "Contemporary architecture",
         size: "medium"
     },
     {
-        url: "img/Home.jpg",
+        url: "/convertedImages/Home.webp",
         alt: "Urban architecture",
         size: "medium"
     },
     // New images from inspiration folder
     {
-        url: "img/inspiracion/DSC_0013.jpg",
+        url: "/convertedImages/inspiracion/DSC_0013.webp",
         alt: "Architectural facade detail",
         size: "medium"
     },
     {
-        url: "img/inspiracion/Fachadas Raspado 012.jpg",
+        url: "/convertedImages/inspiracion/Fachadas Raspado 012.webp",
         alt: "Scraped facade finish",
         size: "large"
     },
     {
-        url: "img/inspiracion/Fachadas Raspado 021.jpg",
+        url: "/convertedImages/inspiracion/Fachadas Raspado 021.webp",
         alt: "Textured wall finish",
         size: "medium"
     },
     {
-        url: "img/inspiracion/Fachadas Raspado 025.jpg",
+        url: "/convertedImages/inspiracion/Fachadas Raspado 025.webp",
         alt: "Modern exterior wall texture",
         size: "medium"
     },
     {
-        url: "img/inspiracion/Fachadas Raspado 028.jpg",
+        url: "/convertedImages/inspiracion/Fachadas Raspado 028.webp",
         alt: "Architectural wall treatment",
         size: "large"
     },
    
     {
-        url: "img/inspiracion/Monocapa Impreso 2.jpg",
+        url: "/convertedImages/inspiracion/Monocapa Impreso 2.webp",
         alt: "Printed monocouche finish",
         size: "large"
     },
     {
-        url: "img/inspiracion/Monocapa Impreso 9.jpg",
+        url: "/convertedImages/inspiracion/Monocapa Impreso 9.webp",
         alt: "Decorative concrete texture",
         size: "small"
     },
     {
-        url: "img/inspiracion/Monocapa Impreso 13.jpg",
+        url: "/convertedImages/inspiracion/Monocapa Impreso 13.webp",
         alt: "Architectural surface pattern",
         size: "small"
     },
     {
-        url: "img/inspiracion/Monocouche Pasta Chino 6.jpg",
+        url: "/convertedImages/inspiracion/Monocouche Pasta Chino 6.webp",
         alt: "Chinese paste finish detail",
         size: "medium"
     },
     {
-        url: "img/inspiracion/Monocouche Pasta Chino 9.jpg",
+        url: "/convertedImages/inspiracion/Monocouche Pasta Chino 9.webp",
         alt: "Decorative wall treatment",
         size: "large"
     },
     {
-        url: "img/inspiracion/Monocouche Pasta Chino 11.jpg",
+        url: "/convertedImages/inspiracion/Monocouche Pasta Chino 11.webp",
         alt: "Specialty plaster finish",
         size: "medium"
     },
     {
-        url: "img/inspiracion/Monocouche Pasta Chino 15.jpg",
+        url: "/convertedImages/inspiracion/Monocouche Pasta Chino 15.webp",
         alt: "Architectural texture detail",
         size: "medium"
     },
     {
-        url: "img/inspiracion/Monocouche Pasta Chino 27.jpg",
+        url: "/convertedImages/inspiracion/Monocouche Pasta Chino 27.webp",
         alt: "Contemporary wall finish",
         size: "medium"
     }

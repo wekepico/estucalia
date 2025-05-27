@@ -14,35 +14,35 @@ interface InspirationImages {
 
 const inspirationImages: InspirationImages[] = [
     {
-        url: "img/img-1.jpg",
+        url: "/convertedImages/img-1.webp",
         alt: "inspiration.images.modernFacade"
     },
     {
-        url: "img/home.jpg",
+        url: "/convertedImages/Home.webp",
         alt: "inspiration.images.urbanArchitecture"
     },
     {
-        url: "img/img-3.jpg",
+        url: "/convertedImages/img-3.webp",
         alt: "inspiration.images.minimalistDesign"
     },
     {
-        url: "img/img-4.jpg",
+        url: "/convertedImages/img-4.webp",
         alt: "inspiration.images.contemporaryArchitecture"
     },
     {
-        url: "img/img3.jpg",
+        url: "/convertedImages/img3.webp",
         alt: "inspiration.images.modernFacade"
     },
     {
-        url: "img/img-8.jpg",
+        url: "/convertedImages/img-8.webp",
         alt: "inspiration.images.urbanArchitecture"
     },
     {
-        url: "img/img1.jpg",
+        url: "/convertedImages/img1.webp",
         alt: "inspiration.images.minimalistDesign"
     },
     {
-        url: "img/image1.jpg",
+        url: "/convertedImages/image1.webp",
         alt: "inspiration.images.contemporaryArchitecture"
     },
 ];

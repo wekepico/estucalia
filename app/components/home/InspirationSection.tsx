@@ -8,35 +8,35 @@ export default function InspirationSection() {
 
   const inspirationImages = [
     {
-      url: "img/img-1.jpg",
+      url: "/convertedImages/img-1.webp",
       alt: t('home.inspiration.images.modernFacade')
     },
     {
-      url: "img/Home.jpg",
+      url: "/convertedImages/Home.webp",
       alt: t('home.inspiration.images.urbanArchitecture')
     },
     {
-      url: "img/img-3.jpg",
+      url: "/convertedImages/img-3.webp",
       alt: t('home.inspiration.images.minimalistDesign')
     },
     {
-      url: "img/img-4.jpg",
+      url: "/convertedImages/img-4.webp",
       alt: t('home.inspiration.images.contemporaryArchitecture')
     },
     {
-      url: "img/img3.jpg",
+      url: "/convertedImages/img3.webp",
       alt: t('home.inspiration.images.modernFacade')
     },
     {
-      url: "img/img-8.jpg",
+      url: "/convertedImages/img-8.webp",
       alt: t('home.inspiration.images.urbanArchitecture')
     },
     {
-      url: "img/img1.jpg",
+      url: "/convertedImages/img1.webp",
       alt: t('home.inspiration.images.minimalistDesign')
     },
     {
-      url: "img/image1.jpg",
+      url: "/convertedImages/image1.webp",
       alt: t('home.inspiration.images.contemporaryArchitecture')
     }
   ];
@@ -48,7 +48,7 @@ export default function InspirationSection() {
         <div 
           className="absolute inset-0 bg-cover sm:bg-fixed bg-center"
           style={{
-            backgroundImage: "url('/img/bg-up.png')"
+            backgroundImage: "url('/convertedImages/bg-up.webp')"
           }}
         />
       </div>

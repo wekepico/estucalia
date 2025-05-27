@@ -10,35 +10,35 @@ import { useLanguage } from "@/app/context/LanguageContext";
 
 const inspirationImages = [
   {
-    url: "/img/img-1.jpg",
+    url: "/convertedImages/img-1.webp",
     alt: "Modern facade detail"
   },
   {
-    url: "/img/Home.jpg",
+    url: "/convertedImages/Home.webp",
     alt: "Urban architecture"
   },
   {
-    url: "/img/img-3.jpg",
+    url: "/convertedImages/img-3.webp",
     alt: "Minimalist building design"
   },
   {
-    url: "/img/img-4.jpg",
+    url: "/convertedImages/img-4.webp",
     alt: "Contemporary architecture"
   },
   {
-    url: "/img/img3.jpg",
+    url: "/convertedImages/img3.webp",
     alt: "Modern facade detail"
   },
   {
-    url: "/img/img-8.jpg",
+    url: "/convertedImages/img-8.webp",
     alt: "Urban architecture"
   },
   {
-    url: "/img/img1.jpg",
+    url: "/convertedImages/img1.webp",
     alt: "Minimalist building design"
   },
   {
-    url: "/img/image1.jpg",
+    url: "/convertedImages/image1.webp",
     alt: "Contemporary architecture"
   },
 ];
