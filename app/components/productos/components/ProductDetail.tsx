@@ -34,56 +34,6 @@ interface ProductDetailProps {
 export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
     const { t } = useLanguage();
 
-    // const cardsData = [
-    //     {
-    //         filePath: product.documentacion ? product.documentacion[0]?.enlace : " ",
-    //     },
-    //     {
-
-    //         filePath: "/files/certificado-aenor.pdf",
-    //     },
-    //     {
-
-    //         filePath: "/files/certificado-iqnet.pdf",
-    //     },
-    //     {
-
-    //         filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
-    //     },
-    //     {
-
-    //         filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
-    //     },
-    //     {
-
-    //         filePath: "/files/dit-plus-espanol.pdf",
-    //     },
-    // ];
-    // const cardsData2 = [
-    //     {
-
-    //         filePath: "/files/certificado-aenor.pdf",
-    //     },
-    //     {
-
-    //         filePath: "/files/certificado-iqnet.pdf",
-    //     },
-    //     {
-
-    //         filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
-    //     },
-    //     {
-
-    //         filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
-    //     },
-    //     {
-
-    //         filePath: "/files/dit-plus-espanol.pdf",
-    //     },
-    // ];
-
-
-    // const data = product.documentacion?.length === 6 ? cardsData : cardsData2
 
     if (product.nombre === "MOLDES CENEFAS RODILLOS" || product.nombre === "HERRAMIENTAS") {
         return (
@@ -213,7 +163,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
             {/* Documentation (if it exists) */}
             {product.documentacion && product.documentacion.length > 0 && (
                 <div className="my-4 md:w-1/4 max-md:w-3/4">
-                    <section className="flex ">
+                    <section className={`flex ${product.nombre === "MALLA REFUERZO" || product.nombre === "REINFORCEMENT MESH" || product.nombre === "MALLA DE REFUERZO" ? "ml-6" : ""}`}>
                         <Image
                             src={product.imagen || "/images/no-image.png"}
                             alt={product.nombre}

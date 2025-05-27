@@ -33,7 +33,7 @@ export const ProductCard: FC<ProductCardProps> = ({
       `}
       onClick={onSelect}
     >
-      <div className="m-auto">
+      <div className={`m-auto ${product.nombre === "HERRAMIENTAS" || product.nombre === "TOOLS" || product.nombre === "HERRAMIENTA" ? "mb-7" : ""}`}>
         <Image
           src={product.imagen || "/images/no-image.png"}
           alt={product.nombre}
@@ -51,7 +51,7 @@ export const ProductCard: FC<ProductCardProps> = ({
 
         <Button
           variant={isSelected ? "default" : `ghost`}
-          className="relative pl-5 pr-12 py-2 md:py-2 border border-black  rounded-none"
+          className="relative pl-5 pr-12 py-2 md:py-2 border border-black rounded-none"
           size={"sm"}
           onClick={(e) => {
             e.stopPropagation();
