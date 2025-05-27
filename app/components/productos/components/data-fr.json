@@ -144,7 +144,7 @@
                     "nombre": "KOLATECT",
                     "subtitulo": "Standard C1",
                     "imagen": "/img/productos/03-KOLATEC CCOLA.png",
-                    "composicion": "Adhésif à base de ciment à base de granulats sélectionnés, ciment blanc et additifs pour carrelages céramiques à prise normale. Sans glissement. Fabriqué en couleur blanche et en deux classes : FIN et GROSSIER.",
+                    "composicion": "Adhésif à base de ciment à base de granulats sélectionnés, ciment blanc et additifs pour carrelages céramiques à prise normale. Sans glissement. Fabriqué en couleur blanche at en classe: FIN",
                     "caracteristicas": [
                         "Adhérence des carreaux céramiques avec un degré d'absorption moyen-élevé.",
                         "Application en intérieur et sols extérieurs."
@@ -191,7 +191,7 @@
                 },
                 {
                     "nombre": "KOLATECT",
-                    "subtitulo": "Piscines C1",
+                    "subtitulo": "Piscines C1T",
                     "imagen": "/img/productos/03-KOLATEC CCOLA.png",
                     "composicion": "Adhésif à base de ciment à base de granulats sélectionnés, ciment blanc et additifs pour carrelages céramiques à prise normale. Sans glissement. Fabriqué en couleur blanche et en deux classes : FIN et GROSSIER.",
                     "caracteristicas": [
