@@ -84,13 +84,13 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex flex-col items-start justify-center gap-2">
               <h3 className="font-[600] mb-2">{t('footer.social.title')}</h3>
-              <Link href="#" className="text-gray-200 items-center flex gap-2 hover:text-white transition-colors">
+              <Link target='_blank' href="https://www.linkedin.com/in/grupo-estucalia-182653368" className="text-gray-200 items-center flex gap-2 hover:text-white transition-colors">
                 <div className='p-1 mx-auto rounded-full bg-white text-black'>
                   <TiSocialLinkedin className="w-5 h-5 rounded-full" />
                 </div>
                 <p>Linkedin</p>
               </Link>
-              <Link href="#" className="text-gray-200 flex items-center gap-2 hover:text-white transition-colors">
+              <Link target='_blank' href="https://www.facebook.com/share/162F9HDKtA/?mibextid=wwXIfr" className="text-gray-200 flex items-center gap-2 hover:text-white transition-colors">
                 <div className='p-1 mx-auto rounded-full bg-white text-black'>
                   <TiSocialFacebook className="w-5 h-5" />
                 </div>
@@ -102,7 +102,7 @@ export default function Footer() {
                 </div>
                 <p>Instagram</p>
               </Link>
-              <Link href="#" className="text-gray-200 flex gap-2 items-center hover:text-white transition-colors">
+              <Link target='_blank' href="https://www.youtube.com/channel/UCyFIm8KQCuF_YQZVN7XM05A" className="text-gray-200 flex gap-2 items-center hover:text-white transition-colors">
                 <div className='p-1 mx-auto rounded-full bg-white text-black'>
                   <FaYoutube className="w-5 h-5 rounded-full bg-white" />
                 </div>
