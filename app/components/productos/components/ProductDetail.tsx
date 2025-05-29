@@ -163,7 +163,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
             {/* Documentation (if it exists) */}
             {product.documentacion && product.documentacion.length > 0 && (
                 <div className="my-4 md:w-1/4 max-md:w-3/4">
-                    <section className={`flex ${product.nombre === "MALLA REFUERZO" || product.nombre === "REINFORCEMENT MESH" || product.nombre === "MALLA DE REFUERZO" ? "ml-6" : ""}`}>
+                    <section className={`flex ${product.nombre === "MALLA REFUERZO" || product.nombre === "REINFORCEMENT MESH" || product.nombre === "MALLA DE REFUERZO" || product.nombre.includes("PVC") ? "ml-6" : ""}`}>
                         <Image
                             src={product.imagen || "/images/no-image.png"}
                             alt={product.nombre}
