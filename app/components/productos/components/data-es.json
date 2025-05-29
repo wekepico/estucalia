@@ -144,7 +144,7 @@
                     "nombre": "KOLATECT",
                     "subtitulo": "Estándar C1",
                     "imagen": "/img/productos/03-KOLATEC CCOLA.png",
-                    "composicion": "Adhesivo Cementoso a base de áridos seleccionados, cemento blanco y aditivos para Baldosas Cerámicas de fraguado Normal. Sin descuelgue. Se fabrica en color Blanco y clase FINO",
+                    "composicion": "Adhesivo Cementoso a base de áridos seleccionados, cemento blanco y aditivos para Baldosas Cerámicas de fraguado Normal. Sin descuelgue. Se fabrica en color Blanco y clase FINO.",
                     "caracteristicas": [
                         "Adhesión de piezas cerámicas con grado de absorción medio-alto.",
                         "Aplicación en interiores y pavimentos exteriores."
@@ -483,6 +483,11 @@
                         "Conservación: 12 meses a partir de la fecha de fabricación, en el envase original cerrado y al abrigo de la humedad."
                     ],
                     "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "Mortero.Monocapa.Raspado.MoreBest.-.FICHA.TECNICA.-.GE.pdf"
+                        },
                         {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
@@ -952,32 +957,6 @@
                     ]
                 },
                 {
-                    "nombre": "MOLDES CENEFAS RODILLOS",
-                    "subtitulo": "Accesorios",
-                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
-                    "informacion_general": "",
-                    "documentacion": [
-                        {
-                            "nombre": "Ficha Técnica",
-                            "accion": "Descargar",
-                            "enlace": "/files/Moldes_cenefas_rodillos.pdf"
-                        }
-                    ]
-                },
-                {
-                    "nombre": "HERRAMIENTAS",
-                    "subtitulo": "Accesorios",
-                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
-                    "informacion_general": "",
-                    "documentacion": [
-                        {
-                            "nombre": "Ficha Técnica",
-                            "accion": "Descargar",
-                            "enlace": "/files/Herramientas_GRUPO.ESTUCALIA.pdf"
-                        }
-                    ]
-                },
-                {
                     "nombre": "MALLA REFUERZO",
                     "subtitulo": "Malla mortero monocapa fibra de vidrio",
                     "imagen": "/img/productos/malla._azul.png",
@@ -1084,7 +1063,7 @@
                 },
                 {
                     "nombre": "Esquinero PVC",
-                    "subtitulo": "Guardavivo o perfil cantonera para la formación de cantos perpendiculares y alineados en revestimientos interiores y exteriores",
+                    "subtitulo": "Perfil cantonera para la formación de cantos perpendiculares y alineados en revestimientos interiores y exteriores",
                     "imagen": "/img/productos/esquinero-PVC.png",
                     "imagen1": "",
                     "composicion": "PVC",
@@ -1126,6 +1105,32 @@
                             "nombre": "Documento de Idoneidad Técnica",
                             "accion": "Descargar",
                             "enlace": "/files/dit-plus-espanol.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "MOLDES CENEFAS RODILLOS",
+                    "subtitulo": "Accesorios",
+                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
+                    "informacion_general": "",
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/Moldes_cenefas_rodillos.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "HERRAMIENTAS",
+                    "subtitulo": "Accesorios",
+                    "imagen": "/img/productos/Herramientas_GRUPO.ESTUCALIA.png",
+                    "informacion_general": "",
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/Herramientas_GRUPO.ESTUCALIA.pdf"
                         }
                     ]
                 }
