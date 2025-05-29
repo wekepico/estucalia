@@ -484,6 +484,11 @@
                     ],
                     "documentacion": [
                         {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "Mortero.Monocapa.Raspado.MoreBest.-.FICHA.TECNICA.-.GE.pdf"
+                        },
+                        {
                             "nombre": "Certificado AENOR",
                             "accion": "Descargar",
                             "enlace": "/files/certificado-aenor.pdf"
@@ -948,32 +953,6 @@
                     ]
                 },
                 {
-                    "nombre": "MOLDES CENEFAS RODILLOS",
-                    "subtitulo": "Accessoires",
-                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
-                    "informacion_general": "",
-                    "documentacion": [
-                        {
-                            "nombre": "Ficha Técnica",
-                            "accion": "Descargar",
-                            "enlace": "/files/Moldes_cenefas_rodillos.pdf"
-                        }
-                    ]
-                },
-                {
-                    "nombre": "HERRAMIENTAS",
-                    "subtitulo": "Accessoires",
-                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
-                    "informacion_general": "",
-                    "documentacion": [
-                        {
-                            "nombre": "Ficha Técnica",
-                            "accion": "Descargar",
-                            "enlace": "/files/Herramientas_GRUPO.ESTUCALIA.pdf"
-                        }
-                    ]
-                },
-                {
                     "nombre": "MAILLE DE RENFORT",
                     "subtitulo": "Maillage pour mortier monocouche en fibre de verre",
                     "imagen": "/img/productos/malla._azul.png",
@@ -1122,6 +1101,32 @@
                             "nombre": "Document de Conformité Technique",
                             "accion": "Télécharger",
                             "enlace": "/files/dit-plus-espanol.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "MOLDES CENEFAS RODILLOS",
+                    "subtitulo": "Accessoires",
+                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
+                    "informacion_general": "",
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/Moldes_cenefas_rodillos.pdf"
+                        }
+                    ]
+                },
+                {
+                    "nombre": "HERRAMIENTAS",
+                    "subtitulo": "Accessoires",
+                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
+                    "informacion_general": "",
+                    "documentacion": [
+                        {
+                            "nombre": "Ficha Técnica",
+                            "accion": "Descargar",
+                            "enlace": "/files/Herramientas_GRUPO.ESTUCALIA.pdf"
                         }
                     ]
                 }
