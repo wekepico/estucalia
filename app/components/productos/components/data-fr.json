@@ -486,7 +486,7 @@
                         {
                             "nombre": "Ficha Técnica",
                             "accion": "Descargar",
-                            "enlace": "Mortero.Monocapa.Raspado.MoreBest.-.FICHA.TECNICA.-.GE.pdf"
+                            "enlace": "/files/Mortero.Monocapa.Raspado.MoreBest.-.FICHA.TECNICA.-.GE.pdf"
                         },
                         {
                             "nombre": "Certificado AENOR",
@@ -1107,7 +1107,7 @@
                 {
                     "nombre": "MOLDES CENEFAS RODILLOS",
                     "subtitulo": "Accessoires",
-                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
+                    "imagen": "/img/productos/449031446-a8005594-ea7f-474d-b5f8-20a776bcaa40.svg",
                     "informacion_general": "",
                     "documentacion": [
                         {
@@ -1120,7 +1120,7 @@
                 {
                     "nombre": "HERRAMIENTAS",
                     "subtitulo": "Accessoires",
-                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
+                    "imagen": "/img/productos/449031446-a8005594-ea7f-474d-b5f8-20a776bcaa40.svg",
                     "informacion_general": "",
                     "documentacion": [
                         {

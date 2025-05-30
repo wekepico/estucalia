@@ -486,7 +486,7 @@
                         {
                             "nombre": "Technical Data Sheet",
                             "accion": "Download",
-                            "enlace": "Mortero.Monocapa.Raspado.MoreBest.-.FICHA.TECNICA.-.GE.pdf"
+                            "enlace": "/files/Mortero.Monocapa.Raspado.MoreBest.-.FICHA.TECNICA.-.GE.pdf"
                         },
                         {
                             "nombre": "AENOR Certificate",
@@ -1111,7 +1111,7 @@
                 {
                     "nombre": "MOLDES CENEFAS RODILLOS",
                     "subtitulo": "Accessories",
-                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
+                    "imagen": "/img/productos/449031446-a8005594-ea7f-474d-b5f8-20a776bcaa40.svg",
                     "informacion_general": "Tools and accessories for creating textures and reliefs on stamped mortar. Includes molds of various shapes, rollers to simulate different patterns, and borders for decorative finishes.",
                     "documentacion": [
                         {
@@ -1124,7 +1124,7 @@
                 {
                     "nombre": "HERRAMIENTAS",
                     "subtitulo": "Accessories",
-                    "imagen": "/img/productos/MoldesCenefasRodillos.png",
+                    "imagen": "/img/productos/449031446-a8005594-ea7f-474d-b5f8-20a776bcaa40.svg",
                     "informacion_general": "",
                     "documentacion": [
                         {
