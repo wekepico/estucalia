@@ -57,9 +57,15 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
       ? category.productos[selectedProductIndex]
       : null;
 
-    const handleDownload = () =>{
-      window.open("/files/Moldes_cenefas_rodillos.pdf", "_blank", "noopener,noreferrer");
+  const handleDownload = (producto: any) => {
+    let link = null;
+    for (const element of producto?.documentacion) {
+      if (element.nombre == "Ficha Técnica") {
+        link = element.enlace;
+      }
     }
+    window.open(link || "/files/Moldes_cenefas_rodillos.pdf", "_blank", "noopener,noreferrer");
+  }
 
   return (
     <>
@@ -144,7 +150,7 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
                   product={producto}
                   isSelected={index === selectedProductIndex}
                   onSelect={() => setSelectedProductIndex(index)}
-                  onDownload={handleDownload}
+                  onDownload={() => handleDownload(producto)}
                 />
               ))}
             </div>
@@ -153,7 +159,7 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
           </div>
         </section>
       </section>
-      {selectedProduct.nombre !== "MOLDES CENEFAS RODILLOS"  && selectedProduct.nombre !== "HERRAMIENTAS" &&
+      {selectedProduct.nombre !== "MOLDES CENEFAS RODILLOS" && selectedProduct.nombre !== "HERRAMIENTAS" &&
 
         <div className="md:px-15 sm:px-10 px-5 bg-[#FAF9F9] lg:px-20 mt-14 py-12 flex flex-col">
           {/* Selected product details */}
