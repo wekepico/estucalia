@@ -155,7 +155,7 @@ export default function ApplicationForm() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-44">
                     {/* Description */}
                     <div>
-                        <h2 className="text-4xl font-[600] w-72 mb-3">
+                        <h2 className="text-4xl font-[600] w-[21rem] mb-3">
                             {t('applicationForm.title')}
                         </h2>
 
