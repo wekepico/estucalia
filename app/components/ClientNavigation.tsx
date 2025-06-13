@@ -290,7 +290,7 @@ export default function ClientNavigation() {
     <>
       <header
         onClick={() => setHoveredMenu(null)}
-        className={`w-full bg-black fixed`}
+        className={`w-full bg-black`}
       >
         <div className="relative font-[600] max-w-[240rem] text-lg mx-auto">
           <div className="flex justify-between items-center border-gray-500 md:px-15 sm:px-10 px-5 lg:px-20 py-6">
