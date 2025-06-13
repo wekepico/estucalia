@@ -31,10 +31,8 @@ export default function ClientNavigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [openMobileSubmenus, setOpenMobileSubmenus] = useState<number[]>([]);
   const headerRef = useRef<HTMLElement>(null);
-  const [headerHeight, setHeaderHeight] = useState(0);
 
 
 
@@ -57,21 +55,7 @@ export default function ClientNavigation() {
     return openMobileSubmenus.includes(index);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY > 77;
-      setIsScrolled(scrolled);
-    };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (headerRef.current) {
-      setHeaderHeight(headerRef.current.offsetHeight);
-    }
-  }, [isScrolled]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -298,7 +282,7 @@ export default function ClientNavigation() {
     <>
       <header
         onClick={() => setHoveredMenu(null)}
-        className={`w-full bg-black ${isScrolled ? "" : "mb-0"}`}
+        className={`w-full bg-black fixed z-50 `}
       >
         <div className="relative font-[600] max-w-[240rem] text-lg mx-auto">
           <div className="flex justify-between items-center border-gray-500 md:px-15 sm:px-10 px-5 lg:px-20 py-6">
@@ -325,12 +309,10 @@ export default function ClientNavigation() {
           </div>
           <div className="h-[1px] bg-gray-500 md:mx-15 sm:mx-10 mx-5 lg:mx-20"></div>
 
-          <nav ref={headerRef} className={`top-0 w-full left-0 right-0 z-10 bg-black ${isScrolled
-            ? "fixed animate-fade-in-down shadow-lg"
-            : "flex justify-center relative"
-            }`}>
+          <nav ref={headerRef} className={`top-0 w-full left-0 right-0 z-10 bg-black  "flex justify-center relative"
+            `}>
             <div className={`absolute z-[-1] ${hoveredMenu ? "opacity-100 visible" : "opacity-0 invisible"
-              } transition-all duration-300 ease-in-out top-[2.85rem] w-[102vw] h-[420px] mt-2 backdrop-blur-[3.5px] backdrop-opacity-90`}
+              } transition-all duration-300 ease-in-out top-[2.85rem] w-[102vw] h-[435px] mt-2 backdrop-blur-[3.5px] backdrop-opacity-90`}
               style={{
                 background: "rgba(0, 5, 0, 0.6)",
               }}
@@ -368,10 +350,10 @@ export default function ClientNavigation() {
                       {link.submenu.length > 0 && (
                         <div
                           className={`absolute left-0 ${hoveredMenu === link.label ? "opacity-100 visible" : "opacity-0 invisible"
-                            } transition-all w-max duration-300 ease-in-out top-full flex flex-col mt-2 bg-transparent h-[400px]`}
+                            } transition-all w-max duration-300 ease-in-out top-full flex flex-col bg-transparent h-[4200px]`}
                           onMouseLeave={() => setHoveredMenu(null)}
                         >
-                          <ul className={`font-[500]  ${link.label === "navigation.products.label" ? "grid grid-cols-3 gap-x-24 gap-y-6 mt-20 " : " flex flex-col py-4 space-y-4"}  `}>
+                          <ul className={`font-[500]  ${link.label === "navigation.products.label" ? "grid grid-cols-3 gap-x-24 gap-y-6 mt-16 " : " flex flex-col py-4 space-y-4"}  `}>
                             {
                               link.submenu.map((subItem, subIndex) => (
                                 <li
@@ -494,7 +476,6 @@ export default function ClientNavigation() {
           </nav>
         </div>
       </header>
-      {isScrolled && <div style={{ height: headerHeight }} />}
     </>
   );
 }

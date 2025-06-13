@@ -41,7 +41,7 @@ export default function RootLayout({
       >
         <LanguageProvider>
           <ClientNavigation />
-          <div className="max-w-[240rem] mx-auto tracking-tight">
+          <div className="max-w-[240rem] pt-28 mx-auto tracking-tight">
             {children}
           </div>
           <Footer />
