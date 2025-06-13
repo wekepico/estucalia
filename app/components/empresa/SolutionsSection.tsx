@@ -131,16 +131,16 @@ export default function SolutionsSection() {
         </div>
 
         <div className="grid md:grid-flow-col  items-center justify-center grid-rows-3 md:grid-rows-5 sm:grid-cols-1 lg:grid-rows-3 gap-y-8 gap-x-[5rem]">
-            {products.map((product) => (
-              <div key={product.key} 
+            {products.map((product, index) => (
+              <div key={product.key+index} 
                 className="flex items-center gap-2 cursor-pointer"
                 onClick={()=>window.location.href = "/producto/" + product.id}
               >
-                <div className=" flex-shrink-0">
+                <div className="flex-shrink-0">
                   {product.icon}
                 </div>
-                <div className='max-w-[110px]'>
-                  <h3 className="text-lg  font-[600] leading-[1.1]">{t(`company.solutions.products.${product.key}`).toLocaleUpperCase()}</h3>
+                <div className='w-[min-content]'>
+                  <h3 title={t(`company.solutions.products.${product.key}`)} className="text-lg whitespace-pre-line line-clamp-2 font-[600] leading-[1.1]">{t(`company.solutions.products.${product.key}`).toLocaleUpperCase()}</h3>
                 </div>
               </div>
             ))}

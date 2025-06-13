@@ -123,6 +123,7 @@ export const HeroSection: React.FC = () => {
         <div className="flex flex-col gap-16 md:gap-28 px-5 sm:px-10 md:px-15 lg:px-20 pb-16">
             {data.map((element, index) => (
                 <div
+                key={index}
                   
                     className={`w-full flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                         } gap-8 md:gap-16 h-auto md:h-[520px]`}

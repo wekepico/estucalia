@@ -12,7 +12,7 @@ export default function Servicios() {
     <section className="bg-white">
       {/* Imagen destacada */}
       <div className="w-full h-72 md:px-15 sm:px-10 px-5 lg:px-20 py-20 text-5xl font-[600] text-left items-end flex bg-[#C7C5C5] text-black">
-        <h1 className="w-96">{t('services.title')}</h1>
+        <h1 className="w-80 line-clamp-2">{t('services.title')}</h1>
       </div>
 
       <div className="relative h-[350px] mb-28">

@@ -192,7 +192,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                                     href={doc.enlace}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex gap-1 items-center"
+                                    className="flex gap-1 items-center hover:underline active:text-blue-400 hover:text-blue-600"
                                 >
                                     {doc.accion || "Descargar"}
                                     <svg
