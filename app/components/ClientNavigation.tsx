@@ -73,14 +73,6 @@ export default function ClientNavigation() {
     }
   }, [isScrolled]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setHoveredMenu(null);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLElement>, href: string) => {
     e.preventDefault();
@@ -298,7 +290,7 @@ export default function ClientNavigation() {
     <>
       <header
         onClick={() => setHoveredMenu(null)}
-        className={`w-full bg-black ${isScrolled ? "" : "mb-0"}`}
+        className={`w-full bg-black fixed top-0 left-0 z-50`}
       >
         <div className="relative font-[600] max-w-[240rem] text-lg mx-auto">
           <div className="flex justify-between items-center border-gray-500 md:px-15 sm:px-10 px-5 lg:px-20 py-6">
@@ -325,11 +317,10 @@ export default function ClientNavigation() {
           </div>
           <div className="h-[1px] bg-gray-500 md:mx-15 sm:mx-10 mx-5 lg:mx-20"></div>
 
-          <nav ref={headerRef} className={`top-0 w-full left-0 right-0 z-10 bg-black ${isScrolled
-            ? "fixed animate-fade-in-down shadow-lg"
-            : "flex justify-center relative"
+          <nav ref={headerRef} className={`w-full left-0 right-0 z-40 bg-black 
+ "flex justify-center relative"
             }`}>
-            <div className={`absolute z-[-1] ${hoveredMenu ? "opacity-100 visible" : "opacity-0 invisible"
+            <div className={`absolute z-30 ${hoveredMenu ? "opacity-100 visible" : "opacity-0 invisible"
               } transition-all duration-300 ease-in-out top-[2.85rem] w-[102vw] h-[420px] mt-2 backdrop-blur-[3.5px] backdrop-opacity-90`}
               style={{
                 background: "rgba(0, 5, 0, 0.6)",
@@ -405,7 +396,7 @@ export default function ClientNavigation() {
 
         {isOpen && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+            className="fixed inset-0 bg-black bg-opacity-50 z-45 lg:hidden"
             onClick={toggleSidebar}
           ></div>
         )}
@@ -494,7 +485,7 @@ export default function ClientNavigation() {
           </nav>
         </div>
       </header>
-      {isScrolled && <div style={{ height: headerHeight }} />}
+     
     </>
   );
 }
