@@ -141,7 +141,7 @@
             ],
             "productos": [
                 {
-                    "nombre": "KOLATECT",
+                    "nombre": "KOLATEC",
                     "subtitulo": "Standard C1",
                     "imagen": "/img/productos/03-KOLATEC CCOLA.png",
                     "composicion": "Adhésif à base de ciment à base de granulats sélectionnés, ciment blanc et additifs pour carrelages céramiques à prise normale. Sans glissement. Fabriqué en couleur blanche at en classe: FIN.",
@@ -190,7 +190,7 @@
                     ]
                 },
                 {
-                    "nombre": "KOLATECT",
+                    "nombre": "KOLATEC",
                     "subtitulo": "Piscines C1T",
                     "imagen": "/img/productos/03-KOLATEC CCOLA.png",
                     "composicion": "Adhésif à base de ciment à base de granulats sélectionnés, ciment blanc et additifs pour carrelages céramiques à prise normale. Sans glissement. Fabriqué en couleur blanche et en deux classes : FIN et GROSSIER.",
@@ -239,7 +239,7 @@
                     ]
                 },
                 {
-                    "nombre": "KOLATECT LANIC",
+                    "nombre": "KOLATEC LANIC",
                     "subtitulo": "Colle à carrelage C2TE",
                     "imagen": "/img/productos/04-KOLATEC LANI.png",
                     "composicion": "Adhésif à base de ciment avec liants mixtes à glissement réduit et temps ouvert prolongé pour la pose de tout type de carrelages, pierre naturelle, granit et marbre en sols intérieurs et extérieurs et revêtements intérieurs.",
@@ -296,7 +296,7 @@
                     ]
                 },
                 {
-                    "nombre": "KOLATECT FLEX",
+                    "nombre": "KOLATEC FLEX",
                     "subtitulo": "Colle à carrelage C2TE S1",
                     "imagen": "/img/productos/05-KOLATEC FLEX .png",
                     "composicion": "Adhésif à base de ciment pour carrelages céramiques à faible absorption superficielle et temps ouvert prolongé. Sans glissement et avec excellente adhérence initiale. Pour la pose directe sur maçonnerie en brique et blocs de béton, sans besoin d'enduit préalable et sur sols irréguliers. Application en intérieur et extérieur pour carrelages en grès cérame, faible absorption et grand format.",

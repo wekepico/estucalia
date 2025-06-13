@@ -140,7 +140,7 @@
             ],
             "productos": [
                 {
-                    "nombre": "KOLATECT",
+                    "nombre": "KOLATEC",
                     "subtitulo": "Standard C1",
                     "imagen": "/img/productos/03-KOLATEC CCOLA.png",
                     "composicion": "Cementitious adhesive based on selected aggregates, white cement, and additives for ceramic tiles with normal setting. No sagging. Available in white and  FINE class.",
@@ -190,7 +190,7 @@
                     ]
                 },
                 {
-                    "nombre": "KOLATECT",
+                    "nombre": "KOLATEC",
                     "subtitulo": "Pools C1T",
                     "imagen": "/img/productos/03-KOLATEC CCOLA.png",
                     "composicion": "Cementitious adhesive based on selected aggregates, white cement, and additives for ceramic tiles with normal setting. No sagging. Available in white and two types: FINE and COARSE.",
@@ -239,7 +239,7 @@
                     ]
                 },
                 {
-                    "nombre": "KOLATECT LANIC",
+                    "nombre": "KOLATEC LANIC",
                     "subtitulo": "C2TE Tile Adhesive",
                     "imagen": "/img/productos/04-KOLATEC LANI.png",
                     "composicion": "Cementitious adhesive with mixed binders, reduced slip, and extended open time for installing all types of ceramic tiles, natural stone, granite, and marble on indoor and outdoor floors and indoor wall coverings.",
@@ -296,7 +296,7 @@
                     ]
                 },
                 {
-                    "nombre": "KOLATECT FLEX",
+                    "nombre": "KOLATEC FLEX",
                     "subtitulo": "C2TE S1 Tile Adhesive",
                     "imagen": "/img/productos/05-KOLATEC FLEX .png",
                     "informacion_general": "Cementitious adhesive for ceramic tiles with low surface absorption and extended open time. Non-sagging with excellent initial adhesion. For direct tiling on brickwork and concrete blocks without prior rendering, and on uneven flooring substrates. Application for indoor and outdoor porcelain tiles, low absorption tiles, and large format tiles.",
