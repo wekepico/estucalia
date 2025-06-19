@@ -117,12 +117,23 @@ const products = [
   },
 ];
 
+const splitText = (texto:string) => {
+  const words = texto.toLocaleUpperCase().split(' ');
+  const middle = Math.ceil(words.length / 2);
+  return (
+    <>
+      {words.slice(0, middle).join(' ')}<br/>
+      {words.slice(middle).join(' ')}
+    </>
+  );
+};
+
 export default function SolutionsSection() {
   const { t } = useLanguage();
 
   return (
     <section className="py-40 bg-[#F5ECEB] flex flex-col items-center justify-center ">
-      <div className=" mx-auto px-8 max-w-[44rem] max-sm:px-2">
+      <div className=" mx-auto px-8 max-sm:px-2">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-[600] mb-6">{t('company.solutions.title')}</h2>
           <p className="text-lg max-w-4xl mx-auto">
@@ -130,17 +141,17 @@ export default function SolutionsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-flow-col  items-center justify-center grid-rows-3 md:grid-rows-5 sm:grid-cols-1 lg:grid-rows-3 gap-y-8 gap-x-[5rem]">
+        <div className="grid  items-center justify-center grid-row-3 grid-cols-3  gap-y-8 gap-x-[4rem]">
             {products.map((product, index) => (
-              <div key={product.key+index} 
+              <div key={index} 
                 className="flex items-center gap-2 cursor-pointer"
                 onClick={()=>window.location.href = "/producto/" + product.id}
               >
                 <div className="flex-shrink-0">
                   {product.icon}
                 </div>
-                <div className='w-[min-content]'>
-                  <h3 title={t(`company.solutions.products.${product.key}`)} className="text-lg whitespace-pre-line line-clamp-2 font-[600] leading-[1.1]">{t(`company.solutions.products.${product.key}`).toLocaleUpperCase()}</h3>
+                <div >
+                  <h3 className='text-lg font-[600] leading-[1.05]'>{splitText(t(`company.solutions.products.${product.key}`))}</h3>
                 </div>
               </div>
             ))}
