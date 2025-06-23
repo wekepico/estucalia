@@ -34,6 +34,7 @@ export default function AboutSection() {
                   className="object-contain"
                   priority
                 />
+                
               </div>
             </div>
           </div>
