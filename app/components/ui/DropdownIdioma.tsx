@@ -6,6 +6,7 @@ import { useLanguage } from '../../context/LanguageContext';
 export default function DropdownIdioma() {
   const { language, setLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const mousePositionRef = useRef({ x: 0, y: 0 });
@@ -15,32 +16,38 @@ export default function DropdownIdioma() {
   // Tiempo de espera antes de verificar la posición
   const CLOSE_DELAY = 200;
 
+  // Detectar si es desktop
   useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Lógica de hover para desktop
+  useEffect(() => {
+    if (!isDesktop) return;
     const handleMouseMove = (e: MouseEvent) => {
       mousePositionRef.current = { x: e.clientX, y: e.clientY };
     };
-
     if (isOpen) {
       document.addEventListener('mousemove', handleMouseMove);
     }
-
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [isOpen]);
+  }, [isOpen, isDesktop]);
 
   const checkMouseDistance = () => {
     if (!dropdownRef.current) return false;
-    
     const dropdownRect = dropdownRef.current.getBoundingClientRect();
     const { x: mouseX, y: mouseY } = mousePositionRef.current;
-
-    // Calcular distancia desde el dropdown
     const distanceFromTop = mouseY - dropdownRect.top;
     const distanceFromBottom = dropdownRect.bottom - mouseY;
     const distanceFromLeft = mouseX - dropdownRect.left;
     const distanceFromRight = dropdownRect.right - mouseX;
-
     return (
       distanceFromTop > CLOSE_DISTANCE ||
       distanceFromBottom > CLOSE_DISTANCE ||
@@ -65,6 +72,21 @@ export default function DropdownIdioma() {
     setIsOpen(true);
   };
 
+  // Cerrar el dropdown al hacer click fuera (en ambos modos)
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
   useEffect(() => {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
@@ -76,15 +98,27 @@ export default function DropdownIdioma() {
     setIsOpen(false);
   };
 
+  // Handlers condicionales
+  const eventHandlers = isDesktop
+    ? {
+        onMouseEnter: handleMouseEnter,
+        onMouseLeave: handleMouseLeave,
+      }
+    : {};
+
   return (
-    <div 
+    <div
       className="relative lg:block"
       ref={dropdownRef}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      {...eventHandlers}
     >
       <button
         className="text-white hover:text-gray-400 transition-colors"
+        onClick={() => {
+          if (!isDesktop) setIsOpen((prev) => !prev);
+        }}
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
       >
         {language.toUpperCase()}
       </button>
