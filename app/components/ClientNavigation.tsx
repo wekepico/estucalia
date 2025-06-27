@@ -410,9 +410,6 @@ export default function ClientNavigation() {
               <X />
             </Button>
           </div>
-          <div className="flex w-full justify-end mb-4 pr-4">
-            <DropdownIdioma />
-          </div>
           <nav className="p-4">
             <NavigationMenu>
               <NavigationMenuList className="flex flex-col items-start gap-4">
