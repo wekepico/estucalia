@@ -78,7 +78,7 @@ export default function DropdownIdioma() {
 
   return (
     <div 
-      className="relative hidden lg:block"
+      className="relative lg:block"
       ref={dropdownRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

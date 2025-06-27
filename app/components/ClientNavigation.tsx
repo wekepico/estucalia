@@ -300,12 +300,18 @@ export default function ClientNavigation() {
               </Link>
             </div>
 
-            <div className="flex items-center">
+            {/* Desktop: idioma visible solo en lg+ */}
+            <div className="hidden lg:flex items-center">
               <DropdownIdioma />
-              <Button className="lg:hidden" onClick={toggleSidebar}>
+            </div>
+            {/* Mobile: idioma a la derecha, junto al menú */}
+            <div className="flex items-center justify-start gap-2 lg:hidden w-full">
+              <Button onClick={toggleSidebar}>
                 {isOpen ? <X /> : <Menu />}
               </Button>
+              
             </div>
+            <DropdownIdioma />
           </div>
           <div className="h-[1px] bg-gray-500 md:mx-15 sm:mx-10 mx-5 lg:mx-20"></div>
 
@@ -400,6 +406,9 @@ export default function ClientNavigation() {
             <Button variant="outline" className="text-white rounded-full" onClick={toggleSidebar}>
               <X />
             </Button>
+          </div>
+          <div className="flex w-full justify-end mb-4 pr-4">
+            <DropdownIdioma />
           </div>
           <nav className="p-4">
             <NavigationMenu>
