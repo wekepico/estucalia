@@ -311,7 +311,10 @@ export default function ClientNavigation() {
               </Button>
               
             </div>
-            <DropdownIdioma />
+            <div className="hidden max-lg:block"> 
+
+             <DropdownIdioma />
+            </div>
           </div>
           <div className="h-[1px] bg-gray-500 md:mx-15 sm:mx-10 mx-5 lg:mx-20"></div>
 
