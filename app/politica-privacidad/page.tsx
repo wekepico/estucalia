@@ -62,6 +62,21 @@ const PrivacyPolicy = () => {
                             {t('privacyPolicy1.sections.legalBasis.content1')}
                         </p>
                     </section>
+                    <section>
+                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                        {t('privacyPolicy1.sections.securityMeasures.title')}
+                    </h2>
+                    <p className="text-gray-700 mb-4">
+                        {t('privacyPolicy1.sections.securityMeasures.content1')}
+                    </p>
+                    <p className="text-gray-700 mb-4">
+                        {t('privacyPolicy1.sections.securityMeasures.content2')}
+                    </p>
+                    <p className="text-gray-700">
+                        {t('privacyPolicy1.sections.securityMeasures.content3')}
+                    </p>
+                </section>
+
                 </div>
 
                 {/* Columna derecha */}
@@ -132,21 +147,7 @@ const PrivacyPolicy = () => {
             {/* Secciones de ancho completo */}
             <div className="mt-12 space-y-12 grid grid-cols-1 md:grid-cols-2 gap-12">
                 {/* Medidas de seguridad */}
-                <section>
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-                        {t('privacyPolicy1.sections.securityMeasures.title')}
-                    </h2>
-                    <p className="text-gray-700 mb-4">
-                        {t('privacyPolicy1.sections.securityMeasures.content1')}
-                    </p>
-                    <p className="text-gray-700 mb-4">
-                        {t('privacyPolicy1.sections.securityMeasures.content2')}
-                    </p>
-                    <p className="text-gray-700">
-                        {t('privacyPolicy1.sections.securityMeasures.content3')}
-                    </p>
-                </section>
-
+                
                 {/* Actualizaciones de política */}
                 <section>
                     <h2 className="text-2xl font-semibold text-gray-800 mb-4">
