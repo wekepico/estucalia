@@ -1,0 +1,144 @@
+/* =WordPress Core
+-------------------------------------------------------------- */
+.alignnone {
+    margin: .4em 0 1.4em 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 1.8em auto;
+}
+
+.alignright {
+    float:right;
+    margin: .3em 0 2em 2em;
+}
+
+.alignleft {
+    float: left;
+    margin: .3em 2em 2em 0;
+}
+
+.aligncenter {
+    display: block;
+    margin: 1.8em auto;
+	clear: both;
+}
+
+a img.alignright {
+    float: right;
+    margin: .3em 0 2em 2em;
+}
+
+a img.alignnone {
+    margin: 1em 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: .3em 2em 2em 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.wp-caption {
+	color:#6A7686;
+    background: #fff;
+	border: 1px solid #DDE4E6;
+    max-width: 96%; /* Image does not overflow the content area */
+	padding: 6px 4px 10px;
+    text-align: center;
+	border-radius: 4px;
+}
+
+.wp-caption.alignnone {
+    margin: 1.4em 0;
+}
+
+.wp-caption.alignleft {
+    margin: .3em 1.6em 1em 0;
+}
+
+.wp-caption.alignright {
+    margin: .3em 0 1em 1.5em;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: .925em;
+    margin: 0;
+    padding: .4em .4em .2em;
+}
+.alignleft:first-child, .alignright:first-child { margin-top:1.2em; }
+
+/* NEW */
+.logo {position:absolute; top:10px; right:20px;}
+.header .logo img {width:100px; border-radius:0px;}
+.vcard .avatar {padding: 1.2em; background-image:url("../imag/bg1.png");   background-size: contain;  background-repeat: no-repeat; background-position:center;}
+
+.vcard .vs-nav {display:none;}
+.vcard .header {padding-bottom:1em;}
+.vcard .header h1 {margin:0.5em 0em 0.4em 0em;}
+.vcard .header p {background: #444; color: #fff; }
+.vcard .header p span {font-size: 0.7em; font-weight: 800;}
+.vcard .letter-info {  margin-left: 5px; }
+.vcard .letter-info p {display: inline-block; vertical-align: middle; width: 100%; margin-bottom: 0.2em;}
+.vcard .letter-info i {float:left; background:#d5d5d5 !important; width: 40px; height: 40px; text-align: center; padding: 12px 7px 0px 7px;}
+.vcard .letter-info span {display: inline-block; line-height: 1.2em; width: 80%; color:#777;}
+.vcard .letter-info span em {font-size: 0.8em; font-weight: 800;}
+.vcard .link-top {text-align:center; padding: 0em 0em 0.5em 0em;}
+.vcard .link-top a {display: inline-block;width: 80px;line-height: 80px;font-size: 30px;color: #555;border-radius: 50%;text-align: center;background: #eee; margin: 0px 5px;}
+.vcard .letter {padding:1em 0em 1em 0em;}
+.vcard .letter a {color:#000;}
+.vcard .letter a:hover {color:#000; text-decoration: underline;}
+.vcard .qr {background: #f5f5f5;text-align: center;border-radius: 8px;padding: 1em;}
+.vcard .qr img {max-width: 200px;}
+
+.skill-unit .bar .progress, .event .date, .letter-info p i, .media-cell-desc .date, #nprogress .bar, #fancybox-close, .portfolio-nav a.button.back {background: #999 !important;}
+.tarjeta {  border: solid 1px #f5f5f5; max-width: 600px; margin: auto;}
+.intro.tarjeta {padding: 0em;}
+.infolegal {text-align: center;padding: 2em 0.5em 0em 0.5em;font-size: 0.8em;color: #999;margin-bottom: 0px;}
+.infolegal span {padding: 0em 0em 0em 1em; color: #d0d0d0;}
+.infolegal a {color: #d0d0d0;}
+.infolegal a:hover {color: #555;}
+
+.btnew {
+  display: inline-block;
+  margin: 0 0em 2em 0;
+  text-align: center;
+  font-size: 14px;
+  width: auto;
+  line-height: 40px;
+  color: #516075;
+  border-radius: 4px;
+  border: 1px solid #dde4e6;
+    border-top-color: rgb(221, 228, 230);
+    border-right-color: rgb(221, 228, 230);
+    border-bottom-color: rgb(221, 228, 230);
+    border-left-color: rgb(221, 228, 230);
+	padding: 0px 20px;
+font-weight: 700;
+}
+a.btnew i {margin-left: 0.5em; font-size: 16px;}
+a.btnew:hover {color:#fff; background:#222; border-color: #222;}
+
+.vcard .header img {max-height: 180px;}
+
+@media screen and (max-width: 767px) {
+.vcard .header img {
+  max-height: 150px;
+}
+.vcard .link-top a {display: inline-block;width: 40px;line-height: 40px;font-size: 20px; margin: 0px 2px;}
+}

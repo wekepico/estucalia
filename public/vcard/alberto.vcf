@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Alberto Ayala
+N:Ayala;Alberto;;; 
+TITLE:Export Manager
+TEL;TYPE=CELL,VOICE:+34 669 674 186
+TEL;TYPE=WORK,VOICE:+34 968 864 262
+TEL;TYPE=HOME,VOICE:+34 669 674 186
+EMAIL:export@grupoestucalia.com
+URL:https://grupoestucalia.com
+ADR;TYPE=WORK:;;Camino Viejo de Fortuna, 40. Matanzas;Santomera;Murcia;30148;España
+NOTE:Perfil web adicional - https://www.grupoestucalia.com/vcard/vcard-alberto-ayala.html
+END:VCARD
