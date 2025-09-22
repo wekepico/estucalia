@@ -90,13 +90,13 @@ export default function Footer() {
                 </div>
                 <p>Linkedin</p>
               </Link>
-              <Link target='_blank' href="https://www.facebook.com/share/162F9HDKtA/?mibextid=wwXIfr" className="text-gray-200 flex items-center gap-2 hover:text-white transition-colors">
+              <Link target='_blank' href="https://www.facebook.com/share/1A5tsR5Aaq" className="text-gray-200 flex items-center gap-2 hover:text-white transition-colors">
                 <div className='p-1 mx-auto rounded-full bg-white text-black'>
                   <TiSocialFacebook className="w-5 h-5" />
                 </div>
                 <p>Facebook</p>
               </Link>
-              <Link href="#" className="text-gray-200 flex gap-2 hover:text-white items-center transition-colors">
+              <Link href="https://www.instagram.com/grupo_estucalia?igsh=MTdoazk0NHVpaXdkdg%3D%3D" className="text-gray-200 flex gap-2 hover:text-white items-center transition-colors">
                 <div className='p-1 mx-auto rounded-full bg-white text-black'>
                   <RxInstagramLogo className="w-5 h-5 rounded-full" />
                 </div>
