@@ -106,7 +106,7 @@ export default function Footer() {
                 <div className='p-1 mx-auto rounded-full bg-white text-black'>
                   <FaYoutube className="w-5 h-5 rounded-full bg-white" />
                 </div>
-                <p>Youtube</p>
+                <p className='capitalize'>youtube</p>
               </Link>
             </div>
           </div>
