@@ -5,13 +5,13 @@ import { LanguageProvider } from './context/LanguageContext';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
-  title: 'Modern Architecture Studio',
-  description: 'Creating spaces that inspire and transform lives',
-  metadataBase: new URL("https://example.com"),
+  title: 'Grupo estucalia',
+  description: 'Más de 25 años desarrollando y fabricando morteros de alta gama.',
+  metadataBase: new URL("https://www.grupoestucalia.com/"),
   keywords: ["word", "word", "word", "word"],
   openGraph: {
-    title: "Modern Architecture Studio",
-    description: "Creating spaces that inspire and transform lives.",
+    title: "Grupo estucalia",
+    description: "Más de 25 años desarrollando y fabricando morteros de alta gama.",
     images: [
       {
         url: "https://img.freepik.com/premium-photo/residential-building-sky-background-facade-modern-housing-construction-with-balconies_991208-12480.jpg",
