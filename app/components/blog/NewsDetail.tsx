@@ -67,13 +67,13 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
             </button>
 
                 {/* Fecha de publicación */}
-                <div>
+{/*                 <div>
                     {date && (
                         <p className="text-gray-900 text-base  ">
                             {formatDate(date)}
                         </p>
                     )}
-                </div>
+                </div> */}
 
                 <div className="inset-0 mb-6 flex">
                     <h1 className="text-3xl md:text-4xl   font-[600] text-black">
