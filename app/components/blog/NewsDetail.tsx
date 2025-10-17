@@ -18,7 +18,7 @@ interface NewsDetailProps {
 }
 
 const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => {
-    const { t,language } = useLanguage();
+    const { t, language } = useLanguage();
 
     function formatDate(isoDate: string): string {
         const date = new Date(isoDate);
@@ -62,18 +62,18 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
                     }}
                     className="bg-transparent w-max hover:bg-gray-100 p-1 mb-8 rounded-lg flex gap-x-2 items-center"
 
-            >
-                <IoMdArrowRoundBack/>{language === "en"?"Back":"Volver"}
-            </button>
+                >
+                    <IoMdArrowRoundBack />{language === "en" ? "Back" : "Volver"}
+                </button>
 
                 {/* Fecha de publicación */}
-{/*                 <div>
+                <div>
                     {date && (
                         <p className="text-gray-900 text-base  ">
                             {formatDate(date)}
                         </p>
                     )}
-                </div> */}
+                </div>
 
                 <div className="inset-0 mb-6 flex">
                     <h1 className="text-3xl md:text-4xl   font-[600] text-black">

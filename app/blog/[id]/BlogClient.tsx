@@ -32,7 +32,7 @@ export default function BlogClient() {
           id: data.id,
           title: data.title,
           description: data.description,
-          created_at: data.date ?? new Date().toISOString(),
+          created_at: data.created_at ?? new Date().toISOString(),
           photo: data.photo ?? "/default-image.jpg",
         });
       } catch (e: any) {
