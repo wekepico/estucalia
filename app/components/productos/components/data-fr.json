@@ -644,6 +644,24 @@
                 "Imperméabilisation",
                 "Déshumidification / hydrofuge"
             ],
+            "acabados": [
+                {
+                    "nombre": "Bouchardé / gratté",
+                    "imagen": "/img/acabados/raspado_abujardado.jpg"
+                },
+                {
+                    "nombre": "Lavé / flotté",
+                    "imagen": "/img/acabados/lavado_fratasado.jpg"
+                },
+                {
+                    "nombre": "Imprimé",
+                    "imagen": "/img/acabados/impreso.jpg"
+                },
+                {
+                    "nombre": "Lisse",
+                    "imagen": "/img/acabados/liso.jpg"
+                }
+            ],
             "productos": [
                 {
                     "nombre": "PLASTITE M'",
