@@ -648,6 +648,24 @@
                 "Impermeabilización",
                 "Deshumidificación / hidrofugante"
             ],
+            "acabados": [
+                {
+                    "nombre": "Abujardado / raspado",
+                    "imagen": "/img/acabados/raspado_abujardado.jpg"
+                },
+                {
+                    "nombre": "Lavado / fratasado",
+                    "imagen": "/img/acabados/lavado_fratasado.jpg"
+                },
+                {
+                    "nombre": "Impreso",
+                    "imagen": "/img/acabados/impreso.jpg"
+                },
+                {
+                    "nombre": "Liso",
+                    "imagen": "/img/acabados/liso.jpg"
+                }
+            ],
             "productos": [
                 {
                     "nombre": "PLASTITE M' ",
