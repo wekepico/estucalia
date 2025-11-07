@@ -2,19 +2,54 @@
 
 import React from 'react';
 import { useLanguage } from '@/app/context/LanguageContext';
+import { useHome } from '@/api/useHome';
 
 export default function CompanyInfo() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { data: homeData } = useHome();
+
+  // Obtener título del API según idioma, o usar traducción estática como fallback
+  const getTitle = () => {
+    if (!homeData) return t('home.company.title');
+
+    switch (language) {
+      case 'es':
+        return homeData.second_title_es || t('home.company.title');
+      case 'en':
+        return homeData.second_title_en || t('home.company.title');
+      case 'fr':
+        return homeData.second_title_fr || t('home.company.title');
+      default:
+        return homeData.second_title_es || t('home.company.title');
+    }
+  };
+
+  // Obtener descripción del API según idioma, o usar traducción estática como fallback
+  const getDescription = () => {
+    if (!homeData) return t('home.company.description');
+
+    switch (language) {
+      case 'es':
+        return homeData.second_description_es || t('home.company.description');
+      case 'en':
+        return homeData.second_description_en || t('home.company.description');
+      case 'fr':
+        return homeData.second_description_fr || t('home.company.description');
+      default:
+        return homeData.second_description_es || t('home.company.description');
+    }
+  };
+
+  const title = getTitle();
+  const description = getDescription();
 
   return (
     <section className="min-h-[300px] flex items-center bg-white">
       <div className="container mx-auto px-4 text-center">
         <div className="mb-4">
-          <h2 className="text-2xl font-medium mb-4">{t('home.company.title')}</h2>
+          <div dangerouslySetInnerHTML={{ __html: title }} />
         </div>
-        <p className="text-3xl font-[600] text-gray-800 max-w-2xl mx-auto">
-          {t('home.company.description')}
-        </p>
+        <div dangerouslySetInnerHTML={{ __html: description }} />
       </div>
     </section>
   );
