@@ -39,6 +39,7 @@ export const ProductCard: FC<ProductCardProps> = ({
           alt={product.nombre}
           width={product.nombre==="MÁRMOL TRITURADO" || product.nombre==="CRUSHED MARBLE"?113:160}
           height={180}
+          style={{ height: 'auto' }}
         />
       </div>
       <div className="flex  flex-col gap-5">

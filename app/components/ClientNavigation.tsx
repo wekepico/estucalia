@@ -139,6 +139,7 @@ export default function ClientNavigation() {
         width={180}
         height={100}
         className="h-32 md:h-12 w-auto text-white brightness-0 invert"
+        style={{ width: 'auto' }}
       />
     },
     {

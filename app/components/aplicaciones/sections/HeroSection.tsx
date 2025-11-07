@@ -38,9 +38,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ description, category,
                     <Image
                         src={img || ""}
                         alt={category || ""}
-                        layout="fill"
-                        objectFit="cover"
-                        className="absolute inset-0"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority
+                        className="object-cover"
                     />
                 </div>
             </div>

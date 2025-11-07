@@ -12,6 +12,7 @@ import MorteroCola from '../../../public/img/mortero-cola.svg'
 import MorteroPiedra from '../../../public/img/mortero-piedra.svg'
 import MorteroUnion from '../../../public/img/mortero puente union.svg'
 import { useLanguage } from '../../context/LanguageContext';
+import { useEmpresa } from '@/api/useEmpresa';
 
 import Image from 'next/image';
 
@@ -36,6 +37,7 @@ const products = [
     width={180}
     height={100}
     className="h-32 md:h-12 w-auto"
+    style={{ width: 'auto' }}
     />
   },
   {
@@ -129,16 +131,50 @@ const splitText = (texto:string) => {
 };
 
 export default function SolutionsSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { data: empresaData } = useEmpresa();
+
+  // Obtener título Solutions del API según idioma
+  const getSolutionsTitle = () => {
+    if (!empresaData) return t('company.solutions.title');
+
+    switch (language) {
+      case 'es':
+        return empresaData.solutions_title_es || t('company.solutions.title');
+      case 'en':
+        return empresaData.solutions_title_en || t('company.solutions.title');
+      case 'fr':
+        return empresaData.solutions_title_fr || t('company.solutions.title');
+      default:
+        return empresaData.solutions_title_es || t('company.solutions.title');
+    }
+  };
+
+  // Obtener intro Solutions del API según idioma
+  const getSolutionsIntro = () => {
+    if (!empresaData) return t('company.solutions.description');
+
+    switch (language) {
+      case 'es':
+        return empresaData.solutions_intro_es || t('company.solutions.description');
+      case 'en':
+        return empresaData.solutions_intro_en || t('company.solutions.description');
+      case 'fr':
+        return empresaData.solutions_intro_fr || t('company.solutions.description');
+      default:
+        return empresaData.solutions_intro_es || t('company.solutions.description');
+    }
+  };
+
+  const solutionsTitle = getSolutionsTitle();
+  const solutionsIntro = getSolutionsIntro();
 
   return (
     <section className="py-40 bg-[#F5ECEB] flex flex-col items-center justify-center ">
       <div className=" mx-auto px-8 max-sm:px-2">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-[600] mb-6">{t('company.solutions.title')}</h2>
-          <p className="text-lg max-w-4xl mx-auto">
-            {t('company.solutions.description')}
-          </p>
+          <div dangerouslySetInnerHTML={{ __html: solutionsTitle }} />
+          <div dangerouslySetInnerHTML={{ __html: solutionsIntro }} />
         </div>
 
         <div className="grid  items-center justify-center grid-row-3 grid-cols-3  gap-y-8 gap-x-[4rem]">

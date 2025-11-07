@@ -23,16 +23,21 @@ const allTranslations = {
 };
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  // Inicializar el estado con el valor del localStorage o 'es' como predeterminado
-  const [language, setLanguageState] = useState<Language>(() => {
+  // Siempre inicializar con 'es' para evitar problemas de hidratación
+  // El idioma se sincronizará desde localStorage después del mount
+  const [language, setLanguageState] = useState<Language>('es');
+  const [translations, setTranslations] = useState<Record<string, any>>(allTranslations['es']);
+
+  // Sincronizar el idioma desde localStorage después del mount (después de la hidratación)
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       const savedLanguage = localStorage.getItem('language') as Language;
-      return savedLanguage || 'es';
+      if (savedLanguage && (savedLanguage === 'es' || savedLanguage === 'en' || savedLanguage === 'fr')) {
+        setLanguageState(savedLanguage);
+        setTranslations(allTranslations[savedLanguage]);
+      }
     }
-    return 'es';
-  });
-  
-  const [translations, setTranslations] = useState<Record<string, any>>(allTranslations[language]);
+  }, []);
 
   // Función para cambiar el idioma y guardarlo en localStorage
   const setLanguage = (lang: Language) => {

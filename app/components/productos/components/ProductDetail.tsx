@@ -169,6 +169,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                             alt={product.nombre}
                             width={180}
                             height={180}
+                            style={{ height: 'auto' }}
                         />
                         {
                             product.imagen2 &&
@@ -177,6 +178,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                                 alt={product.nombre}
                                 width={180}
                                 height={180}
+                                style={{ height: 'auto' }}
                             />
                         }
                     </section>
