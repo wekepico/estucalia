@@ -46,11 +46,18 @@ const inspirationImages = [
 
 interface ProductCategoryPageProps {
   category: any;
+  backendData?: any; // Datos del backend si están disponibles
 }
 
-export default function ProductCategoryPage({ category }: ProductCategoryPageProps) {
+export default function ProductCategoryPage({ category, backendData }: ProductCategoryPageProps) {
   const { t } = useLanguage();
   const [selectedProductIndex, setSelectedProductIndex] = useState<number | null>(0);
+
+  // Determinar si usamos datos del backend o locales
+  const categoryName = backendData ? category.nombre : category.titulo;
+  const categoryImage = backendData ? category.imagen : category.imagen;
+  const categoryDescription = backendData ? category.descripcion : category.descripcion;
+  const categoryDescription1 = backendData ? category.descripcionCorta : category.descripcion1;
 
   const selectedProduct =
     selectedProductIndex !== null
@@ -74,23 +81,23 @@ export default function ProductCategoryPage({ category }: ProductCategoryPagePro
         <section className="flex w-full max-md:flex-col gap-8">
           <div className="md:w-2/6  h-[28rem] flex text-center items-center gap-3 flex-col justify-center bg-[#EAEAEA]">
             <Image
-              src={category.imagen}
-              alt={category.titulo}
+              src={categoryImage}
+              alt={categoryName}
               width={150}
               height={150}
             />
             <p className="font-[700] text-lg text-center ">
-              {category.titulo.toLocaleUpperCase()}
+              {categoryName?.toLocaleUpperCase()}
             </p>
           </div>
 
           <label className="p-8 md:w-4/6">
             <h2 className="font-[600] text-3xl pb-5">
-              {category.titulo}
+              {categoryName}
             </h2>
             <div className="flex gap-2 flex-col">
-              <p className="font-[600] text-lg">{category.descripcion}</p>
-              <p >{category.descripcion1}</p>
+              <p className="font-[600] text-lg">{categoryDescription}</p>
+              <p>{categoryDescription1}</p>
             </div>
 
           </label>

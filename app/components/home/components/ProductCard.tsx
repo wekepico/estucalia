@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Button } from "../../ui/button"
 import { StaticImport } from "next/dist/shared/lib/get-img-props"
+import { useLanguage } from "@/app/context/LanguageContext"
 
 
 
@@ -13,6 +14,7 @@ interface ProductCardProps {
 
 
 export const ProductCard: React.FC<ProductCardProps> = ({ name, icon, id }) => {
+    const { t } = useLanguage();
 
     return (
         <div 
@@ -36,7 +38,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ name, icon, id }) => {
                 variant="outline"
                 className="  border-none relative pl-5 pr-10 py-4 md:py-5  rounded-none"
               >
-                <span>Ver producto</span>
+                <span>{t('common.viewProduct')}</span>
                 <div className='absolute right-0'>
                   <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
