@@ -6,6 +6,9 @@ import type { Application } from './applicationsService';
 export interface Category {
   id: number;
   slug: string;
+  slug_es: string | null;
+  slug_en: string | null;
+  slug_fr: string | null;
   name_es: string | null;
   name_en: string | null;
   name_fr: string | null;

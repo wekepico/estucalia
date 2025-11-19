@@ -4,6 +4,9 @@ import axiosInstance from './axiosConfig';
 export interface Application {
   id: number;
   slug: string;
+  slug_es: string | null;
+  slug_en: string | null;
+  slug_fr: string | null;
   name_es: string | null;
   name_en: string | null;
   name_fr: string | null;
@@ -27,20 +30,6 @@ export interface Application {
   updated_at: string;
 }
 
-export interface Category {
-  id: number;
-  slug: string;
-  name_es: string | null;
-  name_en: string | null;
-  name_fr: string | null;
-  description_es: string | null;
-  description_en: string | null;
-  description_fr: string | null;
-  image_url: string | null;
-  created_at: string;
-  updated_at: string;
-}
-
 export interface ApplicationsResponse {
   data: Application[];
   meta?: {
@@ -54,8 +43,8 @@ export interface ApplicationResponse {
   data: Application;
 }
 
-export interface CategoriesResponse {
-  data: Category[];
+export interface ApplicationCategoriesResponse {
+  data: import('./categoriesService').Category[];
 }
 
 /**
@@ -95,9 +84,9 @@ export const getApplicationBySlug = async (slug: string): Promise<ApplicationRes
  * @param slug - Identificador único de la aplicación
  * @returns Promise con las categorías de la aplicación
  */
-export const getApplicationCategories = async (slug: string): Promise<CategoriesResponse> => {
+export const getApplicationCategories = async (slug: string): Promise<ApplicationCategoriesResponse> => {
   try {
-    const response = await axiosInstance.get<CategoriesResponse>(`/v1/applications/${slug}/categories`);
+    const response = await axiosInstance.get<ApplicationCategoriesResponse>(`/v1/applications/${slug}/categories`);
     return response.data;
   } catch (error) {
     console.error(`Error fetching categories for application ${slug}:`, error);

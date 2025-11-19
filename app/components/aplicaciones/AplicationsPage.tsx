@@ -54,16 +54,16 @@ export default function AplicationPage({ aplication, backendData }: AplicationPa
       <HeroSection
         category={
           backendData
-            ? aplication?.aplication
+            ? (aplication?.aplication ?? null)
             : (aplication?.aplication ? t(aplication.aplication) : null)
         }
         description={
           backendData
-            ? aplication?.descripcion
+            ? (aplication?.descripcion ?? null)
             : (aplication?.descripcion ? t(aplication.descripcion) : null)
         }
-        products={aplication?.products || null}
-        img={aplication?.img || null}
+        products={aplication?.products ?? null}
+        img={aplication?.img ?? null}
       />
       <InspirationSectionAplication images={inspirationImages} />
       <ProjectHelpSection />

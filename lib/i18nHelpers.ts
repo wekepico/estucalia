@@ -77,3 +77,28 @@ export function getCommonLocalizedFields<T extends Record<string, any>>(
     seo_description: getLocalizedField(obj, 'seo_description', language),
   };
 }
+
+/**
+ * Obtiene el slug localizado según el idioma, con fallback al slug principal
+ * @param obj - Objeto que contiene los campos de slug multilenguaje
+ * @param language - Idioma seleccionado ('es', 'en', 'fr')
+ * @returns El slug del idioma seleccionado, el slug principal o null
+ *
+ * @example
+ * const app = { slug: 'default', slug_es: 'revestimientos', slug_en: 'coatings' };
+ * getLocalizedSlug(app, 'es'); // 'revestimientos'
+ * getLocalizedSlug(app, 'fr'); // 'default' (fallback)
+ */
+export function getLocalizedSlug<T extends Record<string, any>>(
+  obj: T | null | undefined,
+  language: Language
+): string | null {
+  if (!obj) return null;
+
+  // Intentar obtener el slug del idioma específico
+  const localizedSlug = getLocalizedField(obj, 'slug', language);
+  if (localizedSlug) return localizedSlug;
+
+  // Fallback al slug principal
+  return (obj.slug as string) || null;
+}

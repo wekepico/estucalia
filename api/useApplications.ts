@@ -5,7 +5,7 @@ import {
   getApplicationCategories,
   type ApplicationsResponse,
   type ApplicationResponse,
-  type CategoriesResponse,
+  type ApplicationCategoriesResponse,
 } from '@/services/applicationsService';
 
 /**
@@ -53,7 +53,7 @@ export const useApplicationBySlug = (
 export const useApplicationCategories = (
   slug: string,
   enabled: boolean = true
-): UseQueryResult<CategoriesResponse, Error> => {
+): UseQueryResult<ApplicationCategoriesResponse, Error> => {
   return useQuery({
     queryKey: applicationKeys.categories(slug),
     queryFn: () => getApplicationCategories(slug),

@@ -4,6 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, useMemo } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { useApplications } from '@/api/useApplications';
+import { useCategories } from '@/api/useCategories';
+import { getLocalizedField, getLocalizedSlug } from '@/lib/i18nHelpers';
 
 import {
   NavigationMenu,
@@ -34,6 +37,10 @@ export default function ClientNavigation() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [openMobileSubmenus, setOpenMobileSubmenus] = useState<number[]>([]);
   const headerRef = useRef<HTMLElement>(null);
+
+  // Obtener aplicaciones y categorías del backend
+  const { data: applicationsData } = useApplications();
+  const { data: categoriesData } = useCategories();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -77,29 +84,49 @@ export default function ClientNavigation() {
       .replace(/--+/g, '-');
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
-  const submenuItemsAplications = useMemo(() => ({
-    coatings: t("navigation.applications.submenu.coatings"),
-    plasters: t("navigation.applications.submenu.plasters"),
-    masonry: t("navigation.applications.submenu.masonry"),
-    tiles: t("navigation.applications.submenu.tiles"),
-    thermalInsulation: t("navigation.applications.submenu.thermalInsulation"),
-    waterproofing: t("navigation.applications.submenu.waterproofing"),
-    dehumidification: t("navigation.applications.submenu.dehumidification")
-  }), [t, language]);
+  // Generar items de aplicaciones desde el backend
+  const submenuItemsAplications = useMemo(() => {
+    if (!applicationsData?.data) {
+      // Fallback a traducciones locales
+      return [
+        { slug: 'coatings', label: t("navigation.applications.submenu.coatings") },
+        { slug: 'plasters', label: t("navigation.applications.submenu.plasters") },
+        { slug: 'masonry', label: t("navigation.applications.submenu.masonry") },
+        { slug: 'tiles', label: t("navigation.applications.submenu.tiles") },
+        { slug: 'thermalInsulation', label: t("navigation.applications.submenu.thermalInsulation") },
+        { slug: 'waterproofing', label: t("navigation.applications.submenu.waterproofing") },
+        { slug: 'dehumidification', label: t("navigation.applications.submenu.dehumidification") }
+      ];
+    }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
-  const submenuItemsProducts = useMemo(() => ({
-    limeMortar: t("navigation.products.submenu.limeMortar"),
-    tileAdhesive: t("navigation.products.submenu.tileAdhesive"),
-    singleLayerMortar: t("navigation.products.submenu.singleLayerMortar"),
-    stampedMortar: t("navigation.products.submenu.stampedMortar"),
-    groutMortar: t("navigation.products.submenu.groutMortar"),
-    accessoriesAndTools: t("navigation.products.submenu.accessoriesAndTools"),
-    stoneMortar: t("navigation.products.submenu.stoneMortar"),
-    waterProtector: t("navigation.products.submenu.waterProtector"),
-    bondingBridge: t("navigation.products.submenu.bondingBridge")
-  }), [t, language]);
+    return applicationsData.data.map(app => ({
+      slug: getLocalizedSlug(app, language as 'es' | 'en' | 'fr') || app.slug,
+      label: getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr') || app.slug
+    }));
+  }, [applicationsData, language, t]);
+
+  // Generar items de productos desde el backend
+  const submenuItemsProducts = useMemo(() => {
+    if (!categoriesData?.data) {
+      // Fallback a traducciones locales
+      return [
+        { slug: 'limeMortar', label: t("navigation.products.submenu.limeMortar") },
+        { slug: 'tileAdhesive', label: t("navigation.products.submenu.tileAdhesive") },
+        { slug: 'singleLayerMortar', label: t("navigation.products.submenu.singleLayerMortar") },
+        { slug: 'stampedMortar', label: t("navigation.products.submenu.stampedMortar") },
+        { slug: 'groutMortar', label: t("navigation.products.submenu.groutMortar") },
+        { slug: 'accessoriesAndTools', label: t("navigation.products.submenu.accessoriesAndTools") },
+        { slug: 'stoneMortar', label: t("navigation.products.submenu.stoneMortar") },
+        { slug: 'waterProtector', label: t("navigation.products.submenu.waterProtector") },
+        { slug: 'bondingBridge', label: t("navigation.products.submenu.bondingBridge") }
+      ];
+    }
+
+    return categoriesData.data.map(cat => ({
+      slug: getLocalizedSlug(cat, language as 'es' | 'en' | 'fr') || cat.slug,
+      label: getLocalizedField(cat, 'name', language as 'es' | 'en' | 'fr') || cat.slug
+    }));
+  }, [categoriesData, language, t]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
   const submenuItemsSpaces = useMemo(() => ({
@@ -222,17 +249,17 @@ export default function ClientNavigation() {
     {
       href: "/producto",
       label: "navigation.products.label",
-      submenu: Object.entries(submenuItemsProducts).map(([id, label]) => ({
-        label,
-        href: id
+      submenu: submenuItemsProducts.map(item => ({
+        label: item.label,
+        href: item.slug
       }))
     },
     {
       href: "/aplicaciones",
       label: "navigation.applications.label",
-      submenu: Object.entries(submenuItemsAplications).map(([id, label]) => ({
-        label,
-        href: id
+      submenu: submenuItemsAplications.map(item => ({
+        label: item.label,
+        href: item.slug
       }))
     },
     {
@@ -263,7 +290,7 @@ export default function ClientNavigation() {
         { label: t("navigation.professionalsSubmenu.certifications"), href: "certificaciones" },
       ],
     },
-  ], [submenuItemsProducts, submenuItemsAplications, submenuItemsSpaces, t, language]);
+  ], [submenuItemsProducts, submenuItemsAplications, submenuItemsSpaces, t]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
   const companyLinks = useMemo(() => [
