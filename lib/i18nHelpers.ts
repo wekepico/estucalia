@@ -5,6 +5,33 @@
 export type Language = 'es' | 'en' | 'fr';
 
 /**
+ * URL base para las imágenes del backend
+ */
+export const IMAGE_BASE_URL = 'https://www.grupoestucalia.com';
+
+/**
+ * Construye la URL completa de una imagen
+ * @param imagePath - Ruta relativa de la imagen (ej: /img/mortero-cal.svg)
+ * @returns URL completa de la imagen o la ruta original si ya es absoluta
+ *
+ * @example
+ * getImageUrl('/img/mortero-cal.svg'); // 'https://www.grupoestucalia.com/img/mortero-cal.svg'
+ * getImageUrl('https://example.com/img.png'); // 'https://example.com/img.png'
+ * getImageUrl(null); // null
+ */
+export function getImageUrl(imagePath: string | null | undefined): string | null {
+  if (!imagePath) return null;
+
+  // Si ya es una URL absoluta, devolverla tal cual
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+    return imagePath;
+  }
+
+  // Concatenar con la URL base
+  return `${IMAGE_BASE_URL}${imagePath}`;
+}
+
+/**
  * Obtiene el campo del objeto según el idioma seleccionado
  * @param obj - Objeto que contiene los campos multilenguaje
  * @param fieldName - Nombre base del campo (sin el sufijo de idioma)
