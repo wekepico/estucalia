@@ -86,8 +86,8 @@ export default function ClientNavigation() {
 
   // Generar items de aplicaciones desde el backend
   const submenuItemsAplications = useMemo(() => {
-    if (!applicationsData?.data) {
-      // Fallback a traducciones locales
+    if (!applicationsData?.data || applicationsData.data.length === 0) {
+      // Fallback a traducciones locales cuando no hay datos o el array está vacío
       return [
         { slug: 'coatings', label: t("navigation.applications.submenu.coatings") },
         { slug: 'plasters', label: t("navigation.applications.submenu.plasters") },
@@ -107,8 +107,8 @@ export default function ClientNavigation() {
 
   // Generar items de productos desde el backend
   const submenuItemsProducts = useMemo(() => {
-    if (!categoriesData?.data) {
-      // Fallback a traducciones locales
+    if (!categoriesData?.data || categoriesData.data.length === 0) {
+      // Fallback a traducciones locales cuando no hay datos o el array está vacío
       return [
         { slug: 'limeMortar', label: t("navigation.products.submenu.limeMortar") },
         { slug: 'tileAdhesive', label: t("navigation.products.submenu.tileAdhesive") },
@@ -247,7 +247,7 @@ export default function ClientNavigation() {
   // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
   const menuLinks = useMemo(() => [
     {
-      href: "/producto",
+      href: "/categories",
       label: "navigation.products.label",
       submenu: submenuItemsProducts.map(item => ({
         label: item.label,

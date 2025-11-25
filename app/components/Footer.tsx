@@ -53,13 +53,13 @@ export default function Footer() {
             <div className='w-max'>
               <h3 className="font-[600] mb-2">{t('footer.products.title')}</h3>
               <ul className="text-gray-200">
-                <li><Link href="/producto/singleLayerMortar" className="hover:text-white transition-colors">{t('footer.products.monocapa')}</Link></li>
-                <li><Link href="/producto/tileAdhesive" className="hover:text-white transition-colors">{t('footer.products.tileAdhesive')}</Link></li>
-                <li><Link href="/producto/limeMortar" className="hover:text-white transition-colors">{t('footer.products.limeMortar')}</Link></li>
-                <li><Link href="/producto/groutMortar" className="hover:text-white transition-colors">{t('footer.products.multipurposeMortar')}</Link></li>
-                <li><Link href="/producto/stampedMortar" className="hover:text-white transition-colors">{t('footer.products.verticalPrinted')}</Link></li>
-                <li><Link href="/producto/waterProtector" className="hover:text-white transition-colors">{t('footer.products.waterProtector')}</Link></li>
-                <li><Link href="/producto/bondingBridge" className="hover:text-white transition-colors">{t('footer.products.repairMortar')}</Link></li>
+                <li><Link href="/categories/singleLayerMortar" className="hover:text-white transition-colors">{t('footer.products.monocapa')}</Link></li>
+                <li><Link href="/categories/tileAdhesive" className="hover:text-white transition-colors">{t('footer.products.tileAdhesive')}</Link></li>
+                <li><Link href="/categories/limeMortar" className="hover:text-white transition-colors">{t('footer.products.limeMortar')}</Link></li>
+                <li><Link href="/categories/groutMortar" className="hover:text-white transition-colors">{t('footer.products.multipurposeMortar')}</Link></li>
+                <li><Link href="/categories/stampedMortar" className="hover:text-white transition-colors">{t('footer.products.verticalPrinted')}</Link></li>
+                <li><Link href="/categories/waterProtector" className="hover:text-white transition-colors">{t('footer.products.waterProtector')}</Link></li>
+                <li><Link href="/categories/bondingBridge" className="hover:text-white transition-colors">{t('footer.products.repairMortar')}</Link></li>
               </ul>
             </div>
           </div>
