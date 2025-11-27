@@ -78,7 +78,10 @@
     "phone": "Téléphone",
     "address": "Adresse",
     "submit": "Envoyer",
-    "videoNotSupported": "Votre navigateur ne prend pas en charge l'élément vidéo."
+    "videoNotSupported": "Votre navigateur ne prend pas en charge l'élément vidéo.",
+    "back": "Retour",
+    "download": "Télécharger",
+    "viewProduct": "Voir le produit"
   },
   "home": {
     "hero": {
@@ -256,7 +259,18 @@
       "privacyPolicy": "Oui, j'ai lu et j'accepte le traitement de mes données personnelles conformément à la Politique de Confidentialité et aux Mentions Légales d'Estucalia Morteros S.L.",
       "commercialInfo": "Oui, j'autorise la réception électronique d'informations commerciales de Grupo Estucalia.",
       "dataProtection": "Informations de base sur la Protection des Données. Responsable : ESTUCALIA MORTEROS S.L. Finalité du traitement : gérer votre demande/question, envoyer des informations électroniques et assurer un suivi commercial. Légitimation : votre consentement exprès lors de l'envoi de ce formulaire (RGPD 6.1.a), vos données ne seront pas transférées à des tiers et seront conservées pendant un an, sauf obligation légale. Vous pouvez exercer vos droits d'accès, de rectification, de suppression, de portabilité, de limitation et d'opposition, et révoquer votre consentement en contactant :",
-      "submit": "Envoyer"
+      "submit": "Envoyer",
+      "submitting": "Envoi en cours...",
+      "successMessage": "Message envoyé avec succès",
+      "errorMessage": "Erreur lors de l'envoi du message",
+      "validation": {
+        "nameRequired": "Le nom est obligatoire",
+        "phoneRequired": "Le téléphone doit contenir au moins 9 chiffres",
+        "phoneNumbersOnly": "Le téléphone ne doit contenir que des chiffres",
+        "emailInvalid": "Email invalide",
+        "subjectRequired": "Le sujet est obligatoire",
+        "privacyPolicyRequired": "Vous devez accepter la politique de confidentialité"
+      }
     },
     "projectHelp": {
       "title": "Besoin d'aide pour votre projet ?",
@@ -364,7 +378,20 @@
       "commercial": {
         "accept": "Oui, j'autorise la réception électronique d'informations commerciales de Grupo Estucalia."
       },
-      "submit": "Envoyer"
+      "submit": "Envoyer",
+      "submitting": "Envoi en cours...",
+      "successMessage": "Candidature envoyée avec succès",
+      "errorMessage": "Erreur lors de l'envoi de la candidature",
+      "validation": {
+        "nameRequired": "Le nom est obligatoire",
+        "phoneRequired": "Le téléphone doit contenir au moins 9 chiffres",
+        "phoneNumbersOnly": "Le téléphone ne doit contenir que des chiffres",
+        "emailInvalid": "Email invalide",
+        "specialtyRequired": "La spécialité est obligatoire",
+        "messageRequired": "Le message est obligatoire",
+        "cvRequired": "Vous devez joindre votre CV",
+        "privacyPolicyRequired": "Vous devez accepter la politique de confidentialité"
+      }
     }
   },
   "applications": {
@@ -448,7 +475,11 @@
       "address": "Cno Viejo de Fortuna, 40 Matanzas<br />30148, Santomera, Murcie (ESPAGNE)."
     },
     "social": {
-      "title": "SUIVEZ-NOUS"
+      "title": "SUIVEZ-NOUS",
+      "linkedin": "Linkedin",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "youtube": "Youtube"
     }
   },
   "heroSection": {
@@ -682,10 +713,11 @@
   },
   "certifications": {
     "title": "Certifications et documentation",
+    "download": "Télécharger",
     "cards": {
       "morteros": "Déclaration de conformité pour les enduits monocouches",
       "cementos": "Déclaration de conformité pour les colles à carrelage",
-      "dit": "Document d’Aptitude Technique Plus",
+      "dit": "Document d'Aptitude Technique Plus",
       "aenor": "Certificat AENOR",
       "iqnet": "Certificat IQNET",
       "politica": "Politique de qualité"
@@ -822,7 +854,7 @@
     "generalInfo": "Informations générales",
     "documentation": "Documentation",
     "productInfo": "Informations",
-    "action":"Download"
+    "action": "Télécharger"
   },
   "general": {
     "loading": "chargement"

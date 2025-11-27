@@ -43,18 +43,27 @@ const inspirationImages = [
 
 interface AplicationPageProps {
   aplication: Aplication | null;
+  backendData?: any; // Datos del backend si están disponibles
 }
 
-export default function AplicationPage({ aplication }: AplicationPageProps) {
+export default function AplicationPage({ aplication, backendData }: AplicationPageProps) {
   const { t } = useLanguage();
 
   return (
     <React.Fragment>
-      <HeroSection 
-        category={aplication?.aplication ? t(aplication.aplication) : null}
-        description={aplication?.descripcion ? t(aplication.descripcion) : null}
-        products={aplication?.products || null}
-        img={aplication?.img || null}
+      <HeroSection
+        category={
+          backendData
+            ? (aplication?.aplication ?? null)
+            : (aplication?.aplication ? t(aplication.aplication) : null)
+        }
+        description={
+          backendData
+            ? (aplication?.descripcion ?? null)
+            : (aplication?.descripcion ? t(aplication.descripcion) : null)
+        }
+        products={aplication?.products ?? null}
+        img={aplication?.img ?? null}
       />
       <InspirationSectionAplication images={inspirationImages} />
       <ProjectHelpSection />

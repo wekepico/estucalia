@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { useApplications } from '@/api/useApplications';
+import { useCategories } from '@/api/useCategories';
+import { getLocalizedField, getLocalizedSlug } from '@/lib/i18nHelpers';
 
 import {
   NavigationMenu,
@@ -11,7 +14,7 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import DropdownEmpresa from "./ui/DropdownEmpresa";
 import DropdownIdioma from "./ui/DropdownIdioma";
 import { Button } from "./ui/button";
@@ -26,17 +29,18 @@ import MorteroPiedra from '../../public/img/mortero-piedra.svg'
 import MorteroUnion from '../../public/img/mortero puente union.svg'
 
 export default function ClientNavigation() {
-  const { t } = useLanguage();
-  const [mounted, setMounted] = useState(false);
+  const { t, language } = useLanguage();
+  const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [openMobileSubmenus, setOpenMobileSubmenus] = useState<number[]>([]);
   const headerRef = useRef<HTMLElement>(null);
 
-
-
-  const pathname = usePathname();
+  // Obtener aplicaciones y categorías del backend
+  const { data: applicationsData } = useApplications();
+  const { data: categoriesData } = useCategories();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -69,12 +73,8 @@ export default function ClientNavigation() {
   const handleLinkClick = (e: React.MouseEvent<HTMLElement>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
-    window.location.href = href;
+    router.push(href);
   };
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const generateSlug = (text: string) => {
     return text
@@ -84,29 +84,52 @@ export default function ClientNavigation() {
       .replace(/--+/g, '-');
   };
 
-  const submenuItemsAplications = {
-    coatings: t("navigation.applications.submenu.coatings"),
-    plasters: t("navigation.applications.submenu.plasters"),
-    masonry: t("navigation.applications.submenu.masonry"),
-    tiles: t("navigation.applications.submenu.tiles"),
-    thermalInsulation: t("navigation.applications.submenu.thermalInsulation"),
-    waterproofing: t("navigation.applications.submenu.waterproofing"),
-    dehumidification: t("navigation.applications.submenu.dehumidification")
-  };
+  // Generar items de aplicaciones desde el backend
+  const submenuItemsAplications = useMemo(() => {
+    if (!applicationsData?.data || applicationsData.data.length === 0) {
+      // Fallback a traducciones locales cuando no hay datos o el array está vacío
+      return [
+        { slug: 'coatings', label: t("navigation.applications.submenu.coatings") },
+        { slug: 'plasters', label: t("navigation.applications.submenu.plasters") },
+        { slug: 'masonry', label: t("navigation.applications.submenu.masonry") },
+        { slug: 'tiles', label: t("navigation.applications.submenu.tiles") },
+        { slug: 'thermalInsulation', label: t("navigation.applications.submenu.thermalInsulation") },
+        { slug: 'waterproofing', label: t("navigation.applications.submenu.waterproofing") },
+        { slug: 'dehumidification', label: t("navigation.applications.submenu.dehumidification") }
+      ];
+    }
 
-  const submenuItemsProducts = {
-    limeMortar: t("navigation.products.submenu.limeMortar"),
-    tileAdhesive: t("navigation.products.submenu.tileAdhesive"),
-    singleLayerMortar: t("navigation.products.submenu.singleLayerMortar"),
-    stampedMortar: t("navigation.products.submenu.stampedMortar"),
-    groutMortar: t("navigation.products.submenu.groutMortar"),
-    accessoriesAndTools: t("navigation.products.submenu.accessoriesAndTools"),
-    stoneMortar: t("navigation.products.submenu.stoneMortar"),
-    waterProtector: t("navigation.products.submenu.waterProtector"),
-    bondingBridge: t("navigation.products.submenu.bondingBridge")
-  };
+    return applicationsData.data.map(app => ({
+      slug: getLocalizedSlug(app, language as 'es' | 'en' | 'fr') || app.slug,
+      label: getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr') || app.slug
+    }));
+  }, [applicationsData, language, t]);
 
-  const submenuItemsSpaces = {
+  // Generar items de productos desde el backend
+  const submenuItemsProducts = useMemo(() => {
+    if (!categoriesData?.data || categoriesData.data.length === 0) {
+      // Fallback a traducciones locales cuando no hay datos o el array está vacío
+      return [
+        { slug: 'limeMortar', label: t("navigation.products.submenu.limeMortar") },
+        { slug: 'tileAdhesive', label: t("navigation.products.submenu.tileAdhesive") },
+        { slug: 'singleLayerMortar', label: t("navigation.products.submenu.singleLayerMortar") },
+        { slug: 'stampedMortar', label: t("navigation.products.submenu.stampedMortar") },
+        { slug: 'groutMortar', label: t("navigation.products.submenu.groutMortar") },
+        { slug: 'accessoriesAndTools', label: t("navigation.products.submenu.accessoriesAndTools") },
+        { slug: 'stoneMortar', label: t("navigation.products.submenu.stoneMortar") },
+        { slug: 'waterProtector', label: t("navigation.products.submenu.waterProtector") },
+        { slug: 'bondingBridge', label: t("navigation.products.submenu.bondingBridge") }
+      ];
+    }
+
+    return categoriesData.data.map(cat => ({
+      slug: getLocalizedSlug(cat, language as 'es' | 'en' | 'fr') || cat.slug,
+      label: getLocalizedField(cat, 'name', language as 'es' | 'en' | 'fr') || cat.slug
+    }));
+  }, [categoriesData, language, t]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
+  const submenuItemsSpaces = useMemo(() => ({
     facades: t("navigation.spaces.submenu.facades"),
     terraces: t("navigation.spaces.submenu.terraces"),
     balconies: t("navigation.spaces.submenu.balconies"),
@@ -115,7 +138,7 @@ export default function ClientNavigation() {
     floors: t("navigation.spaces.submenu.floors"),
     kitchens: t("navigation.spaces.submenu.kitchens"),
     pools: t("navigation.spaces.submenu.pools")
-  };
+  }), [t, language]);
 
 
   const productsIcon = [
@@ -221,21 +244,22 @@ export default function ClientNavigation() {
     },
   ];
 
-  const menuLinks = [
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
+  const menuLinks = useMemo(() => [
     {
-      href: "/producto",
+      href: "/categories",
       label: "navigation.products.label",
-      submenu: Object.entries(submenuItemsProducts).map(([id, label]) => ({
-        label,
-        href: id
+      submenu: submenuItemsProducts.map(item => ({
+        label: item.label,
+        href: item.slug
       }))
     },
     {
       href: "/aplicaciones",
       label: "navigation.applications.label",
-      submenu: Object.entries(submenuItemsAplications).map(([id, label]) => ({
-        label,
-        href: id
+      submenu: submenuItemsAplications.map(item => ({
+        label: item.label,
+        href: item.slug
       }))
     },
     {
@@ -266,18 +290,15 @@ export default function ClientNavigation() {
         { label: t("navigation.professionalsSubmenu.certifications"), href: "certificaciones" },
       ],
     },
-  ];
+  ], [submenuItemsProducts, submenuItemsAplications, submenuItemsSpaces, t]);
 
-  const companyLinks = [
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
+  const companyLinks = useMemo(() => [
     { href: "/empresa", label: t("navigation.about") },
     { href: "/trabaja-con-nosotros", label: t("navigation.workWithUs") },
     { href: "/blog", label: t("navigation.blog") },
     { href: "/contacto", label: t("navigation.contact") },
-  ];
-
-  if (!mounted) {
-    return null;
-  }
+  ], [t, language]);
 
   return (
     <>

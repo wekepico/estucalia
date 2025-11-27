@@ -181,7 +181,7 @@ export default function SolutionsSection() {
             {products.map((product, index) => (
               <div key={index} 
                 className="flex items-center gap-2 cursor-pointer"
-                onClick={()=>window.location.href = "/producto/" + product.id}
+                onClick={()=>window.location.href = "/categories/" + product.id}
               >
                 <div className="flex-shrink-0">
                   {product.icon}

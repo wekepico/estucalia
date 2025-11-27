@@ -77,7 +77,10 @@
     "phone": "Teléfono",
     "address": "Dirección",
     "submit": "Enviar",
-    "videoNotSupported": "Tu navegador no soporta el elemento de video."
+    "videoNotSupported": "Tu navegador no soporta el elemento de video.",
+    "back": "Volver",
+    "download": "Descargar",
+    "viewProduct": "Ver producto"
   },
   "home": {
     "hero": {
@@ -460,7 +463,11 @@
       "address": "Cno Viejo de Fortuna, 40 Matanzas<br />30148, Santomera, Murcia (ESPAÑA)."
     },
     "social": {
-      "title": "SÍGUENOS"
+      "title": "SÍGUENOS",
+      "linkedin": "Linkedin",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "youtube": "Youtube"
     }
   },
   "heroSection": {
@@ -694,6 +701,7 @@
   },
   "certifications": {
     "title": "Certificaciones y documentación",
+    "download": "Descargar",
     "cards": {
       "morteros": "Declaración conformidad morteros monocapa",
       "cementos": "Declaración conformidad cementos cola",

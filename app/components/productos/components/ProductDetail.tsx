@@ -55,7 +55,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                                             rel="noopener noreferrer"
                                             className="flex gap-1 items-center"
                                         >
-                                            {doc.accion || "Descargar"}
+                                            {doc.accion || t('common.download')}
                                             <svg
                                                 className={`w-5 h-5 transition-all rotate-90`}
                                                 fill="none"
@@ -196,7 +196,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                                     rel="noopener noreferrer"
                                     className="flex gap-1 items-center hover:underline active:text-blue-400 hover:text-blue-600"
                                 >
-                                    {doc.accion || "Descargar"}
+                                    {doc.accion || t('common.download')}
                                     <svg
                                         className={`w-5 h-5 transition-all rotate-90`}
                                         fill="none"

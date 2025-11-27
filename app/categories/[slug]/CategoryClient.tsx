@@ -4,25 +4,25 @@ import { useLanguage } from "@/app/context/LanguageContext";
 import { Loader } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, useMemo } from "react";
-import data from "../../components/productos/components/data-es.json";
-import data2 from "../../components/productos/components/data-en.json";
-import data3 from "../../components/productos/components/data-fr.json";
+import data from "@/app/components/productos/components/data-es.json";
+import data2 from "@/app/components/productos/components/data-en.json";
+import data3 from "@/app/components/productos/components/data-fr.json";
 import { useCategoryBySlug, useCategoryProducts } from '@/api/useCategories';
 import { getLocalizedField } from '@/lib/i18nHelpers';
 import type { Category } from '@/services/categoriesService';
 
-export default function ProductClient() {
+export default function CategoryClient() {
     const pathname = usePathname();
     const { t, language } = useLanguage();
     const [mounted, setMounted] = useState(false);
     const [categorySlug, setCategorySlug] = useState<string>("");
 
-    // Obtenemos el ID de la categoría de la URL
+    // Obtenemos el slug de la categoría de la URL
     useEffect(() => {
         setMounted(true);
-        const idEncoded = pathname.split("/").pop();
-        const categoryId = decodeURIComponent(idEncoded || "");
-        setCategorySlug(categoryId);
+        const slugEncoded = pathname.split("/").pop();
+        const categorySlugValue = decodeURIComponent(slugEncoded || "");
+        setCategorySlug(categorySlugValue);
     }, [pathname]);
 
     // Consumir datos del backend
@@ -43,18 +43,45 @@ export default function ProductClient() {
 
         const cat: Category = backendCategoryData.data;
 
+        // Obtener nombre localizado o fallback
+        const nombre = getLocalizedField(cat, 'name', language as 'es' | 'en' | 'fr') || 
+                      (language === 'es' ? cat.name_es : language === 'en' ? cat.name_en : cat.name_fr) || 
+                      '';
+        
+        // Obtener descripción localizada
+        const descripcion = getLocalizedField(cat, 'description', language as 'es' | 'en' | 'fr') || 
+                           (language === 'es' ? cat.description_es : language === 'en' ? cat.description_en : cat.description_fr) || 
+                           '';
+        
+        // Obtener descripción corta localizada
+        const descripcionCorta = getLocalizedField(cat, 'short_description', language as 'es' | 'en' | 'fr') || 
+                                (language === 'es' ? cat.short_description_es : language === 'en' ? cat.short_description_en : cat.short_description_fr) || 
+                                '';
+
+        // Mapear productos - usar backendProductsData si está disponible
+        const productos = backendProductsData?.data?.map(prod => {
+            const prodNombre = getLocalizedField(prod, 'name', language as 'es' | 'en' | 'fr') || 
+                              (language === 'es' ? prod.name_es : language === 'en' ? prod.name_en : prod.name_fr) || 
+                              prod.name || 
+                              '';
+            const prodDescripcion = getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') || 
+                                  (language === 'es' ? prod.description_es : language === 'en' ? prod.description_en : prod.description_fr) || 
+                                  '';
+            return {
+                id: prod.slug,
+                nombre: prodNombre,
+                descripcion: prodDescripcion,
+                imagen: prod.image_url || '/img/default.jpg',
+            };
+        }) || [];
+
         return {
             id: cat.slug,
-            nombre: getLocalizedField(cat, 'name', language as 'es' | 'en' | 'fr') || '',
-            descripcion: getLocalizedField(cat, 'description', language as 'es' | 'en' | 'fr') || '',
-            descripcionCorta: getLocalizedField(cat, 'short_description', language as 'es' | 'en' | 'fr') || '',
+            nombre: nombre,
+            descripcion: descripcion,
+            descripcionCorta: descripcionCorta,
             imagen: cat.image_url || '/img/default.jpg',
-            productos: backendProductsData?.data?.map(prod => ({
-                id: prod.slug,
-                nombre: getLocalizedField(prod, 'name', language as 'es' | 'en' | 'fr') || '',
-                descripcion: getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') || '',
-                imagen: prod.image_url || '/img/default.jpg',
-            })) || []
+            productos: productos
         };
     }, [backendCategoryData, backendProductsData, language]);
 
@@ -88,4 +115,5 @@ export default function ProductClient() {
     }
 
     return <ProductCategoryPage category={foundCategory} backendData={categoryFromBackend} />;
-} 
+}
+
