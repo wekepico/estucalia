@@ -45,6 +45,9 @@ export default function AplicationClient() {
             aplication: getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr') || '',
             descripcion: getLocalizedField(app, 'description', language as 'es' | 'en' | 'fr') || '',
             img: app.image_url || '/img/default.jpg',
+            // Campos de alt y title de imagen del backend (preparado para cuando el backend envíe datos)
+            image_alt: app.image_alt_es || app.image_alt_en || app.image_alt_fr || app.image_alt || null,
+            image_title: app.image_title_es || app.image_title_en || app.image_title_fr || app.image_title || null,
             products: [] // Los productos se pueden mapear si vienen en la respuesta
         };
     }, [backendData, language]);

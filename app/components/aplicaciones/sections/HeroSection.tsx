@@ -15,10 +15,16 @@ interface HeroSectionProps {
     img: string | null;
     description: string | null;
     products: Product[] | null;
+    imageAlt?: string | null;
+    imageTitle?: string | null;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ description, category, products, img, }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ description, category, products, img, imageAlt, imageTitle }) => {
     const { t } = useLanguage();
+    
+    // Usar alt y title del backend si están disponibles, sino usar category como fallback
+    const imgAlt = imageAlt || category || "";
+    const imgTitle = imageTitle || category || "";
     return (
         <div className="flex flex-col gap-16 md:gap-28 px-5 pt-16 sm:px-10 md:px-15 lg:px-20">
             {/* Contenedor principal */}
@@ -37,7 +43,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ description, category,
                 <div className="relative w-full md:w-[57%] h-64 md:h-auto bg-slate-500">
                     <Image
                         src={img || ""}
-                        alt={category || ""}
+                        alt={imgAlt}
+                        title={imgTitle}
                         fill
                         sizes="(max-width: 768px) 100vw, 50vw"
                         priority

@@ -68,6 +68,9 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
   const categoryImage = backendData ? (category?.imagen || '/img/default.jpg') : (category?.imagen || '/img/default.jpg');
   const categoryDescription = backendData ? (category?.descripcion || '') : (category?.descripcion || '');
   const categoryDescription1 = backendData ? (category?.descripcionCorta || '') : (category?.descripcion1 || '');
+  // Obtener alt y title de la imagen del backend, con fallback al nombre
+  const categoryImageAlt = backendData ? (category?.image_alt || categoryName) : categoryName;
+  const categoryImageTitle = backendData ? (category?.image_title || categoryName) : categoryName;
 
   // Asegurar que productos existe y es un array
   const productos = category?.productos || [];
@@ -107,7 +110,8 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
           <div className="md:w-2/6  h-[28rem] flex text-center items-center gap-3 flex-col justify-center bg-[#EAEAEA]">
             <Image
               src={categoryImage}
-              alt={categoryName}
+              alt={categoryImageAlt}
+              title={categoryImageTitle}
               width={150}
               height={150}
             />

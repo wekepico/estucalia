@@ -55,11 +55,35 @@ export default function ProductClient() {
             descripcion: getLocalizedField(cat, 'description', language as 'es' | 'en' | 'fr') || '',
             descripcionCorta: getLocalizedField(cat, 'short_description', language as 'es' | 'en' | 'fr') || '',
             imagen: cat.image_url || '/img/default.jpg',
+            // Campos de alt y title de imagen del backend (vienen como strings simples)
+            image_alt: cat.image_alt_es || cat.image_alt_en || cat.image_alt_fr || cat.image_alt || null,
+            image_title: cat.image_title_es || cat.image_title_en || cat.image_title_fr || cat.image_title || null,
             productos: backendProductsData?.data?.map(prod => ({
                 id: prod.slug,
                 nombre: getLocalizedField(prod, 'name', language as 'es' | 'en' | 'fr') || '',
                 descripcion: getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') || '',
                 imagen: prod.image_url || '/img/default.jpg',
+                // Campos de alt y title de imágenes del backend
+                image_alt_es: prod.image_alt_es || null,
+                image_alt_en: prod.image_alt_en || null,
+                image_alt_fr: prod.image_alt_fr || null,
+                image_title_es: prod.image_title_es || null,
+                image_title_en: prod.image_title_en || null,
+                image_title_fr: prod.image_title_fr || null,
+                // Campos adicionales del producto del backend
+                subtitulo: prod.subtitle || null,
+                composicion: getLocalizedField(prod, 'composition', language as 'es' | 'en' | 'fr') || null,
+                caracteristicas: getLocalizedField(prod, 'features', language as 'es' | 'en' | 'fr')?.split('\n').filter(f => f.trim()) || null,
+                recomendaciones: getLocalizedField(prod, 'recommendations', language as 'es' | 'en' | 'fr')?.split('\n').filter(f => f.trim()) || null,
+                precauciones: getLocalizedField(prod, 'carriers', language as 'es' | 'en' | 'fr')?.split('\n').filter(f => f.trim()) || null,
+                informacion_relevante: getLocalizedField(prod, 'relevant_info', language as 'es' | 'en' | 'fr')?.split('\n').filter(f => f.trim()) || null,
+                informacion_general: getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') || null,
+                aplicacion: getLocalizedField(prod, 'features', language as 'es' | 'en' | 'fr')?.split('\n').filter(f => f.trim()) || null,
+                documentacion: prod.documents?.map((doc: any) => ({
+                    nombre: doc.name || '',
+                    accion: t('common.download') || 'Descargar',
+                    enlace: doc.file_path || '',
+                })) || [],
             })) || []
         };
     }, [backendCategoryData, backendProductsData, language]);
