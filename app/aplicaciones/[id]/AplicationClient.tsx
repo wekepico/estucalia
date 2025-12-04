@@ -1,19 +1,22 @@
 "use client";
-import { usePathname } from "next/navigation";
-import { useEffect, useState, useMemo } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { useLanguage } from '@/app/context/LanguageContext';
 import { data, Aplication } from '../../data/aplicaciones';
 import AplicationPage from '../../components/aplicaciones/AplicationsPage';
 import { Loader } from "lucide-react";
-import { useApplicationBySlug } from '@/api/useApplications';
-import { getLocalizedField } from '@/lib/i18nHelpers';
+import { useApplicationBySlug, useApplications } from '@/api/useApplications';
+import { getLocalizedField, getLocalizedSlug } from '@/lib/i18nHelpers';
 import type { Application } from '@/services/applicationsService';
 
 export default function AplicationClient() {
     const { t, language } = useLanguage();
     const pathname = usePathname();
+    const router = useRouter();
     const [mounted, setMounted] = useState(false);
     const [applicationSlug, setApplicationSlug] = useState<string>("");
+    const previousLanguageRef = useRef<typeof language | null>(null);
+    const isFirstRenderRef = useRef(true);
 
     // Obtener el slug de la URL
     useEffect(() => {
@@ -27,6 +30,9 @@ export default function AplicationClient() {
         applicationSlug,
         mounted && !!applicationSlug
     );
+
+    // Obtener todas las aplicaciones para encontrar la que coincide con el slug actual
+    const { data: allApplicationsData } = useApplications();
 
     // Convertir datos del backend al formato esperado por el componente
     const applicationFromBackend = useMemo(() => {
@@ -50,6 +56,64 @@ export default function AplicationClient() {
 
     // Determinar qué datos usar: backend si están disponibles, sino locales
     const application = applicationFromBackend || localApplication;
+
+    // Detectar cambio de idioma y redirigir al slug correspondiente
+    useEffect(() => {
+        // Saltar el primer render para evitar redirecciones innecesarias
+        if (isFirstRenderRef.current) {
+            isFirstRenderRef.current = false;
+            previousLanguageRef.current = language;
+            return;
+        }
+
+        // Solo redirigir si el idioma cambió y tenemos datos de la aplicación
+        if (mounted && previousLanguageRef.current !== language && !isLoading) {
+            // Buscar la aplicación que coincide con el slug actual en todas las aplicaciones
+            let matchingApplication: Application | null = null;
+            
+            if (allApplicationsData?.data) {
+                matchingApplication = allApplicationsData.data.find((app: Application) => 
+                    app.slug === applicationSlug ||
+                    app.slug_es === applicationSlug ||
+                    app.slug_en === applicationSlug ||
+                    app.slug_fr === applicationSlug
+                ) || null;
+            }
+            
+            // Si no encontramos en todas las aplicaciones, usar la aplicación del backend
+            if (!matchingApplication && backendData?.data) {
+                matchingApplication = backendData.data;
+            }
+            
+            if (matchingApplication) {
+                // Obtener el slug para el nuevo idioma directamente
+                let newSlug: string | null = null;
+                
+                // Intentar obtener el slug específico del idioma
+                if (language === 'es' && matchingApplication.slug_es) {
+                    newSlug = matchingApplication.slug_es;
+                } else if (language === 'en' && matchingApplication.slug_en) {
+                    newSlug = matchingApplication.slug_en;
+                } else if (language === 'fr' && matchingApplication.slug_fr) {
+                    newSlug = matchingApplication.slug_fr;
+                }
+                
+                // Si no hay slug específico, usar el slug principal como fallback
+                if (!newSlug) {
+                    newSlug = matchingApplication.slug;
+                }
+
+                // Solo redirigir si el nuevo slug es diferente al actual
+                if (newSlug && newSlug !== applicationSlug) {
+                    router.replace(`/aplicaciones/${encodeURIComponent(newSlug)}`);
+                    return;
+                }
+            }
+        }
+
+        // Actualizar la referencia del idioma anterior solo si no hubo redirección
+        previousLanguageRef.current = language;
+    }, [language, mounted, backendData, allApplicationsData, localApplication, applicationSlug, router, isLoading]);
 
     if (!mounted || isLoading) {
         return (

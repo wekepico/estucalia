@@ -2,20 +2,23 @@
 import ProductCategoryPage from "@/app/components/productos/ProductoPage";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { Loader } from "lucide-react";
-import { usePathname } from "next/navigation";
-import { useEffect, useState, useMemo } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState, useMemo, useRef } from "react";
 import data from "../../components/productos/components/data-es.json";
 import data2 from "../../components/productos/components/data-en.json";
 import data3 from "../../components/productos/components/data-fr.json";
-import { useCategoryBySlug, useCategoryProducts } from '@/api/useCategories';
-import { getLocalizedField } from '@/lib/i18nHelpers';
+import { useCategoryBySlug, useCategoryProducts, useCategories } from '@/api/useCategories';
+import { getLocalizedField, getLocalizedSlug } from '@/lib/i18nHelpers';
 import type { Category } from '@/services/categoriesService';
 
 export default function ProductClient() {
     const pathname = usePathname();
+    const router = useRouter();
     const { t, language } = useLanguage();
     const [mounted, setMounted] = useState(false);
     const [categorySlug, setCategorySlug] = useState<string>("");
+    const previousLanguageRef = useRef<typeof language | null>(null);
+    const isFirstRenderRef = useRef(true);
 
     // Obtenemos el ID de la categoría de la URL
     useEffect(() => {
@@ -30,6 +33,9 @@ export default function ProductClient() {
         categorySlug,
         mounted && !!categorySlug
     );
+
+    // Obtener todas las categorías para encontrar la que coincide con el slug actual
+    const { data: allCategoriesData } = useCategories();
 
     // Obtener productos de la categoría del backend
     const { data: backendProductsData } = useCategoryProducts(
@@ -68,6 +74,77 @@ export default function ProductClient() {
 
     // Determinar qué datos usar: backend si están disponibles, sino locales
     const foundCategory = categoryFromBackend || localCategory;
+
+    // Detectar cambio de idioma y redirigir al slug correspondiente
+    useEffect(() => {
+        // Saltar el primer render para evitar redirecciones innecesarias
+        if (isFirstRenderRef.current) {
+            isFirstRenderRef.current = false;
+            previousLanguageRef.current = language;
+            return;
+        }
+
+        // Solo redirigir si el idioma cambió y tenemos datos de la categoría
+        if (mounted && previousLanguageRef.current !== language && !isLoading) {
+            // Buscar la categoría que coincide con el slug actual en todas las categorías
+            let matchingCategory: Category | null = null;
+            
+            if (allCategoriesData?.data) {
+                matchingCategory = allCategoriesData.data.find((cat: Category) => 
+                    cat.slug === categorySlug ||
+                    cat.slug_es === categorySlug ||
+                    cat.slug_en === categorySlug ||
+                    cat.slug_fr === categorySlug
+                ) || null;
+            }
+            
+            // Si no encontramos en todas las categorías, usar la categoría del backend
+            if (!matchingCategory && backendCategoryData?.data) {
+                matchingCategory = backendCategoryData.data;
+            }
+            
+            if (matchingCategory) {
+                // Obtener el slug para el nuevo idioma directamente
+                let newSlug: string | null = null;
+                
+                // Intentar obtener el slug específico del idioma
+                if (language === 'es' && matchingCategory.slug_es) {
+                    newSlug = matchingCategory.slug_es;
+                } else if (language === 'en' && matchingCategory.slug_en) {
+                    newSlug = matchingCategory.slug_en;
+                } else if (language === 'fr' && matchingCategory.slug_fr) {
+                    newSlug = matchingCategory.slug_fr;
+                }
+                
+                // Si no hay slug específico, usar el slug principal como fallback
+                if (!newSlug) {
+                    newSlug = matchingCategory.slug;
+                }
+
+                // Solo redirigir si el nuevo slug es diferente al actual
+                if (newSlug && newSlug !== categorySlug) {
+                    router.replace(`/producto/${encodeURIComponent(newSlug)}`);
+                    return;
+                }
+            }
+        } else if (mounted && previousLanguageRef.current !== language && !isLoading && localCategory) {
+            // Fallback para datos locales
+            const currentData = language === "es" ? data : language === "en" ? data2 : data3;
+            const categoryInNewLanguage = currentData.categorias.find(
+                (cat: any) => {
+                    return cat.id.toLowerCase() === categorySlug.toLowerCase() ||
+                           cat.id.toLowerCase() === localCategory.id.toLowerCase();
+                }
+            );
+            if (categoryInNewLanguage && categoryInNewLanguage.id !== categorySlug) {
+                router.replace(`/producto/${encodeURIComponent(categoryInNewLanguage.id)}`);
+                return;
+            }
+        }
+
+        // Actualizar la referencia del idioma anterior solo si no hubo redirección
+        previousLanguageRef.current = language;
+    }, [language, mounted, backendCategoryData, allCategoriesData, localCategory, categorySlug, router, isLoading]);
 
     if (!mounted || isLoading) {
         return (
