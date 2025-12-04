@@ -62,14 +62,22 @@ export default function ConsultingSection() {
   const consultingText = getConsultingText();
   const consultingCTA = getConsultingCTA();
 
+  // Obtener imagen del backend o usar fallback local
+  const consultingBgImage = empresaData?.consulting_bg_image || "/img/asesoramiento.jpg";
+  const consultingBgImageAlt = empresaData?.consulting_bg_image_alt || t('company.consulting.title');
+  const consultingBgImageTitle = empresaData?.consulting_bg_image_title || undefined;
+
   return (
     <section className="relative min-h-[600px] flex items-center">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center sm:bg-fixed"
         style={{
-          backgroundImage: `url(/img/asesoramiento.jpg)`,
+          backgroundImage: `url(${consultingBgImage})`,
         }}
+        role="img"
+        aria-label={consultingBgImageAlt}
+        title={consultingBgImageTitle}
       >
         <div className="absolute inset-0 bg-black/50" />
       </div>

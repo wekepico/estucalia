@@ -70,14 +70,23 @@ export default function ProjectHelpSection() {
   const description = getDescription();
   const buttonText = getButtonText();
 
+  // Obtener imagen del backend o usar fallback local
+  // Nota: cta_help_image_url, cta_help_image_alt y cta_help_image_title son strings simples (sin localización)
+  const imageUrl = homeData?.cta_help_image_url || '/img/helper.jpg';
+  const imageAlt = homeData?.cta_help_image_alt || t('contact.projectHelp.imageAlt');
+  const imageTitle = homeData?.cta_help_image_title || undefined;
+
   return (
     <section className="relative min-h-[500px] flex items-center">
       {/* Fondo con imagen */}
       <div
         className="absolute inset-0 bg-cover bg-top "
         style={{
-          backgroundImage: "url('/img/helper.jpg')"
+          backgroundImage: `url('${imageUrl}')`
         }}
+        role="img"
+        aria-label={imageAlt}
+        title={imageTitle}
       >
         <div className="absolute inset-0 bg-black/30" />
       </div>
