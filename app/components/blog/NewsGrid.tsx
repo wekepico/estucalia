@@ -60,13 +60,23 @@ export default function NewsGrid() {
               </CardHeader>
               <CardContent className="px-0 space-y-4">
                 <div className="flex items-center gap-4 text-sm">
-                  <span className="text-gray-400">{blog.date}</span>
+                  <span className="text-gray-400">
+                    {blog.created_at 
+                      ? new Date(blog.created_at).toLocaleDateString('es-ES', {
+                          day: 'numeric',
+                          month: 'long',
+                          year: 'numeric'
+                        })
+                      : ''}
+                  </span>
                 </div>
                 <h2 className="text-xl md:text-2xl font-medium group-hover:text-gray-600 transition-colors duration-300">
                   {blog.title}
                 </h2>
                 <p className="text-gray-600 line-clamp-3">
-                  {blog.excerpt}
+                  {blog.excerpt || (blog.description 
+                    ? blog.description.substring(0, 150) + (blog.description.length > 150 ? '...' : '')
+                    : '')}
                 </p>
                 <Button 
                   onClick={() => handleViewNews(blog.slug)}
