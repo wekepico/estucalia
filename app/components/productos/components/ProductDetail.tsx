@@ -3,7 +3,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { undefined } from "zod";
+import { getLocalizedField } from "@/lib/i18nHelpers";
 
 interface IDocumento {
     nombre: string;
@@ -24,6 +24,20 @@ interface IProducto {
     informacion_general?: string;
     aplicacion?: string[]; // If you use an array of strings
     documentacion?: IDocumento[];
+    // Campos del backend para alt y title de imágenes
+    image_alt_es?: string | null;
+    image_alt_en?: string | null;
+    image_alt_fr?: string | null;
+    image_title_es?: string | null;
+    image_title_en?: string | null;
+    image_title_fr?: string | null;
+    // Campos para imagen2 (si el backend los envía)
+    image2_alt_es?: string | null;
+    image2_alt_en?: string | null;
+    image2_alt_fr?: string | null;
+    image2_title_es?: string | null;
+    image2_title_en?: string | null;
+    image2_title_fr?: string | null;
 }
 
 interface ProductDetailProps {
@@ -32,7 +46,13 @@ interface ProductDetailProps {
 
 
 export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
+    
+    // Obtener alt y title del backend según el idioma actual, con fallback al nombre
+    const imageAlt = getLocalizedField(product, 'image_alt', language) || product.nombre;
+    const imageTitle = getLocalizedField(product, 'image_title', language) || product.nombre;
+    const image2Alt = getLocalizedField(product, 'image2_alt', language) || product.nombre;
+    const image2Title = getLocalizedField(product, 'image2_title', language) || product.nombre;
 
 
     if (product.nombre === "MOLDES CENEFAS RODILLOS" || product.nombre === "HERRAMIENTAS") {
@@ -166,7 +186,8 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                     <section className={`flex ${product.nombre === "MALLA REFUERZO" || product.nombre === "REINFORCEMENT MESH" || product.nombre === "MALLA DE REFUERZO" || product.nombre.includes("PVC") ? "ml-6" : ""}`}>
                         <Image
                             src={product.imagen || "/images/no-image.png"}
-                            alt={product.nombre}
+                            alt={imageAlt}
+                            title={imageTitle}
                             width={180}
                             height={180}
                             style={{ height: 'auto' }}
@@ -175,7 +196,8 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                             product.imagen2 &&
                             <Image
                                 src={product.imagen2 || "/images/no-image.png"}
-                                alt={product.nombre}
+                                alt={image2Alt}
+                                title={image2Title}
                                 width={180}
                                 height={180}
                                 style={{ height: 'auto' }}

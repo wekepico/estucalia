@@ -48,14 +48,22 @@ export default function InternationalSection() {
   const internationalTitle = getInternationalTitle();
   const internationalText = getInternationalText();
 
+  // Obtener imagen del backend o usar fallback local
+  const internationalImage = empresaData?.international_image || "img/internacionales.jpg";
+  const internationalImageAlt = empresaData?.international_image_alt || t('company.international.title');
+  const internationalImageTitle = empresaData?.international_image_title || undefined;
+
   return (
     <section className="relative min-h-[1100px]  flex items-center">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center sm:bg-fixed"
         style={{
-          backgroundImage: "url('img/internacionales.jpg')"
+          backgroundImage: `url('${internationalImage}')`
         }}
+        role="img"
+        aria-label={internationalImageAlt}
+        title={internationalImageTitle}
       >
 
       </div>

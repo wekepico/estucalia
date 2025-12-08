@@ -97,8 +97,9 @@ export default function AboutSection() {
             <div className="relative">
               <div className="relative  aspect-square">
                 <Image
-                  src={Creatividad}
-                  alt={t('company.about.imageAlt')}
+                  src={empresaData?.about_illustration || Creatividad}
+                  alt={empresaData?.about_illustration_alt || t('company.about.imageAlt')}
+                  title={empresaData?.about_illustration_title || undefined}
                   fill
                   className="object-contain"
                   priority

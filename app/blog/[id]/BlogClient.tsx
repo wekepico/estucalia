@@ -11,10 +11,13 @@ export interface Noticia {
   description: string;
   created_at?: string;
   photo?: string;
+  // Nota: El backend NO envía photo_alt ni photo_title, usamos title como fallback
 }
 
 export default function BlogClient() {
-  const { id } = useParams();                 // ← aquí
+  // Nota: El parámetro 'id' de la ruta contiene el SLUG, no el ID numérico
+  // Esto es porque en page.tsx se mapea: id: post.slug
+  const { id } = useParams();
   const [noticia, setNoticia] = useState<Noticia | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -23,6 +26,7 @@ export default function BlogClient() {
     if (!id) return;
     (async () => {
       try {
+        // El backend espera el slug en la URL: /api/blog/{slug}
         const res = await fetch(
           `https://apiestucalia.innet.es/api/blog/${id}`
         );
@@ -70,6 +74,7 @@ export default function BlogClient() {
         description={noticia.description}
         date={noticia.created_at}
         imageUrl={noticia.photo}
+        // El backend NO envía alt/title, NewsDetail usará title como fallback
       />
     </main>
   );

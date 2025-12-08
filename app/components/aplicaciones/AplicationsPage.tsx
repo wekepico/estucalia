@@ -64,6 +64,8 @@ export default function AplicationPage({ aplication, backendData }: AplicationPa
         }
         products={aplication?.products ?? null}
         img={aplication?.img ?? null}
+        imageAlt={backendData ? (aplication?.image_alt || aplication?.aplication) : (aplication?.aplication ? t(aplication.aplication) : null)}
+        imageTitle={backendData ? (aplication?.image_title || aplication?.aplication) : (aplication?.aplication ? t(aplication.aplication) : null)}
       />
       <InspirationSectionAplication images={inspirationImages} />
       <ProjectHelpSection />

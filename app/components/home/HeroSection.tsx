@@ -31,6 +31,43 @@ export default function HeroSection() {
 
   const description = getDescription();
 
+  // Obtener imagen del backend o usar fallback local
+  // Nota: first_image_url es un string simple (sin localización)
+  const imageUrl = homeData?.first_image_url || '/img/Home.jpg';
+
+  const getImageAlt = () => {
+    if (!homeData) return t('home.hero.imageAlt');
+    
+    switch (language) {
+      case 'es':
+        return homeData.first_image_alt_es || t('home.hero.imageAlt');
+      case 'en':
+        return homeData.first_image_alt_en || t('home.hero.imageAlt');
+      case 'fr':
+        return homeData.first_image_alt_fr || t('home.hero.imageAlt');
+      default:
+        return homeData.first_image_alt_es || t('home.hero.imageAlt');
+    }
+  };
+
+  const getImageTitle = () => {
+    if (!homeData) return undefined;
+    
+    switch (language) {
+      case 'es':
+        return homeData.first_image_title_es || undefined;
+      case 'en':
+        return homeData.first_image_title_en || undefined;
+      case 'fr':
+        return homeData.first_image_title_fr || undefined;
+      default:
+        return homeData.first_image_title_es || undefined;
+    }
+  };
+
+  const imageAlt = getImageAlt();
+  const imageTitle = getImageTitle();
+
   if (!mounted) {
     // Renderizar contenido estático durante SSR
     return (
@@ -38,8 +75,11 @@ export default function HeroSection() {
         <div
           className="absolute inset-0 bg-cover bg-center sm:bg-fixed"
           style={{
-            backgroundImage: "url('/img/Home.jpg')"
+            backgroundImage: `url('${imageUrl}')`
           }}
+          role="img"
+          aria-label={imageAlt}
+          title={imageTitle}
         />
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative h-full flex justify-center items-center">
@@ -59,8 +99,11 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center sm:bg-fixed"
         style={{
-          backgroundImage: "url('/img/Home.jpg')"
+          backgroundImage: `url('${imageUrl}')`
         }}
+        role="img"
+        aria-label={imageAlt}
+        title={imageTitle}
       />
       {/* Overlay oscuro */}
       <div className="absolute inset-0 bg-black/30" />

@@ -44,6 +44,9 @@ export default function CategoriesPage() {
                         const categorySlug = getLocalizedSlug(category, language as 'es' | 'en' | 'fr') || category.slug;
                         const categoryName = getLocalizedField(category, 'name', language as 'es' | 'en' | 'fr') || category.slug;
                         const categoryImage = category.image_url || '/img/default.jpg';
+                        // Obtener alt y title del backend (vienen como strings simples), con fallback al nombre
+                        const categoryImageAlt = category.image_alt_es || category.image_alt_en || category.image_alt_fr || category.image_alt || categoryName;
+                        const categoryImageTitle = category.image_title_es || category.image_title_en || category.image_title_fr || category.image_title || categoryName;
 
                         return (
                             <Link 
@@ -55,7 +58,8 @@ export default function CategoriesPage() {
                                     <div className="mb-4 md:mb-6">
                                         <Image
                                             src={categoryImage}
-                                            alt={categoryName}
+                                            alt={categoryImageAlt}
+                                            title={categoryImageTitle}
                                             width={180}
                                             height={100}
                                             className="h-32 md:h-48 w-auto object-contain"
