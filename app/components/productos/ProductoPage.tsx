@@ -125,8 +125,11 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
               {categoryName}
             </h2>
             <div className="flex gap-2 flex-col">
-              <p className="font-[600] text-lg">{categoryDescription}</p>
-              <p>{categoryDescription1}</p>
+              <div
+                className="font-[600] text-lg"
+                dangerouslySetInnerHTML={{ __html: categoryDescription }}
+              />
+              <div dangerouslySetInnerHTML={{ __html: categoryDescription1 }} />
             </div>
 
           </label>
