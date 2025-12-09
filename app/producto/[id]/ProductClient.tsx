@@ -56,8 +56,8 @@ export default function ProductClient() {
             descripcionCorta: getLocalizedField(cat, 'short_description', language as 'es' | 'en' | 'fr') || '',
             imagen: cat.image_url || '/img/default.jpg',
             // Campos de alt y title de imagen del backend (vienen como strings simples)
-            image_alt: cat.image_alt_es || cat.image_alt_en || cat.image_alt_fr || cat.image_alt || null,
-            image_title: cat.image_title_es || cat.image_title_en || cat.image_title_fr || cat.image_title || null,
+            image_alt: cat.image_alt_es || cat.image_alt_en || cat.image_alt_fr || null,
+            image_title: cat.image_title_es || cat.image_title_en || cat.image_title_fr || null,
             productos: backendProductsData?.data?.map(prod => ({
                 id: prod.slug,
                 nombre: getLocalizedField(prod, 'name', language as 'es' | 'en' | 'fr') || '',

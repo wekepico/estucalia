@@ -134,7 +134,7 @@ export default function FinishesSection() {
 
     // Si no se pudieron extraer datos válidos, usar fallback
     return {
-      categories: backendCategories.length > 0 ? [...new Set(backendCategories)] as Category[] : fallbackCategories,
+      categories: backendCategories.length > 0 ? Array.from(new Set(backendCategories)) as Category[] : fallbackCategories,
       products: uniqueProducts.length > 0 ? uniqueProducts : fallbackProducts
     };
   }, [homeData, fallbackCategories, fallbackProducts, t]);
