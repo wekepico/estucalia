@@ -17,11 +17,13 @@ interface ApplicationRaw {
   description_fr?: string | null;
   image?: string | null;
   image_url?: string | null;
-  image_alt?: string | null;
+  icon?: string | null;
+  icon_url?: string | null;
+  image_alt?: string | { en?: string | null; es?: string | null; fr?: string | null } | null;
   image_alt_es?: string | null;
   image_alt_en?: string | null;
   image_alt_fr?: string | null;
-  image_title?: string | null;
+  image_title?: string | { en?: string | null; es?: string | null; fr?: string | null } | null;
   image_title_es?: string | null;
   image_title_en?: string | null;
   image_title_fr?: string | null;
@@ -31,6 +33,7 @@ interface ApplicationRaw {
   seo_description_es?: string | null;
   seo_description_en?: string | null;
   seo_description_fr?: string | null;
+  categories?: any[];
   created_at?: string;
   updated_at?: string;
 }
@@ -49,6 +52,7 @@ export interface Application {
   description_en: string | null;
   description_fr: string | null;
   image_url: string | null;
+  icon_url: string | null;
   image_alt_es: string | null;
   image_alt_en: string | null;
   image_alt_fr: string | null;
@@ -61,6 +65,7 @@ export interface Application {
   seo_description_es: string | null;
   seo_description_en: string | null;
   seo_description_fr: string | null;
+  categories?: any[];
   created_at: string;
   updated_at: string;
 }
@@ -70,6 +75,29 @@ export interface Application {
  */
 function normalizeApplication(raw: ApplicationRaw): Application {
   const rawImageUrl = raw.image_url || raw.image || null;
+  const rawIconUrl = raw.icon_url || raw.icon || null;
+
+  // Manejar image_alt que puede venir como string o como objeto {en, es, fr}
+  const imageAltEs = raw.image_alt_es ||
+    (typeof raw.image_alt === 'object' && raw.image_alt?.es) ||
+    (typeof raw.image_alt === 'string' ? raw.image_alt : null);
+  const imageAltEn = raw.image_alt_en ||
+    (typeof raw.image_alt === 'object' && raw.image_alt?.en) ||
+    (typeof raw.image_alt === 'string' ? raw.image_alt : null);
+  const imageAltFr = raw.image_alt_fr ||
+    (typeof raw.image_alt === 'object' && raw.image_alt?.fr) ||
+    (typeof raw.image_alt === 'string' ? raw.image_alt : null);
+
+  // Manejar image_title que puede venir como string o como objeto {en, es, fr}
+  const imageTitleEs = raw.image_title_es ||
+    (typeof raw.image_title === 'object' && raw.image_title?.es) ||
+    (typeof raw.image_title === 'string' ? raw.image_title : null);
+  const imageTitleEn = raw.image_title_en ||
+    (typeof raw.image_title === 'object' && raw.image_title?.en) ||
+    (typeof raw.image_title === 'string' ? raw.image_title : null);
+  const imageTitleFr = raw.image_title_fr ||
+    (typeof raw.image_title === 'object' && raw.image_title?.fr) ||
+    (typeof raw.image_title === 'string' ? raw.image_title : null);
 
   return {
     id: raw.id,
@@ -84,18 +112,20 @@ function normalizeApplication(raw: ApplicationRaw): Application {
     description_en: raw.description_en || null,
     description_fr: raw.description_fr || null,
     image_url: getImageUrl(rawImageUrl),
-    image_alt_es: raw.image_alt_es || raw.image_alt || null,
-    image_alt_en: raw.image_alt_en || raw.image_alt || null,
-    image_alt_fr: raw.image_alt_fr || raw.image_alt || null,
-    image_title_es: raw.image_title_es || raw.image_title || null,
-    image_title_en: raw.image_title_en || raw.image_title || null,
-    image_title_fr: raw.image_title_fr || raw.image_title || null,
+    icon_url: getImageUrl(rawIconUrl),
+    image_alt_es: imageAltEs,
+    image_alt_en: imageAltEn,
+    image_alt_fr: imageAltFr,
+    image_title_es: imageTitleEs,
+    image_title_en: imageTitleEn,
+    image_title_fr: imageTitleFr,
     seo_title_es: raw.seo_title_es || null,
     seo_title_en: raw.seo_title_en || null,
     seo_title_fr: raw.seo_title_fr || null,
     seo_description_es: raw.seo_description_es || null,
     seo_description_en: raw.seo_description_en || null,
     seo_description_fr: raw.seo_description_fr || null,
+    categories: raw.categories || [],
     created_at: raw.created_at || '',
     updated_at: raw.updated_at || '',
   };

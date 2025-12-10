@@ -91,7 +91,9 @@ export default function ProductClient() {
 
     // Convertir datos del backend al formato esperado
     const categoryFromBackend = useMemo(() => {
-        if (!backendCategoryData?.data) return null;
+        if (!backendCategoryData?.data) {
+            return null;
+        }
 
         const cat: Category = backendCategoryData.data;
 
@@ -99,7 +101,7 @@ export default function ProductClient() {
         const productosMapeados = backendProductsData?.data?.map(prod => {
             // Obtener documentos del mapa o usar los que vienen en el producto
             const productDocuments = documentsMap.get(prod.slug) || prod.documents || [];
-            
+
             return {
                 id: prod.slug,
                 nombre: getLocalizedField(prod, 'name', language as 'es' | 'en' | 'fr') || '',
@@ -129,7 +131,18 @@ export default function ProductClient() {
             };
         }) || [];
 
-        return {
+        // Mapear aplicaciones del backend al formato esperado (array de strings con nombres)
+        const aplicacionesMapeadas = cat.applications?.map((app: any) =>
+            getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr') || app.name || ''
+        ) || [];
+
+        // Mapear acabados del backend al formato esperado
+        const acabadosMapeados = cat.finishes?.map((finish: any) => ({
+            nombre: getLocalizedField(finish, 'name', language as 'es' | 'en' | 'fr') || finish.name || '',
+            imagen: finish.image_url || finish.image || '/img/default.jpg'
+        })) || [];
+
+        const categoryObject = {
             id: cat.slug,
             nombre: getLocalizedField(cat, 'name', language as 'es' | 'en' | 'fr') || '',
             descripcion: getLocalizedField(cat, 'description', language as 'es' | 'en' | 'fr') || '',
@@ -138,8 +151,12 @@ export default function ProductClient() {
             // Campos de alt y title de imagen del backend (vienen como strings simples)
             image_alt: cat.image_alt_es || cat.image_alt_en || cat.image_alt_fr || null,
             image_title: cat.image_title_es || cat.image_title_en || cat.image_title_fr || null,
-            productos: productosMapeados
+            productos: productosMapeados,
+            aplicaciones: aplicacionesMapeadas,
+            acabados: acabadosMapeados
         };
+
+        return categoryObject;
     }, [backendCategoryData, backendProductsData, documentsMap, language, t]);
 
     // Fallback a datos locales según el idioma

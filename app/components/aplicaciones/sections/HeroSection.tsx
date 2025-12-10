@@ -21,7 +21,7 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ description, category, products, img, imageAlt, imageTitle }) => {
     const { t } = useLanguage();
-    
+
     // Usar alt y title del backend si están disponibles, sino usar category como fallback
     const imgAlt = imageAlt || category || "";
     const imgTitle = imageTitle || category || "";
@@ -34,9 +34,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ description, category,
                     <h1 className="font-semibold sm:text-xl   lg:text-4xl md:text-2xl">
                         {category}
                     </h1>
-                    <p className="text-base xl:text-lg md:text-sm">
-                        {description}
-                    </p>
+                    <div
+                        className="text-base xl:text-lg md:text-sm"
+                        dangerouslySetInnerHTML={{ __html: description || '' }}
+                    />
                 </div>
 
                 {/* Contenedor de la imagen */}
@@ -56,8 +57,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ description, category,
             {/* Product Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-16">
                 {products?.map((product) => (
-                    <div key={product.name}>
-                        <ProductCard id={product.id} icon={product.icon} name={t(product.name)} />
+                    <div key={product.id}>
+                        <ProductCard id={product.id} icon={product.icon} name={product.name} />
                     </div>
                 ))}
             </div>

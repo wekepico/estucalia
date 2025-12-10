@@ -54,6 +54,15 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
 
   // Asegurar que productos existe y es un array (usar useMemo para evitar cambios en cada render)
   const productos = useMemo(() => category?.productos || [], [category?.productos]);
+  const aplicaciones = useMemo(() => {
+    const apps = category?.aplicaciones || category?.applications || [];
+    return apps
+      .map((app: any) => {
+        if (typeof app === "string") return app;
+        return app?.nombre || app?.name || "";
+      })
+      .filter(Boolean);
+  }, [category?.aplicaciones, category?.applications]);
 
   // Inicializar selectedProductIndex
   const [selectedProductIndex, setSelectedProductIndex] = useState<number | null>(null);
@@ -73,7 +82,6 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
     selectedProductIndex !== null && productos.length > 0 && selectedProductIndex < productos.length
       ? productos[selectedProductIndex]
       : null;
-
 
   // Validar que category existe (después de todos los hooks)
   if (!category) {
@@ -141,13 +149,13 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
         {/* Applications / Finishes */}
         <section className="flex gap-12">
           {/* Aplicaciones */}
-          {category?.aplicaciones && Array.isArray(category.aplicaciones) && category.aplicaciones.length > 0 && (
+          {aplicaciones.length > 0 && (
             <div>
               <h2 className="font-[600] text-xl mb-4">
                 {t("productsSection.applications")}
               </h2>
               <ul className="list-disc ml-5">
-                {category.aplicaciones.map((item: any, index: number) => (
+                {aplicaciones.map((item: any, index: number) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
@@ -205,13 +213,12 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
           </div>
         </section>
       </section>
-      {selectedProduct && selectedProduct.nombre !== "MOLDES CENEFAS RODILLOS" && selectedProduct.nombre !== "HERRAMIENTAS" &&
-
+      {selectedProduct && selectedProduct.nombre !== "MOLDES CENEFAS RODILLOS" && selectedProduct.nombre !== "HERRAMIENTAS" && (
         <div className="md:px-15 sm:px-10 px-5 bg-[#FAF9F9] lg:px-20 mt-14 py-12 flex flex-col">
           {/* Selected product details */}
           <ProductDetail product={selectedProduct} />
         </div>
-      }
+      )}
 
 
       {/* Extra section: inspiration + help */}

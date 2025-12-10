@@ -38,7 +38,14 @@ export default function AplicationClient() {
     const applicationFromBackend = useMemo(() => {
         if (!backendData?.data) return null;
 
-        const app: Application = backendData.data;
+        const app: any = backendData.data;
+
+        // Mapear las categorías del backend a productos
+        const products = app.categories?.map((category: any) => ({
+            id: getLocalizedSlug(category, language as 'es' | 'en' | 'fr') || category.slug,
+            name: getLocalizedField(category, 'name', language as 'es' | 'en' | 'fr') || category.name,
+            icon: category.image || category.icon || '/img/default-icon.svg'
+        })) || [];
 
         return {
             id: app.slug,
@@ -48,7 +55,7 @@ export default function AplicationClient() {
             // Campos de alt y title de imagen del backend (preparado para cuando el backend envíe datos)
             image_alt: app.image_alt_es || app.image_alt_en || app.image_alt_fr || null,
             image_title: app.image_title_es || app.image_title_en || app.image_title_fr || null,
-            products: [] // Los productos se pueden mapear si vienen en la respuesta
+            products: products
         };
     }, [backendData, language]);
 

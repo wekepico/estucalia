@@ -7,7 +7,7 @@ import { useEffect, useState, useMemo, useRef } from "react";
 import data from "@/app/components/productos/components/data-es.json";
 import data2 from "@/app/components/productos/components/data-en.json";
 import data3 from "@/app/components/productos/components/data-fr.json";
-import { useCategoryBySlug, useCategoryProducts, useCategories } from '@/api/useCategories';
+import { useCategoryBySlug, useCategoryProducts, useCategories, useCategoryApplications } from '@/api/useCategories';
 import { getLocalizedField, getLocalizedSlug } from '@/lib/i18nHelpers';
 import type { Category } from '@/services/categoriesService';
 
@@ -44,6 +44,12 @@ export default function CategoryClient() {
         mounted && !!categorySlug && !!backendCategoryData
     );
 
+    // Obtener aplicaciones de la categoría del backend (para tener traducciones completas)
+    const { data: backendApplicationsData } = useCategoryApplications(
+        categorySlug,
+        mounted && !!categorySlug && !!backendCategoryData
+    );
+
     // Convertir datos del backend al formato esperado
     const categoryFromBackend = useMemo(() => {
         if (!backendCategoryData?.data) return null;
@@ -67,20 +73,71 @@ export default function CategoryClient() {
 
         // Mapear productos - usar backendProductsData si está disponible
         const productos = backendProductsData?.data?.map(prod => {
-            const prodNombre = getLocalizedField(prod, 'name', language as 'es' | 'en' | 'fr') || 
-                              (language === 'es' ? prod.name_es : language === 'en' ? prod.name_en : prod.name_fr) || 
-                              prod.name || 
+            const prodNombre = getLocalizedField(prod, 'name', language as 'es' | 'en' | 'fr') ||
+                              (language === 'es' ? prod.name_es : language === 'en' ? prod.name_en : prod.name_fr) ||
+                              prod.name ||
                               '';
-            const prodDescripcion = getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') || 
-                                  (language === 'es' ? prod.description_es : language === 'en' ? prod.description_en : prod.description_fr) || 
+            const prodDescripcion = getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') ||
+                                  (language === 'es' ? prod.description_es : language === 'en' ? prod.description_en : prod.description_fr) ||
                                   '';
+
             return {
                 id: prod.slug,
                 nombre: prodNombre,
                 descripcion: prodDescripcion,
-                imagen: prod.image_url || '/img/default.jpg',
+                imagen: prod.image_url || prod.image || '/img/default.jpg',
+                // Campos de alt y title de imágenes del backend
+                image_alt_es: prod.image_alt?.es || null,
+                image_alt_en: prod.image_alt?.en || null,
+                image_alt_fr: prod.image_alt?.fr || null,
+                image_title_es: prod.image_title?.es || null,
+                image_title_en: prod.image_title?.en || null,
+                image_title_fr: prod.image_title?.fr || null,
+                // Campos adicionales del producto
+                subtitulo: prod.subtitle || null,
+                composicion: getLocalizedField(prod, 'composition', language as 'es' | 'en' | 'fr') || null,
+                caracteristicas: getLocalizedField(prod, 'features', language as 'es' | 'en' | 'fr')?.split('\n').filter((f: string) => f.trim()) || null,
+                recomendaciones: getLocalizedField(prod, 'recommendations', language as 'es' | 'en' | 'fr')?.split('\n').filter((f: string) => f.trim()) || null,
+                precauciones: getLocalizedField(prod, 'carriers', language as 'es' | 'en' | 'fr')?.split('\n').filter((f: string) => f.trim()) || null,
+                informacion_relevante: getLocalizedField(prod, 'relevant_info', language as 'es' | 'en' | 'fr')?.split('\n').filter((f: string) => f.trim()) || null,
+                informacion_general: getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') || null,
+                aplicacion: getLocalizedField(prod, 'features', language as 'es' | 'en' | 'fr')?.split('\n').filter((f: string) => f.trim()) || null,
+                documentacion: prod.documents?.map((doc: any) => ({
+                    nombre: doc.name || '',
+                    accion: t('common.download') || 'Descargar',
+                    enlace: doc.file_url || doc.file_path || '',
+                })) || []
             };
         }) || [];
+
+        // Mapear aplicaciones del backend al formato esperado (array de strings con nombres)
+        // Estructura real: { data: { category: {...}, applications: [...] } }
+        // Asegurar que aplicacionesSource sea siempre un array
+        let aplicacionesSource: any[] = [];
+        if (backendApplicationsData?.data) {
+            if (Array.isArray((backendApplicationsData.data as any).applications)) {
+                aplicacionesSource = (backendApplicationsData.data as any).applications;
+            } else if (Array.isArray(backendApplicationsData.data)) {
+                aplicacionesSource = backendApplicationsData.data as any[];
+            }
+        } else if (cat.applications) {
+            aplicacionesSource = Array.isArray(cat.applications) ? cat.applications : [];
+        }
+
+        const aplicaciones = aplicacionesSource.map((app: any) =>
+            getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr') ||
+            getLocalizedField(app, 'title', language as 'es' | 'en' | 'fr') ||
+            app[`name_${language}`] ||
+            app.name ||
+            app.title ||
+            ''
+        );
+
+        // Mapear acabados del backend al formato esperado
+        const acabados = cat.finishes?.map((finish: any) => ({
+            nombre: getLocalizedField(finish, 'name', language as 'es' | 'en' | 'fr') || finish.name || '',
+            imagen: finish.image_url || finish.image || '/img/default.jpg'
+        })) || [];
 
         return {
             id: cat.slug,
@@ -88,9 +145,11 @@ export default function CategoryClient() {
             descripcion: descripcion,
             descripcionCorta: descripcionCorta,
             imagen: cat.image_url || '/img/default.jpg',
-            productos: productos
+            productos: productos,
+            aplicaciones: aplicaciones,
+            acabados: acabados
         };
-    }, [backendCategoryData, backendProductsData, language]);
+    }, [backendCategoryData, backendProductsData, backendApplicationsData, language]);
 
     // Fallback a datos locales según el idioma
     const localCategory = useMemo(() => {
@@ -102,6 +161,47 @@ export default function CategoryClient() {
 
     // Determinar qué datos usar: backend si están disponibles, sino locales
     const foundCategory = categoryFromBackend || localCategory;
+
+    // Toggles para forzar hardcoded de aplicaciones y acabados
+    const USE_HARDCODED_APPLICATIONS = true;
+    const USE_HARDCODED_FINISHES = true;
+
+    const HARDCODED_APPS_BY_SLUG: Record<string, string[]> = {
+        "mortero-de-cal": [
+            "Revestimientos",
+            "Revocos y enlucidos",
+            "Aislamiento térmico",
+            "Impermeabilización",
+            "Deshumidificación / hidrofugante",
+        ],
+    };
+
+    const HARDCODED_FINISHES_BY_SLUG: Record<string, { nombre: string; imagen: string }[]> = {
+        "mortero-de-cal": [
+            { nombre: "Abujardado / raspado", imagen: "/img/acabados/raspado_abujardado.jpg" },
+            { nombre: "Lavado / fratasado", imagen: "/img/acabados/lavado_fratasado.jpg" },
+            { nombre: "Impreso", imagen: "/img/acabados/impreso.jpg" },
+            { nombre: "Liso", imagen: "/img/acabados/liso.jpg" },
+        ],
+    };
+
+    const hardcodedApps =
+        (localCategory?.aplicaciones as string[] | undefined) ||
+        HARDCODED_APPS_BY_SLUG[categorySlug] ||
+        HARDCODED_APPS_BY_SLUG[foundCategory?.id || (foundCategory as any)?.slug || ""];
+
+    const hardcodedFinishes =
+        (localCategory?.acabados as { nombre: string; imagen: string }[] | undefined) ||
+        HARDCODED_FINISHES_BY_SLUG[categorySlug] ||
+        HARDCODED_FINISHES_BY_SLUG[foundCategory?.id || (foundCategory as any)?.slug || ""];
+
+    let finalCategory = foundCategory;
+    if (USE_HARDCODED_APPLICATIONS && hardcodedApps) {
+        finalCategory = { ...finalCategory, aplicaciones: hardcodedApps };
+    }
+    if (USE_HARDCODED_FINISHES && hardcodedFinishes) {
+        finalCategory = { ...finalCategory, acabados: hardcodedFinishes };
+    }
 
     // Detectar cambio de idioma y redirigir al slug correspondiente
     useEffect(() => {
@@ -199,7 +299,7 @@ export default function CategoryClient() {
         );
     }
 
-    if (!foundCategory) {
+    if (!finalCategory) {
         return (
             <div className="pt-32 px-5">
                 <h1 className="text-2xl font-bold">
@@ -209,6 +309,6 @@ export default function CategoryClient() {
         );
     }
 
-    return <ProductCategoryPage category={foundCategory} backendData={categoryFromBackend} />;
+    return <ProductCategoryPage category={finalCategory} backendData={categoryFromBackend} />;
 }
 

@@ -189,6 +189,7 @@ interface CategoryRaw {
   created_at?: string;
   updated_at?: string;
   applications?: any[];
+  finishes?: any[];
 }
 
 // Interface normalizada para uso interno
@@ -225,6 +226,8 @@ export interface Category {
   seo_description_fr: string | null;
   created_at: string;
   updated_at: string;
+  applications?: any[];
+  finishes?: any[];
 }
 
 /**
@@ -270,6 +273,8 @@ function normalizeCategory(raw: CategoryRaw): Category {
     seo_description_fr: raw.seo_description_fr || null,
     created_at: raw.created_at || '',
     updated_at: raw.updated_at || '',
+    applications: raw.applications || [],
+    finishes: raw.finishes || [],
   };
 }
 
@@ -339,8 +344,17 @@ export const getCategories = async (): Promise<CategoriesResponse> => {
 export const getCategoryBySlug = async (slug: string): Promise<CategoryResponse> => {
   try {
     const response = await axiosInstance.get<{ success: boolean; data: CategoryRaw; message?: string }>(`/v1/categories/${slug}`);
+    console.error('🚀🚀🚀 RAW RESPONSE from backend:', response.data.data);
+    console.error('🚀🚀🚀 applications in raw:', response.data.data.applications);
+    console.error('🚀🚀🚀 finishes in raw:', response.data.data.finishes || 'NO FINISHES');
+
+    const normalized = normalizeCategory(response.data.data);
+    console.error('🚀🚀🚀 NORMALIZED category:', normalized);
+    console.error('🚀🚀🚀 applications in normalized:', normalized.applications);
+    console.error('🚀🚀🚀 finishes in normalized:', normalized.finishes || 'NO FINISHES');
+
     return {
-      data: normalizeCategory(response.data.data),
+      data: normalized,
     };
   } catch (error) {
     console.error(`Error fetching category ${slug}:`, error);
