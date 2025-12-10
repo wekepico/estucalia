@@ -105,20 +105,8 @@ export default function CategoryClient() {
 
     // Detectar cambio de idioma y redirigir al slug correspondiente
     useEffect(() => {
-        console.log('🔍 [CategoryClient] Language change effect triggered', {
-            isFirstRender: isFirstRenderRef.current,
-            mounted,
-            previousLanguage: previousLanguageRef.current,
-            currentLanguage: language,
-            categorySlug,
-            isLoading,
-            hasBackendData: !!backendCategoryData?.data,
-            hasLocalCategory: !!localCategory
-        });
-
         // Saltar el primer render para evitar redirecciones innecesarias
         if (isFirstRenderRef.current) {
-            console.log('⏭️ [CategoryClient] Skipping first render');
             isFirstRenderRef.current = false;
             previousLanguageRef.current = language;
             return;
@@ -131,30 +119,12 @@ export default function CategoryClient() {
             let matchingCategory: Category | null = null;
             
             if (allCategoriesData?.data) {
-                console.log('🔎 [CategoryClient] Searching in all categories:', {
-                    totalCategories: allCategoriesData.data.length,
-                    currentSlug: categorySlug,
-                    sampleCategories: allCategoriesData.data.slice(0, 3).map((cat: Category) => ({
-                        slug: cat.slug,
-                        slug_es: cat.slug_es,
-                        slug_en: cat.slug_en,
-                        slug_fr: cat.slug_fr
-                    }))
-                });
-                
                 matchingCategory = allCategoriesData.data.find((cat: Category) => 
                     cat.slug === categorySlug ||
                     cat.slug_es === categorySlug ||
                     cat.slug_en === categorySlug ||
                     cat.slug_fr === categorySlug
                 ) || null;
-                
-                console.log('✅ [CategoryClient] Found matching category:', matchingCategory ? {
-                    slug: matchingCategory.slug,
-                    slug_es: matchingCategory.slug_es,
-                    slug_en: matchingCategory.slug_en,
-                    slug_fr: matchingCategory.slug_fr
-                } : 'NOT FOUND');
             }
             
             // Si no encontramos en todas las categorías, usar la categoría del backend
@@ -163,15 +133,6 @@ export default function CategoryClient() {
             }
             
             if (matchingCategory) {
-                console.log('📦 [CategoryClient] Matching category data:', {
-                    slug: matchingCategory.slug,
-                    slug_es: matchingCategory.slug_es,
-                    slug_en: matchingCategory.slug_en,
-                    slug_fr: matchingCategory.slug_fr,
-                    currentLanguage: language,
-                    currentSlug: categorySlug
-                });
-                
                 // Obtener el slug para el nuevo idioma directamente
                 let newSlug: string | null = null;
                 
@@ -205,26 +166,13 @@ export default function CategoryClient() {
                     }
                 }
 
-                console.log('🎯 [CategoryClient] Slug resolution:', {
-                    newSlug,
-                    currentSlug: categorySlug,
-                    slugPrincipal: matchingCategory.slug,
-                    shouldRedirect: newSlug && newSlug !== categorySlug
-                });
-
                 // Solo redirigir si el nuevo slug es diferente al actual
                 if (newSlug && newSlug !== categorySlug) {
-                    console.log('🚀 [CategoryClient] Redirecting to:', `/categories/${encodeURIComponent(newSlug)}`);
                     router.replace(`/categories/${encodeURIComponent(newSlug)}`);
                     return;
-                } else {
-                    console.log('⏸️ [CategoryClient] No redirect needed - slugs are the same or newSlug is null');
                 }
-            } else {
-                console.log('⚠️ [CategoryClient] No matching category found');
             }
         } else if (mounted && previousLanguageRef.current !== language && !isLoading && localCategory) {
-            console.log('📚 [CategoryClient] Using local category data');
             // Fallback para datos locales
             const currentData = language === "es" ? data : language === "en" ? data2 : data3;
             const categoryInNewLanguage = currentData.categorias.find(
@@ -234,22 +182,12 @@ export default function CategoryClient() {
                 }
             );
             if (categoryInNewLanguage && categoryInNewLanguage.id !== categorySlug) {
-                console.log('🚀 [CategoryClient] Redirecting to (local):', `/categories/${encodeURIComponent(categoryInNewLanguage.id)}`);
                 router.replace(`/categories/${encodeURIComponent(categoryInNewLanguage.id)}`);
                 return;
             }
-        } else {
-            console.log('❌ [CategoryClient] Conditions not met for redirect:', {
-                mounted,
-                languageChanged: previousLanguageRef.current !== language,
-                isLoading,
-                hasBackendData: !!backendCategoryData?.data,
-                hasLocalCategory: !!localCategory
-            });
         }
 
         // Actualizar la referencia del idioma anterior solo si no hubo redirección
-        console.log('✅ [CategoryClient] Updating previousLanguageRef to:', language);
         previousLanguageRef.current = language;
     }, [language, mounted, backendCategoryData, allCategoriesData, localCategory, categorySlug, router, isLoading]);
 

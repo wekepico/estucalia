@@ -53,7 +53,6 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    console.log(data)
     try {
       const payload = {
         name: data.nombre,

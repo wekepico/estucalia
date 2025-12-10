@@ -18,7 +18,6 @@ axiosInstance.interceptors.request.use(
     //   config.headers.Authorization = `Bearer ${token}`;
     // }
 
-    console.log('Request:', config.method?.toUpperCase(), config.url);
     return config;
   },
   (error: AxiosError) => {
@@ -30,7 +29,6 @@ axiosInstance.interceptors.request.use(
 // Interceptor de respuestas
 axiosInstance.interceptors.response.use(
   (response: AxiosResponse) => {
-    console.log('Response:', response.status, response.config.url);
     return response;
   },
   (error: AxiosError) => {

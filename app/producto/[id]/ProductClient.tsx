@@ -8,6 +8,7 @@ import data from "../../components/productos/components/data-es.json";
 import data2 from "../../components/productos/components/data-en.json";
 import data3 from "../../components/productos/components/data-fr.json";
 import { useCategoryBySlug, useCategoryProducts, useCategories } from '@/api/useCategories';
+import { getProductDocuments } from '@/services/productsService';
 import { getLocalizedField, getLocalizedSlug } from '@/lib/i18nHelpers';
 import type { Category } from '@/services/categoriesService';
 
@@ -38,10 +39,55 @@ export default function ProductClient() {
     const { data: allCategoriesData } = useCategories();
 
     // Obtener productos de la categoría del backend
-    const { data: backendProductsData } = useCategoryProducts(
+    // Ejecutar el hook siempre que tengamos categorySlug, no esperar a backendCategoryData
+    const { data: backendProductsData, isLoading: isLoadingProducts } = useCategoryProducts(
         categorySlug,
-        mounted && !!categorySlug && !!backendCategoryData
+        mounted && !!categorySlug
     );
+
+    // Estado para almacenar los documentos de cada producto
+    const [documentsMap, setDocumentsMap] = useState<Map<string, any[]>>(new Map());
+
+    // Obtener documentos para cada producto cuando se carguen los productos
+    useEffect(() => {
+        if (!backendProductsData?.data || backendProductsData.data.length === 0) {
+            return;
+        }
+
+        if (!mounted) {
+            return;
+        }
+        
+        // Obtener documentos para todos los productos en paralelo
+        const fetchDocuments = async () => {
+            try {
+                const documentsPromises = backendProductsData.data.map(async (product) => {
+                    try {
+                        const response = await getProductDocuments(product.slug);
+                        return { slug: product.slug, documents: response.data };
+                    } catch (error) {
+                        return { slug: product.slug, documents: [] };
+                    }
+                });
+
+                const results = await Promise.all(documentsPromises);
+                const newMap = new Map<string, any[]>();
+                
+                results.forEach(({ slug, documents }) => {
+                    if (documents && documents.length > 0) {
+                        newMap.set(slug, documents);
+                    }
+                });
+
+                setDocumentsMap(newMap);
+            } catch (error) {
+                // Error silencioso
+            }
+        };
+
+        fetchDocuments();
+    }, [backendProductsData?.data, mounted]);
+
 
     // Convertir datos del backend al formato esperado
     const categoryFromBackend = useMemo(() => {
@@ -49,16 +95,12 @@ export default function ProductClient() {
 
         const cat: Category = backendCategoryData.data;
 
-        return {
-            id: cat.slug,
-            nombre: getLocalizedField(cat, 'name', language as 'es' | 'en' | 'fr') || '',
-            descripcion: getLocalizedField(cat, 'description', language as 'es' | 'en' | 'fr') || '',
-            descripcionCorta: getLocalizedField(cat, 'short_description', language as 'es' | 'en' | 'fr') || '',
-            imagen: cat.image_url || '/img/default.jpg',
-            // Campos de alt y title de imagen del backend (vienen como strings simples)
-            image_alt: cat.image_alt_es || cat.image_alt_en || cat.image_alt_fr || null,
-            image_title: cat.image_title_es || cat.image_title_en || cat.image_title_fr || null,
-            productos: backendProductsData?.data?.map(prod => ({
+        // Mapear productos solo si existen
+        const productosMapeados = backendProductsData?.data?.map(prod => {
+            // Obtener documentos del mapa o usar los que vienen en el producto
+            const productDocuments = documentsMap.get(prod.slug) || prod.documents || [];
+            
+            return {
                 id: prod.slug,
                 nombre: getLocalizedField(prod, 'name', language as 'es' | 'en' | 'fr') || '',
                 descripcion: getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') || '',
@@ -79,14 +121,26 @@ export default function ProductClient() {
                 informacion_relevante: getLocalizedField(prod, 'relevant_info', language as 'es' | 'en' | 'fr')?.split('\n').filter(f => f.trim()) || null,
                 informacion_general: getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') || null,
                 aplicacion: getLocalizedField(prod, 'features', language as 'es' | 'en' | 'fr')?.split('\n').filter(f => f.trim()) || null,
-                documentacion: prod.documents?.map((doc: any) => ({
+                documentacion: productDocuments.map((doc: any) => ({
                     nombre: doc.name || '',
                     accion: t('common.download') || 'Descargar',
-                    enlace: doc.file_path || '',
-                })) || [],
-            })) || []
+                    enlace: doc.file_path || doc.file_url || '',
+                })),
+            };
+        }) || [];
+
+        return {
+            id: cat.slug,
+            nombre: getLocalizedField(cat, 'name', language as 'es' | 'en' | 'fr') || '',
+            descripcion: getLocalizedField(cat, 'description', language as 'es' | 'en' | 'fr') || '',
+            descripcionCorta: getLocalizedField(cat, 'short_description', language as 'es' | 'en' | 'fr') || '',
+            imagen: cat.image_url || '/img/default.jpg',
+            // Campos de alt y title de imagen del backend (vienen como strings simples)
+            image_alt: cat.image_alt_es || cat.image_alt_en || cat.image_alt_fr || null,
+            image_title: cat.image_title_es || cat.image_title_en || cat.image_title_fr || null,
+            productos: productosMapeados
         };
-    }, [backendCategoryData, backendProductsData, language]);
+    }, [backendCategoryData, backendProductsData, documentsMap, language, t]);
 
     // Fallback a datos locales según el idioma
     const localCategory = useMemo(() => {

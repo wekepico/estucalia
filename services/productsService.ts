@@ -18,6 +18,7 @@ interface ProductDocumentRaw {
   order: number;
   created_at: string;
   updated_at: string;
+  file_url?: string; // URL completa del archivo (puede venir del backend)
 }
 
 // Interface para la categoría embebida en el producto
@@ -169,13 +170,15 @@ function getLocalizedValue(
 
 /**
  * Normaliza un documento del producto y concatena URL base
+ * Usa file_url si está disponible (viene del backend), sino construye la URL
  */
 function normalizeDocument(doc: ProductDocumentRaw): ProductDocument {
   return {
     id: doc.id,
     product_id: doc.product_id,
     name: doc.name,
-    file_path: getImageUrl(doc.file_path) || doc.file_path,
+    // Usar file_url si está disponible, sino construir con getImageUrl
+    file_path: (doc as any).file_url || getImageUrl(doc.file_path) || doc.file_path,
     file_type: doc.file_type,
     order: doc.order,
     created_at: doc.created_at,
@@ -321,9 +324,43 @@ export const getProductBySlug = async (slug: string): Promise<ProductResponse> =
  */
 export const getProductDocuments = async (slug: string): Promise<ProductDocumentsResponse> => {
   try {
-    const response = await axiosInstance.get<{ success: boolean; data: ProductDocumentRaw[]; message?: string }>(`/v1/products/${slug}/documents`);
+    const response = await axiosInstance.get<{ 
+      success: boolean; 
+      data: {
+        product?: any;
+        documents: ProductDocumentRaw[];
+      } | ProductDocumentRaw[];
+      message?: string;
+    }>(`/v1/products/${slug}/documents`);
+    
+    // La estructura real es: { success: true, data: { product: {...}, documents: [...] } }
+    let documentsArray: ProductDocumentRaw[] = [];
+    
+    if (response.data.data) {
+      // Caso 1: response.data.data.documents existe (estructura real del backend)
+      if (typeof response.data.data === 'object' && 'documents' in response.data.data && Array.isArray(response.data.data.documents)) {
+        documentsArray = response.data.data.documents;
+      }
+      // Caso 2: response.data.data es directamente un array (fallback)
+      else if (Array.isArray(response.data.data)) {
+        documentsArray = response.data.data;
+      }
+    }
+    
+    // Normalizar documentos - usar file_url si existe, sino construir con getImageUrl
+    const normalizedDocuments = documentsArray.map((doc: any) => ({
+      id: doc.id,
+      product_id: doc.product_id,
+      name: doc.name,
+      file_path: doc.file_url || getImageUrl(doc.file_path) || doc.file_path,
+      file_type: doc.file_type,
+      order: doc.order,
+      created_at: doc.created_at,
+      updated_at: doc.updated_at,
+    }));
+    
     return {
-      data: response.data.data.map(normalizeDocument),
+      data: normalizedDocuments,
     };
   } catch (error) {
     console.error(`Error fetching documents for product ${slug}:`, error);

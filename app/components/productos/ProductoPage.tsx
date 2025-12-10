@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { ProductCard } from "./components/ProductCard";
 import { ProductDetail } from "./components/ProductDetail";
 import { InspirationSectionAplication } from "../aplicaciones/sections/InspirationSectionAplication";
@@ -52,7 +52,30 @@ interface ProductCategoryPageProps {
 export default function ProductCategoryPage({ category, backendData }: ProductCategoryPageProps) {
   const { t } = useLanguage();
 
-  // Validar que category existe
+  // Asegurar que productos existe y es un array (usar useMemo para evitar cambios en cada render)
+  const productos = useMemo(() => category?.productos || [], [category?.productos]);
+
+  // Inicializar selectedProductIndex
+  const [selectedProductIndex, setSelectedProductIndex] = useState<number | null>(null);
+
+
+  // Actualizar selectedProductIndex cuando haya productos disponibles
+  useEffect(() => {
+    if (productos.length > 0 && selectedProductIndex === null) {
+      setSelectedProductIndex(0);
+    } else if (productos.length === 0) {
+      setSelectedProductIndex(null);
+    }
+  }, [productos.length, selectedProductIndex]);
+
+  // Calcular selectedProduct (antes del early return)
+  const selectedProduct =
+    selectedProductIndex !== null && productos.length > 0 && selectedProductIndex < productos.length
+      ? productos[selectedProductIndex]
+      : null;
+
+
+  // Validar que category existe (después de todos los hooks)
   if (!category) {
     return (
       <div className="pt-32 px-5">
@@ -71,26 +94,6 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
   // Obtener alt y title de la imagen del backend, con fallback al nombre
   const categoryImageAlt = backendData ? (category?.image_alt || categoryName) : categoryName;
   const categoryImageTitle = backendData ? (category?.image_title || categoryName) : categoryName;
-
-  // Asegurar que productos existe y es un array
-  const productos = category?.productos || [];
-
-  // Inicializar selectedProductIndex
-  const [selectedProductIndex, setSelectedProductIndex] = useState<number | null>(null);
-
-  // Actualizar selectedProductIndex cuando haya productos disponibles
-  useEffect(() => {
-    if (productos.length > 0 && selectedProductIndex === null) {
-      setSelectedProductIndex(0);
-    } else if (productos.length === 0) {
-      setSelectedProductIndex(null);
-    }
-  }, [productos.length, selectedProductIndex]);
-
-  const selectedProduct =
-    selectedProductIndex !== null && productos.length > 0 && selectedProductIndex < productos.length
-      ? productos[selectedProductIndex]
-      : null;
 
   const handleDownload = (producto: any) => {
     let link = null;

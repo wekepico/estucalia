@@ -35,6 +35,15 @@ interface ProductRaw {
   features_es?: string | null;
   features_en?: string | null;
   features_fr?: string | null;
+  recommendations_es?: string | null;
+  recommendations_en?: string | null;
+  recommendations_fr?: string | null;
+  carriers_es?: string | null;
+  carriers_en?: string | null;
+  carriers_fr?: string | null;
+  relevant_info_es?: string | null;
+  relevant_info_en?: string | null;
+  relevant_info_fr?: string | null;
   image?: string | null;
   image_url?: string | null;
   image_alt?: LocalizedObject | string | null;
@@ -49,6 +58,7 @@ interface ProductRaw {
   stock?: number | null;
   featured?: boolean;
   active?: boolean;
+  is_active?: boolean; // El backend puede enviar is_active en lugar de active
   seo_title_es?: string | null;
   seo_title_en?: string | null;
   seo_title_fr?: string | null;
@@ -127,7 +137,7 @@ function normalizeProductFromCategory(raw: ProductRaw): import('./productsServic
     price: raw.price ?? null,
     stock: raw.stock ?? null,
     featured: raw.featured ?? false,
-    active: raw.active ?? true,
+    active: raw.active ?? raw.is_active ?? true, // Mapear is_active si active no existe
     seo_title_es: raw.seo_title_es || null,
     seo_title_en: raw.seo_title_en || null,
     seo_title_fr: raw.seo_title_fr || null,
@@ -346,8 +356,56 @@ export const getCategoryBySlug = async (slug: string): Promise<CategoryResponse>
  */
 export const getCategoryProducts = async (slug: string): Promise<CategoryProductsResponse> => {
   try {
-    const response = await axiosInstance.get<{ success: boolean; data: ProductRaw[]; message?: string }>(`/v1/categories/${slug}/products`);
-    const normalizedData = response.data.data.map(normalizeProductFromCategory);
+    const response = await axiosInstance.get<{ 
+      success: boolean; 
+      data: {
+        category?: any;
+        products: ProductRaw[];
+      } | ProductRaw[] | any; 
+      message?: string;
+    }>(`/v1/categories/${slug}/products`);
+    
+    // La estructura real es: { success: true, data: { category: {...}, products: [...] } }
+    let productsArray: ProductRaw[] = [];
+    
+    if (response.data) {
+      // Caso 1: response.data.data.products existe (estructura real del backend)
+      if (response.data.data && typeof response.data.data === 'object' && Array.isArray(response.data.data.products)) {
+        productsArray = response.data.data.products;
+      }
+      // Caso 2: response.data.data es directamente un array (fallback)
+      else if (Array.isArray(response.data.data)) {
+        productsArray = response.data.data;
+      }
+      // Caso 3: response.data es directamente un array (fallback)
+      else if (Array.isArray(response.data)) {
+        productsArray = response.data;
+      }
+      // Caso 4: Buscar productos en cualquier nivel (fallback)
+      else {
+        const findProducts = (obj: any): ProductRaw[] => {
+          if (Array.isArray(obj)) return obj;
+          if (typeof obj === 'object' && obj !== null) {
+            // Buscar propiedad 'products' primero
+            if (obj.products && Array.isArray(obj.products)) {
+              return obj.products;
+            }
+            // Buscar cualquier array
+            for (const key in obj) {
+              if (Array.isArray(obj[key])) {
+                return obj[key];
+              }
+              const found = findProducts(obj[key]);
+              if (found.length > 0) return found;
+            }
+          }
+          return [];
+        };
+        productsArray = findProducts(response.data);
+      }
+    }
+
+    const normalizedData = productsArray.map(normalizeProductFromCategory);
     return {
       data: normalizedData,
       meta: (response.data as any).meta,
