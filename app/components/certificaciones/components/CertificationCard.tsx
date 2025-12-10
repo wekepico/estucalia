@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '../../ui/button';
 import Image from 'next/image';
+import { useLanguage } from '@/app/context/LanguageContext';
 
 interface CardServicesProps {
     title: string;
@@ -9,6 +10,7 @@ interface CardServicesProps {
 }
 
 const CertificationCard = ({ title, filePath }: CardServicesProps) => {
+    const { t } = useLanguage();
     const handleOpenDocument = () => {
         // Abrir el documento en una nueva pestaña
         window.open(filePath, '_blank');
@@ -32,7 +34,7 @@ const CertificationCard = ({ title, filePath }: CardServicesProps) => {
                     className="border-gray-500 relative pl-5 pr-12 py-4 md:py-5 border-solid rounded-none"
                     onClick={handleOpenDocument} // Cambiado a handleOpenDocument
                 >
-                    <span>Descargar</span>
+                    <span>{t('certifications.download')}</span>
                     <div className='absolute right-0'>
                         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />

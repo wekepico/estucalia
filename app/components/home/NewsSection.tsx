@@ -42,7 +42,6 @@ export default function NewsSection() {
     };
 
     fetchData();
-    console.log(blogs);
   }, []);
 
   return (

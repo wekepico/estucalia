@@ -53,13 +53,13 @@ export default function Footer() {
             <div className='w-max'>
               <h3 className="font-[600] mb-2">{t('footer.products.title')}</h3>
               <ul className="text-gray-200">
-                <li><Link href="/producto/singleLayerMortar" className="hover:text-white transition-colors">{t('footer.products.monocapa')}</Link></li>
-                <li><Link href="/producto/tileAdhesive" className="hover:text-white transition-colors">{t('footer.products.tileAdhesive')}</Link></li>
-                <li><Link href="/producto/limeMortar" className="hover:text-white transition-colors">{t('footer.products.limeMortar')}</Link></li>
-                <li><Link href="/producto/groutMortar" className="hover:text-white transition-colors">{t('footer.products.multipurposeMortar')}</Link></li>
-                <li><Link href="/producto/stampedMortar" className="hover:text-white transition-colors">{t('footer.products.verticalPrinted')}</Link></li>
-                <li><Link href="/producto/waterProtector" className="hover:text-white transition-colors">{t('footer.products.waterProtector')}</Link></li>
-                <li><Link href="/producto/bondingBridge" className="hover:text-white transition-colors">{t('footer.products.repairMortar')}</Link></li>
+                <li><Link href="/categories/singleLayerMortar" className="hover:text-white transition-colors">{t('footer.products.monocapa')}</Link></li>
+                <li><Link href="/categories/tileAdhesive" className="hover:text-white transition-colors">{t('footer.products.tileAdhesive')}</Link></li>
+                <li><Link href="/categories/limeMortar" className="hover:text-white transition-colors">{t('footer.products.limeMortar')}</Link></li>
+                <li><Link href="/categories/groutMortar" className="hover:text-white transition-colors">{t('footer.products.multipurposeMortar')}</Link></li>
+                <li><Link href="/categories/stampedMortar" className="hover:text-white transition-colors">{t('footer.products.verticalPrinted')}</Link></li>
+                <li><Link href="/categories/waterProtector" className="hover:text-white transition-colors">{t('footer.products.waterProtector')}</Link></li>
+                <li><Link href="/categories/bondingBridge" className="hover:text-white transition-colors">{t('footer.products.repairMortar')}</Link></li>
               </ul>
             </div>
           </div>
@@ -88,25 +88,25 @@ export default function Footer() {
                 <div className='p-1 mx-auto rounded-full bg-white text-black'>
                   <TiSocialLinkedin className="w-5 h-5 rounded-full" />
                 </div>
-                <p>Linkedin</p>
+                <p>{t('footer.social.linkedin')}</p>
               </Link>
               <Link target='_blank' href="https://www.facebook.com/share/1A5tsR5Aaq" className="text-gray-200 flex items-center gap-2 hover:text-white transition-colors">
                 <div className='p-1 mx-auto rounded-full bg-white text-black'>
                   <TiSocialFacebook className="w-5 h-5" />
                 </div>
-                <p>Facebook</p>
+                <p>{t('footer.social.facebook')}</p>
               </Link>
               <Link target='_blank' href="https://www.instagram.com/grupo_estucalia?igsh=MTdoazk0NHVpaXdkdg%3D%3D" className="text-gray-200 flex gap-2 hover:text-white items-center transition-colors">
                 <div className='p-1 mx-auto rounded-full bg-white text-black'>
                   <RxInstagramLogo className="w-5 h-5 rounded-full" />
                 </div>
-                <p>Instagram</p>
+                <p>{t('footer.social.instagram')}</p>
               </Link>
               <Link target='_blank' href="https://www.youtube.com/channel/UCyFIm8KQCuF_YQZVN7XM05A" className="text-gray-200 flex gap-2 items-center hover:text-white transition-colors">
                 <div className='p-1 mx-auto rounded-full bg-white text-black'>
                   <FaYoutube className="w-5 h-5 rounded-full bg-white" />
                 </div>
-                <p className='capitalize'>youtube</p>
+                <p>{t('footer.social.youtube')}</p>
               </Link>
             </div>
           </div>

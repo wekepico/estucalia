@@ -13,6 +13,8 @@ export interface Aplication {
     aplication: string;
     descripcion: string;
     img: string;
+    image_alt?: string | null;
+    image_title?: string | null;
     products: {
         id: string;
         name: string;

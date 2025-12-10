@@ -15,10 +15,16 @@ interface HeroSectionProps {
     img: string | null;
     description: string | null;
     products: Product[] | null;
+    imageAlt?: string | null;
+    imageTitle?: string | null;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ description, category, products, img, }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ description, category, products, img, imageAlt, imageTitle }) => {
     const { t } = useLanguage();
+
+    // Usar alt y title del backend si están disponibles, sino usar category como fallback
+    const imgAlt = imageAlt || category || "";
+    const imgTitle = imageTitle || category || "";
     return (
         <div className="flex flex-col gap-16 md:gap-28 px-5 pt-16 sm:px-10 md:px-15 lg:px-20">
             {/* Contenedor principal */}
@@ -28,19 +34,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ description, category,
                     <h1 className="font-semibold sm:text-xl   lg:text-4xl md:text-2xl">
                         {category}
                     </h1>
-                    <p className="text-base xl:text-lg md:text-sm">
-                        {description}
-                    </p>
+                    <div
+                        className="text-base xl:text-lg md:text-sm"
+                        dangerouslySetInnerHTML={{ __html: description || '' }}
+                    />
                 </div>
 
                 {/* Contenedor de la imagen */}
                 <div className="relative w-full md:w-[57%] h-64 md:h-auto bg-slate-500">
                     <Image
                         src={img || ""}
-                        alt={category || ""}
-                        layout="fill"
-                        objectFit="cover"
-                        className="absolute inset-0"
+                        alt={imgAlt}
+                        title={imgTitle}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority
+                        className="object-cover"
                     />
                 </div>
             </div>
@@ -48,8 +57,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ description, category,
             {/* Product Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-16">
                 {products?.map((product) => (
-                    <div key={product.name}>
-                        <ProductCard id={product.id} icon={product.icon} name={t(product.name)} />
+                    <div key={product.id}>
+                        <ProductCard id={product.id} icon={product.icon} name={product.name} />
                     </div>
                 ))}
             </div>

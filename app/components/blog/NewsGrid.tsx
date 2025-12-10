@@ -6,22 +6,12 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/app/context/LanguageContext';
-import { fetchBlogPosts } from '@/services/bolgsServices';
-
-interface Blog {
-  id: number;
-  title: string;
-  photo: string;
-  slug: string;
-  excerpt: string;
-  date: string;
-  category: string;
-}
+import { fetchBlogPosts, BlogPost } from '@/services/bolgsServices';
 
 export default function NewsGrid() {
   const router = useRouter();
-  const { t } = useLanguage();
-  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const { t, language } = useLanguage();
+  const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -49,26 +39,44 @@ export default function NewsGrid() {
     <section className="lg:py-20 py-10 bg-white">
       <div className="mx-auto px-5 sm:px-10 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-20">
-          {blogs.map((blog) => (
+          {blogs.map((blog) => {
+            // El backend NO envía photo_alt ni photo_title, usamos el title como fallback
+            const photoAlt = blog.title;
+            const photoTitle = blog.title;
+            
+            return (
             <Card key={blog.id} className="border-none shadow-none group cursor-pointer">
               <CardHeader className="p-0">
                 <div className="relative aspect-[16/9] mb-6 overflow-hidden">
                   <div 
                     className="absolute inset-0 bg-cover bg-center transform transition-transform duration-700 group-hover:scale-105"
                     style={{ backgroundImage: `url('${blog.photo}')` }}
+                    role="img"
+                    aria-label={photoAlt}
+                    title={photoTitle}
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                 </div>
               </CardHeader>
               <CardContent className="px-0 space-y-4">
                 <div className="flex items-center gap-4 text-sm">
-                  <span className="text-gray-400">{blog.date}</span>
+                  <span className="text-gray-400">
+                    {blog.created_at 
+                      ? new Date(blog.created_at).toLocaleDateString('es-ES', {
+                          day: 'numeric',
+                          month: 'long',
+                          year: 'numeric'
+                        })
+                      : ''}
+                  </span>
                 </div>
                 <h2 className="text-xl md:text-2xl font-medium group-hover:text-gray-600 transition-colors duration-300">
                   {blog.title}
                 </h2>
                 <p className="text-gray-600 line-clamp-3">
-                  {blog.excerpt}
+                  {blog.excerpt || (blog.description 
+                    ? blog.description.substring(0, 150) + (blog.description.length > 150 ? '...' : '')
+                    : '')}
                 </p>
                 <Button 
                   onClick={() => handleViewNews(blog.slug)}
@@ -84,7 +92,8 @@ export default function NewsGrid() {
                 </Button>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

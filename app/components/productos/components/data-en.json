@@ -58,7 +58,8 @@
                     ],
                     "informacion_relevante": [
                         "Presentation: 25 kg bags. Pallets of 1400 kg (56 bags).",
-                        "Storage: 12 months from manufacturing date in a dry, ventilated and cool place."                    ],
+                        "Storage: 12 months from manufacturing date in a dry, ventilated and cool place."
+                    ],
                     "documentacion": [
                         {
                             "nombre": "AENOR Certificate",
@@ -83,28 +84,28 @@
                     "imagen": "/img/productos/02-ARGAMASA M.png",
                     "composicion": "Mortar composed of aerial lime and white cement, along with selected aggregates and additives that ensure excellent mechanical performance, high durability and flexibility. Its formulation is suitable for applications in new construction, renovations and repairs of walls, facades and pavements, combining the best of both materials: the elasticity and waterproofing of lime and the strength of cement.",
                     "caracteristicas": [
-                      "High mechanical strength, ideal for structures requiring great durability.",
-                      "Flexibility to accommodate movements without cracking.",
-                      "Easy to work with and apply, allowing for smooth, floated or scraped finishes.",
-                      "Ideal for both indoor and outdoor use, including areas exposed to weather agents.",
-                      "Frost resistant, offering high thermal stability.",
-                      "Less prone to cracking compared to traditional mortars."
+                        "High mechanical strength, ideal for structures requiring great durability.",
+                        "Flexibility to accommodate movements without cracking.",
+                        "Easy to work with and apply, allowing for smooth, floated or scraped finishes.",
+                        "Ideal for both indoor and outdoor use, including areas exposed to weather agents.",
+                        "Frost resistant, offering high thermal stability.",
+                        "Less prone to cracking compared to traditional mortars."
                     ],
                     "recomendaciones": [
-                      "Avoid extreme temperatures during application (below 5°C or above 30°C).",
-                      "Do not apply in conditions of direct exposure to heavy rain or strong wind during the drying process.",
-                      "Do not apply in expansion joints or areas subject to structural movements.",
-                      "Do not use on highly absorbent surfaces without prior sealing treatment."
+                        "Avoid extreme temperatures during application (below 5°C or above 30°C).",
+                        "Do not apply in conditions of direct exposure to heavy rain or strong wind during the drying process.",
+                        "Do not apply in expansion joints or areas subject to structural movements.",
+                        "Do not use on highly absorbent surfaces without prior sealing treatment."
                     ],
                     "precauciones": [
-                      "Do not apply on surfaces with excessive moisture.",
-                      "Protect fresh mortar from adverse weather conditions.",
-                      "Strictly follow recommended mixing proportions.",
-                      "Use personal protective equipment during application."
+                        "Do not apply on surfaces with excessive moisture.",
+                        "Protect fresh mortar from adverse weather conditions.",
+                        "Strictly follow recommended mixing proportions.",
+                        "Use personal protective equipment during application."
                     ],
                     "informacion_relevante": [
-                      "Presentation: 25 kg bags.",
-                      "Storage: 12 months from manufacturing date in a dry place protected from moisture."
+                        "Presentation: 25 kg bags.",
+                        "Storage: 12 months from manufacturing date in a dry place protected from moisture."
                     ],
                     "documentacion": [
                         {
@@ -123,7 +124,7 @@
                             "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
-                  }
+                }
             ]
         },
         {
@@ -176,7 +177,6 @@
                             "accion": "Download",
                             "enlace": "/files/certificado-iqnet.pdf"
                         },
-
                         {
                             "nombre": "Conformity Declaration",
                             "accion": "Download",
@@ -300,7 +300,7 @@
                     "subtitulo": "C2TE S1 Tile Adhesive",
                     "imagen": "/img/productos/05-KOLATEC FLEX .png",
                     "informacion_general": "Cementitious adhesive for ceramic tiles with low surface absorption and extended open time. Non-sagging with excellent initial adhesion. For direct tiling on brickwork and concrete blocks without prior rendering, and on uneven flooring substrates. Application for indoor and outdoor porcelain tiles, low absorption tiles, and large format tiles.",
-                    "composicion":"Cementitious adhesive for ceramic tiles with low surface absorption and extended open time. No sagging and excellent initial adhesion. Designed for direct tiling on brickwork and concrete blocks without the need for prior rendering, and for flooring with irregular substrates. Suitable for indoor and outdoor application of porcelain, low-absorption, and large-format ceramic tiles",
+                    "composicion": "Cementitious adhesive for ceramic tiles with low surface absorption and extended open time. No sagging and excellent initial adhesion. Designed for direct tiling on brickwork and concrete blocks without the need for prior rendering, and for flooring with irregular substrates. Suitable for indoor and outdoor application of porcelain, low-absorption, and large-format ceramic tiles",
                     "caracteristicas": [
                         "Excellent workability and high whiteness.",
                         "Rheologically improved with high stability and excellent performance.",
@@ -361,7 +361,7 @@
                             "enlace": "/files/dit-plus-espanol.pdf"
                         }
                     ]
-                }            
+                }
             ]
         },
         {
@@ -648,6 +648,24 @@
                 "Waterproofing",
                 "Dehumidification / water repellent"
             ],
+            "acabados": [
+                {
+                    "nombre": "Bush-hammered / scraped",
+                    "imagen": "/img/acabados/raspado_abujardado.jpg"
+                },
+                {
+                    "nombre": "Washed / floated",
+                    "imagen": "/img/acabados/lavado_fratasado.jpg"
+                },
+                {
+                    "nombre": "Stamped",
+                    "imagen": "/img/acabados/impreso.jpg"
+                },
+                {
+                    "nombre": "Smooth",
+                    "imagen": "/img/acabados/liso.jpg"
+                }
+            ],
             "productos": [
                 {
                     "nombre": "PLASTITE M'",
@@ -855,7 +873,7 @@
                     "nombre": "EURO-SOL",
                     "subtitulo": "Release agent",
                     "imagen": "/img/productos/EUROSOL_1.png",
-                    "imagen2":"/img/productos/EUROSOL_25L.png",
+                    "imagen2": "/img/productos/EUROSOL_25L.png",
                     "composicion": "Liquid release agent for immediate demolding. Forms a thin non-greasy film that allows instant demolding.",
                     "caracteristicas": [
                         "Appearance: Oily, colorless liquid.",
@@ -1133,7 +1151,7 @@
                             "enlace": "/files/Herramientas_GRUPO.ESTUCALIA.pdf"
                         }
                     ]
-                }    
+                }
             ]
         },
         {
@@ -1420,31 +1438,31 @@
                         "Shelf life: 12 months from manufacturing date in closed container and protected from humidity"
                     ],
                     "documentacion": [
-                    {
-                        "nombre": "Technical Data Sheet",
-                        "accion": "Download",
-                        "enlace": "/files/EURO-HYDRO_ Resina de Acabado.pdf"
-                    },
-                    {
-                        "nombre": "AENOR Certificate",
-                        "accion": "Download",
-                        "enlace": "/files/certificado-aenor.pdf"
-                    },
-                    {
-                        "nombre": "IQNet Certificate",
-                        "accion": "Download",
-                        "enlace": "/files/certificado-iqnet.pdf"
-                    },
-                    {
-                        "nombre": "Conformity Declaration",
-                        "accion": "Download",
-                        "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
-                    },
-                    {
-                        "nombre": "Technical Suitability Document",
-                        "accion": "Download",
-                        "enlace": "/files/dit-plus-espanol.pdf"
-                    }
+                        {
+                            "nombre": "Technical Data Sheet",
+                            "accion": "Download",
+                            "enlace": "/files/EURO-HYDRO_ Resina de Acabado.pdf"
+                        },
+                        {
+                            "nombre": "AENOR Certificate",
+                            "accion": "Download",
+                            "enlace": "/files/certificado-aenor.pdf"
+                        },
+                        {
+                            "nombre": "IQNet Certificate",
+                            "accion": "Download",
+                            "enlace": "/files/certificado-iqnet.pdf"
+                        },
+                        {
+                            "nombre": "Conformity Declaration",
+                            "accion": "Download",
+                            "enlace": "/files/declaracion-conformidad-estucalia-morteros.pdf"
+                        },
+                        {
+                            "nombre": "Technical Suitability Document",
+                            "accion": "Download",
+                            "enlace": "/files/dit-plus-espanol.pdf"
+                        }
                     ]
                 }
             ]

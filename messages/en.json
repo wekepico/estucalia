@@ -78,7 +78,10 @@
     "phone": "Phone",
     "address": "Address",
     "submit": "Submit",
-    "videoNotSupported": "Your browser does not support the video tag."
+    "videoNotSupported": "Your browser does not support the video tag.",
+    "back": "Back",
+    "download": "Download",
+    "viewProduct": "View product"
   },
   "home": {
     "hero": {
@@ -461,7 +464,11 @@
       "address": "Cno Viejo de Fortuna, 40 Matanzas<br />30148, Santomera, Murcia (SPAIN)."
     },
     "social": {
-      "title": "FOLLOW US"
+      "title": "FOLLOW US",
+      "linkedin": "Linkedin",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "youtube": "Youtube"
     }
   },
   "heroSection": {
@@ -695,6 +702,7 @@
   },
   "certifications": {
     "title": "Certifications and Documentation",
+    "download": "Download",
     "cards": {
       "morteros": "Declaration of Conformity for One-coat Renders",
       "cementos": "Declaration of Conformity for Tile Adhesives",
@@ -838,6 +846,6 @@
     "action": "Download"
   },
   "general": {
-    "loading": "cargando"
+    "loading": "loading"
   }
 }
