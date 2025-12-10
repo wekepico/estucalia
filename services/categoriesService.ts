@@ -115,16 +115,21 @@ function normalizeProductFromCategory(raw: ProductRaw): import('./productsServic
       name: raw.category.name,
       slug: raw.category.slug,
     } : null,
-    documents: (raw.documents || []).map((doc: any) => ({
-      id: doc.id,
-      product_id: doc.product_id,
-      name: doc.name,
-      file_path: getImageUrl(doc.file_path) || doc.file_path,
-      file_type: doc.file_type,
-      order: doc.order,
-      created_at: doc.created_at,
-      updated_at: doc.updated_at,
-    })),
+    documents: (raw.documents || []).map((doc: any) => {
+      const normalizedFileUrl = doc.file_url || getImageUrl(doc.file_path) || doc.file_path;
+
+      return {
+        id: doc.id,
+        product_id: doc.product_id,
+        name: doc.name,
+        file_path: normalizedFileUrl,
+        file_url: normalizedFileUrl, // keep explicit url for consumers that prefer file_url
+        file_type: doc.file_type,
+        order: doc.order,
+        created_at: doc.created_at,
+        updated_at: doc.updated_at,
+      };
+    }),
     name_es: raw.name_es || raw.name || null,
     name_en: raw.name_en || raw.name || null,
     name_fr: raw.name_fr || raw.name || null,

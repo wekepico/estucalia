@@ -54,6 +54,11 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
     const image2Alt = getLocalizedField(product, 'image2_alt', language) || product.nombre;
     const image2Title = getLocalizedField(product, 'image2_title', language) || product.nombre;
 
+    // Helper para limpiar guiones al inicio de los items de lista
+    const cleanListItem = (item: string) => {
+        return item.replace(/^-\s*/, '').trim();
+    };
+
 
     if (product.nombre === "MOLDES CENEFAS RODILLOS" || product.nombre === "HERRAMIENTAS") {
         return (
@@ -125,7 +130,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.features")}</strong>
                         <ul className="list-disc ml-5">
                             {product.caracteristicas.map((item, i) => (
-                                <li key={i}>{item}</li>
+                                <li key={i}>{cleanListItem(item)}</li>
                             ))}
                         </ul>
                     </div>
@@ -136,7 +141,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.recommendations")}</strong>
                         <ul className="list-disc ml-5">
                             {product.recomendaciones.map((item, i) => (
-                                <li key={i}>{item}</li>
+                                <li key={i}>{cleanListItem(item)}</li>
                             ))}
                         </ul>
                     </div>
@@ -147,7 +152,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.application")}:</strong>
                         <ul className="list-disc ml-5">
                             {product.aplicacion.map((item, i) => (
-                                <li key={i}>{item}</li>
+                                <li key={i}>{cleanListItem(item)}</li>
                             ))}
                         </ul>
                     </div>
@@ -158,7 +163,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.cautions")}</strong>
                         <ul className="list-disc ml-5">
                             {product.precauciones.map((item, i) => (
-                                <li key={i}>{item}</li>
+                                <li key={i}>{cleanListItem(item)}</li>
                             ))}
                         </ul>
                     </div>
@@ -169,7 +174,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.relevantInfo")}</strong>
                         <ul className="list-disc ml-5">
                             {product.informacion_relevante.map((info, i) => (
-                                <li key={i}>{info}</li>
+                                <li key={i}>{cleanListItem(info)}</li>
                             ))}
                         </ul>
                     </div>

@@ -88,6 +88,7 @@ export interface ProductDocument {
   product_id: number;
   name: string;
   file_path: string;
+  file_url?: string;
   file_type: string;
   order: number;
   created_at: string;
@@ -176,12 +177,15 @@ function getLocalizedValue(
  * Usa file_url si está disponible (viene del backend), sino construye la URL
  */
 function normalizeDocument(doc: ProductDocumentRaw): ProductDocument {
+  const normalizedFileUrl = doc.file_url || getImageUrl(doc.file_path) || doc.file_path;
+
   return {
     id: doc.id,
     product_id: doc.product_id,
     name: doc.name,
     // Usar file_url si está disponible, sino construir con getImageUrl
-    file_path: (doc as any).file_url || getImageUrl(doc.file_path) || doc.file_path,
+    file_path: normalizedFileUrl,
+    file_url: normalizedFileUrl,
     file_type: doc.file_type,
     order: doc.order,
     created_at: doc.created_at,
@@ -356,6 +360,7 @@ export const getProductDocuments = async (slug: string): Promise<ProductDocument
       product_id: doc.product_id,
       name: doc.name,
       file_path: doc.file_url || getImageUrl(doc.file_path) || doc.file_path,
+      file_url: doc.file_url || getImageUrl(doc.file_path) || doc.file_path,
       file_type: doc.file_type,
       order: doc.order,
       created_at: doc.created_at,
