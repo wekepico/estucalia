@@ -71,6 +71,16 @@ export default function CategoryClient() {
                                 (language === 'es' ? cat.short_description_es : language === 'en' ? cat.short_description_en : cat.short_description_fr) || 
                                 '';
 
+        // Helper para extraer valores localizados de objetos o strings
+        const getLocalizedValue = (
+            value: { es?: string; en?: string; fr?: string } | string | null | undefined,
+            lang: 'es' | 'en' | 'fr'
+        ): string | null => {
+            if (!value) return null;
+            if (typeof value === 'string') return value;
+            return value[lang] || null;
+        };
+
         // Mapear productos - usar backendProductsData si está disponible
         const productos = backendProductsData?.data?.map(prod => {
             const prodNombre = getLocalizedField(prod, 'name', language as 'es' | 'en' | 'fr') ||
@@ -87,12 +97,12 @@ export default function CategoryClient() {
                 descripcion: prodDescripcion,
                 imagen: prod.image_url || prod.image || '/img/default.jpg',
                 // Campos de alt y title de imágenes del backend
-                image_alt_es: prod.image_alt?.es || null,
-                image_alt_en: prod.image_alt?.en || null,
-                image_alt_fr: prod.image_alt?.fr || null,
-                image_title_es: prod.image_title?.es || null,
-                image_title_en: prod.image_title?.en || null,
-                image_title_fr: prod.image_title?.fr || null,
+                image_alt_es: getLocalizedValue(prod.image_alt, 'es'),
+                image_alt_en: getLocalizedValue(prod.image_alt, 'en'),
+                image_alt_fr: getLocalizedValue(prod.image_alt, 'fr'),
+                image_title_es: getLocalizedValue(prod.image_title, 'es'),
+                image_title_en: getLocalizedValue(prod.image_title, 'en'),
+                image_title_fr: getLocalizedValue(prod.image_title, 'fr'),
                 // Campos adicionales del producto
                 subtitulo: prod.subtitle || null,
                 composicion: getLocalizedField(prod, 'composition', language as 'es' | 'en' | 'fr') || null,
@@ -195,11 +205,11 @@ export default function CategoryClient() {
         HARDCODED_FINISHES_BY_SLUG[categorySlug] ||
         HARDCODED_FINISHES_BY_SLUG[foundCategory?.id || (foundCategory as any)?.slug || ""];
 
-    let finalCategory = foundCategory;
-    if (USE_HARDCODED_APPLICATIONS && hardcodedApps) {
+    let finalCategory: any = foundCategory;
+    if (USE_HARDCODED_APPLICATIONS && hardcodedApps && finalCategory) {
         finalCategory = { ...finalCategory, aplicaciones: hardcodedApps };
     }
-    if (USE_HARDCODED_FINISHES && hardcodedFinishes) {
+    if (USE_HARDCODED_FINISHES && hardcodedFinishes && finalCategory) {
         finalCategory = { ...finalCategory, acabados: hardcodedFinishes };
     }
 

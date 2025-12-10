@@ -109,6 +109,9 @@ export interface Product {
   subtitle: string | null;
   category_id: number | null;
   image_url: string | null;
+  image?: string | null; // Campo legacy, puede venir del backend como 'image' o 'image_url'
+  image_alt?: LocalizedObject | string | null; // Puede venir como objeto {es, en, fr} o string
+  image_title?: LocalizedObject | string | null; // Puede venir como objeto {es, en, fr} o string
   image_alt_es: string | null;
   image_alt_en: string | null;
   image_alt_fr: string | null;
