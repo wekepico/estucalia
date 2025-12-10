@@ -126,7 +126,7 @@ export default function ProductClient() {
                 documentacion: productDocuments.map((doc: any) => ({
                     nombre: doc.name || '',
                     accion: t('common.download') || 'Descargar',
-                    enlace: doc.file_path || doc.file_url || '',
+                    enlace: doc.file_url || doc.file_path || '',
                 })),
             };
         }) || [];
