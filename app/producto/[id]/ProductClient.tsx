@@ -9,7 +9,7 @@ import data2 from "../../components/productos/components/data-en.json";
 import data3 from "../../components/productos/components/data-fr.json";
 import { useCategoryBySlug, useCategoryProducts, useCategories } from '@/api/useCategories';
 import { getProductDocuments } from '@/services/productsService';
-import { getLocalizedField, getLocalizedSlug } from '@/lib/i18nHelpers';
+import { getLocalizedField, getLocalizedSlug, getImageUrl } from '@/lib/i18nHelpers';
 import type { Category } from '@/services/categoriesService';
 
 export default function ProductClient() {
@@ -106,7 +106,7 @@ export default function ProductClient() {
                 id: prod.slug,
                 nombre: getLocalizedField(prod, 'name', language as 'es' | 'en' | 'fr') || '',
                 descripcion: getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') || '',
-                imagen: prod.image_url || '/img/default.jpg',
+                imagen: getImageUrl(prod.image_url) || '/img/default.jpg',
                 // Campos de alt y title de imágenes del backend
                 image_alt_es: prod.image_alt_es || null,
                 image_alt_en: prod.image_alt_en || null,
@@ -139,7 +139,7 @@ export default function ProductClient() {
         // Mapear acabados del backend al formato esperado
         const acabadosMapeados = cat.finishes?.map((finish: any) => ({
             nombre: getLocalizedField(finish, 'name', language as 'es' | 'en' | 'fr') || finish.name || '',
-            imagen: finish.image_url || finish.image || '/img/default.jpg'
+            imagen: getImageUrl(finish.image_url || finish.image) || '/img/default.jpg'
         })) || [];
 
         const categoryObject = {
@@ -147,7 +147,7 @@ export default function ProductClient() {
             nombre: getLocalizedField(cat, 'name', language as 'es' | 'en' | 'fr') || '',
             descripcion: getLocalizedField(cat, 'description', language as 'es' | 'en' | 'fr') || '',
             descripcionCorta: getLocalizedField(cat, 'short_description', language as 'es' | 'en' | 'fr') || '',
-            imagen: cat.image_url || '/img/default.jpg',
+            imagen: getImageUrl(cat.image_url) || '/img/default.jpg',
             // Campos de alt y title de imagen del backend (vienen como strings simples)
             image_alt: cat.image_alt_es || cat.image_alt_en || cat.image_alt_fr || null,
             image_title: cat.image_title_es || cat.image_title_en || cat.image_title_fr || null,
