@@ -6,7 +6,7 @@ import { data, Aplication } from '../../data/aplicaciones';
 import AplicationPage from '../../components/aplicaciones/AplicationsPage';
 import { Loader } from "lucide-react";
 import { useApplicationBySlug, useApplications } from '@/api/useApplications';
-import { getLocalizedField, getLocalizedSlug } from '@/lib/i18nHelpers';
+import { getLocalizedField, getLocalizedSlug, getImageUrl } from '@/lib/i18nHelpers';
 import type { Application } from '@/services/applicationsService';
 
 export default function AplicationClient() {
@@ -51,7 +51,7 @@ export default function AplicationClient() {
             id: app.slug,
             aplication: getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr') || '',
             descripcion: getLocalizedField(app, 'description', language as 'es' | 'en' | 'fr') || '',
-            img: app.image_url || '/img/default.jpg',
+            img: getImageUrl(app.image_url) || '/img/default.jpg',
             // Campos de alt y title de imagen del backend (preparado para cuando el backend envíe datos)
             image_alt: app.image_alt_es || app.image_alt_en || app.image_alt_fr || null,
             image_title: app.image_title_es || app.image_title_en || app.image_title_fr || null,

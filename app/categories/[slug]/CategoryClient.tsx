@@ -8,7 +8,7 @@ import data from "@/app/components/productos/components/data-es.json";
 import data2 from "@/app/components/productos/components/data-en.json";
 import data3 from "@/app/components/productos/components/data-fr.json";
 import { useCategoryBySlug, useCategoryProducts, useCategories, useCategoryApplications } from '@/api/useCategories';
-import { getLocalizedField, getLocalizedSlug } from '@/lib/i18nHelpers';
+import { getLocalizedField, getLocalizedSlug, getImageUrl } from '@/lib/i18nHelpers';
 import type { Category } from '@/services/categoriesService';
 
 export default function CategoryClient() {
@@ -95,7 +95,7 @@ export default function CategoryClient() {
                 id: prod.slug,
                 nombre: prodNombre,
                 descripcion: prodDescripcion,
-                imagen: prod.image_url || prod.image || '/img/default.jpg',
+                imagen: getImageUrl(prod.image_url || prod.image) || '/img/default.jpg',
                 // Campos de alt y title de imágenes del backend
                 image_alt_es: getLocalizedValue(prod.image_alt, 'es'),
                 image_alt_en: getLocalizedValue(prod.image_alt, 'en'),
@@ -146,7 +146,7 @@ export default function CategoryClient() {
         // Mapear acabados del backend al formato esperado
         const acabados = cat.finishes?.map((finish: any) => ({
             nombre: getLocalizedField(finish, 'name', language as 'es' | 'en' | 'fr') || finish.name || '',
-            imagen: finish.image_url || finish.image || '/img/default.jpg'
+            imagen: getImageUrl(finish.image_url || finish.image) || '/img/default.jpg'
         })) || [];
 
         return {
@@ -154,7 +154,7 @@ export default function CategoryClient() {
             nombre: nombre,
             descripcion: descripcion,
             descripcionCorta: descripcionCorta,
-            imagen: cat.image_url || '/img/default.jpg',
+            imagen: getImageUrl(cat.image_url) || '/img/default.jpg',
             productos: productos,
             aplicaciones: aplicaciones,
             acabados: acabados

@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { useLanguage } from '../../context/LanguageContext';
 import { useHome } from '@/api/useHome';
+import { getImageUrl } from '@/lib/i18nHelpers';
 
 export default function AplicationSection() {
   const { t, language } = useLanguage();
@@ -112,9 +113,10 @@ export default function AplicationSection() {
         // Transformar items a formato de espacios
         backendSpaces = items.map((item: any) => {
           // Intentar diferentes estructuras del backend
+          const rawImage = item.image || item.image_url || item.photo || item.img || null;
           return {
             id: item.id || item.slug || item.title?.toLowerCase().replace(/\s+/g, '-') || `space-${Math.random()}`,
-            image: item.image || item.image_url || item.photo || item.img || '/img/default.jpg',
+            image: getImageUrl(rawImage) || '/img/default.jpg',
             title: item.title || item.name || item.title_es || item.name_es || '',
             categories: Array.isArray(item.categories) 
               ? item.categories.map((c: any) => typeof c === 'string' ? c : (c.name || c.title || '')).join(',')

@@ -1,7 +1,7 @@
 "use client";
 import { useCategories } from '@/api/useCategories';
 import { useLanguage } from '@/app/context/LanguageContext';
-import { getLocalizedField, getLocalizedSlug } from '@/lib/i18nHelpers';
+import { getLocalizedField, getLocalizedSlug, getImageUrl } from '@/lib/i18nHelpers';
 import { Loader } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -43,7 +43,7 @@ export default function CategoriesPage() {
                     {categories.map((category) => {
                         const categorySlug = getLocalizedSlug(category, language as 'es' | 'en' | 'fr') || category.slug;
                         const categoryName = getLocalizedField(category, 'name', language as 'es' | 'en' | 'fr') || category.slug;
-                        const categoryImage = category.image_url || '/img/default.jpg';
+                        const categoryImage = getImageUrl(category.image_url) || '/img/default.jpg';
                         // Obtener alt y title del backend (vienen como strings simples), con fallback al nombre
                         const categoryImageAlt = category.image_alt_es || category.image_alt_en || category.image_alt_fr || categoryName;
                         const categoryImageTitle = category.image_title_es || category.image_title_en || category.image_title_fr || categoryName;
