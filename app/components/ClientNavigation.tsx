@@ -343,7 +343,7 @@ export default function ClientNavigation() {
           <nav ref={headerRef} className={`top-0 w-full left-0 right-0 z-10 bg-black  "flex justify-center relative"
             `}>
             <div className={`absolute z-[-1] ${hoveredMenu ? "opacity-100 visible" : "opacity-0 invisible"
-              } transition-all duration-300 ease-in-out top-[2.85rem] w-[102vw] h-[435px] mt-2 backdrop-blur-[3.5px] backdrop-opacity-90`}
+              } transition-all duration-300 ease-in-out top-[2.85rem] w-[102vw] h-[550px] mt-2 backdrop-blur-[3.5px] backdrop-opacity-90`}
               style={{
                 background: "rgba(0, 5, 0, 0.6)",
               }}
@@ -384,7 +384,7 @@ export default function ClientNavigation() {
                             } transition-all w-max duration-300 ease-in-out top-full flex flex-col bg-transparent h-[4200px]`}
                           onMouseLeave={() => setHoveredMenu(null)}
                         >
-                          <ul className={`font-[500]  ${link.label === "navigation.products.label" ? "grid grid-cols-3 gap-x-24 gap-y-6 mt-16 " : " flex flex-col py-4 space-y-4"}  `}>
+                          <ul className={`font-[500]  ${link.label === "navigation.products.label" ? "grid grid-cols-2 xl:grid-cols-3 gap-x-8 xl:gap-x-16 gap-y-6 mt-16 " : " flex flex-col py-4 space-y-4"}  `}>
                             {
                               link.submenu.map((subItem, subIndex) => (
                                 <li
@@ -397,7 +397,7 @@ export default function ClientNavigation() {
                                     onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
                                   >
                                     {link.label === "navigation.products.label" && productsIcon[subIndex].icon}
-                                    <p className={`${subItem.label.toLocaleLowerCase() === "mortero piedra decorativa" || subItem.label.toLocaleLowerCase() === "decorative stone mortar" || subItem.label.toLocaleLowerCase() === "single-layer mortar" ? "w-32 text-left line-clamp-2" : " text-left"}
+                                    <p className={`${subItem.label.toLocaleLowerCase() === "mortero piedra decorativa" || subItem.label.toLocaleLowerCase() === "decorative stone mortar" || subItem.label.toLocaleLowerCase() === "single-layer mortar" ? "w-28 xl:w-32 text-left leading-tight break-words" : " text-left whitespace-nowrap"}
                                                  ${link.label === "navigation.products.label" && (subItem.label.toLocaleLowerCase() !== "mortero piedra decorativa" && subItem.label.toLocaleLowerCase() !== "decorative stone mortar" && subItem.label.toLocaleLowerCase() !== "single-layer mortar") ? "max-w-[min-content]" : ""}`}
                                     >
                                       {link.label === "navigation.products.label" ? subItem.label.toUpperCase() : subItem.label}
