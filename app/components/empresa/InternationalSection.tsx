@@ -3,6 +3,7 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useEmpresa } from '@/api/useEmpresa';
+import { stripHtmlTags } from '@/lib/utils';
 
 const countries = [
   'Argelia,', 'Marruecos,', 'Kuwait,', 'Arabia Saudí,',
@@ -75,9 +76,9 @@ export default function InternationalSection() {
         }}
       >
         <div className="max-w-4xl flex flex-col mx-auto  text-center max-sm:px-2">
-          <div dangerouslySetInnerHTML={{ __html: internationalTitle }} />
+          <div>{stripHtmlTags(internationalTitle)}</div>
           <div className='flex flex-col'>
-            <div dangerouslySetInnerHTML={{ __html: internationalText }} />
+            <div>{stripHtmlTags(internationalText)}</div>
 
             {/* Countries Grid */}
             <div className="flex flex-wrap justify-center  gap-1"

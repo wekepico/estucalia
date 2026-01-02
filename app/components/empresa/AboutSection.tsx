@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useLanguage } from '../../context/LanguageContext';
 import { useEmpresa } from '@/api/useEmpresa';
+import { stripHtmlTags } from '@/lib/utils';
 
 import Creatividad from '../../../public/img/creatividad-img.png'
 
@@ -89,8 +90,8 @@ export default function AboutSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 max-sm:gap-y-8 items-center">
             {/* Text Content */}
             <div className=''>
-              <div dangerouslySetInnerHTML={{ __html: aboutTitle }} />
-              <div dangerouslySetInnerHTML={{ __html: aboutText }} />
+              <div>{stripHtmlTags(aboutTitle)}</div>
+              <div>{stripHtmlTags(aboutText)}</div>
             </div>
 
             {/* Illustration */}
@@ -114,8 +115,8 @@ export default function AboutSection() {
       {/* Mission Section */}
       <section className="py-36 px-5 bg-[#f1e9e9]">
         <div className="mx-auto  max-sm:px-0 text-center">
-          <div dangerouslySetInnerHTML={{ __html: missionTitle }} />
-          <div dangerouslySetInnerHTML={{ __html: missionText }} />
+          <div>{stripHtmlTags(missionTitle)}</div>
+          <div>{stripHtmlTags(missionText)}</div>
         </div>
       </section>
     </div>

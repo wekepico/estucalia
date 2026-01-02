@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from '../../context/LanguageContext';
 import { useEmpresa } from '@/api/useEmpresa';
+import { stripHtmlTags } from '@/lib/utils';
 import Logos from "../../../public/img/logos-licencia.png"
 import Link from 'next/link';
 
@@ -51,9 +52,9 @@ export default function CertificationsSection() {
     <section className="py-32 bg-[#F5F5F5] px-5" style={{ backgroundColor: "rgba(222, 221, 221)" }}>
       <div className="  mx-auto">
         <div className="max-w-4xl max-sm:px-2 mx-auto text-center">
-          <div dangerouslySetInnerHTML={{ __html: certsTitle }} />
+          <div>{stripHtmlTags(certsTitle)}</div>
 
-          <div dangerouslySetInnerHTML={{ __html: certsText }} />
+          <div>{stripHtmlTags(certsText)}</div>
 
           {/* Certificates */}
           <div className="flex justify-center items-center gap-12 mb-16">

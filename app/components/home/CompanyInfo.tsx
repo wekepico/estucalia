@@ -3,6 +3,7 @@
 import React from 'react';
 import { useLanguage } from '@/app/context/LanguageContext';
 import { useHome } from '@/api/useHome';
+import { stripHtmlTags } from '@/lib/utils';
 
 export default function CompanyInfo() {
   const { t, language } = useLanguage();
@@ -47,9 +48,9 @@ export default function CompanyInfo() {
     <section className="min-h-[300px] flex items-center bg-white">
       <div className="container mx-auto px-4 text-center">
         <div className="mb-4">
-          <div dangerouslySetInnerHTML={{ __html: title }} />
+          <div>{stripHtmlTags(title)}</div>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: description }} />
+        <div>{stripHtmlTags(description)}</div>
       </div>
     </section>
   );

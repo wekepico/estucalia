@@ -3,6 +3,7 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useEmpresa } from '@/api/useEmpresa';
+import { stripHtmlTags } from '@/lib/utils';
 
 export default function VideoHero() {
   const { t, language } = useLanguage();
@@ -46,7 +47,7 @@ export default function VideoHero() {
       {/* Content Overlay */}
       <div className="relative h-full flex items-center justify-center text-center">
         <div className="mx-auto px-4">
-          <div dangerouslySetInnerHTML={{ __html: title }} />
+          <div>{stripHtmlTags(title)}</div>
         </div>
       </div>
     </section>

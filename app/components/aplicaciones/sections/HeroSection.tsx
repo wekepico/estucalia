@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ProductCard } from "../../home/components/ProductCard";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { stripHtmlTags } from "@/lib/utils";
 
 interface Product {
     id:string,
@@ -34,10 +35,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ description, category,
                     <h1 className="font-semibold sm:text-xl   lg:text-4xl md:text-2xl">
                         {category}
                     </h1>
-                    <div
-                        className="text-base xl:text-lg md:text-sm"
-                        dangerouslySetInnerHTML={{ __html: description || '' }}
-                    />
+                    <div className="text-base xl:text-lg md:text-sm">
+                        {stripHtmlTags(description || '')}
+                    </div>
                 </div>
 
                 {/* Contenedor de la imagen */}

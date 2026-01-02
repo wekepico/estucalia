@@ -7,6 +7,7 @@ import { RxInstagramLogo } from "react-icons/rx";
 import { FaFacebook, FaSquareYoutube, FaYoutube } from "react-icons/fa6";
 import { TiSocialLinkedin, TiSocialFacebook } from "react-icons/ti";
 import { useLanguage } from '@/app/context/LanguageContext';
+import { stripHtmlTags } from '@/lib/utils';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -68,7 +69,8 @@ export default function Footer() {
             {/* Contact */}
             <div>
               <h3 className="font-[600] mb-2">{t('footer.contact.title')}</h3>
-              <p className="text-gray-200 mb-6" dangerouslySetInnerHTML={{ __html: t('footer.contact.address') }}>
+              <p className="text-gray-200 mb-6">
+                {stripHtmlTags(t('footer.contact.address'))}
               </p>
               <div className="mb-4">
                 <a href="tel:+34968862467" className="text-gray-200 hover:text-white transition-colors">+34 968 862 467</a>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { stripHtmlTags } from '@/lib/utils';
 
 // Definimos las props del componente
 interface ReachTextProps {
@@ -12,14 +13,14 @@ export const ReachText: React.FC<ReachTextProps> = ({ content, className }) => {
         return null;
     }
 
-    // Reemplazamos cualquier etiqueta <script> por "illegalscript" por seguridad
-    const sanitizedContent = content.replace(/(<? *script)/gi, 'illegalscript');
+    // Extraer solo el texto, eliminando todas las etiquetas HTML
+    // (el backend envía HTML para SEO pero solo queremos mostrar el texto en la UI)
+    const textContent = stripHtmlTags(content);
 
     return (
-        <p
-            className={className}
-            dangerouslySetInnerHTML={{ __html: sanitizedContent }}
-        />
+        <p className={className}>
+            {textContent}
+        </p>
     );
 };
 

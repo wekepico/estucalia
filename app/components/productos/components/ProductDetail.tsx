@@ -4,6 +4,7 @@ import { FC } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { getLocalizedField } from "@/lib/i18nHelpers";
+import { stripHtmlTags } from "@/lib/utils";
 
 interface IDocumento {
     nombre: string;
@@ -109,9 +110,9 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
     return (
         <div className="flex max-md:flex-col gap-12">
             <div className="flex-1 md:w-3/4">
-                <h3 className="text-xl font-semibold">{product.nombre}</h3>
+                <h3 className="text-xl font-semibold">{stripHtmlTags(product.nombre)}</h3>
                 {product.subtitulo && (
-                    <h4 className="text-lg mb-4">{product.subtitulo}</h4>
+                    <h4 className="text-lg mb-4">{stripHtmlTags(product.subtitulo)}</h4>
                 )}
 
                 {product.composicion && (
@@ -120,7 +121,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                             <strong>{t("productsSection.composition")}</strong>
                         </p>
                         <p>
-                            {product.composicion}
+                            {stripHtmlTags(product.composicion)}
                         </p>
                     </>
                 )}
@@ -130,7 +131,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.features")}</strong>
                         <ul className="list-disc ml-5">
                             {product.caracteristicas.map((item, i) => (
-                                <li key={i}>{cleanListItem(item)}</li>
+                                <li key={i}>{stripHtmlTags(cleanListItem(item))}</li>
                             ))}
                         </ul>
                     </div>
@@ -141,7 +142,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.recommendations")}</strong>
                         <ul className="list-disc ml-5">
                             {product.recomendaciones.map((item, i) => (
-                                <li key={i}>{cleanListItem(item)}</li>
+                                <li key={i}>{stripHtmlTags(cleanListItem(item))}</li>
                             ))}
                         </ul>
                     </div>
@@ -152,7 +153,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.application")}:</strong>
                         <ul className="list-disc ml-5">
                             {product.aplicacion.map((item, i) => (
-                                <li key={i}>{cleanListItem(item)}</li>
+                                <li key={i}>{stripHtmlTags(cleanListItem(item))}</li>
                             ))}
                         </ul>
                     </div>
@@ -163,7 +164,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.cautions")}</strong>
                         <ul className="list-disc ml-5">
                             {product.precauciones.map((item, i) => (
-                                <li key={i}>{cleanListItem(item)}</li>
+                                <li key={i}>{stripHtmlTags(cleanListItem(item))}</li>
                             ))}
                         </ul>
                     </div>
@@ -174,14 +175,14 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.relevantInfo")}</strong>
                         <ul className="list-disc ml-5">
                             {product.informacion_relevante.map((info, i) => (
-                                <li key={i}>{cleanListItem(info)}</li>
+                                <li key={i}>{stripHtmlTags(cleanListItem(info))}</li>
                             ))}
                         </ul>
                     </div>
                 )}
 
                 {product.informacion_general && (
-                    <p className="my-2">{product.informacion_general}</p>
+                    <p className="my-2">{stripHtmlTags(product.informacion_general)}</p>
                 )}
             </div>
 

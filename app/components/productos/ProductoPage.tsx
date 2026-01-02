@@ -7,6 +7,7 @@ import { ProductDetail } from "./components/ProductDetail";
 import { InspirationSectionAplication } from "../aplicaciones/sections/InspirationSectionAplication";
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { stripHtmlTags } from "@/lib/utils";
 
 const inspirationImages = [
   {
@@ -127,20 +128,21 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
               height={150}
             />
             <p className="font-[700] text-lg text-center ">
-              {categoryName?.toLocaleUpperCase()}
+              {stripHtmlTags(categoryName)?.toLocaleUpperCase()}
             </p>
           </div>
 
           <label className="p-8 md:w-4/6">
             <h2 className="font-[600] text-3xl pb-5">
-              {categoryName}
+              {stripHtmlTags(categoryName)}
             </h2>
             <div className="flex gap-2 flex-col">
-              <div
-                className="font-[600] text-lg"
-                dangerouslySetInnerHTML={{ __html: categoryDescription }}
-              />
-              <div dangerouslySetInnerHTML={{ __html: categoryDescription1 }} />
+              <div className="font-[600] text-lg">
+                {stripHtmlTags(categoryDescription)}
+              </div>
+              <div>
+                {stripHtmlTags(categoryDescription1)}
+              </div>
             </div>
 
           </label>
@@ -171,9 +173,9 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
               <div className="flex flex-wrap gap-8">
                 {category.acabados.map((acabado: any, index: number) => (
                   <div key={index} className="flex flex-col items-start">
-                    <h3 className="text-lg">{acabado?.nombre || ''}</h3>
+                    <h3 className="text-lg">{stripHtmlTags(acabado?.nombre || '')}</h3>
                     <Image
-                      alt={acabado?.nombre || ''}
+                      alt={stripHtmlTags(acabado?.nombre || '')}
                       src={acabado?.imagen || '/img/default.jpg'}
                       width={acabado?.nombre === "Liso" || acabado?.nombre === "Smooth" ? 210 : 200}
                       height={160}

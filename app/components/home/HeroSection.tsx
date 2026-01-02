@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/app/context/LanguageContext';
 import { useHome } from '@/api/useHome';
+import { stripHtmlTags } from '@/lib/utils';
 
 export default function HeroSection() {
   const { t, language } = useLanguage();
@@ -110,8 +111,10 @@ export default function HeroSection() {
       {/* Contenido centrado */}
       <div className="relative h-full flex justify-center items-center">
         <div className="container flex flex-col items-center justify-center px-4">
-          {/* Renderizar HTML desde el API o texto estático */}
-          <div dangerouslySetInnerHTML={{ __html: description }} />
+          {/* Renderizar solo el texto, eliminando etiquetas HTML del backend */}
+          <h1 className="text-white text-3xl text-center font-[600] md:text-4xl xl:text-5xl max-w-3xl leading-tight mt-8 md:mt-0">
+            {stripHtmlTags(description)}
+          </h1>
         </div>
       </div>
     </section>

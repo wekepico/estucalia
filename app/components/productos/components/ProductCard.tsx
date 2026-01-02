@@ -5,6 +5,7 @@ import { FC } from "react";
 import { Button } from "../../ui/button";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { getLocalizedField } from "@/lib/i18nHelpers";
+import { stripHtmlTags } from "@/lib/utils";
 
 interface IProducto {
   nombre: string;
@@ -57,9 +58,9 @@ export const ProductCard: FC<ProductCardProps> = ({
       </div>
       <div className="flex  flex-col gap-5">
         <div className="flex flex-col">
-          <h3 className="font-bold text-center text-sm">{product.nombre}</h3>
+          <h3 className="font-bold text-center text-sm">{stripHtmlTags(product.nombre)}</h3>
           {product.subtitulo && (
-            <p className="text-center text-sm line-clamp-2">{product.subtitulo}</p>
+            <p className="text-center text-sm line-clamp-2">{stripHtmlTags(product.subtitulo)}</p>
           )}
         </div>
 

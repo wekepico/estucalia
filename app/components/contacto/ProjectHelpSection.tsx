@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from '@/app/context/LanguageContext';
 import { useHome } from '@/api/useHome';
+import { stripHtmlTags } from '@/lib/utils';
 
 export default function ProjectHelpSection() {
   const { t, language } = useLanguage();
@@ -96,9 +97,9 @@ export default function ProjectHelpSection() {
         <div className="max-w-[27rem]  mx-auto bg-slate-100" style={{ backgroundColor: "rgba(255, 255, 250, 0.8)" }}>
           <div className="p-6 md:p-12">
             {/* Título */}
-            <div dangerouslySetInnerHTML={{ __html: title }} />
+            <div>{stripHtmlTags(title)}</div>
             {/* Descripción */}
-            <div dangerouslySetInnerHTML={{ __html: description }} />
+            <div>{stripHtmlTags(description)}</div>
             {/* Botón */}
             <div className="flex w-full justify-end items-center">
               <Button
@@ -106,7 +107,7 @@ export default function ProjectHelpSection() {
                 onClick={() => window.location.href = "/contacto"}
                 className=" border-gray-500 border-solid relative pl-5 pr-10 py-4 md:py-5  rounded-none"
               >
-                <div dangerouslySetInnerHTML={{ __html: buttonText }} />
+                <div>{stripHtmlTags(buttonText)}</div>
                 <div className='absolute right-0'>
                   <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />

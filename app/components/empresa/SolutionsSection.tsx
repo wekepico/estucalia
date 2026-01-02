@@ -13,6 +13,7 @@ import MorteroPiedra from '../../../public/img/mortero-piedra.svg'
 import MorteroUnion from '../../../public/img/mortero puente union.svg'
 import { useLanguage } from '../../context/LanguageContext';
 import { useEmpresa } from '@/api/useEmpresa';
+import { stripHtmlTags } from '@/lib/utils';
 
 import Image from 'next/image';
 
@@ -173,8 +174,8 @@ export default function SolutionsSection() {
     <section className="py-40 bg-[#F5ECEB] flex flex-col items-center justify-center ">
       <div className=" mx-auto px-8 max-sm:px-2">
         <div className="text-center mb-16">
-          <div dangerouslySetInnerHTML={{ __html: solutionsTitle }} />
-          <div dangerouslySetInnerHTML={{ __html: solutionsIntro }} />
+          <div>{stripHtmlTags(solutionsTitle)}</div>
+          <div>{stripHtmlTags(solutionsIntro)}</div>
         </div>
 
         <div className="grid  items-center justify-center grid-row-3 grid-cols-3  gap-y-8 gap-x-[4rem]">

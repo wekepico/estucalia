@@ -3,6 +3,7 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useEmpresa } from '@/api/useEmpresa';
+import { stripHtmlTags } from '@/lib/utils';
 
 export default function ProductionSection() {
   const { t, language } = useLanguage();
@@ -48,8 +49,8 @@ export default function ProductionSection() {
       {/* Stats Section */}
       <div className=" mx-auto w-full">
         <div className="text-center p-32 max-sm:px-4  bg-black">
-          <div dangerouslySetInnerHTML={{ __html: productionTitle }} />
-          <div dangerouslySetInnerHTML={{ __html: productionText }} />
+          <div>{stripHtmlTags(productionTitle)}</div>
+          <div>{stripHtmlTags(productionText)}</div>
         </div>
 
         {/* Video Section */}
