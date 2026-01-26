@@ -83,11 +83,14 @@ export default function CategoryClient() {
 
         // Mapear productos - usar backendProductsData si está disponible
         const productos = backendProductsData?.data?.map(prod => {
+            // Priorizar campos localizados explícitos
             const prodNombre = getLocalizedField(prod, 'name', language as 'es' | 'en' | 'fr') ||
+                              prod[`name_${language}`] ||
                               (language === 'es' ? prod.name_es : language === 'en' ? prod.name_en : prod.name_fr) ||
                               prod.name ||
                               '';
             const prodDescripcion = getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') ||
+                                  prod[`description_${language}`] ||
                                   (language === 'es' ? prod.description_es : language === 'en' ? prod.description_en : prod.description_fr) ||
                                   '';
 
@@ -134,20 +137,30 @@ export default function CategoryClient() {
             aplicacionesSource = Array.isArray(cat.applications) ? cat.applications : [];
         }
 
-        const aplicaciones = aplicacionesSource.map((app: any) =>
-            getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr') ||
-            getLocalizedField(app, 'title', language as 'es' | 'en' | 'fr') ||
-            app[`name_${language}`] ||
-            app.name ||
-            app.title ||
-            ''
-        );
+        const aplicaciones = aplicacionesSource.map((app: any) => {
+            // Priorizar campos localizados explícitos
+            const localizedName = getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr');
+            if (localizedName) return localizedName;
+            
+            // Fallback a campos directos localizados
+            const directLocalized = app[`name_${language}`] || app[`title_${language}`];
+            if (directLocalized) return directLocalized;
+            
+            // Último fallback a campos no localizados (solo si no hay opciones localizadas)
+            return app.name || app.title || '';
+        });
 
         // Mapear acabados del backend al formato esperado
-        const acabados = cat.finishes?.map((finish: any) => ({
-            nombre: getLocalizedField(finish, 'name', language as 'es' | 'en' | 'fr') || finish.name || '',
-            imagen: getImageUrl(finish.image_url || finish.image) || '/img/default.jpg'
-        })) || [];
+        const acabados = cat.finishes?.map((finish: any) => {
+            // Priorizar campos localizados explícitos
+            const localizedName = getLocalizedField(finish, 'name', language as 'es' | 'en' | 'fr');
+            const finishName = localizedName || finish[`name_${language}`] || finish.name || '';
+            
+            return {
+                nombre: finishName,
+                imagen: getImageUrl(finish.image_url || finish.image) || '/img/default.jpg'
+            };
+        }) || [];
 
         return {
             id: cat.slug,
@@ -173,8 +186,9 @@ export default function CategoryClient() {
     const foundCategory = categoryFromBackend || localCategory;
 
     // Toggles para forzar hardcoded de aplicaciones y acabados
-    const USE_HARDCODED_APPLICATIONS = true;
-    const USE_HARDCODED_FINISHES = true;
+    // Solo usar hardcode si NO hay datos del backend (para fallback)
+    const USE_HARDCODED_APPLICATIONS = !categoryFromBackend;
+    const USE_HARDCODED_FINISHES = !categoryFromBackend;
 
     const HARDCODED_APPS_BY_SLUG: Record<string, string[]> = {
         "mortero-de-cal": [
@@ -206,6 +220,7 @@ export default function CategoryClient() {
         HARDCODED_FINISHES_BY_SLUG[foundCategory?.id || (foundCategory as any)?.slug || ""];
 
     let finalCategory: any = foundCategory;
+    // Solo usar hardcode si no hay datos del backend (para mantener fallback)
     if (USE_HARDCODED_APPLICATIONS && hardcodedApps && finalCategory) {
         finalCategory = { ...finalCategory, aplicaciones: hardcodedApps };
     }

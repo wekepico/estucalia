@@ -132,15 +132,30 @@ export default function ProductClient() {
         }) || [];
 
         // Mapear aplicaciones del backend al formato esperado (array de strings con nombres)
-        const aplicacionesMapeadas = cat.applications?.map((app: any) =>
-            getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr') || app.name || ''
-        ) || [];
+        const aplicacionesMapeadas = cat.applications?.map((app: any) => {
+            // Priorizar campos localizados explícitos
+            const localizedName = getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr');
+            if (localizedName) return localizedName;
+            
+            // Fallback a campos directos localizados
+            const directLocalized = app[`name_${language}`] || app[`title_${language}`];
+            if (directLocalized) return directLocalized;
+            
+            // Último fallback a campos no localizados (solo si no hay opciones localizadas)
+            return app.name || app.title || '';
+        }) || [];
 
         // Mapear acabados del backend al formato esperado
-        const acabadosMapeados = cat.finishes?.map((finish: any) => ({
-            nombre: getLocalizedField(finish, 'name', language as 'es' | 'en' | 'fr') || finish.name || '',
-            imagen: getImageUrl(finish.image_url || finish.image) || '/img/default.jpg'
-        })) || [];
+        const acabadosMapeados = cat.finishes?.map((finish: any) => {
+            // Priorizar campos localizados explícitos
+            const localizedName = getLocalizedField(finish, 'name', language as 'es' | 'en' | 'fr');
+            const finishName = localizedName || finish[`name_${language}`] || finish.name || '';
+            
+            return {
+                nombre: finishName,
+                imagen: getImageUrl(finish.image_url || finish.image) || '/img/default.jpg'
+            };
+        }) || [];
 
         const categoryObject = {
             id: cat.slug,
