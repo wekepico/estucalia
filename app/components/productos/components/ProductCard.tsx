@@ -4,11 +4,19 @@ import Image from "next/image";
 import { FC } from "react";
 import { Button } from "../../ui/button";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { getLocalizedField } from "@/lib/i18nHelpers";
 
 interface IProducto {
   nombre: string;
   subtitulo?: string;
   imagen?: string;
+  // Campos del backend para alt y title de imágenes
+  image_alt_es?: string | null;
+  image_alt_en?: string | null;
+  image_alt_fr?: string | null;
+  image_title_es?: string | null;
+  image_title_en?: string | null;
+  image_title_fr?: string | null;
 }
 
 interface ProductCardProps {
@@ -24,7 +32,11 @@ export const ProductCard: FC<ProductCardProps> = ({
   onSelect,
   onDownload
 }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  
+  // Obtener alt y title del backend según el idioma actual, con fallback al nombre
+  const imageAlt = getLocalizedField(product, 'image_alt', language) || product.nombre;
+  const imageTitle = getLocalizedField(product, 'image_title', language) || product.nombre;
 
   return (
     <div
@@ -36,9 +48,11 @@ export const ProductCard: FC<ProductCardProps> = ({
       <div className={`m-auto ${product.nombre === "HERRAMIENTAS" || product.nombre === "TOOLS" || product.nombre === "HERRAMIENTA" ? "mb-7" : ""}`}>
         <Image
           src={product.imagen || "/images/no-image.png"}
-          alt={product.nombre}
+          alt={imageAlt}
+          title={imageTitle}
           width={product.nombre==="MÁRMOL TRITURADO" || product.nombre==="CRUSHED MARBLE"?113:160}
           height={180}
+          style={{ height: 'auto' }}
         />
       </div>
       <div className="flex  flex-col gap-5">

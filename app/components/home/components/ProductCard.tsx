@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Button } from "../../ui/button"
 import { StaticImport } from "next/dist/shared/lib/get-img-props"
+import { useLanguage } from "@/app/context/LanguageContext"
 
 
 
@@ -13,11 +14,12 @@ interface ProductCardProps {
 
 
 export const ProductCard: React.FC<ProductCardProps> = ({ name, icon, id }) => {
+    const { t } = useLanguage();
 
     return (
         <div 
           className="bg-stone-50 group hover:bg-stone-100 transition-colors cursor-pointer"
-          onClick={()=>{window.location.href = "/producto/" + id}}
+          onClick={()=>{window.location.href = "/categories/" + id}}
         >
             <div className="px-4 py-8 md:px-8 md:py-16 lg:px-16 lg:py-20 flex flex-col items-center text-center">
                 <div className="mb-4 md:mb-6">
@@ -36,7 +38,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ name, icon, id }) => {
                 variant="outline"
                 className="  border-none relative pl-5 pr-10 py-4 md:py-5  rounded-none"
               >
-                <span>Ver producto</span>
+                <span>{t('common.viewProduct')}</span>
                 <div className='absolute right-0'>
                   <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />

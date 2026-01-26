@@ -1,18 +1,22 @@
 'use client'
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { useLanguage } from '../../context/LanguageContext';
+import { useHome } from '@/api/useHome';
+import { getImageUrl } from '@/lib/i18nHelpers';
 
 export default function AplicationSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { data: homeData } = useHome();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [visibleCards, setVisibleCards] = useState(3);
   
-  const categories = [
+  // Fallback estático de categorías
+  const fallbackCategories = [
     t('home.applications.categories.coatings'),
     t('home.applications.categories.plasters'),
     t('home.applications.categories.masonry'),
@@ -22,7 +26,8 @@ export default function AplicationSection() {
     t('home.applications.categories.dehumidification')
   ];
 
-  const spaces = [
+  // Fallback estático de espacios
+  const fallbackSpaces = [
     {
       id:"balconies",
       image: "/img/aplicaciones/balcones.jpg",
@@ -73,7 +78,75 @@ export default function AplicationSection() {
     }
   ];
 
-  const [selectedCategory, setSelectedCategory] = useState<string>(categories[0]);
+  // Transformar datos del backend a formato esperado por el componente
+  const transformBackendData = useMemo(() => {
+    if (!homeData?.applications_items || !Array.isArray(homeData.applications_items) || homeData.applications_items.length === 0) {
+      return {
+        categories: fallbackCategories,
+        spaces: fallbackSpaces
+      };
+    }
+
+    // Intentar extraer categorías del backend
+    // Asumimos que applications_items puede tener diferentes estructuras
+    let backendCategories: string[] = [];
+    let backendSpaces: any[] = [];
+
+    try {
+      // Probar diferentes estructuras posibles
+      const items = homeData.applications_items;
+      
+      // Si el primer item tiene una estructura específica, procesarla
+      if (items.length > 0) {
+        // Intentar extraer categorías únicas si vienen en los items
+        items.forEach((item: any) => {
+          if (item.categories && Array.isArray(item.categories)) {
+            item.categories.forEach((cat: any) => {
+              const catName = typeof cat === 'string' ? cat : (cat.name || cat.title || '');
+              if (catName && !backendCategories.includes(catName)) {
+                backendCategories.push(catName);
+              }
+            });
+          }
+        });
+
+        // Transformar items a formato de espacios
+        backendSpaces = items.map((item: any) => {
+          // Intentar diferentes estructuras del backend
+          const rawImage = item.image || item.image_url || item.photo || item.img || null;
+          return {
+            id: item.id || item.slug || item.title?.toLowerCase().replace(/\s+/g, '-') || `space-${Math.random()}`,
+            image: getImageUrl(rawImage) || '/img/default.jpg',
+            title: item.title || item.name || item.title_es || item.name_es || '',
+            categories: Array.isArray(item.categories) 
+              ? item.categories.map((c: any) => typeof c === 'string' ? c : (c.name || c.title || '')).join(',')
+              : (item.category || '')
+          };
+        }).filter((space: any) => space.title && space.image);
+      }
+    } catch (error) {
+      console.error('Error procesando datos del backend:', error);
+    }
+
+    // Si no se pudieron extraer datos válidos, usar fallback
+    return {
+      categories: backendCategories.length > 0 ? backendCategories : fallbackCategories,
+      spaces: backendSpaces.length > 0 ? backendSpaces : fallbackSpaces
+    };
+  }, [homeData, fallbackCategories, fallbackSpaces]);
+
+  // Usar datos del backend si están disponibles, sino usar fallback
+  const categories = transformBackendData.categories;
+  const spaces = transformBackendData.spaces;
+
+  const [selectedCategory, setSelectedCategory] = useState<string>(categories[0] || '');
+
+  // Actualizar selectedCategory cuando cambien las categorías
+  useEffect(() => {
+    if (categories.length > 0 && !categories.includes(selectedCategory)) {
+      setSelectedCategory(categories[0]);
+    }
+  }, [categories, selectedCategory]);
 
   const filteredSpaces = spaces.filter(product =>
     product.categories.includes(selectedCategory)

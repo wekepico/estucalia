@@ -17,7 +17,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ name, icon,id }) => {
     return (
         <div 
             className="bg-gray-100 group hover:bg-stone-300 transition-colors cursor-pointer"
-            onClick={()=>{window.location.href = "/producto/"+id}}
+            onClick={()=>{window.location.href = "/categories/"+id}}
         >
             <div className=" min-w-[140px]  py-4 flex flex-col items-center text-center">
                 <div className="mb-2">

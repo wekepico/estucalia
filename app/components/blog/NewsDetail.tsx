@@ -15,10 +15,16 @@ interface NewsDetailProps {
     description: any;
     date?: string;
     imageUrl?: string;
+    imageAlt?: string | null;
+    imageTitle?: string | null;
 }
 
-const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => {
+const NewsDetail = ({ title, description, date, imageUrl, imageAlt, imageTitle }: NewsDetailProps) => {
     const { t, language } = useLanguage();
+    
+    // El backend NO envía photo_alt ni photo_title, usamos el title del post como fallback
+    const imgAlt = imageAlt || title;
+    const imgTitle = imageTitle || title;
 
     function formatDate(isoDate: string): string {
         const date = new Date(isoDate);
@@ -39,7 +45,8 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
                     <img
                         className="w-full h-full object-cover"
                         src={imageUrl}
-                        alt={title}
+                        alt={imgAlt}
+                        title={imgTitle}
                     />
 
                     {/* Capa oscura para mejorar la legibilidad del título */}
@@ -63,7 +70,7 @@ const NewsDetail = ({ title, description, date, imageUrl }: NewsDetailProps) => 
                     className="bg-transparent w-max hover:bg-gray-100 p-1 mb-8 rounded-lg flex gap-x-2 items-center"
 
                 >
-                    <IoMdArrowRoundBack />{language === "en" ? "Back" : "Volver"}
+                    <IoMdArrowRoundBack />{t('common.back')}
                 </button>
 
                 {/* Fecha de publicación */}

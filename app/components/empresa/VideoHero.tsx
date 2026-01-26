@@ -2,9 +2,29 @@
 
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
+import { useEmpresa } from '@/api/useEmpresa';
 
 export default function VideoHero() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { data: empresaData } = useEmpresa();
+
+  // Obtener título del API según idioma, o usar traducción estática como fallback
+  const getTitle = () => {
+    if (!empresaData) return t('company.hero.title');
+
+    switch (language) {
+      case 'es':
+        return empresaData.hero_title_es || t('company.hero.title');
+      case 'en':
+        return empresaData.hero_title_en || t('company.hero.title');
+      case 'fr':
+        return empresaData.hero_title_fr || t('company.hero.title');
+      default:
+        return empresaData.hero_title_es || t('company.hero.title');
+    }
+  };
+
+  const title = getTitle();
 
   return (
     <section className="relative h-[700px] w-full">
@@ -26,9 +46,7 @@ export default function VideoHero() {
       {/* Content Overlay */}
       <div className="relative h-full flex items-center justify-center text-center">
         <div className="mx-auto px-4">
-          <h1 className="text-white text-2xl md:text-5xl font-[600] max-w-6xl mx-auto leading-tight">
-            {t('company.hero.title')}
-          </h1>
+          <div dangerouslySetInnerHTML={{ __html: title }} />
         </div>
       </div>
     </section>

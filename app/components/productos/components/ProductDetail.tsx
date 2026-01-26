@@ -3,7 +3,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { undefined } from "zod";
+import { getLocalizedField } from "@/lib/i18nHelpers";
 
 interface IDocumento {
     nombre: string;
@@ -24,6 +24,20 @@ interface IProducto {
     informacion_general?: string;
     aplicacion?: string[]; // If you use an array of strings
     documentacion?: IDocumento[];
+    // Campos del backend para alt y title de imágenes
+    image_alt_es?: string | null;
+    image_alt_en?: string | null;
+    image_alt_fr?: string | null;
+    image_title_es?: string | null;
+    image_title_en?: string | null;
+    image_title_fr?: string | null;
+    // Campos para imagen2 (si el backend los envía)
+    image2_alt_es?: string | null;
+    image2_alt_en?: string | null;
+    image2_alt_fr?: string | null;
+    image2_title_es?: string | null;
+    image2_title_en?: string | null;
+    image2_title_fr?: string | null;
 }
 
 interface ProductDetailProps {
@@ -32,7 +46,18 @@ interface ProductDetailProps {
 
 
 export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
+    
+    // Obtener alt y title del backend según el idioma actual, con fallback al nombre
+    const imageAlt = getLocalizedField(product, 'image_alt', language) || product.nombre;
+    const imageTitle = getLocalizedField(product, 'image_title', language) || product.nombre;
+    const image2Alt = getLocalizedField(product, 'image2_alt', language) || product.nombre;
+    const image2Title = getLocalizedField(product, 'image2_title', language) || product.nombre;
+
+    // Helper para limpiar guiones al inicio de los items de lista
+    const cleanListItem = (item: string) => {
+        return item.replace(/^-\s*/, '').trim();
+    };
 
 
     if (product.nombre === "MOLDES CENEFAS RODILLOS" || product.nombre === "HERRAMIENTAS") {
@@ -55,7 +80,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                                             rel="noopener noreferrer"
                                             className="flex gap-1 items-center"
                                         >
-                                            {doc.accion || "Descargar"}
+                                            {doc.accion || t('common.download')}
                                             <svg
                                                 className={`w-5 h-5 transition-all rotate-90`}
                                                 fill="none"
@@ -105,7 +130,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.features")}</strong>
                         <ul className="list-disc ml-5">
                             {product.caracteristicas.map((item, i) => (
-                                <li key={i}>{item}</li>
+                                <li key={i}>{cleanListItem(item)}</li>
                             ))}
                         </ul>
                     </div>
@@ -116,7 +141,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.recommendations")}</strong>
                         <ul className="list-disc ml-5">
                             {product.recomendaciones.map((item, i) => (
-                                <li key={i}>{item}</li>
+                                <li key={i}>{cleanListItem(item)}</li>
                             ))}
                         </ul>
                     </div>
@@ -127,7 +152,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.application")}:</strong>
                         <ul className="list-disc ml-5">
                             {product.aplicacion.map((item, i) => (
-                                <li key={i}>{item}</li>
+                                <li key={i}>{cleanListItem(item)}</li>
                             ))}
                         </ul>
                     </div>
@@ -138,7 +163,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.cautions")}</strong>
                         <ul className="list-disc ml-5">
                             {product.precauciones.map((item, i) => (
-                                <li key={i}>{item}</li>
+                                <li key={i}>{cleanListItem(item)}</li>
                             ))}
                         </ul>
                     </div>
@@ -149,7 +174,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.relevantInfo")}</strong>
                         <ul className="list-disc ml-5">
                             {product.informacion_relevante.map((info, i) => (
-                                <li key={i}>{info}</li>
+                                <li key={i}>{cleanListItem(info)}</li>
                             ))}
                         </ul>
                     </div>
@@ -166,17 +191,21 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                     <section className={`flex ${product.nombre === "MALLA REFUERZO" || product.nombre === "REINFORCEMENT MESH" || product.nombre === "MALLA DE REFUERZO" || product.nombre.includes("PVC") ? "ml-6" : ""}`}>
                         <Image
                             src={product.imagen || "/images/no-image.png"}
-                            alt={product.nombre}
+                            alt={imageAlt}
+                            title={imageTitle}
                             width={180}
                             height={180}
+                            style={{ height: 'auto' }}
                         />
                         {
                             product.imagen2 &&
                             <Image
                                 src={product.imagen2 || "/images/no-image.png"}
-                                alt={product.nombre}
+                                alt={image2Alt}
+                                title={image2Title}
                                 width={180}
                                 height={180}
+                                style={{ height: 'auto' }}
                             />
                         }
                     </section>
@@ -194,7 +223,7 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                                     rel="noopener noreferrer"
                                     className="flex gap-1 items-center hover:underline active:text-blue-400 hover:text-blue-600"
                                 >
-                                    {doc.accion || "Descargar"}
+                                    {doc.accion || t('common.download')}
                                     <svg
                                         className={`w-5 h-5 transition-all rotate-90`}
                                         fill="none"
