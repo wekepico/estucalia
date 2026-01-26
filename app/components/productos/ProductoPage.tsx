@@ -7,6 +7,7 @@ import { ProductDetail } from "./components/ProductDetail";
 import { InspirationSectionAplication } from "../aplicaciones/sections/InspirationSectionAplication";
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { getLocalizedField } from "@/lib/i18nHelpers";
 
 const inspirationImages = [
   {
@@ -50,19 +51,39 @@ interface ProductCategoryPageProps {
 }
 
 export default function ProductCategoryPage({ category, backendData }: ProductCategoryPageProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   // Asegurar que productos existe y es un array (usar useMemo para evitar cambios en cada render)
   const productos = useMemo(() => category?.productos || [], [category?.productos]);
   const aplicaciones = useMemo(() => {
-    const apps = category?.aplicaciones || category?.applications || [];
+    // Si tenemos backendData, usar solo aplicaciones (ya localizadas como strings)
+    // Si no, usar aplicaciones o applications como fallback
+    const apps = backendData 
+      ? (category?.aplicaciones || [])
+      : (category?.aplicaciones || category?.applications || []);
+    
     return apps
       .map((app: any) => {
+        // Si ya es un string (ya localizado), usarlo directamente
         if (typeof app === "string") return app;
+        // Si es un objeto y tenemos backendData, obtener el nombre localizado según el idioma
+        if (backendData && app) {
+          // Priorizar campos localizados explícitos
+          const localizedName = getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr');
+          if (localizedName) return localizedName;
+          
+          // Fallback a campos directos localizados
+          const directLocalized = app[`name_${language}`] || app[`title_${language}`];
+          if (directLocalized) return directLocalized;
+          
+          // Último fallback a campos no localizados (solo si no hay opciones localizadas)
+          return app.name || app.title || "";
+        }
+        // Fallback para datos locales
         return app?.nombre || app?.name || "";
       })
       .filter(Boolean);
-  }, [category?.aplicaciones, category?.applications]);
+  }, [category?.aplicaciones, category?.applications, backendData, language]);
 
   // Inicializar selectedProductIndex
   const [selectedProductIndex, setSelectedProductIndex] = useState<number | null>(null);

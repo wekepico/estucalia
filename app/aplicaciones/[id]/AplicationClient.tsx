@@ -41,11 +41,17 @@ export default function AplicationClient() {
         const app: any = backendData.data;
 
         // Mapear las categorías del backend a productos
-        const products = app.categories?.map((category: any) => ({
-            id: getLocalizedSlug(category, language as 'es' | 'en' | 'fr') || category.slug,
-            name: getLocalizedField(category, 'name', language as 'es' | 'en' | 'fr') || category.name,
-            icon: category.image || category.icon || '/img/default-icon.svg'
-        })) || [];
+        const products = app.categories?.map((category: any) => {
+            // Priorizar campos localizados explícitos
+            const localizedName = getLocalizedField(category, 'name', language as 'es' | 'en' | 'fr');
+            const categoryName = localizedName || category[`name_${language}`] || category.name || '';
+            
+            return {
+                id: getLocalizedSlug(category, language as 'es' | 'en' | 'fr') || category.slug,
+                name: categoryName,
+                icon: category.image || category.icon || '/img/default-icon.svg'
+            };
+        }) || [];
 
         return {
             id: app.slug,
