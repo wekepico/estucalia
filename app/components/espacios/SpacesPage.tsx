@@ -4,6 +4,7 @@ import { HeroSection } from "./sections/HeroSection";
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
 import { InspirationSectionAplication } from "../aplicaciones/sections/InspirationSectionAplication";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import InspirationGrid from "../shared/InspirationGrid";
 
 export interface Spaces {
     aplication: string;
@@ -63,7 +64,12 @@ export default function SpacesPage(aplication: Spaces) {
                 img={aplication.img}
                 aplicaciones={aplication.aplications}
             />
-            <InspirationSectionAplication images={inspirationImages} />
+          <InspirationGrid
+                uiTitleKey="home.inspiration.title"
+                showTitle
+                className="mt-20 mb-20"
+        
+              />
             <ProjectHelpSection />
         </React.Fragment>
     );
