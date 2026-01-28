@@ -16,7 +16,7 @@ export default function AplicationSection() {
   const { t, language } = useLanguage();
 
   const { data: appsRes } = useApplicationsTabs();
-  const { data: spacesRes } = useSpacesWithApplications(); // sin tocar backend
+  const { data: spacesRes } = useSpacesWithApplications();
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = useState(0);
