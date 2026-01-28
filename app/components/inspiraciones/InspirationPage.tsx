@@ -1,151 +1,179 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React, { useEffect, useMemo, useState } from "react";
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { Loader } from "lucide-react";
+import {
+  getInspirationPageWithItems,
+  InspirationDTO,
+  InspirationPageDTO,
+  Lang,
+} from "@/services/inspirationsService";
 
-const inspirationImages = [
-    {
-        url: "/convertedImages/image1.webp",
-        alt: "Contemporary architecture",
-        size: "large"
-    },
-    {
-        url: "/convertedImages/img-8.webp",
-        alt: "Urban architecture",
-        size: "medium"
-    },
-    {
-        url: "/convertedImages/img-3.webp",
-        alt: "Minimalist building design",
-        size: "small"
-    },
-    {
-        url: "/convertedImages/img1.webp",
-        alt: "Minimalist building design",
-        size: "small"
-    },
-    {
-        url: "/convertedImages/aplicaciones/terraza.webp",
-        alt: "Modern facade detail",
-        size: "full"
-    },
-    {
-        url: "/convertedImages/img-4.webp",
-        alt: "Contemporary architecture",
-        size: "medium"
-    },
-    {
-        url: "/convertedImages/Home.webp",
-        alt: "Urban architecture",
-        size: "medium"
-    },
-    // New images from inspiration folder
-    {
-        url: "/convertedImages/inspiracion/DSC_0013.webp",
-        alt: "Architectural facade detail",
-        size: "medium"
-    },
-    {
-        url: "/convertedImages/inspiracion/Fachadas Raspado 012.webp",
-        alt: "Scraped facade finish",
-        size: "large"
-    },
-    {
-        url: "/convertedImages/inspiracion/Fachadas Raspado 021.webp",
-        alt: "Textured wall finish",
-        size: "medium"
-    },
-    {
-        url: "/convertedImages/inspiracion/Fachadas Raspado 025.webp",
-        alt: "Modern exterior wall texture",
-        size: "medium"
-    },
-    {
-        url: "/convertedImages/inspiracion/Fachadas Raspado 028.webp",
-        alt: "Architectural wall treatment",
-        size: "large"
-    },
-   
-    {
-        url: "/convertedImages/inspiracion/Monocapa Impreso 2.webp",
-        alt: "Printed monocouche finish",
-        size: "large"
-    },
-    {
-        url: "/convertedImages/inspiracion/Monocapa Impreso 9.webp",
-        alt: "Decorative concrete texture",
-        size: "small"
-    },
-    {
-        url: "/convertedImages/inspiracion/Monocapa Impreso 13.webp",
-        alt: "Architectural surface pattern",
-        size: "small"
-    },
-    {
-        url: "/convertedImages/inspiracion/Monocouche Pasta Chino 6.webp",
-        alt: "Chinese paste finish detail",
-        size: "medium"
-    },
-    {
-        url: "/convertedImages/inspiracion/Monocouche Pasta Chino 9.webp",
-        alt: "Decorative wall treatment",
-        size: "large"
-    },
-    {
-        url: "/convertedImages/inspiracion/Monocouche Pasta Chino 11.webp",
-        alt: "Specialty plaster finish",
-        size: "medium"
-    },
-    {
-        url: "/convertedImages/inspiracion/Monocouche Pasta Chino 15.webp",
-        alt: "Architectural texture detail",
-        size: "medium"
-    },
-    {
-        url: "/convertedImages/inspiracion/Monocouche Pasta Chino 27.webp",
-        alt: "Contemporary wall finish",
-        size: "medium"
-    }
-];
+function pickLang(
+  lang: Lang,
+  es?: string | null,
+  en?: string | null,
+  fr?: string | null,
+) {
+  if (lang === "es") return es || en || fr || "";
+  if (lang === "fr") return fr || en || es || "";
+  return en || es || fr || "";
+}
+
+// Layout “por ahora” (frontend)
+// Si un día quieres controlarlo desde admin: agrega un campo `layout` en DB.
+function getSizeByIndex(index: number): "large" | "full" | "medium" | "small" {
+  // patrón parecido al ejemplo que mostraste:
+  if (index === 0) return "large";
+  if (index === 4) return "full";
+  if (index % 7 === 0) return "large";
+  if (index % 5 === 0) return "small";
+  return "medium";
+}
 
 export default function InspirationPage() {
-    const { t } = useLanguage();
+  const { t, language } = useLanguage() as any;
+  const lang: Lang = (language || "es") as Lang;
 
+  const [page, setPage] = useState<InspirationPageDTO | null>(null);
+  const [items, setItems] = useState<InspirationDTO[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  useEffect(() => {
+    let mounted = true;
+
+    (async () => {
+      try {
+        setLoading(true);
+        setErrorMsg(null);
+
+        const { page, items } = await getInspirationPageWithItems();
+
+        if (!mounted) return;
+
+        setPage(page);
+
+        // Si quieres respetar default_limit aquí en frontend:
+        const limit =
+          page?.default_limit && page.default_limit > 0
+            ? page.default_limit
+            : 0;
+
+        setItems(limit > 0 ? items.slice(0, limit) : items);
+      } catch (e: any) {
+        console.error("Error loading inspiration page:", e);
+        if (!mounted) return;
+        setErrorMsg("No se pudo cargar la inspiración. Intenta de nuevo.");
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    })();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const title = useMemo(() => {
+    // Si no existe page todavía, usa i18n actual como fallback
+    if (!page) return t("inspiration.title");
     return (
-        <section className="bg-white">
-            {/* Featured Image */}
-            <div className="w-full h-72 md:px-15 sm:px-10 px-5 lg:px-20 pt-20 pb-16 text-5xl font-[600] text-left items-end flex bg-[#ffffff] text-black">
-                <h1 className="w-[36rem]">{t("inspiration.title")}</h1>
-            </div>
+      pickLang(lang, page.title_es, page.title_en, page.title_fr) ||
+      t("inspiration.title")
+    );
+  }, [page, lang, t]);
 
-            {/* Image Grid */}
-            <div className="md:px-15 sm:px-10 px-5 lg:px-20 grid grid-cols-4 grid-rows-5 pb-28 gap-4">
-                {inspirationImages.map((image, index) => (
-                    <div
-                        key={index}
-                        className={`relative overflow-hidden group cursor-pointer
-                            ${image.size === 'large' ? 
-                                'col-span-2 row-span-2 h-800px' : 
-                                image.size === 'full' ? 
-                                'col-span-4 row-span-2 h-800px' : 
-                             image.size === 'medium' ? 
-                                'col-span-2 row-span-1 h-[400px]' : 
-                                'col-span-1 row-span-1 h-[400px]'}
-                        `}
-                    >
-                        <div
-                            className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500"
-                            style={{ backgroundImage: `url('${image.url}')` }}
-                            role="img"
-                            aria-label={image.alt}
-                        />
-                        <div className="absolute inset-0 bg-black/0 transition-colors duration-300" />
-                    </div>
-                ))}
-            </div>
+  const viewItems = useMemo(() => {
+    return items.map((it, index) => {
+      const alt = pickLang(lang, it.alt_es, it.alt_en, it.alt_fr) || "";
+      const size = getSizeByIndex(index);
+      return {
+        id: it.id,
+        url: it.image_url || it.image_path || "",
+        alt,
+        size,
+      };
+    });
+  }, [items, lang]);
 
-            <ProjectHelpSection/>
-        </section>
-    )
+  if (loading) {
+    return (
+      <main className="min-h-screen gap-4 flex justify-center items-center bg-white">
+        <Loader width={50} height={50} /> Loading...
+      </main>
+    );
+  }
+
+  if (errorMsg) {
+    return (
+      <section className="bg-white min-h-screen flex flex-col items-center justify-center gap-4 px-5">
+        <p className="text-lg font-semibold">{errorMsg}</p>
+        <button
+          className="px-4 py-2 bg-black text-white rounded"
+          onClick={() => window.location.reload()}
+        >
+          Reintentar
+        </button>
+      </section>
+    );
+  }
+
+  return (
+    <section className="bg-white">
+      {/* Header */}
+      <div className="w-full h-72 md:px-15 sm:px-10 px-5 lg:px-20 pt-20 pb-16 text-5xl font-[600] text-left items-end flex bg-[#ffffff] text-black">
+        <h1 className="w-[36rem]">{title}</h1>
+      </div>
+
+      {/* Grid */}
+      {/* Image Grid */}
+      <div
+        className="md:px-15 sm:px-10 px-5 lg:px-20 grid grid-cols-2 md:grid-cols-4 gap-4 pb-16 mb-20
+                auto-rows-[180px] md:auto-rows-[220px] grid-flow-dense"
+      >
+        {items.map((image, index) => {
+          // Patrón de tamaños (repite en loop)
+          const pattern: Array<"large" | "medium" | "small" | "full"> = [
+            "large",
+            "medium",
+            "small",
+            "small",
+            "full",
+            "medium",
+            "medium",
+          ];
+          const size = pattern[index % pattern.length];
+
+          const sizeClass =
+            size === "large"
+              ? "col-span-2 row-span-2"
+              : size === "full"
+                ? "col-span-2 md:col-span-4 row-span-2"
+                : size === "medium"
+                  ? "col-span-2 row-span-1"
+                  : "col-span-1 row-span-1";
+
+          return (
+            <div
+              key={image.id ?? index}
+              className={`relative overflow-hidden group cursor-pointer ${sizeClass}`}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 group-hover:scale-110"
+                style={{ backgroundImage: `url('${image.image_url || ""}')` }}
+                role="img"
+                aria-label={image.alt || ""}
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+            </div>
+          );
+        })}
+      </div>
+
+      <ProjectHelpSection />
+    </section>
+  );
 }
