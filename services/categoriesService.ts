@@ -94,29 +94,44 @@ function normalizeProductFromCategory(raw: ProductRaw): import('./productsServic
     subtitle: raw.subtitle || null,
     category_id: raw.category_id || null,
     image_url: getImageUrl(rawImageUrl),
-    image_alt_es: getLocalizedValue(raw.image_alt, 'es'),
-    image_alt_en: getLocalizedValue(raw.image_alt, 'en'),
-    image_alt_fr: getLocalizedValue(raw.image_alt, 'fr'),
-    image_title_es: getLocalizedValue(raw.image_title, 'es'),
-    image_title_en: getLocalizedValue(raw.image_title, 'en'),
-    image_title_fr: getLocalizedValue(raw.image_title, 'fr'),
+    image_alt_es: getLocalizedValue(raw.image_alt, "es"),
+    image_alt_en: getLocalizedValue(raw.image_alt, "en"),
+    image_alt_fr: getLocalizedValue(raw.image_alt, "fr"),
+    image_title_es: getLocalizedValue(raw.image_title, "es"),
+    image_title_en: getLocalizedValue(raw.image_title, "en"),
+    image_title_fr: getLocalizedValue(raw.image_title, "fr"),
     composition_es: raw.composition_es || null,
     composition_en: raw.composition_en || null,
     composition_fr: raw.composition_fr || null,
     features_es: raw.features_es || null,
     features_en: raw.features_en || null,
     features_fr: raw.features_fr || null,
+    recommendations_es: raw.recommendations_es || null,
+    recommendations_en: raw.recommendations_en || null,
+    recommendations_fr: raw.recommendations_fr || null,
+
+    carriers_es: raw.carriers_es || null,
+    carriers_en: raw.carriers_en || null,
+    carriers_fr: raw.carriers_fr || null,
+
+    relevant_info_es: raw.relevant_info_es || null,
+    relevant_info_en: raw.relevant_info_en || null,
+    relevant_info_fr: raw.relevant_info_fr || null,
+
     presentation: raw.presentation || null,
     pallet_info: raw.pallet_info || null,
     storage_info: raw.storage_info || null,
     order: raw.order || 0,
-    category: raw.category ? {
-      id: raw.category.id,
-      name: raw.category.name,
-      slug: raw.category.slug,
-    } : null,
+    category: raw.category
+      ? {
+          id: raw.category.id,
+          name: raw.category.name,
+          slug: raw.category.slug,
+        }
+      : null,
     documents: (raw.documents || []).map((doc: any) => {
-      const normalizedFileUrl = doc.file_url || getImageUrl(doc.file_path) || doc.file_path;
+      const normalizedFileUrl =
+        doc.file_url || getImageUrl(doc.file_path) || doc.file_path;
 
       return {
         id: doc.id,
@@ -133,12 +148,12 @@ function normalizeProductFromCategory(raw: ProductRaw): import('./productsServic
     name_es: raw.name_es || raw.name || null,
     name_en: raw.name_en || raw.name || null,
     name_fr: raw.name_fr || raw.name || null,
-    description_es: raw.description_es || raw.composition_es || null,
-    description_en: raw.description_en || raw.composition_en || null,
-    description_fr: raw.description_fr || raw.composition_fr || null,
-    short_description_es: raw.short_description_es || raw.features_es || null,
-    short_description_en: raw.short_description_en || raw.features_en || null,
-    short_description_fr: raw.short_description_fr || raw.features_fr || null,
+    description_es: raw.description_es || null,
+    description_en: raw.description_en || null,
+    description_fr: raw.description_fr || null,
+    short_description_es: raw.short_description_es || null,
+    short_description_en: raw.short_description_en || null,
+    short_description_fr: raw.short_description_fr || null,
     price: raw.price ?? null,
     stock: raw.stock ?? null,
     featured: raw.featured ?? false,
@@ -149,8 +164,8 @@ function normalizeProductFromCategory(raw: ProductRaw): import('./productsServic
     seo_description_es: raw.seo_description_es || null,
     seo_description_en: raw.seo_description_en || null,
     seo_description_fr: raw.seo_description_fr || null,
-    created_at: raw.created_at || '',
-    updated_at: raw.updated_at || '',
+    created_at: raw.created_at || "",
+    updated_at: raw.updated_at || "",
   };
 }
 

@@ -49,6 +49,7 @@ interface ProductRaw {
   features_es?: string | null;
   features_en?: string | null;
   features_fr?: string | null;
+
   // Campos adicionales
   presentation?: string | null;
   pallet_info?: string | null;
@@ -127,6 +128,19 @@ export interface Product {
   features_es: string | null;
   features_en: string | null;
   features_fr: string | null;
+
+  recommendations_es?: string | null;
+  recommendations_en?: string | null;
+  recommendations_fr?: string | null;
+
+  carriers_es?: string | null;
+  carriers_en?: string | null;
+  carriers_fr?: string | null;
+
+  relevant_info_es?: string | null;
+  relevant_info_en?: string | null;
+  relevant_info_fr?: string | null;
+  
   // Campos adicionales
   presentation: string | null;
   pallet_info: string | null;

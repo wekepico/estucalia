@@ -95,31 +95,66 @@ export default function CategoryClient() {
                                   '';
 
             return {
-                id: prod.slug,
-                nombre: prodNombre,
-                descripcion: prodDescripcion,
-                imagen: getImageUrl(prod.image_url || prod.image) || '/img/default.jpg',
-                // Campos de alt y title de imágenes del backend
-                image_alt_es: getLocalizedValue(prod.image_alt, 'es'),
-                image_alt_en: getLocalizedValue(prod.image_alt, 'en'),
-                image_alt_fr: getLocalizedValue(prod.image_alt, 'fr'),
-                image_title_es: getLocalizedValue(prod.image_title, 'es'),
-                image_title_en: getLocalizedValue(prod.image_title, 'en'),
-                image_title_fr: getLocalizedValue(prod.image_title, 'fr'),
-                // Campos adicionales del producto
-                subtitulo: prod.subtitle || null,
-                composicion: getLocalizedField(prod, 'composition', language as 'es' | 'en' | 'fr') || null,
-                caracteristicas: getLocalizedField(prod, 'features', language as 'es' | 'en' | 'fr')?.split('\n').filter((f: string) => f.trim()) || null,
-                recomendaciones: getLocalizedField(prod, 'recommendations', language as 'es' | 'en' | 'fr')?.split('\n').filter((f: string) => f.trim()) || null,
-                precauciones: getLocalizedField(prod, 'carriers', language as 'es' | 'en' | 'fr')?.split('\n').filter((f: string) => f.trim()) || null,
-                informacion_relevante: getLocalizedField(prod, 'relevant_info', language as 'es' | 'en' | 'fr')?.split('\n').filter((f: string) => f.trim()) || null,
-                informacion_general: getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') || null,
-                aplicacion: getLocalizedField(prod, 'features', language as 'es' | 'en' | 'fr')?.split('\n').filter((f: string) => f.trim()) || null,
-                documentacion: prod.documents?.map((doc: any) => ({
-                    nombre: doc.name || '',
-                    accion: t('common.download') || 'Descargar',
-                    enlace: doc.file_url || doc.file_path || '',
-                })) || []
+              id: prod.slug,
+              nombre: prodNombre,
+              descripcion: prodDescripcion,
+              imagen:
+                getImageUrl(prod.image_url || prod.image) || "/img/default.jpg",
+              // Campos de alt y title de imágenes del backend
+              image_alt_es: getLocalizedValue(prod.image_alt, "es"),
+              image_alt_en: getLocalizedValue(prod.image_alt, "en"),
+              image_alt_fr: getLocalizedValue(prod.image_alt, "fr"),
+              image_title_es: getLocalizedValue(prod.image_title, "es"),
+              image_title_en: getLocalizedValue(prod.image_title, "en"),
+              image_title_fr: getLocalizedValue(prod.image_title, "fr"),
+              // Campos adicionales del producto
+              subtitulo: prod.subtitle || null,
+              composicion:
+                getLocalizedField(
+                  prod,
+                  "composition",
+                  language as "es" | "en" | "fr",
+                ) || null,
+              caracteristicas:
+                getLocalizedField(
+                  prod,
+                  "features",
+                  language as "es" | "en" | "fr",
+                )
+                  ?.split("\n")
+                  .filter((f: string) => f.trim()) || null,
+              recomendaciones:
+                getLocalizedField(
+                  prod,
+                  "recommendations",
+                  language as "es" | "en" | "fr",
+                )
+                  ?.split("\n")
+                  .filter((f: string) => f.trim()) || null,
+              precauciones:
+                getLocalizedField(
+                  prod,
+                  "carriers",
+                  language as "es" | "en" | "fr",
+                )
+                  ?.split("\n")
+                  .filter((f: string) => f.trim()) || null,
+              informacion_relevante:
+                getLocalizedField(
+                  prod,
+                  "relevant_info",
+                  language as "es" | "en" | "fr",
+                )
+                  ?.split("\n")
+                  .filter((f: string) => f.trim()) || null,
+              informacion_general: null,
+              aplicacion: null,
+              documentacion:
+                prod.documents?.map((doc: any) => ({
+                  nombre: doc.name || "",
+                  accion: t("common.download") || "Descargar",
+                  enlace: doc.file_url || doc.file_path || "",
+                })) || [],
             };
         }) || [];
 
