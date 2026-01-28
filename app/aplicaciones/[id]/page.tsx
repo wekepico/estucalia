@@ -2,44 +2,33 @@ import { data } from '../../data/aplicaciones';
 import AplicationClient from './AplicationClient';
 import { getApplications } from '@/services/applicationsService';
 
+// app/aplicaciones/[id]/page.tsx
+
 export async function generateStaticParams() {
-    try {
-        // Intentar obtener aplicaciones del backend
-        const response = await getApplications();
-        const applications = response.data;
+  try {
+    const response = await getApplications();
+    const applications = response.data;
 
-        // Generar rutas para todos los slugs de todos los idiomas
-        const params: { id: string }[] = [];
+    const set = new Set<string>();
 
-        applications.forEach((app) => {
-            // Agregar slug español si existe
-            if (app.slug_es) {
-                params.push({ id: app.slug_es });
-            }
-            // Agregar slug inglés si existe
-            if (app.slug_en) {
-                params.push({ id: app.slug_en });
-            }
-            // Agregar slug francés si existe
-            if (app.slug_fr) {
-                params.push({ id: app.slug_fr });
-            }
-            // Fallback al slug principal
-            if (!app.slug_es && !app.slug_en && !app.slug_fr) {
-                params.push({ id: app.slug });
-            }
-        });
+    applications.forEach((app) => {
+      // ✅ SIEMPRE incluir slug base (ES)
+      if (app.slug) set.add(app.slug);
 
-        return params;
-    } catch (error) {
-        console.error('Error generating static params for applications:', error);
-        // Fallback a datos locales
-        return data.map((aplication) => ({
-            id: aplication.id,
-        }));
-    }
+      if (app.slug_en) set.add(app.slug_en);
+      if (app.slug_fr) set.add(app.slug_fr);
+
+      // si por alguna razón viniera slug_es ya normalizado
+      if ((app as any).slug_es) set.add((app as any).slug_es);
+    });
+
+    return Array.from(set).map((id) => ({ id }));
+  } catch (e) {
+    console.error("Error generating static params for applications:", e);
+    return data.map((aplication) => ({ id: aplication.id }));
+  }
 }
 
 export default function Aplicaciones() {
-    return <AplicationClient />;
+  return <AplicationClient />;
 }

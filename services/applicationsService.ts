@@ -73,63 +73,87 @@ export interface Application {
 /**
  * Normaliza una aplicación raw del backend al formato esperado por el frontend
  */
+
 function normalizeApplication(raw: ApplicationRaw): Application {
   const rawImageUrl = raw.image_url || raw.image || null;
   const rawIconUrl = raw.icon_url || raw.icon || null;
 
-  // Manejar image_alt que puede venir como string o como objeto {en, es, fr}
-  const imageAltEs = raw.image_alt_es ||
-    (typeof raw.image_alt === 'object' && raw.image_alt?.es) ||
-    (typeof raw.image_alt === 'string' ? raw.image_alt : null);
-  const imageAltEn = raw.image_alt_en ||
-    (typeof raw.image_alt === 'object' && raw.image_alt?.en) ||
-    (typeof raw.image_alt === 'string' ? raw.image_alt : null);
-  const imageAltFr = raw.image_alt_fr ||
-    (typeof raw.image_alt === 'object' && raw.image_alt?.fr) ||
-    (typeof raw.image_alt === 'string' ? raw.image_alt : null);
+  const imageAltEs =
+    raw.image_alt_es ||
+    (typeof raw.image_alt === "object" && raw.image_alt?.es) ||
+    (typeof raw.image_alt === "string" ? raw.image_alt : null);
 
-  // Manejar image_title que puede venir como string o como objeto {en, es, fr}
-  const imageTitleEs = raw.image_title_es ||
-    (typeof raw.image_title === 'object' && raw.image_title?.es) ||
-    (typeof raw.image_title === 'string' ? raw.image_title : null);
-  const imageTitleEn = raw.image_title_en ||
-    (typeof raw.image_title === 'object' && raw.image_title?.en) ||
-    (typeof raw.image_title === 'string' ? raw.image_title : null);
-  const imageTitleFr = raw.image_title_fr ||
-    (typeof raw.image_title === 'object' && raw.image_title?.fr) ||
-    (typeof raw.image_title === 'string' ? raw.image_title : null);
+  const imageAltEn =
+    raw.image_alt_en ||
+    (typeof raw.image_alt === "object" && raw.image_alt?.en) ||
+    (typeof raw.image_alt === "string" ? raw.image_alt : null);
+
+  const imageAltFr =
+    raw.image_alt_fr ||
+    (typeof raw.image_alt === "object" && raw.image_alt?.fr) ||
+    (typeof raw.image_alt === "string" ? raw.image_alt : null);
+
+  const imageTitleEs =
+    raw.image_title_es ||
+    (typeof raw.image_title === "object" && raw.image_title?.es) ||
+    (typeof raw.image_title === "string" ? raw.image_title : null);
+
+  const imageTitleEn =
+    raw.image_title_en ||
+    (typeof raw.image_title === "object" && raw.image_title?.en) ||
+    (typeof raw.image_title === "string" ? raw.image_title : null);
+
+  const imageTitleFr =
+    raw.image_title_fr ||
+    (typeof raw.image_title === "object" && raw.image_title?.fr) ||
+    (typeof raw.image_title === "string" ? raw.image_title : null);
 
   return {
     id: raw.id,
     slug: raw.slug,
-    slug_es: raw.slug_es || null,
+
+    // ✅ IMPORTANTE: en tu backend "slug" es ES
+    slug_es: raw.slug_es ?? raw.slug,
     slug_en: raw.slug_en || null,
     slug_fr: raw.slug_fr || null,
-    name_es: raw.name_es || raw.name || null,
-    name_en: raw.name_en || raw.name || null,
-    name_fr: raw.name_fr || raw.name || null,
+
+    // ✅ Igual con el nombre: "name" es ES
+    name_es: raw.name_es ?? raw.name ?? null,
+    name_en: raw.name_en ?? raw.name ?? null,
+    name_fr: raw.name_fr ?? raw.name ?? null,
+
     description_es: raw.description_es || null,
     description_en: raw.description_en || null,
     description_fr: raw.description_fr || null,
+
+    // ✅ imagen principal
     image_url: getImageUrl(rawImageUrl),
+
+    // ✅ si te llega icon (aunque ya no lo uses), lo normalizas igual
     icon_url: getImageUrl(rawIconUrl),
+
     image_alt_es: imageAltEs,
     image_alt_en: imageAltEn,
     image_alt_fr: imageAltFr,
+
     image_title_es: imageTitleEs,
     image_title_en: imageTitleEn,
     image_title_fr: imageTitleFr,
+
     seo_title_es: raw.seo_title_es || null,
     seo_title_en: raw.seo_title_en || null,
     seo_title_fr: raw.seo_title_fr || null,
+
     seo_description_es: raw.seo_description_es || null,
     seo_description_en: raw.seo_description_en || null,
     seo_description_fr: raw.seo_description_fr || null,
+
     categories: raw.categories || [],
-    created_at: raw.created_at || '',
-    updated_at: raw.updated_at || '',
+    created_at: raw.created_at || "",
+    updated_at: raw.updated_at || "",
   };
 }
+
 
 export interface ApplicationsResponse {
   data: Application[];

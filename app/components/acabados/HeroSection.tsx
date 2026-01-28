@@ -17,7 +17,7 @@ export type HeroViewItem = {
 
 export const HeroSection: React.FC<{ data: HeroViewItem[] }> = ({ data }) => {
   return (
-    <div className="flex flex-col gap-16 md:gap-28 px-5 sm:px-10 md:px-15 lg:px-20 pb-16">
+    <div className="flex flex-col gap-16 md:gap-28 px-5 sm:px-10 md:px-15 lg:px-20 pb-16 mb-20">
       {data.map((element, index) => (
         <div
           key={element.id}

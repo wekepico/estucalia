@@ -56,25 +56,40 @@ export default function AplicationPage({ aplication, backendData }: AplicationPa
         category={
           backendData
             ? (aplication?.aplication ?? null)
-            : (aplication?.aplication ? t(aplication.aplication) : null)
+            : aplication?.aplication
+              ? t(aplication.aplication)
+              : null
         }
         description={
           backendData
             ? (aplication?.descripcion ?? null)
-            : (aplication?.descripcion ? t(aplication.descripcion) : null)
+            : aplication?.descripcion
+              ? t(aplication.descripcion)
+              : null
         }
         products={aplication?.products ?? null}
-        img={aplication?.icono ?? null}
-        imageAlt={backendData ? (aplication?.image_alt || aplication?.aplication) : (aplication?.aplication ? t(aplication.aplication) : null)}
-        imageTitle={backendData ? (aplication?.image_title || aplication?.aplication) : (aplication?.aplication ? t(aplication.aplication) : null)}
+        img={(aplication as any)?.img ?? (aplication as any)?.icon ?? null}
+        imageAlt={
+          backendData
+            ? aplication?.image_alt || aplication?.aplication
+            : aplication?.aplication
+              ? t(aplication.aplication)
+              : null
+        }
+        imageTitle={
+          backendData
+            ? aplication?.image_title || aplication?.aplication
+            : aplication?.aplication
+              ? t(aplication.aplication)
+              : null
+        }
       />
       <InspirationGrid
-            uiTitleKey="home.inspiration.title"
+        uiTitleKey="home.inspiration.title"
         showTitle
         className="mt-20 mb-20"
-    
-          />
+      />
       <ProjectHelpSection />
     </React.Fragment>
-  )
+  );
 }
