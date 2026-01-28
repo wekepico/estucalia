@@ -8,6 +8,7 @@ import { InspirationSectionAplication } from "../aplicaciones/sections/Inspirati
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { getLocalizedField } from "@/lib/i18nHelpers";
+import InspirationGrid from "../shared/InspirationGrid";
 
 const inspirationImages = [
   {
@@ -153,9 +154,7 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
           </div>
 
           <label className="p-8 md:w-4/6">
-            <h2 className="font-[600] text-3xl pb-5">
-              {categoryName}
-            </h2>
+            <h2 className="font-[600] text-3xl pb-5">{categoryName}</h2>
             <div className="flex gap-2 flex-col">
               <div
                 className="font-[600] text-lg"
@@ -163,7 +162,6 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
               />
               <div dangerouslySetInnerHTML={{ __html: categoryDescription1 }} />
             </div>
-
           </label>
         </section>
 
@@ -171,7 +169,7 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
         <section className="flex gap-12">
           {/* Aplicaciones */}
           {aplicaciones.length > 0 && (
-            <div>
+            <div className="mr-20">
               <h2 className="font-[600] text-xl mb-4">
                 {t("productsSection.applications")}
               </h2>
@@ -184,27 +182,34 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
           )}
 
           {/* Acabados */}
-          {category?.acabados && Array.isArray(category.acabados) && category.acabados.length > 0 && (
-            <div>
-              <h2 className="font-[600] text-xl mb-4">
-                {t("productsSection.finishes")}
-              </h2>
-              <div className="flex flex-wrap gap-8">
-                {category.acabados.map((acabado: any, index: number) => (
-                  <div key={index} className="flex flex-col items-start">
-                    <h3 className="text-lg">{acabado?.nombre || ''}</h3>
-                    <Image
-                      alt={acabado?.nombre || ''}
-                      src={acabado?.imagen || '/img/default.jpg'}
-                      width={acabado?.nombre === "Liso" || acabado?.nombre === "Smooth" ? 210 : 200}
-                      height={160}
-                      className="bg-gray-200"
-                    />
-                  </div>
-                ))}
+          {category?.acabados &&
+            Array.isArray(category.acabados) &&
+            category.acabados.length > 0 && (
+              <div>
+                <h2 className="font-[600] text-xl mb-4 ">
+                  {t("productsSection.finishes")}
+                </h2>
+                <div className="flex flex-wrap gap-8">
+                  {category.acabados.map((acabado: any, index: number) => (
+                    <div key={index} className="flex flex-col items-start">
+                      <h3 className="text-lg">{acabado?.nombre || ""}</h3>
+                      <Image
+                        alt={acabado?.nombre || ""}
+                        src={acabado?.imagen || "/img/default.jpg"}
+                        width={
+                          acabado?.nombre === "Liso" ||
+                          acabado?.nombre === "Smooth"
+                            ? 210
+                            : 200
+                        }
+                        height={160}
+                        className="bg-gray-200"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
         </section>
 
         {/* Products section */}
@@ -227,23 +232,24 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
                 ))}
               </div>
             ) : (
-              <p className="text-gray-500">{t("productsSection.noProducts") || "No products available"}</p>
+              <p className="text-gray-500">
+                {t("productsSection.noProducts") || "No products available"}
+              </p>
             )}
-
-
           </div>
         </section>
       </section>
-      {selectedProduct && selectedProduct.nombre !== "MOLDES CENEFAS RODILLOS" && selectedProduct.nombre !== "HERRAMIENTAS" && (
-        <div className="md:px-15 sm:px-10 px-5 bg-[#FAF9F9] lg:px-20 mt-14 py-12 flex flex-col">
-          {/* Selected product details */}
-          <ProductDetail product={selectedProduct} />
-        </div>
-      )}
-
+      {selectedProduct &&
+        selectedProduct.nombre !== "MOLDES CENEFAS RODILLOS" &&
+        selectedProduct.nombre !== "HERRAMIENTAS" && (
+          <div className="md:px-15 sm:px-10 px-5 bg-[#FAF9F9] lg:px-20 mt-14 py-12 flex flex-col">
+            {/* Selected product details */}
+            <ProductDetail product={selectedProduct} />
+          </div>
+        )}
 
       {/* Extra section: inspiration + help */}
-      <InspirationSectionAplication images={inspirationImages} />
+      <InspirationGrid uiTitleKey="home.inspiration.title" className="mb-40 mt-20" />
       <ProjectHelpSection />
     </>
   );
