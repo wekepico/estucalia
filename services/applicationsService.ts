@@ -1,5 +1,6 @@
-import axiosInstance from './axiosConfig';
-import { getImageUrl } from '@/lib/i18nHelpers';
+import axiosInstance from "./axiosConfig";
+import { getImageUrl } from "@/lib/i18nHelpers";
+import { Category } from "./categoriesService";
 
 // Interface raw para la respuesta del backend
 interface ApplicationRaw {
@@ -19,11 +20,17 @@ interface ApplicationRaw {
   image_url?: string | null;
   icon?: string | null;
   icon_url?: string | null;
-  image_alt?: string | { en?: string | null; es?: string | null; fr?: string | null } | null;
+  image_alt?:
+    | string
+    | { en?: string | null; es?: string | null; fr?: string | null }
+    | null;
   image_alt_es?: string | null;
   image_alt_en?: string | null;
   image_alt_fr?: string | null;
-  image_title?: string | { en?: string | null; es?: string | null; fr?: string | null } | null;
+  image_title?:
+    | string
+    | { en?: string | null; es?: string | null; fr?: string | null }
+    | null;
   image_title_es?: string | null;
   image_title_en?: string | null;
   image_title_fr?: string | null;
@@ -154,7 +161,6 @@ function normalizeApplication(raw: ApplicationRaw): Application {
   };
 }
 
-
 export interface ApplicationsResponse {
   data: Application[];
   meta?: {
@@ -169,7 +175,7 @@ export interface ApplicationResponse {
 }
 
 export interface ApplicationCategoriesResponse {
-  data: import('./categoriesService').Category[];
+  data: import("./categoriesService").Category[];
 }
 
 /**
@@ -179,14 +185,18 @@ export interface ApplicationCategoriesResponse {
  */
 export const getApplications = async (): Promise<ApplicationsResponse> => {
   try {
-    const response = await axiosInstance.get<{ success: boolean; data: ApplicationRaw[]; message?: string }>('/v1/applications');
+    const response = await axiosInstance.get<{
+      success: boolean;
+      data: ApplicationRaw[];
+      message?: string;
+    }>("/v1/applications");
     const normalizedData = response.data.data.map(normalizeApplication);
     return {
       data: normalizedData,
       meta: (response.data as any).meta,
     };
   } catch (error) {
-    console.error('Error fetching applications:', error);
+    console.error("Error fetching applications:", error);
     throw error;
   }
 };
@@ -197,9 +207,15 @@ export const getApplications = async (): Promise<ApplicationsResponse> => {
  * @param slug - Identificador único de la aplicación
  * @returns Promise con los datos de la aplicación (normalizada)
  */
-export const getApplicationBySlug = async (slug: string): Promise<ApplicationResponse> => {
+export const getApplicationBySlug = async (
+  slug: string,
+): Promise<ApplicationResponse> => {
   try {
-    const response = await axiosInstance.get<{ success: boolean; data: ApplicationRaw; message?: string }>(`/v1/applications/${slug}`);
+    const response = await axiosInstance.get<{
+      success: boolean;
+      data: ApplicationRaw;
+      message?: string;
+    }>(`/v1/applications/${slug}`);
     return {
       data: normalizeApplication(response.data.data),
     };
@@ -215,12 +231,30 @@ export const getApplicationBySlug = async (slug: string): Promise<ApplicationRes
  * @param slug - Identificador único de la aplicación
  * @returns Promise con las categorías de la aplicación
  */
-export const getApplicationCategories = async (slug: string): Promise<ApplicationCategoriesResponse> => {
-  try {
-    const response = await axiosInstance.get<ApplicationCategoriesResponse>(`/v1/applications/${slug}/categories`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching categories for application ${slug}:`, error);
-    throw error;
-  }
+type ApiResponse<T> = { success: boolean; data: T; message?: string };
+
+type AppCategoriesPayload = {
+  application: {
+    id: number;
+    name: string;
+    slug: string;
+    image_url?: string | null;
+  };
+  categories: Category[];
+};
+
+export const getApplicationCategories = async (
+  slug: string,
+): Promise<{
+  data: Category[];
+  application?: AppCategoriesPayload["application"];
+}> => {
+  const res = await axiosInstance.get<ApiResponse<AppCategoriesPayload>>(
+    `/v1/applications/${slug}/categories`,
+  );
+
+  return {
+    data: res.data.data?.categories ?? [],
+    application: res.data.data?.application,
+  };
 };

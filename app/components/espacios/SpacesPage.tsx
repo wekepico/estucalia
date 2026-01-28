@@ -1,76 +1,41 @@
-"use client"
+"use client";
+
 import React from "react";
 import { HeroSection } from "./sections/HeroSection";
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
-import { InspirationSectionAplication } from "../aplicaciones/sections/InspirationSectionAplication";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import InspirationGrid from "../shared/InspirationGrid";
 
-export interface Spaces {
-    aplication: string;
-    descripcion: string;
-    img: string;
-    products: {
-        id: string;
-        name: string;
-        icon: string | StaticImport;
-        category: string;
-    }[];
-    aplications: string[];
+export interface SpacesPageVM {
+  aplication: string;
+  descripcion: string;
+  img: string;
+  products: { id: string; name: string; icon: string; appKey: string }[];
+  aplications: { key: string; label: string }[];
 }
 
-const inspirationImages = [
-    {
-        url: "/convertedImages/img-1.webp",
-        alt: "Modern facade detail"
-    },
-    {
-        url: "/convertedImages/Home.webp",
-        alt: "Urban architecture"
-    },
-    {
-        url: "/convertedImages/img-3.webp",
-        alt: "Minimalist building design"
-    },
-    {
-        url: "/convertedImages/img-4.webp",
-        alt: "Contemporary architecture"
-    },
-    {
-        url: "/convertedImages/img3.webp",
-        alt: "Modern facade detail"
-    },
-    {
-        url: "/convertedImages/img-8.webp",
-        alt: "Urban architecture"
-    },
-    {
-        url: "/convertedImages/img1.webp",
-        alt: "Minimalist building design"
-    },
-    {
-        url: "/convertedImages/image1.webp",
-        alt: "Contemporary architecture"
-    },
-];
+export default function SpacesPage(
+  props: SpacesPageVM & {
+    onTabChangeFetchIfNeeded: (appKey: string) => void;
+  },
+) {
+  return (
+    <>
+      <HeroSection
+        category={props.aplication}
+        description={props.descripcion}
+        products={props.products}
+        img={props.img}
+        aplicaciones={props.aplications}
+        onTabChange={props.onTabChangeFetchIfNeeded} // ✅ IMPORTANTÍSIMO
+      />
 
-export default function SpacesPage(aplication: Spaces) {
-    return (
-        <React.Fragment>
-            <HeroSection 
-                category={aplication.aplication}
-                description={aplication.descripcion}
-                products={aplication.products}
-                img={aplication.img}
-                aplicaciones={aplication.aplications}
-            />
-          <InspirationGrid
-                uiTitleKey="home.inspiration.title"
-                showTitle
-                className="mt-20 mb-20"
-        
-              />
-            <ProjectHelpSection />
-        </React.Fragment>
-    );
+      <InspirationGrid
+        uiTitleKey="home.inspiration.title"
+        showTitle
+        className="mt-20 mb-20"
+      />
+
+      <ProjectHelpSection />
+    </>
+  );
 }
