@@ -12,6 +12,7 @@ export interface Aplication {
     id: string;
     aplication: string;
     descripcion: string;
+    icon: string;
     img: string;
     image_alt?: string | null;
     image_title?: string | null;
@@ -26,6 +27,7 @@ export const data: Aplication[] = [
     {
         id: "coatings",
         aplication: "applications.categories.coatings",
+        icon: "/img/revestimiento.png",
         img: "/img/revestimiento.jpg",
         descripcion: "applications.descriptions.coatings",
         products: [
@@ -59,6 +61,7 @@ export const data: Aplication[] = [
     {
         id: "plasters",
         aplication: "applications.categories.plasters",
+        icon: "/img/revocos_enlucidos.png",
         img: "/img/revocos_enlucidos.jpg",
         descripcion: "applications.descriptions.plasters",
         products: [
@@ -92,6 +95,7 @@ export const data: Aplication[] = [
     {
         id: "masonry",
         aplication: "applications.categories.masonry",
+        icon: "/img/albañileria.png",
         img: "/img/albañileria.jpg",
         descripcion: "applications.descriptions.masonry",
         products: [
@@ -130,6 +134,7 @@ export const data: Aplication[] = [
     {
         id: "tiles",
         aplication: "applications.categories.tiles",
+        icon: "/img/baldosas.png",
         img: "/img/baldosas.jpg",
         descripcion: "applications.descriptions.tiles",
         products: [
@@ -148,6 +153,7 @@ export const data: Aplication[] = [
     {
         id: "thermalInsulation",
         aplication: "applications.categories.thermal",
+        icon: "/img/aislamiento.png",
         img: "/img/aislamiento.jpg",
         descripcion: "applications.descriptions.thermal",
         products: [
@@ -181,6 +187,7 @@ export const data: Aplication[] = [
     {
         id: "waterproofing",
         aplication: "applications.categories.waterproofing",
+        icon: "/img/impermeabilizacion.png",
         img: "/img/impermeabilizacion.jpg",
         descripcion: "applications.descriptions.waterproofing",
         products: [
@@ -219,6 +226,7 @@ export const data: Aplication[] = [
     {
         id: "dehumidification",
         aplication: "applications.categories.dehumidification",
+        icon: "/img/deshumificacion.png",
         img: "/img/deshumificacion.jpg",
         descripcion: "applications.descriptions.dehumidification",
         products: [

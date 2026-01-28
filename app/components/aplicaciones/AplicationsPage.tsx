@@ -5,6 +5,7 @@ import { InspirationSectionAplication } from "./sections/InspirationSectionAplic
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
 import { Aplication } from "@/app/data/aplicaciones";
 import { useLanguage } from "@/app/context/LanguageContext";
+import InspirationGrid from "../shared/InspirationGrid";
 
 const inspirationImages = [
   {
@@ -63,11 +64,16 @@ export default function AplicationPage({ aplication, backendData }: AplicationPa
             : (aplication?.descripcion ? t(aplication.descripcion) : null)
         }
         products={aplication?.products ?? null}
-        img={aplication?.img ?? null}
+        img={aplication?.icono ?? null}
         imageAlt={backendData ? (aplication?.image_alt || aplication?.aplication) : (aplication?.aplication ? t(aplication.aplication) : null)}
         imageTitle={backendData ? (aplication?.image_title || aplication?.aplication) : (aplication?.aplication ? t(aplication.aplication) : null)}
       />
-      <InspirationSectionAplication images={inspirationImages} />
+      <InspirationGrid
+            uiTitleKey="home.inspiration.title"
+        showTitle
+        className="mt-20 mb-20"
+    
+          />
       <ProjectHelpSection />
     </React.Fragment>
   )
