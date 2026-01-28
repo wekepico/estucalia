@@ -1,117 +1,80 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from '@/app/context/LanguageContext';
-import { useHome } from '@/api/useHome';
+import { useLanguage } from "@/app/context/LanguageContext";
+import { useHome } from "@/api/useHome";
 
 export default function ProjectHelpSection() {
   const { t, language } = useLanguage();
-  const { data: homeData } = useHome();
+  const { data: home } = useHome(language);
+
   const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const title = home?.help?.title ?? t("contact.projectHelp.title");
+  const description = home?.help?.text ?? t("contact.projectHelp.description");
+  const buttonText = home?.help?.button ?? t("contact.projectHelp.button");
+  const buttonUrl = home?.help?.url ?? "/contacto";
 
-  // Obtener título del API según idioma, o usar traducción estática como fallback
-  const getTitle = () => {
-    if (!homeData) return t('contact.projectHelp.title');
-
-    switch (language) {
-      case 'es':
-        return homeData.cta_help_title_es || t('contact.projectHelp.title');
-      case 'en':
-        return homeData.cta_help_title_en || t('contact.projectHelp.title');
-      case 'fr':
-        return homeData.cta_help_title_fr || t('contact.projectHelp.title');
-      default:
-        return homeData.cta_help_title_es || t('contact.projectHelp.title');
-    }
-  };
-
-  // Obtener descripción del API según idioma, o usar traducción estática como fallback
-  const getDescription = () => {
-    if (!homeData) return t('contact.projectHelp.description');
-
-    switch (language) {
-      case 'es':
-        return homeData.cta_help_text_es || t('contact.projectHelp.description');
-      case 'en':
-        return homeData.cta_help_text_en || t('contact.projectHelp.description');
-      case 'fr':
-        return homeData.cta_help_text_fr || t('contact.projectHelp.description');
-      default:
-        return homeData.cta_help_text_es || t('contact.projectHelp.description');
-    }
-  };
-
-  // Obtener texto del botón del API según idioma, o usar traducción estática como fallback
-  const getButtonText = () => {
-    if (!homeData) return t('contact.projectHelp.button');
-
-    switch (language) {
-      case 'es':
-        return homeData.cta_help_button_es || t('contact.projectHelp.button');
-      case 'en':
-        return homeData.cta_help_button_en || t('contact.projectHelp.button');
-      case 'fr':
-        return homeData.cta_help_button_fr || t('contact.projectHelp.button');
-      default:
-        return homeData.cta_help_button_es || t('contact.projectHelp.button');
-    }
-  };
-
-  if (!mounted) {
-    return null;
-  }
-
-  const title = getTitle();
-  const description = getDescription();
-  const buttonText = getButtonText();
-
-  // Obtener imagen del backend o usar fallback local
-  // Nota: cta_help_image_url, cta_help_image_alt y cta_help_image_title son strings simples (sin localización)
-  const imageUrl = homeData?.cta_help_image_url || '/img/helper.jpg';
-  const imageAlt = homeData?.cta_help_image_alt || t('contact.projectHelp.imageAlt');
-  const imageTitle = homeData?.cta_help_image_title || undefined;
+  const imageUrl = home?.help?.image?.url || "/img/helper.jpg";
+  const imageAlt = home?.help?.image?.alt ?? t("contact.projectHelp.imageAlt");
+  const imageTitle = home?.help?.image?.title ?? undefined;
 
   return (
-    <section className="relative min-h-[500px] flex items-center">
-      {/* Fondo con imagen */}
+    <section className="relative min-h-[520px] flex items-center">
+      {/* Fondo */}
       <div
-        className="absolute inset-0 bg-cover bg-top "
-        style={{
-          backgroundImage: `url('${imageUrl}')`
-        }}
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url('${imageUrl}')` }}
         role="img"
         aria-label={imageAlt}
         title={imageTitle}
       >
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-black/10 to-transparent" />
       </div>
 
       {/* Contenido */}
-      <div className="relative md:px-15 sm:px-10 px-5 lg:px-20">
-        <div className="max-w-[27rem]  mx-auto bg-slate-100" style={{ backgroundColor: "rgba(255, 255, 250, 0.8)" }}>
-          <div className="p-6 md:p-12">
+      <div className="relative w-full px-5 sm:px-10 lg:px-20">
+        <div className="w-full max-w-[520px] bg-white/75 backdrop-blur-sm rounded-none">
+          <div className="p-10 sm:p-12">
             {/* Título */}
-            <div dangerouslySetInnerHTML={{ __html: title }} />
+            <div
+              className="text-[44px] leading-[1.05] font-semibold text-[#111] max-w-[420px]"
+              dangerouslySetInnerHTML={{ __html: title }}
+            />
+
             {/* Descripción */}
-            <div dangerouslySetInnerHTML={{ __html: description }} />
-            {/* Botón */}
-            <div className="flex w-full justify-end items-center">
+            <div
+              className="mt-6 text-[18px] leading-[1.8] text-[#111] max-w-[420px]"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+
+            {/* ✅ Botón alineado a la derecha como en la captura */}
+            <div className="mt-10 flex justify-end">
               <Button
                 variant="outline"
-                onClick={() => window.location.href = "/contacto"}
-                className=" border-gray-500 border-solid relative pl-5 pr-10 py-4 md:py-5  rounded-none"
+                onClick={() => (window.location.href = buttonUrl)}
+                className="relative rounded-none border border-[#6b7280] bg-transparent px-8 pr-14 h-12 text-[14px] font-medium text-[#111] hover:bg-white/30"
               >
-                <div dangerouslySetInnerHTML={{ __html: buttonText }} />
-                <div className='absolute right-0'>
-                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
+                <span dangerouslySetInnerHTML={{ __html: buttonText }} />
+                <span className="absolute right-4 top-1/2 -translate-y-1/2">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
-                </div>
+                </span>
               </Button>
             </div>
           </div>
