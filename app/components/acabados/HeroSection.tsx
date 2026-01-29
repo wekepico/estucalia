@@ -28,8 +28,11 @@ export const HeroSection: React.FC<{ data: HeroViewItem[] }> = ({ data }) => {
           {/* texto + categorías */}
           <div className="flex flex-col w-full md:w-2/5 gap-6 justify-between">
             <div className="flex flex-col gap-6">
-              <h1 className="font-semibold text-3xl">{element.title}</h1>
-              <p className="text-lg">{element.description}</p>
+              {/* 👇 SI title VIENE COMO HTML */}
+              <div dangerouslySetInnerHTML={{ __html: element.title }} />
+
+              {/* 👇 SI description VIENE COMO HTML */}
+              <div dangerouslySetInnerHTML={{ __html: element.description }} />
             </div>
 
             {!!element.categories.length && (

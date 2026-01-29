@@ -22,17 +22,6 @@ function pickLang(
   return en || es || fr || "";
 }
 
-// Layout “por ahora” (frontend)
-// Si un día quieres controlarlo desde admin: agrega un campo `layout` en DB.
-function getSizeByIndex(index: number): "large" | "full" | "medium" | "small" {
-  // patrón parecido al ejemplo que mostraste:
-  if (index === 0) return "large";
-  if (index === 4) return "full";
-  if (index % 7 === 0) return "large";
-  if (index % 5 === 0) return "small";
-  return "medium";
-}
-
 export default function InspirationPage() {
   const { t, language } = useLanguage() as any;
   const lang: Lang = (language || "es") as Lang;
@@ -50,13 +39,14 @@ export default function InspirationPage() {
         setLoading(true);
         setErrorMsg(null);
 
-        const { page, items } = await getInspirationPageWithItems();
+        // ✅ Si tu endpoint soporta lang, pásalo aquí.
+        // Si no soporta todavía, déjalo sin params.
+        const { page, items } = await getInspirationPageWithItems(/* lang */);
 
         if (!mounted) return;
 
         setPage(page);
 
-        // Si quieres respetar default_limit aquí en frontend:
         const limit =
           page?.default_limit && page.default_limit > 0
             ? page.default_limit
@@ -77,24 +67,43 @@ export default function InspirationPage() {
     };
   }, []);
 
-  const title = useMemo(() => {
-    // Si no existe page todavía, usa i18n actual como fallback
-    if (!page) return t("inspiration.title");
-    return (
+  // ✅ Título HTML desde backend (con fallback a i18n)
+  const titleHtml = useMemo(() => {
+    if (!page) return `<h1 class="w-[36rem]">${t("inspiration.title")}</h1>`;
+
+    const fromApi =
       pickLang(lang, page.title_es, page.title_en, page.title_fr) ||
-      t("inspiration.title")
-    );
+      t("inspiration.title");
+
+    // Si en Filament guardas <h1 ...> ya, esto se renderiza tal cual.
+    // Si guardas texto plano, lo envolvemos con tu h1 y tu clase.
+    const looksLikeHtml = /<\/?[a-z][\s\S]*>/i.test(fromApi);
+
+    return looksLikeHtml ? fromApi : `<h1 class="w-[36rem]">${fromApi}</h1>`;
   }, [page, lang, t]);
 
+  // ✅ Mapear items del backend al shape del layout viejo
+  // OJO: Tu DB no guarda size, así que lo reproducimos con el mismo patrón fijo.
   const viewItems = useMemo(() => {
+    const pattern: Array<"large" | "medium" | "small" | "full"> = [
+      "large",
+      "medium",
+      "small",
+      "small",
+      "full",
+      "medium",
+      "medium",
+    ];
+
     return items.map((it, index) => {
       const alt = pickLang(lang, it.alt_es, it.alt_en, it.alt_fr) || "";
-      const size = getSizeByIndex(index);
+      const url = it.image_url || it.image_path || "";
+
       return {
-        id: it.id,
-        url: it.image_url || it.image_path || "",
+        id: it.id ?? index,
+        url,
         alt,
-        size,
+        size: pattern[index % pattern.length],
       };
     });
   }, [items, lang]);
@@ -123,36 +132,22 @@ export default function InspirationPage() {
 
   return (
     <section className="bg-white">
-      {/* Header */}
+      {/* Header (idéntico) */}
       <div className="w-full h-72 md:px-15 sm:px-10 px-5 lg:px-20 pt-20 pb-16 text-5xl font-[600] text-left items-end flex bg-[#ffffff] text-black">
-        <h1 className="w-[36rem]">{title}</h1>
+        {/* ✅ renderiza HTML del backend */}
+        <div dangerouslySetInnerHTML={{ __html: titleHtml }} />
       </div>
 
-      {/* Grid */}
-      {/* Image Grid */}
-      <div
-        className="md:px-15 sm:px-10 px-5 lg:px-20 grid grid-cols-2 md:grid-cols-4 gap-4 pb-16 mb-20
-                auto-rows-[180px] md:auto-rows-[220px] grid-flow-dense"
-      >
-        {items.map((image, index) => {
-          // Patrón de tamaños (repite en loop)
-          const pattern: Array<"large" | "medium" | "small" | "full"> = [
-            "large",
-            "medium",
-            "small",
-            "small",
-            "full",
-            "medium",
-            "medium",
-          ];
-          const size = pattern[index % pattern.length];
-
+      {/* Grid (idéntico al viejo) */}
+      {/* Grid (igual visual, pero sin romperse al final) */}
+      <div className="md:px-15 sm:px-10 px-5 lg:px-20 grid grid-cols-4 auto-rows-[400px] grid-flow-dense pb-28 gap-4">
+        {viewItems.map((image, index) => {
           const sizeClass =
-            size === "large"
+            image.size === "large"
               ? "col-span-2 row-span-2"
-              : size === "full"
-                ? "col-span-2 md:col-span-4 row-span-2"
-                : size === "medium"
+              : image.size === "full"
+                ? "col-span-4 row-span-2"
+                : image.size === "medium"
                   ? "col-span-2 row-span-1"
                   : "col-span-1 row-span-1";
 
@@ -162,10 +157,14 @@ export default function InspirationPage() {
               className={`relative overflow-hidden group cursor-pointer ${sizeClass}`}
             >
               <div
-                className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 group-hover:scale-110"
-                style={{ backgroundImage: `url('${image.image_url || ""}')` }}
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat transform transition-transform duration-500 group-hover:scale-110"
+                style={{
+                  backgroundImage: image.url
+                    ? `url("${encodeURI(image.url)}")`
+                    : "none",
+                }}
                 role="img"
-                aria-label={image.alt || ""}
+                aria-label={image.alt}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
             </div>
