@@ -11,47 +11,21 @@ const countries = [
 
 export default function InternationalSection() {
   const { t, language } = useLanguage();
-  const { data: empresaData } = useEmpresa();
+const { data: empresa } = useEmpresa();
 
-  // Obtener título International del API según idioma
-  const getInternationalTitle = () => {
-    if (!empresaData) return t('company.international.title');
+const internationalTitle =
+  empresa?.international.title || t("company.international.title");
+const internationalText =
+  empresa?.international.text || t("company.international.description");
 
-    switch (language) {
-      case 'es':
-        return empresaData.international_title_es || t('company.international.title');
-      case 'en':
-        return empresaData.international_title_en || t('company.international.title');
-      case 'fr':
-        return empresaData.international_title_fr || t('company.international.title');
-      default:
-        return empresaData.international_title_es || t('company.international.title');
-    }
-  };
+const internationalImage =
+  empresa?.international.image || "/img/internacionales.jpg";
 
-  // Obtener texto International del API según idioma
-  const getInternationalText = () => {
-    if (!empresaData) return t('company.international.description');
+const internationalImageAlt =
+  empresa?.international.image_alt || t("company.international.title");
 
-    switch (language) {
-      case 'es':
-        return empresaData.international_text_es || t('company.international.description');
-      case 'en':
-        return empresaData.international_text_en || t('company.international.description');
-      case 'fr':
-        return empresaData.international_text_fr || t('company.international.description');
-      default:
-        return empresaData.international_text_es || t('company.international.description');
-    }
-  };
+const internationalImageTitle = empresa?.international.image_title || undefined;
 
-  const internationalTitle = getInternationalTitle();
-  const internationalText = getInternationalText();
-
-  // Obtener imagen del backend o usar fallback local
-  const internationalImage = empresaData?.international_image || "img/internacionales.jpg";
-  const internationalImageAlt = empresaData?.international_image_alt || t('company.international.title');
-  const internationalImageTitle = empresaData?.international_image_title || undefined;
 
   return (
     <section className="relative min-h-[1100px]  flex items-center">

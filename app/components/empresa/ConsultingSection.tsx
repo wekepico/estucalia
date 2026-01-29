@@ -8,64 +8,23 @@ import Link from 'next/link';
 
 export default function ConsultingSection() {
   const { t, language } = useLanguage();
-  const { data: empresaData } = useEmpresa();
+  const { data: empresa } = useEmpresa();
 
-  // Obtener título Consulting del API según idioma
-  const getConsultingTitle = () => {
-    if (!empresaData) return t('company.consulting.title');
+  const consultingTitle =
+    empresa?.consulting.title || t("company.consulting.title");
+  const consultingText =
+    empresa?.consulting.text || t("company.consulting.description");
+  const consultingCTA =
+    empresa?.consulting.cta_text || t("company.consulting.button");
 
-    switch (language) {
-      case 'es':
-        return empresaData.consulting_title_es || t('company.consulting.title');
-      case 'en':
-        return empresaData.consulting_title_en || t('company.consulting.title');
-      case 'fr':
-        return empresaData.consulting_title_fr || t('company.consulting.title');
-      default:
-        return empresaData.consulting_title_es || t('company.consulting.title');
-    }
-  };
+  const consultingBgImage =
+    empresa?.consulting.bg_image || "/img/asesoramiento.jpg";
 
-  // Obtener texto Consulting del API según idioma
-  const getConsultingText = () => {
-    if (!empresaData) return t('company.consulting.description');
+  const consultingBgImageAlt =
+    empresa?.consulting.bg_image_alt || t("company.consulting.title");
 
-    switch (language) {
-      case 'es':
-        return empresaData.consulting_text_es || t('company.consulting.description');
-      case 'en':
-        return empresaData.consulting_text_en || t('company.consulting.description');
-      case 'fr':
-        return empresaData.consulting_text_fr || t('company.consulting.description');
-      default:
-        return empresaData.consulting_text_es || t('company.consulting.description');
-    }
-  };
-
-  // Obtener texto botón CTA del API según idioma
-  const getConsultingCTA = () => {
-    if (!empresaData) return t('company.consulting.button');
-
-    switch (language) {
-      case 'es':
-        return empresaData.consulting_cta_text_es || t('company.consulting.button');
-      case 'en':
-        return empresaData.consulting_cta_text_en || t('company.consulting.button');
-      case 'fr':
-        return empresaData.consulting_cta_text_fr || t('company.consulting.button');
-      default:
-        return empresaData.consulting_cta_text_es || t('company.consulting.button');
-    }
-  };
-
-  const consultingTitle = getConsultingTitle();
-  const consultingText = getConsultingText();
-  const consultingCTA = getConsultingCTA();
-
-  // Obtener imagen del backend o usar fallback local
-  const consultingBgImage = empresaData?.consulting_bg_image || "/img/asesoramiento.jpg";
-  const consultingBgImageAlt = empresaData?.consulting_bg_image_alt || t('company.consulting.title');
-  const consultingBgImageTitle = empresaData?.consulting_bg_image_title || undefined;
+  const consultingBgImageTitle =
+    empresa?.consulting.bg_image_title || undefined;
 
   return (
     <section className="relative min-h-[600px] flex items-center">
@@ -89,15 +48,27 @@ export default function ConsultingSection() {
 
           <div dangerouslySetInnerHTML={{ __html: consultingText }} />
 
-          <Link href="/contacto">
-            <Button variant="outline" className="border-gray-200 pl-5  pr-0  md:py-6 bg-transparent hover:text-black border-solid rounded-none">
+          <Link href={empresa?.consulting.cta_url || "/contacto"}>
+            <Button
+              variant="outline"
+              className="border-gray-200 pl-5  pr-0  md:py-6 bg-transparent hover:text-black border-solid rounded-none"
+            >
               <span dangerouslySetInnerHTML={{ __html: consultingCTA }} />
-              <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-10 h-10 md:w-12 md:h-12"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={0.5}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </Button>
           </Link>
-
         </div>
       </div>
     </section>
