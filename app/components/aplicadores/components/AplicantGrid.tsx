@@ -1,29 +1,40 @@
-import React from 'react';
-import CardServices from './AplicantCard';
-import { useLanguage } from '@/app/context/LanguageContext';
+"use client";
 
-const ServicesGrid = () => {
-    const { t } = useLanguage();
+import React from "react";
+import CardServices from "./AplicantCard";
 
-    const cardsData = [0, 1, 2].map(index => ({
-        title: t(`servicesGrid.cards.${index}.title`),
-        description: t(`servicesGrid.cards.${index}.description`),
-        bullets: []
-    }));
+type ApiColumn = {
+  title: string | null;
+  text: string | null;
+  bullets: string | null;
+};
 
-    return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-28">
-            {cardsData.map((card, index) => (
-                <div key={index} className=''>
-                    <CardServices
-                        title={card.title}
-                        description={card.description}
-                        bullets={card.bullets}
-                    />
-                </div>
-            ))}
+const parseBullets = (bullets: string | null) =>
+  (bullets ?? "")
+    .split(/\r?\n/)
+    .map((l) => l.replace(/^\s*-\s*/, "").trim())
+    .filter(Boolean);
+
+const ServicesGrid = ({ columns }: { columns: ApiColumn[] }) => {
+  const cardsData = (columns ?? []).slice(0, 3).map((c) => ({
+    title: c.title ?? "",
+    description: c.text ?? "",
+    bullets: parseBullets(c.bullets),
+  }));
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-28">
+      {cardsData.map((card, index) => (
+        <div key={index} className="">
+          <CardServices
+            title={card.title}
+            description={card.description}
+            bullets={card.bullets}
+          />
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default ServicesGrid;
