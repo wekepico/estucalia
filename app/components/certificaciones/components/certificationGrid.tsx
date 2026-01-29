@@ -1,46 +1,23 @@
-'use client';
+"use client";
 
-import React from 'react';
-import CertificationCard from './CertificationCard';
-import { useLanguage } from '@/app/context/LanguageContext';
+import React from "react";
+import CertificationCard from "./CertificationCard";
 
-const ServicesGrid = () => {
-  const { t } = useLanguage();
+type DocItem = {
+  key: string;
+  title: string | null;
+  downloadUrl: string | null;
+  file?: { url: string | null; path: string | null };
+};
 
-  const cardsData = [
-    {
-      title: t("certifications.cards.morteros"),
-      filePath: "/files/declaracion-conformidad-estucalia-morteros.pdf",
-    },
-    {
-      title: t("certifications.cards.cementos"),
-      filePath: "/files/declaracion-conformidad-cementos-cola-estucalia-morteros.pdf",
-    },
-    {
-      title: t("certifications.cards.dit"),
-      filePath: "/files/dit-plus-espanol.pdf",
-    },
-    {
-      title: t("certifications.cards.aenor"),
-      filePath: "/files/certificado-aenor.pdf",
-    },
-    {
-      title: t("certifications.cards.iqnet"),
-      filePath: "/files/certificado-iqnet.pdf",
-    },
-    {
-      title: t("certifications.cards.politica"),
-      filePath: "/files/politica-de-calidad-grupo-estucalia.pdf",
-    }
-  ];
-
+const ServicesGrid = ({ documents }: { documents: DocItem[] }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-28">
-      {cardsData.map((card, index) => (
-        <div key={index}>
+      {documents.map((doc, index) => (
+        <div key={doc.key ?? index}>
           <CertificationCard
-            title={card.title}
-            filePath={card.filePath}
+            title={doc.title ?? ""}
+            filePath={doc.downloadUrl ?? doc.file?.url ?? "#"}
           />
         </div>
       ))}
