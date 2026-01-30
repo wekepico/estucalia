@@ -8,6 +8,7 @@ import { useApplications } from '@/api/useApplications';
 import { useCategories } from '@/api/useCategories';
 import { getLocalizedField, getLocalizedSlug } from '@/lib/i18nHelpers';
 
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -27,6 +28,14 @@ import AccesoriosHerramientas from '../../public/img/accerios-y-herramientas.svg
 import MorteroCola from '../../public/img/mortero-cola.svg'
 import MorteroPiedra from '../../public/img/mortero-piedra.svg'
 import MorteroUnion from '../../public/img/mortero puente union.svg'
+import { htmlToText } from "@/lib/utils";
+import { useSpaces } from "@/api/useSpaces";
+
+const cleanMenuText = (value: unknown) =>
+  htmlToText(String(value ?? ""))
+    .replace(/\s+/g, " ")
+    .trim();
+
 
 export default function ClientNavigation() {
   const { t, language } = useLanguage();
@@ -37,6 +46,7 @@ export default function ClientNavigation() {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [openMobileSubmenus, setOpenMobileSubmenus] = useState<number[]>([]);
   const headerRef = useRef<HTMLElement>(null);
+  const { data: spacesData } = useSpaces();
 
   // Obtener aplicaciones y categorías del backend
   const { data: applicationsData } = useApplications();
@@ -85,60 +95,61 @@ export default function ClientNavigation() {
   };
 
   // Generar items de aplicaciones desde el backend
-  const submenuItemsAplications = useMemo(() => {
-    if (!applicationsData?.data || applicationsData.data.length === 0) {
-      // Fallback a traducciones locales cuando no hay datos o el array está vacío
-      return [
-        { slug: 'coatings', label: t("navigation.applications.submenu.coatings") },
-        { slug: 'plasters', label: t("navigation.applications.submenu.plasters") },
-        { slug: 'masonry', label: t("navigation.applications.submenu.masonry") },
-        { slug: 'tiles', label: t("navigation.applications.submenu.tiles") },
-        { slug: 'thermalInsulation', label: t("navigation.applications.submenu.thermalInsulation") },
-        { slug: 'waterproofing', label: t("navigation.applications.submenu.waterproofing") },
-        { slug: 'dehumidification', label: t("navigation.applications.submenu.dehumidification") }
-      ];
-    }
+const submenuItemsAplications = useMemo(() => {
+  if (!applicationsData?.data?.length) return [];
 
-    return applicationsData.data.map(app => ({
-      slug: getLocalizedSlug(app, language as 'es' | 'en' | 'fr') || app.slug,
-      label: getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr') || app.slug
-    }));
-  }, [applicationsData, language, t]);
+  return applicationsData.data.map((app) => ({
+    slug: getLocalizedSlug(app, language) || app.slug,
+    label: htmlToText(getLocalizedField(app, "name", language) || app.slug),
+  }));
+}, [applicationsData, language]);
+
 
   // Generar items de productos desde el backend
-  const submenuItemsProducts = useMemo(() => {
-    if (!categoriesData?.data || categoriesData.data.length === 0) {
-      // Fallback a traducciones locales cuando no hay datos o el array está vacío
-      return [
-        { slug: 'limeMortar', label: t("navigation.products.submenu.limeMortar") },
-        { slug: 'tileAdhesive', label: t("navigation.products.submenu.tileAdhesive") },
-        { slug: 'singleLayerMortar', label: t("navigation.products.submenu.singleLayerMortar") },
-        { slug: 'stampedMortar', label: t("navigation.products.submenu.stampedMortar") },
-        { slug: 'groutMortar', label: t("navigation.products.submenu.groutMortar") },
-        { slug: 'accessoriesAndTools', label: t("navigation.products.submenu.accessoriesAndTools") },
-        { slug: 'stoneMortar', label: t("navigation.products.submenu.stoneMortar") },
-        { slug: 'waterProtector', label: t("navigation.products.submenu.waterProtector") },
-        { slug: 'bondingBridge', label: t("navigation.products.submenu.bondingBridge") }
-      ];
-    }
+const submenuItemsProducts = useMemo(() => {
+  if (!categoriesData?.data?.length) return [];
 
-    return categoriesData.data.map(cat => ({
-      slug: getLocalizedSlug(cat, language as 'es' | 'en' | 'fr') || cat.slug,
-      label: getLocalizedField(cat, 'name', language as 'es' | 'en' | 'fr') || cat.slug
-    }));
-  }, [categoriesData, language, t]);
+  return categoriesData.data
+    .filter((cat) => cat.active)
+    .sort((a, b) => a.order - b.order)
+    .map((cat) => {
+      const raw = getLocalizedField(cat, "name", language) || cat.slug;
+      return {
+        slug: getLocalizedSlug(cat as any, language) || cat.slug,
+        label: cleanMenuText(raw) || cat.slug,
+        icon: cat.image_url,
+      };
+    });
+}, [categoriesData, language]);
+
+
 
   // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
-  const submenuItemsSpaces = useMemo(() => ({
-    facades: t("navigation.spaces.submenu.facades"),
-    terraces: t("navigation.spaces.submenu.terraces"),
-    balconies: t("navigation.spaces.submenu.balconies"),
-    walls: t("navigation.spaces.submenu.walls"),
-    patios: t("navigation.spaces.submenu.patios"),
-    floors: t("navigation.spaces.submenu.floors"),
-    kitchens: t("navigation.spaces.submenu.kitchens"),
-    pools: t("navigation.spaces.submenu.pools")
-  }), [t, language]);
+const submenuItemsSpaces = useMemo(() => {
+  if (!spacesData?.data?.length) return [];
+
+  return spacesData.data
+    .filter((space) => space.is_active)
+    .sort((a, b) => a.order - b.order)
+    .map((space) => {
+      const raw =
+        language === "en"
+          ? space.title_en
+          : language === "fr"
+            ? space.title_fr
+            : space.title;
+
+      const label =
+        cleanMenuText(raw || space.title || space.slug) || space.slug;
+
+      return {
+        slug: getLocalizedSlug(space as any, language) || space.slug,
+        label,
+      };
+    });
+}, [spacesData, language]);
+
+
 
 
   const productsIcon = [
@@ -245,52 +256,68 @@ export default function ClientNavigation() {
   ];
 
   // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
-  const menuLinks = useMemo(() => [
-    {
-      href: "/categories",
-      label: "navigation.products.label",
-      submenu: submenuItemsProducts.map(item => ({
-        label: item.label,
-        href: item.slug
-      }))
-    },
-    {
-      href: "/aplicaciones",
-      label: "navigation.applications.label",
-      submenu: submenuItemsAplications.map(item => ({
-        label: item.label,
-        href: item.slug
-      }))
-    },
-    {
-      href: "/espacios",
-      label: "navigation.spaces.label",
-      submenu: Object.entries(submenuItemsSpaces).map(([id, label]) => ({
-        label,
-        href: id
-      }))
-    },
-    {
-      href: "/acabados",
-      label: "navigation.finishes",
-      submenu: [],
-    },
-    {
-      href: "/inspiracion",
-      label: "navigation.inspiration",
-      submenu: [],
-    },
-    {
-      href: "/profesionales",
-      label: "navigation.professionals",
-      submenu: [
-        { label: t("navigation.professionalsSubmenu.builders"), href: "constructores-arquitectos" },
-        { label: t("navigation.professionalsSubmenu.applicators"), href: "aplicadores" },
-        { label: t("navigation.professionalsSubmenu.services"), href: "servicios" },
-        { label: t("navigation.professionalsSubmenu.certifications"), href: "certificaciones" },
-      ],
-    },
-  ], [submenuItemsProducts, submenuItemsAplications, submenuItemsSpaces, t]);
+  const menuLinks = useMemo(
+    () => [
+      {
+        href: "/categories",
+        label: "navigation.products.label",
+        submenu: submenuItemsProducts.map((item) => ({
+          label: item.label,
+          href: item.slug,
+          icon: item.icon,
+        })),
+      },
+      {
+        href: "/aplicaciones",
+        label: "navigation.applications.label",
+        submenu: submenuItemsAplications.map((item) => ({
+          label: item.label,
+          href: item.slug,
+        })),
+      },
+      {
+        href: "/espacios",
+        label: "navigation.spaces.label",
+        submenu: submenuItemsSpaces.map((item) => ({
+          label: item.label,
+          href: item.slug,
+        })),
+      },
+      {
+        href: "/acabados",
+        label: "navigation.finishes",
+        submenu: [],
+      },
+      {
+        href: "/inspiracion",
+        label: "navigation.inspiration",
+        submenu: [],
+      },
+      {
+        href: "/profesionales",
+        label: "navigation.professionals",
+        submenu: [
+          {
+            label: t("navigation.professionalsSubmenu.builders"),
+            href: "constructores-arquitectos",
+          },
+          {
+            label: t("navigation.professionalsSubmenu.applicators"),
+            href: "aplicadores",
+          },
+          {
+            label: t("navigation.professionalsSubmenu.services"),
+            href: "servicios",
+          },
+          {
+            label: t("navigation.professionalsSubmenu.certifications"),
+            href: "certificaciones",
+          },
+        ],
+      },
+    ],
+    [submenuItemsProducts, submenuItemsAplications, submenuItemsSpaces, t],
+  );
 
   // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
   const companyLinks = useMemo(() => [
@@ -331,80 +358,130 @@ export default function ClientNavigation() {
               <Button onClick={toggleSidebar}>
                 {isOpen ? <X /> : <Menu />}
               </Button>
-              
             </div>
-            <div className="hidden max-lg:block"> 
-
-             <DropdownIdioma />
+            <div className="hidden max-lg:block">
+              <DropdownIdioma />
             </div>
           </div>
           <div className="h-[1px] bg-gray-500 md:mx-15 sm:mx-10 mx-5 lg:mx-20"></div>
 
-          <nav ref={headerRef} className={`top-0 w-full left-0 right-0 z-10 bg-black  "flex justify-center relative"
-            `}>
-            <div className={`absolute z-[-1] ${hoveredMenu ? "opacity-100 visible" : "opacity-0 invisible"
+          <nav
+            ref={headerRef}
+            className={`top-0 w-full left-0 right-0 z-10 bg-black  "flex justify-center relative"
+            `}
+          >
+            <div
+              className={`absolute z-[-1] ${
+                hoveredMenu ? "opacity-100 visible" : "opacity-0 invisible"
               } transition-all duration-300 ease-in-out top-[2.85rem] w-[102vw] h-[435px] mt-2 backdrop-blur-[3.5px] backdrop-opacity-90`}
               style={{
                 background: "rgba(0, 5, 0, 0.6)",
               }}
               onMouseLeave={() => setHoveredMenu(null)}
             ></div>
-            <div className={`lg:flex items-center relative justify-center py-2 hidden`}>
+            <div
+              className={`lg:flex items-center relative justify-center py-2 hidden`}
+            >
               <NavigationMenu>
                 <NavigationMenuList className="flex gap-8">
                   {menuLinks.map((link, index) => (
-                    <div className="relative w-full min-w-max" key={index + "Navigation"}>
+                    <div
+                      className="relative w-full min-w-max"
+                      key={index + "Navigation"}
+                    >
                       <NavigationMenuItem
                         key={index + "nav-Link"}
-                        onMouseEnter={link.submenu.length === 0 ? undefined : () => setHoveredMenu(link.label)}
+                        onMouseEnter={
+                          link.submenu.length === 0
+                            ? undefined
+                            : () => setHoveredMenu(link.label)
+                        }
                       >
                         <div
                           key={index}
                           onMouseEnter={() => setHoveredLink(link.label)}
                           onMouseLeave={() => setHoveredLink(null)}
-                          onClick={link.submenu.length === 0 ? (e) => handleLinkClick(e, link.href) : undefined}
+                          onClick={
+                            link.submenu.length === 0
+                              ? (e) => handleLinkClick(e, link.href)
+                              : undefined
+                          }
                         >
                           <div
-                            className={`${link.submenu.length === 0 ? "cursor-pointer" : "cursor-default"
-                              } text-white pb-2`}
+                            className={`${
+                              link.submenu.length === 0
+                                ? "cursor-pointer"
+                                : "cursor-default"
+                            } text-white pb-2`}
                           >
                             {t(link.label)}
-                            <div className={`
+                            <div
+                              className={`
                               bottom-0 left-0 h-[2px] bg-white 
                               origin-center transform transition-transform duration-300 
-                              ${(hoveredLink === link.label || pathname.includes(link.href)) ? 'scale-x-100' : 'scale-x-0'}
-                            `}></div>
+                              ${hoveredLink === link.label || pathname.includes(link.href) ? "scale-x-100" : "scale-x-0"}
+                            `}
+                            ></div>
                           </div>
                         </div>
                       </NavigationMenuItem>
 
                       {link.submenu.length > 0 && (
                         <div
-                          className={`absolute left-0 ${hoveredMenu === link.label ? "opacity-100 visible" : "opacity-0 invisible"
-                            } transition-all w-max duration-300 ease-in-out top-full flex flex-col bg-transparent h-[4200px]`}
+                          className={`absolute left-0 ${
+                            hoveredMenu === link.label
+                              ? "opacity-100 visible"
+                              : "opacity-0 invisible"
+                          } transition-all w-max duration-300 ease-in-out top-full flex flex-col bg-transparent h-[4200px]`}
                           onMouseLeave={() => setHoveredMenu(null)}
                         >
-                          <ul className={`font-[500]  ${link.label === "navigation.products.label" ? "grid grid-cols-3 gap-x-24 gap-y-6 mt-16 " : " flex flex-col py-4 space-y-4"}  `}>
-                            {
-                              link.submenu.map((subItem, subIndex) => (
-                                <li
-                                  key={subIndex}
-                                  className={link.label === "navigation.products.label" ? " text-base text-left flex items-center justify-left" : "hover:underline"}
+                          <ul
+                            className={`font-[500]  ${link.label === "navigation.products.label" ? "grid grid-cols-3 gap-x-24 gap-y-6 mt-16 " : " flex flex-col py-4 space-y-4"}  `}
+                          >
+                            {link.submenu.map((subItem, subIndex) => (
+                              <li
+                                key={subIndex}
+                                className={
+                                  link.label === "navigation.products.label"
+                                    ? " text-base text-left flex items-center justify-left"
+                                    : "hover:underline"
+                                }
+                              >
+                                <Link
+                                  href={`${link.href}/${subItem.href}`.replace(
+                                    /\/$/,
+                                    "",
+                                  )}
+                                  className={`text-white flex gap-2 ${link.label === "navigation.products.label" ? "justify-center items-center" : ""}`}
+                                  onClick={(e: React.MouseEvent<HTMLElement>) =>
+                                    handleLinkClick(
+                                      e,
+                                      `${link.href}/${subItem.href}`,
+                                    )
+                                  }
                                 >
-                                  <Link
-                                    href={`${link.href}/${subItem.href}`.replace(/\/$/, '')}
-                                    className={`text-white flex gap-2 ${link.label === "navigation.products.label" ? "justify-center items-center" : ""}`}
-                                    onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
+                                  {link.label === "navigation.products.label" &&
+                                    subItem.icon && (
+                                      <Image
+                                        src={subItem.icon}
+                                        alt={subItem.label}
+                                        width={48}
+                                        height={48}
+                                        className="brightness-0 invert"
+                                      />
+                                    )}
+
+                                  <p
+                                    className={`${subItem.label.toLocaleLowerCase() === "mortero piedra decorativa" || subItem.label.toLocaleLowerCase() === "decorative stone mortar" || subItem.label.toLocaleLowerCase() === "single-layer mortar" ? "w-32 text-left line-clamp-2" : " text-left"}
+                                                 ${link.label === "navigation.products.label" && subItem.label.toLocaleLowerCase() !== "mortero piedra decorativa" && subItem.label.toLocaleLowerCase() !== "decorative stone mortar" && subItem.label.toLocaleLowerCase() !== "single-layer mortar" ? "max-w-[min-content]" : ""}`}
                                   >
-                                    {link.label === "navigation.products.label" && productsIcon[subIndex].icon}
-                                    <p className={`${subItem.label.toLocaleLowerCase() === "mortero piedra decorativa" || subItem.label.toLocaleLowerCase() === "decorative stone mortar" || subItem.label.toLocaleLowerCase() === "single-layer mortar" ? "w-32 text-left line-clamp-2" : " text-left"}
-                                                 ${link.label === "navigation.products.label" && (subItem.label.toLocaleLowerCase() !== "mortero piedra decorativa" && subItem.label.toLocaleLowerCase() !== "decorative stone mortar" && subItem.label.toLocaleLowerCase() !== "single-layer mortar") ? "max-w-[min-content]" : ""}`}
-                                    >
-                                      {link.label === "navigation.products.label" ? subItem.label.toUpperCase() : subItem.label}
-                                    </p>
-                                  </Link>
-                                </li>
-                              ))}
+                                    {link.label === "navigation.products.label"
+                                      ? subItem.label.toUpperCase()
+                                      : subItem.label}
+                                  </p>
+                                </Link>
+                              </li>
+                            ))}
                           </ul>
                         </div>
                       )}
@@ -424,11 +501,16 @@ export default function ClientNavigation() {
         )}
 
         <div
-          className={`fixed top-0 left-0 h-full overflow-auto w-64 bg-black transform ${isOpen ? "translate-x-0" : "-translate-x-full"
-            } transition-transform duration-300 ease-in-out lg:hidden z-50`}
+          className={`fixed top-0 left-0 h-full overflow-auto w-64 bg-black transform ${
+            isOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out lg:hidden z-50`}
         >
           <div className="flex justify-end p-4">
-            <Button variant="outline" className="text-white rounded-full" onClick={toggleSidebar}>
+            <Button
+              variant="outline"
+              className="text-white rounded-full"
+              onClick={toggleSidebar}
+            >
               <X />
             </Button>
           </div>
@@ -444,7 +526,9 @@ export default function ClientNavigation() {
                       <li key={index}>
                         <Link
                           href={link.href}
-                          onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, link.href)}
+                          onClick={(e: React.MouseEvent<HTMLElement>) =>
+                            handleLinkClick(e, link.href)
+                          }
                         >
                           {link.label}
                         </Link>
@@ -459,12 +543,11 @@ export default function ClientNavigation() {
                       <Link
                         href={link.href}
                         onClick={(e: React.MouseEvent<HTMLElement>) => {
-                          e.preventDefault()
+                          e.preventDefault();
                           if (link.submenu.length === 0) {
-
                             handleLinkClick(e, link.href);
                           } else {
-                            toggleMobileSubmenu(index)
+                            toggleMobileSubmenu(index);
                           }
                         }}
                         className="text-white hover:border-b pb-1 hover:border-white transition-colors"
@@ -476,21 +559,34 @@ export default function ClientNavigation() {
                           onClick={() => toggleMobileSubmenu(index)}
                           className="text-white ml-2"
                         >
-                          {isMobileSubmenuOpen(index) ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                          {isMobileSubmenuOpen(index) ? (
+                            <ChevronUp size={20} />
+                          ) : (
+                            <ChevronDown size={20} />
+                          )}
                         </button>
                       )}
                     </div>
                     {link.submenu.length > 0 && (
                       <div
-                        className={`ml-4 overflow-hidden transition-all duration-300 ease-in-out ${isMobileSubmenuOpen(index) ? "max-h-96" : "max-h-0"
-                          }`}
+                        className={`ml-4 overflow-hidden transition-all duration-300 ease-in-out ${
+                          isMobileSubmenuOpen(index) ? "max-h-96" : "max-h-0"
+                        }`}
                       >
                         <ul className="space-y-2 py-2">
                           {link.submenu.map((subItem, subIndex) => (
                             <li key={subIndex}>
                               <Link
-                                href={`${link.href}/${subItem.href}`.replace(/\/$/, '')}
-                                onClick={(e: React.MouseEvent<HTMLElement>) => handleLinkClick(e, `${link.href}/${subItem.href}`)}
+                                href={`${link.href}/${subItem.href}`.replace(
+                                  /\/$/,
+                                  "",
+                                )}
+                                onClick={(e: React.MouseEvent<HTMLElement>) =>
+                                  handleLinkClick(
+                                    e,
+                                    `${link.href}/${subItem.href}`,
+                                  )
+                                }
                                 className="text-white text-sm block py-1 hover:underline transition-colors duration-200"
                               >
                                 {subItem.label}

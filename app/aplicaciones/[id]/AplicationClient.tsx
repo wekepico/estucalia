@@ -66,7 +66,8 @@ export default function AplicationClient() {
             getLocalizedSlug(category, language as "es" | "en" | "fr") ||
             category.slug,
           name: categoryName,
-          icon: category.image || "/img/default-icon.svg", // ✅ usa image como icono
+          icon: getImageUrl(category.image) || "/img/default-icon.svg",
+          // ✅ usa image como icono
         };
       });
     return {

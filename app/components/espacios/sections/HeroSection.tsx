@@ -98,25 +98,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
           <ScrollArea className="w-full md:flex-1">
             <div className="flex min-w-max pb-5" role="tablist">
-              {aplicaciones.map((a) => (
-                <button
-                  key={a.key}
-                  role="tab"
-                  aria-selected={selectedAplicacion === a.key}
-                  onClick={() => {
-                    setSelectedAplicacion(a.key);
-                    onTabChange?.(a.key); // ✅ fetch si no existe
-                  }}
-                  className={`text-base md:text-xl p-0 mr-3 md:mr-6 pb-1 transition-colors ${
-                    selectedAplicacion === a.key
-                      ? "border-b-2 border-black font-medium"
-                      : "hover:border-b hover:border-gray-400"
-                  }`}
-                >
-                  {a.label}
-                </button>
-              ))}
+              {aplicaciones.map((a) => {
+                const labelText = stripHtml(a.label || ""); // ✅ limpia HTML y evita que se muestren tags
+
+                return (
+                  <button
+                    key={a.key}
+                    role="tab"
+                    aria-selected={selectedAplicacion === a.key}
+                    onClick={() => {
+                      setSelectedAplicacion(a.key);
+                      onTabChange?.(a.key);
+                    }}
+                    className={`text-base md:text-xl p-0 mr-3 md:mr-6 pb-1 transition-colors whitespace-nowrap ${
+                      selectedAplicacion === a.key
+                        ? "border-b-2 border-black font-medium"
+                        : "hover:border-b hover:border-gray-400"
+                    }`}
+                  >
+                    {labelText}
+                  </button>
+                );
+              })}
             </div>
+
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
         </div>

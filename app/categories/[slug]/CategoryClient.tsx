@@ -10,6 +10,7 @@ import data3 from "@/app/components/productos/components/data-fr.json";
 import { useCategoryBySlug, useCategoryProducts, useCategories, useCategoryApplications } from '@/api/useCategories';
 import { getLocalizedField, getLocalizedSlug, getImageUrl } from '@/lib/i18nHelpers';
 import type { Category } from '@/services/categoriesService';
+import { htmlToText } from "@/lib/utils";
 
 export default function CategoryClient() {
     const pathname = usePathname();
@@ -173,29 +174,39 @@ export default function CategoryClient() {
         }
 
         const aplicaciones = aplicacionesSource.map((app: any) => {
-            // Priorizar campos localizados explícitos
-            const localizedName = getLocalizedField(app, 'name', language as 'es' | 'en' | 'fr');
-            if (localizedName) return localizedName;
-            
-            // Fallback a campos directos localizados
-            const directLocalized = app[`name_${language}`] || app[`title_${language}`];
-            if (directLocalized) return directLocalized;
-            
-            // Último fallback a campos no localizados (solo si no hay opciones localizadas)
-            return app.name || app.title || '';
+          const localizedName = getLocalizedField(
+            app,
+            "name",
+            language as "es" | "en" | "fr",
+          );
+          if (localizedName) return htmlToText(localizedName);
+
+          const directLocalized =
+            app[`name_${language}`] || app[`title_${language}`];
+          if (directLocalized) return htmlToText(directLocalized);
+
+          return htmlToText(app.name || app.title || "");
         });
 
         // Mapear acabados del backend al formato esperado
-        const acabados = cat.finishes?.map((finish: any) => {
-            // Priorizar campos localizados explícitos
-            const localizedName = getLocalizedField(finish, 'name', language as 'es' | 'en' | 'fr');
-            const finishName = localizedName || finish[`name_${language}`] || finish.name || '';
-            
+        const acabados =
+          cat.finishes?.map((finish: any) => {
+            const localizedName = getLocalizedField(
+              finish,
+              "name",
+              language as "es" | "en" | "fr",
+            );
+            const finishName =
+              localizedName || finish[`name_${language}`] || finish.name || "";
+
             return {
-                nombre: finishName,
-                imagen: getImageUrl(finish.image_url || finish.image) || '/img/default.jpg'
+              nombre: htmlToText(finishName),
+              imagen:
+                getImageUrl(finish.image_url || finish.image) ||
+                "/img/default.jpg",
             };
-        }) || [];
+          }) || [];
+
 
         return {
             id: cat.slug,

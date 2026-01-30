@@ -21,6 +21,9 @@ export const IMAGE_BASE_URL = 'https://www.grupoestucalia.com';
  */
 export function getImageUrl(imagePath: string | null | undefined): string | null {
   if (!imagePath) return null;
+    const backendUrl =
+      process.env.NEXT_PUBLIC_BACKEND_IMG_URL ||
+      "https://www.grupoestucalia.com/storage/";
 
   // Si ya es una URL absoluta, devolverla tal cual
   if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
@@ -28,7 +31,7 @@ export function getImageUrl(imagePath: string | null | undefined): string | null
   }
 
   // Concatenar con la URL base
-  return `${IMAGE_BASE_URL}${imagePath}`;
+  return `${backendUrl}${imagePath}`;
 }
 
 /**
