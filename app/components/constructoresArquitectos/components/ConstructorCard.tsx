@@ -1,11 +1,21 @@
 import React from "react";
-import { isHtml, splitBullets } from "../utils";
+import { splitBullets } from "../utils";
 
 interface CardServicesProps {
   title: string | null;
   description: string | null;
   bullets?: string | null;
 }
+
+const hasTag = (html: string | null, tag: string) => {
+  if (!html) return false;
+  return new RegExp(`<\\s*${tag}\\b`, "i").test(html);
+};
+
+const isHtml = (value: string | null) => {
+  if (!value) return false;
+  return /<\/?[a-z][\s\S]*>/i.test(value);
+};
 
 const ConstructorCard = ({
   title,
@@ -16,40 +26,46 @@ const ConstructorCard = ({
 
   return (
     <div className="bg-transparent">
-      <h3 className="text-xl font-semibold mb-2 border-b border-black border-solid">
-        {isHtml(title) ? (
-          <span dangerouslySetInnerHTML={{ __html: title ?? "" }} />
-        ) : (
-          title
-        )}
-      </h3>
-
-      <p className="text-xl mb-4">
-        {isHtml(description) ? (
-          <span dangerouslySetInnerHTML={{ __html: description ?? "" }} />
-        ) : (
-          description
-        )}
-      </p>
-
-      {bullets && (
-        <>
-          {isHtml(bullets) ? (
-            <div
-              className="list-none space-y-2"
-              dangerouslySetInnerHTML={{ __html: bullets }}
-            />
+      {/* ✅ TITLE */}
+      {isHtml(title) && hasTag(title, "h3") ? (
+        <div dangerouslySetInnerHTML={{ __html: title ?? "" }} />
+      ) : (
+        <h3 className="text-xl font-semibold mb-2 border-b border-black border-solid">
+          {isHtml(title) ? (
+            <span dangerouslySetInnerHTML={{ __html: title ?? "" }} />
           ) : (
-            <ul className="list-none space-y-2">
-              {bulletLines.map((bullet, index) => (
-                <li key={index} style={{ textDecoration: "none" }}>
-                  {bullet}
-                </li>
-              ))}
-            </ul>
+            title
           )}
-        </>
+        </h3>
       )}
+
+      {/* ✅ DESCRIPTION */}
+      {isHtml(description) && hasTag(description, "p") ? (
+        <div dangerouslySetInnerHTML={{ __html: description ?? "" }} />
+      ) : (
+        <p className="text-xl mb-4">
+          {isHtml(description) ? (
+            <span dangerouslySetInnerHTML={{ __html: description ?? "" }} />
+          ) : (
+            description
+          )}
+        </p>
+      )}
+
+      {/* ✅ BULLETS */}
+      {bullets ? (
+        isHtml(bullets) && (hasTag(bullets, "ul") || hasTag(bullets, "li")) ? (
+          <div dangerouslySetInnerHTML={{ __html: bullets }} />
+        ) : (
+          <ul className="list-none space-y-2">
+            {bulletLines.map((bullet, index) => (
+              <li key={index} style={{ textDecoration: "none" }} className="">
+                {bullet}
+              </li>
+            ))}
+          </ul>
+        )
+      ) : null}
     </div>
   );
 };

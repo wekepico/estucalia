@@ -6,7 +6,7 @@ import CardServices from "./CardService";
 type ApiCard = {
   title: string | null;
   text: string | null;
-  bullets: string | null;
+  bullets?: string | null;
 };
 
 const ServicesGrid = ({ cards }: { cards: ApiCard[] }) => {
@@ -17,9 +17,9 @@ const ServicesGrid = ({ cards }: { cards: ApiCard[] }) => {
       {cardsData.map((card, index) => (
         <div key={index}>
           <CardServices
-            title={card.title ?? ""}
-            description={card.text ?? ""}
-            bullets={[]} // tu diseño no usa bullets aquí (igual lo mantenemos)
+            title={card.title}
+            description={card.text}
+            bullets={[]}
           />
         </div>
       ))}

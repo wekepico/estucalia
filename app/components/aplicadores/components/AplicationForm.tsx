@@ -18,6 +18,7 @@ import { useLanguage } from "@/app/context/LanguageContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { toast, Toaster } from "react-hot-toast";
+import { isHtml } from "../utils";
 
 type Benefit = { title: string | null; text: string | null };
 
@@ -80,6 +81,7 @@ export default function ApplicationForm({
   });
 
   useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -119,8 +121,6 @@ export default function ApplicationForm({
     }
   };
 
-  if (!mounted) return null;
-
   const inputFields = [
     {
       name: "nombre",
@@ -151,7 +151,7 @@ export default function ApplicationForm({
       placeholder: t("contact.form.message"),
       component: Textarea,
     },
-  ];
+  ] as const;
 
   const privacyLabel = checkbox1Label ?? t("contact.form.privacyPolicy");
   const commercialLabel = checkbox2Label ?? t("contact.form.commercialInfo");
@@ -162,25 +162,42 @@ export default function ApplicationForm({
       <Toaster position="top-right" />
       <div className="mx-auto md:px-15 sm:px-10 px-5 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-44">
-          {/* Description */}
+          {/* Left */}
           <div>
-            <h2 className="text-4xl font-[600] w-[21rem] mb-3">
-              <span dangerouslySetInnerHTML={{ __html: titleHtml ?? "" }} />
-            </h2>
+            {isHtml(titleHtml) ? (
+              <div dangerouslySetInnerHTML={{ __html: titleHtml ?? "" }} />
+            ) : (
+              <h2 className="text-4xl font-[600] w-[21rem] mb-3">
+                {titleHtml ?? ""}
+              </h2>
+            )}
 
             <div className="flex flex-col gap-8">
-              <p className="text-gray-900 text-xl inline leading-relaxed">
-                <span dangerouslySetInnerHTML={{ __html: introHtml ?? "" }} />
-              </p>
+              {isHtml(introHtml) ? (
+                <div dangerouslySetInnerHTML={{ __html: introHtml ?? "" }} />
+              ) : (
+                <p className="text-gray-900 text-xl inline leading-relaxed">
+                  {introHtml ?? ""}
+                </p>
+              )}
 
               {(benefits ?? []).map((b, idx) => (
-                <div key={idx} className="flex flex-col">
-                  <p className="text-gray-900 font-[600] text-lg inline leading-relaxed">
-                    {b.title ?? ""}
-                  </p>
-                  <p className="text-gray-900 text-lg inline leading-relaxed">
-                    {b.text ?? ""}
-                  </p>
+                <div key={idx} className="flex flex-col gap-1">
+                  {isHtml(b.title) ? (
+                    <div dangerouslySetInnerHTML={{ __html: b.title ?? "" }} />
+                  ) : (
+                    <p className="text-gray-900 font-[600] text-lg inline leading-relaxed">
+                      {b.title ?? ""}
+                    </p>
+                  )}
+
+                  {isHtml(b.text) ? (
+                    <div dangerouslySetInnerHTML={{ __html: b.text ?? "" }} />
+                  ) : (
+                    <p className="text-gray-900 text-lg inline leading-relaxed">
+                      {b.text ?? ""}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
@@ -188,19 +205,24 @@ export default function ApplicationForm({
 
           {/* Form */}
           <div className="max-md:mb-16">
+            {/* ✅ AQUÍ está la clave: Form usa el objeto "form" real */}
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className=" grid grid-cols-2  gap-6"
+                className="grid grid-cols-2 gap-6"
               >
                 {inputFields.map((field) => (
                   <FormField
                     key={field.name}
-                    control={form.control}
-                    name={field.name as keyof FormData}
+                    control={form.control} // ✅ NO null
+                    name={field.name}
                     render={({ field: formField }) => (
                       <FormItem
-                        className={`${field.name == "nombre" || field.name == "telefono" ? "lg:col-span-1 col-span-2" : "col-span-2"}`}
+                        className={`${
+                          field.name === "nombre" || field.name === "telefono"
+                            ? "lg:col-span-1 col-span-2"
+                            : "col-span-2"
+                        }`}
                       >
                         <FormControl>
                           <div className="border-b border-black">
@@ -209,10 +231,6 @@ export default function ApplicationForm({
                               type={(field as any).type}
                               placeholder={(field as any).placeholder}
                               {...formField}
-                              value={formField.value as string}
-                              onChange={formField.onChange}
-                              onBlur={formField.onBlur}
-                              ref={formField.ref}
                               disabled={isSubmitting}
                             />
                           </div>
@@ -223,28 +241,46 @@ export default function ApplicationForm({
                   />
                 ))}
 
-                {/* 👇 Texto legal desde API (mismo estilo) */}
-                <p className="text-sm col-span-2">{legalText}</p>
+                {/* Legal text */}
+                {isHtml(legalText) ? (
+                  <div
+                    className="col-span-2"
+                    dangerouslySetInnerHTML={{ __html: legalText }}
+                  />
+                ) : (
+                  <p className="text-sm col-span-2">{legalText}</p>
+                )}
 
                 {/* Checkbox 1 */}
                 <FormField
                   control={form.control}
-                  name={"aceptarPolitica"}
+                  name="aceptarPolitica"
                   render={({ field }) => (
                     <FormItem className="flex flex-row items-start space-x-3 space-y-0 col-span-2">
                       <FormControl>
                         <Checkbox
+                          id="privacy_policy"
                           className="rounded-none"
-                          checked={field.value as boolean}
+                          checked={!!field.value}
                           onCheckedChange={field.onChange}
                           disabled={isSubmitting}
-                          required
                         />
                       </FormControl>
+
                       <div className="space-y-1 leading-none">
-                        <FormLabel className="text-sm text-gray-900">
-                          {privacyLabel}
-                        </FormLabel>
+                        {isHtml(privacyLabel) ? (
+                          <div
+                            dangerouslySetInnerHTML={{ __html: privacyLabel }}
+                          />
+                        ) : (
+                          <FormLabel
+                            htmlFor="privacy_policy"
+                            className="text-sm text-gray-900"
+                          >
+                            {privacyLabel}
+                          </FormLabel>
+                        )}
+                        <FormMessage />
                       </div>
                     </FormItem>
                   )}
@@ -253,21 +289,35 @@ export default function ApplicationForm({
                 {/* Checkbox 2 */}
                 <FormField
                   control={form.control}
-                  name={"aceptarComercial"}
+                  name="aceptarComercial"
                   render={({ field }) => (
                     <FormItem className="flex flex-row items-start space-x-3 space-y-0 col-span-2">
                       <FormControl>
                         <Checkbox
+                          id="commercial_info"
                           className="rounded-none"
-                          checked={field.value as boolean}
+                          checked={!!field.value}
                           onCheckedChange={field.onChange}
                           disabled={isSubmitting}
                         />
                       </FormControl>
+
                       <div className="space-y-1 leading-none">
-                        <FormLabel className="text-sm text-gray-900">
-                          {commercialLabel}
-                        </FormLabel>
+                        {isHtml(commercialLabel) ? (
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: commercialLabel,
+                            }}
+                          />
+                        ) : (
+                          <FormLabel
+                            htmlFor="commercial_info"
+                            className="text-sm text-gray-900"
+                          >
+                            {commercialLabel}
+                          </FormLabel>
+                        )}
+                        <FormMessage />
                       </div>
                     </FormItem>
                   )}
