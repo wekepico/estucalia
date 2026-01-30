@@ -63,9 +63,14 @@ export default function ApplicationForm({
   checkbox1Label: string | null;
   checkbox2Label: string | null;
 }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [mounted, setMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const lang = (["es", "en", "fr"].includes(language) ? language : "es") as
+    | "es"
+    | "en"
+    | "fr";
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema(t)),
@@ -83,8 +88,13 @@ export default function ApplicationForm({
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
+  const API_BASE = (
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api"
+  ).replace(/\/$/, "");
+
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
+
     try {
       const payload = {
         name: data.nombre,
@@ -92,25 +102,29 @@ export default function ApplicationForm({
         email: data.email,
         subject: data.asunto,
         message: data.mensaje,
-        acceptPrivacyPolicy: data.aceptarPolitica,
-        acceptCommercialInfo: data.aceptarComercial,
+
+        // ✅ nombres EXACTOS como tu Laravel espera
+        consent_privacy: data.aceptarPolitica, // accepted
+        consent_commercial: !!data.aceptarComercial, // boolean
+        lang, // opcional
       };
 
-      const response = await fetch(
-        "https://apiestucalia.innet.es/api/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(payload),
+      const response = await fetch(`${API_BASE}/v1/contacto`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-      );
+        body: JSON.stringify(payload),
+      });
 
-      if (!response.ok) throw new Error("Error al enviar el formulario");
+      const result = await response.json().catch(() => null);
 
-      await response.json();
+      if (!response.ok) {
+        console.error("API error:", response.status, result);
+        throw new Error(result?.message || "Error al enviar el formulario");
+      }
+
       toast.success(t("contact.form.successMessage"));
       form.reset();
     } catch (error) {
@@ -205,7 +219,6 @@ export default function ApplicationForm({
 
           {/* Form */}
           <div className="max-md:mb-16">
-            {/* ✅ AQUÍ está la clave: Form usa el objeto "form" real */}
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
@@ -214,7 +227,7 @@ export default function ApplicationForm({
                 {inputFields.map((field) => (
                   <FormField
                     key={field.name}
-                    control={form.control} // ✅ NO null
+                    control={form.control}
                     name={field.name}
                     render={({ field: formField }) => (
                       <FormItem
