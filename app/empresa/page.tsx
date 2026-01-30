@@ -57,7 +57,7 @@ export default function EmpresaPage() {
     .filter((c) => c?.slug)
     .map((c) => ({
       slug: c.slug as string,
-      label: c.name ?? "",
+      label: c.label  ?? "",
     }));
 
   return (
