@@ -9,7 +9,7 @@ import { useLanguage } from "@/app/context/LanguageContext";
 interface Product {
   id: string;
   name: string;
-  icon: string; // ahora será URL (category.image_url)
+  icon: string; // URL (category.image_url)
   appKey: string; // para filtrar por tab
 }
 
@@ -19,13 +19,16 @@ interface ApplicationTab {
 }
 
 interface HeroSectionProps {
-  category: string;
+  category: string; // puede venir como HTML (<h1 ...>...</h1>)
   img: string;
-  description: string;
+  description: string; // puede venir como HTML (<p ...>...</p>)
   products: Product[];
   aplicaciones: ApplicationTab[];
   onTabChange?: (key: string) => void;
 }
+
+// ✅ Para usar alt/title en texto plano aunque category venga con HTML
+const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "").trim();
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   description,
@@ -59,6 +62,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return products.filter((p) => p.appKey === selectedAplicacion);
   }, [products, selectedAplicacion]);
 
+  const categoryText = useMemo(() => stripHtml(category || ""), [category]);
+
   if (!selectedAplicacion) return null;
 
   return (
@@ -66,16 +71,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Hero */}
       <div className="w-full flex flex-col md:flex-row h-auto md:h-[480px]">
         <div className="flex w-full md:w-[43%] gap-6 bg-gray-200 px-6 py-8 md:px-12 md:py-16 flex-col">
-          <h1 className="font-semibold sm:text-xl lg:text-4xl md:text-2xl">
-            {category}
-          </h1>
-          <p className="text-base xl:text-lg md:text-sm">{description}</p>
+          {/* ✅ renderiza HTML tal cual viene del backend */}
+          <div dangerouslySetInnerHTML={{ __html: category || "" }} />
+          <div dangerouslySetInnerHTML={{ __html: description || "" }} />
         </div>
 
         <div className="relative w-full md:w-[57%] h-64 md:h-auto bg-slate-500">
           <Image
             src={img}
-            alt={category}
+            alt={categoryText || "Space"}
+            title={categoryText || "Space"}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             priority
