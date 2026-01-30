@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { Upload } from "lucide-react";
 
@@ -20,13 +21,14 @@ import {
 import { useLanguage } from "@/app/context/LanguageContext";
 import type { Lang } from "@/services/contactPageService";
 import { sendWorkWithUsMessage } from "@/services/workWithUsMessageService";
+import { useWorkWithUsPage } from "@/api/useWorkWithUsPage";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { toast, Toaster } from "react-hot-toast";
-import { useWorkWithUsPage } from "@/api/useWorkWithUsPage";
 
-// Esquema de validación con Zod usando las traducciones (NO tocamos estructura)
+import { isHtml, sanitizeBasicHtml, markInternalAnchors } from "./html";
+
 const formSchema = (t: any) =>
   z.object({
     nombre: z
@@ -62,13 +64,74 @@ const formSchema = (t: any) =>
 
 type FormData = z.infer<ReturnType<typeof formSchema>>;
 
-const isProbablyHtml = (s?: string | null) =>
-  !!s && /<\/?[a-z][\s\S]*>/i.test(s);
+function HtmlWithNextLinks({ html }: { html: string }) {
+  const nodes = useMemo(() => {
+    const doc = document.implementation.createHTMLDocument("");
+    const container = doc.createElement("div");
+    container.innerHTML = html;
+
+    const walk = (el: ChildNode): React.ReactNode => {
+      if (el.nodeType === Node.TEXT_NODE) return el.textContent;
+      if (el.nodeType !== Node.ELEMENT_NODE) return null;
+
+      const elem = el as HTMLElement;
+      const tag = elem.tagName.toLowerCase();
+      const className = elem.getAttribute("class") || undefined;
+
+      const children = Array.from(elem.childNodes).map((c, i) => (
+        <React.Fragment key={i}>{walk(c)}</React.Fragment>
+      ));
+
+      if (tag === "a") {
+        const href = elem.getAttribute("href") || "#";
+        const internal = elem.getAttribute("data-internal-link") === "1";
+
+        if (internal) {
+          return (
+            <Link href={href} className={className}>
+              {children}
+            </Link>
+          );
+        }
+
+        return (
+          <a
+            href={href}
+            className={className}
+            target={elem.getAttribute("target") || undefined}
+            rel={elem.getAttribute("rel") || undefined}
+          >
+            {children}
+          </a>
+        );
+      }
+
+      if (tag === "strong")
+        return <strong className={className}>{children}</strong>;
+      if (tag === "p") return <p className={className}>{children}</p>;
+      if (tag === "span") return <span className={className}>{children}</span>;
+      if (tag === "br") return <br />;
+      if (tag === "h1") return <h1 className={className}>{children}</h1>;
+      if (tag === "h2") return <h2 className={className}>{children}</h2>;
+      if (tag === "h3") return <h3 className={className}>{children}</h3>;
+
+      return <span className={className}>{children}</span>;
+    };
+
+    return Array.from(container.childNodes).map((n, i) => (
+      <React.Fragment key={i}>{walk(n)}</React.Fragment>
+    ));
+  }, [html]);
+
+  return <>{nodes}</>;
+}
 
 export default function ApplicationForm() {
   const langCtx = useLanguage() as any;
   const t = langCtx?.t;
-  const lang = (langCtx?.lang ?? langCtx?.language ?? "es") as Lang;
+
+  const candidate = langCtx?.lang ?? langCtx?.language ?? "es";
+  const lang: Lang = ["es", "en", "fr"].includes(candidate) ? candidate : "es";
 
   const { data: page } = useWorkWithUsPage(lang);
 
@@ -89,19 +152,24 @@ export default function ApplicationForm() {
     },
   });
 
-  // Textos del backend con fallback a t()
-  const sectionTitle = page?.section?.title ?? t("workWithUs.form.title");
+  // ===== Textos backend =====
+  const sectionTitleRaw = page?.section?.title ?? t("workWithUs.form.title");
+  const sectionTextRaw = page?.section?.text ?? "";
 
-  // En tu API lo guardamos como text (puede ser HTML)
-  const sectionText =
-    page?.section?.text ??
-    [
-      t("workWithUs.form.description.part1"),
-      `<strong>${t("workWithUs.form.description.part2")}</strong>`,
-      t("workWithUs.form.description.part3"),
-      `<strong>${t("workWithUs.form.description.part4")}</strong>`,
-      t("workWithUs.form.description.part5"),
-    ].join(" ");
+  const sectionTitleHtml = useMemo(() => {
+    if (!isHtml(sectionTitleRaw)) return null;
+    return sanitizeBasicHtml(sectionTitleRaw); // respeta <h2 class="...">
+  }, [sectionTitleRaw]);
+
+  const sectionTextHtml = useMemo(() => {
+    if (!sectionTextRaw) return "";
+    if (!isHtml(sectionTextRaw)) {
+      return sanitizeBasicHtml(
+        `<p class="text-gray-900 text-base leading-relaxed">${sectionTextRaw}</p>`,
+      );
+    }
+    return sanitizeBasicHtml(sectionTextRaw);
+  }, [sectionTextRaw]);
 
   const fName = page?.form?.fields?.name ?? t("workWithUs.form.fields.name");
   const fPhone = page?.form?.fields?.phone ?? t("workWithUs.form.fields.phone");
@@ -113,11 +181,24 @@ export default function ApplicationForm() {
   const cvLabel = page?.form?.cvLabel ?? t("workWithUs.form.fields.cv");
   const submitText = page?.form?.submitText ?? t("workWithUs.form.submit");
 
-  const legalInfoHtml =
+  const legalRaw =
     page?.form?.legalInfoHtml ?? t("workWithUs.form.privacy.info");
-  const checkbox1 = page?.form?.checkbox1Label ?? null;
-  const checkbox2 =
+  const checkbox1Raw = page?.form?.checkbox1Label ?? "";
+  const checkbox2Raw =
     page?.form?.checkbox2Label ?? t("workWithUs.form.commercial.accept");
+
+  const legalHtml = useMemo(() => sanitizeBasicHtml(legalRaw), [legalRaw]);
+
+  const checkbox1Html = useMemo(() => {
+    if (!checkbox1Raw) return "";
+    const safe = sanitizeBasicHtml(checkbox1Raw);
+    return markInternalAnchors(safe); // convierte <a href="/..."> a internal-link
+  }, [checkbox1Raw]);
+
+  const checkbox2Html = useMemo(
+    () => sanitizeBasicHtml(checkbox2Raw),
+    [checkbox2Raw],
+  );
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -152,12 +233,15 @@ export default function ApplicationForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-44">
           {/* Description */}
           <div>
-            <h2 className="text-3xl font-[600] mb-3">{sectionTitle}</h2>
+            {sectionTitleHtml ? (
+              <div dangerouslySetInnerHTML={{ __html: sectionTitleHtml }} />
+            ) : (
+              <h2 className="text-3xl font-[600] mb-3">{sectionTitleRaw}</h2>
+            )}
 
-            {/* Mantiene el estilo, pero ahora viene del backend (permite <strong>) */}
             <div
-              className="text-gray-900 leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: sectionText || "" }}
+              className="leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: sectionTextHtml || "" }}
             />
           </div>
 
@@ -166,8 +250,9 @@ export default function ApplicationForm() {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className=" grid grid-cols-2 gap-6"
+                className="grid grid-cols-2 gap-6"
               >
+                {/* Nombre */}
                 <div className="border-b lg:col-span-1 col-span-2 border-black">
                   <FormField
                     control={form.control}
@@ -188,6 +273,7 @@ export default function ApplicationForm() {
                   />
                 </div>
 
+                {/* Teléfono */}
                 <div className="border-b lg:col-span-1 col-span-2 border-black">
                   <FormField
                     control={form.control}
@@ -209,6 +295,7 @@ export default function ApplicationForm() {
                   />
                 </div>
 
+                {/* Email */}
                 <div className="border-b border-black col-span-2">
                   <FormField
                     control={form.control}
@@ -230,6 +317,7 @@ export default function ApplicationForm() {
                   />
                 </div>
 
+                {/* Especialidad */}
                 <div className="border-b border-black col-span-2">
                   <FormField
                     control={form.control}
@@ -250,6 +338,7 @@ export default function ApplicationForm() {
                   />
                 </div>
 
+                {/* Mensaje */}
                 <div className="border-b border-black col-span-2">
                   <FormField
                     control={form.control}
@@ -270,6 +359,7 @@ export default function ApplicationForm() {
                   />
                 </div>
 
+                {/* Upload CV */}
                 <div className="col-span-2">
                   <FormField
                     control={form.control}
@@ -317,20 +407,16 @@ export default function ApplicationForm() {
                   />
                 </div>
 
-                {/* Legal info (backend) */}
+                {/* Legal info */}
                 <div className="space-y-1 leading-none col-span-2">
-                  <FormLabel className="text-sm text-gray-900">
-                    {isProbablyHtml(legalInfoHtml) ? (
-                      <span
-                        dangerouslySetInnerHTML={{ __html: legalInfoHtml }}
-                      />
-                    ) : (
-                      legalInfoHtml
-                    )}
-                  </FormLabel>
+                  {isHtml(legalHtml) ? (
+                    <div dangerouslySetInnerHTML={{ __html: legalHtml }} />
+                  ) : (
+                    <p className="text-sm text-gray-900">{legalRaw}</p>
+                  )}
                 </div>
 
-                {/* Checkbox 1 */}
+                {/* Checkbox 1 (con links internos Next) */}
                 <FormField
                   control={form.control}
                   name="aceptarPolitica"
@@ -347,27 +433,21 @@ export default function ApplicationForm() {
 
                       <div className="space-y-1 leading-none">
                         <FormLabel className="text-sm text-gray-900">
-                          {checkbox1 ? (
-                            isProbablyHtml(checkbox1) ? (
-                              <span
-                                dangerouslySetInnerHTML={{ __html: checkbox1 }}
-                              />
-                            ) : (
-                              checkbox1
-                            )
+                          {checkbox1Html ? (
+                            <HtmlWithNextLinks html={checkbox1Html} />
                           ) : (
                             <>
                               {t("workWithUs.form.privacy.accept")}{" "}
-                              <a
+                              <Link
                                 className="underline"
                                 href="/politica-privacidad"
                               >
                                 {t("workWithUs.form.privacy.privacyPolicy")}
-                              </a>{" "}
+                              </Link>{" "}
                               {t("common.and")}{" "}
-                              <a className="underline" href="/aviso-legal">
+                              <Link className="underline" href="/aviso-legal">
                                 {t("workWithUs.form.privacy.legalNotice")}
-                              </a>{" "}
+                              </Link>{" "}
                               {t("common.of")}{" "}
                               {t("workWithUs.form.privacy.companyName")}
                             </>
@@ -395,7 +475,15 @@ export default function ApplicationForm() {
 
                       <div className="space-y-1 leading-none">
                         <FormLabel className="text-sm text-gray-900">
-                          {checkbox2}
+                          {isHtml(checkbox2Html) ? (
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: checkbox2Html,
+                              }}
+                            />
+                          ) : (
+                            checkbox2Raw
+                          )}
                         </FormLabel>
                       </div>
                     </FormItem>

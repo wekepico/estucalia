@@ -7,15 +7,15 @@ import { useWorkWithUsPage } from "@/api/useWorkWithUsPage";
 
 export default function BottomSection() {
   const langCtx = useLanguage() as any;
-  const lang = (langCtx?.lang ?? langCtx?.language ?? "es") as Lang;
+
+  const candidate = langCtx?.lang ?? langCtx?.language ?? "es";
+  const lang: Lang = ["es", "en", "fr"].includes(candidate) ? candidate : "es";
 
   const { data } = useWorkWithUsPage(lang);
 
   const fallbackBg =
     "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&q=80";
 
-  // ✅ si en tu API tienes un bg específico para bottom, úsalo aquí.
-  // Si por ahora reutilizas el mismo de hero, queda perfecto:
   const bgUrl = data?.hero?.bgImage?.url ?? fallbackBg;
 
   return (
