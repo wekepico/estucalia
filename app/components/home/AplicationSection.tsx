@@ -12,6 +12,22 @@ import {
 import type { Application } from "@/services/applicationsService";
 import type { Space } from "@/services/spacesService";
 
+const toPlainText = (value?: string | null) => {
+  if (!value) return "";
+
+  // Esto elimina tags y también decodifica entidades HTML.
+  if (typeof window !== "undefined" && "DOMParser" in window) {
+    const doc = new DOMParser().parseFromString(value, "text/html");
+    return (doc.body.textContent || "").replace(/\s+/g, " ").trim();
+  }
+
+  // Fallback (por si algún día se ejecuta fuera del browser)
+  return value
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+};
+
 export default function AplicationSection() {
   const { t, language } = useLanguage();
 
@@ -25,15 +41,25 @@ export default function AplicationSection() {
 
   // Helpers de idioma
   const appLabel = (a: Application) => {
-    if (language === "en") return a.name_en ?? a.name_es ?? "";
-    if (language === "fr") return a.name_fr ?? a.name_es ?? "";
-    return a.name_es ?? "";
+    const raw =
+      language === "en"
+        ? (a.name_en ?? a.name_es ?? "")
+        : language === "fr"
+          ? (a.name_fr ?? a.name_es ?? "")
+          : (a.name_es ?? "");
+
+    return toPlainText(raw);
   };
 
   const spaceTitle = (s: Space) => {
-    if (language === "en") return s.title_en ?? s.title ?? "";
-    if (language === "fr") return s.title_fr ?? s.title ?? "";
-    return s.title ?? "";
+    const raw =
+      language === "en"
+        ? (s.title_en ?? s.title ?? "")
+        : language === "fr"
+          ? (s.title_fr ?? s.title ?? "")
+          : (s.title ?? "");
+
+    return toPlainText(raw);
   };
 
   const spaceSlugForRoute = (s: Space) => {
