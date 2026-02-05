@@ -44,7 +44,7 @@ export default function CertificationsSection() {
                 return (
                   <div
                     key={src + idx}
-                    className="relative w-[140px] h-[70px] md:w-[180px] md:h-[90px]"
+                    className="relative w-[240px] h-[100px] md:w-[280px] md:h-[90px]"
                   >
                     <Image
                       src={src}
