@@ -19,7 +19,7 @@ export default function InspirationSection() {
       <InspirationGrid
         uiTitleKey="home.inspiration.title"
         showTitle
-
+        limitOverride={8}
       />
     </section>
   );

@@ -15,6 +15,20 @@ import MorteroProtectorAgua from "../../../public/img/mortero-protector-agua.svg
 
 type Lang = "es" | "en" | "fr";
 
+const stripHtml = (value?: string | null) => {
+  if (!value) return "";
+
+  // ✅ En cliente: DOMParser quita tags y decodifica entidades
+  if (typeof window !== "undefined") {
+    const doc = new DOMParser().parseFromString(value, "text/html");
+    return (doc.body.textContent || "").trim();
+  }
+
+  // ✅ Fallback (SSR)
+  return value.replace(/<[^>]*>/g, "").trim();
+};
+
+
 function pickLang(
   lang: Lang,
   es?: string | null,
@@ -130,12 +144,10 @@ export default function FinishesSection() {
         <ScrollArea className="w-full whitespace-nowrap mb-4">
           <div className="flex space-x-4 md:space-x-8 pb-2" role="tablist">
             {tabs.map((f: any) => {
-              const label = pickLang(
-                lang,
-                f.name_es ?? f.name,
-                f.name_en,
-                f.name_fr,
-              );
+            const label = stripHtml(
+              pickLang(lang, f.name_es ?? f.name, f.name_en, f.name_fr),
+            );
+
 
               return (
                 <button
