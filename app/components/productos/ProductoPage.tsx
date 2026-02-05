@@ -249,7 +249,11 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
         )}
 
       {/* Extra section: inspiration + help */}
-      <InspirationGrid uiTitleKey="home.inspiration.title" className="mb-40 mt-20" />
+      <InspirationGrid
+        uiTitleKey="home.inspiration.title"
+        limitOverride={8}
+        className="mb-40 mt-20"
+      />
       <ProjectHelpSection />
     </>
   );
