@@ -78,6 +78,7 @@ export default function AplicationClient() {
         getLocalizedField(app, "description", language as "es" | "en" | "fr") ||
         "",
       img: getImageUrl(app.image_url) || "/img/default.jpg",
+      icon: getImageUrl(app.image_url) || "/img/default.jpg",
       // Campos de alt y title de imagen del backend (preparado para cuando el backend envíe datos)
       image_alt:
         app.image_alt_es || app.image_alt_en || app.image_alt_fr || null,

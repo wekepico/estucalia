@@ -1,7 +1,8 @@
 import axiosInstance from "./axiosConfig";
 import { getImageUrl } from "@/lib/i18nHelpers";
+import { Lang } from "./types";
 
-export type Lang = "es" | "en" | "fr";
+export type { Lang };
 
 export interface HomeApiResponse {
   success: boolean;

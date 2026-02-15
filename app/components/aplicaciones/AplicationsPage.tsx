@@ -42,9 +42,10 @@ const inspirationImages = [
   },
 ];
 
+// En el archivo del componente AplicationPage
 interface AplicationPageProps {
-  aplication: Aplication | null;
-  backendData?: any; // Datos del backend si están disponibles
+  aplication: (Aplication & { icon?: string }) | null; // <-- MODIFICA ESTA LÍNEA
+  backendData?: any;
 }
 
 export default function AplicationPage({ aplication, backendData }: AplicationPageProps) {

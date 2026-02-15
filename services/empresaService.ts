@@ -1,6 +1,7 @@
 import axiosInstance from "./axiosConfig";
+import { Lang } from "./types";
 
-export type Lang = "es" | "en" | "fr";
+export type { Lang };
 
 type ApiEnvelope<T> = {
   status: number;

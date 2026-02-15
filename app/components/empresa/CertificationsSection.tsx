@@ -20,7 +20,7 @@ export default function CertificationsSection() {
   const ctaUrl = empresa?.certs?.cta_url || "/profesionales/certificaciones";
 
   // ✅ lo importante:
-  const logos = empresa?.certs?.logos ?? empresa?.certs?.certs_logos ?? [];
+  const logos = empresa?.certs?.logos ?? [];
 
   return (
     <section

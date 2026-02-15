@@ -4,10 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, useMemo } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useApplications } from '@/api/useApplications';
-import { useCategories } from '@/api/useCategories';
-import { getLocalizedField, getLocalizedSlug } from '@/lib/i18nHelpers';
-
+import { useApplications } from "@/api/useApplications";
+import { useCategories } from "@/api/useCategories";
+import { getLocalizedField, getLocalizedSlug } from "@/lib/i18nHelpers";
 
 import {
   NavigationMenu,
@@ -19,15 +18,15 @@ import { usePathname, useRouter } from "next/navigation";
 import DropdownEmpresa from "./ui/DropdownEmpresa";
 import DropdownIdioma from "./ui/DropdownIdioma";
 import { Button } from "./ui/button";
-import MorteroCal from '../../public/img/mortero-cal.svg'
-import MorteroMonocapa from '../../public/img/mortero-monocapa.svg'
-import MorteroImpreso from '../../public/img/mortero-impreso.svg'
-import MorteroPolivalente from '../../public/img/mortero-juntas.svg'
-import MorteroProtector from '../../public/img/mortero-protector-agua.svg'
-import AccesoriosHerramientas from '../../public/img/accerios-y-herramientas.svg'
-import MorteroCola from '../../public/img/mortero-cola.svg'
-import MorteroPiedra from '../../public/img/mortero-piedra.svg'
-import MorteroUnion from '../../public/img/mortero puente union.svg'
+import MorteroCal from "../../public/img/mortero-cal.svg";
+import MorteroMonocapa from "../../public/img/mortero-monocapa.svg";
+import MorteroImpreso from "../../public/img/mortero-impreso.svg";
+import MorteroPolivalente from "../../public/img/mortero-juntas.svg";
+import MorteroProtector from "../../public/img/mortero-protector-agua.svg";
+import AccesoriosHerramientas from "../../public/img/accerios-y-herramientas.svg";
+import MorteroCola from "../../public/img/mortero-cola.svg";
+import MorteroPiedra from "../../public/img/mortero-piedra.svg";
+import MorteroUnion from "../../public/img/mortero puente union.svg";
 import { htmlToText } from "@/lib/utils";
 import { useSpaces } from "@/api/useSpaces";
 
@@ -35,7 +34,6 @@ const cleanMenuText = (value: unknown) =>
   htmlToText(String(value ?? ""))
     .replace(/\s+/g, " ")
     .trim();
-
 
 export default function ClientNavigation() {
   const { t, language } = useLanguage();
@@ -58,18 +56,14 @@ export default function ClientNavigation() {
   };
 
   const toggleMobileSubmenu = (index: number) => {
-    setOpenMobileSubmenus(prev =>
-      prev.includes(index)
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
+    setOpenMobileSubmenus((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
     );
   };
 
   const isMobileSubmenuOpen = (index: number) => {
     return openMobileSubmenus.includes(index);
   };
-
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,169 +83,181 @@ export default function ClientNavigation() {
   const generateSlug = (text: string) => {
     return text
       .toLowerCase()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/[\s]+/g, '-')
-      .replace(/--+/g, '-');
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s]+/g, "-")
+      .replace(/--+/g, "-");
   };
 
   // Generar items de aplicaciones desde el backend
-const submenuItemsAplications = useMemo(() => {
-  if (!applicationsData?.data?.length) return [];
+  const submenuItemsAplications = useMemo(() => {
+    if (!applicationsData?.data?.length) return [];
 
-  return applicationsData.data.map((app) => ({
-    slug: getLocalizedSlug(app, language) || app.slug,
-    label: htmlToText(getLocalizedField(app, "name", language) || app.slug),
-  }));
-}, [applicationsData, language]);
-
+    return applicationsData.data.map((app) => ({
+      slug: getLocalizedSlug(app, language) || app.slug,
+      label: htmlToText(getLocalizedField(app, "name", language) || app.slug),
+    }));
+  }, [applicationsData, language]);
 
   // Generar items de productos desde el backend
-const submenuItemsProducts = useMemo(() => {
-  if (!categoriesData?.data?.length) return [];
+  const submenuItemsProducts = useMemo(() => {
+    if (!categoriesData?.data?.length) return [];
 
-  return categoriesData.data
-    .filter((cat) => cat.active)
-    .sort((a, b) => a.order - b.order)
-    .map((cat) => {
-      const raw = getLocalizedField(cat, "name", language) || cat.slug;
-      return {
-        slug: getLocalizedSlug(cat as any, language) || cat.slug,
-        label: cleanMenuText(raw) || cat.slug,
-        icon: cat.image_url,
-      };
-    });
-}, [categoriesData, language]);
-
-
+    return categoriesData.data
+      .filter((cat) => cat.active)
+      .sort((a, b) => a.order - b.order)
+      .map((cat) => {
+        const raw = getLocalizedField(cat, "name", language) || cat.slug;
+        return {
+          slug: getLocalizedSlug(cat as any, language) || cat.slug,
+          label: cleanMenuText(raw) || cat.slug,
+          icon: cat.image_url,
+        };
+      });
+  }, [categoriesData, language]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
-const submenuItemsSpaces = useMemo(() => {
-  if (!spacesData?.data?.length) return [];
+  const submenuItemsSpaces = useMemo(() => {
+    if (!spacesData?.data?.length) return [];
 
-  return spacesData.data
-    .filter((space) => space.is_active)
-    .sort((a, b) => a.order - b.order)
-    .map((space) => {
-      const raw =
-        language === "en"
-          ? space.title_en
-          : language === "fr"
-            ? space.title_fr
-            : space.title;
+    return spacesData.data
+      .filter((space) => space.is_active)
+      .sort((a, b) => a.order - b.order)
+      .map((space) => {
+        const raw =
+          language === "en"
+            ? space.title_en
+            : language === "fr"
+              ? space.title_fr
+              : space.title;
 
-      const label =
-        cleanMenuText(raw || space.title || space.slug) || space.slug;
+        const label =
+          cleanMenuText(raw || space.title || space.slug) || space.slug;
 
-      return {
-        slug: getLocalizedSlug(space as any, language) || space.slug,
-        label,
-      };
-    });
-}, [spacesData, language]);
-
-
-
+        return {
+          slug: getLocalizedSlug(space as any, language) || space.slug,
+          label,
+        };
+      });
+  }, [spacesData, language]);
 
   const productsIcon = [
     {
       id: "limeMortar",
-      key: 'cal',
-      icon: <Image
-        src={MorteroCal}
-        alt="Logo"
-        width={180}
-        height={100}
-        className="h-32 md:h-12 w-auto brightness-0 invert"
-      />
+      key: "cal",
+      icon: (
+        <Image
+          src={MorteroCal}
+          alt="Logo"
+          width={180}
+          height={100}
+          className="h-32 md:h-12 w-auto brightness-0 invert"
+        />
+      ),
     },
     {
       id: "tileAdhesive",
-      key: 'cola',
-      icon: <Image
-        src={MorteroCola}
-        alt="Logo"
-        width={180}
-        height={100}
-        className="h-32 md:h-12 w-auto text-white brightness-0 invert"
-        style={{ width: 'auto' }}
-      />
+      key: "cola",
+      icon: (
+        <Image
+          src={MorteroCola}
+          alt="Logo"
+          width={180}
+          height={100}
+          className="h-32 md:h-12 w-auto text-white brightness-0 invert"
+          style={{ width: "auto" }}
+        />
+      ),
     },
     {
       id: "singleLayerMortar",
-      key: 'monocapa',
-      icon: <Image
-        src={MorteroMonocapa}
-        alt="Logo"
-        width={180}
-        height={100}
-        className="h-32 md:h-12 w-auto font-[600] brightness-0 invert"
-      />
+      key: "monocapa",
+      icon: (
+        <Image
+          src={MorteroMonocapa}
+          alt="Logo"
+          width={180}
+          height={100}
+          className="h-32 md:h-12 w-auto font-[600] brightness-0 invert"
+        />
+      ),
     },
     {
       id: "stampedMortar",
-      key: 'impreso',
-      icon: <Image
-        src={MorteroImpreso}
-        alt="Logo"
-        width={180}
-        height={100}
-        className="h-32 md:h-12 w-auto brightness-0 invert"
-      />
+      key: "impreso",
+      icon: (
+        <Image
+          src={MorteroImpreso}
+          alt="Logo"
+          width={180}
+          height={100}
+          className="h-32 md:h-12 w-auto brightness-0 invert"
+        />
+      ),
     },
     {
       id: "groutMortar",
-      key: 'juntas',
-      icon: <Image
-        src={MorteroPolivalente}
-        alt="Logo"
-        width={180}
-        height={100}
-        className="h-32 md:h-12 w-auto brightness-0 invert"
-      />
+      key: "juntas",
+      icon: (
+        <Image
+          src={MorteroPolivalente}
+          alt="Logo"
+          width={180}
+          height={100}
+          className="h-32 md:h-12 w-auto brightness-0 invert"
+        />
+      ),
     },
     {
       id: "accessoriesAndTools",
-      key: 'accesorios',
-      icon: <Image
-        src={AccesoriosHerramientas}
-        alt="Logo"
-        width={180}
-        height={100}
-        className="h-32 md:h-12 w-auto brightness-0 invert"
-      />
+      key: "accesorios",
+      icon: (
+        <Image
+          src={AccesoriosHerramientas}
+          alt="Logo"
+          width={180}
+          height={100}
+          className="h-32 md:h-12 w-auto brightness-0 invert"
+        />
+      ),
     },
     {
       id: "stoneMortar",
-      key: 'piedra',
-      icon: <Image
-        src={MorteroPiedra}
-        alt="Logo"
-        width={180}
-        height={100}
-        className="h-32 md:h-12 w-auto brightness-0 invert"
-      />
+      key: "piedra",
+      icon: (
+        <Image
+          src={MorteroPiedra}
+          alt="Logo"
+          width={180}
+          height={100}
+          className="h-32 md:h-12 w-auto brightness-0 invert"
+        />
+      ),
     },
     {
       id: "waterProtector",
-      key: 'protector',
-      icon: <Image
-        src={MorteroProtector}
-        alt="Logo"
-        width={180}
-        height={100}
-        className="h-32 md:h-12 w-auto brightness-0 invert"
-      />
+      key: "protector",
+      icon: (
+        <Image
+          src={MorteroProtector}
+          alt="Logo"
+          width={180}
+          height={100}
+          className="h-32 md:h-12 w-auto brightness-0 invert"
+        />
+      ),
     },
     {
       id: "bondingBridge",
-      key: 'union',
-      icon: <Image
-        src={MorteroUnion}
-        alt="Logo"
-        width={180}
-        height={100}
-        className="h-32 md:h-12 w-auto brightness-0 invert"
-      />
+      key: "union",
+      icon: (
+        <Image
+          src={MorteroUnion}
+          alt="Logo"
+          width={180}
+          height={100}
+          className="h-32 md:h-12 w-auto brightness-0 invert"
+        />
+      ),
     },
   ];
 
@@ -320,12 +326,15 @@ const submenuItemsSpaces = useMemo(() => {
   );
 
   // eslint-disable-next-line react-hooks/exhaustive-deps -- language is needed to recalculate when language changes
-  const companyLinks = useMemo(() => [
-    { href: "/empresa", label: t("navigation.about") },
-    { href: "/trabaja-con-nosotros", label: t("navigation.workWithUs") },
-    { href: "/blog", label: t("navigation.blog") },
-    { href: "/contacto", label: t("navigation.contact") },
-  ], [t, language]);
+  const companyLinks = useMemo(
+    () => [
+      { href: "/empresa", label: t("navigation.about") },
+      { href: "/trabaja-con-nosotros", label: t("navigation.workWithUs") },
+      { href: "/blog", label: t("navigation.blog") },
+      { href: "/contacto", label: t("navigation.contact") },
+    ],
+    [t, language],
+  );
 
   return (
     <>
@@ -461,7 +470,8 @@ const submenuItemsSpaces = useMemo(() => {
                                   }
                                 >
                                   {link.label === "navigation.products.label" &&
-                                    subItem.icon && (
+                                    "icon" in subItem &&
+                                    typeof subItem.icon === "string" && (
                                       <Image
                                         src={subItem.icon}
                                         alt={subItem.label}

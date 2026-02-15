@@ -44,7 +44,7 @@ export function sanitizeBasicHtml(input?: string | null) {
       }
 
       // limpia atributos peligrosos
-      const attrs = [...el.attributes];
+      const attrs = Array.from(el.attributes);
       for (const attr of attrs) {
         const name = attr.name.toLowerCase();
         const value = attr.value ?? "";
