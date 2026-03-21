@@ -1,8 +1,11 @@
+// api/useEmpresa.ts
+
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import {
   getEmpresaData,
   type EmpresaPageResponse,
   type Lang,
+  type SeoData, // 👈 Importar tipo SEO
 } from "@/services/empresaService";
 import { useLanguage } from "@/app/context/LanguageContext";
 
@@ -21,4 +24,18 @@ export const useEmpresa = (): UseQueryResult<EmpresaPageResponse, Error> => {
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });
+};
+
+// 👇 NUEVO: Hook específico para SEO (puede usar caché)
+export const useEmpresaSeo = (): {
+  seo: SeoData | null;
+  isLoading: boolean;
+} => {
+  const { data, isLoading, isPending } = useEmpresa();
+  const loading = (isPending ?? isLoading) && !data;
+
+  return {
+    seo: data?.seo ?? null,
+    isLoading: loading,
+  };
 };

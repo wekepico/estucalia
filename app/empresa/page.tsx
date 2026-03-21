@@ -1,7 +1,10 @@
+// app/empresa/page.tsx (Client Component - VERSIÓN CORREGIDA)
 "use client";
 
 import { useLanguage } from "../context/LanguageContext";
 import { useEmpresa } from "@/api/useEmpresa";
+import SeoHead from "@/components/SeoHead"; // 👈 Importar componente SEO
+import { useEffect } from "react";
 
 import VideoHero from "../components/empresa/VideoHero";
 import AboutSection from "../components/empresa/AboutSection";
@@ -21,10 +24,15 @@ function PageLoader() {
 }
 
 export default function EmpresaPage() {
-  const { t, language } = useLanguage();
+  const { t, language, setLanguage } = useLanguage();
   const { data: empresa, isPending, isLoading, isError } = useEmpresa();
 
-  // TanStack Query v5 usa isPending; v4 usa isLoading.
+  // 👇 Guardar idioma en localStorage cuando cambie
+  useEffect(() => {
+    localStorage.setItem("language", language);
+    document.documentElement.lang = language;
+  }, [language]);
+
   const loading = (isPending ?? isLoading) && !empresa;
 
   if (loading) return <PageLoader />;
@@ -48,35 +56,42 @@ export default function EmpresaPage() {
 
   const solutionsTitle =
     empresa?.solutions?.title || t("company.solutions.title");
-
   const solutionsIntro =
     empresa?.solutions?.intro || t("company.solutions.description");
-
-  // OJO: tu FeaturedCategory trae "name", no "label"
   const solutionItems = (empresa?.solutions?.featured_categories ?? [])
     .filter((c) => c?.slug)
     .map((c) => ({
       slug: c.slug as string,
-      label: c.label  ?? "",
+      label: c.label ?? "",
     }));
 
-  return (
-    <main className="min-h-screen">
-      <VideoHero />
-      <AboutSection />
-      <ProductionSection />
+  // 👇 Obtener URL actual
+  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
 
-      {/* ✅ aquí va EXACTO tu SolutionsSection sin modificarlo */}
-      <SolutionsSection
-        titleHtml={solutionsTitle}
-        introHtml={solutionsIntro}
-        items={solutionItems}
+  return (
+    <>
+      {/* 👇 SEO Dinámico - Se actualiza cuando cambia el idioma */}
+      <SeoHead
+        seo={empresa?.seo || null}
+        url={currentUrl}
+        fallbackTitle="Grupo Estucalia | Empresa"
+        fallbackDescription="Conoce nuestra historia, misión y valores. Más de 25 años de experiencia en morteros de alta gama."
       />
 
-      <InternationalSection />
-      <CertificationsSection />
-      <ConsultingSection />
-      <NewsSection />
-    </main>
+      <main className="min-h-screen">
+        <VideoHero />
+        <AboutSection />
+        <ProductionSection />
+        <SolutionsSection
+          titleHtml={solutionsTitle}
+          introHtml={solutionsIntro}
+          items={solutionItems}
+        />
+        <InternationalSection />
+        <CertificationsSection />
+        <ConsultingSection />
+        <NewsSection />
+      </main>
+    </>
   );
 }

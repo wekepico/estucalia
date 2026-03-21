@@ -9,6 +9,31 @@ type ApiEnvelope<T> = {
   response: T;
 };
 
+// ===== NUEVO: TIPOS SEO =====
+export type SeoData = {
+  meta: {
+    title: string | null;
+    description: string | null;
+    keywords: string | null;
+    robots: string;
+    author: string | null;
+    publisher: string | null;
+    canonical: string | null;
+  };
+  og: {
+    title: string | null;
+    description: string | null;
+    image: string | null;
+    type: string;
+  };
+  twitter: {
+    card: string;
+    title: string | null;
+    description: string | null;
+    image: string | null;
+  };
+};
+
 // ⬇️ Esto es lo que REALMENTE devuelve el backend (flat)
 export type EmpresaApiFlat = {
   hero_title_es: string | null;
@@ -98,6 +123,9 @@ export type EmpresaApiFlat = {
   bottom_bg_image: string | null;
   bottom_bg_image_title: string | null;
   bottom_bg_image_alt: string | null;
+
+  // 👇 NUEVO: Campo SEO
+  seo: SeoData | null;
 };
 
 // ✅ Esta es la forma “normalizada” que usarán tus componentes
@@ -157,6 +185,9 @@ export type EmpresaPageResponse = {
     bg_image_title: string | null;
     bg_image_alt: string | null;
   };
+
+  // 👇 NUEVO: Datos SEO normalizados
+  seo: SeoData | null;
 };
 
 const pickLang = (flat: EmpresaApiFlat, base: string, lang: Lang) => {
@@ -227,6 +258,8 @@ const normalizeEmpresa = (
       bg_image_title: flat.bottom_bg_image_title ?? null,
       bg_image_alt: flat.bottom_bg_image_alt ?? null,
     },
+
+    seo: flat.seo ?? null,
   };
 };
 
