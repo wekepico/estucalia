@@ -1,3 +1,5 @@
+// api/usePrivacyPolicyPage.ts
+
 "use client";
 
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
@@ -18,9 +20,14 @@ export const usePrivacyPolicyPage = (): UseQueryResult<
   const { language } = useLanguage();
   const lang = normalizeLang(language);
 
+  console.log("🔒 [PRIVACY HOOK] language:", language, "lang:", lang);
+
   return useQuery({
     queryKey: ["privacy-policy", lang],
-    queryFn: () => getPrivacyPolicyPage(lang),
+    queryFn: () => {
+      console.log("🔒 [PRIVACY HOOK] fetching for lang:", lang);
+      return getPrivacyPolicyPage(lang);
+    },
     staleTime: 10 * 60 * 1000,
     gcTime: 30 * 60 * 1000,
     refetchOnMount: false,

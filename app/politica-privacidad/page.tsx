@@ -1,61 +1,74 @@
+// app/politica-privacidad/page.tsx
 "use client";
 
+import { useLanguage } from "@/app/context/LanguageContext";
 import { usePrivacyPolicyPage } from "@/api/usePrivacyPolicyPage";
-import React from "react";
+import SeoHead from "@/components/SeoHead";
+import { useEffect } from "react";
+import PrivacyPolicy from "../components/legal/PrivacyPolicy";
 
-const HtmlBlock = ({ html }: { html: string | null }) => {
-  if (!html) return null;
-
-  return <div className="w-full" dangerouslySetInnerHTML={{ __html: html }} />;
-};
-
-const PrivacyPolicy = () => {
-  const { data, isLoading, isError } = usePrivacyPolicyPage();
-
-  if (isLoading) {
-    return (
-      <div className="mx-auto px-4 sm:px-6 lg:px-32 py-12">
-        <div className="text-gray-600">Cargando…</div>
-      </div>
-    );
-  }
-
-  if (isError || !data) {
-    return (
-      <div className="mx-auto px-4 sm:px-6 lg:px-32 py-12">
-        <div className="text-red-600">
-          No se pudo cargar la Política de privacidad.
-        </div>
-      </div>
-    );
-  }
-
+function PageLoader() {
   return (
-    <div className="mx-auto px-4 sm:px-6 lg:px-32 py-8">
-      {/* Title viene como HTML */}
-      <HtmlBlock html={data.page_title} />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Left */}
-        <div className="space-y-12">
-          {(data.columns?.left || []).map((block) => (
-            <section key={block.key}>
-              <HtmlBlock html={block.html} />
-            </section>
-          ))}
-        </div>
-
-        {/* Right */}
-        <div className="space-y-12">
-          {(data.columns?.right || []).map((block) => (
-            <section key={block.key}>
-              <HtmlBlock html={block.html} />
-            </section>
-          ))}
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="animate-pulse text-lg">
+        Cargando política de privacidad...
       </div>
     </div>
   );
-};
+}
 
-export default PrivacyPolicy;
+export default function PrivacyPolicyPage() {
+  const { language, setLanguage } = useLanguage();
+  const { data, isPending, isLoading, isError, error } = usePrivacyPolicyPage();
+
+  console.log("📄 [PRIVACY PAGE] data:", data);
+  console.log("📄 [PRIVACY PAGE] isLoading:", isLoading);
+  console.log("📄 [PRIVACY PAGE] isError:", isError);
+
+  // Guardar idioma en localStorage cuando cambie
+  useEffect(() => {
+    localStorage.setItem("language", language);
+    document.documentElement.lang = language;
+  }, [language]);
+
+  const loading = (isPending ?? isLoading) && !data;
+
+  if (loading) return <PageLoader />;
+
+  if (isError) {
+    console.error("📄 [PRIVACY PAGE] error:", error);
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-red-500 text-center">
+          <p className="text-lg font-semibold">Error cargando la página</p>
+          <p className="text-sm mt-2 text-gray-600">
+            {error?.message || "Error desconocido"}
+          </p>
+          <button
+            className="mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
+            onClick={() => window.location.reload()}
+          >
+            Reintentar
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+
+  return (
+    <>
+      <SeoHead
+        seo={data?.seo || null}
+        url={currentUrl}
+        fallbackTitle="Grupo Estucalia | Política de Privacidad"
+        fallbackDescription="Cómo protegemos tus datos personales, derechos ARSOL, y medidas de seguridad implementadas por Grupo Estucalia."
+      />
+
+      <main className="min-h-screen">
+        <PrivacyPolicy />
+      </main>
+    </>
+  );
+}
