@@ -1,60 +1,68 @@
+// app/aviso-legal/page.tsx
 "use client";
 
-import { useLegalNoticePage } from "@/api/useLegalNoticePage";
-import React from "react";
+import { useLanguage } from "@/app/context/LanguageContext";
+import { useLegal } from "@/api/useLegal";
+import SeoHead from "@/components/SeoHead";
+import { useEffect } from "react";
+import LegalNotice from "../components/legal/LegalNotice";
 
-
-const HtmlBlock = ({ html }: { html: string | null }) => {
-  if (!html) return null;
-
-  return <div className="w-full" dangerouslySetInnerHTML={{ __html: html }} />;
-};
-
-const LegalNotice = () => {
-  const { data, isLoading, isError } = useLegalNoticePage();
-
-  if (isLoading) {
-    return (
-      <div className="mx-auto px-4 sm:px-6 lg:px-32 py-12">
-        <div className="text-gray-600">Cargando…</div>
-      </div>
-    );
-  }
-
-  if (isError || !data) {
-    return (
-      <div className="mx-auto px-4 sm:px-6 lg:px-32 py-12">
-        <div className="text-red-600">No se pudo cargar el Aviso legal.</div>
-      </div>
-    );
-  }
-
+function PageLoader() {
   return (
-    <div className="mx-auto px-4 sm:px-6 lg:px-32 py-8">
-      {/* Title viene como HTML */}
-      <HtmlBlock html={data.page_title} />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Left */}
-        <div className="space-y-12">
-          {(data.columns?.left || []).map((block) => (
-            <section key={block.key}>
-              <HtmlBlock html={block.html} />
-            </section>
-          ))}
-        </div>
-
-        {/* Right */}
-        <div className="space-y-12">
-          {(data.columns?.right || []).map((block) => (
-            <section key={block.key}>
-              <HtmlBlock html={block.html} />
-            </section>
-          ))}
-        </div>
-      </div>
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="animate-pulse text-lg">Cargando aviso legal...</div>
     </div>
   );
-};
+}
 
-export default LegalNotice;
+export default function AvisoLegalPage() {
+  const { language, setLanguage } = useLanguage();
+  const { data, isPending, isLoading, isError, error } = useLegal();
+
+  // Guardar idioma en localStorage cuando cambie
+  useEffect(() => {
+    localStorage.setItem("language", language);
+    document.documentElement.lang = language;
+  }, [language]);
+
+  const loading = (isPending ?? isLoading) && !data;
+
+  if (loading) return <PageLoader />;
+
+  if (isError) {
+    console.error("Error loading legal page:", error);
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-red-500 text-center">
+          <p className="text-lg font-semibold">Error cargando la página</p>
+          <p className="text-sm mt-2 text-gray-600">
+            {error?.message || "Error desconocido"}
+          </p>
+          <button
+            className="mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
+            onClick={() => window.location.reload()}
+          >
+            Reintentar
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+
+  return (
+    <>
+      <SeoHead
+        seo={data?.seo || null}
+        url={currentUrl}
+        fallbackTitle="Grupo Estucalia | Aviso Legal"
+        fallbackDescription="Información legal, condiciones de uso, propiedad intelectual y política de privacidad de Grupo Estucalia."
+      />
+
+      <main className="min-h-screen">
+        <LegalNotice />
+      </main>
+    </>
+  );
+}

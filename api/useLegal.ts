@@ -1,25 +1,30 @@
-import { useQuery, UseQueryResult } from '@tanstack/react-query';
-import { getLegalData, type LegalData } from '@/services/legalService';
+// api/useLegal.ts
 
-/**
- * Hook personalizado para obtener los datos legales usando TanStack Query
- * @returns UseQueryResult con los datos legales
- */
-export const useLegal = (): UseQueryResult<LegalData, Error> => {
+import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import {
+  getLegalNoticePage,
+  type LegalNoticeApiResponse,
+} from "@/services/legalService";
+import { useLanguage } from "@/app/context/LanguageContext";
+
+const normalizeLang = (l: string): "es" | "en" | "fr" =>
+  l === "en" || l === "fr" ? l : "es";
+
+export const useLegal = (): UseQueryResult<LegalNoticeApiResponse, Error> => {
+  const { language } = useLanguage();
+  const lang = normalizeLang(language);
+
+  console.log("⚖️ [LEGAL HOOK] language:", language, "lang:", lang);
+
   return useQuery({
-    queryKey: ['legal'],
-    queryFn: getLegalData,
-    staleTime: 5 * 60 * 1000, // 5 minutos
-    gcTime: 10 * 60 * 1000, // 10 minutos
+    queryKey: ["legal", lang],
+    queryFn: () => {
+      console.log("⚖️ [LEGAL HOOK] fetching for lang:", lang);
+      return getLegalNoticePage(lang);
+    },
+    staleTime: 5 * 60 * 1000,
+    gcTime: 10 * 60 * 1000,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });
-};
-
-/**
- * Keys de query para usar en invalidaciones o prefetch
- */
-export const legalKeys = {
-  all: ['legal'] as const,
-  detail: () => [...legalKeys.all] as const,
 };
