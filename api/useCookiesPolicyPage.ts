@@ -1,3 +1,5 @@
+// api/useCookiesPolicyPage.ts
+
 "use client";
 
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
@@ -18,9 +20,14 @@ export const useCookiesPolicyPage = (): UseQueryResult<
   const { language } = useLanguage();
   const lang = normalizeLang(language);
 
+  console.log("🍪 [COOKIES HOOK] language:", language, "lang:", lang);
+
   return useQuery({
     queryKey: ["cookies-policy", lang],
-    queryFn: () => getCookiesPolicyPage(lang),
+    queryFn: () => {
+      console.log("🍪 [COOKIES HOOK] fetching for lang:", lang);
+      return getCookiesPolicyPage(lang);
+    },
     staleTime: 10 * 60 * 1000,
     gcTime: 30 * 60 * 1000,
     refetchOnMount: false,

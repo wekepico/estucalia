@@ -1,4 +1,7 @@
+// services/cookiesPolicyService.ts
+
 import axiosInstance from "./axiosConfig";
+import { SeoData } from "./empresaService"; // 👈 Importar tipo SEO
 
 export type Lang = "es" | "en" | "fr";
 
@@ -13,27 +16,27 @@ export type CookiesColumnBlock = {
   html: string | null;
 };
 
+// ✅ Interfaz correcta con SEO completo
 export type CookiesPolicyApiResponse = {
-  page_title: string | null; // HTML <h1...>
+  page_title: string | null;
   last_updated_at: string | null;
-
   columns: {
     left: CookiesColumnBlock[];
     right: CookiesColumnBlock[];
   };
-
-  seo: {
-    title: string | null;
-    description: string | null;
-  };
+  seo: SeoData | null; // 👈 SEO completo
 };
 
 export const getCookiesPolicyPage = async (
-  lang: Lang,
+  lang: Lang = "es",
 ): Promise<CookiesPolicyApiResponse> => {
+  console.log("🍪 [COOKIES SERVICE] fetching for lang:", lang);
+
   const { data } = await axiosInstance.get<
     ApiEnvelope<CookiesPolicyApiResponse>
   >("/v1/politica-cookies", { params: { lang } });
+
+  console.log("🍪 [COOKIES SERVICE] response:", data);
 
   return data.response;
 };
