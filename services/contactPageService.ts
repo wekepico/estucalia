@@ -1,11 +1,15 @@
+// services/contactPageService.ts
+
 import axiosInstance from "./axiosConfig";
 import { getImageUrl } from "@/lib/i18nHelpers";
+import { SeoData } from "./empresaService"; // 👈 Importar tipo SEO
 
 export type Lang = "es" | "en" | "fr";
 
 export interface ContactPageApiResponse {
-  success: boolean;
-  data: {
+  status: number;
+  message: string;
+  response: {
     map: {
       embedUrl: string | null;
     };
@@ -19,7 +23,7 @@ export interface ContactPageApiResponse {
       };
       phones: Array<{ label?: string | null; number?: string | null }>;
       emails: Array<{ label?: string | null; email?: string | null }>;
-      scheduleHtml: string | null; // viene como texto (textarea) pero lo respetamos igual
+      scheduleHtml: string | null;
     };
     form: {
       legalInfoHtml: string | null;
@@ -39,6 +43,7 @@ export interface ContactPageApiResponse {
       instagram: string | null;
       youtube: string | null;
     };
+    seo: SeoData | null; // 👈 NUEVO: SEO completo
   };
 }
 
@@ -76,9 +81,10 @@ export interface ContactPageData {
     instagram: string | null;
     youtube: string | null;
   };
+  seo: SeoData | null; // 👈 NUEVO: SEO completo
 }
 
-function normalize(raw: ContactPageApiResponse["data"]): ContactPageData {
+function normalize(raw: ContactPageApiResponse["response"]): ContactPageData {
   return {
     map: {
       embedUrl: raw.map?.embedUrl ?? null,
@@ -123,6 +129,7 @@ function normalize(raw: ContactPageApiResponse["data"]): ContactPageData {
       instagram: raw.social?.instagram ?? null,
       youtube: raw.social?.youtube ?? null,
     },
+    seo: raw.seo ?? null, // 👈 NUEVO: pasar SEO directamente
   };
 }
 
@@ -133,5 +140,5 @@ export const getContactPage = async (
     params: { lang },
   });
 
-  return normalize(res.data.data);
+  return normalize(res.data.response);
 };
