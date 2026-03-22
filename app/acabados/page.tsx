@@ -1,8 +1,11 @@
+// app/acabados/page.tsx
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { getFinishes, FinishUI } from "@/services/finishesService";
+import { useFinishesPage } from "@/api/useFinishesPage";
+import SeoHead from "@/components/SeoHead";
 
 import {
   HeroSection,
@@ -34,6 +37,9 @@ export default function Acabados() {
   const [finishes, setFinishes] = useState<FinishUI[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // 👇 Obtener SEO para la página de acabados
+  const { data: seoData } = useFinishesPage();
+
   useEffect(() => {
     let mounted = true;
 
@@ -54,7 +60,6 @@ export default function Acabados() {
     };
   }, []);
 
-  // ✅ lo que antes hacías en HeroSection, ahora lo haces aquí
   const heroData: HeroViewItem[] = useMemo(() => {
     return finishes.map((f) => ({
       id: f.id,
@@ -74,7 +79,6 @@ export default function Acabados() {
     }));
   }, [finishes, lang]);
 
-  // ✅ Loader global (mismo estilo que usas en aplicaciones)
   if (loading) {
     return (
       <main className="min-h-screen gap-4 flex justify-center items-center bg-white md:pt-28 pt-16 lg:pt-32">
@@ -83,12 +87,24 @@ export default function Acabados() {
     );
   }
 
+  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+
   return (
-    <main className="min-h-screen bg-white md:pt-28 pt-16 lg:pt-32">
-      <HeroSection data={heroData} />
-      <InspirationFinishedSection />
-      <NewsSection />
-      <ProjectHelpSection />
-    </main>
+    <>
+      {/* 👇 SEO DINÁMICO PARA ACABADOS */}
+      <SeoHead
+        seo={seoData?.seo || null}
+        url={currentUrl}
+        fallbackTitle="Grupo Estucalia | Acabados"
+        fallbackDescription="Descubre nuestra colección de acabados para construcción: texturas, colores y diseños exclusivos para tus proyectos."
+      />
+
+      <main className="min-h-screen bg-white md:pt-28 pt-16 lg:pt-32">
+        <HeroSection data={heroData} />
+        <InspirationFinishedSection />
+        <NewsSection />
+        <ProjectHelpSection />
+      </main>
+    </>
   );
 }
