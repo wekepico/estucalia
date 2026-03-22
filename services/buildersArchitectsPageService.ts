@@ -1,15 +1,18 @@
+// services/buildersArchitectsPageService.ts
+
 import axiosInstance from "./axiosConfig";
 import { getImageUrl } from "@/lib/i18nHelpers";
+import { SeoData } from "./empresaService"; // 👈 Importar tipo SEO
 
 export type Lang = "es" | "en" | "fr";
 
 export interface BuildersArchitectsApiResponse {
-  success: boolean;
-  data: {
+  status: number;
+  message: string;
+  response: {
     hero: {
       title: string | null;
-      description: string | null;
-      image: { url: string | null; title: string | null; alt: string | null };
+      image: { url: string | null; alt: string | null };
     };
     columns: Array<{
       title: string | null;
@@ -17,7 +20,7 @@ export interface BuildersArchitectsApiResponse {
       bullets: string | null;
     }>;
     banner: {
-      image: { url: string | null; title: string | null; alt: string | null };
+      image: { url: string | null; alt: string | null };
     };
     final: {
       title: string | null;
@@ -27,18 +30,14 @@ export interface BuildersArchitectsApiResponse {
         label: string | null;
       }>;
     };
-    seo?: {
-      title: string | null;
-      description: string | null;
-    };
+    seo: SeoData | null; // 👈 NUEVO: SEO completo
   };
 }
 
 export interface BuildersArchitectsData {
   hero: {
     title: string | null;
-    description: string | null;
-    image: { url: string | null; title: string | null; alt: string | null };
+    image: { url: string | null; alt: string | null };
   };
   columns: Array<{
     title: string | null;
@@ -46,7 +45,7 @@ export interface BuildersArchitectsData {
     bullets: string | null;
   }>;
   banner: {
-    image: { url: string | null; title: string | null; alt: string | null };
+    image: { url: string | null; alt: string | null };
   };
   final: {
     title: string | null;
@@ -56,22 +55,17 @@ export interface BuildersArchitectsData {
       label: string | null;
     }>;
   };
-  seo?: {
-    title: string | null;
-    description: string | null;
-  };
+  seo: SeoData | null; // 👈 NUEVO: SEO completo
 }
 
 function normalize(
-  raw: BuildersArchitectsApiResponse["data"],
+  raw: BuildersArchitectsApiResponse["response"],
 ): BuildersArchitectsData {
   return {
     hero: {
       title: raw.hero?.title ?? null,
-      description: raw.hero?.description ?? null,
       image: {
         url: getImageUrl(raw.hero?.image?.url ?? null),
-        title: raw.hero?.image?.title ?? null,
         alt: raw.hero?.image?.alt ?? null,
       },
     },
@@ -85,7 +79,6 @@ function normalize(
     banner: {
       image: {
         url: getImageUrl(raw.banner?.image?.url ?? null),
-        title: raw.banner?.image?.title ?? null,
         alt: raw.banner?.image?.alt ?? null,
       },
     },
@@ -99,12 +92,7 @@ function normalize(
       })),
     },
 
-    seo: raw.seo
-      ? {
-          title: raw.seo.title ?? null,
-          description: raw.seo.description ?? null,
-        }
-      : undefined,
+    seo: raw.seo ?? null, // 👈 NUEVO: pasar SEO directamente
   };
 }
 
@@ -116,5 +104,5 @@ export const getBuildersArchitectsPage = async (
     { params: { lang } },
   );
 
-  return normalize(res.data.data);
+  return normalize(res.data.response);
 };
