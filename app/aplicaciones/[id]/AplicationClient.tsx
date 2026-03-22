@@ -1,4 +1,6 @@
+// app/aplicaciones/[id]/AplicationClient.tsx
 "use client";
+
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, useMemo, useRef } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
@@ -6,6 +8,8 @@ import { data, Aplication } from "../../data/aplicaciones";
 import AplicationPage from "../../components/aplicaciones/AplicationsPage";
 import { Loader } from "lucide-react";
 import { useApplicationBySlug, useApplications } from "@/api/useApplications";
+import { useApplicationsPage } from "@/api/useApplicationsPage"; // 👈 NUEVO
+import SeoHead from "@/components/SeoHead"; // 👈 NUEVO
 import {
   getLocalizedField,
   getLocalizedSlug,
@@ -22,10 +26,13 @@ export default function AplicationClient() {
   const previousLanguageRef = useRef<typeof language | null>(null);
   const isFirstRenderRef = useRef(true);
 
+  // 👇 Obtener SEO para todas las aplicaciones (desde ApplicationsPage)
+  const { data: seoData } = useApplicationsPage();
+
   function slugForLang(app: Application, lang: "es" | "en" | "fr") {
     if (lang === "en") return app.slug_en || app.slug;
     if (lang === "fr") return app.slug_fr || app.slug;
-    return app.slug; // ✅ ES = slug
+    return app.slug;
   }
 
   // Obtener el slug de la URL
@@ -67,7 +74,6 @@ export default function AplicationClient() {
             category.slug,
           name: categoryName,
           icon: getImageUrl(category.image) || "/img/default-icon.svg",
-          // ✅ usa image como icono
         };
       });
     return {
@@ -79,7 +85,6 @@ export default function AplicationClient() {
         "",
       img: getImageUrl(app.image_url) || "/img/default.jpg",
       icon: getImageUrl(app.image_url) || "/img/default.jpg",
-      // Campos de alt y title de imagen del backend (preparado para cuando el backend envíe datos)
       image_alt:
         app.image_alt_es || app.image_alt_en || app.image_alt_fr || null,
       image_title:
@@ -104,13 +109,11 @@ export default function AplicationClient() {
       return;
     }
 
-    // solo si cambió el idioma y ya no está cargando
     if (!mounted || previousLanguageRef.current === language || isLoading)
       return;
 
     let matchingApplication: Application | null = null;
 
-    // Buscar en el listado completo
     if (allApplicationsData?.data) {
       matchingApplication =
         allApplicationsData.data.find(
@@ -118,11 +121,9 @@ export default function AplicationClient() {
             app.slug === applicationSlug ||
             app.slug_en === applicationSlug ||
             app.slug_fr === applicationSlug,
-          // ✅ nota: ya NO hace falta slug_es aquí
         ) || null;
     }
 
-    // fallback: usar el detalle actual
     if (!matchingApplication && backendData?.data) {
       matchingApplication = backendData.data;
     }
@@ -163,10 +164,22 @@ export default function AplicationClient() {
     );
   }
 
+  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+
   return (
-    <AplicationPage
-      aplication={application}
-      backendData={applicationFromBackend}
-    />
+    <>
+      {/* 👇 SEO GENERAL PARA TODAS LAS APLICACIONES */}
+      <SeoHead
+        seo={seoData?.seo || null}
+        url={currentUrl}
+        fallbackTitle="Grupo Estucalia | Aplicaciones"
+        fallbackDescription="Descubre todas las aplicaciones de nuestros morteros: revestimientos, solados, alicatados, fachadas y más soluciones constructivas."
+      />
+
+      <AplicationPage
+        aplication={application}
+        backendData={applicationFromBackend}
+      />
+    </>
   );
 }
