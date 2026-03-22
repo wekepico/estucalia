@@ -1,6 +1,7 @@
 import axiosInstance from "./axiosConfig";
 import { getImageUrl } from "@/lib/i18nHelpers";
 import { Lang } from "./types";
+import { SeoData } from "./empresaService";
 
 export type { Lang };
 
@@ -23,10 +24,7 @@ export interface HomeApiResponse {
       url: string | null;
       image?: { url: string | null; title: string | null; alt: string | null };
     };
-    seo?: {
-      title: string | null;
-      description: string | null;
-    };
+    seo: SeoData | null;
   };
 }
 
@@ -47,10 +45,7 @@ export interface HomeData {
     url: string | null;
     image?: { url: string | null; title: string | null; alt: string | null };
   };
-  seo?: {
-    title: string | null;
-    description: string | null;
-  };
+  seo: SeoData | null;
 }
 
 function normalizeHome(raw: HomeApiResponse["data"]): HomeData {
@@ -83,12 +78,7 @@ function normalizeHome(raw: HomeApiResponse["data"]): HomeData {
             : undefined,
         }
       : undefined,
-    seo: raw.seo
-      ? {
-          title: raw.seo.title ?? null,
-          description: raw.seo.description ?? null,
-        }
-      : undefined,
+    seo: raw.seo ?? null,
   };
 }
 
