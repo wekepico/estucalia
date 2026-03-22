@@ -1,5 +1,6 @@
 // services/inspirationsService.ts
 import axios from "./axiosConfig";
+import { SeoData } from "./empresaService"; // 👈 Importar tipo SEO
 
 export type Lang = "es" | "en" | "fr";
 
@@ -11,12 +12,6 @@ export interface InspirationPageDTO {
   description_es: string | null;
   description_en: string | null;
   description_fr: string | null;
-  seo_title_es: string | null;
-  seo_title_en: string | null;
-  seo_title_fr: string | null;
-  seo_description_es: string | null;
-  seo_description_en: string | null;
-  seo_description_fr: string | null;
   default_limit: number | null;
 }
 
@@ -34,17 +29,35 @@ export interface InspirationDTO {
   is_active: boolean;
 }
 
-export async function getInspirationPageWithItems(): Promise<{
+export interface InspirationPageApiResponse {
+  status: number;
+  message: string;
+  response: {
+    page: InspirationPageDTO | null;
+    items: InspirationDTO[];
+    seo: SeoData | null; // 👈 NUEVO: SEO completo
+  };
+}
+
+export interface InspirationPageData {
   page: InspirationPageDTO | null;
   items: InspirationDTO[];
-}> {
-  const res = await axios.get("/v1/inspiration-page");
+  seo: SeoData | null; // 👈 NUEVO: SEO completo
+}
 
-  // tu backend viene como { success, data: { page, items } }
-  const payload = res.data?.data ?? res.data ?? {};
+export async function getInspirationPageWithItems(
+  lang: Lang = "es",
+): Promise<InspirationPageData> {
+  const res = await axios.get<InspirationPageApiResponse>(
+    "/v1/inspiration-page",
+    {
+      params: { lang },
+    },
+  );
 
   return {
-    page: payload.page ?? null,
-    items: payload.items ?? [],
+    page: res.data.response.page ?? null,
+    items: res.data.response.items ?? [],
+    seo: res.data.response.seo ?? null,
   };
 }
