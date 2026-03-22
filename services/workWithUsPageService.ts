@@ -1,10 +1,14 @@
+// services/workWithUsPageService.ts
+
 import axiosInstance from "./axiosConfig";
 import { getImageUrl } from "@/lib/i18nHelpers";
 import type { Lang } from "./contactPageService";
+import { SeoData } from "./empresaService"; // 👈 Importar tipo SEO
 
 export interface WorkWithUsPageApiResponse {
-  success: boolean;
-  data: {
+  status: number;
+  message: string;
+  response: {
     hero?: {
       title?: string | null;
       bgImage?: {
@@ -36,10 +40,7 @@ export interface WorkWithUsPageApiResponse {
       checkbox2Label?: string | null; // HTML o texto
     } | null;
 
-    seo?: {
-      title?: string | null;
-      description?: string | null;
-    } | null;
+    seo: SeoData | null; // 👈 NUEVO: SEO completo
   };
 }
 
@@ -71,10 +72,12 @@ export interface WorkWithUsPageData {
     checkbox2Label: string | null;
   };
 
-  seo?: { title: string | null; description: string | null };
+  seo: SeoData | null; // 👈 NUEVO: SEO completo
 }
 
-function normalize(raw: WorkWithUsPageApiResponse["data"]): WorkWithUsPageData {
+function normalize(
+  raw: WorkWithUsPageApiResponse["response"],
+): WorkWithUsPageData {
   return {
     hero: {
       title: raw?.hero?.title ?? null,
@@ -105,12 +108,7 @@ function normalize(raw: WorkWithUsPageApiResponse["data"]): WorkWithUsPageData {
       checkbox2Label: raw?.form?.checkbox2Label ?? null,
     },
 
-    seo: raw?.seo
-      ? {
-          title: raw.seo.title ?? null,
-          description: raw.seo.description ?? null,
-        }
-      : undefined,
+    seo: raw.seo ?? null, // 👈 NUEVO: pasar SEO directamente
   };
 }
 
@@ -124,5 +122,5 @@ export const getWorkWithUsPage = async (
     },
   );
 
-  return normalize(res.data.data);
+  return normalize(res.data.response);
 };
