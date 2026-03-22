@@ -1,15 +1,18 @@
+// services/applicatorsPageService.ts
+
 import axiosInstance from "./axiosConfig";
 import { getImageUrl } from "@/lib/i18nHelpers";
+import { SeoData } from "./empresaService"; // 👈 Importar tipo SEO
 
 export type Lang = "es" | "en" | "fr";
 
 export interface ApplicatorsApiResponse {
-  success: boolean;
-  data: {
+  status: number;
+  message: string;
+  response: {
     hero: {
       title: string | null;
-      description: string | null;
-      image: { url: string | null; title: string | null; alt: string | null };
+      image: { url: string | null; alt: string | null };
     };
     columns: Array<{
       title: string | null;
@@ -17,7 +20,7 @@ export interface ApplicatorsApiResponse {
       bullets: string | null;
     }>;
     banner: {
-      image: { url: string | null; title: string | null; alt: string | null };
+      image: { url: string | null; alt: string | null };
     };
     final: {
       title: string | null;
@@ -32,24 +35,46 @@ export interface ApplicatorsApiResponse {
         checkbox2: string | null;
       };
     };
-    seo?: {
-      title: string | null;
-      description: string | null;
-    };
+    seo: SeoData | null; // 👈 NUEVO: SEO completo
   };
 }
 
-// ✅ en vez de interface extends ...
-export type ApplicatorsData = ApplicatorsApiResponse["data"];
+// ✅ Datos normalizados para el frontend
+export interface ApplicatorsData {
+  hero: {
+    title: string | null;
+    image: { url: string | null; alt: string | null };
+  };
+  columns: Array<{
+    title: string | null;
+    text: string | null;
+    bullets: string | null;
+  }>;
+  banner: {
+    image: { url: string | null; alt: string | null };
+  };
+  final: {
+    title: string | null;
+    description: string | null;
+    benefits: Array<{
+      title: string | null;
+      text: string | null;
+    }>;
+    form: {
+      privacy: string | null;
+      checkbox1: string | null;
+      checkbox2: string | null;
+    };
+  };
+  seo: SeoData | null; // 👈 NUEVO: SEO completo
+}
 
-function normalize(raw: ApplicatorsApiResponse["data"]): ApplicatorsData {
+function normalize(raw: ApplicatorsApiResponse["response"]): ApplicatorsData {
   return {
     hero: {
       title: raw.hero?.title ?? null,
-      description: raw.hero?.description ?? null,
       image: {
         url: getImageUrl(raw.hero?.image?.url ?? null),
-        title: raw.hero?.image?.title ?? null,
         alt: raw.hero?.image?.alt ?? null,
       },
     },
@@ -61,7 +86,6 @@ function normalize(raw: ApplicatorsApiResponse["data"]): ApplicatorsData {
     banner: {
       image: {
         url: getImageUrl(raw.banner?.image?.url ?? null),
-        title: raw.banner?.image?.title ?? null,
         alt: raw.banner?.image?.alt ?? null,
       },
     },
@@ -78,12 +102,7 @@ function normalize(raw: ApplicatorsApiResponse["data"]): ApplicatorsData {
         checkbox2: raw.final?.form?.checkbox2 ?? null,
       },
     },
-    seo: raw.seo
-      ? {
-          title: raw.seo.title ?? null,
-          description: raw.seo.description ?? null,
-        }
-      : undefined,
+    seo: raw.seo ?? null, // 👈 NUEVO: pasar SEO directamente
   };
 }
 
@@ -97,5 +116,5 @@ export const getApplicatorsPage = async (
     },
   );
 
-  return normalize(res.data.data);
+  return normalize(res.data.response);
 };
