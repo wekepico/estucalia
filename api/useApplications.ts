@@ -7,6 +7,7 @@ import {
   type ApplicationResponse,
   type ApplicationCategoriesResponse,
 } from '@/services/applicationsService';
+import { useLanguage } from "@/app/context/LanguageContext";
 
 /**
  * Hook para obtener todas las aplicaciones
@@ -31,16 +32,18 @@ export const useApplications = (): UseQueryResult<ApplicationsResponse, Error> =
  */
 export const useApplicationBySlug = (
   slug: string,
-  enabled: boolean = true
+  enabled: boolean = true,
 ): UseQueryResult<ApplicationResponse, Error> => {
+  const { language } = useLanguage(); // 👈 OBTENER IDIOMA
+
   return useQuery({
-    queryKey: applicationKeys.detail(slug),
-    queryFn: () => getApplicationBySlug(slug),
+    queryKey: applicationKeys.detail(slug, language), // 👈 INCLUIR IDIOMA
+    queryFn: () => getApplicationBySlug(slug, language), // 👈 PASAR IDIOMA
     staleTime: 5 * 60 * 1000,
     gcTime: 10 * 60 * 1000,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
-    enabled: enabled && !!slug, // Solo ejecutar si está habilitado y hay slug
+    enabled: enabled && !!slug,
   });
 };
 
@@ -69,10 +72,13 @@ export const useApplicationCategories = (
  * Keys de query para usar en invalidaciones o prefetch
  */
 export const applicationKeys = {
-  all: ['applications'] as const,
-  lists: () => [...applicationKeys.all, 'list'] as const,
-  list: (filters?: Record<string, unknown>) => [...applicationKeys.lists(), filters] as const,
-  details: () => [...applicationKeys.all, 'detail'] as const,
-  detail: (slug: string) => [...applicationKeys.details(), slug] as const,
-  categories: (slug: string) => [...applicationKeys.detail(slug), 'categories'] as const,
+  all: ["applications"] as const,
+  lists: () => [...applicationKeys.all, "list"] as const,
+  list: (filters?: Record<string, unknown>) =>
+    [...applicationKeys.lists(), filters] as const,
+  details: () => [...applicationKeys.all, "detail"] as const,
+  detail: (slug: string, lang?: string) =>
+    [...applicationKeys.details(), slug, lang].filter(Boolean) as const,
+  categories: (slug: string, lang?: string) =>
+    [...applicationKeys.detail(slug, lang), "categories"] as const,
 };

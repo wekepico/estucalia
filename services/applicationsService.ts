@@ -43,6 +43,43 @@ interface ApplicationRaw {
   categories?: any[];
   created_at?: string;
   updated_at?: string;
+
+  meta_title_es?: string | null;
+  meta_title_en?: string | null;
+  meta_title_fr?: string | null;
+  meta_description_es?: string | null;
+  meta_description_en?: string | null;
+  meta_description_fr?: string | null;
+  meta_keywords_es?: string | null;
+  meta_keywords_en?: string | null;
+  meta_keywords_fr?: string | null;
+  og_title_es?: string | null;
+  og_title_en?: string | null;
+  og_title_fr?: string | null;
+  og_description_es?: string | null;
+  og_description_en?: string | null;
+  og_description_fr?: string | null;
+  og_image?: string | null;
+  seo?: {
+    meta: {
+      title: string | null;
+      description: string | null;
+      keywords: string | null;
+      robots: string;
+    };
+    og: {
+      title: string | null;
+      description: string | null;
+      image: string | null;
+      type: string;
+    };
+    twitter: {
+      card: string;
+      title: string | null;
+      description: string | null;
+      image: string | null;
+    };
+  } | null;
 }
 
 // Interface normalizada para uso interno
@@ -75,6 +112,27 @@ export interface Application {
   categories?: any[];
   created_at: string;
   updated_at: string;
+
+  seo?: {
+    meta: {
+      title: string | null;
+      description: string | null;
+      keywords: string | null;
+      robots: string;
+    };
+    og: {
+      title: string | null;
+      description: string | null;
+      image: string | null;
+      type: string;
+    };
+    twitter: {
+      card: string;
+      title: string | null;
+      description: string | null;
+      image: string | null;
+    };
+  } | null;
 }
 
 /**
@@ -158,6 +216,7 @@ function normalizeApplication(raw: ApplicationRaw): Application {
     categories: raw.categories || [],
     created_at: raw.created_at || "",
     updated_at: raw.updated_at || "",
+    seo: raw.seo || null,
   };
 }
 
@@ -206,24 +265,26 @@ export const getApplications = async (): Promise<ApplicationsResponse> => {
  * GET /api/v1/applications/{slug}
  * @param slug - Identificador único de la aplicación
  * @returns Promise con los datos de la aplicación (normalizada)
- */
-export const getApplicationBySlug = async (
-  slug: string,
-): Promise<ApplicationResponse> => {
-  try {
-    const response = await axiosInstance.get<{
-      success: boolean;
-      data: ApplicationRaw;
-      message?: string;
-    }>(`/v1/applications/${slug}`);
-    return {
-      data: normalizeApplication(response.data.data),
-    };
-  } catch (error) {
-    console.error(`Error fetching application ${slug}:`, error);
-    throw error;
-  }
-};
+ */export const getApplicationBySlug = async (
+   slug: string,
+   lang: string = "es",
+ ): Promise<ApplicationResponse> => {
+   try {
+     const response = await axiosInstance.get<{
+       success: boolean;
+       data: ApplicationRaw;
+       message?: string;
+     }>(`/v1/applications/${slug}`, {
+       params: { lang }, // 👈 PASAR IDIOMA
+     });
+     return {
+       data: normalizeApplication(response.data.data),
+     };
+   } catch (error) {
+     console.error(`Error fetching application ${slug}:`, error);
+     throw error;
+   }
+ };
 
 /**
  * Obtiene las categorías de una aplicación específica

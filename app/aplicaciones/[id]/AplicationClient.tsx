@@ -90,8 +90,11 @@ export default function AplicationClient() {
       image_title:
         app.image_title_es || app.image_title_en || app.image_title_fr || null,
       products: products,
+      seo: app.seo || null,
     };
   }, [backendData, language]);
+
+
 
   // Fallback a datos locales si no hay datos del backend
   const localApplication = useMemo(() => {
@@ -166,11 +169,14 @@ export default function AplicationClient() {
 
   const currentUrl = typeof window !== "undefined" ? window.location.href : "";
 
+  const finalSeo = applicationFromBackend?.seo || seoData?.seo;
+
+  
   return (
     <>
       {/* 👇 SEO GENERAL PARA TODAS LAS APLICACIONES */}
       <SeoHead
-        seo={seoData?.seo || null}
+        seo={finalSeo || null}
         url={currentUrl}
         fallbackTitle="Grupo Estucalia | Aplicaciones"
         fallbackDescription="Descubre todas las aplicaciones de nuestros morteros: revestimientos, solados, alicatados, fachadas y más soluciones constructivas."
