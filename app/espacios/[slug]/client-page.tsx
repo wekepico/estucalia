@@ -9,6 +9,7 @@ import SpacesPage from "@/app/components/espacios/SpacesPage";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { useSpacesPage } from "@/api/useSpacesPage"; // 👈 NUEVO
 import SeoHead from "@/components/SeoHead"; // 👈 NUEVO
+import { useSpaceBySlug } from "@/api/useSpaces";
 
 import { getImageUrl } from "@/lib/i18nHelpers";
 import { Category, getApplicationCategories } from "@/services";
@@ -34,6 +35,13 @@ export default function ClientPage() {
 
   // 👇 Obtener SEO general para espacios (mismo que en listado)
   const { data: seoData } = useSpacesPage();
+    const { data: spaceData, isLoading: spaceLoading } = useSpaceBySlug(
+      slug,
+      !!slug,
+    );
+  
+  
+
 
   const [space, setSpace] = useState<Space | null>(null);
   const [loading, setLoading] = useState(true);
@@ -91,7 +99,9 @@ export default function ClientPage() {
 
   // 3) ViewModel para tu UI (mismo layout)
   const vm = useMemo(() => {
-    if (!space) return null;
+    if (!spaceData?.data) return null;
+
+    const space = spaceData.data;
 
     const aplications = (space.applications ?? []).map((app: any) => ({
       key: app.slug,
@@ -116,18 +126,19 @@ export default function ClientPage() {
       img: space.image_url || "",
       aplications,
       products,
+      seo: space.seo || null,
     };
-  }, [space, categoriesByApp, language]);
+  }, [spaceData, categoriesByApp, language]);
 
   // 4) Prefetch del primer tab
   useEffect(() => {
-    if (!space?.applications?.length) return;
+    if (!spaceData?.data?.applications?.length) return;
 
-    const firstKey = space.applications[0].slug;
+    const firstKey = spaceData.data.applications[0].slug;
     onTabChangeFetchIfNeeded(firstKey);
-  }, [space]);
+  }, [spaceData]);
 
-  if (loading) {
+  if (spaceLoading) {
     return (
       <main className="min-h-screen gap-4 flex justify-center items-center bg-white md:pt-28 pt-16 lg:pt-32">
         <Loader width={50} height={50} /> Loading...
@@ -141,11 +152,14 @@ export default function ClientPage() {
 
   const currentUrl = typeof window !== "undefined" ? window.location.href : "";
 
+    // 👇 PRIORIZAR SEO PERSONALIZADO SOBRE GENERAL
+  const finalSeo = vm.seo || seoData?.seo;
+
   return (
     <>
       {/* 👇 SEO DINÁMICO - MISMO SEO PARA TODOS LOS ESPACIOS */}
       <SeoHead
-        seo={seoData?.seo || null}
+        seo={finalSeo || null}
         url={currentUrl}
         fallbackTitle="Grupo Estucalia | Espacios"
         fallbackDescription="Descubre cómo nuestros morteros se adaptan a diferentes espacios: fachadas, interiores, exteriores y más soluciones constructivas."

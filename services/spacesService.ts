@@ -47,6 +47,43 @@ export interface SpaceRaw {
   applications?: Application[]; // viene del backend en /spaces/{slug}
   created_at?: string;
   updated_at?: string;
+
+  meta_title_es?: string | null;
+  meta_title_en?: string | null;
+  meta_title_fr?: string | null;
+  meta_description_es?: string | null;
+  meta_description_en?: string | null;
+  meta_description_fr?: string | null;
+  meta_keywords_es?: string | null;
+  meta_keywords_en?: string | null;
+  meta_keywords_fr?: string | null;
+  og_title_es?: string | null;
+  og_title_en?: string | null;
+  og_title_fr?: string | null;
+  og_description_es?: string | null;
+  og_description_en?: string | null;
+  og_description_fr?: string | null;
+  og_image?: string | null;
+  seo?: {
+    meta: {
+      title: string | null;
+      description: string | null;
+      keywords: string | null;
+      robots: string;
+    };
+    og: {
+      title: string | null;
+      description: string | null;
+      image: string | null;
+      type: string;
+    };
+    twitter: {
+      card: string;
+      title: string | null;
+      description: string | null;
+      image: string | null;
+    };
+  } | null;
 }
 
 export interface Space {
@@ -93,6 +130,27 @@ export interface Space {
   is_active: boolean;
 
   applications: Application[];
+
+  seo?: {
+    meta: {
+      title: string | null;
+      description: string | null;
+      keywords: string | null;
+      robots: string;
+    };
+    og: {
+      title: string | null;
+      description: string | null;
+      image: string | null;
+      type: string;
+    };
+    twitter: {
+      card: string;
+      title: string | null;
+      description: string | null;
+      image: string | null;
+    };
+  } | null;
 }
 
 function normalizeSpace(raw: SpaceRaw): Space {
@@ -125,6 +183,7 @@ function normalizeSpace(raw: SpaceRaw): Space {
     is_active: !!raw.is_active,
 
     applications: raw.applications ?? [],
+    seo: raw.seo ?? null,
   };
 }
 
@@ -138,9 +197,10 @@ export const getSpaces = async () => {
   };
 };
 
-export const getSpaceBySlug = async (slug: string) => {
+export const getSpaceBySlug = async (slug: string, lang: string = "es") => {
   const res = await axiosInstance.get<{ success: boolean; data: SpaceRaw }>(
     `/v1/spaces/${slug}`,
+    { params: { lang } }, // 👈 PASAR IDIOMA
   );
 
   return {
