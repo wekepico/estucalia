@@ -210,6 +210,44 @@ interface CategoryRaw {
   updated_at?: string;
   applications?: any[];
   finishes?: any[];
+  // 👇 AÑADIR CAMPOS SEO QUE VIENEN DEL BACKEND
+  meta_title_es?: string | null;
+  meta_title_en?: string | null;
+  meta_title_fr?: string | null;
+  meta_description_es?: string | null;
+  meta_description_en?: string | null;
+  meta_description_fr?: string | null;
+  meta_keywords_es?: string | null;
+  meta_keywords_en?: string | null;
+  meta_keywords_fr?: string | null;
+  og_title_es?: string | null;
+  og_title_en?: string | null;
+  og_title_fr?: string | null;
+  og_description_es?: string | null;
+  og_description_en?: string | null;
+  og_description_fr?: string | null;
+  og_image?: string | null;
+  // 👇 TAMBIÉN EL CAMPO SEO QUE ENVÍA EL CONTROLLER
+  seo?: {
+    meta: {
+      title: string | null;
+      description: string | null;
+      keywords: string | null;
+      robots: string;
+    };
+    og: {
+      title: string | null;
+      description: string | null;
+      image: string | null;
+      type: string;
+    };
+    twitter: {
+      card: string;
+      title: string | null;
+      description: string | null;
+      image: string | null;
+    };
+  } | null;
 }
 
 // Interface normalizada para uso interno
@@ -248,6 +286,27 @@ export interface Category {
   updated_at: string;
   applications?: any[];
   finishes?: any[];
+
+  seo?: {
+    meta: {
+      title: string | null;
+      description: string | null;
+      keywords: string | null;
+      robots: string;
+    };
+    og: {
+      title: string | null;
+      description: string | null;
+      image: string | null;
+      type: string;
+    };
+    twitter: {
+      card: string;
+      title: string | null;
+      description: string | null;
+      image: string | null;
+    };
+  } | null;
 }
 
 /**
@@ -291,10 +350,11 @@ function normalizeCategory(raw: CategoryRaw): Category {
     seo_description_es: raw.seo_description_es || null,
     seo_description_en: raw.seo_description_en || null,
     seo_description_fr: raw.seo_description_fr || null,
-    created_at: raw.created_at || '',
-    updated_at: raw.updated_at || '',
+    created_at: raw.created_at || "",
+    updated_at: raw.updated_at || "",
     applications: raw.applications || [],
     finishes: raw.finishes || [],
+    seo: raw.seo || null,
   };
 }
 
@@ -361,17 +421,39 @@ export const getCategories = async (): Promise<CategoriesResponse> => {
  * @param slug - Identificador único de la categoría
  * @returns Promise con los datos de la categoría (normalizada)
  */
-export const getCategoryBySlug = async (slug: string): Promise<CategoryResponse> => {
+export const getCategoryBySlug = async (
+  slug: string,
+  lang: string = "es",
+): Promise<CategoryResponse> => {
   try {
-    const response = await axiosInstance.get<{ success: boolean; data: CategoryRaw; message?: string }>(`/v1/categories/${slug}`);
-    console.error('🚀🚀🚀 RAW RESPONSE from backend:', response.data.data);
-    console.error('🚀🚀🚀 applications in raw:', response.data.data.applications);
-    console.error('🚀🚀🚀 finishes in raw:', response.data.data.finishes || 'NO FINISHES');
+    const response = await axiosInstance.get<{
+      success: boolean;
+      data: CategoryRaw;
+      message?: string;
+    }>(
+      `/v1/categories/${slug}`,
+      { params: { lang } }, // 👈 PASAR EL IDIOMA COMO PARÁMETRO
+    );
+    console.error("🚀🚀🚀 RAW RESPONSE from backend:", response.data.data);
+    console.error(
+      "🚀🚀🚀 applications in raw:",
+      response.data.data.applications,
+    );
+    console.error(
+      "🚀🚀🚀 finishes in raw:",
+      response.data.data.finishes || "NO FINISHES",
+    );
 
     const normalized = normalizeCategory(response.data.data);
-    console.error('🚀🚀🚀 NORMALIZED category:', normalized);
-    console.error('🚀🚀🚀 applications in normalized:', normalized.applications);
-    console.error('🚀🚀🚀 finishes in normalized:', normalized.finishes || 'NO FINISHES');
+    console.error("🚀🚀🚀 NORMALIZED category:", normalized);
+    console.error(
+      "🚀🚀🚀 applications in normalized:",
+      normalized.applications,
+    );
+    console.error(
+      "🚀🚀🚀 finishes in normalized:",
+      normalized.finishes || "NO FINISHES",
+    );
 
     return {
       data: normalized,

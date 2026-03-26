@@ -248,6 +248,7 @@ export default function CategoryClient() {
       productos: productos,
       aplicaciones: aplicaciones,
       acabados: acabados,
+      seo: backendCategoryData.data.seo || null,
     };
   }, [
     backendCategoryData,
@@ -416,6 +417,27 @@ export default function CategoryClient() {
     isLoading,
   ]);
 
+  const finalSeo = categoryFromBackend?.seo || seoData?.seo;
+
+  // Después de obtener backendCategoryData
+useEffect(() => {
+    if (backendCategoryData) {
+        console.log('🔍 backendCategoryData.data.seo:', backendCategoryData.data?.seo);
+    }
+}, [backendCategoryData]);
+
+// Después de categoryFromBackend
+useEffect(() => {
+    if (categoryFromBackend) {
+        console.log('🔍 categoryFromBackend.seo:', categoryFromBackend.seo);
+    }
+}, [categoryFromBackend]);
+
+// Para finalSeo
+useEffect(() => {
+    console.log('🔍 finalSeo:', finalSeo);
+}, [finalSeo]);
+  
   if (!mounted || isLoading) {
     return (
       <main className="min-h-screen gap-4 flex justify-center items-center bg-white md:pt-28 pt-16 lg:pt-32">
@@ -438,7 +460,7 @@ export default function CategoryClient() {
     <>
       {/* 👇 SEO DINÁMICO - MISMO SEO PARA TODAS LAS CATEGORÍAS */}
       <SeoHead
-        seo={seoData?.seo || null}
+        seo={finalSeo || null}
         url={currentUrl}
         fallbackTitle="Grupo Estucalia | Productos"
         fallbackDescription="Descubre nuestra amplia gama de productos: morteros, revestimientos, solados y más soluciones constructivas de alta calidad."
