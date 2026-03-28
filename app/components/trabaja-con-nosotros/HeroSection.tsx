@@ -13,7 +13,7 @@ export default function HeroSection() {
   const candidate = langCtx?.lang ?? langCtx?.language ?? "es";
   const lang: Lang = ["es", "en", "fr"].includes(candidate) ? candidate : "es";
 
-  const { data } = useWorkWithUsPage(lang);
+  const { data } = useWorkWithUsPage();
 
   const fallbackBg =
     "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&q=80";

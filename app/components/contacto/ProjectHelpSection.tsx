@@ -7,7 +7,7 @@ import { useHome } from "@/api/useHome";
 
 export default function ProjectHelpSection() {
   const { t, language } = useLanguage();
-  const { data: home } = useHome(language);
+  const { data: home } = useHome();
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);

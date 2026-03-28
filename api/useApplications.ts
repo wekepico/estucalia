@@ -71,14 +71,26 @@ export const useApplicationCategories = (
 /**
  * Keys de query para usar en invalidaciones o prefetch
  */
+// api/useApplications.ts
+
+// api/useApplications.ts
+
 export const applicationKeys = {
   all: ["applications"] as const,
   lists: () => [...applicationKeys.all, "list"] as const,
   list: (filters?: Record<string, unknown>) =>
     [...applicationKeys.lists(), filters] as const,
   details: () => [...applicationKeys.all, "detail"] as const,
-  detail: (slug: string, lang?: string) =>
-    [...applicationKeys.details(), slug, lang].filter(Boolean) as const,
-  categories: (slug: string, lang?: string) =>
-    [...applicationKeys.detail(slug, lang), "categories"] as const,
+  detail: (slug: string, lang?: string) => {
+    // No usar as const aquí, dejar que TypeScript infiera
+    const base = [...applicationKeys.details(), slug];
+    if (lang) {
+      return [...base, lang];
+    }
+    return base;
+  },
+  categories: (slug: string, lang?: string) => {
+    const detailKey = applicationKeys.detail(slug, lang);
+    return [...detailKey, "categories"];
+  },
 };

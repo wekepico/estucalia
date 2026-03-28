@@ -13,6 +13,15 @@ import ConsultingSection from "../components/empresa/ConsultingSection";
 import NewsSection from "../components/home/NewsSection";
 import { useEffect, useRef } from "react";
 
+type Language = "es" | "en" | "fr";
+
+function normalizeLang(lang: string): Language {
+  if (lang === "en" || lang === "fr") {
+    return lang;
+  }
+  return "es";
+}
+
 export default function EmpresaClient({
   initialData,
   lang,
@@ -25,9 +34,10 @@ export default function EmpresaClient({
 
   // Sincronizar idioma con la URL SOLO UNA VEZ al inicio
   useEffect(() => {
-    if (!hasInitialized.current && lang !== language) {
+    const normalizedLang = normalizeLang(lang);
+    if (!hasInitialized.current && normalizedLang !== language) {
       hasInitialized.current = true;
-      setLanguage(lang);
+      setLanguage(normalizedLang);
     }
   }, [lang, language, setLanguage]);
 

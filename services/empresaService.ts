@@ -16,9 +16,9 @@ export type SeoData = {
     description: string | null;
     keywords: string | null;
     robots: string;
-    author: string | null;
-    publisher: string | null;
-    canonical: string | null;
+    author?: string | null; // 👈 OPCIONAL
+    publisher?: string | null; // 👈 OPCIONAL
+    canonical?: string | null;
   };
   og: {
     title: string | null;

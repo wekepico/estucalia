@@ -133,7 +133,7 @@ export default function ApplicationForm() {
   const candidate = langCtx?.lang ?? langCtx?.language ?? "es";
   const lang: Lang = ["es", "en", "fr"].includes(candidate) ? candidate : "es";
 
-  const { data: page } = useWorkWithUsPage(lang);
+  const { data: page } = useWorkWithUsPage();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);

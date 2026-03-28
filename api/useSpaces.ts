@@ -8,10 +8,19 @@ import {
 } from "@/services/spacesService";
 import { useLanguage } from "@/app/context/LanguageContext";
 
+
+// api/useSpaces.ts
+
 export const spaceKeys = {
   all: ["spaces"] as const,
-  detail: (slug: string, lang?: string) =>
-    [...spaceKeys.all, "detail", slug, lang].filter(Boolean) as const,
+  detail: (slug: string, lang?: string) => {
+    // No usar as const aquí, dejar que TypeScript infiera
+    const base = [...spaceKeys.all, "detail", slug];
+    if (lang) {
+      return [...base, lang];
+    }
+    return base;
+  },
 };
 
 export const useSpaces = (): UseQueryResult<

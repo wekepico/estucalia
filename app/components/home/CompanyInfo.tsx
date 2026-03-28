@@ -6,7 +6,7 @@ import { useHome } from "@/api/useHome";
 
 export default function CompanyInfo() {
   const { t, language } = useLanguage();
-  const { data: home } = useHome(language);
+  const { data: home } = useHome();
 
   const title = home?.about?.title ?? t("home.company.title");
   const description = home?.about?.description ?? t("home.company.description");

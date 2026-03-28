@@ -9,12 +9,12 @@ import ProjectHelpSection from "../contacto/ProjectHelpSection";
 
 export default function ConstructoresArquitectosPage() {
   const { language } = useLanguage();
-  const lang = (["es", "en", "fr"].includes(language) ? language : "es") as
-    | "es"
-    | "en"
-    | "fr";
+  // const lang = (["es", "en", "fr"].includes(language) ? language : "es") as
+  //   | "es"
+  //   | "en"
+  //   | "fr";
 
-  const { data, isLoading } = useBuildersArchitectsPage(lang);
+  const { data, isLoading } = useBuildersArchitectsPage();
 
   const heroTitle = data?.hero?.title ?? "";
   const heroImage = data?.hero?.image?.url ?? null;

@@ -470,23 +470,35 @@ export const getCategoryBySlug = async (
  * @param slug - Identificador único de la categoría
  * @returns Promise con los productos de la categoría (normalizados)
  */
-export const getCategoryProducts = async (slug: string): Promise<CategoryProductsResponse> => {
+export const getCategoryProducts = async (
+  slug: string,
+  lang: string = "es",
+): Promise<CategoryProductsResponse> => {
   try {
-    const response = await axiosInstance.get<{ 
-      success: boolean; 
-      data: {
-        category?: any;
-        products: ProductRaw[];
-      } | ProductRaw[] | any; 
+    const response = await axiosInstance.get<{
+      success: boolean;
+      data:
+        | {
+            category?: any;
+            products: ProductRaw[];
+          }
+        | ProductRaw[]
+        | any;
       message?: string;
-    }>(`/v1/categories/${slug}/products`);
-    
+    }>(`/v1/categories/${slug}/products`, {
+      params: { lang }, // 👈 PASAR IDIOMA
+    });
+
     // La estructura real es: { success: true, data: { category: {...}, products: [...] } }
     let productsArray: ProductRaw[] = [];
-    
+
     if (response.data) {
       // Caso 1: response.data.data.products existe (estructura real del backend)
-      if (response.data.data && typeof response.data.data === 'object' && Array.isArray(response.data.data.products)) {
+      if (
+        response.data.data &&
+        typeof response.data.data === "object" &&
+        Array.isArray(response.data.data.products)
+      ) {
         productsArray = response.data.data.products;
       }
       // Caso 2: response.data.data es directamente un array (fallback)
@@ -501,7 +513,7 @@ export const getCategoryProducts = async (slug: string): Promise<CategoryProduct
       else {
         const findProducts = (obj: any): ProductRaw[] => {
           if (Array.isArray(obj)) return obj;
-          if (typeof obj === 'object' && obj !== null) {
+          if (typeof obj === "object" && obj !== null) {
             // Buscar propiedad 'products' primero
             if (obj.products && Array.isArray(obj.products)) {
               return obj.products;
@@ -538,9 +550,17 @@ export const getCategoryProducts = async (slug: string): Promise<CategoryProduct
  * @param slug - Identificador único de la categoría
  * @returns Promise con las aplicaciones de la categoría
  */
-export const getCategoryApplications = async (slug: string): Promise<CategoryApplicationsResponse> => {
+export const getCategoryApplications = async (
+  slug: string,
+  lang: string = "es",
+): Promise<CategoryApplicationsResponse> => {
   try {
-    const response = await axiosInstance.get<CategoryApplicationsResponse>(`/v1/categories/${slug}/applications`);
+    const response = await axiosInstance.get<CategoryApplicationsResponse>(
+      `/v1/categories/${slug}/applications`,
+      {
+        params: { lang }, // 👈 PASAR IDIOMA
+      },
+    );
     return response.data;
   } catch (error) {
     console.error(`Error fetching applications for category ${slug}:`, error);

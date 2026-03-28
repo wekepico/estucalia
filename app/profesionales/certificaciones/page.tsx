@@ -4,7 +4,7 @@
 import { useLanguage } from "@/app/context/LanguageContext";
 import { useCertificationsDocumentationPage } from "@/api/useCertificationsDocumentationPage";
 import SeoHead from "@/components/SeoHead";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import CertificacionesPageComponent from "../../components/certificaciones/CertificationPage";
 import CertificacionesPage from "../../components/certificaciones/CertificationPage";
 
@@ -26,6 +26,35 @@ export default function Certificaciones() {
     localStorage.setItem("language", language);
     document.documentElement.lang = language;
   }, [language]);
+
+  // 👇 Transformar SEO al formato que espera SeoHead
+  const formattedSeo = useMemo(() => {
+    if (!data?.seo) return null;
+
+    return {
+      meta: {
+        title: data.seo.title,
+        description: data.seo.description,
+        keywords: null,
+        robots: "index, follow",
+        author: "Grupo Estucalia",
+        publisher: "Grupo Estucalia",
+        canonical: null,
+      },
+      og: {
+        title: data.seo.title,
+        description: data.seo.description,
+        image: null,
+        type: "website",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: data.seo.title,
+        description: data.seo.description,
+        image: null,
+      },
+    };
+  }, [data?.seo]);
 
   const loading = (isPending ?? isLoading) && !data;
 
@@ -52,7 +81,7 @@ export default function Certificaciones() {
     <>
       {/* 👇 SEO Dinámico - Se actualiza cuando cambia el idioma */}
       <SeoHead
-        seo={data?.seo || null}
+        seo={formattedSeo}
         url={currentUrl}
         fallbackTitle="Grupo Estucalia | Certificaciones y Documentación"
         fallbackDescription="Certificados de calidad, documentación técnica y fichas de productos. Descarga toda la documentación oficial de Grupo Estucalia."

@@ -3,7 +3,7 @@
 import axiosInstance from "./axiosConfig";
 import { SeoData } from "./empresaService";
 
-export type Lang = "es" | "en" | "fr";
+import { Lang } from "./types"; 
 
 type ApiEnvelope<T> = {
   status: number;

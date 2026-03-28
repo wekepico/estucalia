@@ -13,7 +13,7 @@ export default function ServiciosIntegralesPage() {
     | "en"
     | "fr";
 
-  const { data, isLoading } = useIntegralProjectsPage(lang);
+  const { data, isLoading } = useIntegralProjectsPage();
 
   const heroTitle = data?.hero?.title ?? "";
   const heroImage = data?.hero?.image?.url ?? null;
