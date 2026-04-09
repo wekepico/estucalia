@@ -1,35 +1,70 @@
 // Interface para los datos del blog que vienen del backend
-// Basado en la respuesta real del endpoint: https://apiestucalia.innet.es/api/blog
+// Basado en la respuesta real del endpoint: https://apiestucalia.innet.es/api/blog// services/blogService.ts
+
+import axiosInstance from "./axiosConfig";
+import { SeoData } from "./empresaService";
+
+export type Lang = "es" | "en" | "fr";
+
+export interface BlogPostRaw {
+    id: number;
+    title: string;
+    description: string;
+    slug: string;
+    photo: string | null;
+    active: number;
+    user_id: number;
+    created_at: string;
+    updated_at: string;
+    // ... otros campos
+    meta_title_es?: string | null;
+    meta_description_es?: string | null;
+    // ...
+    seo?: SeoData | null;
+}
+
 export interface BlogPost {
     id: number;
     title: string;
     description: string;
     slug: string;
-    photo: string;
-    active: number;
-    user_id: number;
-    created_at: string;
-    updated_at: string;
-    writer_id?: number | null;
-    blog_category_id?: number | null;
-    notified: number;
-    writer?: any | null;
-    // Campos calculados/derivados (no vienen del backend directamente)
-    excerpt?: string;
-    date?: string;
-    category?: string;
+    photo: string | null;
+    createdAt: string;
+    seo?: SeoData | null;
 }
 
-// Función para obtener los posts del blog
-export const fetchBlogPosts = async (): Promise<BlogPost[]> => {
-    try {
-        const response = await fetch('https://apiestucalia.innet.es/api/blog');
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status} - ${response.statusText}`);
-        }
-        const data: any = await response.json();
-        return data.data;
-    } catch (err) {
-        throw new Error(err instanceof Error ? err.message : 'An unknown error occurred');
-    }
+function normalizeBlogPost(raw: BlogPostRaw): BlogPost {
+    return {
+        id: raw.id,
+        title: raw.title,
+        description: raw.description,
+        slug: raw.slug,
+        photo: raw.photo,
+        createdAt: raw.created_at,
+        seo: raw.seo ?? null,
+    };
+}
+
+export interface BlogPageResponse {
+    blogs: BlogPost[];
+    seo: SeoData | null;
+}
+
+export const getBlogPage = async (lang: Lang = "es"): Promise<BlogPageResponse> => {
+    const { data } = await axiosInstance.get<{ status: number; response: { blogs: BlogPostRaw[]; seo: SeoData } }>(
+        "/v1/blog",
+        { params: { lang } }
+    );
+    return {
+        blogs: data.response.blogs.map(normalizeBlogPost),
+        seo: data.response.seo,
+    };
+};
+
+export const getBlogPostBySlug = async (slug: string, lang: Lang = "es"): Promise<BlogPost> => {
+    const { data } = await axiosInstance.get<{ success: boolean; data: BlogPostRaw }>(
+        `/v1/blog/${slug}`,
+        { params: { lang } }
+    );
+    return normalizeBlogPost(data.data);
 };

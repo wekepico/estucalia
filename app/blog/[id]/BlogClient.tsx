@@ -1,81 +1,53 @@
 // app/blog/[id]/BlogClient.tsx
 "use client";
+
 import { useParams } from "next/navigation";
+import { useBlogPost } from "@/api/useBlogPost";
+import SeoHead from "@/components/SeoHead";
 import NewsDetail from "@/app/components/blog/NewsDetail";
-import { useEffect, useState } from "react";
 import { Loader } from "lucide-react";
 
-export interface Noticia {
-  id: string;
-  title: string;
-  description: string;
-  created_at?: string;
-  photo?: string;
-  // Nota: El backend NO envía photo_alt ni photo_title, usamos title como fallback
-}
-
 export default function BlogClient() {
-  // Nota: El parámetro 'id' de la ruta contiene el SLUG, no el ID numérico
-  // Esto es porque en page.tsx se mapea: id: post.slug
-  const { id } = useParams();
-  const [noticia, setNoticia] = useState<Noticia | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { id } = useParams(); // id es el slug
+  const { data: post, isLoading, error } = useBlogPost(id as string, !!id);
 
-  useEffect(() => {
-    if (!id) return;
-    (async () => {
-      try {
-        // El backend espera el slug en la URL: /api/blog/{slug}
-        const res = await fetch(
-          `https://apiestucalia.innet.es/api/blog/${id}`
-        );
-        if (!res.ok) throw new Error(res.statusText);
-        const { data } = await res.json();
-        setNoticia({
-          id: data.id,
-          title: data.title,
-          description: data.description,
-          created_at: data.created_at ?? new Date().toISOString(),
-          photo: data.photo ?? "/default-image.jpg",
-        });
-      } catch (e: any) {
-        setError(e.message);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, [id]);
+  if (isLoading) {
+    return (
+      <main className="min-h-screen flex items-center justify-center">
+        <Loader className="animate-spin" /> Cargando...
+      </main>
+    );
+  }
 
-  if (loading)
+  if (error || !post) {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <Loader /> cargando...
+        <p className="text-red-500">Error al cargar la noticia</p>
       </main>
     );
-  if (error)
-    return (
-      <main className="min-h-screen flex items-center justify-center">
-        <p className="text-red-500">{error}</p>
-      </main>
-    );
-  if (!noticia)
-    return (
-      <main className="min-h-screen flex items-center justify-center">
-        <p>Noticia no encontrada</p>
-      </main>
-    );
+  }
+
+  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
 
   return (
-    <main className="min-h-screen bg-white">
-      <NewsDetail
-        id={noticia.id}
-        title={noticia.title}
-        description={noticia.description}
-        date={noticia.created_at}
-        imageUrl={noticia.photo}
-        // El backend NO envía alt/title, NewsDetail usará title como fallback
+    <>
+      <SeoHead
+        seo={post.seo || null}
+        url={currentUrl}
+        fallbackTitle={post.title}
+        fallbackDescription={post.description
+          .replace(/<[^>]*>/g, "")
+          .substring(0, 160)}
       />
-    </main>
+      <main className="min-h-screen bg-white">
+        <NewsDetail
+          id={post.id}
+          title={post.title}
+          description={post.description}
+          date={post.createdAt}
+          imageUrl={post.photo}
+        />
+      </main>
+    </>
   );
 }
