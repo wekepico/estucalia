@@ -41,11 +41,11 @@ export default function BlogClient() {
       />
       <main className="min-h-screen bg-white">
         <NewsDetail
-          id={post.id}
+          id={String(post.id)}
           title={post.title}
           description={post.description}
           date={post.createdAt}
-          imageUrl={post.photo}
+          imageUrl={post.photo ?? undefined}
         />
       </main>
     </>

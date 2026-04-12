@@ -3,8 +3,8 @@
 
 import axiosInstance from "./axiosConfig";
 import { SeoData } from "./empresaService";
+import { Lang } from "./types"; 
 
-export type Lang = "es" | "en" | "fr";
 
 export interface BlogPostRaw {
     id: number;
