@@ -31,9 +31,9 @@ export default function BlogClient() {
 
   // 👇 Obtener título y descripción traducidos usando el idioma del contexto
   const getLocalizedTitle = () => {
-    if (language === "en") return post?.title_en || post?.title;
-    if (language === "fr") return post?.title_fr || post?.title;
-    return post?.title;
+    if (language === "en") return post?.title_en || post?.title || "";
+    if (language === "fr") return post?.title_fr || post?.title || "";
+    return post?.title || "";
   };
 
   const getLocalizedDescription = () => {
