@@ -64,7 +64,7 @@ export default function BlogClient() {
           title={getLocalizedTitle()}
           description={getLocalizedDescription()}
           date={post.createdAt}
-          imageUrl={post.photo ?? undefined}
+          imageUrl={post.photo_url ?? undefined}
         />
       </main>
     </>

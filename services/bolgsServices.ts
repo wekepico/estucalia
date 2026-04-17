@@ -18,6 +18,7 @@ export interface BlogPostRaw {
   slug_en?: string | null;
   slug_fr?: string | null;
   photo: string | null;
+  photo_url?: string | null;
   active: number;
   user_id: number;
   created_at: string;
@@ -41,6 +42,7 @@ export interface BlogPost {
   slug_en?: string | null;
   slug_fr?: string | null;
   photo: string | null;
+  photo_url?: string | null;
   createdAt: string;
   seo?: SeoData | null;
 }
@@ -58,6 +60,7 @@ function normalizeBlogPost(raw: BlogPostRaw): BlogPost {
       slug_en: raw.slug_en,
       slug_fr: raw.slug_fr,
       photo: raw.photo,
+      photo_url: raw.photo_url,
       createdAt: raw.created_at,
       seo: raw.seo ?? null,
     };

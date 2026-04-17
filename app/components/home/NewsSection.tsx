@@ -50,7 +50,7 @@ export default function NewsSection() {
                 <div className="relative h-[300px] md:h-[400px] lg:h-[500px] mb-4 overflow-hidden">
                   <div
                     className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 group-hover:scale-105"
-                    style={{ backgroundImage: `url('${blog.photo}')` }}
+                    style={{ backgroundImage: `url('${blog.photo_url}')` }}
                   />
                 </div>
                 <h3 className="text-base md:text-2xl px-4 md:px-0 mb-4 font-medium">

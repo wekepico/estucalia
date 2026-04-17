@@ -52,7 +52,7 @@ export default function NewsGrid({ blogs }: { blogs: BlogPost[] }) {
                 <div className="relative aspect-[16/9] mb-6 overflow-hidden">
                   <div
                     className="absolute inset-0 bg-cover bg-center transform transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: `url('${blog.photo}')` }}
+                    style={{ backgroundImage: `url('${blog.photo_url}')` }}
                     role="img"
                     aria-label={blog.title}
                     title={blog.title}
