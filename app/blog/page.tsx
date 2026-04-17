@@ -9,19 +9,23 @@ import NewsGrid from "../components/blog/NewsGrid";
 
 export default function BlogListPage() {
   const { language, setLanguage } = useLanguage();
-  const { data, isLoading, isError } = useBlogPage();
+  const { data, isLoading, isError, refetch, isFetching } = useBlogPage();
 
-  useEffect(() => {
-    localStorage.setItem("language", language);
-    document.documentElement.lang = language;
-  }, [language]);
-
-  if (isLoading)
+    useEffect(() => {
+      localStorage.setItem("language", language);
+      document.documentElement.lang = language;
+      refetch(); // 👈 forzar recarga de datos al cambiar idioma
+    }, [language, refetch]);
+  
+  if (isLoading || isFetching) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        Cargando...
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+        <span className="ml-3">Cargando noticias...</span>
       </div>
     );
+  }
+
   if (isError)
     return (
       <div className="text-red-500 text-center py-10">

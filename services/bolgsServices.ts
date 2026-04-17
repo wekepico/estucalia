@@ -7,41 +7,59 @@ import { Lang } from "./types";
 
 
 export interface BlogPostRaw {
-    id: number;
-    title: string;
-    description: string;
-    slug: string;
-    photo: string | null;
-    active: number;
-    user_id: number;
-    created_at: string;
-    updated_at: string;
-    // ... otros campos
-    meta_title_es?: string | null;
-    meta_description_es?: string | null;
-    // ...
-    seo?: SeoData | null;
+  id: number;
+  title: string;
+  title_en?: string | null;
+  title_fr?: string | null;
+  description: string;
+  description_fr?: string | null;
+  description_en?: string | null;
+  slug: string;
+  slug_en?: string | null;
+  slug_fr?: string | null;
+  photo: string | null;
+  active: number;
+  user_id: number;
+  created_at: string;
+  updated_at: string;
+  // ... otros campos
+  meta_title_es?: string | null;
+  meta_description_es?: string | null;
+  // ...
+  seo?: SeoData | null;
 }
 
 export interface BlogPost {
-    id: number;
-    title: string;
-    description: string;
-    slug: string;
-    photo: string | null;
-    createdAt: string;
-    seo?: SeoData | null;
+  id: number;
+  title: string;
+  title_en?: string | null;
+  title_fr?: string | null;
+  description: string;
+  description_fr?: string | null;
+  description_en?: string | null;
+  slug: string;
+  slug_en?: string | null;
+  slug_fr?: string | null;
+  photo: string | null;
+  createdAt: string;
+  seo?: SeoData | null;
 }
 
 function normalizeBlogPost(raw: BlogPostRaw): BlogPost {
     return {
-        id: raw.id,
-        title: raw.title,
-        description: raw.description,
-        slug: raw.slug,
-        photo: raw.photo,
-        createdAt: raw.created_at,
-        seo: raw.seo ?? null,
+      id: raw.id,
+      title: raw.title,
+      title_en: raw.title_en,
+      title_fr: raw.title_fr,
+      description: raw.description,
+      description_en: raw.description_en,
+      description_fr: raw.description_fr,
+      slug: raw.slug,
+      slug_en: raw.slug_en,
+      slug_fr: raw.slug_fr,
+      photo: raw.photo,
+      createdAt: raw.created_at,
+      seo: raw.seo ?? null,
     };
 }
 

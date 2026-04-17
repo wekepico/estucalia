@@ -11,7 +11,29 @@ import { BlogPost } from "@/services";
 
 export default function NewsGrid({ blogs }: { blogs: BlogPost[] }) {
   const router = useRouter();
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
+
+  // 👇 Obtener título según idioma
+  const getTitle = (blog: BlogPost) => {
+    if (language === "en") return blog.title_en || blog.title;
+    if (language === "fr") return blog.title_fr || blog.title;
+    return blog.title;
+  };
+
+  // 👇 Obtener descripción (texto plano) según idioma
+  const getDescription = (blog: BlogPost) => {
+    let raw = blog.description;
+    if (language === "en") raw = blog.description_en || blog.description;
+    if (language === "fr") raw = blog.description_fr || blog.description;
+    return raw.replace(/<[^>]*>/g, "").substring(0, 150);
+  };
+
+  // 👇 Obtener slug según idioma
+  const getSlug = (blog: BlogPost) => {
+    if (language === "en") return blog.slug_en || blog.slug;
+    if (language === "fr") return blog.slug_fr || blog.slug;
+    return blog.slug;
+  };
 
   const handleViewNews = (slug: string) => {
     router.push(`/blog/${slug}`);
@@ -49,14 +71,13 @@ export default function NewsGrid({ blogs }: { blogs: BlogPost[] }) {
                   </span>
                 </div>
                 <h2 className="text-xl md:text-2xl font-medium group-hover:text-gray-600 transition-colors duration-300">
-                  {blog.title}
+                  {getTitle(blog)}
                 </h2>
                 <p className="text-gray-600 line-clamp-3">
-                  {blog.description.replace(/<[^>]*>/g, "").substring(0, 150)}
-                  ...
+                  {getDescription(blog)}...
                 </p>
                 <Button
-                  onClick={() => handleViewNews(blog.slug)}
+                  onClick={() => handleViewNews(getSlug(blog))}
                   variant="outline"
                   className="relative pl-5 pr-12 py-4 md:py-5 border-none rounded-none mt-4"
                 >
