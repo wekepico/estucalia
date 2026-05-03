@@ -35,16 +35,12 @@ export default function ClientPage() {
 
   // 👇 Obtener SEO general para espacios (mismo que en listado)
   const { data: seoData } = useSpacesPage();
-    const { data: spaceData, isLoading: spaceLoading } = useSpaceBySlug(
-      slug,
-      !!slug,
-    );
-  
-  
+  const { data: spaceData, isLoading: spaceLoading } = useSpaceBySlug(
+    slug,
+    !!slug,
+  );
 
-
-  const [space, setSpace] = useState<Space | null>(null);
-  const [loading, setLoading] = useState(true);
+  const space = spaceData?.data ?? null;
 
   const [categoriesByApp, setCategoriesByApp] = useState<
     Record<string, Category[]>
@@ -73,29 +69,6 @@ export default function ClientPage() {
     },
     [space],
   );
-
-  // 1) Cargar Space por slug
-  useEffect(() => {
-    let mounted = true;
-
-    (async () => {
-      try {
-        setLoading(true);
-        const res = await getSpaceBySlug(slug);
-        if (!mounted) return;
-        setSpace(res.data);
-      } catch (e) {
-        if (!mounted) return;
-        setSpace(null);
-      } finally {
-        if (mounted) setLoading(false);
-      }
-    })();
-
-    return () => {
-      mounted = false;
-    };
-  }, [slug]);
 
   // 3) ViewModel para tu UI (mismo layout)
   const vm = useMemo(() => {
@@ -138,7 +111,9 @@ export default function ClientPage() {
     onTabChangeFetchIfNeeded(firstKey);
   }, [spaceData]);
 
-  if (spaceLoading) {
+  // Solo bloqueamos el render si NO tenemos nada del cache prefetched.
+  // En SSR los datos ya están disponibles → vm existe → render completo.
+  if (spaceLoading && !vm) {
     return (
       <main className="min-h-screen gap-4 flex justify-center items-center bg-white md:pt-28 pt-16 lg:pt-32">
         <Loader width={50} height={50} /> Loading...

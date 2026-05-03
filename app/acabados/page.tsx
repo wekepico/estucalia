@@ -1,110 +1,104 @@
-// app/acabados/page.tsx
-"use client";
+// app/acabados/page.tsx - Server Component
+//
+// SSR + cache de fetch (1h por lang). El listado de acabados y el SEO de la
+// página se traen en el server, así Google ve el HTML completo y los meta
+// tags ya rellenos desde el primer pintado.
 
-import React, { useEffect, useMemo, useState } from "react";
-import { useLanguage } from "@/app/context/LanguageContext";
-import { getFinishes, FinishUI } from "@/services/finishesService";
-import { useFinishesPage } from "@/api/useFinishesPage";
-import SeoHead from "@/components/SeoHead";
+import type { Metadata } from "next";
+import { unstable_cache } from "next/cache";
 
-import {
-  HeroSection,
-  type HeroViewItem,
-} from "../components/acabados/HeroSection";
-import InspirationFinishedSection from "../components/acabados/InspirationFinishedSection";
-import ProjectHelpSection from "../components/contacto/ProjectHelpSection";
-import NewsSection from "../components/home/NewsSection";
+import { getFinishes, type FinishUI } from "@/services/finishesService";
+import { getFinishesPage } from "@/services/finishesPageService";
+import AcabadosClient from "./AcabadosClient";
 
-import { Loader } from "lucide-react";
+export const dynamic = "force-dynamic";
 
 type Lang = "es" | "en" | "fr";
 
-function pickLang(
-  lang: Lang,
-  es: string | null,
-  en: string | null,
-  fr: string | null,
-) {
-  if (lang === "es") return es || en || fr || "";
-  if (lang === "fr") return fr || en || es || "";
-  return en || es || fr || "";
+const normalizeLang = (raw?: string): Lang =>
+  raw === "en" || raw === "fr" ? raw : "es";
+
+const getCachedFinishes = unstable_cache(
+  async () => getFinishes(),
+  ["finishes-list"],
+  { revalidate: 3600, tags: ["finishes"] },
+);
+
+const getCachedFinishesPage = unstable_cache(
+  async (lang: Lang) => getFinishesPage(lang),
+  ["finishes-page"],
+  { revalidate: 3600, tags: ["finishes", "pages"] },
+);
+
+const FALLBACK_TITLE = "Grupo Estucalia | Acabados";
+const FALLBACK_DESCRIPTION =
+  "Descubre nuestra colección de acabados para construcción: texturas, colores y diseños exclusivos para tus proyectos.";
+
+async function safeGetFinishesPage(lang: Lang) {
+  try {
+    return await getCachedFinishesPage(lang);
+  } catch (error) {
+    console.error(`[acabados] getFinishesPage failed (${lang}):`, error);
+    return null;
+  }
 }
 
-export default function Acabados() {
-  const { language } = useLanguage() as any;
-  const lang: Lang = language || "es";
-
-  const [finishes, setFinishes] = useState<FinishUI[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  // 👇 Obtener SEO para la página de acabados
-  const { data: seoData } = useFinishesPage();
-
-  useEffect(() => {
-    let mounted = true;
-
-    (async () => {
-      try {
-        setLoading(true);
-        const data = await getFinishes();
-        if (mounted) setFinishes(data);
-      } catch (e) {
-        console.error("Error loading finishes:", e);
-      } finally {
-        if (mounted) setLoading(false);
-      }
-    })();
-
-    return () => {
-      mounted = false;
-    };
-  }, []);
-
-  const heroData: HeroViewItem[] = useMemo(() => {
-    return finishes.map((f) => ({
-      id: f.id,
-      title: pickLang(lang, f.name_es, f.name_en, f.name_fr),
-      description: pickLang(
-        lang,
-        f.description_es,
-        f.description_en,
-        f.description_fr,
-      ),
-      image: f.image_url,
-      categories: (f.categories || []).map((c) => ({
-        slug: c.slug,
-        name: pickLang(lang, c.name_es, c.name_en, c.name_fr),
-        iconUrl: c.icon_url,
-      })),
-    }));
-  }, [finishes, lang]);
-
-  if (loading) {
-    return (
-      <main className="min-h-screen gap-4 flex justify-center items-center bg-white md:pt-28 pt-16 lg:pt-32">
-        <Loader className="animate-spin" width={50} height={50} /> Loading...
-      </main>
-    );
+async function safeGetFinishes(): Promise<FinishUI[]> {
+  try {
+    return await getCachedFinishes();
+  } catch (error) {
+    console.error("[acabados] getFinishes failed:", error);
+    return [];
   }
+}
 
-  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+type SearchParams = { searchParams?: { lang?: string } };
 
-  return (
-    <>
-      {/* 👇 SEO DINÁMICO PARA ACABADOS */}
-      <SeoHead
-        seo={seoData?.seo || null}
-        url={currentUrl}
-        fallbackTitle="Grupo Estucalia | Acabados"
-        fallbackDescription="Descubre nuestra colección de acabados para construcción: texturas, colores y diseños exclusivos para tus proyectos."
-      />
+export async function generateMetadata({
+  searchParams,
+}: SearchParams): Promise<Metadata> {
+  const lang = normalizeLang(searchParams?.lang);
+  const page = await safeGetFinishesPage(lang);
+  const seo = page?.seo;
 
-      <main className="min-h-screen bg-white md:pt-28 pt-16 lg:pt-32">
-        <HeroSection data={heroData} />
-        <InspirationFinishedSection />
-        <NewsSection />
-        <ProjectHelpSection />
-      </main>
-    </>
-  );
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
+  const ogImage = seo?.og?.image || undefined;
+
+  return {
+    title,
+    description,
+    keywords: seo?.meta?.keywords || undefined,
+    robots: seo?.meta?.robots || "index, follow",
+    alternates: {
+      canonical:
+        seo?.meta?.canonical || "https://www.grupoestucalia.com/acabados",
+      languages: {
+        es: "https://www.grupoestucalia.com/acabados?lang=es",
+        en: "https://www.grupoestucalia.com/acabados?lang=en",
+        fr: "https://www.grupoestucalia.com/acabados?lang=fr",
+      },
+    },
+    openGraph: {
+      title: seo?.og?.title || title,
+      description: seo?.og?.description || description,
+      images: ogImage ? [{ url: ogImage }] : undefined,
+      type: (seo?.og?.type as "website" | "article") || "website",
+      siteName: "Grupo Estucalia",
+      locale: lang === "en" ? "en_US" : lang === "fr" ? "fr_FR" : "es_ES",
+    },
+    twitter: {
+      card:
+        (seo?.twitter?.card as "summary" | "summary_large_image") ||
+        "summary_large_image",
+      title: seo?.twitter?.title || title,
+      description: seo?.twitter?.description || description,
+      images: seo?.twitter?.image ? [seo.twitter.image] : undefined,
+    },
+  };
+}
+
+export default async function AcabadosPage() {
+  const finishes = await safeGetFinishes();
+  return <AcabadosClient finishes={finishes} />;
 }

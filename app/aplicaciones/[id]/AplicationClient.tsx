@@ -22,7 +22,6 @@ export default function AplicationClient() {
   const pathname = usePathname();
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
-  const [applicationSlug, setApplicationSlug] = useState<string>("");
   const previousLanguageRef = useRef<typeof language | null>(null);
   const isFirstRenderRef = useRef(true);
 
@@ -35,19 +34,26 @@ export default function AplicationClient() {
     return app.slug;
   }
 
-  // Obtener el slug de la URL
-  useEffect(() => {
-    setMounted(true);
+  // Slug calculado sincrónicamente desde el pathname. Necesario para que en
+  // SSR la queryKey coincida con el prefetch del server component y los hooks
+  // devuelvan los datos del cache desde el primer render (sin "Loading...").
+  const applicationSlug = useMemo(() => {
     const id = pathname.split("/").pop();
-    setApplicationSlug(id || "");
+    return decodeURIComponent(id || "");
   }, [pathname]);
 
-  // Consumir datos del backend
+  // mounted se usa solo para diferir efectos client-side (cambio de idioma).
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Consumir datos del backend. Sin `mounted &&` para que en SSR el hook
+  // ya lea el cache prefetched por el server component.
   const {
     data: backendData,
     isLoading,
     error,
-  } = useApplicationBySlug(applicationSlug, mounted && !!applicationSlug);
+  } = useApplicationBySlug(applicationSlug, !!applicationSlug);
 
   // Obtener todas las aplicaciones para encontrar la que coincide con el slug actual
   const { data: allApplicationsData } = useApplications();
@@ -151,7 +157,10 @@ export default function AplicationClient() {
     router,
   ]);
 
-  if (!mounted || isLoading) {
+  // Solo bloqueamos el render si NO tenemos nada que pintar. Cuando llegamos
+  // por SSR con datos prefetcheados, application ya existe y renderizamos el
+  // HTML completo desde el primer pintado (clave para SEO).
+  if (isLoading && !application) {
     return (
       <main className="min-h-screen gap-4 flex justify-center items-center bg-white md:pt-28 pt-16 lg:pt-32">
         <Loader width={50} height={50} /> Loading...

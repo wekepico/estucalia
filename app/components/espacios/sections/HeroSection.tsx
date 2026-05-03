@@ -39,8 +39,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onTabChange,
 }) => {
   const { t } = useLanguage();
+  // Inicializamos con la primera aplicación SINCRÓNICAMENTE para que el SSR
+  // pueda renderizar el contenido. Si no, useEffect no corre en SSR y el
+  // componente devuelve null → el HTML que ve Google queda vacío.
   const [selectedAplicacion, setSelectedAplicacion] = useState<string | null>(
-    null,
+    aplicaciones?.[0]?.key ?? null,
   );
 
   useEffect(() => {
