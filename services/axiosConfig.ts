@@ -3,7 +3,9 @@ import axios, { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse, AxiosE
 // Crear instancia de axios
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
-  timeout: 10000,
+  // Subido a 30s para tolerar cold starts de Laravel y endpoints con queries
+  // pesadas. Sin esto los users veían "timeout exceeded" al primer acceso.
+  timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
   },

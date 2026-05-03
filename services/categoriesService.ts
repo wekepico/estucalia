@@ -434,29 +434,9 @@ export const getCategoryBySlug = async (
       `/v1/categories/${slug}`,
       { params: { lang } }, // 👈 PASAR EL IDIOMA COMO PARÁMETRO
     );
-    console.error("🚀🚀🚀 RAW RESPONSE from backend:", response.data.data);
-    console.error(
-      "🚀🚀🚀 applications in raw:",
-      response.data.data.applications,
-    );
-    console.error(
-      "🚀🚀🚀 finishes in raw:",
-      response.data.data.finishes || "NO FINISHES",
-    );
-
-    const normalized = normalizeCategory(response.data.data);
-    console.error("🚀🚀🚀 NORMALIZED category:", normalized);
-    console.error(
-      "🚀🚀🚀 applications in normalized:",
-      normalized.applications,
-    );
-    console.error(
-      "🚀🚀🚀 finishes in normalized:",
-      normalized.finishes || "NO FINISHES",
-    );
 
     return {
-      data: normalized,
+      data: normalizeCategory(response.data.data),
     };
   } catch (error) {
     console.error(`Error fetching category ${slug}:`, error);

@@ -30,27 +30,33 @@ export default function CategoryClient() {
   const router = useRouter();
   const { t, language } = useLanguage();
   const [mounted, setMounted] = useState(false);
-  const [categorySlug, setCategorySlug] = useState<string>("");
   const previousLanguageRef = useRef<typeof language | null>(null);
   const isFirstRenderRef = useRef(true);
 
   // 👇 Obtener SEO general para categorías (mismo para todas)
   const { data: seoData } = useCategoriesPage();
 
-  // Obtenemos el slug de la categoría de la URL
-  useEffect(() => {
-    setMounted(true);
+  // Slug calculado sincrónicamente desde el pathname. Necesario para que en
+  // SSR la queryKey coincida con la que prefetcheamos en el server component
+  // y los hooks devuelvan los datos del cache desde el primer render
+  // (sin "Loading..." en el HTML que recibe Google).
+  const categorySlug = useMemo(() => {
     const slugEncoded = pathname.split("/").pop();
-    const categorySlugValue = decodeURIComponent(slugEncoded || "");
-    setCategorySlug(categorySlugValue);
+    return decodeURIComponent(slugEncoded || "");
   }, [pathname]);
 
-  // Consumir datos del backend
+  // mounted se usa solo para diferir efectos client-side (cambio de idioma).
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Consumir datos del backend. Sin `mounted &&` para que en SSR los hooks
+  // ya lean el cache prefetched por el server component.
   const {
     data: backendCategoryData,
     isLoading,
     error,
-  } = useCategoryBySlug(categorySlug, mounted && !!categorySlug);
+  } = useCategoryBySlug(categorySlug, !!categorySlug);
 
   // Obtener todas las categorías para encontrar la que coincide con el slug actual
   const { data: allCategoriesData } = useCategories();
@@ -58,13 +64,13 @@ export default function CategoryClient() {
   // Obtener productos de la categoría del backend
   const { data: backendProductsData } = useCategoryProducts(
     categorySlug,
-    mounted && !!categorySlug && !!backendCategoryData,
+    !!categorySlug,
   );
 
   // Obtener aplicaciones de la categoría del backend
   const { data: backendApplicationsData } = useCategoryApplications(
     categorySlug,
-    mounted && !!categorySlug && !!backendCategoryData,
+    !!categorySlug,
   );
 
   // Convertir datos del backend al formato esperado
@@ -438,7 +444,10 @@ useEffect(() => {
     console.log('🔍 finalSeo:', finalSeo);
 }, [finalSeo]);
   
-  if (!mounted || isLoading) {
+  // Solo mostramos el loader si REALMENTE no tenemos nada que pintar.
+  // Cuando llegamos por SSR con datos prefetcheados, finalCategory ya existe
+  // y renderizamos el HTML completo desde el primer pintado (clave para SEO).
+  if (isLoading && !finalCategory) {
     return (
       <main className="min-h-screen gap-4 flex justify-center items-center bg-white md:pt-28 pt-16 lg:pt-32">
         <Loader width={50} height={50} /> Loading...
