@@ -1,61 +1,102 @@
-// app/contacto/page.tsx
-"use client";
+// app/contacto/page.tsx - Server Component
+//
+// SSR + cache de fetch (1h por lang). Devuelve metadata desde el SEO de
+// Filament y prefetcha los datos para que el HTML llegue ya pintado.
 
-import { useLanguage } from "@/app/context/LanguageContext";
-import { useContactPage } from "@/api/useContactPage";
-import SeoHead from "@/components/SeoHead";
-import { useEffect } from "react";
+import type { Metadata } from "next";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { unstable_cache } from "next/cache";
 
-import ContactForm from "../components/contacto/ContactForm";
-import MapSection from "../components/contacto/MapSection";
-import ProjectHelpSection from "../components/contacto/ProjectHelpSection";
+import { getContactPage, type Lang } from "@/services/contactPageService";
+import ContactoClient from "./ContactoClient";
 
-function PageLoader() {
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-pulse text-lg">Cargando…</div>
-    </div>
-  );
+export const dynamic = "force-dynamic";
+
+const normalizeLang = (raw?: string): Lang =>
+  raw === "en" || raw === "fr" ? raw : "es";
+
+const getCachedContact = unstable_cache(
+  async (lang: Lang) => getContactPage(lang),
+  ["contact-page"],
+  { revalidate: 3600, tags: ["contact"] },
+);
+
+const FALLBACK_TITLE = "Grupo Estucalia | Contacto";
+const FALLBACK_DESCRIPTION =
+  "Contacta con nosotros para consultas, proyectos o solicitar información sobre nuestros morteros y revestimientos. Estamos en Murcia, España.";
+
+async function safeGet(lang: Lang) {
+  try {
+    return await getCachedContact(lang);
+  } catch (error) {
+    console.error(`[contacto] getContactPage failed (${lang}):`, error);
+    return null;
+  }
 }
 
-export default function ContactoPage() {
-  const { language, setLanguage } = useLanguage();
-  const { data: pageData, isPending, isLoading, isError } = useContactPage();
+type SearchParams = { searchParams?: { lang?: string } };
 
-  // Guardar idioma en localStorage cuando cambie
-  useEffect(() => {
-    localStorage.setItem("language", language);
-    document.documentElement.lang = language;
-  }, [language]);
+export async function generateMetadata({
+  searchParams,
+}: SearchParams): Promise<Metadata> {
+  const lang = normalizeLang(searchParams?.lang);
+  const data = await safeGet(lang);
+  const seo = (data as any)?.seo ?? null;
 
-  const loading = (isPending ?? isLoading) && !pageData;
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
+  const ogImage = seo?.og?.image || undefined;
 
-  if (loading) return <PageLoader />;
-  if (isError)
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        Error cargando la página de contacto
-      </div>
-    );
+  return {
+    title,
+    description,
+    keywords: seo?.meta?.keywords || undefined,
+    robots: seo?.meta?.robots || "index, follow",
+    alternates: {
+      canonical:
+        seo?.meta?.canonical || "https://www.grupoestucalia.com/contacto",
+      languages: {
+        es: "https://www.grupoestucalia.com/contacto?lang=es",
+        en: "https://www.grupoestucalia.com/contacto?lang=en",
+        fr: "https://www.grupoestucalia.com/contacto?lang=fr",
+      },
+    },
+    openGraph: {
+      title: seo?.og?.title || title,
+      description: seo?.og?.description || description,
+      images: ogImage ? [{ url: ogImage }] : undefined,
+      type: (seo?.og?.type as "website" | "article") || "website",
+      siteName: "Grupo Estucalia",
+      locale: lang === "en" ? "en_US" : lang === "fr" ? "fr_FR" : "es_ES",
+    },
+    twitter: {
+      card:
+        (seo?.twitter?.card as "summary" | "summary_large_image") ||
+        "summary_large_image",
+      title: seo?.twitter?.title || title,
+      description: seo?.twitter?.description || description,
+      images: seo?.twitter?.image ? [seo.twitter.image] : undefined,
+    },
+  };
+}
 
-  // Obtener URL actual
-  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+export default async function Contacto({ searchParams }: SearchParams) {
+  const lang = normalizeLang(searchParams?.lang);
+
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    // Match con contactPageKeys.detail(lang) → ["contact-page", lang]
+    queryKey: ["contact-page", lang],
+    queryFn: () => getCachedContact(lang),
+  });
 
   return (
-    <>
-      {/* 👇 SEO Dinámico - Se actualiza cuando cambia el idioma */}
-      <SeoHead
-        seo={pageData?.seo || null}
-        url={currentUrl}
-        fallbackTitle="Grupo Estucalia | Contacto"
-        fallbackDescription="Contacta con nosotros para consultas, proyectos o solicitar información sobre nuestros morteros y revestimientos. Estamos en Murcia, España."
-      />
-
-      <main className="min-h-screen bg-white">
-        <MapSection embedUrl={pageData?.map?.embedUrl} />
-        <ContactForm pageData={pageData} />
-        <ProjectHelpSection />
-      </main>
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <ContactoClient />
+    </HydrationBoundary>
   );
 }

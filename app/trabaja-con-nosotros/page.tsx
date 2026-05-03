@@ -1,61 +1,110 @@
-// app/trabaja-con-nosotros/page.tsx
-"use client";
+// app/trabaja-con-nosotros/page.tsx - Server Component
+//
+// SSR + cache de fetch (1h por lang). Devuelve metadata desde el SEO de
+// Filament y prefetcha los datos para que el HTML llegue ya pintado.
 
-import { useLanguage } from "../context/LanguageContext";
-import { useWorkWithUsPage } from "@/api/useWorkWithUsPage";
-import SeoHead from "@/components/SeoHead";
-import { useEffect } from "react";
+import type { Metadata } from "next";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { unstable_cache } from "next/cache";
 
-import HeroSection from "../components/trabaja-con-nosotros/HeroSection";
-import ApplicationForm from "../components/trabaja-con-nosotros/ApplicationForm";
-import BottomSection from "../components/trabaja-con-nosotros/BottomSection";
+import { getWorkWithUsPage } from "@/services/workWithUsPageService";
+import TrabajaConNosotrosClient from "./TrabajaConNosotrosClient";
 
-function PageLoader() {
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-pulse text-lg">Cargando…</div>
-    </div>
-  );
+export const dynamic = "force-dynamic";
+
+type Lang = "es" | "en" | "fr";
+
+const normalizeLang = (raw?: string): Lang =>
+  raw === "en" || raw === "fr" ? raw : "es";
+
+const getCachedWorkWithUs = unstable_cache(
+  async (lang: Lang) => getWorkWithUsPage(lang),
+  ["work-with-us-page"],
+  { revalidate: 3600, tags: ["work-with-us"] },
+);
+
+const FALLBACK_TITLE = "Grupo Estucalia | Trabaja con Nosotros";
+const FALLBACK_DESCRIPTION =
+  "Únete a nuestro equipo. Buscamos talento apasionado por la construcción y los morteros de alta calidad. Envía tu CV y forma parte de Grupo Estucalia.";
+
+async function safeGet(lang: Lang) {
+  try {
+    return await getCachedWorkWithUs(lang);
+  } catch (error) {
+    console.error(
+      `[trabaja-con-nosotros] getWorkWithUsPage failed (${lang}):`,
+      error,
+    );
+    return null;
+  }
 }
 
-export default function TrabajaConNosotrosPage() {
-  const { language, setLanguage } = useLanguage();
-  const { data: pageData, isPending, isLoading, isError } = useWorkWithUsPage();
+type SearchParams = { searchParams?: { lang?: string } };
 
-  // Guardar idioma en localStorage cuando cambie
-  useEffect(() => {
-    localStorage.setItem("language", language);
-    document.documentElement.lang = language;
-  }, [language]);
+export async function generateMetadata({
+  searchParams,
+}: SearchParams): Promise<Metadata> {
+  const lang = normalizeLang(searchParams?.lang);
+  const data = await safeGet(lang);
+  const seo = (data as any)?.seo ?? null;
 
-  const loading = (isPending ?? isLoading) && !pageData;
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
+  const ogImage = seo?.og?.image || undefined;
 
-  if (loading) return <PageLoader />;
-  if (isError)
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        Error cargando la página
-      </div>
-    );
+  return {
+    title,
+    description,
+    keywords: seo?.meta?.keywords || undefined,
+    robots: seo?.meta?.robots || "index, follow",
+    alternates: {
+      canonical:
+        seo?.meta?.canonical ||
+        "https://www.grupoestucalia.com/trabaja-con-nosotros",
+      languages: {
+        es: "https://www.grupoestucalia.com/trabaja-con-nosotros?lang=es",
+        en: "https://www.grupoestucalia.com/trabaja-con-nosotros?lang=en",
+        fr: "https://www.grupoestucalia.com/trabaja-con-nosotros?lang=fr",
+      },
+    },
+    openGraph: {
+      title: seo?.og?.title || title,
+      description: seo?.og?.description || description,
+      images: ogImage ? [{ url: ogImage }] : undefined,
+      type: (seo?.og?.type as "website" | "article") || "website",
+      siteName: "Grupo Estucalia",
+      locale: lang === "en" ? "en_US" : lang === "fr" ? "fr_FR" : "es_ES",
+    },
+    twitter: {
+      card:
+        (seo?.twitter?.card as "summary" | "summary_large_image") ||
+        "summary_large_image",
+      title: seo?.twitter?.title || title,
+      description: seo?.twitter?.description || description,
+      images: seo?.twitter?.image ? [seo.twitter.image] : undefined,
+    },
+  };
+}
 
-  // Obtener URL actual
-  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+export default async function TrabajaConNosotros({
+  searchParams,
+}: SearchParams) {
+  const lang = normalizeLang(searchParams?.lang);
+
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    // Match con workWithUsKeys.detail(lang) → ["work-with-us-page", lang]
+    queryKey: ["work-with-us-page", lang],
+    queryFn: () => getCachedWorkWithUs(lang),
+  });
 
   return (
-    <>
-      {/* 👇 SEO Dinámico - Se actualiza cuando cambia el idioma */}
-      <SeoHead
-        seo={pageData?.seo || null}
-        url={currentUrl}
-        fallbackTitle="Grupo Estucalia | Trabaja con Nosotros"
-        fallbackDescription="Únete a nuestro equipo. Buscamos talento apasionado por la construcción y los morteros de alta calidad. Envía tu CV y forma parte de Grupo Estucalia."
-      />
-
-      <main className="min-h-screen bg-white">
-        <HeroSection />
-        <ApplicationForm />
-        <BottomSection />
-      </main>
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <TrabajaConNosotrosClient />
+    </HydrationBoundary>
   );
 }

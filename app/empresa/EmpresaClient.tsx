@@ -1,8 +1,9 @@
-// app/empresa/EmpresaClient.tsx
 "use client";
 
+import { useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
-import { EmpresaPageResponse } from "@/services/empresaService";
+import { useEmpresa } from "@/api/useEmpresa";
+
 import VideoHero from "../components/empresa/VideoHero";
 import AboutSection from "../components/empresa/AboutSection";
 import ProductionSection from "../components/empresa/ProductionSection";
@@ -11,51 +12,31 @@ import InternationalSection from "../components/empresa/InternationalSection";
 import CertificationsSection from "../components/empresa/CertificationsSection";
 import ConsultingSection from "../components/empresa/ConsultingSection";
 import NewsSection from "../components/home/NewsSection";
-import { useEffect, useRef } from "react";
 
-type Language = "es" | "en" | "fr";
+export default function EmpresaClient() {
+  const { t, language } = useLanguage();
+  const { data: empresa, isLoading, isError } = useEmpresa();
 
-function normalizeLang(lang: string): Language {
-  if (lang === "en" || lang === "fr") {
-    return lang;
-  }
-  return "es";
-}
-
-export default function EmpresaClient({
-  initialData,
-  lang,
-}: {
-  initialData: EmpresaPageResponse;
-  lang: string;
-}) {
-  const { language, setLanguage } = useLanguage();
-  const hasInitialized = useRef(false); // 👈 Prevenir múltiples actualizaciones
-
-  // Sincronizar idioma con la URL SOLO UNA VEZ al inicio
   useEffect(() => {
-    const normalizedLang = normalizeLang(lang);
-    if (!hasInitialized.current && normalizedLang !== language) {
-      hasInitialized.current = true;
-      setLanguage(normalizedLang);
-    }
-  }, [lang, language, setLanguage]);
+    localStorage.setItem("language", language);
+    document.documentElement.lang = language;
+  }, [language]);
 
-  const empresa = initialData;
+  if (isLoading && !empresa) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-pulse text-lg">Cargando…</div>
+      </div>
+    );
+  }
 
-  // 👇 Obtener la función t del contexto
-  const { t } = useLanguage();
-
-  const pick = (
-    es?: string | null,
-    en?: string | null,
-    fr?: string | null,
-    fallback?: string,
-  ) => {
-    if (language === "en") return en || es || fallback || "";
-    if (language === "fr") return fr || es || fallback || "";
-    return es || fallback || "";
-  };
+  if (isError && !empresa) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Error cargando Empresa
+      </div>
+    );
+  }
 
   const solutionsTitle =
     empresa?.solutions?.title || t("company.solutions.title");

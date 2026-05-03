@@ -1,74 +1,110 @@
-// app/politica-privacidad/page.tsx
-"use client";
+// app/politica-privacidad/page.tsx - Server Component
+//
+// SSR + cache de fetch (1h por lang). Devuelve metadata desde el SEO de
+// Filament y prefetcha los datos para que el HTML llegue ya pintado.
 
-import { useLanguage } from "@/app/context/LanguageContext";
-import { usePrivacyPolicyPage } from "@/api/usePrivacyPolicyPage";
-import SeoHead from "@/components/SeoHead";
-import { useEffect } from "react";
-import PrivacyPolicy from "../components/legal/PrivacyPolicy";
+import type { Metadata } from "next";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { unstable_cache } from "next/cache";
 
-function PageLoader() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="animate-pulse text-lg">
-        Cargando política de privacidad...
-      </div>
-    </div>
-  );
+import {
+  getPrivacyPolicyPage,
+  type Lang,
+} from "@/services/privacyPolicyService";
+import PoliticaPrivacidadClient from "./PoliticaPrivacidadClient";
+
+export const dynamic = "force-dynamic";
+
+const normalizeLang = (raw?: string): Lang =>
+  raw === "en" || raw === "fr" ? raw : "es";
+
+const getCachedPrivacy = unstable_cache(
+  async (lang: Lang) => getPrivacyPolicyPage(lang),
+  ["privacy-policy-page"],
+  { revalidate: 3600, tags: ["privacy"] },
+);
+
+const FALLBACK_TITLE = "Grupo Estucalia | Política de Privacidad";
+const FALLBACK_DESCRIPTION =
+  "Cómo protegemos tus datos personales, derechos ARSOL, y medidas de seguridad implementadas por Grupo Estucalia.";
+
+async function safeGet(lang: Lang) {
+  try {
+    return await getCachedPrivacy(lang);
+  } catch (error) {
+    console.error(
+      `[politica-privacidad] getPrivacyPolicyPage failed (${lang}):`,
+      error,
+    );
+    return null;
+  }
 }
 
-export default function PrivacyPolicyPage() {
-  const { language, setLanguage } = useLanguage();
-  const { data, isPending, isLoading, isError, error } = usePrivacyPolicyPage();
+type SearchParams = { searchParams?: { lang?: string } };
 
-  console.log("📄 [PRIVACY PAGE] data:", data);
-  console.log("📄 [PRIVACY PAGE] isLoading:", isLoading);
-  console.log("📄 [PRIVACY PAGE] isError:", isError);
+export async function generateMetadata({
+  searchParams,
+}: SearchParams): Promise<Metadata> {
+  const lang = normalizeLang(searchParams?.lang);
+  const data = await safeGet(lang);
+  const seo = (data as any)?.seo ?? null;
 
-  // Guardar idioma en localStorage cuando cambie
-  useEffect(() => {
-    localStorage.setItem("language", language);
-    document.documentElement.lang = language;
-  }, [language]);
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
+  const ogImage = seo?.og?.image || undefined;
 
-  const loading = (isPending ?? isLoading) && !data;
+  return {
+    title,
+    description,
+    keywords: seo?.meta?.keywords || undefined,
+    robots: seo?.meta?.robots || "index, follow",
+    alternates: {
+      canonical:
+        seo?.meta?.canonical ||
+        "https://www.grupoestucalia.com/politica-privacidad",
+      languages: {
+        es: "https://www.grupoestucalia.com/politica-privacidad?lang=es",
+        en: "https://www.grupoestucalia.com/politica-privacidad?lang=en",
+        fr: "https://www.grupoestucalia.com/politica-privacidad?lang=fr",
+      },
+    },
+    openGraph: {
+      title: seo?.og?.title || title,
+      description: seo?.og?.description || description,
+      images: ogImage ? [{ url: ogImage }] : undefined,
+      type: (seo?.og?.type as "website" | "article") || "website",
+      siteName: "Grupo Estucalia",
+      locale: lang === "en" ? "en_US" : lang === "fr" ? "fr_FR" : "es_ES",
+    },
+    twitter: {
+      card:
+        (seo?.twitter?.card as "summary" | "summary_large_image") ||
+        "summary_large_image",
+      title: seo?.twitter?.title || title,
+      description: seo?.twitter?.description || description,
+      images: seo?.twitter?.image ? [seo.twitter.image] : undefined,
+    },
+  };
+}
 
-  if (loading) return <PageLoader />;
+export default async function PoliticaPrivacidad({
+  searchParams,
+}: SearchParams) {
+  const lang = normalizeLang(searchParams?.lang);
 
-  if (isError) {
-    console.error("📄 [PRIVACY PAGE] error:", error);
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-red-500 text-center">
-          <p className="text-lg font-semibold">Error cargando la página</p>
-          <p className="text-sm mt-2 text-gray-600">
-            {error?.message || "Error desconocido"}
-          </p>
-          <button
-            className="mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
-            onClick={() => window.location.reload()}
-          >
-            Reintentar
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    queryKey: ["privacy-policy", lang],
+    queryFn: () => getCachedPrivacy(lang),
+  });
 
   return (
-    <>
-      <SeoHead
-        seo={data?.seo || null}
-        url={currentUrl}
-        fallbackTitle="Grupo Estucalia | Política de Privacidad"
-        fallbackDescription="Cómo protegemos tus datos personales, derechos ARSOL, y medidas de seguridad implementadas por Grupo Estucalia."
-      />
-
-      <main className="min-h-screen">
-        <PrivacyPolicy />
-      </main>
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <PoliticaPrivacidadClient />
+    </HydrationBoundary>
   );
 }

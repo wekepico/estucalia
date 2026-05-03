@@ -43,8 +43,10 @@ export default function BlogClient() {
     return desc;
   };
 
-  if (isLoading) return <Loader className="animate-spin" />;
-  if (error || !post) return <p>Error al cargar la noticia</p>;
+  // Solo bloqueamos si NO hay datos del cache prefetched. En SSR el cache ya
+  // tiene el post, así que renderizamos el HTML completo desde el primer pintado.
+  if (isLoading && !post) return <Loader className="animate-spin" />;
+  if (!post) return <p>Error al cargar la noticia</p>;
 
   const currentUrl = typeof window !== "undefined" ? window.location.href : "";
 

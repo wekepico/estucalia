@@ -1,68 +1,103 @@
-// app/aviso-legal/page.tsx
-"use client";
+// app/aviso-legal/page.tsx - Server Component
+//
+// SSR + cache de fetch (1h por lang). Devuelve metadata desde el SEO de
+// Filament y prefetcha los datos para que el HTML llegue ya pintado.
 
-import { useLanguage } from "@/app/context/LanguageContext";
-import { useLegal } from "@/api/useLegal";
-import SeoHead from "@/components/SeoHead";
-import { useEffect } from "react";
-import LegalNotice from "../components/legal/LegalNotice";
+import type { Metadata } from "next";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { unstable_cache } from "next/cache";
 
-function PageLoader() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="animate-pulse text-lg">Cargando aviso legal...</div>
-    </div>
-  );
+import { getLegalNoticePage } from "@/services/legalService";
+import AvisoLegalClient from "./AvisoLegalClient";
+
+export const dynamic = "force-dynamic";
+
+type Lang = "es" | "en" | "fr";
+
+const normalizeLang = (raw?: string): Lang =>
+  raw === "en" || raw === "fr" ? raw : "es";
+
+const getCachedLegal = unstable_cache(
+  async (lang: Lang) => getLegalNoticePage(lang),
+  ["legal-page"],
+  { revalidate: 3600, tags: ["legal"] },
+);
+
+const FALLBACK_TITLE = "Grupo Estucalia | Aviso Legal";
+const FALLBACK_DESCRIPTION =
+  "Información legal, condiciones de uso, propiedad intelectual y política de privacidad de Grupo Estucalia.";
+
+async function safeGet(lang: Lang) {
+  try {
+    return await getCachedLegal(lang);
+  } catch (error) {
+    console.error(`[aviso-legal] getLegalNoticePage failed (${lang}):`, error);
+    return null;
+  }
 }
 
-export default function AvisoLegalPage() {
-  const { language, setLanguage } = useLanguage();
-  const { data, isPending, isLoading, isError, error } = useLegal();
+type SearchParams = { searchParams?: { lang?: string } };
 
-  // Guardar idioma en localStorage cuando cambie
-  useEffect(() => {
-    localStorage.setItem("language", language);
-    document.documentElement.lang = language;
-  }, [language]);
+export async function generateMetadata({
+  searchParams,
+}: SearchParams): Promise<Metadata> {
+  const lang = normalizeLang(searchParams?.lang);
+  const data = await safeGet(lang);
+  const seo = (data as any)?.seo ?? null;
 
-  const loading = (isPending ?? isLoading) && !data;
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
+  const ogImage = seo?.og?.image || undefined;
 
-  if (loading) return <PageLoader />;
+  return {
+    title,
+    description,
+    keywords: seo?.meta?.keywords || undefined,
+    robots: seo?.meta?.robots || "index, follow",
+    alternates: {
+      canonical:
+        seo?.meta?.canonical || "https://www.grupoestucalia.com/aviso-legal",
+      languages: {
+        es: "https://www.grupoestucalia.com/aviso-legal?lang=es",
+        en: "https://www.grupoestucalia.com/aviso-legal?lang=en",
+        fr: "https://www.grupoestucalia.com/aviso-legal?lang=fr",
+      },
+    },
+    openGraph: {
+      title: seo?.og?.title || title,
+      description: seo?.og?.description || description,
+      images: ogImage ? [{ url: ogImage }] : undefined,
+      type: (seo?.og?.type as "website" | "article") || "website",
+      siteName: "Grupo Estucalia",
+      locale: lang === "en" ? "en_US" : lang === "fr" ? "fr_FR" : "es_ES",
+    },
+    twitter: {
+      card:
+        (seo?.twitter?.card as "summary" | "summary_large_image") ||
+        "summary_large_image",
+      title: seo?.twitter?.title || title,
+      description: seo?.twitter?.description || description,
+      images: seo?.twitter?.image ? [seo.twitter.image] : undefined,
+    },
+  };
+}
 
-  if (isError) {
-    console.error("Error loading legal page:", error);
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-red-500 text-center">
-          <p className="text-lg font-semibold">Error cargando la página</p>
-          <p className="text-sm mt-2 text-gray-600">
-            {error?.message || "Error desconocido"}
-          </p>
-          <button
-            className="mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
-            onClick={() => window.location.reload()}
-          >
-            Reintentar
-          </button>
-        </div>
-      </div>
-    );
-  }
+export default async function AvisoLegal({ searchParams }: SearchParams) {
+  const lang = normalizeLang(searchParams?.lang);
 
-  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    queryKey: ["legal", lang],
+    queryFn: () => getCachedLegal(lang),
+  });
 
   return (
-    <>
-      <SeoHead
-        seo={data?.seo || null}
-        url={currentUrl}
-        fallbackTitle="Grupo Estucalia | Aviso Legal"
-        fallbackDescription="Información legal, condiciones de uso, propiedad intelectual y política de privacidad de Grupo Estucalia."
-      />
-
-      <main className="min-h-screen">
-        <LegalNotice />
-      </main>
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <AvisoLegalClient />
+    </HydrationBoundary>
   );
 }

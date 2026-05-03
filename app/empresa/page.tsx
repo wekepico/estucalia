@@ -1,97 +1,101 @@
-// app/empresa/page.tsx (Client Component - VERSIÓN CORREGIDA)
-"use client";
+// app/empresa/page.tsx - Server Component
+//
+// SSR + cache de fetch (1h por lang). Devuelve metadata desde el SEO de
+// Filament y prefetcha los datos para que el HTML llegue ya pintado.
 
-import { useLanguage } from "../context/LanguageContext";
-import { useEmpresa } from "@/api/useEmpresa";
-import SeoHead from "@/components/SeoHead"; // 👈 Importar componente SEO
-import { useEffect } from "react";
+import type { Metadata } from "next";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { unstable_cache } from "next/cache";
 
-import VideoHero from "../components/empresa/VideoHero";
-import AboutSection from "../components/empresa/AboutSection";
-import ProductionSection from "../components/empresa/ProductionSection";
-import SolutionsSection from "../components/empresa/SolutionsSection";
-import InternationalSection from "../components/empresa/InternationalSection";
-import CertificationsSection from "../components/empresa/CertificationsSection";
-import ConsultingSection from "../components/empresa/ConsultingSection";
-import NewsSection from "../components/home/NewsSection";
+import { getEmpresaData, type Lang } from "@/services/empresaService";
+import EmpresaClient from "./EmpresaClient";
 
-function PageLoader() {
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-pulse text-lg">Cargando…</div>
-    </div>
-  );
+export const dynamic = "force-dynamic";
+
+const normalizeLang = (raw?: string): Lang =>
+  raw === "en" || raw === "fr" ? raw : "es";
+
+const getCachedEmpresa = unstable_cache(
+  async (lang: Lang) => getEmpresaData(lang),
+  ["empresa-page"],
+  { revalidate: 3600, tags: ["empresa"] },
+);
+
+const FALLBACK_TITLE = "Grupo Estucalia | Empresa";
+const FALLBACK_DESCRIPTION =
+  "Conoce nuestra historia, misión y valores. Más de 25 años de experiencia en morteros de alta gama.";
+
+async function safeGet(lang: Lang) {
+  try {
+    return await getCachedEmpresa(lang);
+  } catch (error) {
+    console.error(`[empresa] getEmpresaData failed (${lang}):`, error);
+    return null;
+  }
 }
 
-export default function EmpresaPage() {
-  const { t, language, setLanguage } = useLanguage();
-  const { data: empresa, isPending, isLoading, isError } = useEmpresa();
+type SearchParams = { searchParams?: { lang?: string } };
 
-  // 👇 Guardar idioma en localStorage cuando cambie
-  useEffect(() => {
-    localStorage.setItem("language", language);
-    document.documentElement.lang = language;
-  }, [language]);
+export async function generateMetadata({
+  searchParams,
+}: SearchParams): Promise<Metadata> {
+  const lang = normalizeLang(searchParams?.lang);
+  const data = await safeGet(lang);
+  const seo = data?.seo ?? null;
 
-  const loading = (isPending ?? isLoading) && !empresa;
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
+  const ogImage = seo?.og?.image || undefined;
 
-  if (loading) return <PageLoader />;
-  if (isError)
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        Error cargando Empresa
-      </div>
-    );
-
-  const pick = (
-    es?: string | null,
-    en?: string | null,
-    fr?: string | null,
-    fallback?: string,
-  ) => {
-    if (language === "en") return en || es || fallback || "";
-    if (language === "fr") return fr || es || fallback || "";
-    return es || fallback || "";
+  return {
+    title,
+    description,
+    keywords: seo?.meta?.keywords || undefined,
+    robots: seo?.meta?.robots || "index, follow",
+    alternates: {
+      canonical:
+        seo?.meta?.canonical || "https://www.grupoestucalia.com/empresa",
+      languages: {
+        es: "https://www.grupoestucalia.com/empresa?lang=es",
+        en: "https://www.grupoestucalia.com/empresa?lang=en",
+        fr: "https://www.grupoestucalia.com/empresa?lang=fr",
+      },
+    },
+    openGraph: {
+      title: seo?.og?.title || title,
+      description: seo?.og?.description || description,
+      images: ogImage ? [{ url: ogImage }] : undefined,
+      type: (seo?.og?.type as "website" | "article") || "website",
+      siteName: "Grupo Estucalia",
+      locale: lang === "en" ? "en_US" : lang === "fr" ? "fr_FR" : "es_ES",
+    },
+    twitter: {
+      card:
+        (seo?.twitter?.card as "summary" | "summary_large_image") ||
+        "summary_large_image",
+      title: seo?.twitter?.title || title,
+      description: seo?.twitter?.description || description,
+      images: seo?.twitter?.image ? [seo.twitter.image] : undefined,
+    },
   };
+}
 
-  const solutionsTitle =
-    empresa?.solutions?.title || t("company.solutions.title");
-  const solutionsIntro =
-    empresa?.solutions?.intro || t("company.solutions.description");
-  const solutionItems = (empresa?.solutions?.featured_categories ?? [])
-    .filter((c) => c?.slug)
-    .map((c) => ({
-      slug: c.slug as string,
-      label: c.label ?? "",
-    }));
+export default async function Empresa({ searchParams }: SearchParams) {
+  const lang = normalizeLang(searchParams?.lang);
 
-  // 👇 Obtener URL actual
-  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    queryKey: ["empresa", lang],
+    queryFn: () => getCachedEmpresa(lang),
+  });
 
   return (
-    <>
-      {/* 👇 SEO Dinámico - Se actualiza cuando cambia el idioma */}
-      <SeoHead
-        seo={empresa?.seo || null}
-        url={currentUrl}
-        fallbackTitle="Grupo Estucalia | Empresa"
-        fallbackDescription="Conoce nuestra historia, misión y valores. Más de 25 años de experiencia en morteros de alta gama."
-      />
-
-      <main className="min-h-screen">
-        <VideoHero />
-        <AboutSection />
-        <ProductionSection />
-        <SolutionsSection
-          titleHtml={solutionsTitle}
-          introHtml={solutionsIntro}
-          items={solutionItems}
-        />
-        <InternationalSection />
-        <CertificationsSection />
-        <ConsultingSection />
-        <NewsSection />
-      </main>
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <EmpresaClient />
+    </HydrationBoundary>
   );
 }
