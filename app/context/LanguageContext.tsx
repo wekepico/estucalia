@@ -8,12 +8,16 @@ import React, {
   useEffect,
   useCallback,
 } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import esTranslations from "../../messages/es.json";
 import enTranslations from "../../messages/en.json";
 import frTranslations from "../../messages/fr.json";
 
 type Language = "es" | "en" | "fr";
+
+const VALID_LANGS: Language[] = ["es", "en", "fr"];
+const isValidLang = (v: unknown): v is Language =>
+  typeof v === "string" && (VALID_LANGS as string[]).includes(v);
 
 interface LanguageContextType {
   language: Language;
@@ -32,76 +36,54 @@ const allTranslations = {
 };
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("es");
-  const [translations, setTranslations] = useState<Record<string, any>>(
-    allTranslations["es"],
-  );
-  const [isHydrated, setIsHydrated] = useState(false);
-  const pathname = usePathname();
-  const router = useRouter();
+  // Leemos el lang directamente de ?lang= con useSearchParams. Funciona
+  // tanto en SSR (server-render del client component) como en el cliente,
+  // así que server y cliente arrancan con EL MISMO idioma desde el primer
+  // render — sin flicker, sin desfase.
+  // localStorage se usa solo como preferencia para próximas visitas.
+  const searchParams = useSearchParams();
+  const urlLang = searchParams?.get("lang");
+  const initialLang: Language = isValidLang(urlLang) ? urlLang : "es";
 
-  // Sincronizar el idioma después del mount (client-side only)
+  const [language] = useState<Language>(initialLang);
+  const translations = allTranslations[language];
+
+  // Si la URL no trae lang pero hay preferencia guardada en localStorage,
+  // recargamos con esa preferencia (visita returnista que abre la home limpia).
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (urlLang) return; // si la URL manda, no tocamos
 
-    setIsHydrated(true);
-
-    // 1. Intentar obtener idioma de localStorage
-    const savedLanguage = localStorage.getItem("language") as Language;
-
-    // 2. Intentar obtener idioma de la URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlLang = urlParams.get("lang") as Language;
-
-    // 3. Decidir qué idioma usar (prioridad: localStorage > URL > default)
-    let initialLang: Language = "es";
-
-    if (savedLanguage && ["es", "en", "fr"].includes(savedLanguage)) {
-      initialLang = savedLanguage;
-      console.log("🌐 Idioma cargado de localStorage:", initialLang);
-    } else if (urlLang && ["es", "en", "fr"].includes(urlLang)) {
-      initialLang = urlLang;
-      console.log("🌐 Idioma cargado de URL:", initialLang);
+    const savedLanguage = localStorage.getItem("language");
+    if (
+      isValidLang(savedLanguage) &&
+      savedLanguage !== "es" &&
+      savedLanguage !== language
+    ) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", savedLanguage);
+      window.location.assign(url.toString());
     }
+  }, [urlLang, language]);
 
-    // Actualizar el estado si es diferente
-    if (initialLang !== language) {
-      setLanguageState(initialLang);
-      setTranslations(allTranslations[initialLang]);
-    }
+  // Persistimos la preferencia y actualizamos <html lang> para accesibilidad.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    localStorage.setItem("language", language);
+    document.documentElement.lang = language;
+  }, [language]);
 
-    // Si la URL no tiene el parámetro lang, actualizarla
-    if (!urlLang) {
-      const newUrl = new URL(window.location.href);
-      newUrl.searchParams.set("lang", initialLang);
-      window.history.replaceState({}, "", newUrl.toString());
-    }
-  }, []); // Solo ejecutar al montar
-
-  // Función para cambiar idioma
   const setLanguage = useCallback(
     (lang: Language) => {
       if (lang === language) return;
+      if (typeof window === "undefined") return;
 
-      console.log("🌐 Cambiando idioma a:", lang);
-
-      // Actualizar estado
-      setLanguageState(lang);
-      setTranslations(allTranslations[lang]);
-
-      // Guardar en localStorage
-      if (typeof window !== "undefined") {
-        localStorage.setItem("language", lang);
-
-        // Actualizar URL sin recargar la página
-        const url = new URL(window.location.href);
-        url.searchParams.set("lang", lang);
-        window.history.pushState({}, "", url.toString());
-      }
-
-      // Opcional: forzar re-render de componentes que dependen del idioma
-      // Esto es útil si tienes componentes que no se actualizan automáticamente
-      window.dispatchEvent(new Event("languagechange"));
+      // Recarga completa para que generateMetadata se vuelva a ejecutar en el
+      // server con el nuevo lang y se actualicen <head> y contenido a la vez.
+      localStorage.setItem("language", lang);
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.location.assign(url.toString());
     },
     [language],
   );
@@ -134,15 +116,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     },
     [translations],
   );
-
-  // Mostrar loader mientras se hidrata (opcional)
-  if (!isHydrated) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse">Cargando...</div>
-      </div>
-    );
-  }
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>

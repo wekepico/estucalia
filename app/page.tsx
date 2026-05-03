@@ -1,69 +1,113 @@
-// app/page.tsx (Home page)
-"use client";
+// app/page.tsx (Home page) - Server Component
+//
+// SSR dinámico + cache de fetch: cada request renderiza con el ?lang= correcto
+// y trae el SEO actualizado, pero el backend solo se golpea una vez por hora
+// por idioma (unstable_cache). Equivalente a ISR pero compatible con
+// searchParams (que rompen el cache de ruta de Next 13).
 
-import { useLanguage } from "./context/LanguageContext";
-import { useHome } from "@/api/useHome";
-import SeoHead from "@/components/SeoHead";
-import { useEffect } from "react";
+import type { Metadata } from "next";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { unstable_cache } from "next/cache";
 
-import HeroSection from "./components/home/HeroSection";
-import CompanyInfo from "./components/home/CompanyInfo";
-import AplicationSection from "./components/home/AplicationSection";
-import FinishesSection from "./components/home/FinishesSection";
-import InspirationSection from "./components/home/InspirationSection";
-import NewsSection from "./components/home/NewsSection";
-import ProjectHelpSection from "./components/contacto/ProjectHelpSection";
+import { getHome, type Lang } from "@/services/homeService";
+import HomeClient from "./HomeClient";
 
-function PageLoader() {
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-pulse text-lg">Cargando…</div>
-    </div>
-  );
+// La página depende de ?lang=, así que se renderiza dinámicamente.
+// El cache real está en unstable_cache (debajo), no en la ruta.
+export const dynamic = "force-dynamic";
+
+// Cache de los datos del backend por idioma. TTL 1h. Cuando expire, la
+// próxima request regenera y vuelve a cachear.
+const getCachedHome = unstable_cache(
+  async (lang: Lang) => {
+    return await getHome(lang);
+  },
+  ["home"],
+  { revalidate: 3600, tags: ["home"] },
+);
+
+type SearchParams = { searchParams?: { lang?: string } };
+
+const normalizeLang = (raw?: string): Lang =>
+  raw === "en" || raw === "fr" ? raw : "es";
+
+const FALLBACK_TITLE = "Grupo Estucalia | Morteros de Alta Gama";
+const FALLBACK_DESCRIPTION =
+  "Más de 25 años desarrollando y fabricando morteros de alta gama para la construcción. Calidad y experiencia en revestimientos.";
+
+async function safeGetHome(lang: Lang) {
+  try {
+    return await getCachedHome(lang);
+  } catch (error) {
+    // Si el backend cae, no rompemos la página: devolvemos null y el
+    // HomeClient pintará con sus fallbacks de traducción.
+    console.error("[home/page.tsx] getHome failed:", error);
+    return null;
+  }
 }
 
-export default function HomePage() {
-  const { language, setLanguage } = useLanguage();
-  const { data: home, isPending, isLoading, isError } = useHome();
+export async function generateMetadata({
+  searchParams,
+}: SearchParams): Promise<Metadata> {
+  const lang = normalizeLang(searchParams?.lang);
+  const home = await safeGetHome(lang);
+  const seo = home?.seo;
 
-  // Guardar idioma en localStorage cuando cambie
-  useEffect(() => {
-    localStorage.setItem("language", language);
-    document.documentElement.lang = language;
-  }, [language]);
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
+  const ogImage = seo?.og?.image || undefined;
 
-  const loading = (isPending ?? isLoading) && !home;
+  return {
+    title,
+    description,
+    keywords: seo?.meta?.keywords || undefined,
+    robots: seo?.meta?.robots || "index, follow",
+    authors: seo?.meta?.author ? [{ name: seo.meta.author }] : undefined,
+    alternates: {
+      canonical: seo?.meta?.canonical || "https://www.grupoestucalia.com",
+      languages: {
+        es: "https://www.grupoestucalia.com?lang=es",
+        en: "https://www.grupoestucalia.com?lang=en",
+        fr: "https://www.grupoestucalia.com?lang=fr",
+      },
+    },
+    openGraph: {
+      title: seo?.og?.title || title,
+      description: seo?.og?.description || description,
+      images: ogImage ? [{ url: ogImage }] : undefined,
+      type: (seo?.og?.type as "website" | "article") || "website",
+      siteName: "Grupo Estucalia",
+      locale: lang === "en" ? "en_US" : lang === "fr" ? "fr_FR" : "es_ES",
+    },
+    twitter: {
+      card:
+        (seo?.twitter?.card as "summary" | "summary_large_image") ||
+        "summary_large_image",
+      title: seo?.twitter?.title || title,
+      description: seo?.twitter?.description || description,
+      images: seo?.twitter?.image ? [seo.twitter.image] : undefined,
+    },
+  };
+}
 
-  if (loading) return <PageLoader />;
-  if (isError)
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        Error cargando la página principal
-      </div>
-    );
+export default async function HomePage({ searchParams }: SearchParams) {
+  const lang = normalizeLang(searchParams?.lang);
 
-  // Obtener URL actual
-  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+  // Prefetch del /v1/home para que React Query del cliente arranque
+  // con los datos ya cargados (sin spinner, sin doble request).
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    queryKey: ["home", lang],
+    queryFn: () => getCachedHome(lang),
+  });
 
   return (
-    <>
-      {/* 👇 SEO Dinámico - Se actualiza cuando cambia el idioma */}
-      <SeoHead
-        seo={home?.seo || null}
-        url={currentUrl}
-        fallbackTitle="Grupo Estucalia | Morteros de Alta Gama"
-        fallbackDescription="Más de 25 años desarrollando y fabricando morteros de alta gama para la construcción. Calidad y experiencia en revestimientos."
-      />
-
-      <main className="min-h-screen bg-white">
-        <HeroSection />
-        <CompanyInfo />
-        <ProjectHelpSection />
-        <AplicationSection />
-        <FinishesSection />
-        <InspirationSection />
-        <NewsSection />
-      </main>
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <HomeClient />
+    </HydrationBoundary>
   );
 }
