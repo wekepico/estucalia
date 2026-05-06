@@ -234,6 +234,7 @@ interface CategoryRaw {
       description: string | null;
       keywords: string | null;
       robots: string;
+      canonical?: string | null;
     };
     og: {
       title: string | null;
@@ -293,6 +294,7 @@ export interface Category {
       description: string | null;
       keywords: string | null;
       robots: string;
+      canonical?: string | null;
     };
     og: {
       title: string | null;

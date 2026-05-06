@@ -70,6 +70,7 @@ export interface SpaceRaw {
       description: string | null;
       keywords: string | null;
       robots: string;
+      canonical?: string | null;
     };
     og: {
       title: string | null;
@@ -137,6 +138,7 @@ export interface Space {
       description: string | null;
       keywords: string | null;
       robots: string;
+      canonical?: string | null;
     };
     og: {
       title: string | null;

@@ -66,6 +66,7 @@ interface ApplicationRaw {
       description: string | null;
       keywords: string | null;
       robots: string;
+      canonical?: string | null;
     };
     og: {
       title: string | null;
@@ -119,6 +120,7 @@ export interface Application {
       description: string | null;
       keywords: string | null;
       robots: string;
+      canonical?: string | null;
     };
     og: {
       title: string | null;
