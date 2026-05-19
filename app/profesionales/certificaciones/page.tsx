@@ -1,6 +1,6 @@
 // app/profesionales/certificaciones/page.tsx - Server Component
 //
-// SSR + cache de fetch (1h por lang). Devuelve metadata desde el SEO de
+// SSR + cache de fetch (20 min por lang). Devuelve metadata desde el SEO de
 // Filament (estructura simple {title, description}) y prefetcha los datos
 // para que el HTML llegue ya pintado.
 
@@ -11,6 +11,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import {
   getCertificationsDocumentationPage,
@@ -26,7 +27,7 @@ const normalizeLang = (raw?: string): Lang =>
 const getCachedCertificationsPage = unstable_cache(
   async (lang: Lang) => getCertificationsDocumentationPage(lang),
   ["certifications-documentation-page"],
-  { revalidate: 3600, tags: ["certifications"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["certifications"] },
 );
 
 const FALLBACK_TITLE = "Grupo Estucalia | Certificaciones y Documentación";

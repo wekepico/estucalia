@@ -172,26 +172,26 @@ export default function CategoryClient() {
             getLocalizedField(prod, "features", language as "es" | "en" | "fr")
               ?.split("\n")
               .filter((f: string) => f.trim()) || null,
+          // recommendations/carriers/relevant_info son RichEditor → HTML.
+          // Se pasan como string crudo para renderizar con dangerouslySetInnerHTML.
           recomendaciones:
             getLocalizedField(
               prod,
               "recommendations",
               language as "es" | "en" | "fr",
-            )
-              ?.split("\n")
-              .filter((f: string) => f.trim()) || null,
+            ) || null,
           precauciones:
-            getLocalizedField(prod, "carriers", language as "es" | "en" | "fr")
-              ?.split("\n")
-              .filter((f: string) => f.trim()) || null,
+            getLocalizedField(
+              prod,
+              "carriers",
+              language as "es" | "en" | "fr",
+            ) || null,
           informacion_relevante:
             getLocalizedField(
               prod,
               "relevant_info",
               language as "es" | "en" | "fr",
-            )
-              ?.split("\n")
-              .filter((f: string) => f.trim()) || null,
+            ) || null,
           informacion_general: null,
           aplicacion: null,
           documentacion:

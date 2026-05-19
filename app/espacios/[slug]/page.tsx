@@ -1,6 +1,6 @@
 // app/espacios/[slug]/page.tsx - Server Component
 //
-// SSR + cache de fetch (1h por slug+lang). Devuelve metadata y datos del
+// SSR + cache de fetch (20 min por slug+lang). Devuelve metadata y datos del
 // espacio al HTML antes de que llegue al navegador, así Google indexa cada
 // espacio con su SEO real desde Filament.
 
@@ -11,6 +11,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getSpaceBySlug } from "@/services/spacesService";
 import ClientPage from "./client-page";
@@ -25,7 +26,7 @@ const normalizeLang = (raw?: string): Lang =>
 const getCachedSpace = unstable_cache(
   async (slug: string, lang: Lang) => getSpaceBySlug(slug, lang),
   ["space-detail"],
-  { revalidate: 3600, tags: ["spaces"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["spaces"] },
 );
 
 type Params = {

@@ -1,6 +1,6 @@
 // app/inspiracion/page.tsx - Server Component
 //
-// SSR + cache de fetch (1h por lang). Devuelve metadata y prefetch del
+// SSR + cache de fetch (20 min por lang). Devuelve metadata y prefetch del
 // listado de inspiración para que el HTML llegue ya renderizado.
 
 import type { Metadata } from "next";
@@ -10,6 +10,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import {
   getInspirationPageWithItems,
@@ -25,7 +26,7 @@ const normalizeLang = (raw?: string): Lang =>
 const getCachedInspirationPage = unstable_cache(
   async (lang: Lang) => getInspirationPageWithItems(lang),
   ["inspiration-page"],
-  { revalidate: 3600, tags: ["inspiration"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["inspiration"] },
 );
 
 const FALLBACK_TITLE = "Grupo Estucalia | Inspiración";

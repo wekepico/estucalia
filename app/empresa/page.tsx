@@ -1,6 +1,6 @@
 // app/empresa/page.tsx - Server Component
 //
-// SSR + cache de fetch (1h por lang). Devuelve metadata desde el SEO de
+// SSR + cache de fetch (20 min por lang). Devuelve metadata desde el SEO de
 // Filament y prefetcha los datos para que el HTML llegue ya pintado.
 
 import type { Metadata } from "next";
@@ -10,6 +10,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getEmpresaData, type Lang } from "@/services/empresaService";
 import EmpresaClient from "./EmpresaClient";
@@ -22,7 +23,7 @@ const normalizeLang = (raw?: string): Lang =>
 const getCachedEmpresa = unstable_cache(
   async (lang: Lang) => getEmpresaData(lang),
   ["empresa-page"],
-  { revalidate: 3600, tags: ["empresa"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["empresa"] },
 );
 
 const FALLBACK_TITLE = "Grupo Estucalia | Empresa";

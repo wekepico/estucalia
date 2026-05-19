@@ -1,7 +1,7 @@
 // app/page.tsx (Home page) - Server Component
 //
 // SSR dinámico + cache de fetch: cada request renderiza con el ?lang= correcto
-// y trae el SEO actualizado, pero el backend solo se golpea una vez por hora
+// y trae el SEO actualizado, pero el backend solo se golpea una vez cada 20 minutos
 // por idioma (unstable_cache). Equivalente a ISR pero compatible con
 // searchParams (que rompen el cache de ruta de Next 13).
 
@@ -12,6 +12,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getHome, type Lang } from "@/services/homeService";
 import HomeClient from "./HomeClient";
@@ -20,14 +21,14 @@ import HomeClient from "./HomeClient";
 // El cache real está en unstable_cache (debajo), no en la ruta.
 export const dynamic = "force-dynamic";
 
-// Cache de los datos del backend por idioma. TTL 1h. Cuando expire, la
+// Cache de los datos del backend por idioma. TTL 20 min. Cuando expire, la
 // próxima request regenera y vuelve a cachear.
 const getCachedHome = unstable_cache(
   async (lang: Lang) => {
     return await getHome(lang);
   },
   ["home"],
-  { revalidate: 3600, tags: ["home"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["home"] },
 );
 
 type SearchParams = { searchParams?: { lang?: string } };

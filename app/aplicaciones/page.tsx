@@ -6,6 +6,7 @@
 
 import { redirect } from "next/navigation";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getApplications } from "@/services/applicationsService";
 
@@ -23,7 +24,7 @@ const FALLBACK_SLUG = "coatings";
 const getCachedApplications = unstable_cache(
   async () => getApplications(),
   ["applications-list-redirect"],
-  { revalidate: 3600, tags: ["applications"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["applications"] },
 );
 
 async function getFirstSlug(lang: Lang): Promise<string> {

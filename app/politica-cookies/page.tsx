@@ -1,6 +1,6 @@
 // app/politica-cookies/page.tsx - Server Component
 //
-// SSR + cache de fetch (1h por lang). Devuelve metadata desde el SEO de
+// SSR + cache de fetch (20 min por lang). Devuelve metadata desde el SEO de
 // Filament y prefetcha los datos para que el HTML llegue ya pintado.
 
 import type { Metadata } from "next";
@@ -10,6 +10,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import {
   getCookiesPolicyPage,
@@ -25,7 +26,7 @@ const normalizeLang = (raw?: string): Lang =>
 const getCachedCookies = unstable_cache(
   async (lang: Lang) => getCookiesPolicyPage(lang),
   ["cookies-policy-page"],
-  { revalidate: 3600, tags: ["cookies"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["cookies"] },
 );
 
 const FALLBACK_TITLE = "Grupo Estucalia | Política de Cookies";
