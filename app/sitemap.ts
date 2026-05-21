@@ -2,13 +2,14 @@
 //
 // Sitemap dinámico que Next sirve automáticamente en /sitemap.xml.
 // Lee del backend todas las categorías, aplicaciones, espacios y noticias
-// y emite cada URL con sus 3 variantes de idioma (hreflang). Cache 1h.
+// y emite cada URL con sus 3 variantes de idioma (hreflang). Cache 20 min.
 //
 // Si en producción se cambia de dominio, basta con poner la env:
 //   NEXT_PUBLIC_SITE_URL=https://otro-dominio.com
 
 import type { MetadataRoute } from "next";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getCategories } from "@/services/categoriesService";
 import { getApplications } from "@/services/applicationsService";
@@ -43,7 +44,7 @@ const STATIC_PATHS: { path: string; priority?: number }[] = [
   { path: "/politica-cookies", priority: 0.3 },
 ];
 
-// Cacheamos los fetches al backend por 1h igual que el resto del sitio.
+// Cacheamos los fetches al backend por 20 min igual que el resto del sitio.
 // Si alguna llamada falla, devolvemos [] y el sitemap se sigue generando con
 // el resto.
 const getSitemapData = unstable_cache(
@@ -68,7 +69,7 @@ const getSitemapData = unstable_cache(
     };
   },
   ["sitemap-data"],
-  { revalidate: 3600, tags: ["sitemap"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["sitemap"] },
 );
 
 // Construye un objeto de alternates por idioma. Si el slug por idioma no

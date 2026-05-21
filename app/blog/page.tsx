@@ -1,6 +1,6 @@
 // app/blog/page.tsx - Server Component
 //
-// SSR + cache de fetch (1h por lang). Devuelve metadata desde el SEO de
+// SSR + cache de fetch (20 min por lang). Devuelve metadata desde el SEO de
 // Filament y prefetcha el listado de blogs para que el HTML llegue ya
 // pintado con todas las noticias (clave para SEO orgánico).
 
@@ -11,6 +11,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getBlogPage } from "@/services/bolgsServices";
 import BlogListClient from "./BlogListClient";
@@ -25,7 +26,7 @@ const normalizeLang = (raw?: string): Lang =>
 const getCachedBlogPage = unstable_cache(
   async (lang: Lang) => getBlogPage(lang),
   ["blog-page"],
-  { revalidate: 3600, tags: ["blog"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["blog"] },
 );
 
 const FALLBACK_TITLE = "Blog | Grupo Estucalia";

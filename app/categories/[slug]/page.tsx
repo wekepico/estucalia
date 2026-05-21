@@ -1,6 +1,6 @@
 // app/categories/[slug]/page.tsx - Server Component
 //
-// SSR + cache de fetch (1h por slug+lang). Devuelve metadata, categoría,
+// SSR + cache de fetch (20 min por slug+lang). Devuelve metadata, categoría,
 // productos y aplicaciones al HTML antes de que llegue al navegador.
 
 import type { Metadata } from "next";
@@ -10,6 +10,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import {
   getCategoryBySlug,
@@ -25,23 +26,23 @@ type Lang = "es" | "en" | "fr";
 const normalizeLang = (raw?: string): Lang =>
   raw === "en" || raw === "fr" ? raw : "es";
 
-// Cache 1h por (slug, lang). Cada combinación se cachea por separado.
+// Cache 20 min por (slug, lang). Cada combinación se cachea por separado.
 const getCachedCategory = unstable_cache(
   async (slug: string, lang: Lang) => getCategoryBySlug(slug, lang),
   ["category-detail"],
-  { revalidate: 3600, tags: ["categories"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["categories"] },
 );
 
 const getCachedCategoryProducts = unstable_cache(
   async (slug: string, lang: Lang) => getCategoryProducts(slug, lang),
   ["category-products"],
-  { revalidate: 3600, tags: ["categories", "products"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["categories", "products"] },
 );
 
 const getCachedCategoryApplications = unstable_cache(
   async (slug: string, lang: Lang) => getCategoryApplications(slug, lang),
   ["category-applications"],
-  { revalidate: 3600, tags: ["categories", "applications"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["categories", "applications"] },
 );
 
 type Params = {
@@ -172,7 +173,7 @@ export default async function CategoryPage({ params, searchParams }: Params) {
 
   // Prefetch en paralelo: la categoría (con su SEO + applications + finishes
   // embebidos), los productos asociados y las aplicaciones por separado.
-  // Todos comparten cache de 1h.
+  // Todos comparten cache de 20 min.
   const queryClient = new QueryClient();
   await Promise.all([
     queryClient.prefetchQuery({

@@ -18,9 +18,11 @@ interface IProducto {
     imagen2?: string;
     composicion?: string;
     caracteristicas?: string[];
-    recomendaciones?: string[];
-    precauciones?: string[];
-    informacion_relevante?: string[];
+    // Estos campos pueden venir como HTML (string) desde el backend RichEditor
+    // o como string[] desde los datos locales hardcoded
+    recomendaciones?: string | string[];
+    precauciones?: string | string[];
+    informacion_relevante?: string | string[];
     informacion_general?: string;
     aplicacion?: string[]; // If you use an array of strings
     documentacion?: IDocumento[];
@@ -119,9 +121,10 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <p>
                             <strong>{t("productsSection.composition")}</strong>
                         </p>
-                        <p>
-                            {product.composicion}
-                        </p>
+                        <div
+                            className="rich-content"
+                            dangerouslySetInnerHTML={{ __html: product.composicion }}
+                        />
                     </>
                 )}
 
@@ -136,14 +139,21 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                     </div>
                 )}
 
-                {product.recomendaciones && product.recomendaciones.length > 0 && (
+                {product.recomendaciones && (Array.isArray(product.recomendaciones) ? product.recomendaciones.length > 0 : product.recomendaciones.trim() !== "") && (
                     <div className="my-4">
                         <strong>{t("productsSection.recommendations")}</strong>
-                        <ul className="list-disc ml-5">
-                            {product.recomendaciones.map((item, i) => (
-                                <li key={i}>{cleanListItem(item)}</li>
-                            ))}
-                        </ul>
+                        {Array.isArray(product.recomendaciones) ? (
+                            <ul className="list-disc ml-5">
+                                {product.recomendaciones.map((item, i) => (
+                                    <li key={i}>{cleanListItem(item)}</li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <div
+                                className="rich-content"
+                                dangerouslySetInnerHTML={{ __html: product.recomendaciones }}
+                            />
+                        )}
                     </div>
                 )}
 
@@ -158,25 +168,39 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                     </div>
                 )}
 
-                {product.precauciones && product.precauciones.length > 0 && (
+                {product.precauciones && (Array.isArray(product.precauciones) ? product.precauciones.length > 0 : product.precauciones.trim() !== "") && (
                     <div className="my-4">
                         <strong>{t("productsSection.cautions")}</strong>
-                        <ul className="list-disc ml-5">
-                            {product.precauciones.map((item, i) => (
-                                <li key={i}>{cleanListItem(item)}</li>
-                            ))}
-                        </ul>
+                        {Array.isArray(product.precauciones) ? (
+                            <ul className="list-disc ml-5">
+                                {product.precauciones.map((item, i) => (
+                                    <li key={i}>{cleanListItem(item)}</li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <div
+                                className="rich-content"
+                                dangerouslySetInnerHTML={{ __html: product.precauciones }}
+                            />
+                        )}
                     </div>
                 )}
 
-                {product.informacion_relevante && product.informacion_relevante.length > 0 && (
+                {product.informacion_relevante && (Array.isArray(product.informacion_relevante) ? product.informacion_relevante.length > 0 : product.informacion_relevante.trim() !== "") && (
                     <div className="my-4">
                         <strong>{t("productsSection.relevantInfo")}</strong>
-                        <ul className="list-disc ml-5">
-                            {product.informacion_relevante.map((info, i) => (
-                                <li key={i}>{cleanListItem(info)}</li>
-                            ))}
-                        </ul>
+                        {Array.isArray(product.informacion_relevante) ? (
+                            <ul className="list-disc ml-5">
+                                {product.informacion_relevante.map((info, i) => (
+                                    <li key={i}>{cleanListItem(info)}</li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <div
+                                className="rich-content"
+                                dangerouslySetInnerHTML={{ __html: product.informacion_relevante }}
+                            />
+                        )}
                     </div>
                 )}
 

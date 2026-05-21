@@ -1,11 +1,12 @@
 // app/acabados/page.tsx - Server Component
 //
-// SSR + cache de fetch (1h por lang). El listado de acabados y el SEO de la
+// SSR + cache de fetch (20 min por lang). El listado de acabados y el SEO de la
 // página se traen en el server, así Google ve el HTML completo y los meta
 // tags ya rellenos desde el primer pintado.
 
 import type { Metadata } from "next";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getFinishes, type FinishUI } from "@/services/finishesService";
 import { getFinishesPage } from "@/services/finishesPageService";
@@ -21,13 +22,13 @@ const normalizeLang = (raw?: string): Lang =>
 const getCachedFinishes = unstable_cache(
   async () => getFinishes(),
   ["finishes-list"],
-  { revalidate: 3600, tags: ["finishes"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["finishes"] },
 );
 
 const getCachedFinishesPage = unstable_cache(
   async (lang: Lang) => getFinishesPage(lang),
   ["finishes-page"],
-  { revalidate: 3600, tags: ["finishes", "pages"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["finishes", "pages"] },
 );
 
 const FALLBACK_TITLE = "Grupo Estucalia | Acabados";

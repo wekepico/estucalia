@@ -118,9 +118,11 @@ export default function ProductClient() {
                 subtitulo: prod.subtitle || null,
                 composicion: getLocalizedField(prod, 'composition', language as 'es' | 'en' | 'fr') || null,
                 caracteristicas: getLocalizedField(prod, 'features', language as 'es' | 'en' | 'fr')?.split('\n').filter(f => f.trim()) || null,
-                recomendaciones: getLocalizedField(prod, 'recommendations', language as 'es' | 'en' | 'fr')?.split('\n').filter(f => f.trim()) || null,
-                precauciones: getLocalizedField(prod, 'carriers', language as 'es' | 'en' | 'fr')?.split('\n').filter(f => f.trim()) || null,
-                informacion_relevante: getLocalizedField(prod, 'relevant_info', language as 'es' | 'en' | 'fr')?.split('\n').filter(f => f.trim()) || null,
+                // recommendations/carriers/relevant_info son RichEditor → HTML.
+                // Se pasan como string crudo para renderizar con dangerouslySetInnerHTML.
+                recomendaciones: getLocalizedField(prod, 'recommendations', language as 'es' | 'en' | 'fr') || null,
+                precauciones: getLocalizedField(prod, 'carriers', language as 'es' | 'en' | 'fr') || null,
+                informacion_relevante: getLocalizedField(prod, 'relevant_info', language as 'es' | 'en' | 'fr') || null,
                 informacion_general: getLocalizedField(prod, 'description', language as 'es' | 'en' | 'fr') || null,
                 aplicacion: getLocalizedField(prod, 'features', language as 'es' | 'en' | 'fr')?.split('\n').filter(f => f.trim()) || null,
                 documentacion: productDocuments.map((doc: any) => ({

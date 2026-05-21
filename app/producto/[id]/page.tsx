@@ -1,6 +1,6 @@
 // app/producto/[id]/page.tsx - Server Component
 //
-// SSR + cache de fetch (1h por slug+lang). Devuelve metadata y datos de la
+// SSR + cache de fetch (20 min por slug+lang). Devuelve metadata y datos de la
 // categoría / productos al HTML antes de que llegue al navegador, así Google
 // indexa cada producto con su SEO real desde Filament.
 
@@ -11,6 +11,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import {
   getCategoryBySlug,
@@ -25,17 +26,17 @@ type Lang = "es" | "en" | "fr";
 const normalizeLang = (raw?: string): Lang =>
   raw === "en" || raw === "fr" ? raw : "es";
 
-// Cache 1h por (slug, lang). Cada combinación se cachea por separado.
+// Cache 20 min por (slug, lang). Cada combinación se cachea por separado.
 const getCachedCategory = unstable_cache(
   async (slug: string, lang: Lang) => getCategoryBySlug(slug, lang),
   ["category-detail"],
-  { revalidate: 3600, tags: ["categories"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["categories"] },
 );
 
 const getCachedCategoryProducts = unstable_cache(
   async (slug: string, lang: Lang) => getCategoryProducts(slug, lang),
   ["category-products"],
-  { revalidate: 3600, tags: ["categories", "products"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["categories", "products"] },
 );
 
 type Params = {
@@ -153,7 +154,7 @@ export default async function ProductPage({ params, searchParams }: Params) {
   const slug = decodeURIComponent(params.id);
 
   // Prefetch en paralelo: la categoría (con su SEO + applications + finishes)
-  // y los productos asociados. Ambos comparten cache de 1h.
+  // y los productos asociados. Ambos comparten cache de 20 min.
   const queryClient = new QueryClient();
   await Promise.all([
     queryClient.prefetchQuery({

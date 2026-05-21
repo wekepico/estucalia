@@ -1,6 +1,6 @@
 // app/trabaja-con-nosotros/page.tsx - Server Component
 //
-// SSR + cache de fetch (1h por lang). Devuelve metadata desde el SEO de
+// SSR + cache de fetch (20 min por lang). Devuelve metadata desde el SEO de
 // Filament y prefetcha los datos para que el HTML llegue ya pintado.
 
 import type { Metadata } from "next";
@@ -10,6 +10,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getWorkWithUsPage } from "@/services/workWithUsPageService";
 import TrabajaConNosotrosClient from "./TrabajaConNosotrosClient";
@@ -24,7 +25,7 @@ const normalizeLang = (raw?: string): Lang =>
 const getCachedWorkWithUs = unstable_cache(
   async (lang: Lang) => getWorkWithUsPage(lang),
   ["work-with-us-page"],
-  { revalidate: 3600, tags: ["work-with-us"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["work-with-us"] },
 );
 
 const FALLBACK_TITLE = "Grupo Estucalia | Trabaja con Nosotros";

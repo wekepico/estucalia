@@ -1,6 +1,6 @@
 // app/blog/[id]/page.tsx - Server Component
 //
-// SSR + cache de fetch (1h por slug+lang). Devuelve metadata desde el SEO de
+// SSR + cache de fetch (20 min por slug+lang). Devuelve metadata desde el SEO de
 // Filament y prefetcha el artículo para que el HTML llegue ya pintado con
 // el contenido completo (esencial para SEO de cada noticia).
 
@@ -11,6 +11,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getBlogPostBySlug } from "@/services/bolgsServices";
 import BlogClient from "./BlogClient";
@@ -25,7 +26,7 @@ const normalizeLang = (raw?: string): Lang =>
 const getCachedBlogPost = unstable_cache(
   async (slug: string, lang: Lang) => getBlogPostBySlug(slug, lang),
   ["blog-post"],
-  { revalidate: 3600, tags: ["blog"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["blog"] },
 );
 
 type Params = {

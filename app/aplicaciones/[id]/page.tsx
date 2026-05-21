@@ -1,6 +1,6 @@
 // app/aplicaciones/[id]/page.tsx - Server Component
 //
-// SSR + cache de fetch (1h por slug+lang). Devuelve metadata y datos de la
+// SSR + cache de fetch (20 min por slug+lang). Devuelve metadata y datos de la
 // aplicación al HTML antes de que llegue al navegador, así Google indexa
 // cada aplicación con su SEO real desde Filament.
 
@@ -11,6 +11,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getApplicationBySlug } from "@/services/applicationsService";
 import AplicationClient from "./AplicationClient";
@@ -22,11 +23,11 @@ type Lang = "es" | "en" | "fr";
 const normalizeLang = (raw?: string): Lang =>
   raw === "en" || raw === "fr" ? raw : "es";
 
-// Cache 1h por (slug, lang). Cada combinación se cachea por separado.
+// Cache 20 min por (slug, lang). Cada combinación se cachea por separado.
 const getCachedApplication = unstable_cache(
   async (slug: string, lang: Lang) => getApplicationBySlug(slug, lang),
   ["application-detail"],
-  { revalidate: 3600, tags: ["applications"] },
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["applications"] },
 );
 
 type Params = {
