@@ -5,6 +5,18 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/**
+ * Detecta si un string contiene HTML (cualquier etiqueta <tag> o </tag>).
+ * Util para decidir entre:
+ *  - renderizar como texto plano (aplicando los estilos CSS del frontend), o
+ *  - renderizar el HTML "as-is" via dangerouslySetInnerHTML (respetando lo
+ *    que escribio el cliente en el admin: negritas, parrafos, colores, etc.).
+ */
+export function looksLikeHtml(value?: string | null): boolean {
+  if (!value) return false;
+  return /<\/?[a-z][\s\S]*?>/i.test(value);
+}
+
 export function htmlToText(input?: string | null): string {
   if (!input) return "";
 

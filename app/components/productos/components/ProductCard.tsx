@@ -5,6 +5,7 @@ import { FC } from "react";
 import { Button } from "../../ui/button";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { getLocalizedField } from "@/lib/i18nHelpers";
+import { looksLikeHtml } from "@/lib/utils";
 
 interface IProducto {
   nombre: string;
@@ -57,9 +58,23 @@ export const ProductCard: FC<ProductCardProps> = ({
       </div>
       <div className="flex  flex-col gap-5">
         <div className="flex flex-col">
-          <h3 className="font-bold text-center text-sm">{product.nombre}</h3>
+          {looksLikeHtml(product.nombre) ? (
+            <div
+              className="text-center"
+              dangerouslySetInnerHTML={{ __html: product.nombre }}
+            />
+          ) : (
+            <h3 className="font-bold text-center text-sm">{product.nombre}</h3>
+          )}
           {product.subtitulo && (
-            <p className="text-center text-sm line-clamp-2">{product.subtitulo}</p>
+            looksLikeHtml(product.subtitulo) ? (
+              <div
+                className="text-center"
+                dangerouslySetInnerHTML={{ __html: product.subtitulo }}
+              />
+            ) : (
+              <p className="text-center text-sm line-clamp-2">{product.subtitulo}</p>
+            )
           )}
         </div>
 

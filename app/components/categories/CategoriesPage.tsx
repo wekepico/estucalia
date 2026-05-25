@@ -2,6 +2,7 @@
 import { useCategories } from '@/api/useCategories';
 import { useLanguage } from '@/app/context/LanguageContext';
 import { getLocalizedField, getLocalizedSlug, getImageUrl } from '@/lib/i18nHelpers';
+import { looksLikeHtml } from '@/lib/utils';
 import { Loader } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -65,9 +66,16 @@ export default function CategoriesPage() {
                                             className="h-32 md:h-48 w-auto object-contain"
                                         />
                                     </div>
-                                    <h3 className="text-lg md:text-xl font-[600] mb-1">
-                                        {categoryName.toUpperCase()}
-                                    </h3>
+                                    {looksLikeHtml(categoryName) ? (
+                                        <div
+                                            className="mb-1 uppercase"
+                                            dangerouslySetInnerHTML={{ __html: categoryName }}
+                                        />
+                                    ) : (
+                                        <h3 className="text-lg md:text-xl font-[600] mb-1 uppercase">
+                                            {categoryName}
+                                        </h3>
+                                    )}
                                 </div>
                                 <div className='w-full p-4 flex justify-end'>
                                     <Button

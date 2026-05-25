@@ -4,6 +4,7 @@ import { FC } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { getLocalizedField } from "@/lib/i18nHelpers";
+import { looksLikeHtml } from "@/lib/utils";
 
 interface IDocumento {
     nombre: string;
@@ -111,9 +112,20 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
     return (
         <div className="flex max-md:flex-col gap-12">
             <div className="flex-1 md:w-3/4">
-                <h3 className="text-xl font-semibold">{product.nombre}</h3>
+                {looksLikeHtml(product.nombre) ? (
+                    <div dangerouslySetInnerHTML={{ __html: product.nombre }} />
+                ) : (
+                    <h3 className="text-xl font-semibold">{product.nombre}</h3>
+                )}
                 {product.subtitulo && (
-                    <h4 className="text-lg mb-4">{product.subtitulo}</h4>
+                    looksLikeHtml(product.subtitulo) ? (
+                        <div
+                            className="mb-4"
+                            dangerouslySetInnerHTML={{ __html: product.subtitulo }}
+                        />
+                    ) : (
+                        <h4 className="text-lg mb-4">{product.subtitulo}</h4>
+                    )
                 )}
 
                 {product.composicion && (
@@ -132,9 +144,17 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                     <div className="my-4">
                         <strong>{t("productsSection.features")}</strong>
                         <ul className="list-disc ml-5">
-                            {product.caracteristicas.map((item, i) => (
-                                <li key={i}>{cleanListItem(item)}</li>
-                            ))}
+                            {product.caracteristicas.map((item, i) => {
+                                const cleaned = cleanListItem(item);
+                                return looksLikeHtml(cleaned) ? (
+                                    <li
+                                        key={i}
+                                        dangerouslySetInnerHTML={{ __html: cleaned }}
+                                    />
+                                ) : (
+                                    <li key={i}>{cleaned}</li>
+                                );
+                            })}
                         </ul>
                     </div>
                 )}
@@ -144,9 +164,17 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.recommendations")}</strong>
                         {Array.isArray(product.recomendaciones) ? (
                             <ul className="list-disc ml-5">
-                                {product.recomendaciones.map((item, i) => (
-                                    <li key={i}>{cleanListItem(item)}</li>
-                                ))}
+                                {product.recomendaciones.map((item, i) => {
+                                    const cleaned = cleanListItem(item);
+                                    return looksLikeHtml(cleaned) ? (
+                                        <li
+                                            key={i}
+                                            dangerouslySetInnerHTML={{ __html: cleaned }}
+                                        />
+                                    ) : (
+                                        <li key={i}>{cleaned}</li>
+                                    );
+                                })}
                             </ul>
                         ) : (
                             <div
@@ -161,9 +189,17 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                     <div className="my-4">
                         <strong>{t("productsSection.application")}:</strong>
                         <ul className="list-disc ml-5">
-                            {product.aplicacion.map((item, i) => (
-                                <li key={i}>{cleanListItem(item)}</li>
-                            ))}
+                            {product.aplicacion.map((item, i) => {
+                                const cleaned = cleanListItem(item);
+                                return looksLikeHtml(cleaned) ? (
+                                    <li
+                                        key={i}
+                                        dangerouslySetInnerHTML={{ __html: cleaned }}
+                                    />
+                                ) : (
+                                    <li key={i}>{cleaned}</li>
+                                );
+                            })}
                         </ul>
                     </div>
                 )}
@@ -173,9 +209,17 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.cautions")}</strong>
                         {Array.isArray(product.precauciones) ? (
                             <ul className="list-disc ml-5">
-                                {product.precauciones.map((item, i) => (
-                                    <li key={i}>{cleanListItem(item)}</li>
-                                ))}
+                                {product.precauciones.map((item, i) => {
+                                    const cleaned = cleanListItem(item);
+                                    return looksLikeHtml(cleaned) ? (
+                                        <li
+                                            key={i}
+                                            dangerouslySetInnerHTML={{ __html: cleaned }}
+                                        />
+                                    ) : (
+                                        <li key={i}>{cleaned}</li>
+                                    );
+                                })}
                             </ul>
                         ) : (
                             <div
@@ -191,9 +235,17 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                         <strong>{t("productsSection.relevantInfo")}</strong>
                         {Array.isArray(product.informacion_relevante) ? (
                             <ul className="list-disc ml-5">
-                                {product.informacion_relevante.map((info, i) => (
-                                    <li key={i}>{cleanListItem(info)}</li>
-                                ))}
+                                {product.informacion_relevante.map((info, i) => {
+                                    const cleaned = cleanListItem(info);
+                                    return looksLikeHtml(cleaned) ? (
+                                        <li
+                                            key={i}
+                                            dangerouslySetInnerHTML={{ __html: cleaned }}
+                                        />
+                                    ) : (
+                                        <li key={i}>{cleaned}</li>
+                                    );
+                                })}
                             </ul>
                         ) : (
                             <div
@@ -205,7 +257,14 @@ export const ProductDetail: FC<ProductDetailProps> = ({ product }) => {
                 )}
 
                 {product.informacion_general && (
-                    <p className="my-2">{product.informacion_general}</p>
+                    looksLikeHtml(product.informacion_general) ? (
+                        <div
+                            className="my-2"
+                            dangerouslySetInnerHTML={{ __html: product.informacion_general }}
+                        />
+                    ) : (
+                        <p className="my-2">{product.informacion_general}</p>
+                    )
                 )}
             </div>
 

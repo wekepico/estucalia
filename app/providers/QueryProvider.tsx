@@ -13,7 +13,9 @@ export default function QueryProvider({ children }: QueryProviderProps) {
       new QueryClient({
         defaultOptions: {
           queries: {
-            staleTime: 60 * 1000, // 1 minuto
+            // En produccion: 1 minuto de cache cliente (suaviza navegacion).
+            // En desarrollo: 0 = siempre stale, refetch al instante para ver cambios del admin.
+            staleTime: process.env.NODE_ENV === 'production' ? 60 * 1000 : 0,
             refetchOnWindowFocus: false,
             retry: 1,
           },

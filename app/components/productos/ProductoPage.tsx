@@ -8,6 +8,7 @@ import { InspirationSectionAplication } from "../aplicaciones/sections/Inspirati
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { getLocalizedField } from "@/lib/i18nHelpers";
+import { looksLikeHtml } from "@/lib/utils";
 import InspirationGrid from "../shared/InspirationGrid";
 
 const inspirationImages = [
@@ -148,13 +149,27 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
               width={150}
               height={150}
             />
-            <p className="font-[700] text-lg text-center ">
-              {categoryName?.toLocaleUpperCase()}
-            </p>
+            {looksLikeHtml(categoryName) ? (
+              <div
+                className="text-center uppercase"
+                dangerouslySetInnerHTML={{ __html: categoryName }}
+              />
+            ) : (
+              <p className="font-[700] text-lg text-center uppercase">
+                {categoryName}
+              </p>
+            )}
           </div>
 
           <label className="p-8 md:w-4/6">
-            <h2 className="font-[600] text-3xl pb-5">{categoryName}</h2>
+            {looksLikeHtml(categoryName) ? (
+              <div
+                className="pb-5"
+                dangerouslySetInnerHTML={{ __html: categoryName }}
+              />
+            ) : (
+              <h2 className="font-[600] text-3xl pb-5">{categoryName}</h2>
+            )}
             <div className="flex gap-2 flex-col">
               <div
                 className="font-[600] text-lg"
