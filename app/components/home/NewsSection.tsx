@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "../../context/LanguageContext";
 import { useBlogPage } from "@/api/useBlogPage"; // 👈 importa el hook
+import { looksLikeHtml } from "@/lib/utils";
 
 export default function NewsSection() {
   const router = useRouter();
@@ -53,9 +54,16 @@ export default function NewsSection() {
                     style={{ backgroundImage: `url('${blog.photo_url}')` }}
                   />
                 </div>
-                <h3 className="text-base md:text-2xl px-4 md:px-0 mb-4 font-medium">
-                  {blog.title}
-                </h3>
+                {looksLikeHtml(blog.title) ? (
+                  <div
+                    className="px-4 md:px-0 mb-4"
+                    dangerouslySetInnerHTML={{ __html: blog.title }}
+                  />
+                ) : (
+                  <h3 className="text-base md:text-2xl px-4 md:px-0 mb-4 font-medium">
+                    {blog.title}
+                  </h3>
+                )}
               </CardHeader>
 
               <CardContent className="px-4 md:px-0 mt-auto">

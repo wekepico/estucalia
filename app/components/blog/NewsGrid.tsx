@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { BlogPost } from "@/services";
+import { looksLikeHtml } from "@/lib/utils";
 
 export default function NewsGrid({ blogs }: { blogs: BlogPost[] }) {
   const router = useRouter();
@@ -70,9 +71,19 @@ export default function NewsGrid({ blogs }: { blogs: BlogPost[] }) {
                     })}
                   </span>
                 </div>
-                <h2 className="text-xl md:text-2xl font-medium group-hover:text-gray-600 transition-colors duration-300">
-                  {getTitle(blog)}
-                </h2>
+                {(() => {
+                  const titleValue = getTitle(blog);
+                  return looksLikeHtml(titleValue) ? (
+                    <div
+                      className="group-hover:text-gray-600 transition-colors duration-300"
+                      dangerouslySetInnerHTML={{ __html: titleValue }}
+                    />
+                  ) : (
+                    <h2 className="text-xl md:text-2xl font-medium group-hover:text-gray-600 transition-colors duration-300">
+                      {titleValue}
+                    </h2>
+                  );
+                })()}
                 <p className="text-gray-600 line-clamp-3">
                   {getDescription(blog)}...
                 </p>

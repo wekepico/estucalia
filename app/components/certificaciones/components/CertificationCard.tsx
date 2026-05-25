@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '../../ui/button';
 import Image from 'next/image';
 import { useLanguage } from '@/app/context/LanguageContext';
+import { looksLikeHtml } from '@/lib/utils';
 
 interface CardServicesProps {
     title: string;
@@ -26,7 +27,14 @@ const CertificationCard = ({ title, filePath }: CardServicesProps) => {
                     height={100}
                     className="h-14 w-auto"
                 />
-                <h3 className="text-xl line-clamp-2 font-semibold mb-2">{title}</h3>
+                {looksLikeHtml(title) ? (
+                    <div
+                        className="line-clamp-2 mb-2"
+                        dangerouslySetInnerHTML={{ __html: title }}
+                    />
+                ) : (
+                    <h3 className="text-xl line-clamp-2 font-semibold mb-2">{title}</h3>
+                )}
             </div>
             <div className='w-full flex items-end justify-end'>
                 <Button

@@ -372,7 +372,13 @@ export default function ApplicationForm() {
                             className="flex items-center gap-4 px-4 py-3 border-gray-300 cursor-pointer transition-colors"
                           >
                             <span className="text-gray-900 text-lg font-[600]">
-                              {cvLabel}
+                              {isHtml(cvLabel) ? (
+                                <span
+                                  dangerouslySetInnerHTML={{ __html: cvLabel }}
+                                />
+                              ) : (
+                                cvLabel
+                              )}
                             </span>
                             <Upload className="w-5 h-5" />
                             <Input
@@ -498,9 +504,15 @@ export default function ApplicationForm() {
                   disabled={isSubmitting}
                 >
                   <span>
-                    {isSubmitting
-                      ? t("workWithUs.form.submitting")
-                      : submitText}
+                    {isSubmitting ? (
+                      t("workWithUs.form.submitting")
+                    ) : isHtml(submitText) ? (
+                      <span
+                        dangerouslySetInnerHTML={{ __html: submitText }}
+                      />
+                    ) : (
+                      submitText
+                    )}
                   </span>
 
                   {!isSubmitting && (

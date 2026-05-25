@@ -9,6 +9,7 @@ import { FaYoutube } from "react-icons/fa6";
 import { TiSocialLinkedin, TiSocialFacebook } from "react-icons/ti";
 
 import { useFooter } from "@/api/useFooter";
+import { looksLikeHtml } from "@/lib/utils";
 
 const SocialIcon = ({ keyName }: { keyName?: string | null }) => {
   const key = (keyName || "").toLowerCase();
@@ -45,17 +46,32 @@ export default function Footer() {
               height={100}
               className="mb-6 -ml-2 h-14 w-auto absolute"
             />
-            <p className="mt-36 text-gray-100">
-              {footer?.copyright ?? "Copyright©2025"}
-            </p>
+            {(() => {
+              const copyValue = footer?.copyright ?? "Copyright©2025";
+              return looksLikeHtml(copyValue) ? (
+                <div
+                  className="mt-36 text-gray-100"
+                  dangerouslySetInnerHTML={{ __html: copyValue }}
+                />
+              ) : (
+                <p className="mt-36 text-gray-100">{copyValue}</p>
+              );
+            })()}
           </div>
 
           <div className="flex gap-10 lg:pl-32 max-sm:flex-col">
             {/* Legal */}
             <div className="w-max">
-              <h3 className="text-sm text-white font-[600] mb-2">
-                {footer?.legal?.title ?? ""}
-              </h3>
+              {looksLikeHtml(footer?.legal?.title) ? (
+                <div
+                  className="mb-2 text-white"
+                  dangerouslySetInnerHTML={{ __html: footer?.legal?.title ?? "" }}
+                />
+              ) : (
+                <h3 className="text-sm text-white font-[600] mb-2">
+                  {footer?.legal?.title ?? ""}
+                </h3>
+              )}
               <ul className="text-gray-200 space-y-0.5">
                 {(footer?.legal?.links ?? []).map((l, idx) => (
                   <li key={idx}>
@@ -71,9 +87,16 @@ export default function Footer() {
 
             {/* Company */}
             <div>
-              <h3 className="font-[600] mb-2">
-                {footer?.company?.title ?? ""}
-              </h3>
+              {looksLikeHtml(footer?.company?.title) ? (
+                <div
+                  className="mb-2"
+                  dangerouslySetInnerHTML={{ __html: footer?.company?.title ?? "" }}
+                />
+              ) : (
+                <h3 className="font-[600] mb-2">
+                  {footer?.company?.title ?? ""}
+                </h3>
+              )}
               <ul className="text-gray-200 space-y-0.5">
                 {(footer?.company?.links ?? []).map((l, idx) => (
                   <li key={idx}>
@@ -89,9 +112,16 @@ export default function Footer() {
 
             {/* Products */}
             <div className="w-max">
-              <h3 className="font-[600] mb-2">
-                {footer?.products?.title ?? ""}
-              </h3>
+              {looksLikeHtml(footer?.products?.title) ? (
+                <div
+                  className="mb-2"
+                  dangerouslySetInnerHTML={{ __html: footer?.products?.title ?? "" }}
+                />
+              ) : (
+                <h3 className="font-[600] mb-2">
+                  {footer?.products?.title ?? ""}
+                </h3>
+              )}
               <ul className="text-gray-200 space-y-0.5">
                 {(footer?.products?.links ?? []).map((l, idx) => (
                   <li key={idx}>
@@ -109,9 +139,16 @@ export default function Footer() {
           <div className="flex gap-16 md:ml-14 max-sm:flex-col">
             {/* Contact */}
             <div>
-              <h3 className="font-[600] mb-2">
-                {footer?.contact?.title ?? ""}
-              </h3>
+              {looksLikeHtml(footer?.contact?.title) ? (
+                <div
+                  className="mb-2"
+                  dangerouslySetInnerHTML={{ __html: footer?.contact?.title ?? "" }}
+                />
+              ) : (
+                <h3 className="font-[600] mb-2">
+                  {footer?.contact?.title ?? ""}
+                </h3>
+              )}
 
               <p
                 className="text-gray-200 mb-6"
@@ -127,7 +164,15 @@ export default function Footer() {
                       href={`tel:${footer.contact.phone_1.replace(/\s+/g, "")}`}
                       className="text-gray-200 hover:text-white transition-colors"
                     >
-                      {footer.contact.phone_1}
+                      {looksLikeHtml(footer.contact.phone_1) ? (
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: footer.contact.phone_1,
+                          }}
+                        />
+                      ) : (
+                        footer.contact.phone_1
+                      )}
                     </a>
                     <br />
                   </>
@@ -139,7 +184,15 @@ export default function Footer() {
                       href={`tel:${footer.contact.phone_2.replace(/\s+/g, "")}`}
                       className="text-gray-200 hover:text-white transition-colors"
                     >
-                      {footer.contact.phone_2}
+                      {looksLikeHtml(footer.contact.phone_2) ? (
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: footer.contact.phone_2,
+                          }}
+                        />
+                      ) : (
+                        footer.contact.phone_2
+                      )}
                     </a>
                     <br />
                   </>
@@ -150,7 +203,15 @@ export default function Footer() {
                     href={`mailto:${footer.contact.email}`}
                     className="text-gray-200 hover:text-white transition-colors"
                   >
-                    {footer.contact.email}
+                    {looksLikeHtml(footer.contact.email) ? (
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: footer.contact.email,
+                        }}
+                      />
+                    ) : (
+                      footer.contact.email
+                    )}
                   </a>
                 ) : null}
               </div>
@@ -158,7 +219,14 @@ export default function Footer() {
 
             {/* Social */}
             <div className="flex flex-col items-start justify-center gap-2">
-              <h3 className="font-[600] mb-2">{footer?.follow?.title ?? ""}</h3>
+              {looksLikeHtml(footer?.follow?.title) ? (
+                <div
+                  className="mb-2"
+                  dangerouslySetInnerHTML={{ __html: footer?.follow?.title ?? "" }}
+                />
+              ) : (
+                <h3 className="font-[600] mb-2">{footer?.follow?.title ?? ""}</h3>
+              )}
 
               {(footer?.follow?.links ?? []).map((l, idx) => {
                 const url = l.url || "#";

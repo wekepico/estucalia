@@ -15,6 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { looksLikeHtml } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { toast, Toaster } from "react-hot-toast";
@@ -174,19 +175,50 @@ export default function ContactForm({
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-2 md: gap-12">
           {/* Información de contacto */}
           <div className="min-w-max">
-            <h1 className="text-3xl mb-2" style={{ fontWeight: "600" }}>
-              {contact?.title ?? t("contact.title")}
-            </h1>
+            {(() => {
+              const titleValue = contact?.title ?? t("contact.title");
+              return looksLikeHtml(titleValue) ? (
+                <div
+                  className="mb-2"
+                  dangerouslySetInnerHTML={{ __html: titleValue }}
+                />
+              ) : (
+                <h1 className="text-3xl mb-2" style={{ fontWeight: "600" }}>
+                  {titleValue}
+                </h1>
+              );
+            })()}
 
             <div className="space-y-6">
               <div>
-                <p>{contact?.address?.line ?? t("contact.address.line1")}</p>
-                <p>{contact?.address?.city ?? t("contact.address.line2")}</p>
-                <p>
-                  {contact?.address?.region
+                {(() => {
+                  const lineValue =
+                    contact?.address?.line ?? t("contact.address.line1");
+                  return looksLikeHtml(lineValue) ? (
+                    <div dangerouslySetInnerHTML={{ __html: lineValue }} />
+                  ) : (
+                    <p>{lineValue}</p>
+                  );
+                })()}
+                {(() => {
+                  const cityValue =
+                    contact?.address?.city ?? t("contact.address.line2");
+                  return looksLikeHtml(cityValue) ? (
+                    <div dangerouslySetInnerHTML={{ __html: cityValue }} />
+                  ) : (
+                    <p>{cityValue}</p>
+                  );
+                })()}
+                {(() => {
+                  const regionValue = contact?.address?.region
                     ? `${contact.address.region} (${contact?.address?.country ?? ""}).`
-                    : t("contact.address.line3")}
-                </p>
+                    : t("contact.address.line3");
+                  return looksLikeHtml(regionValue) ? (
+                    <div dangerouslySetInnerHTML={{ __html: regionValue }} />
+                  ) : (
+                    <p>{regionValue}</p>
+                  );
+                })()}
               </div>
 
               <div className="flex flex-col w-max">
@@ -198,7 +230,13 @@ export default function ContactForm({
                       style={{ fontWeight: "600" }}
                       className="inline w-max hover:text-gray-600 transition-colors"
                     >
-                      {p.number}
+                      {looksLikeHtml(p.number) ? (
+                        <span
+                          dangerouslySetInnerHTML={{ __html: p.number || "" }}
+                        />
+                      ) : (
+                        p.number
+                      )}
                     </a>
                   ))
                 ) : (
@@ -227,7 +265,13 @@ export default function ContactForm({
                       href={`mailto:${e.email}`}
                       className="inline w-max hover:text-gray-600 transition-colors"
                     >
-                      {e.email}
+                      {looksLikeHtml(e.email) ? (
+                        <span
+                          dangerouslySetInnerHTML={{ __html: e.email || "" }}
+                        />
+                      ) : (
+                        e.email
+                      )}
                     </a>
                   ))
                 ) : (
@@ -246,10 +290,18 @@ export default function ContactForm({
                 </h2>
 
                 {/* Sin cambiar layout global: mostramos el texto del backend respetando saltos */}
-                <div className="whitespace-pre-line">
-                  {contact?.scheduleText ??
-                    `${t("contact.schedule.weekdays")}\n${t("contact.schedule.weekdaysHours")}\n\n${t("contact.schedule.friday")}\n${t("contact.schedule.fridayHours")}\n\n${t("contact.schedule.summer")}\n${t("contact.schedule.summerHours")}`}
-                </div>
+                {(() => {
+                  const scheduleValue =
+                    contact?.scheduleText ??
+                    `${t("contact.schedule.weekdays")}\n${t("contact.schedule.weekdaysHours")}\n\n${t("contact.schedule.friday")}\n${t("contact.schedule.fridayHours")}\n\n${t("contact.schedule.summer")}\n${t("contact.schedule.summerHours")}`;
+                  return looksLikeHtml(scheduleValue) ? (
+                    <div
+                      dangerouslySetInnerHTML={{ __html: scheduleValue }}
+                    />
+                  ) : (
+                    <div className="whitespace-pre-line">{scheduleValue}</div>
+                  );
+                })()}
               </div>
             </div>
           </div>
@@ -316,7 +368,15 @@ export default function ContactForm({
                       </FormControl>
                       <div className="space-y-1 leading-none">
                         <FormLabel className="text-sm text-gray-900">
-                          {checkbox1Label}
+                          {looksLikeHtml(checkbox1Label) ? (
+                            <span
+                              dangerouslySetInnerHTML={{
+                                __html: String(checkbox1Label ?? ""),
+                              }}
+                            />
+                          ) : (
+                            checkbox1Label
+                          )}
                         </FormLabel>
                       </div>
                     </FormItem>
@@ -339,7 +399,15 @@ export default function ContactForm({
                       </FormControl>
                       <div className="space-y-1 leading-none">
                         <FormLabel className="text-sm text-gray-900">
-                          {checkbox2Label}
+                          {looksLikeHtml(checkbox2Label) ? (
+                            <span
+                              dangerouslySetInnerHTML={{
+                                __html: String(checkbox2Label ?? ""),
+                              }}
+                            />
+                          ) : (
+                            checkbox2Label
+                          )}
                         </FormLabel>
                       </div>
                     </FormItem>

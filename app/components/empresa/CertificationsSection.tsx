@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "../../context/LanguageContext";
 import { useEmpresa } from "@/api/useEmpresa";
 import Link from "next/link";
+import { looksLikeHtml } from "@/lib/utils";
 
 export default function CertificationsSection() {
   const { t } = useLanguage();
@@ -67,7 +68,13 @@ export default function CertificationsSection() {
               variant="outline"
               className="border-gray-500 py-4 bg-transparent pr-1 md:py-6 border-solid cursor-pointer rounded-none"
             >
-              <span>{ctaText}</span>
+              {looksLikeHtml(ctaText) ? (
+                <span
+                  dangerouslySetInnerHTML={{ __html: ctaText }}
+                />
+              ) : (
+                <span>{ctaText}</span>
+              )}
               <svg
                 className="w-10 h-10 md:w-12 md:h-12"
                 fill="none"

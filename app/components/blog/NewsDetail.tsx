@@ -3,6 +3,7 @@ import './style.css';
 import React from 'react';
 import ReachText from '../reachText/reachText';
 import { useLanguage } from '@/app/context/LanguageContext';
+import { looksLikeHtml } from '@/lib/utils';
 import { RiFacebookFill } from "react-icons/ri";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { ImLinkedin2 } from "react-icons/im";
@@ -83,9 +84,16 @@ const NewsDetail = ({ title, description, date, imageUrl, imageAlt, imageTitle }
                 </div>
 
                 <div className="inset-0 mb-6 flex">
-                    <h1 className="text-3xl md:text-4xl   font-[600] text-black">
-                        {title}
-                    </h1>
+                    {looksLikeHtml(title) ? (
+                        <div
+                            className="text-black"
+                            dangerouslySetInnerHTML={{ __html: title }}
+                        />
+                    ) : (
+                        <h1 className="text-3xl md:text-4xl   font-[600] text-black">
+                            {title}
+                        </h1>
+                    )}
                 </div>
 
             </div>
