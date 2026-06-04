@@ -30,18 +30,87 @@ const splitText = (texto: string) => {
   );
 };
 
-// Mapa de iconos por POSICIÓN (layout idéntico 3x3)
-const iconsByIndex = [
-  MorteroMonocapa,
-  MorteroCola,
-  MorteroCal,
-  MorteroPolivalente,
-  MorteroImpreso,
-  MorteroPiedra,
-  MorteroProtector,
-  MorteroUnion,
-  AccesoriosHerramientas,
-];
+// Mapa de iconos por SLUG (ES / EN / FR). Resuelve por coincidencia exacta primero
+// y luego por keyword, así soporta variaciones del backend en cualquier idioma.
+const ICON_BY_SLUG: Record<string, any> = {
+  // ES
+  "mortero-cal": MorteroCal,
+  "mortero-cola": MorteroCola,
+  "mortero-monocapa": MorteroMonocapa,
+  "mortero-impreso": MorteroImpreso,
+  "mortero-juntas": MorteroPolivalente,
+  "complementos-y-accesorios": AccesoriosHerramientas,
+  "mortero-piedra-decorativa": MorteroPiedra,
+  "protector-de-agua": MorteroProtector,
+  "puente-de-union": MorteroUnion,
+  // EN
+  "lime-mortar": MorteroCal,
+  "tile-adhesive": MorteroCola,
+  "single-layer-mortar": MorteroMonocapa,
+  "stamped-mortar": MorteroImpreso,
+  "grout-mortar": MorteroPolivalente,
+  "accessories-and-tools": AccesoriosHerramientas,
+  "talisman-tools": AccesoriosHerramientas,
+  "stone-mortar": MorteroPiedra,
+  "decorative-stone-mortar": MorteroPiedra,
+  "water-protector": MorteroProtector,
+  "bonding-bridge": MorteroUnion,
+  // FR
+  "mortier-a-la-chaux": MorteroCal,
+  "mortier-colle": MorteroCola,
+  "mortier-monocouche": MorteroMonocapa,
+  "mortier-imprime": MorteroImpreso,
+  "mortier-pour-joints": MorteroPolivalente,
+  "complements-et-accessoires": AccesoriosHerramientas,
+  "mortier-pierre-decorative": MorteroPiedra,
+  "protecteur-deau": MorteroProtector,
+  "pont-dunion": MorteroUnion,
+};
+
+const getIconForSlug = (slug?: string | null) => {
+  const key = (slug ?? "").toLowerCase();
+  if (ICON_BY_SLUG[key]) return ICON_BY_SLUG[key];
+
+  // Fallback por keyword si llega un slug desconocido / alterado
+  if (key.includes("monocapa") || key.includes("monocouche") || key.includes("single-layer"))
+    return MorteroMonocapa;
+  if (key.includes("cola") || key.includes("adhesive") || key.includes("colle"))
+    return MorteroCola;
+  if (key.includes("impreso") || key.includes("stamped") || key.includes("imprime"))
+    return MorteroImpreso;
+  if (key.includes("junta") || key.includes("grout") || key.includes("joint"))
+    return MorteroPolivalente;
+  if (
+    key.includes("accesorio") ||
+    key.includes("complemento") ||
+    key.includes("complement") ||
+    key.includes("tool") ||
+    key.includes("talisman")
+  )
+    return AccesoriosHerramientas;
+  if (key.includes("piedra") || key.includes("stone") || key.includes("pierre"))
+    return MorteroPiedra;
+  if (
+    key.includes("protector") ||
+    key.includes("protecteur") ||
+    key.includes("water") ||
+    key.includes("agua") ||
+    key.includes("eau")
+  )
+    return MorteroProtector;
+  if (
+    key.includes("union") ||
+    key.includes("puente") ||
+    key.includes("pont") ||
+    key.includes("bonding") ||
+    key.includes("bridge")
+  )
+    return MorteroUnion;
+  if (key.includes("cal") || key.includes("lime") || key.includes("chaux"))
+    return MorteroCal;
+
+  return MorteroMonocapa;
+};
 
 export default function SolutionsSection({
   titleHtml,
@@ -69,8 +138,8 @@ export default function SolutionsSection({
         </div>
 
         <div className="grid items-center justify-center grid-row-3 grid-cols-3 gap-y-8 gap-x-[4rem]">
-          {list.map((item, index) => {
-            const IconSrc = iconsByIndex[index] ?? MorteroMonocapa;
+          {list.map((item) => {
+            const IconSrc = getIconForSlug(item.slug);
 
             return (
               <div
