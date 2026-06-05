@@ -51,7 +51,7 @@ export default function ConsultingSection() {
           <Link href={empresa?.consulting.cta_url || "/contacto"}>
             <Button
               variant="outline"
-              className="border-gray-200 pl-5  pr-0  md:py-6 bg-transparent hover:text-black border-solid rounded-none"
+              className="border-gray-200 pl-5 mt-10  pr-0  md:py-6 bg-transparent hover:text-black border-solid rounded-none"
             >
               <span dangerouslySetInnerHTML={{ __html: consultingCTA }} />
               <svg
