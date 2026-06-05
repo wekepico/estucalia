@@ -3,6 +3,8 @@
 import React from "react";
 import Image from "next/image";
 
+import { useCategories } from "@/api/useCategories";
+
 import MorteroCal from "../../../public/img/mortero-cal.svg";
 import MorteroMonocapa from "../../../public/img/mortero-monocapa.svg";
 import MorteroImpreso from "../../../public/img/mortero-impreso.svg";
@@ -54,6 +56,20 @@ export default function SolutionsSection({
 }) {
   const list = (items ?? []).slice(0, 9);
 
+  // Iconos por slug desde el backend (misma fuente que el menú: cat.image_url)
+  const { data: categoriesData } = useCategories();
+  const iconBySlug = React.useMemo(() => {
+    const map = new Map<string, string>();
+    for (const cat of categoriesData?.data ?? []) {
+      if (!cat.image_url) continue;
+      // Registrar todas las variantes de slug para asegurar la coincidencia
+      for (const s of [cat.slug, cat.slug_es, cat.slug_en, cat.slug_fr]) {
+        if (s) map.set(s, cat.image_url);
+      }
+    }
+    return map;
+  }, [categoriesData]);
+
   return (
     <section className="py-40 bg-[#F5ECEB] flex flex-col items-center justify-center">
       <div className="mx-auto px-0 max-sm:px-2">
@@ -70,7 +86,12 @@ export default function SolutionsSection({
 
         <div className="grid items-center justify-center grid-row-3 grid-cols-3 gap-y-8 gap-x-[4rem]">
           {list.map((item, index) => {
-            const IconSrc = iconsByIndex[index] ?? MorteroMonocapa;
+            // Preferir el icono del backend por slug (igual que el menú);
+            // si no hay coincidencia, usar el SVG local por posición.
+            const IconSrc =
+              iconBySlug.get(item.slug) ??
+              iconsByIndex[index] ??
+              MorteroMonocapa;
 
             return (
               <div
