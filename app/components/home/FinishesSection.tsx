@@ -5,6 +5,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { ProductCard } from "./components/ProductCard";
 import { useLanguage } from "../../context/LanguageContext";
 import { getFinishes, type FinishUI } from "@/services/finishesService";
+import { useCategories } from "@/api/useCategories";
 import { Loader } from "lucide-react";
 
 import MorteroCal from "../../../public/img/mortero-cal.svg";
@@ -93,6 +94,19 @@ export default function FinishesSection() {
       mounted = false;
     };
   }, []);
+
+  // Iconos por slug desde el backend (misma fuente que el menú: cat.image_url)
+  const { data: categoriesData } = useCategories();
+  const iconBySlug = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const cat of categoriesData?.data ?? []) {
+      if (!cat.image_url) continue;
+      for (const s of [cat.slug, cat.slug_es, cat.slug_en, cat.slug_fr]) {
+        if (s) map.set(s, cat.image_url);
+      }
+    }
+    return map;
+  }, [categoriesData]);
 
   const tabs = finishes;
 
@@ -187,8 +201,14 @@ export default function FinishesSection() {
               c.name ||
               slug;
 
-            // Icono: usa mapping para que se vea EXACTO como antes
-            const icon = ICON_BY_CATEGORY_SLUG[c.slug] || MorteroMonocapa;
+            // Icono: usar el del backend por slug (misma fuente que el menú
+            // y /empresa); si no hay, mapping local por slug y por último genérico.
+            const icon =
+              iconBySlug.get(c.slug) ||
+              (c.slug_en ? iconBySlug.get(c.slug_en) : undefined) ||
+              (c.slug_fr ? iconBySlug.get(c.slug_fr) : undefined) ||
+              ICON_BY_CATEGORY_SLUG[c.slug] ||
+              MorteroMonocapa;
 
             return (
               <div key={slug}>
