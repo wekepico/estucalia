@@ -10,9 +10,23 @@ import { useBlogPage } from "@/api/useBlogPage"; // 👈 importa el hook
 
 export default function NewsSection() {
   const router = useRouter();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { data, isLoading } = useBlogPage(); // 👈 usa el hook
   const blogs = data?.blogs ?? [];
+
+  // 👇 Título según idioma (igual que en NewsGrid)
+  const getTitle = (blog: (typeof blogs)[number]) => {
+    if (language === "en") return blog.title_en || blog.title;
+    if (language === "fr") return blog.title_fr || blog.title;
+    return blog.title;
+  };
+
+  // 👇 Slug según idioma
+  const getSlug = (blog: (typeof blogs)[number]) => {
+    if (language === "en") return blog.slug_en || blog.slug;
+    if (language === "fr") return blog.slug_fr || blog.slug;
+    return blog.slug;
+  };
 
   const handleViewNews = (slug: string) => {
     router.push(`/blog/${slug}`);
@@ -54,7 +68,7 @@ export default function NewsSection() {
                   />
                 </div>
                 <h3 className="text-base md:text-2xl px-4 md:px-0 mb-4 font-medium">
-                  {blog.title}
+                  {getTitle(blog)}
                 </h3>
               </CardHeader>
 
@@ -63,7 +77,7 @@ export default function NewsSection() {
                   <Button
                     variant="outline"
                     className="relative pl-5 pr-12 py-4 md:py-5 border-none rounded-none"
-                    onClick={() => handleViewNews(blog.slug)}
+                    onClick={() => handleViewNews(getSlug(blog))}
                   >
                     <span>{t("home.news.readMore")}</span>
                     <div className="absolute right-0">
