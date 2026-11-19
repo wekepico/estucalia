@@ -8,9 +8,8 @@
 // sí sola) con su generateMetadata y su componente igual que antes: aquí solo
 // se reparte según la URL. Las URLs, el ?lang= y el SEO no cambian.
 //
-// Para añadir una página simple nueva: crear `app/<ruta>/pagina.tsx` y
-// registrarla en PAGINAS. Las rutas con parámetro ([id], [slug]) siguen
-// siendo page.tsx normales.
+// Para añadir una página nueva: crear `app/<ruta>/pagina.tsx` (no page.tsx) y
+// registrarla en PAGINAS (sin parámetro) o PAGINAS_PARAM (con un parámetro).
 
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
@@ -47,22 +46,44 @@ const PAGINAS: Record<string, () => Promise<PaginaModule>> = {
   "profesionales/servicios": () => import("../profesionales/servicios/pagina"),
 };
 
-async function cargar(slug: string[]): Promise<PaginaModule | null> {
-  const loader = PAGINAS[slug.join("/")];
-  return loader ? loader() : null;
+// Rutas con un parámetro: /<prefijo>/<valor> -> params[<nombre>] = valor.
+const PAGINAS_PARAM: Record<
+  string,
+  { param: string; load: () => Promise<PaginaModule> }
+> = {
+  aplicaciones: { param: "id", load: () => import("../aplicaciones/[id]/pagina") },
+  blog: { param: "id", load: () => import("../blog/[id]/pagina") },
+  categories: { param: "slug", load: () => import("../categories/[slug]/pagina") },
+  espacios: { param: "slug", load: () => import("../espacios/[slug]/pagina") },
+  producto: { param: "id", load: () => import("../producto/[id]/pagina") },
+};
+
+type Resuelta = { mod: PaginaModule; params: Record<string, string> };
+
+async function cargar(slug: string[]): Promise<Resuelta | null> {
+  const simple = PAGINAS[slug.join("/")];
+  if (simple) return { mod: await simple(), params: {} };
+  const conParam = slug.length === 2 ? PAGINAS_PARAM[slug[0]] : undefined;
+  if (conParam) {
+    return {
+      mod: await conParam.load(),
+      params: { [conParam.param]: slug[1] },
+    };
+  }
+  return null;
 }
 
 export async function generateMetadata(
   props: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const mod = await cargar(props.params.slug);
-  if (!mod?.generateMetadata) return {};
-  return mod.generateMetadata(props, parent);
+  const r = await cargar(props.params.slug);
+  if (!r?.mod.generateMetadata) return {};
+  return r.mod.generateMetadata({ ...props, params: r.params }, parent);
 }
 
 export default async function PaginaSimple(props: Props) {
-  const mod = await cargar(props.params.slug);
-  if (!mod) notFound();
-  return mod.default(props);
+  const r = await cargar(props.params.slug);
+  if (!r) notFound();
+  return r.mod.default({ ...props, params: r.params });
 }
