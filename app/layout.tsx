@@ -64,6 +64,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        <meta
+          name="google-site-verification"
+          content="SV_2XLxWI_yLYQ-jQj1GRBHpIIjhTSr2Tz5Ca4VpOdY"
+        />
         <link rel="icon" href="/img/favicon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
