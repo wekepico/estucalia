@@ -8,7 +8,7 @@ import { RxInstagramLogo } from "react-icons/rx";
 import { FaYoutube } from "react-icons/fa6";
 import { TiSocialLinkedin, TiSocialFacebook } from "react-icons/ti";
 
-import { useFooter } from "@/api/useFooter";
+import { useFooter } from "@/lib/data-hooks/useFooter";
 
 const SocialIcon = ({ keyName }: { keyName?: string | null }) => {
   const key = (keyName || "").toLowerCase();

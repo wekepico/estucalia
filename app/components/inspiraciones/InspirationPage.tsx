@@ -3,7 +3,7 @@
 
 import React, { useMemo } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useInspirationPage } from "@/api/useInspirationPage";
+import { useInspirationPage } from "@/lib/data-hooks/useInspirationPage";
 import SeoHead from "@/components/SeoHead";
 import { Loader } from "lucide-react";
 import { InspirationDTO, Lang } from "@/services/inspirationsService";

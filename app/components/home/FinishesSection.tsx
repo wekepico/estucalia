@@ -5,7 +5,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { ProductCard } from "./components/ProductCard";
 import { useLanguage } from "../../context/LanguageContext";
 import { getFinishes, type FinishUI } from "@/services/finishesService";
-import { useCategories } from "@/api/useCategories";
+import { useCategories } from "@/lib/data-hooks/useCategories";
 import { Loader } from "lucide-react";
 
 import MorteroCal from "../../../public/img/mortero-cal.svg";

@@ -2,7 +2,7 @@
 
 import React, { useMemo } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useCategories } from "@/api/useCategories";
+import { useCategories } from "@/lib/data-hooks/useCategories";
 import type { FinishUI } from "@/services/finishesService";
 
 import {

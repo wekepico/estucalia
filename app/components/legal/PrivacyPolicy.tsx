@@ -1,7 +1,7 @@
 // app/components/legal/PrivacyPolicy.tsx
 "use client";
 
-import { usePrivacyPolicyPage } from "@/api/usePrivacyPolicyPage";
+import { usePrivacyPolicyPage } from "@/lib/data-hooks/usePrivacyPolicyPage";
 import React from "react";
 
 const HtmlBlock = ({ html }: { html: string | null }) => {

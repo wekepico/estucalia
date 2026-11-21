@@ -7,7 +7,7 @@ import { useEffect, useState, useMemo, useRef } from "react";
 import data from "../../components/productos/components/data-es.json";
 import data2 from "../../components/productos/components/data-en.json";
 import data3 from "../../components/productos/components/data-fr.json";
-import { useCategoryBySlug, useCategoryProducts, useCategories } from '@/api/useCategories';
+import { useCategoryBySlug, useCategoryProducts, useCategories } from '@/lib/data-hooks/useCategories';
 import { getProductDocuments } from '@/services/productsService';
 import { getLocalizedField, getLocalizedSlug, getImageUrl } from '@/lib/i18nHelpers';
 import type { Category } from '@/services/categoriesService';

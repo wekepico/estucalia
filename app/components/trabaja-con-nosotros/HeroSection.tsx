@@ -3,7 +3,7 @@
 import React, { useMemo } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
 import type { Lang } from "@/services/contactPageService";
-import { useWorkWithUsPage } from "@/api/useWorkWithUsPage";
+import { useWorkWithUsPage } from "@/lib/data-hooks/useWorkWithUsPage";
 import { isHtml, sanitizeBasicHtml } from "./html";
 
 export default function HeroSection() {

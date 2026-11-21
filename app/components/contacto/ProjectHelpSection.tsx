@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useHome } from "@/api/useHome";
+import { useHome } from "@/lib/data-hooks/useHome";
 
 export default function ProjectHelpSection() {
   const { t, language } = useLanguage();

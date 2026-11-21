@@ -4,7 +4,7 @@ import React from "react";
 import ConstructorGrid from "./components/ConstructorGrid";
 import SolutionsSection from "../empresa/SolutionsSection";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useBuildersArchitectsPage } from "@/api/useBuildersArchitectsPage";
+import { useBuildersArchitectsPage } from "@/lib/data-hooks/useBuildersArchitectsPage";
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
 
 export default function ConstructoresArquitectosPage() {

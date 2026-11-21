@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { useEmpresa } from '@/api/useEmpresa';
+import { useEmpresa } from '@/lib/data-hooks/useEmpresa';
 
 const countries = [
   'Argelia,', 'Marruecos,', 'Kuwait,', 'Arabia Saudí,',

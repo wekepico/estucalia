@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useBuildersArchitectsPage } from "@/api/useBuildersArchitectsPage";
+import { useBuildersArchitectsPage } from "@/lib/data-hooks/useBuildersArchitectsPage";
 import ConstructoresArquitectosPage from "@/app/components/constructoresArquitectos/ConstructoresArquitectosPage";
 
 export default function ConstructoresArquitectosClient() {

@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { usePrivacyPolicyPage } from "@/api/usePrivacyPolicyPage";
+import { usePrivacyPolicyPage } from "@/lib/data-hooks/usePrivacyPolicyPage";
 import PrivacyPolicy from "../components/legal/PrivacyPolicy";
 
 export default function PoliticaPrivacidadClient() {

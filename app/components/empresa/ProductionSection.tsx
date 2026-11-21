@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { useEmpresa } from '@/api/useEmpresa';
+import { useEmpresa } from '@/lib/data-hooks/useEmpresa';
 
 export default function ProductionSection() {
   const { t, language } = useLanguage();

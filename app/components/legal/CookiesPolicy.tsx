@@ -1,7 +1,7 @@
 // app/components/legal/CookiesPolicy.tsx
 "use client";
 
-import { useCookiesPolicyPage } from "@/api/useCookiesPolicyPage";
+import { useCookiesPolicyPage } from "@/lib/data-hooks/useCookiesPolicyPage";
 import React from "react";
 
 const HtmlBlock = ({ html }: { html: string | null }) => {

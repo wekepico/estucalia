@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { useLegal } from "@/api/useLegal";
+import { useLegal } from "@/lib/data-hooks/useLegal";
 
 const HtmlBlock = ({ html }: { html: string | null }) => {
   if (!html) return null;

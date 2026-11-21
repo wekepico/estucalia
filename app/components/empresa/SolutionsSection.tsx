@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { useCategories } from "@/api/useCategories";
+import { useCategories } from "@/lib/data-hooks/useCategories";
 
 import MorteroCal from "../../../public/img/mortero-cal.svg";
 import MorteroMonocapa from "../../../public/img/mortero-monocapa.svg";

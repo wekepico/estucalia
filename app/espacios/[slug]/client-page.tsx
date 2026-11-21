@@ -7,9 +7,9 @@ import { Loader } from "lucide-react";
 
 import SpacesPage from "@/app/components/espacios/SpacesPage";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useSpacesPage } from "@/api/useSpacesPage"; // 👈 NUEVO
+import { useSpacesPage } from "@/lib/data-hooks/useSpacesPage"; // 👈 NUEVO
 import SeoHead from "@/components/SeoHead"; // 👈 NUEVO
-import { useSpaceBySlug } from "@/api/useSpaces";
+import { useSpaceBySlug } from "@/lib/data-hooks/useSpaces";
 
 import { getImageUrl } from "@/lib/i18nHelpers";
 import { Category, getApplicationCategories } from "@/services";

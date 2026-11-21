@@ -8,7 +8,7 @@ import { useLanguage } from "../../context/LanguageContext";
 import {
   useApplicationsTabs,
   useSpacesWithApplications,
-} from "@/api/useApplicationsAndSpaces";
+} from "@/lib/data-hooks/useApplicationsAndSpaces";
 import type { Application } from "@/services/applicationsService";
 import type { Space } from "@/services/spacesService";
 

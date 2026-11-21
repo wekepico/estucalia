@@ -2,7 +2,7 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { useBlogPost } from "@/api/useBlogPost";
+import { useBlogPost } from "@/lib/data-hooks/useBlogPost";
 import { useLanguage } from "@/app/context/LanguageContext";
 import SeoHead from "@/components/SeoHead";
 import NewsDetail from "@/app/components/blog/NewsDetail";
