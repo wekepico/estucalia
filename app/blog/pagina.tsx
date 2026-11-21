@@ -61,7 +61,8 @@ export async function generateMetadata({
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
     alternates: {
-      canonical: seo?.meta?.canonical || "https://www.grupoestucalia.com/blog",
+      // Canonical propio por idioma; se ignora el del backend (apunta a la API).
+      canonical: `https://www.grupoestucalia.com/blog?lang=${lang}`,
       languages: {
         es: "https://www.grupoestucalia.com/blog?lang=es",
         en: "https://www.grupoestucalia.com/blog?lang=en",
