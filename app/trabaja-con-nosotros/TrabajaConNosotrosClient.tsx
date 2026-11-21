@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useWorkWithUsPage } from "@/api/useWorkWithUsPage";
+import { useWorkWithUsPage } from "@/lib/data-hooks/useWorkWithUsPage";
 
 import HeroSection from "../components/trabaja-con-nosotros/HeroSection";
 import ApplicationForm from "../components/trabaja-con-nosotros/ApplicationForm";

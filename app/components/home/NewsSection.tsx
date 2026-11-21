@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "../../context/LanguageContext";
-import { useBlogPage } from "@/api/useBlogPage"; // 👈 importa el hook
+import { useBlogPage } from "@/lib/data-hooks/useBlogPage"; // 👈 importa el hook
 
 export default function NewsSection() {
   const router = useRouter();

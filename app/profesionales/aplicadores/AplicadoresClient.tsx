@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useApplicatorsPage } from "@/api/useApplicatorsPage";
+import { useApplicatorsPage } from "@/lib/data-hooks/useApplicatorsPage";
 import AplicadoresPage from "../../components/aplicadores/AplicadoresPage";
 
 export default function AplicadoresClient() {

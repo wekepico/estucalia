@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "../../context/LanguageContext";
-import { useEmpresa } from "@/api/useEmpresa";
+import { useEmpresa } from "@/lib/data-hooks/useEmpresa";
 import Link from "next/link";
 
 export default function CertificationsSection() {

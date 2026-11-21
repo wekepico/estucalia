@@ -3,7 +3,7 @@
 
 import ProductCategoryPage from "@/app/components/productos/ProductoPage";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useCategoriesPage } from "@/api/useCategoriesPage"; // 👈 NUEVO
+import { useCategoriesPage } from "@/lib/data-hooks/useCategoriesPage"; // 👈 NUEVO
 import SeoHead from "@/components/SeoHead"; // 👈 NUEVO
 import { Loader } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
@@ -16,7 +16,7 @@ import {
   useCategoryProducts,
   useCategories,
   useCategoryApplications,
-} from "@/api/useCategories";
+} from "@/lib/data-hooks/useCategories";
 import {
   getLocalizedField,
   getLocalizedSlug,

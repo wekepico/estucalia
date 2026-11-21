@@ -5,7 +5,7 @@ import ServicesGrid from "./components/AplicantGrid";
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
 import ApplicationForm from "./components/AplicationForm";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useApplicatorsPage } from "@/api/useApplicatorsPage";
+import { useApplicatorsPage } from "@/lib/data-hooks/useApplicatorsPage";
 
 export default function AplicadoresPage() {
   const { language } = useLanguage();

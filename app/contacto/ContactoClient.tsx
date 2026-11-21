@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useContactPage } from "@/api/useContactPage";
+import { useContactPage } from "@/lib/data-hooks/useContactPage";
 
 import ContactForm from "../components/contacto/ContactForm";
 import MapSection from "../components/contacto/MapSection";

@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, useMemo } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useApplications } from "@/api/useApplications";
-import { useCategories } from "@/api/useCategories";
+import { useApplications } from "@/lib/data-hooks/useApplications";
+import { useCategories } from "@/lib/data-hooks/useCategories";
 import { getLocalizedField, getLocalizedSlug } from "@/lib/i18nHelpers";
 
 import {
@@ -28,7 +28,7 @@ import MorteroCola from "../../public/img/mortero-cola.svg";
 import MorteroPiedra from "../../public/img/mortero-piedra.svg";
 import MorteroUnion from "../../public/img/mortero puente union.svg";
 import { htmlToText } from "@/lib/utils";
-import { useSpaces } from "@/api/useSpaces";
+import { useSpaces } from "@/lib/data-hooks/useSpaces";
 
 const cleanMenuText = (value: unknown) =>
   htmlToText(String(value ?? ""))

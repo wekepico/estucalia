@@ -4,7 +4,7 @@ import React from "react";
 import ServicesGrid from "./components/ServiceGrid";
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useIntegralProjectsPage } from "@/api/useIntegralProjectsPage";
+import { useIntegralProjectsPage } from "@/lib/data-hooks/useIntegralProjectsPage";
 
 export default function ServiciosIntegralesPage() {
   const { language } = useLanguage();

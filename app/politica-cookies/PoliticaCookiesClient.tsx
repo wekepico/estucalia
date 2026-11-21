@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useCookiesPolicyPage } from "@/api/useCookiesPolicyPage";
+import { useCookiesPolicyPage } from "@/lib/data-hooks/useCookiesPolicyPage";
 import CookiesPolicyComponent from "../components/legal/CookiesPolicy";
 
 export default function PoliticaCookiesClient() {

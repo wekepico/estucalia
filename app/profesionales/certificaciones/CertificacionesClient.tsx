@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useCertificationsDocumentationPage } from "@/api/useCertificationsDocumentationPage";
+import { useCertificationsDocumentationPage } from "@/lib/data-hooks/useCertificationsDocumentationPage";
 import CertificacionesPage from "../../components/certificaciones/CertificationPage";
 
 export default function CertificacionesClient() {

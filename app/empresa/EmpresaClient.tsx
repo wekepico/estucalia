@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
-import { useEmpresa } from "@/api/useEmpresa";
+import { useEmpresa } from "@/lib/data-hooks/useEmpresa";
 
 import VideoHero from "../components/empresa/VideoHero";
 import AboutSection from "../components/empresa/AboutSection";

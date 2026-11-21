@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useLegal } from "@/api/useLegal";
+import { useLegal } from "@/lib/data-hooks/useLegal";
 import LegalNotice from "../components/legal/LegalNotice";
 
 export default function AvisoLegalClient() {

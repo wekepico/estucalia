@@ -7,8 +7,8 @@ import { useLanguage } from "@/app/context/LanguageContext";
 import { data, Aplication } from "../../data/aplicaciones";
 import AplicationPage from "../../components/aplicaciones/AplicationsPage";
 import { Loader } from "lucide-react";
-import { useApplicationBySlug, useApplications } from "@/api/useApplications";
-import { useApplicationsPage } from "@/api/useApplicationsPage"; // 👈 NUEVO
+import { useApplicationBySlug, useApplications } from "@/lib/data-hooks/useApplications";
+import { useApplicationsPage } from "@/lib/data-hooks/useApplicationsPage"; // 👈 NUEVO
 import SeoHead from "@/components/SeoHead"; // 👈 NUEVO
 import {
   getLocalizedField,

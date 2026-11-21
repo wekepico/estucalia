@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useLanguage } from '../../context/LanguageContext';
-import { useEmpresa } from '@/api/useEmpresa';
+import { useEmpresa } from '@/lib/data-hooks/useEmpresa';
 
 import Creatividad from '../../../public/img/creatividad-img.png'
 

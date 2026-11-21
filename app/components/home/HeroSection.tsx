@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useHome } from "@/api/useHome";
+import { useHome } from "@/lib/data-hooks/useHome";
 
 export default function HeroSection() {
   const { t, language } = useLanguage();

@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useBlogPage } from "@/api/useBlogPage";
+import { useBlogPage } from "@/lib/data-hooks/useBlogPage";
 import HeroSection from "../components/blog/HeroSection";
 import NewsGrid from "../components/blog/NewsGrid";
 

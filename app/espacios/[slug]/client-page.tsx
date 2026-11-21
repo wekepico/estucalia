@@ -2,14 +2,14 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Loader } from "lucide-react";
 
 import SpacesPage from "@/app/components/espacios/SpacesPage";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useSpacesPage } from "@/api/useSpacesPage"; // 👈 NUEVO
+import { useSpacesPage } from "@/lib/data-hooks/useSpacesPage"; // 👈 NUEVO
 import SeoHead from "@/components/SeoHead"; // 👈 NUEVO
-import { useSpaceBySlug } from "@/api/useSpaces";
+import { useSpaceBySlug } from "@/lib/data-hooks/useSpaces";
 
 import { getImageUrl } from "@/lib/i18nHelpers";
 import { Category, getApplicationCategories } from "@/services";
@@ -28,8 +28,12 @@ function pickSlug(obj: any, lang: "es" | "en" | "fr") {
 }
 
 export default function ClientPage() {
-  const params = useParams<{ slug: string }>();
-  const slug = params.slug;
+  // Slug leído del pathname: useParams() devolvería el array del comodín
+  // [...slug] (["espacios", "<slug>"]) y se pediría "espacios,<slug>" al backend.
+  const pathname = usePathname();
+  const slug = decodeURIComponent(
+    pathname.split("/").filter(Boolean).pop() ?? "",
+  );
 
   const { t, language } = useLanguage();
 

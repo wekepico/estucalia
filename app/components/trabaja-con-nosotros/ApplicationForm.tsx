@@ -21,7 +21,7 @@ import {
 import { useLanguage } from "@/app/context/LanguageContext";
 import type { Lang } from "@/services/contactPageService";
 import { sendWorkWithUsMessage } from "@/services/workWithUsMessageService";
-import { useWorkWithUsPage } from "@/api/useWorkWithUsPage";
+import { useWorkWithUsPage } from "@/lib/data-hooks/useWorkWithUsPage";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";

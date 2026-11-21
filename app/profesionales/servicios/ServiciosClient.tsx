@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useIntegralProjectsPage } from "@/api/useIntegralProjectsPage";
+import { useIntegralProjectsPage } from "@/lib/data-hooks/useIntegralProjectsPage";
 import ServiciosIntegralesPage from "../../components/serviciosIntegrales/ServiciosIntegralesPage";
 
 export default function ServiciosClient() {

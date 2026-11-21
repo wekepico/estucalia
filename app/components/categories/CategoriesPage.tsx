@@ -1,5 +1,5 @@
 "use client";
-import { useCategories } from '@/api/useCategories';
+import { useCategories } from '@/lib/data-hooks/useCategories';
 import { useLanguage } from '@/app/context/LanguageContext';
 import { getLocalizedField, getLocalizedSlug, getImageUrl } from '@/lib/i18nHelpers';
 import { Loader } from 'lucide-react';

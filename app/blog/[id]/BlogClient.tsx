@@ -1,8 +1,8 @@
 // app/blog/[id]/BlogClient.tsx
 "use client";
 
-import { useParams, useRouter } from "next/navigation";
-import { useBlogPost } from "@/api/useBlogPost";
+import { usePathname, useRouter } from "next/navigation";
+import { useBlogPost } from "@/lib/data-hooks/useBlogPost";
 import { useLanguage } from "@/app/context/LanguageContext";
 import SeoHead from "@/components/SeoHead";
 import NewsDetail from "@/app/components/blog/NewsDetail";
@@ -10,7 +10,10 @@ import { Loader } from "lucide-react";
 import { useEffect } from "react";
 
 export default function BlogClient() {
-  const { id } = useParams(); // slug actual
+  // Slug actual, leído del pathname: useParams() devolvería el array del
+  // comodín [...slug] (["blog", "<slug>"]) en vez del slug.
+  const pathname = usePathname();
+  const id = decodeURIComponent(pathname.split("/").filter(Boolean).pop() ?? "");
   const router = useRouter();
   const { language } = useLanguage();
   const { data: post, isLoading, error } = useBlogPost(id as string, !!id);

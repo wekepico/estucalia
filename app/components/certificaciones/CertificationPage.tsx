@@ -6,7 +6,7 @@ import ServicesGrid from "./components/certificationGrid";
 import ProjectHelpSection from "../contacto/ProjectHelpSection";
 import SolutionsSection from "../empresa/SolutionsSection";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { useCertificationsDocumentationPage } from "@/api/useCertificationsDocumentationPage";
+import { useCertificationsDocumentationPage } from "@/lib/data-hooks/useCertificationsDocumentationPage";
 
 export default function CertificacionesPage() {
   const { language } = useLanguage();
