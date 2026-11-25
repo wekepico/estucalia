@@ -6,6 +6,7 @@ import ClientNavigation from "./components/ClientNavigation";
 import { LanguageProvider } from "./context/LanguageContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import QueryProvider from "./providers/QueryProvider";
+import CookieConsent from "./components/analytics/CookieConsent";
 import { Metadata } from "next";
 
 // Metadata por defecto para toda la app (fallback)
@@ -84,6 +85,7 @@ export default function RootLayout({
               {children}
             </div>
             <Footer />
+            <CookieConsent />
           </LanguageProvider>
         </QueryProvider>
       </body>

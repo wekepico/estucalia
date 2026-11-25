@@ -9,6 +9,8 @@ import { FaYoutube } from "react-icons/fa6";
 import { TiSocialLinkedin, TiSocialFacebook } from "react-icons/ti";
 
 import { useFooter } from "@/lib/data-hooks/useFooter";
+import { useLanguage } from "@/app/context/LanguageContext";
+import { OPEN_COOKIE_SETTINGS_EVENT } from "@/lib/cookieConsent";
 
 const SocialIcon = ({ keyName }: { keyName?: string | null }) => {
   const key = (keyName || "").toLowerCase();
@@ -26,6 +28,7 @@ const SocialIcon = ({ keyName }: { keyName?: string | null }) => {
 
 export default function Footer() {
   const { data: footer, isPending, isLoading } = useFooter();
+  const { t } = useLanguage();
   const loading = (isPending ?? isLoading) && !footer;
 
   if (loading) return null; // o tu loader si quieres
@@ -45,9 +48,20 @@ export default function Footer() {
               height={100}
               className="mb-6 -ml-2 h-14 w-auto absolute"
             />
-            <p className="mt-36 text-gray-100">
-              {footer?.copyright ?? "Copyright©2025"}
-            </p>
+            <div className="mt-36">
+              <p className="text-gray-100">
+                {footer?.copyright ?? "Copyright©2025"}
+              </p>
+              <button
+                type="button"
+                className="mt-2 text-gray-200 underline hover:text-white transition-colors"
+                onClick={() =>
+                  window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS_EVENT))
+                }
+              >
+                {t("cookieBanner.settings")}
+              </button>
+            </div>
           </div>
 
           <div className="flex gap-10 lg:pl-32 max-sm:flex-col">
