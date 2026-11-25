@@ -96,15 +96,14 @@ export async function generateMetadata({
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
     authors: seo?.meta?.author ? [{ name: seo.meta.author }] : undefined,
+    // Cada idioma declara como canonical su propia URL pública.
     alternates: {
-      // Cada idioma declara como canonical su propia URL pública (con ?lang=).
-      // Se ignora seo.meta.canonical del backend: devuelve la URL de la API
-      // (apiestucalia.innet.es), no la de la web.
       canonical: buildLangUrl(lang),
       languages: {
         es: buildLangUrl("es"),
         en: buildLangUrl("en"),
         fr: buildLangUrl("fr"),
+        "x-default": buildLangUrl("es"),
       },
     },
     openGraph: {

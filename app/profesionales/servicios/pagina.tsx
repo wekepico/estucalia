@@ -17,6 +17,7 @@ import {
   type Lang,
 } from "@/services/integralProjectsPageService";
 import ServiciosClient from "./ServiciosClient";
+import { buildAlternates } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -63,16 +64,7 @@ export async function generateMetadata({
     description,
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
-    alternates: {
-      canonical:
-        seo?.meta?.canonical ||
-        "https://www.grupoestucalia.com/profesionales/servicios",
-      languages: {
-        es: "https://www.grupoestucalia.com/profesionales/servicios?lang=es",
-        en: "https://www.grupoestucalia.com/profesionales/servicios?lang=en",
-        fr: "https://www.grupoestucalia.com/profesionales/servicios?lang=fr",
-      },
-    },
+    alternates: buildAlternates(lang, "/profesionales/servicios"),
     openGraph: {
       title: seo?.og?.title || title,
       description: seo?.og?.description || description,

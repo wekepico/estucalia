@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { Upload } from "lucide-react";
@@ -65,7 +65,13 @@ const formSchema = (t: any) =>
 type FormData = z.infer<ReturnType<typeof formSchema>>;
 
 function HtmlWithNextLinks({ html }: { html: string }) {
+  // En el servidor no hay DOM: se pinta el HTML saneado y, ya en el navegador,
+  // se convierten los enlaces internos en <Link>.
+  const [inBrowser, setInBrowser] = useState(false);
+  useEffect(() => setInBrowser(true), []);
+
   const nodes = useMemo(() => {
+    if (!inBrowser) return null;
     const doc = document.implementation.createHTMLDocument("");
     const container = doc.createElement("div");
     container.innerHTML = html;
@@ -121,7 +127,13 @@ function HtmlWithNextLinks({ html }: { html: string }) {
     return Array.from(container.childNodes).map((n, i) => (
       <React.Fragment key={i}>{walk(n)}</React.Fragment>
     ));
-  }, [html]);
+  }, [html, inBrowser]);
+
+  if (!inBrowser) {
+    return (
+      <span dangerouslySetInnerHTML={{ __html: sanitizeBasicHtml(html) }} />
+    );
+  }
 
   return <>{nodes}</>;
 }

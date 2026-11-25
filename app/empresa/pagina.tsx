@@ -14,6 +14,7 @@ import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getEmpresaData, type Lang } from "@/services/empresaService";
 import EmpresaClient from "./EmpresaClient";
+import { buildAlternates } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -57,15 +58,7 @@ export async function generateMetadata({
     description,
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
-    alternates: {
-      canonical:
-        seo?.meta?.canonical || "https://www.grupoestucalia.com/empresa",
-      languages: {
-        es: "https://www.grupoestucalia.com/empresa?lang=es",
-        en: "https://www.grupoestucalia.com/empresa?lang=en",
-        fr: "https://www.grupoestucalia.com/empresa?lang=fr",
-      },
-    },
+    alternates: buildAlternates(lang, "/empresa"),
     openGraph: {
       title: seo?.og?.title || title,
       description: seo?.og?.description || description,

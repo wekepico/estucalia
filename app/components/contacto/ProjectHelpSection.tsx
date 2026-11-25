@@ -9,10 +9,6 @@ export default function ProjectHelpSection() {
   const { t, language } = useLanguage();
   const { data: home } = useHome();
 
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
   const title = home?.help?.title ?? t("contact.projectHelp.title");
   const description = home?.help?.text ?? t("contact.projectHelp.description");
   const buttonText = home?.help?.button ?? t("contact.projectHelp.button");

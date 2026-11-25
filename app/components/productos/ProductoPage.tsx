@@ -87,7 +87,7 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
   }, [category?.aplicaciones, category?.applications, backendData, language]);
 
   // Inicializar selectedProductIndex
-  const [selectedProductIndex, setSelectedProductIndex] = useState<number | null>(null);
+  const [selectedProductIndex, setSelectedProductIndex] = useState<number | null>(0);
 
 
   // Actualizar selectedProductIndex cuando haya productos disponibles

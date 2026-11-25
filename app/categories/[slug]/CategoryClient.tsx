@@ -4,7 +4,6 @@
 import ProductCategoryPage from "@/app/components/productos/ProductoPage";
 import { useLanguage } from "@/app/context/LanguageContext";
 import { useCategoriesPage } from "@/lib/data-hooks/useCategoriesPage"; // 👈 NUEVO
-import SeoHead from "@/components/SeoHead"; // 👈 NUEVO
 import { Loader } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, useMemo, useRef } from "react";
@@ -463,18 +462,9 @@ useEffect(() => {
     );
   }
 
-  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
 
   return (
     <>
-      {/* 👇 SEO DINÁMICO - MISMO SEO PARA TODAS LAS CATEGORÍAS */}
-      <SeoHead
-        seo={finalSeo || null}
-        url={currentUrl}
-        fallbackTitle="Grupo Estucalia | Productos"
-        fallbackDescription="Descubre nuestra amplia gama de productos: morteros, revestimientos, solados y más soluciones constructivas de alta calidad."
-      />
-
       <ProductCategoryPage
         category={finalCategory}
         backendData={categoryFromBackend}

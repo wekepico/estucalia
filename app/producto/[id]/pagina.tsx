@@ -18,6 +18,9 @@ import {
   getCategoryProducts,
 } from "@/services/categoriesService";
 import ProductClient from "./ProductClient";
+import JsonLd from "@/app/components/seo/JsonLd";
+import { productListJsonLd } from "@/lib/structuredData";
+import { SITE_URL } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -120,14 +123,14 @@ export async function generateMetadata({
     description,
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
+    // Cada idioma declara como canonical su propia URL pública.
     alternates: {
-      canonical:
-        seo?.meta?.canonical ||
-        `https://www.grupoestucalia.com/producto/${slug}`,
+      canonical: buildLangUrl(lang),
       languages: {
         es: buildLangUrl("es"),
         en: buildLangUrl("en"),
         fr: buildLangUrl("fr"),
+        "x-default": buildLangUrl("es"),
       },
     },
     openGraph: {
@@ -171,6 +174,21 @@ export default async function ProductPage({ params, searchParams }: Params) {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
+      <JsonLd
+        data={productListJsonLd(
+          queryClient.getQueryData<any>(["categories", "detail", slug, lang])
+            ?.data,
+          queryClient.getQueryData<any>([
+            "categories",
+            "detail",
+            slug,
+            lang,
+            "products",
+          ])?.data,
+          lang,
+          `${SITE_URL}/producto/${slug}?lang=${lang}`,
+        )}
+      />
       <ProductClient />
     </HydrationBoundary>
   );

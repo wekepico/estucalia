@@ -99,14 +99,14 @@ export async function generateMetadata({
     description,
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
+    // Cada idioma declara como canonical su propia URL pública.
     alternates: {
-      canonical:
-        seo?.meta?.canonical ||
-        `https://www.grupoestucalia.com/aplicaciones/${slug}`,
+      canonical: buildLangUrl(lang),
       languages: {
         es: buildLangUrl("es"),
         en: buildLangUrl("en"),
         fr: buildLangUrl("fr"),
+        "x-default": buildLangUrl("es"),
       },
     },
     openGraph: {

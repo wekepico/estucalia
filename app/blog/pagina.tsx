@@ -15,6 +15,7 @@ import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getBlogPage } from "@/services/bolgsServices";
 import BlogListClient from "./BlogListClient";
+import { buildAlternates } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -60,15 +61,7 @@ export async function generateMetadata({
     description,
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
-    alternates: {
-      // Canonical propio por idioma; se ignora el del backend (apunta a la API).
-      canonical: `https://www.grupoestucalia.com/blog?lang=${lang}`,
-      languages: {
-        es: "https://www.grupoestucalia.com/blog?lang=es",
-        en: "https://www.grupoestucalia.com/blog?lang=en",
-        fr: "https://www.grupoestucalia.com/blog?lang=fr",
-      },
-    },
+    alternates: buildAlternates(lang, "/blog"),
     openGraph: {
       title: seo?.og?.title || title,
       description: seo?.og?.description || description,

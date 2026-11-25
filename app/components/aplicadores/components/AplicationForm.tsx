@@ -64,7 +64,6 @@ export default function ApplicationForm({
   checkbox2Label: string | null;
 }) {
   const { t, language } = useLanguage();
-  const [mounted, setMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const lang = (["es", "en", "fr"].includes(language) ? language : "es") as
@@ -84,9 +83,6 @@ export default function ApplicationForm({
       aceptarComercial: false,
     },
   });
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
 
   const API_BASE = (
     process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api"

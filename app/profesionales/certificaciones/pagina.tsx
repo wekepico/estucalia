@@ -18,6 +18,7 @@ import {
   type Lang,
 } from "@/services/certificationsDocumentationPageService";
 import CertificacionesClient from "./CertificacionesClient";
+import { buildAlternates } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -68,16 +69,7 @@ export async function generateMetadata({
     description,
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
-    alternates: {
-      canonical:
-        seo?.meta?.canonical ||
-        "https://www.grupoestucalia.com/profesionales/certificaciones",
-      languages: {
-        es: "https://www.grupoestucalia.com/profesionales/certificaciones?lang=es",
-        en: "https://www.grupoestucalia.com/profesionales/certificaciones?lang=en",
-        fr: "https://www.grupoestucalia.com/profesionales/certificaciones?lang=fr",
-      },
-    },
+    alternates: buildAlternates(lang, "/profesionales/certificaciones"),
     openGraph: {
       title: seo?.og?.title || title,
       description: seo?.og?.description || description,

@@ -191,18 +191,7 @@ export default function SeoHead({
       }
       meta.setAttribute("content", seo.twitter.image);
     }
-
-    // 6. Canonical URL
-    const canonicalUrl = seo.meta?.canonical || url;
-    if (canonicalUrl) {
-      let canonical = document.querySelector('link[rel="canonical"]');
-      if (!canonical) {
-        canonical = document.createElement("link");
-        canonical.setAttribute("rel", "canonical");
-        document.head.appendChild(canonical);
-      }
-      canonical.setAttribute("href", canonicalUrl);
-    }
+    // El canonical lo pone el servidor (generateMetadata): no se toca aquí.
   }, [seo, url, fallbackTitle, fallbackDescription]);
 
   return null;

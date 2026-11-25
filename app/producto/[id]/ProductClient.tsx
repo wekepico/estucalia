@@ -17,22 +17,24 @@ export default function ProductClient() {
     const router = useRouter();
     const { t, language } = useLanguage();
     const [mounted, setMounted] = useState(false);
-    const [categorySlug, setCategorySlug] = useState<string>("");
     const previousLanguageRef = useRef<typeof language | null>(null);
     const isFirstRenderRef = useRef(true);
 
-    // Obtenemos el ID de la categoría de la URL
+    // Slug calculado de forma síncrona desde la URL para que el servidor
+    // pinte los datos prefetcheados.
+    const categorySlug = useMemo(
+        () => decodeURIComponent(pathname.split("/").pop() || ""),
+        [pathname]
+    );
+
     useEffect(() => {
         setMounted(true);
-        const idEncoded = pathname.split("/").pop();
-        const categoryId = decodeURIComponent(idEncoded || "");
-        setCategorySlug(categoryId);
-    }, [pathname]);
+    }, []);
 
     // Consumir datos del backend
     const { data: backendCategoryData, isLoading, error } = useCategoryBySlug(
         categorySlug,
-        mounted && !!categorySlug
+        !!categorySlug
     );
 
     // Obtener todas las categorías para encontrar la que coincide con el slug actual
@@ -42,7 +44,7 @@ export default function ProductClient() {
     // Ejecutar el hook siempre que tengamos categorySlug, no esperar a backendCategoryData
     const { data: backendProductsData, isLoading: isLoadingProducts } = useCategoryProducts(
         categorySlug,
-        mounted && !!categorySlug
+        !!categorySlug
     );
 
     // Estado para almacenar los documentos de cada producto
@@ -258,7 +260,7 @@ export default function ProductClient() {
         previousLanguageRef.current = language;
     }, [language, mounted, backendCategoryData, allCategoriesData, localCategory, categorySlug, router, isLoading]);
 
-    if (!mounted || isLoading) {
+    if (isLoading && !foundCategory) {
         return (
             <main className="min-h-screen gap-4 flex justify-center items-center bg-white md:pt-28 pt-16 lg:pt-32">
                 <Loader width={50} height={50} /> Loading...
