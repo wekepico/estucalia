@@ -15,7 +15,9 @@ import { unstable_cache } from "next/cache";
 import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getHome, type Lang } from "@/services/homeService";
+import { getBlogPage } from "@/services/bolgsServices";
 import HomeClient from "./HomeClient";
+import { buildAlternates } from "@/lib/seo";
 
 // La página depende de ?lang=, así que se renderiza dinámicamente.
 // El cache real está en unstable_cache (debajo), no en la ruta.
@@ -29,6 +31,12 @@ const getCachedHome = unstable_cache(
   },
   ["home"],
   { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["home"] },
+);
+
+const getCachedNews = unstable_cache(
+  async (lang: Lang) => getBlogPage(lang),
+  ["home-news"],
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["blog"] },
 );
 
 type SearchParams = { searchParams?: { lang?: string } };
@@ -68,14 +76,7 @@ export async function generateMetadata({
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
     authors: seo?.meta?.author ? [{ name: seo.meta.author }] : undefined,
-    alternates: {
-      canonical: seo?.meta?.canonical || "https://www.grupoestucalia.com",
-      languages: {
-        es: "https://www.grupoestucalia.com?lang=es",
-        en: "https://www.grupoestucalia.com?lang=en",
-        fr: "https://www.grupoestucalia.com?lang=fr",
-      },
-    },
+    alternates: buildAlternates(lang, "/"),
     openGraph: {
       title: seo?.og?.title || title,
       description: seo?.og?.description || description,
@@ -101,10 +102,17 @@ export default async function HomePage({ searchParams }: SearchParams) {
   // Prefetch del /v1/home para que React Query del cliente arranque
   // con los datos ya cargados (sin spinner, sin doble request).
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery({
-    queryKey: ["home", lang],
-    queryFn: () => getCachedHome(lang),
-  });
+  // Las mismas queryKey que usan los hooks de cada sección.
+  await Promise.all([
+    queryClient.prefetchQuery({
+      queryKey: ["home", lang],
+      queryFn: () => getCachedHome(lang),
+    }),
+    queryClient.prefetchQuery({
+      queryKey: ["blog-page", lang],
+      queryFn: () => getCachedNews(lang),
+    }),
+  ]);
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

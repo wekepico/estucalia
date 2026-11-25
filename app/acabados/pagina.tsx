@@ -11,6 +11,7 @@ import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 import { getFinishes, type FinishUI } from "@/services/finishesService";
 import { getFinishesPage } from "@/services/finishesPageService";
 import AcabadosClient from "./AcabadosClient";
+import { buildAlternates } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -71,15 +72,7 @@ export async function generateMetadata({
     description,
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
-    alternates: {
-      canonical:
-        seo?.meta?.canonical || "https://www.grupoestucalia.com/acabados",
-      languages: {
-        es: "https://www.grupoestucalia.com/acabados?lang=es",
-        en: "https://www.grupoestucalia.com/acabados?lang=en",
-        fr: "https://www.grupoestucalia.com/acabados?lang=fr",
-      },
-    },
+    alternates: buildAlternates(lang, "/acabados"),
     openGraph: {
       title: seo?.og?.title || title,
       description: seo?.og?.description || description,

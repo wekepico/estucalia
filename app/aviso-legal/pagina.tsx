@@ -14,6 +14,7 @@ import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getLegalNoticePage } from "@/services/legalService";
 import AvisoLegalClient from "./AvisoLegalClient";
+import { buildAlternates } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -59,15 +60,7 @@ export async function generateMetadata({
     description,
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
-    alternates: {
-      canonical:
-        seo?.meta?.canonical || "https://www.grupoestucalia.com/aviso-legal",
-      languages: {
-        es: "https://www.grupoestucalia.com/aviso-legal?lang=es",
-        en: "https://www.grupoestucalia.com/aviso-legal?lang=en",
-        fr: "https://www.grupoestucalia.com/aviso-legal?lang=fr",
-      },
-    },
+    alternates: buildAlternates(lang, "/aviso-legal"),
     openGraph: {
       title: seo?.og?.title || title,
       description: seo?.og?.description || description,

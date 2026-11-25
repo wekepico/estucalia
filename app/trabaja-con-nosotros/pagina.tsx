@@ -14,6 +14,7 @@ import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getWorkWithUsPage } from "@/services/workWithUsPageService";
 import TrabajaConNosotrosClient from "./TrabajaConNosotrosClient";
+import { buildAlternates } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -62,16 +63,7 @@ export async function generateMetadata({
     description,
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
-    alternates: {
-      canonical:
-        seo?.meta?.canonical ||
-        "https://www.grupoestucalia.com/trabaja-con-nosotros",
-      languages: {
-        es: "https://www.grupoestucalia.com/trabaja-con-nosotros?lang=es",
-        en: "https://www.grupoestucalia.com/trabaja-con-nosotros?lang=en",
-        fr: "https://www.grupoestucalia.com/trabaja-con-nosotros?lang=fr",
-      },
-    },
+    alternates: buildAlternates(lang, "/trabaja-con-nosotros"),
     openGraph: {
       title: seo?.og?.title || title,
       description: seo?.og?.description || description,

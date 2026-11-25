@@ -4,13 +4,6 @@ import { useLanguage } from '@/app/context/LanguageContext';
 
 export default function InspirationFinishedSection() {
   const { t } = useLanguage();
-  const [mounted, setMounted] = useState(false);
-
-  if (!mounted) return null;
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
 
   const inspirationImages = [

@@ -64,8 +64,6 @@ export default function ContactForm({
   const langCtx = useLanguage() as any;
   const { t } = langCtx;
   const lang = safeLang(langCtx);
-
-  const [mounted, setMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<FormData>({
@@ -80,8 +78,6 @@ export default function ContactForm({
       aceptarComercial: false,
     },
   });
-
-  useEffect(() => setMounted(true), []);
 
   const contact = pageData?.contact;
   const formInfo = pageData?.form;
@@ -115,8 +111,6 @@ export default function ContactForm({
       setIsSubmitting(false);
     }
   };
-
-  if (!mounted) return null;
 
   const inputFields = [
     {

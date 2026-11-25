@@ -22,7 +22,7 @@ interface NewsDetailProps {
 const NewsDetail = ({ title, description, date, imageUrl, imageAlt, imageTitle }: NewsDetailProps) => {
     const { t, language } = useLanguage();
     
-    // El backend NO envía photo_alt ni photo_title, usamos el title del post como fallback
+    // Sin ALT personalizado (o sin photo_title) se usa el título del post.
     const imgAlt = imageAlt || title;
     const imgTitle = imageTitle || title;
 

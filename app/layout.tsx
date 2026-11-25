@@ -8,6 +8,22 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import QueryProvider from "./providers/QueryProvider";
 import CookieConsent from "./components/analytics/CookieConsent";
 import { Metadata } from "next";
+import { headers } from "next/headers";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import { unstable_cache } from "next/cache";
+import JsonLd from "./components/seo/JsonLd";
+import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
+import { SeoLang, toSeoLang } from "@/lib/seo";
+import { organizationJsonLd } from "@/lib/structuredData";
+import { getFooterData } from "@/services/footerService";
+import { getCategories } from "@/services/categoriesService";
+import { getApplications } from "@/services/applicationsService";
+import { getSpaces } from "@/services/spacesService";
+import { getContactPage } from "@/services/contactPageService";
 
 // Metadata por defecto para toda la app (fallback)
 export const metadata: Metadata = {
@@ -47,23 +63,72 @@ export const metadata: Metadata = {
       "Más de 25 años desarrollando y fabricando morteros de alta gama.",
     images: ["/twitter-image-default.jpg"],
   },
-  alternates: {
-    canonical: "https://www.grupoestucalia.com",
-    languages: {
-      es: "https://www.grupoestucalia.com?lang=es",
-      en: "https://www.grupoestucalia.com?lang=en",
-      fr: "https://www.grupoestucalia.com?lang=fr",
-    },
-  },
 };
 
-export default function RootLayout({
+const getCachedFooter = unstable_cache(
+  async (lang: SeoLang) => getFooterData(lang),
+  ["layout-footer"],
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["footer"] },
+);
+
+const getCachedContactInfo = unstable_cache(
+  async (lang: SeoLang) => getContactPage(lang),
+  ["layout-contact"],
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["contact"] },
+);
+
+const getCachedNavCategories = unstable_cache(
+  async () => getCategories(),
+  ["layout-categories"],
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["categories"] },
+);
+
+const getCachedNavApplications = unstable_cache(
+  async () => getApplications(),
+  ["layout-applications"],
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["applications"] },
+);
+
+const getCachedNavSpaces = unstable_cache(
+  async () => getSpaces(),
+  ["layout-spaces"],
+  { revalidate: BACKEND_CACHE_REVALIDATE, tags: ["spaces"] },
+);
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // El idioma llega desde middleware.ts (?lang=).
+  const lang = toSeoLang(headers().get("x-lang"));
+
+  // El pie y los datos de la empresa van en el HTML del servidor.
+  const [footer, contactPage] = await Promise.all([
+    getCachedFooter(lang).catch(() => null),
+    getCachedContactInfo(lang).catch(() => null),
+  ]);
+  // El menú pide estas consultas antes que cualquier página, así que hay que
+  // hidratarlas aquí arriba para que el servidor las pinte.
+  const queryClient = new QueryClient();
+  if (footer) queryClient.setQueryData(["footer", lang], footer);
+  await Promise.all([
+    queryClient.prefetchQuery({
+      queryKey: ["categories"],
+      queryFn: () => getCachedNavCategories(),
+    }),
+    queryClient.prefetchQuery({
+      queryKey: ["applications"],
+      queryFn: () => getCachedNavApplications(),
+    }),
+    queryClient.prefetchQuery({
+      queryKey: ["spaces"],
+      queryFn: () => getCachedNavSpaces(),
+    }),
+  ]);
+
   return (
-    <html lang="es">
+    <html lang={lang}>
       <head>
         <meta
           name="google-site-verification"
@@ -78,14 +143,17 @@ export default function RootLayout({
         />
       </head>
       <body style={{ fontFamily: "Titillium Web" }}>
+        <JsonLd data={organizationJsonLd(footer, contactPage)} />
         <QueryProvider>
           <LanguageProvider>
+            <HydrationBoundary state={dehydrate(queryClient)}>
             <ClientNavigation />
             <div className="max-w-[240rem] pt-28 mx-auto tracking-tight">
               {children}
             </div>
             <Footer />
             <CookieConsent />
+            </HydrationBoundary>
           </LanguageProvider>
         </QueryProvider>
       </body>

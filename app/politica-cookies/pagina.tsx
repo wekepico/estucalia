@@ -17,6 +17,7 @@ import {
   type Lang,
 } from "@/services/cookiesPolicyService";
 import PoliticaCookiesClient from "./PoliticaCookiesClient";
+import { buildAlternates } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -63,16 +64,7 @@ export async function generateMetadata({
     description,
     keywords: seo?.meta?.keywords || undefined,
     robots: seo?.meta?.robots || "index, follow",
-    alternates: {
-      canonical:
-        seo?.meta?.canonical ||
-        "https://www.grupoestucalia.com/politica-cookies",
-      languages: {
-        es: "https://www.grupoestucalia.com/politica-cookies?lang=es",
-        en: "https://www.grupoestucalia.com/politica-cookies?lang=en",
-        fr: "https://www.grupoestucalia.com/politica-cookies?lang=fr",
-      },
-    },
+    alternates: buildAlternates(lang, "/politica-cookies"),
     openGraph: {
       title: seo?.og?.title || title,
       description: seo?.og?.description || description,

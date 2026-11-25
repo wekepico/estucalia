@@ -51,7 +51,7 @@ export default function CategoriesPage() {
                         return (
                             <Link 
                                 key={category.id || category.slug} 
-                                href={`/categories/${categorySlug}`}
+                                href={`/categories/${categorySlug}${language === 'es' ? '' : `?lang=${language}`}`}
                                 className="bg-stone-50 group hover:bg-stone-100 transition-colors cursor-pointer block"
                             >
                                 <div className="px-4 py-8 md:px-8 md:py-16 lg:px-16 lg:py-20 flex flex-col items-center text-center">

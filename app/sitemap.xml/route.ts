@@ -1,13 +1,12 @@
-// app/sitemap.ts
+// app/sitemap.xml/route.ts
 //
-// Sitemap dinámico que Next sirve automáticamente en /sitemap.xml.
+// Sitemap en /sitemap.xml con una URL por idioma y sus hreflang.
 // Lee del backend todas las categorías, aplicaciones, espacios y noticias
 // y emite cada URL con sus 3 variantes de idioma (hreflang). Cache 20 min.
 //
 // Si en producción se cambia de dominio, basta con poner la env:
 //   NEXT_PUBLIC_SITE_URL=https://otro-dominio.com
 
-import type { MetadataRoute } from "next";
 import { unstable_cache } from "next/cache";
 import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
@@ -21,6 +20,16 @@ const BASE =
 
 type Lang = "es" | "en" | "fr";
 
+type Entry = {
+  url: string;
+  lastModified: Date;
+  changeFrequency: "weekly" | "monthly";
+  priority?: number;
+  alternates: { languages: Record<Lang, string> };
+};
+
+export const revalidate = 1200;
+
 const LANGS: Lang[] = ["es", "en", "fr"];
 
 // Páginas estáticas (mismas URLs para los 3 idiomas, distinguidas por ?lang=).
@@ -31,8 +40,6 @@ const STATIC_PATHS: { path: string; priority?: number }[] = [
   { path: "/trabaja-con-nosotros", priority: 0.6 },
   { path: "/blog", priority: 0.8 },
   { path: "/categories", priority: 0.8 },
-  { path: "/aplicaciones", priority: 0.8 },
-  { path: "/espacios", priority: 0.7 },
   { path: "/acabados", priority: 0.7 },
   { path: "/inspiracion", priority: 0.6 },
   { path: "/profesionales/aplicadores", priority: 0.6 },
@@ -89,12 +96,12 @@ const safeDate = (raw?: string | null): Date => {
   return isNaN(d.getTime()) ? new Date() : d;
 };
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+async function buildEntries(): Promise<Entry[]> {
   const { categories, applications, spaces, posts } = await getSitemapData();
   const now = new Date();
 
   // ===== Estáticas =====
-  const staticEntries: MetadataRoute.Sitemap = STATIC_PATHS.map(
+  const staticEntries: Entry[] = STATIC_PATHS.map(
     ({ path, priority }) => ({
       url: `${BASE}${path}`,
       lastModified: now,
@@ -105,7 +112,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // ===== Categorías (URLs canónicas usando /categories/[slug]) =====
-  const categoryEntries: MetadataRoute.Sitemap = categories.map((cat) => ({
+  const categoryEntries: Entry[] = categories.map((cat) => ({
     url: `${BASE}/categories/${cat.slug}`,
     lastModified: safeDate(cat.updated_at),
     changeFrequency: "weekly",
@@ -121,7 +128,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // ===== Aplicaciones =====
-  const applicationEntries: MetadataRoute.Sitemap = applications.map((app) => ({
+  const applicationEntries: Entry[] = applications.map((app) => ({
     url: `${BASE}/aplicaciones/${app.slug}`,
     lastModified: safeDate(app.updated_at),
     changeFrequency: "weekly",
@@ -137,7 +144,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // ===== Espacios =====
-  const spaceEntries: MetadataRoute.Sitemap = spaces.map((sp) => ({
+  const spaceEntries: Entry[] = spaces.map((sp) => ({
     url: `${BASE}/espacios/${sp.slug}`,
     lastModified: now,
     changeFrequency: "monthly",
@@ -153,7 +160,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // ===== Blog posts =====
-  const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
+  const blogEntries: Entry[] = posts.map((post) => ({
     url: `${BASE}/blog/${post.slug}`,
     lastModified: safeDate(post.createdAt),
     changeFrequency: "monthly",
@@ -175,4 +182,52 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...spaceEntries,
     ...blogEntries,
   ];
+}
+
+const escapeXml = (value: string) =>
+  encodeURI(decodeURI(value))
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+
+export async function GET() {
+  const entries = await buildEntries();
+
+  const urls = entries.flatMap((entry) => {
+    const alternates = [
+      ...LANGS.map((l) => [l, entry.alternates.languages[l]]),
+      ["x-default", entry.alternates.languages.es],
+    ]
+      .map(
+        ([l, href]) =>
+          `    <xhtml:link rel="alternate" hreflang="${l}" href="${escapeXml(href)}"/>`,
+      )
+      .join("\n");
+
+    return LANGS.map((l) =>
+      [
+        "  <url>",
+        `    <loc>${escapeXml(entry.alternates.languages[l])}</loc>`,
+        alternates,
+        `    <lastmod>${entry.lastModified.toISOString()}</lastmod>`,
+        `    <changefreq>${entry.changeFrequency}</changefreq>`,
+        `    <priority>${entry.priority ?? 0.5}</priority>`,
+        "  </url>",
+      ].join("\n"),
+    );
+  });
+
+  const xml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    ...urls,
+    "</urlset>",
+    "",
+  ].join("\n");
+
+  return new Response(xml, {
+    headers: { "Content-Type": "application/xml; charset=utf-8" },
+  });
 }

@@ -8,6 +8,7 @@ import SeoHead from "@/components/SeoHead";
 import NewsDetail from "@/app/components/blog/NewsDetail";
 import { Loader } from "lucide-react";
 import { useEffect } from "react";
+import { toSeoLang } from "@/lib/seo";
 
 export default function BlogClient() {
   // Slug actual, leído del pathname: useParams() devolvería el array del
@@ -70,6 +71,8 @@ export default function BlogClient() {
           description={getLocalizedDescription()}
           date={post.createdAt}
           imageUrl={post.photo_url ?? undefined}
+          // ALT propio del idioma; si está vacío NewsDetail usa el título.
+          imageAlt={post[`photo_alt_${toSeoLang(language)}`]}
         />
       </main>
     </>
