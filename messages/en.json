@@ -1,4 +1,12 @@
 {
+  "cookieBanner": {
+    "title": "Statistics cookies",
+    "text": "We use Google Analytics to understand how the website is used. It is only enabled if you accept.",
+    "policy": "Cookie policy",
+    "accept": "Accept",
+    "reject": "Reject",
+    "settings": "Cookie settings"
+  },
   "navigation": {
     "businessLinks": {
       "company": "Company",
