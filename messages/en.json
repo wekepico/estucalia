@@ -8,6 +8,7 @@
     "settings": "Cookie settings"
   },
   "navigation": {
+    "homeLink": "Grupo Estucalia, go to home page",
     "businessLinks": {
       "company": "Company",
       "about": "About Us",

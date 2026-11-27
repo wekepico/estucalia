@@ -57,7 +57,6 @@ const PAGINAS_PARAM: Record<
   blog: { param: "id", load: () => import("../blog/[id]/pagina") },
   categories: { param: "slug", load: () => import("../categories/[slug]/pagina") },
   espacios: { param: "slug", load: () => import("../espacios/[slug]/pagina") },
-  producto: { param: "id", load: () => import("../producto/[id]/pagina") },
 };
 
 type Resuelta = { mod: PaginaModule; params: Record<string, string> };

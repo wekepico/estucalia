@@ -36,6 +36,20 @@ const FALLBACK_TITLE = "Grupo Estucalia | Acabados";
 const FALLBACK_DESCRIPTION =
   "Descubre nuestra colección de acabados para construcción: texturas, colores y diseños exclusivos para tus proyectos.";
 
+// Respaldo por idioma cuando la página no tiene SEO en el panel.
+const FALLBACK_BY_LANG: Record<string, { title: string; description: string }> = {
+  en: {
+    title: "Mortar Finishes | Grupo Estucalia",
+    description:
+      "Discover the finishes available for Grupo Estucalia mortars and renders.",
+  },
+  fr: {
+    title: "Finitions des mortiers | Grupo Estucalia",
+    description:
+      "Découvrez les finitions disponibles pour les mortiers et enduits Grupo Estucalia.",
+  },
+};
+
 async function safeGetFinishesPage(lang: Lang) {
   try {
     return await getCachedFinishesPage(lang);
@@ -63,8 +77,8 @@ export async function generateMetadata({
   const page = await safeGetFinishesPage(lang);
   const seo = page?.seo;
 
-  const title = seo?.meta?.title || FALLBACK_TITLE;
-  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
+  const title = seo?.meta?.title || FALLBACK_BY_LANG[lang]?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_BY_LANG[lang]?.description || FALLBACK_DESCRIPTION;
   const ogImage = seo?.og?.image || undefined;
 
   return {

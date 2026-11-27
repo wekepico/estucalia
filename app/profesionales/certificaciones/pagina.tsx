@@ -35,6 +35,20 @@ const FALLBACK_TITLE = "Grupo Estucalia | Certificaciones y Documentación";
 const FALLBACK_DESCRIPTION =
   "Certificados de calidad, documentación técnica y fichas de productos. Descarga toda la documentación oficial de Grupo Estucalia.";
 
+// Respaldo por idioma cuando la página no tiene SEO en el panel.
+const FALLBACK_BY_LANG: Record<string, { title: string; description: string }> = {
+  en: {
+    title: "Certifications and Documentation | Grupo Estucalia",
+    description:
+      "Certifications and technical documentation for Grupo Estucalia products.",
+  },
+  fr: {
+    title: "Certifications et documentation | Grupo Estucalia",
+    description:
+      "Certifications et documentation technique des produits Grupo Estucalia.",
+  },
+};
+
 async function safeGet(lang: Lang) {
   try {
     return await getCachedCertificationsPage(lang);
@@ -59,9 +73,9 @@ export async function generateMetadata({
   // leer el formato real sin romper tipos en otras partes del código.
   const seo = (data?.seo as any) ?? null;
 
-  const title = seo?.meta?.title || seo?.title || FALLBACK_TITLE;
+  const title = seo?.meta?.title || seo?.title || FALLBACK_BY_LANG[lang]?.title || FALLBACK_TITLE;
   const description =
-    seo?.meta?.description || seo?.description || FALLBACK_DESCRIPTION;
+    seo?.meta?.description || seo?.description || FALLBACK_BY_LANG[lang]?.description || FALLBACK_DESCRIPTION;
   const ogImage = seo?.og?.image || undefined;
 
   return {

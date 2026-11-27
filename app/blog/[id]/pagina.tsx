@@ -11,6 +11,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { notFoundIfMissing } from "@/lib/notFoundIfMissing";
 import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getBlogPostBySlug } from "@/services/bolgsServices";
@@ -129,6 +130,8 @@ export async function generateMetadata({
 export default async function NoticiaPage({ params, searchParams }: Params) {
   const lang = normalizeLang(searchParams?.lang);
   const slug = decodeURIComponent(params.id);
+
+  await notFoundIfMissing(() => getCachedBlogPost(slug, lang));
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({

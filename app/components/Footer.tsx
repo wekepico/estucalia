@@ -121,8 +121,8 @@ export default function Footer() {
           </div>
 
           <div className="flex gap-16 md:ml-14 max-sm:flex-col">
-            {/* Contact */}
-            <div>
+            {/* Contact: fuera de los fragmentos que muestra Google */}
+            <div data-nosnippet>
               <h3 className="font-[600] mb-2">
                 {footer?.contact?.title ?? ""}
               </h3>
