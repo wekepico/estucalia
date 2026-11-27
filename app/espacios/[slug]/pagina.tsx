@@ -11,7 +11,6 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
-import { notFoundIfMissing } from "@/lib/notFoundIfMissing";
 import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getSpaceBySlug } from "@/services/spacesService";
@@ -128,8 +127,6 @@ export async function generateMetadata({
 export default async function Page({ params, searchParams }: Params) {
   const lang = normalizeLang(searchParams?.lang);
   const slug = decodeURIComponent(params.slug);
-
-  await notFoundIfMissing(() => getCachedSpace(slug, lang));
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({

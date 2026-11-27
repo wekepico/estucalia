@@ -171,7 +171,7 @@ export default function AplicationClient() {
   if (!application) {
     return (
       <div className="pt-32 px-5">
-        <h1 className="text-2xl font-bold">{t("productsSection.categoryNotFound")}</h1>
+        <h1 className="text-2xl font-bold">{t("categoryNotFound")}</h1>
       </div>
     );
   }

@@ -110,7 +110,7 @@ export default function ProductCategoryPage({ category, backendData }: ProductCa
     return (
       <div className="pt-32 px-5">
         <h1 className="text-2xl font-bold">
-          {t("productsSection.categoryNotFound") || "Category not found"}
+          {t("categoryNotFound") || "Category not found"}
         </h1>
       </div>
     );

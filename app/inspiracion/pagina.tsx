@@ -34,20 +34,6 @@ const FALLBACK_TITLE = "Grupo Estucalia | Inspiración";
 const FALLBACK_DESCRIPTION =
   "Descubre nuestra galería de inspiración con proyectos reales, acabados y soluciones constructivas con morteros de alta calidad.";
 
-// Respaldo por idioma cuando la página no tiene SEO en el panel.
-const FALLBACK_BY_LANG: Record<string, { title: string; description: string }> = {
-  en: {
-    title: "Project Inspiration | Grupo Estucalia",
-    description:
-      "Real projects to inspire you, built with Grupo Estucalia mortars and renders.",
-  },
-  fr: {
-    title: "Inspiration pour vos projets | Grupo Estucalia",
-    description:
-      "Des réalisations pour vous inspirer, avec les mortiers et enduits Grupo Estucalia.",
-  },
-};
-
 async function safeGetInspirationPage(lang: Lang) {
   try {
     return await getCachedInspirationPage(lang);
@@ -66,8 +52,8 @@ export async function generateMetadata({
   const data = await safeGetInspirationPage(lang);
   const seo = data?.seo;
 
-  const title = seo?.meta?.title || FALLBACK_BY_LANG[lang]?.title || FALLBACK_TITLE;
-  const description = seo?.meta?.description || FALLBACK_BY_LANG[lang]?.description || FALLBACK_DESCRIPTION;
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
   const ogImage = seo?.og?.image || undefined;
 
   return {

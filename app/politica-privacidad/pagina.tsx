@@ -34,20 +34,6 @@ const FALLBACK_TITLE = "Grupo Estucalia | Política de Privacidad";
 const FALLBACK_DESCRIPTION =
   "Cómo protegemos tus datos personales, derechos ARSOL, y medidas de seguridad implementadas por Grupo Estucalia.";
 
-// Respaldo por idioma cuando la página no tiene SEO en el panel.
-const FALLBACK_BY_LANG: Record<string, { title: string; description: string }> = {
-  en: {
-    title: "Privacy Policy | Grupo Estucalia",
-    description:
-      "How Grupo Estucalia processes and protects your personal data.",
-  },
-  fr: {
-    title: "Politique de confidentialité | Grupo Estucalia",
-    description:
-      "Comment Grupo Estucalia traite et protège vos données personnelles.",
-  },
-};
-
 async function safeGet(lang: Lang) {
   try {
     return await getCachedPrivacy(lang);
@@ -69,8 +55,8 @@ export async function generateMetadata({
   const data = await safeGet(lang);
   const seo = (data as any)?.seo ?? null;
 
-  const title = seo?.meta?.title || FALLBACK_BY_LANG[lang]?.title || FALLBACK_TITLE;
-  const description = seo?.meta?.description || FALLBACK_BY_LANG[lang]?.description || FALLBACK_DESCRIPTION;
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
   const ogImage = seo?.og?.image || undefined;
 
   return {

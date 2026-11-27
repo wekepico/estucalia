@@ -33,20 +33,6 @@ const FALLBACK_TITLE = "Grupo Estucalia | Aviso Legal";
 const FALLBACK_DESCRIPTION =
   "Información legal, condiciones de uso, propiedad intelectual y política de privacidad de Grupo Estucalia.";
 
-// Respaldo por idioma cuando la página no tiene SEO en el panel.
-const FALLBACK_BY_LANG: Record<string, { title: string; description: string }> = {
-  en: {
-    title: "Legal Notice | Grupo Estucalia",
-    description:
-      "Legal notice and terms of use of the Grupo Estucalia website.",
-  },
-  fr: {
-    title: "Mentions légales | Grupo Estucalia",
-    description:
-      "Mentions légales et conditions d’utilisation du site de Grupo Estucalia.",
-  },
-};
-
 async function safeGet(lang: Lang) {
   try {
     return await getCachedLegal(lang);
@@ -65,8 +51,8 @@ export async function generateMetadata({
   const data = await safeGet(lang);
   const seo = (data as any)?.seo ?? null;
 
-  const title = seo?.meta?.title || FALLBACK_BY_LANG[lang]?.title || FALLBACK_TITLE;
-  const description = seo?.meta?.description || FALLBACK_BY_LANG[lang]?.description || FALLBACK_DESCRIPTION;
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
   const ogImage = seo?.og?.image || undefined;
 
   return {

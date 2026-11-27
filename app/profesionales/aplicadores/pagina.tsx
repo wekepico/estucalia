@@ -34,20 +34,6 @@ const FALLBACK_TITLE = "Grupo Estucalia | Aplicadores";
 const FALLBACK_DESCRIPTION =
   "Formación y soporte técnico para aplicadores profesionales. Conviértete en aplicador certificado de morteros de alta calidad.";
 
-// Respaldo por idioma cuando la página no tiene SEO en el panel.
-const FALLBACK_BY_LANG: Record<string, { title: string; description: string }> = {
-  en: {
-    title: "Applicators | Grupo Estucalia",
-    description:
-      "Support and technical assistance from Grupo Estucalia for mortar applicators.",
-  },
-  fr: {
-    title: "Applicateurs | Grupo Estucalia",
-    description:
-      "Accompagnement et assistance technique de Grupo Estucalia pour les applicateurs de mortiers.",
-  },
-};
-
 async function safeGet(lang: Lang) {
   try {
     return await getCachedApplicatorsPage(lang);
@@ -66,8 +52,8 @@ export async function generateMetadata({
   const data = await safeGet(lang);
   const seo = data?.seo;
 
-  const title = seo?.meta?.title || FALLBACK_BY_LANG[lang]?.title || FALLBACK_TITLE;
-  const description = seo?.meta?.description || FALLBACK_BY_LANG[lang]?.description || FALLBACK_DESCRIPTION;
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
   const ogImage = seo?.og?.image || undefined;
 
   return {

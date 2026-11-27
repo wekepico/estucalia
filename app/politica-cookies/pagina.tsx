@@ -34,20 +34,6 @@ const FALLBACK_TITLE = "Grupo Estucalia | Política de Cookies";
 const FALLBACK_DESCRIPTION =
   "Información sobre el uso de cookies en nuestro sitio web, tipos de cookies, cómo gestionarlas y tu consentimiento.";
 
-// Respaldo por idioma cuando la página no tiene SEO en el panel.
-const FALLBACK_BY_LANG: Record<string, { title: string; description: string }> = {
-  en: {
-    title: "Cookie Policy | Grupo Estucalia",
-    description:
-      "Information about the cookies used on the Grupo Estucalia website.",
-  },
-  fr: {
-    title: "Politique de cookies | Grupo Estucalia",
-    description:
-      "Informations sur les cookies utilisés sur le site de Grupo Estucalia.",
-  },
-};
-
 async function safeGet(lang: Lang) {
   try {
     return await getCachedCookies(lang);
@@ -69,8 +55,8 @@ export async function generateMetadata({
   const data = await safeGet(lang);
   const seo = (data as any)?.seo ?? null;
 
-  const title = seo?.meta?.title || FALLBACK_BY_LANG[lang]?.title || FALLBACK_TITLE;
-  const description = seo?.meta?.description || FALLBACK_BY_LANG[lang]?.description || FALLBACK_DESCRIPTION;
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
   const ogImage = seo?.og?.image || undefined;
 
   return {

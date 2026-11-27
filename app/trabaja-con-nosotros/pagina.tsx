@@ -33,20 +33,6 @@ const FALLBACK_TITLE = "Grupo Estucalia | Trabaja con Nosotros";
 const FALLBACK_DESCRIPTION =
   "Únete a nuestro equipo. Buscamos talento apasionado por la construcción y los morteros de alta calidad. Envía tu CV y forma parte de Grupo Estucalia.";
 
-// Respaldo por idioma cuando la página no tiene SEO en el panel.
-const FALLBACK_BY_LANG: Record<string, { title: string; description: string }> = {
-  en: {
-    title: "Careers | Grupo Estucalia",
-    description:
-      "Join Grupo Estucalia, a manufacturer of mortars for construction. Send us your application.",
-  },
-  fr: {
-    title: "Travaillez avec nous | Grupo Estucalia",
-    description:
-      "Rejoignez Grupo Estucalia, fabricant de mortiers pour la construction. Envoyez-nous votre candidature.",
-  },
-};
-
 async function safeGet(lang: Lang) {
   try {
     return await getCachedWorkWithUs(lang);
@@ -68,8 +54,8 @@ export async function generateMetadata({
   const data = await safeGet(lang);
   const seo = (data as any)?.seo ?? null;
 
-  const title = seo?.meta?.title || FALLBACK_BY_LANG[lang]?.title || FALLBACK_TITLE;
-  const description = seo?.meta?.description || FALLBACK_BY_LANG[lang]?.description || FALLBACK_DESCRIPTION;
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
   const ogImage = seo?.og?.image || undefined;
 
   return {

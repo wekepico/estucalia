@@ -34,20 +34,6 @@ const FALLBACK_TITLE = "Grupo Estucalia | Servicio Integral de Proyectos";
 const FALLBACK_DESCRIPTION =
   "Gestionamos tu proyecto de construcción de principio a fin. Asesoramiento, materiales, ejecución y control de calidad. Soluciones integrales.";
 
-// Respaldo por idioma cuando la página no tiene SEO en el panel.
-const FALLBACK_BY_LANG: Record<string, { title: string; description: string }> = {
-  en: {
-    title: "Integrated Project Services | Grupo Estucalia",
-    description:
-      "Grupo Estucalia supports your construction project from start to finish.",
-  },
-  fr: {
-    title: "Services intégrés de projets | Grupo Estucalia",
-    description:
-      "Grupo Estucalia accompagne votre projet de construction du début à la fin.",
-  },
-};
-
 async function safeGet(lang: Lang) {
   try {
     return await getCachedIntegralProjectsPage(lang);
@@ -69,8 +55,8 @@ export async function generateMetadata({
   const data = await safeGet(lang);
   const seo = data?.seo;
 
-  const title = seo?.meta?.title || FALLBACK_BY_LANG[lang]?.title || FALLBACK_TITLE;
-  const description = seo?.meta?.description || FALLBACK_BY_LANG[lang]?.description || FALLBACK_DESCRIPTION;
+  const title = seo?.meta?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
   const ogImage = seo?.og?.image || undefined;
 
   return {
