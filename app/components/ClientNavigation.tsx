@@ -147,7 +147,7 @@ export default function ClientNavigation() {
       icon: (
         <Image
           src={MorteroCal}
-          alt="Logo"
+          alt=""
           width={180}
           height={100}
           className="h-32 md:h-12 w-auto brightness-0 invert"
@@ -160,7 +160,7 @@ export default function ClientNavigation() {
       icon: (
         <Image
           src={MorteroCola}
-          alt="Logo"
+          alt=""
           width={180}
           height={100}
           className="h-32 md:h-12 w-auto text-white brightness-0 invert"
@@ -174,7 +174,7 @@ export default function ClientNavigation() {
       icon: (
         <Image
           src={MorteroMonocapa}
-          alt="Logo"
+          alt=""
           width={180}
           height={100}
           className="h-32 md:h-12 w-auto font-[600] brightness-0 invert"
@@ -187,7 +187,7 @@ export default function ClientNavigation() {
       icon: (
         <Image
           src={MorteroImpreso}
-          alt="Logo"
+          alt=""
           width={180}
           height={100}
           className="h-32 md:h-12 w-auto brightness-0 invert"
@@ -200,7 +200,7 @@ export default function ClientNavigation() {
       icon: (
         <Image
           src={MorteroPolivalente}
-          alt="Logo"
+          alt=""
           width={180}
           height={100}
           className="h-32 md:h-12 w-auto brightness-0 invert"
@@ -213,7 +213,7 @@ export default function ClientNavigation() {
       icon: (
         <Image
           src={AccesoriosHerramientas}
-          alt="Logo"
+          alt=""
           width={180}
           height={100}
           className="h-32 md:h-12 w-auto brightness-0 invert"
@@ -226,7 +226,7 @@ export default function ClientNavigation() {
       icon: (
         <Image
           src={MorteroPiedra}
-          alt="Logo"
+          alt=""
           width={180}
           height={100}
           className="h-32 md:h-12 w-auto brightness-0 invert"
@@ -239,7 +239,7 @@ export default function ClientNavigation() {
       icon: (
         <Image
           src={MorteroProtector}
-          alt="Logo"
+          alt=""
           width={180}
           height={100}
           className="h-32 md:h-12 w-auto brightness-0 invert"
@@ -252,7 +252,7 @@ export default function ClientNavigation() {
       icon: (
         <Image
           src={MorteroUnion}
-          alt="Logo"
+          alt=""
           width={180}
           height={100}
           className="h-32 md:h-12 w-auto brightness-0 invert"
@@ -350,7 +350,7 @@ export default function ClientNavigation() {
               <Link href="/" className="block">
                 <Image
                   src="/img/logo.png"
-                  alt="Logo"
+                  alt={t("navigation.homeLink")}
                   width={180}
                   height={100}
                   className="h-10 w-auto"

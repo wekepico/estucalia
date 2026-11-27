@@ -10,6 +10,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { notFoundIfMissing } from "@/lib/notFoundIfMissing";
 import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import {
@@ -177,6 +178,8 @@ export default async function CategoryPage({ params, searchParams }: Params) {
   // Prefetch en paralelo: la categoría (con su SEO + applications + finishes
   // embebidos), los productos asociados y las aplicaciones por separado.
   // Todos comparten cache de 20 min.
+  await notFoundIfMissing(() => getCachedCategory(slug, lang));
+
   const queryClient = new QueryClient();
   await Promise.all([
     queryClient.prefetchQuery({

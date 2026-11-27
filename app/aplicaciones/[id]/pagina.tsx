@@ -11,6 +11,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { unstable_cache } from "next/cache";
+import { notFoundIfMissing } from "@/lib/notFoundIfMissing";
 import { BACKEND_CACHE_REVALIDATE } from "@/lib/revalidate";
 
 import { getApplicationBySlug } from "@/services/applicationsService";
@@ -134,6 +135,8 @@ export default async function AplicationPage({
 }: Params) {
   const lang = normalizeLang(searchParams?.lang);
   const slug = decodeURIComponent(params.id);
+
+  await notFoundIfMissing(() => getCachedApplication(slug, lang));
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({

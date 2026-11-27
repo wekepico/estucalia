@@ -34,6 +34,20 @@ const FALLBACK_TITLE = "Grupo Estucalia | Constructores y Arquitectos";
 const FALLBACK_DESCRIPTION =
   "Soluciones constructivas para profesionales. Morteros de alta calidad para constructores y arquitectos. Asesoramiento técnico especializado.";
 
+// Respaldo por idioma cuando la página no tiene SEO en el panel.
+const FALLBACK_BY_LANG: Record<string, { title: string; description: string }> = {
+  en: {
+    title: "Builders and Architects | Grupo Estucalia",
+    description:
+      "Mortar solutions and technical advice from Grupo Estucalia for builders and architects.",
+  },
+  fr: {
+    title: "Constructeurs et architectes | Grupo Estucalia",
+    description:
+      "Solutions en mortiers et conseil technique de Grupo Estucalia pour constructeurs et architectes.",
+  },
+};
+
 async function safeGet(lang: Lang) {
   try {
     return await getCachedBuildersArchitectsPage(lang);
@@ -55,8 +69,8 @@ export async function generateMetadata({
   const data = await safeGet(lang);
   const seo = data?.seo;
 
-  const title = seo?.meta?.title || FALLBACK_TITLE;
-  const description = seo?.meta?.description || FALLBACK_DESCRIPTION;
+  const title = seo?.meta?.title || FALLBACK_BY_LANG[lang]?.title || FALLBACK_TITLE;
+  const description = seo?.meta?.description || FALLBACK_BY_LANG[lang]?.description || FALLBACK_DESCRIPTION;
   const ogImage = seo?.og?.image || undefined;
 
   return {
